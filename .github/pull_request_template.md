@@ -9,7 +9,7 @@
 #### How can this manually be tested?
 - clone this repo
 ```
-$ git clone https://github.com/bukkaApp/mybukka-customer-rest-service
+$ git clone https://github.com/bukkaApp/Mybukka-Frontend
 ```
 - install all dependencies
 ```
