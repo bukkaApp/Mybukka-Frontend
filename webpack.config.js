@@ -5,13 +5,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
-  filename: 'index.html',
   inject: 'body'
 });
 
 module.exports = {
-  entry: [path.join(__dirname, 'client/Index.jsx')],
+  entry: [path.join(__dirname, 'client/Index.js')],
   devtool: 'eval',
+  devServer: {
+    contentBase: './client',
+    port: 7700
+  },
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'js/bundle.js',
