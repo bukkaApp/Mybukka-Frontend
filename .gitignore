@@ -62,3 +62,6 @@ build
 
 # next.js build output
 .next
+
+# test coverage __snapshots__
+client/__snapshots__
