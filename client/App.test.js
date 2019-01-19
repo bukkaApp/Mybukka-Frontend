@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import expect from 'expect';
-import { App } from './App';
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import { mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-// import {spy} from 'sinon';
+import { mount, shallow } from 'enzyme';
 import { Router, Route } from 'react-router-dom';
 
-configure({ adapter: new Adapter() });
-
+import { App } from './App';
+let props;
 
 describe("Test AppComponent", () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<App />, div);
+  });
+
+  it('successfully rendered', () => {
+    const wrapper = shallow(<App { ...props }/>);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('check for redirections', () => {
