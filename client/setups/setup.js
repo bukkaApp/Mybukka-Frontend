@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { configure } from 'enzyme';
-import expect from 'expect';
 
 import Adapter from 'enzyme-adapter-react-16';
 
