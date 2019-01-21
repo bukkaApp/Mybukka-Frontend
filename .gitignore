@@ -57,5 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# webpack build folder
+build
+
 # next.js build output
 .next
+
+# test coverage __snapshots__
+client/__snapshots__
