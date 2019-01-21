@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import expect from 'expect';
-// import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import { Route } from 'react-router-dom';
 import { App } from './App';
