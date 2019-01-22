@@ -1,0 +1,30 @@
+.formPadding {
+    padding: 0 25px 0 25px
+}
+
+/* btn styling over-write boostrap and default styling */
+.btnAction {
+    font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+    font-size: 14px;
+    letter-spacing: initial;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: normal;
+    height: 48px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+    border-radius: 28px;
+}
+
+@media screen and (max-width: 761px) {
+    .formPadding {
+        padding: 0 15px
+    }
+}

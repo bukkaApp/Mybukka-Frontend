@@ -1,3 +1,5 @@
-import { createBrowserHistory, createMemoryHistory } from 'history';
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/prefer-default-export */
+import { createBrowserHistory } from 'history';
 
-export const history = createMemoryHistory();
+export const history = createBrowserHistory();

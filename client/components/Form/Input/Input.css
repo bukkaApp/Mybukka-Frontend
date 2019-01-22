@@ -1,0 +1,34 @@
+/* font */
+.formPadding {
+    padding: 0 25px 0 25px
+}
+/* Input styling over-write boostrap */
+.formInput {
+    font-size: 16px;
+    letter-spacing: 0.14px;
+    font-weight: 400;
+    line-height: normal;
+    font-family: inherit;
+    width: 100%;
+    caret-color: rgb(0, 0, 0);
+    background-color: inherit;
+    color: rgb(45, 49, 56);
+    border: none;
+    border-bottom: 1px solid rgb(217, 219, 224);
+    padding: 22px 0px;
+    border-radius: 0;
+}
+
+/* On input focus over-write bootstrap or default behavoir */
+.form-input:focus {
+    outline: none !important;
+    border: none;
+    border-bottom: 2px solid rgb(23, 131, 80);
+    box-shadow: none
+}
+
+@media screen and (max-width: 761px) {
+    .formPadding {
+        padding: 0 15px
+    }
+}

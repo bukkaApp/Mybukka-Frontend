@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -13,7 +12,8 @@ module.exports = {
   devtool: 'eval',
   devServer: {
     contentBase: './client',
-    port: 7700
+    port: 7700,
+    historyApiFallback: true
   },
   output: {
     path: path.join(__dirname, 'build'),
@@ -22,7 +22,10 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    new ExtractTextPlugin('./css/styles.css')
+    // new ExtractTextPlugin('./css/styles.css'),
+    new ExtractTextPlugin({
+      filename: './css/app.bundle.css'
+    })
   ],
   module: {
     rules: [
@@ -40,7 +43,12 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader'
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: '[name]__[local]__[hash:base64:5]'
+              },
             },
             {
               loader: 'sass-loader'

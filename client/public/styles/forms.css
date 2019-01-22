@@ -1,0 +1,179 @@
+/* font */
+.form-Wrapper, .form-container, .form-container h2, .btn-action, .form-privacy,
+.alt button
+{
+    font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+}
+/* Overall container for form */
+.form-Wrapper {
+    background: rgb(249, 249, 249);
+    min-height: 100vh;
+    padding: 10px 0 20px;
+}
+
+/* A child container for form and shadow effect */
+.form-container {
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 24px 0px;
+    padding: 0;
+    margin: 0
+}
+
+/* position form Heading to center */
+.form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.form-padding {
+    padding: 0 25px 0 25px
+}
+/* Input styling over-write boostrap */
+.form-input {
+    font-size: 16px;
+    letter-spacing: 0.14px;
+    font-weight: 400;
+    line-height: normal;
+    font-family: inherit;
+    width: 100%;
+    caret-color: rgb(0, 0, 0);
+    background-color: inherit;
+    color: rgb(45, 49, 56);
+    border: none;
+    border-bottom: 1px solid rgb(217, 219, 224);
+    padding: 22px 0px;
+    border-radius: 0;
+}
+
+/* On input focus over-write bootstrap or default behavoir */
+.form-input:focus {
+    outline: none !important;
+    border: none;
+    border-bottom: 2px solid rgb(23, 131, 80);
+    box-shadow: none
+}
+
+/* btn styling over-write boostrap and default styling */
+.btn-action {
+    font-size: 14px;
+    letter-spacing: initial;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: normal;
+    height: 48px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    outline: none;
+    transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+    border-radius: 28px;
+}
+
+/* form divider such as -------- or -------- */
+.form-divider {
+    overflow: hidden;
+    text-align: center;
+  }
+  
+.form-divider:before,
+.form-divider:after {
+  background-color: rgb(217, 219, 224);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.form-divider:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+.form-divider:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+/* clear float */
+.clear {
+    clear: both;
+}
+
+/* facebook button styling */
+.fb-btn {
+    background: rgb(59, 89, 152);
+    color: white;
+}
+
+/* move facebook icon to right by 20px */
+.fb-r {
+    color: white;
+    position: absolute;
+    right: 20px;
+    bottom: 10px
+}
+
+.form-privacy {
+    font-size: 12px;
+    color: rgb(211, 213, 219)
+}
+
+/* alternative for login or signup */
+.alt {
+    border-top: 1px solid rgb(217, 219, 224);
+    margin-top: 40px;
+    padding-bottom: 15px;
+    text-align: center
+}
+.alt p {
+    margin: 0;
+    padding-top: 20px;
+    font-size: 14px;
+}
+.alt button {
+    font-size: 14px
+}
+
+/* disable button */
+.btn-action:disabled {
+    background-color: rgb(217, 219, 224);
+    color: rgb(255, 255, 255);
+    cursor: default;
+}
+
+/* form logo */
+.logo {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 65px auto 0 auto;
+}
+
+@media screen and (max-width: 761px) {
+    .form-Wrapper, .form-container {
+        background: rgb(255, 255, 255);
+        box-shadow: none;
+    }
+    .form-container h2 {
+        font-size: 20px
+    }
+    .form-padding {
+        padding: 0 15px
+    }
+    .alt, .logo {
+        display: none
+    }
+}
+@media screen and (max-width: 575px) {
+    .form-container {
+        width: 70%
+    }
+}

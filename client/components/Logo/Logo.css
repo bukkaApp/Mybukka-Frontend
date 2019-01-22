@@ -1,0 +1,12 @@
+/* form logo */
+.Logo {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 65px auto 0 auto;
+}
+@media screen and (max-width: 761px) {
+    .Logo {
+        display: none
+    }
+}

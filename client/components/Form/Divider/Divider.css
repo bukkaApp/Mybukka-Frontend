@@ -1,0 +1,36 @@
+.formPadding {
+    padding: 0 25px 0 25px
+}
+
+/* form divider such as -------- or -------- */
+.formDivider {
+    overflow: hidden;
+    text-align: center;
+  }
+  
+.formDivider:before,
+.formDivider:after {
+  background-color: rgb(217, 219, 224);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.formDivider:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+.formDivider:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+@media screen and (max-width: 761px) {
+    .formPadding {
+        padding: 0 15px
+    }
+}

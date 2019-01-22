@@ -1,0 +1,27 @@
+/* font */
+.Alt button
+{
+    font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+}
+
+/* alternative for login or signup */
+.Alt {
+    border-top: 1px solid rgb(217, 219, 224);
+    margin-top: 40px;
+    padding-bottom: 15px;
+    text-align: center
+}
+.Alt p {
+    margin: 0;
+    padding-top: 20px;
+    font-size: 14px;
+}
+.Alt button {
+    font-size: 14px
+}
+
+@media screen and (max-width: 761px) {
+    .Alt {
+        display: none
+    }
+}
