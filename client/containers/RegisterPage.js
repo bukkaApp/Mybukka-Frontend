@@ -33,7 +33,7 @@ class RegisterPage extends Component {
           type: 'text',
           elementConfig: {
             type: 'text',
-            placeholder: 'Email address',
+            placeholder: 'First Name',
             minLength: 3
           },
           touched: false,
@@ -45,7 +45,7 @@ class RegisterPage extends Component {
           type: 'text',
           elementConfig: {
             type: 'text',
-            placeholder: 'Email address',
+            placeholder: 'Last Name',
             minLength: 3
           },
           touched: false,
@@ -70,6 +70,18 @@ class RegisterPage extends Component {
           elementConfig: {
             type: 'password',
             placeholder: 'Password (must be atleast 8 character)',
+            minLength: 3
+          },
+          touched: false,
+          match: false,
+          isSuccess: false,
+        },
+        confirmPassword: {
+          value: '',
+          type: 'input',
+          elementConfig: {
+            type: 'password',
+            placeholder: 'Confirm Password',
             minLength: 3
           },
           touched: false,
