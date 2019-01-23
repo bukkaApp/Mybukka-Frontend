@@ -23,7 +23,7 @@
     color: rgb(238, 34, 34)
 }
 /* On input focus over-write bootstrap or default behavoir */
-.form-input:focus {
+.formInput:focus {
     outline: none !important;
     border: none;
     border-bottom: 2px solid rgb(23, 131, 80);

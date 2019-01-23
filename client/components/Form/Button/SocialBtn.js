@@ -11,7 +11,7 @@ const socialBtn = props => (
   <div className={['form-group mt-2 mb-2', classes.formPadding].join(' ')}>
     <button className={['btn', classes.fbBtn, classes.btnAction, 'col-md-12'].join(' ')}>
       {props.children}
-      <i className={[props.socialIcon, 'fa-2x', classes.fbRight].join(' ')} />
+      <i className={['fab fa-facebook fa-2x', classes.fbRight].join(' ')} />
     </button>
   </div>
 );
