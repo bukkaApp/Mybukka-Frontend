@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes, { any } from 'prop-types';
 import Input from '../components/Form/Input/Input';
 import Form from '../components/Form/Form';
 import Button from '../components/Form/Button/Button';
 import FacebookButton from '../components/Form/Button/SocialBtn';
 import Divider from '../components/Form/Divider/Divider';
 import AltForm from '../components/Form/AltForm/AltForm';
+import { validateRequest, validateSubmitButton } from '../_helpers/validateRequestCredential';
 
 /**
  * @description Login in component
@@ -36,9 +38,13 @@ class RegisterPage extends Component {
             placeholder: 'First Name',
             minLength: 3
           },
+          errorMsg: {
+            empty: 'This field is Required',
+            invalid: 'This field can only be at least 3 letters',
+          },
           touched: false,
           match: false,
-          isSuccess: false,
+          isSuccess: false
         },
         lastName: {
           value: '',
@@ -48,29 +54,40 @@ class RegisterPage extends Component {
             placeholder: 'Last Name',
             minLength: 3
           },
+          errorMsg: {
+            empty: 'This field is Required',
+            invalid: 'This field can only be at least 3 letters',
+          },
           touched: false,
           match: false,
-          isSuccess: false,
+          isSuccess: false
         },
         email: {
           value: '',
           type: 'email',
           elementConfig: {
             type: 'text',
-            placeholder: 'Email address',
-            minLength: 3
+            placeholder: 'Email address'
+          },
+          errorMsg: {
+            empty: 'This field is Required',
+            invalid: 'Email must be valid',
           },
           touched: false,
           match: false,
-          isSuccess: false,
+          isSuccess: false
         },
         password: {
           value: '',
           type: 'input',
           elementConfig: {
             type: 'password',
-            placeholder: 'Password (must be atleast 8 character)',
-            minLength: 3
+            placeholder: ' Password ',
+            minLength: 8
+          },
+          errorMsg: {
+            empty: 'This field is Required',
+            invalid: 'Password must be at least 8 characters',
           },
           touched: false,
           match: false,
@@ -81,8 +98,12 @@ class RegisterPage extends Component {
           type: 'input',
           elementConfig: {
             type: 'password',
-            placeholder: 'Confirm Password',
-            minLength: 3
+            placeholder: ' Re-type Password ',
+            minLength: 8
+          },
+          errorMsg: {
+            empty: 'This field is Required',
+            invalid: 'This must be the same with password',
           },
           touched: false,
           match: false,
@@ -94,7 +115,6 @@ class RegisterPage extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
   }
 
   /**
@@ -107,37 +127,12 @@ class RegisterPage extends Component {
   handleChange(event) {
     const { name, value } = event.target;
     const { user } = this.state;
-    if (user.email && user.password.length >= 8) {
-      this.setState({
-        submitted: true
-      });
-    } else {
-      this.setState({
-        submitted: false
-      });
-    }
-    this.setState({
-      user: {
-        ...user,
-        [name]: value
-      }
-    });
-  }
-
-  /**
-   * @function handleFocus
-   *
-   * @param {*} Empty
-   *
-   * @returns {state} state
-   */
-  handleFocus() {
-    const { user } = this.state;
-    if (user.email && user.password.length >= 8) {
-      this.setState({
-        submitted: true
-      });
-    }
+    user[name].touched = true;
+    user[name].value = value;
+    // validate sign in
+    validateRequest(user[name]);
+    const submitted = validateSubmitButton(user);
+    this.setState({ user, submitted });
   }
 
   /**
@@ -150,9 +145,7 @@ class RegisterPage extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // eslint-disable-next-line no-unused-vars
-    const { user } = this.state;
-    // const validation = validateSignUp(user);
+    this.props.history.push('/');
   }
 
   /**
@@ -171,9 +164,12 @@ class RegisterPage extends Component {
               name={el}
               key={el}
               attributeConfig={user[el].elementConfig}
-              value={user[el].value}
-              onChange={this.handleChange}
-              onFocus={this.handleFocus}
+              valued={user[el].value}
+              changed={this.handleChange}
+              touched={user[el].touched}
+              matched={user[el].match}
+              errorMsg={user[el].touched && !user[el].value ?
+                user[el].errorMsg.empty : user[el].errorMsg.invalid}
             />
           ))
         }
@@ -185,5 +181,9 @@ class RegisterPage extends Component {
     );
   }
 }
+
+RegisterPage.propTypes = {
+  history: PropTypes.objectOf(any).isRequired
+};
 
 export default RegisterPage;

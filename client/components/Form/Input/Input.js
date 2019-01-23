@@ -9,15 +9,17 @@ import classes from './Input.css';
  * @returns {JSX} jsx
  */
 const Input = props => (
-  <div className={['form-group', classes.formPadding].join(' ')}>
+  <div className={[`form-group${props.touched && !props.value ? ' hasError' : ''}`, classes.formPadding].join(' ')}>
     <input
       {...props.attributeConfig}
       className={['form-control', classes.formInput].join(' ')}
       name={props.name}
-      value={props.password}
-      onChange={props.change}
-      onFocus={props.focus}
+      value={props.valued}
+      onChange={props.changed}
     />
+    {props.touched && !props.matched &&
+      <div className={classes.helpBlock}>{props.errorMsg}</div>
+    }
   </div>
 );
 

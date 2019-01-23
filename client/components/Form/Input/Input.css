@@ -18,7 +18,10 @@
     padding: 22px 0px;
     border-radius: 0;
 }
-
+.helpBlock {
+    font-size: 12px;
+    color: rgb(238, 34, 34)
+}
 /* On input focus over-write bootstrap or default behavoir */
 .form-input:focus {
     outline: none !important;

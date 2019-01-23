@@ -19,8 +19,17 @@
     border-color: initial;
     border-image: initial;
     outline: none;
+    background: rgb(246, 147, 31);
     transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
     border-radius: 28px;
+}
+
+.btnAction:hover {
+    background: rgb(226, 152, 66); 
+}
+
+.btnAction:disabled {
+    background: rgb(114, 137, 179); 
 }
 
 @media screen and (max-width: 761px) {

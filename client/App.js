@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <Route path="/" exact component={RegisterPage} />
+          <Route path="/" exact render={() => <h1>Welcome to React</h1>} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/login" component={LoginPage} />
         </div>

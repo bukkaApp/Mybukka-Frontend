@@ -22,7 +22,6 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    // new ExtractTextPlugin('./css/styles.css'),
     new ExtractTextPlugin({
       filename: './css/app.bundle.css'
     })
