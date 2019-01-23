@@ -87,7 +87,7 @@ class RegisterPage extends Component {
           },
           errorMsg: {
             empty: 'This field is Required',
-            invalid: 'Password must be at least 8 characters',
+            invalid: 'This field should contain at least 8 alphabets and numbers',
           },
           touched: false,
           match: false,
@@ -103,7 +103,7 @@ class RegisterPage extends Component {
           },
           errorMsg: {
             empty: 'This field is Required',
-            invalid: 'This must be the same with password',
+            invalid: 'This field must be the same with password',
           },
           touched: false,
           match: false,
