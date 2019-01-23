@@ -39,7 +39,6 @@ class LoginPage extends Component {
           },
           touched: false,
           match: false,
-          isSuccess: false,
           errorMsg: {
             empty: 'This field is Required',
             invalid: 'Email must be valid',
@@ -50,15 +49,14 @@ class LoginPage extends Component {
           type: 'input',
           elementConfig: {
             type: 'password',
-            placeholder: 'Password (must be at least 8 characters)',
+            placeholder: ' Password ',
             minLength: 8
           },
           touched: false,
           match: false,
-          isSuccess: false,
           errorMsg: {
             empty: 'This field is Required',
-            invalid: 'Password must be at least 8 characters',
+            invalid: 'This field should contain at least 8 alphabets and numbers',
           }
         },
       },
