@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Urllists component, renders properly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <UrlLists
+    classNames="black"
+    links={
+      Array [
+        Object {
+          "href": "/",
+          "key": "1",
+          "text": "link 1",
+        },
+        Object {
+          "href": "/",
+          "key": "2",
+          "text": "link 1",
+        },
+      ]
+    }
+    title="Title"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <li
+          className="list-item-white"
+        >
+          <Navlink
+            classNames="nav-link-white"
+            href="/"
+            text="link 1"
+          />
+        </li>,
+        <li
+          className="list-item-white"
+        >
+          <Navlink
+            classNames="nav-link-white"
+            href="/"
+            text="link 1"
+          />
+        </li>,
+      ],
+      "className": "list-group",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": <Navlink
+            classNames="nav-link-white"
+            href="/"
+            text="link 1"
+          />,
+          "className": "list-item-white",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "classNames": "nav-link-white",
+            "href": "/",
+            "text": "link 1",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "li",
+      },
+      Object {
+        "instance": null,
+        "key": "2",
+        "nodeType": "host",
+        "props": Object {
+          "children": <Navlink
+            classNames="nav-link-white"
+            href="/"
+            text="link 1"
+          />,
+          "className": "list-item-white",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "classNames": "nav-link-white",
+            "href": "/",
+            "text": "link 1",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "li",
+      },
+    ],
+    "type": "ul",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <li
+            className="list-item-white"
+          >
+            <Navlink
+              classNames="nav-link-white"
+              href="/"
+              text="link 1"
+            />
+          </li>,
+          <li
+            className="list-item-white"
+          >
+            <Navlink
+              classNames="nav-link-white"
+              href="/"
+              text="link 1"
+            />
+          </li>,
+        ],
+        "className": "list-group",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <Navlink
+              classNames="nav-link-white"
+              href="/"
+              text="link 1"
+            />,
+            "className": "list-item-white",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "classNames": "nav-link-white",
+              "href": "/",
+              "text": "link 1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "li",
+        },
+        Object {
+          "instance": null,
+          "key": "2",
+          "nodeType": "host",
+          "props": Object {
+            "children": <Navlink
+              classNames="nav-link-white"
+              href="/"
+              text="link 1"
+            />,
+            "className": "list-item-white",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "classNames": "nav-link-white",
+              "href": "/",
+              "text": "link 1",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "li",
+        },
+      ],
+      "type": "ul",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

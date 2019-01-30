@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,7 +8,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: [path.join(__dirname, 'client/Index.js')],
+  entry: [path.join(__dirname, 'client/index.js')],
   devtool: 'eval',
   devServer: {
     contentBase: './client',
@@ -20,10 +19,7 @@ module.exports = {
     filename: 'js/bundle.js',
     publicPath: '/'
   },
-  plugins: [
-    HtmlWebpackPluginConfig,
-    new ExtractTextPlugin('./css/styles.css')
-  ],
+  plugins: [HtmlWebpackPluginConfig, new ExtractTextPlugin('./css/styles.css')],
   module: {
     rules: [
       {
@@ -31,7 +27,10 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          plugins: ['transform-class-properties', 'transform-object-rest-spread']
+          plugins: [
+            'transform-class-properties',
+            'transform-object-rest-spread'
+          ]
         }
       },
       {
@@ -63,6 +62,10 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      Components: path.resolve(__dirname, 'src/components'),
+      Icons: path.resolve(__dirname, 'src/components/icons')
+    }
   }
 };

@@ -6,11 +6,6 @@
 
   ],
   "description": "Frontend of bukka App using React",
-  "env": {
-    "undefined": {
-      "required": true
-    }
-  },
   "formation": {
   },
   "name": "Mybukka-Frontend",

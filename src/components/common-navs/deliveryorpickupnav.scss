@@ -1,0 +1,31 @@
+.btn-group {
+  width: 100%;
+  border-bottom: 1px solid #eceff1;
+  border-left: 1px solid #eceff1;
+  border-right: 1px solid #eceff1;
+  background-color: #fff;
+}
+
+.btn-delivery, .btn-pickup {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.72px;
+  display: block;
+  width: 100%;
+  border-radius: 0px;
+  text-transform: uppercase;
+  border: none;
+  height: 60px;
+  cursor: pointer;
+  color: grey;
+  font-weight: 500;
+  background-color: #fff
+}
+
+
+.btn-delivery:focus, .btn-pickup:focus {
+  box-shadow: none;
+  outline: none;
+  border-bottom: 2px solid #9c1c26;
+  color: #111;
+}

@@ -1,0 +1,157 @@
+.large-text-discover {
+  padding-right: 170px;
+}
+
+.small-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: gray;
+}
+
+.small-text-discover {
+  padding-right: 100px;
+  padding-top: 20px;
+}
+
+.large-text {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.action-button-section {
+  padding-top: 20px;
+}
+
+.discover-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.side-image-section {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+.side-image {
+  height: 300px;
+  width: 100%;
+}
+
+.smaller-text {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+@media (max-width: 767.98px) {
+  .large-text-discover, .small-text-discover {
+    padding: 0px;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  .smaller-text {
+    font-size: 15px
+  }
+
+  .large-text {
+    font-size: 30px;
+  }
+
+  .small-text-discover {
+    padding-top: 10px;
+  }
+
+  .action-button-section {
+    text-align: center;
+  }
+
+  .search-location-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .discover-section {
+    width: 100%;
+  }
+
+  .side-image-section {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .discover-section {
+    border-bottom: 20px solid #f7f7f8;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .large-text-discover, .small-text-discover {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .large-text {
+    font-size: 30px;
+  }
+
+  .small-text-discover {
+    padding-top: 10px;
+  }
+
+  .action-button-section {
+    text-align: center;
+  }
+
+  .search-location-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .side-image-section {
+    padding-top: 20px;
+  }
+
+  .side-image {
+    height: 230px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .large-text-discover, .small-text-discover {
+    padding: 0px;
+    text-align: center;
+  }
+
+  .large-text {
+    font-size: 40px;
+  }
+
+  .small-text-discover {
+    padding-top: 10px;
+  }
+
+  .action-button-section {
+    text-align: center;
+  }
+
+  .search-location-section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  .side-image {
+    height: 230px;
+    width: 100%;
+  }
+}

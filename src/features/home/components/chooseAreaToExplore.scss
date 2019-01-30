@@ -1,0 +1,71 @@
+.choose-area-section {
+  padding-top: 20px;
+}
+
+.area-explore-header {
+  padding-bottom: 15px;
+  padding-top: 20px;
+  border-bottom: 1px solid #eceff1;
+}
+
+.nav-link-view {
+  text-align: right;
+  color: gray;
+  text-decoration: none;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.50px;
+  cursor: pointer;
+  padding-bottom: 6px
+}
+
+.nav-link-view:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+.view-all-section {
+  text-align: right;
+  font-size: 12px
+}
+
+.area-to-explore-list {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.list-section {
+  padding-bottom: 17px;
+}
+
+.area-link {
+  color: #111;
+  font-weight: 600;
+  display: block;
+}
+
+.area-link:hover {
+  text-decoration: none;
+  outline: none;
+}
+
+.title {
+  font-weight: bold;
+}
+                                                                                                                                                   
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 16px;
+  }
+
+  .choose-area-section {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 20px solid #f7f7f8;
+  }
+
+  .area-link {
+    font-size: 14px;
+  }
+}
