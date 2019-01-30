@@ -1,0 +1,30 @@
+.location-arrow {
+  background: inherit;
+  border: none;
+}
+
+.suggestion {
+  font-weight: 400;
+  margin-top: 20px;
+  margin-left: 5px;
+  font-size: 16px;
+  letter-spacing: 0.50px;
+}
+
+.input-group {
+  background-color: #fff;
+  height: 60px;
+  border-bottom: 1px solid #eceff1;
+  border-left: 1px solid #eceff1;
+  border-right: 1px solid #eceff1;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.input-group:hover {
+  background-color: #fafafa;
+}
+
+.input-group:focus {
+  outline: none;
+}

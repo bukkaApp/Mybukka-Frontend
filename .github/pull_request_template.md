@@ -19,7 +19,7 @@ $ npm i
 ```
 $ npm start:dev
 ```
-- log on to _localhost:PORT_ to interact with endpoint created
+- log on to _localhost:PORT_ to interact with created page
 
 #### Any background context you want to provide?
 

@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggestions dropdown component renders properly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SuggestionsDropdown
+    handleClick={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <UseCurrentLocation
+          handleClick={[MockFunction]}
+        />,
+        <GeoSuggestions
+          handleClick={[MockFunction]}
+          suggestions={
+            Array [
+              Object {
+                "key": "1",
+                "location": "Mende Maryland, Lagos",
+              },
+              Object {
+                "key": "2",
+                "location": "Mende Maryland, Lagos",
+              },
+              Object {
+                "key": "3",
+                "location": "Mende Maryland, Lagos",
+              },
+            ]
+          }
+        />,
+      ],
+      "className": "suggestion-dropdown",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleClick": [MockFunction],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "handleClick": [MockFunction],
+          "suggestions": Array [
+            Object {
+              "key": "1",
+              "location": "Mende Maryland, Lagos",
+            },
+            Object {
+              "key": "2",
+              "location": "Mende Maryland, Lagos",
+            },
+            Object {
+              "key": "3",
+              "location": "Mende Maryland, Lagos",
+            },
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <UseCurrentLocation
+            handleClick={[MockFunction]}
+          />,
+          <GeoSuggestions
+            handleClick={[MockFunction]}
+            suggestions={
+              Array [
+                Object {
+                  "key": "1",
+                  "location": "Mende Maryland, Lagos",
+                },
+                Object {
+                  "key": "2",
+                  "location": "Mende Maryland, Lagos",
+                },
+                Object {
+                  "key": "3",
+                  "location": "Mende Maryland, Lagos",
+                },
+              ]
+            }
+          />,
+        ],
+        "className": "suggestion-dropdown",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleClick": [MockFunction],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "handleClick": [MockFunction],
+            "suggestions": Array [
+              Object {
+                "key": "1",
+                "location": "Mende Maryland, Lagos",
+              },
+              Object {
+                "key": "2",
+                "location": "Mende Maryland, Lagos",
+              },
+              Object {
+                "key": "3",
+                "location": "Mende Maryland, Lagos",
+              },
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

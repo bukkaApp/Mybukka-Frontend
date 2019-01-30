@@ -1,0 +1,38 @@
+$color: #222;
+$fontSize: 12px;
+$fontWeight: 300;
+$letterSpacing: 1.3px;
+
+@mixin nav-link-text($textColor) {
+  color: $textColor;
+  text-decoration: none;
+  font-weight: $fontWeight;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: $letterSpacing;
+  cursor: pointer;
+  padding-bottom: 6px
+}
+
+.nav-link-black {
+  @include nav-link-text($color);
+  font-size: $fontSize;
+}
+
+.nav-link-white {
+  @include nav-link-text(#8F95A3);
+  font-size: 14px;
+}
+
+.nav-link-black:hover {
+  color: $color;
+  font-weight: $fontWeight;
+  text-decoration: none;
+  border-bottom: 1.1px solid #444;
+}
+
+.nav-link-white:hover {
+  color: #8F95A3;
+  font-weight: $fontWeight;
+  text-decoration: none;
+  border-bottom: 1.1px solid #8F95A3;
+}

@@ -1,0 +1,41 @@
+$fontFamily: 'Fira Sans', sans-serif;
+$fontWeight: 600;
+$roundedBorders: 28px;
+$primaryColor: #9c1c26;
+
+@mixin button($width, $height, $bgcolor, $color, $fontSize) {
+  width: $width;
+  height: $height;
+  cursor: pointer;
+  border-radius: $roundedBorders;
+  color: $color;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  line-height: normal;
+  outline: none !important;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  margin-right: 10px;
+  background-color: $bgcolor;
+  font-family: $fontFamily;
+}
+
+.primary-button {
+  @include button(165px, 48px, $primaryColor, #ffffff, 12px);
+  border: 1px solid $primaryColor;
+}
+
+.small-button {
+  @include button(80px, 32px, #222, #F5E7D8, 12px);
+  border: 1px solid #222;
+}
+
+.small-outline-button {
+  @include button(80px, 32px, #fff, #222, 12px);
+  border: 1px solid rgba(32, 47, 50, 0.15);
+}
+
+.small-outline-button:hover {
+  @include button(80px, 32px, rgba(32, 47, 50, 0.04), #222, 12px);
+  border: 1px solid rgba(32, 47, 50, 0.15);
+}
