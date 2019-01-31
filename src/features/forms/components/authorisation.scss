@@ -1,0 +1,41 @@
+$fontFamily: 'Roboto', sans-serif;
+
+.font-size {
+    font-size: 18px
+}
+
+.padding {
+    padding: 0 25px 0 25px;
+    font-family: $fontFamily;
+    @media screen and (max-width: 761px) {
+        padding: 0 15px
+    }
+}
+
+.bg-color {
+    font-family: $fontFamily;
+    background: rgb(249, 249, 249);
+}
+
+.form-wrapper {
+    font-family: $fontFamily;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 24px 0px;
+    padding: 0;
+    margin: 0
+}
+
+// navbar-height = 65px, logo-margin-height = 10px
+.full-height {
+    min-height: calc(#{'100vh - 75px'});
+}
+
+.form-container {
+    font-family: $fontFamily;
+    background: rgb(249, 249, 249);
+    padding: 10px 0 20px;
+    @media screen and (max-width: 761px) {
+        background: rgb(255, 255, 255);
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,35 @@
+$fontSize:12px;
+
+@mixin input {
+    outline: none;
+    border: none;
+    box-shadow: none
+}
+
+.padding {
+    padding: 0 25px 0 25px;
+    @media screen and (max-width: 761px) {
+        padding: 0 15px
+    }
+}
+
+.help-block {
+    font-size: $fontSize
+}
+
+.form-input {
+    @include input;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+    color: #2d3138;
+    padding: 22px 0px;
+    border-bottom: 1px solid rgb(217, 219, 224);
+    border-radius: 0;
+}
+
+.form-input:focus {
+    @include input;
+    padding-bottom: 21px;
+    border-bottom: 2px solid rgb(0, 204, 153);
+}

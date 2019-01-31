@@ -3,6 +3,7 @@ import Button from '../Button';
 
 describe('Button component', () => {
   const props = {
+    disabled: false,
     text: 'SIGN IN',
     classNames: 'small-button',
     type: 'button',
