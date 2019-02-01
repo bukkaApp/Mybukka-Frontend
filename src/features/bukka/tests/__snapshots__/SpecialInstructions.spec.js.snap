@@ -62,18 +62,24 @@ ReactWrapper {
             >
               <button
                 class="default-btn toggle-quantity d-block"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
                 -
               </button>
               <button
                 class="default-btn d-block"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
                 1
               </button>
               <button
                 class="default-btn toggle-quantity d-block"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
                 +
@@ -275,18 +281,24 @@ ReactWrapper {
               >
                 <button
                   class="default-btn toggle-quantity d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   -
                 </button>
                 <button
                   class="default-btn d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   1
                 </button>
                 <button
                   class="default-btn toggle-quantity d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   +
@@ -343,18 +355,24 @@ ReactWrapper {
                     >
                       <button
                         class="default-btn toggle-quantity d-block"
+                        data-target=""
+                        data-toggle=""
                         type="button"
                       >
                         -
                       </button>
                       <button
                         class="default-btn d-block"
+                        data-target=""
+                        data-toggle=""
                         type="button"
                       >
                         1
                       </button>
                       <button
                         class="default-btn toggle-quantity d-block"
+                        data-target=""
+                        data-toggle=""
                         type="button"
                       >
                         +
@@ -396,18 +414,24 @@ ReactWrapper {
                       >
                         <button
                           class="default-btn toggle-quantity d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           -
                         </button>
                         <button
                           class="default-btn d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           1
                         </button>
                         <button
                           class="default-btn toggle-quantity d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           +
@@ -452,6 +476,9 @@ ReactWrapper {
                             "props": Object {
                               "children": <div />,
                               "classNames": "default-btn toggle-quantity d-block",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
                               "text": "-",
                               "type": "button",
@@ -460,6 +487,8 @@ ReactWrapper {
                             "rendered": Object {
                               "instance": <button
                                 class="default-btn toggle-quantity d-block"
+                                data-target=""
+                                data-toggle=""
                                 type="button"
                               >
                                 -
@@ -469,6 +498,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": "-",
                                 "className": "default-btn toggle-quantity d-block",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -498,6 +530,9 @@ ReactWrapper {
                             "props": Object {
                               "children": <div />,
                               "classNames": "default-btn d-block",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
                               "text": "1",
                               "type": "button",
@@ -506,6 +541,8 @@ ReactWrapper {
                             "rendered": Object {
                               "instance": <button
                                 class="default-btn d-block"
+                                data-target=""
+                                data-toggle=""
                                 type="button"
                               >
                                 1
@@ -515,6 +552,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": "1",
                                 "className": "default-btn d-block",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -544,6 +584,9 @@ ReactWrapper {
                             "props": Object {
                               "children": <div />,
                               "classNames": "default-btn toggle-quantity d-block",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
                               "text": "+",
                               "type": "button",
@@ -552,6 +595,8 @@ ReactWrapper {
                             "rendered": Object {
                               "instance": <button
                                 class="default-btn toggle-quantity d-block"
+                                data-target=""
+                                data-toggle=""
                                 type="button"
                               >
                                 +
@@ -561,6 +606,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": "+",
                                 "className": "default-btn toggle-quantity d-block",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -643,18 +691,24 @@ ReactWrapper {
               >
                 <button
                   class="default-btn toggle-quantity d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   -
                 </button>
                 <button
                   class="default-btn d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   1
                 </button>
                 <button
                   class="default-btn toggle-quantity d-block"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   +
@@ -856,18 +910,24 @@ ReactWrapper {
                 >
                   <button
                     class="default-btn toggle-quantity d-block"
+                    data-target=""
+                    data-toggle=""
                     type="button"
                   >
                     -
                   </button>
                   <button
                     class="default-btn d-block"
+                    data-target=""
+                    data-toggle=""
                     type="button"
                   >
                     1
                   </button>
                   <button
                     class="default-btn toggle-quantity d-block"
+                    data-target=""
+                    data-toggle=""
                     type="button"
                   >
                     +
@@ -924,18 +984,24 @@ ReactWrapper {
                       >
                         <button
                           class="default-btn toggle-quantity d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           -
                         </button>
                         <button
                           class="default-btn d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           1
                         </button>
                         <button
                           class="default-btn toggle-quantity d-block"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           +
@@ -977,18 +1043,24 @@ ReactWrapper {
                         >
                           <button
                             class="default-btn toggle-quantity d-block"
+                            data-target=""
+                            data-toggle=""
                             type="button"
                           >
                             -
                           </button>
                           <button
                             class="default-btn d-block"
+                            data-target=""
+                            data-toggle=""
                             type="button"
                           >
                             1
                           </button>
                           <button
                             class="default-btn toggle-quantity d-block"
+                            data-target=""
+                            data-toggle=""
                             type="button"
                           >
                             +
@@ -1033,6 +1105,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": <div />,
                                 "classNames": "default-btn toggle-quantity d-block",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
                                 "text": "-",
                                 "type": "button",
@@ -1041,6 +1116,8 @@ ReactWrapper {
                               "rendered": Object {
                                 "instance": <button
                                   class="default-btn toggle-quantity d-block"
+                                  data-target=""
+                                  data-toggle=""
                                   type="button"
                                 >
                                   -
@@ -1050,6 +1127,9 @@ ReactWrapper {
                                 "props": Object {
                                   "children": "-",
                                   "className": "default-btn toggle-quantity d-block",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -1079,6 +1159,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": <div />,
                                 "classNames": "default-btn d-block",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
                                 "text": "1",
                                 "type": "button",
@@ -1087,6 +1170,8 @@ ReactWrapper {
                               "rendered": Object {
                                 "instance": <button
                                   class="default-btn d-block"
+                                  data-target=""
+                                  data-toggle=""
                                   type="button"
                                 >
                                   1
@@ -1096,6 +1181,9 @@ ReactWrapper {
                                 "props": Object {
                                   "children": "1",
                                   "className": "default-btn d-block",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -1125,6 +1213,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": <div />,
                                 "classNames": "default-btn toggle-quantity d-block",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
                                 "text": "+",
                                 "type": "button",
@@ -1133,6 +1224,8 @@ ReactWrapper {
                               "rendered": Object {
                                 "instance": <button
                                   class="default-btn toggle-quantity d-block"
+                                  data-target=""
+                                  data-toggle=""
                                   type="button"
                                 >
                                   +
@@ -1142,6 +1235,9 @@ ReactWrapper {
                                 "props": Object {
                                   "children": "+",
                                   "className": "default-btn toggle-quantity d-block",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
                                   "type": "button",
                                 },

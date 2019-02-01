@@ -2,9 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from '../features/home';
 import Bukka from '../features/bukka';
-import Register from '../features/forms/registerPage';
-import Login from '../features/forms/loginPage';
-
+import Register from '../features/authentication/RegisterPage';
+import Login from '../features/authentication/LoginPage';
 
 const Main = () => (
   <main>

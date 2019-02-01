@@ -1,5 +1,6 @@
 $fontFamily: 'Roboto', sans-serif;
 $color: #9c1c26;
+$white: rgb(217, 219, 224);
 
 @mixin button($btnColor) {
     font-family: $fontFamily;
@@ -36,9 +37,8 @@ $color: #9c1c26;
     @include button($color)
 }
 
-.button:disabled {
-    background: rgb(217, 219, 224);
-    color: rgb(255, 255, 255); 
+.disabled {
+    @include button($white);
 }
 
 .facebk-btn {
@@ -111,4 +111,14 @@ $color: #9c1c26;
 .divider:after {
   left: 0.4em;
   margin-right: -45%;
+}
+
+.form-auth {
+ padding-top: 15px;
+}
+
+@media (max-width: 500.98px) {
+  .pb-3 {
+    min-height: 100vh;
+  }
 }

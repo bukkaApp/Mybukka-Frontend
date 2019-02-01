@@ -1,4 +1,6 @@
 import React from 'react';
+
+import shortId from 'shortid';
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 
@@ -27,7 +29,7 @@ const AreasToExploreList = ({ areas }) => (
   <div className="area-to-explore-list">
     <div className="row">
       {areas.map(area => (
-        <div className="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section">
+        <div className="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section" key={shortId.generate()}>
           <Navlink
             href={area.href}
             text={area.text}

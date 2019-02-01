@@ -3,7 +3,9 @@
 exports[`BukkaMenu scene renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <BukkaMenuScene />,
+  Symbol(enzyme.__unrendered__): <BukkaMenuScene
+    push={[Function]}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -22,11 +24,16 @@ ShallowWrapper {
         <AddToCart
           imageUrl=""
         />,
-        <PrimaryNavbar />,
+        <PrimaryNavbar
+          push={[Function]}
+        />,
         <BukkaImage
           imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1549932720/bake-baked-basil-236798_vvo5pq.jpg"
         />,
-        <BukkaDetailsSection />,
+        <BukkaDetailsSection
+          bukkaName="Chipottle Fresh Bukka"
+          description=""
+        />,
         <BukkaMeals
           mealsData={
             Array [
@@ -142,7 +149,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "push": [Function],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -162,7 +171,10 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "bukkaName": "Chipottle Fresh Bukka",
+          "description": "",
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -289,11 +301,16 @@ ShallowWrapper {
           <AddToCart
             imageUrl=""
           />,
-          <PrimaryNavbar />,
+          <PrimaryNavbar
+            push={[Function]}
+          />,
           <BukkaImage
             imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1549932720/bake-baked-basil-236798_vvo5pq.jpg"
           />,
-          <BukkaDetailsSection />,
+          <BukkaDetailsSection
+            bukkaName="Chipottle Fresh Bukka"
+            description=""
+          />,
           <BukkaMeals
             mealsData={
               Array [
@@ -409,7 +426,9 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "push": [Function],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],
@@ -429,7 +448,10 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "bukkaName": "Chipottle Fresh Bukka",
+            "description": "",
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],

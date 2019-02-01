@@ -1,4 +1,5 @@
 $fontSize:12px;
+$primaryColor: #9c1c26;
 
 @mixin input {
     outline: none;
@@ -31,5 +32,5 @@ $fontSize:12px;
 .form-input:focus {
     @include input;
     padding-bottom: 21px;
-    border-bottom: 2px solid rgb(0, 204, 153);
+    border-bottom: 2px solid $primaryColor;
 }

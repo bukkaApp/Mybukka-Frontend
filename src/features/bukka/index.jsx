@@ -1,8 +1,21 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import Bukka from './components';
 
-const scene = () => (
-  <Bukka />
-);
+const Scene = ({ history: { push } }) => <Bukka push={push} />;
 
-export default scene;
+export default Scene;
+
+Scene.defaultProps = {
+  history: {
+    push: () => {},
+  }
+};
+
+Scene.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+};

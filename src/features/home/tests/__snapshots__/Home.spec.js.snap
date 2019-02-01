@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Area to explore component renders properly 1`] = `
+exports[`Home Component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <IntroSection
-    push={[MockFunction]}
+  Symbol(enzyme.__unrendered__): <Home
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -21,14 +25,15 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <PrimaryNavbar
+        <IntroSection
           push={[MockFunction]}
         />,
-        <LargeTextSection />,
-        <SmallTextSection />,
-        <SearchLocationSection />,
+        <DiscoverSection />,
+        <ChooseAreaToExploreSection />,
+        <ReadyToOrderSection />,
+        <Footer />,
       ],
-      "className": "intro-section",
+      "className": "home",
     },
     "ref": null,
     "rendered": Array [
@@ -70,6 +75,15 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -80,14 +94,15 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <PrimaryNavbar
+          <IntroSection
             push={[MockFunction]}
           />,
-          <LargeTextSection />,
-          <SmallTextSection />,
-          <SearchLocationSection />,
+          <DiscoverSection />,
+          <ChooseAreaToExploreSection />,
+          <ReadyToOrderSection />,
+          <Footer />,
         ],
-        "className": "intro-section",
+        "className": "home",
       },
       "ref": null,
       "rendered": Array [
@@ -98,6 +113,15 @@ ShallowWrapper {
           "props": Object {
             "push": [MockFunction],
           },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
           "ref": null,
           "rendered": null,
           "type": [Function],

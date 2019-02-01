@@ -9,13 +9,17 @@ const Button = ({
   text,
   handleClick,
   children,
-  disabled
+  disabled,
+  dataTarget,
+  dataToggle
 }) => (
   <button
     type={type}
     className={classNames}
     onClick={handleClick}
     disabled={disabled}
+    data-target={dataTarget}
+    data-toggle={dataToggle}
   >
     {text || children}
   </button>
@@ -25,12 +29,13 @@ export default Button;
 
 Button.defaultProps = {
   text: '',
+  dataTarget: '',
+  dataToggle: '',
   children: <div />,
   disabled: false
 };
 
 Button.propTypes = {
-  disabled: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   classNames: PropTypes.string.isRequired,
@@ -38,5 +43,8 @@ Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  disabled: PropTypes.bool,
+  dataTarget: PropTypes.string.isRequired,
+  dataToggle: PropTypes.string.isRequired,
 };

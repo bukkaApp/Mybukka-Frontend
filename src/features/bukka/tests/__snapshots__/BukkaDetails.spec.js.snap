@@ -74,6 +74,8 @@ ReactWrapper {
                 >
                   <button
                     class="tag-bukka-button"
+                    data-target=""
+                    data-toggle=""
                     type="button"
                   >
                     AFRICAN
@@ -136,6 +138,9 @@ ReactWrapper {
               >
                 <button
                   class="small-outline-button"
+                  data-target=""
+                  data-toggle=""
+                  type="button"
                 >
                   <p
                     class="action-button-text"
@@ -161,6 +166,9 @@ ReactWrapper {
                 </button>
                 <button
                   class="small-outline-button"
+                  data-target=""
+                  data-toggle=""
+                  type="button"
                 >
                   <p
                     class="action-button-text"
@@ -183,6 +191,9 @@ ReactWrapper {
                 </button>
                 <button
                   class="small-outline-button"
+                  data-target=""
+                  data-toggle=""
+                  type="button"
                 >
                   <p
                     class="action-button-text"
@@ -259,6 +270,8 @@ ReactWrapper {
                     >
                       <button
                         class="tag-bukka-button"
+                        data-target=""
+                        data-toggle=""
                         type="button"
                       >
                         AFRICAN
@@ -292,6 +305,9 @@ ReactWrapper {
                     >
                       <Button
                         classNames="tag-bukka-button"
+                        dataTarget=""
+                        dataToggle=""
+                        disabled={false}
                         handleClick={[Function]}
                         text="AFRICAN"
                         type="button"
@@ -328,6 +344,8 @@ ReactWrapper {
                       >
                         <button
                           class="tag-bukka-button"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           AFRICAN
@@ -358,6 +376,9 @@ ReactWrapper {
                         >
                           <Button
                             classNames="tag-bukka-button"
+                            dataTarget=""
+                            dataToggle=""
+                            disabled={false}
                             handleClick={[Function]}
                             text="AFRICAN"
                             type="button"
@@ -435,6 +456,8 @@ ReactWrapper {
                         >
                           <button
                             class="tag-bukka-button"
+                            data-target=""
+                            data-toggle=""
                             type="button"
                           >
                             AFRICAN
@@ -449,6 +472,9 @@ ReactWrapper {
                         >
                           <Button
                             classNames="tag-bukka-button"
+                            dataTarget=""
+                            dataToggle=""
+                            disabled={false}
                             handleClick={[Function]}
                             text="AFRICAN"
                             type="button"
@@ -466,6 +492,8 @@ ReactWrapper {
                           >
                             <button
                               class="tag-bukka-button"
+                              data-target=""
+                              data-toggle=""
                               type="button"
                             >
                               AFRICAN
@@ -476,6 +504,9 @@ ReactWrapper {
                           "props": Object {
                             "children": <Button
                               classNames="tag-bukka-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
                               text="AFRICAN"
                               type="button"
@@ -493,6 +524,9 @@ ReactWrapper {
                               "props": Object {
                                 "children": <div />,
                                 "classNames": "tag-bukka-button",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
                                 "text": "AFRICAN",
                                 "type": "button",
@@ -501,6 +535,8 @@ ReactWrapper {
                               "rendered": Object {
                                 "instance": <button
                                   class="tag-bukka-button"
+                                  data-target=""
+                                  data-toggle=""
                                   type="button"
                                 >
                                   AFRICAN
@@ -510,6 +546,9 @@ ReactWrapper {
                                 "props": Object {
                                   "children": "AFRICAN",
                                   "className": "tag-bukka-button",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -827,6 +866,9 @@ ReactWrapper {
                   >
                     <button
                       class="small-outline-button"
+                      data-target=""
+                      data-toggle=""
+                      type="button"
                     >
                       <p
                         class="action-button-text"
@@ -852,6 +894,9 @@ ReactWrapper {
                     </button>
                     <button
                       class="small-outline-button"
+                      data-target=""
+                      data-toggle=""
+                      type="button"
                     >
                       <p
                         class="action-button-text"
@@ -874,6 +919,9 @@ ReactWrapper {
                     </button>
                     <button
                       class="small-outline-button"
+                      data-target=""
+                      data-toggle=""
+                      type="button"
                     >
                       <p
                         class="action-button-text"
@@ -903,8 +951,12 @@ ReactWrapper {
                 >
                   <Button
                     classNames="small-outline-button"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
                     handleClick={[Function]}
-                    text={null}
+                    text=""
+                    type="button"
                   >
                     <p
                       className="action-button-text"
@@ -919,8 +971,12 @@ ReactWrapper {
                   </Button>
                   <Button
                     classNames="small-outline-button"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
                     handleClick={[Function]}
-                    text={null}
+                    text=""
+                    type="button"
                   >
                     <p
                       className="action-button-text"
@@ -932,8 +988,12 @@ ReactWrapper {
                   </Button>
                   <Button
                     classNames="small-outline-button"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
                     handleClick={[Function]}
-                    text={null}
+                    text=""
+                    type="button"
                   >
                     <p
                       className="action-button-text"
@@ -955,8 +1015,12 @@ ReactWrapper {
                     "children": Array [
                       <Button
                         classNames="small-outline-button"
+                        dataTarget=""
+                        dataToggle=""
+                        disabled={false}
                         handleClick={[Function]}
-                        text={null}
+                        text=""
+                        type="button"
                       >
                         <p
                           className="action-button-text"
@@ -971,8 +1035,12 @@ ReactWrapper {
                       </Button>,
                       <Button
                         classNames="small-outline-button"
+                        dataTarget=""
+                        dataToggle=""
+                        disabled={false}
                         handleClick={[Function]}
-                        text={null}
+                        text=""
+                        type="button"
                       >
                         <p
                           className="action-button-text"
@@ -984,8 +1052,12 @@ ReactWrapper {
                       </Button>,
                       <Button
                         classNames="small-outline-button"
+                        dataTarget=""
+                        dataToggle=""
+                        disabled={false}
                         handleClick={[Function]}
-                        text={null}
+                        text=""
+                        type="button"
                       >
                         <p
                           className="action-button-text"
@@ -1011,6 +1083,9 @@ ReactWrapper {
                       >
                         <button
                           class="small-outline-button"
+                          data-target=""
+                          data-toggle=""
+                          type="button"
                         >
                           <p
                             class="action-button-text"
@@ -1036,6 +1111,9 @@ ReactWrapper {
                         </button>
                         <button
                           class="small-outline-button"
+                          data-target=""
+                          data-toggle=""
+                          type="button"
                         >
                           <p
                             class="action-button-text"
@@ -1058,6 +1136,9 @@ ReactWrapper {
                         </button>
                         <button
                           class="small-outline-button"
+                          data-target=""
+                          data-toggle=""
+                          type="button"
                         >
                           <p
                             class="action-button-text"
@@ -1089,8 +1170,12 @@ ReactWrapper {
                       >
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -1105,8 +1190,12 @@ ReactWrapper {
                         </Button>
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -1118,8 +1207,12 @@ ReactWrapper {
                         </Button>
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -1142,6 +1235,9 @@ ReactWrapper {
                         >
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -1167,6 +1263,9 @@ ReactWrapper {
                           </button>
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -1189,6 +1288,9 @@ ReactWrapper {
                           </button>
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -1215,8 +1317,12 @@ ReactWrapper {
                           "children": Array [
                             <Button
                               classNames="small-outline-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
-                              text={null}
+                              text=""
+                              type="button"
                             >
                               <p
                                 className="action-button-text"
@@ -1231,8 +1337,12 @@ ReactWrapper {
                             </Button>,
                             <Button
                               classNames="small-outline-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
-                              text={null}
+                              text=""
+                              type="button"
                             >
                               <p
                                 className="action-button-text"
@@ -1244,8 +1354,12 @@ ReactWrapper {
                             </Button>,
                             <Button
                               classNames="small-outline-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
-                              text={null}
+                              text=""
+                              type="button"
                             >
                               <p
                                 className="action-button-text"
@@ -1276,13 +1390,20 @@ ReactWrapper {
                                  MIN
                               </p>,
                               "classNames": "small-outline-button",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
-                              "text": null,
+                              "text": "",
+                              "type": "button",
                             },
                             "ref": null,
                             "rendered": Object {
                               "instance": <button
                                 class="small-outline-button"
+                                data-target=""
+                                data-toggle=""
+                                type="button"
                               >
                                 <p
                                   class="action-button-text"
@@ -1320,8 +1441,11 @@ ReactWrapper {
                                    MIN
                                 </p>,
                                 "className": "small-outline-button",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
-                                "type": undefined,
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Array [
@@ -1448,13 +1572,20 @@ ReactWrapper {
                                 2, lekki Aja road
                               </p>,
                               "classNames": "small-outline-button",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
-                              "text": null,
+                              "text": "",
+                              "type": "button",
                             },
                             "ref": null,
                             "rendered": Object {
                               "instance": <button
                                 class="small-outline-button"
+                                data-target=""
+                                data-toggle=""
+                                type="button"
                               >
                                 <p
                                   class="action-button-text"
@@ -1486,8 +1617,11 @@ ReactWrapper {
                                   2, lekki Aja road
                                 </p>,
                                 "className": "small-outline-button",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
-                                "type": undefined,
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Array [
@@ -1604,13 +1738,20 @@ ReactWrapper {
                                 <ChevronVertical />
                               </p>,
                               "classNames": "small-outline-button",
+                              "dataTarget": "",
+                              "dataToggle": "",
+                              "disabled": false,
                               "handleClick": [Function],
-                              "text": null,
+                              "text": "",
+                              "type": "button",
                             },
                             "ref": null,
                             "rendered": Object {
                               "instance": <button
                                 class="small-outline-button"
+                                data-target=""
+                                data-toggle=""
+                                type="button"
                               >
                                 <p
                                   class="action-button-text"
@@ -1639,8 +1780,11 @@ ReactWrapper {
                                   <ChevronVertical />
                                 </p>,
                                 "className": "small-outline-button",
+                                "data-target": "",
+                                "data-toggle": "",
+                                "disabled": false,
                                 "onClick": [Function],
-                                "type": undefined,
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Array [
@@ -1817,6 +1961,8 @@ ReactWrapper {
                   >
                     <button
                       class="tag-bukka-button"
+                      data-target=""
+                      data-toggle=""
                       type="button"
                     >
                       AFRICAN
@@ -1879,6 +2025,9 @@ ReactWrapper {
                 >
                   <button
                     class="small-outline-button"
+                    data-target=""
+                    data-toggle=""
+                    type="button"
                   >
                     <p
                       class="action-button-text"
@@ -1904,6 +2053,9 @@ ReactWrapper {
                   </button>
                   <button
                     class="small-outline-button"
+                    data-target=""
+                    data-toggle=""
+                    type="button"
                   >
                     <p
                       class="action-button-text"
@@ -1926,6 +2078,9 @@ ReactWrapper {
                   </button>
                   <button
                     class="small-outline-button"
+                    data-target=""
+                    data-toggle=""
+                    type="button"
                   >
                     <p
                       class="action-button-text"
@@ -2002,6 +2157,8 @@ ReactWrapper {
                       >
                         <button
                           class="tag-bukka-button"
+                          data-target=""
+                          data-toggle=""
                           type="button"
                         >
                           AFRICAN
@@ -2035,6 +2192,9 @@ ReactWrapper {
                       >
                         <Button
                           classNames="tag-bukka-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
                           text="AFRICAN"
                           type="button"
@@ -2071,6 +2231,8 @@ ReactWrapper {
                         >
                           <button
                             class="tag-bukka-button"
+                            data-target=""
+                            data-toggle=""
                             type="button"
                           >
                             AFRICAN
@@ -2101,6 +2263,9 @@ ReactWrapper {
                           >
                             <Button
                               classNames="tag-bukka-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
                               text="AFRICAN"
                               type="button"
@@ -2178,6 +2343,8 @@ ReactWrapper {
                           >
                             <button
                               class="tag-bukka-button"
+                              data-target=""
+                              data-toggle=""
                               type="button"
                             >
                               AFRICAN
@@ -2192,6 +2359,9 @@ ReactWrapper {
                           >
                             <Button
                               classNames="tag-bukka-button"
+                              dataTarget=""
+                              dataToggle=""
+                              disabled={false}
                               handleClick={[Function]}
                               text="AFRICAN"
                               type="button"
@@ -2209,6 +2379,8 @@ ReactWrapper {
                             >
                               <button
                                 class="tag-bukka-button"
+                                data-target=""
+                                data-toggle=""
                                 type="button"
                               >
                                 AFRICAN
@@ -2219,6 +2391,9 @@ ReactWrapper {
                             "props": Object {
                               "children": <Button
                                 classNames="tag-bukka-button"
+                                dataTarget=""
+                                dataToggle=""
+                                disabled={false}
                                 handleClick={[Function]}
                                 text="AFRICAN"
                                 type="button"
@@ -2236,6 +2411,9 @@ ReactWrapper {
                                 "props": Object {
                                   "children": <div />,
                                   "classNames": "tag-bukka-button",
+                                  "dataTarget": "",
+                                  "dataToggle": "",
+                                  "disabled": false,
                                   "handleClick": [Function],
                                   "text": "AFRICAN",
                                   "type": "button",
@@ -2244,6 +2422,8 @@ ReactWrapper {
                                 "rendered": Object {
                                   "instance": <button
                                     class="tag-bukka-button"
+                                    data-target=""
+                                    data-toggle=""
                                     type="button"
                                   >
                                     AFRICAN
@@ -2253,6 +2433,9 @@ ReactWrapper {
                                   "props": Object {
                                     "children": "AFRICAN",
                                     "className": "tag-bukka-button",
+                                    "data-target": "",
+                                    "data-toggle": "",
+                                    "disabled": false,
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2570,6 +2753,9 @@ ReactWrapper {
                     >
                       <button
                         class="small-outline-button"
+                        data-target=""
+                        data-toggle=""
+                        type="button"
                       >
                         <p
                           class="action-button-text"
@@ -2595,6 +2781,9 @@ ReactWrapper {
                       </button>
                       <button
                         class="small-outline-button"
+                        data-target=""
+                        data-toggle=""
+                        type="button"
                       >
                         <p
                           class="action-button-text"
@@ -2617,6 +2806,9 @@ ReactWrapper {
                       </button>
                       <button
                         class="small-outline-button"
+                        data-target=""
+                        data-toggle=""
+                        type="button"
                       >
                         <p
                           class="action-button-text"
@@ -2646,8 +2838,12 @@ ReactWrapper {
                   >
                     <Button
                       classNames="small-outline-button"
+                      dataTarget=""
+                      dataToggle=""
+                      disabled={false}
                       handleClick={[Function]}
-                      text={null}
+                      text=""
+                      type="button"
                     >
                       <p
                         className="action-button-text"
@@ -2662,8 +2858,12 @@ ReactWrapper {
                     </Button>
                     <Button
                       classNames="small-outline-button"
+                      dataTarget=""
+                      dataToggle=""
+                      disabled={false}
                       handleClick={[Function]}
-                      text={null}
+                      text=""
+                      type="button"
                     >
                       <p
                         className="action-button-text"
@@ -2675,8 +2875,12 @@ ReactWrapper {
                     </Button>
                     <Button
                       classNames="small-outline-button"
+                      dataTarget=""
+                      dataToggle=""
+                      disabled={false}
                       handleClick={[Function]}
-                      text={null}
+                      text=""
+                      type="button"
                     >
                       <p
                         className="action-button-text"
@@ -2698,8 +2902,12 @@ ReactWrapper {
                       "children": Array [
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -2714,8 +2922,12 @@ ReactWrapper {
                         </Button>,
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -2727,8 +2939,12 @@ ReactWrapper {
                         </Button>,
                         <Button
                           classNames="small-outline-button"
+                          dataTarget=""
+                          dataToggle=""
+                          disabled={false}
                           handleClick={[Function]}
-                          text={null}
+                          text=""
+                          type="button"
                         >
                           <p
                             className="action-button-text"
@@ -2754,6 +2970,9 @@ ReactWrapper {
                         >
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -2779,6 +2998,9 @@ ReactWrapper {
                           </button>
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -2801,6 +3023,9 @@ ReactWrapper {
                           </button>
                           <button
                             class="small-outline-button"
+                            data-target=""
+                            data-toggle=""
+                            type="button"
                           >
                             <p
                               class="action-button-text"
@@ -2832,8 +3057,12 @@ ReactWrapper {
                         >
                           <Button
                             classNames="small-outline-button"
+                            dataTarget=""
+                            dataToggle=""
+                            disabled={false}
                             handleClick={[Function]}
-                            text={null}
+                            text=""
+                            type="button"
                           >
                             <p
                               className="action-button-text"
@@ -2848,8 +3077,12 @@ ReactWrapper {
                           </Button>
                           <Button
                             classNames="small-outline-button"
+                            dataTarget=""
+                            dataToggle=""
+                            disabled={false}
                             handleClick={[Function]}
-                            text={null}
+                            text=""
+                            type="button"
                           >
                             <p
                               className="action-button-text"
@@ -2861,8 +3094,12 @@ ReactWrapper {
                           </Button>
                           <Button
                             classNames="small-outline-button"
+                            dataTarget=""
+                            dataToggle=""
+                            disabled={false}
                             handleClick={[Function]}
-                            text={null}
+                            text=""
+                            type="button"
                           >
                             <p
                               className="action-button-text"
@@ -2885,6 +3122,9 @@ ReactWrapper {
                           >
                             <button
                               class="small-outline-button"
+                              data-target=""
+                              data-toggle=""
+                              type="button"
                             >
                               <p
                                 class="action-button-text"
@@ -2910,6 +3150,9 @@ ReactWrapper {
                             </button>
                             <button
                               class="small-outline-button"
+                              data-target=""
+                              data-toggle=""
+                              type="button"
                             >
                               <p
                                 class="action-button-text"
@@ -2932,6 +3175,9 @@ ReactWrapper {
                             </button>
                             <button
                               class="small-outline-button"
+                              data-target=""
+                              data-toggle=""
+                              type="button"
                             >
                               <p
                                 class="action-button-text"
@@ -2958,8 +3204,12 @@ ReactWrapper {
                             "children": Array [
                               <Button
                                 classNames="small-outline-button"
+                                dataTarget=""
+                                dataToggle=""
+                                disabled={false}
                                 handleClick={[Function]}
-                                text={null}
+                                text=""
+                                type="button"
                               >
                                 <p
                                   className="action-button-text"
@@ -2974,8 +3224,12 @@ ReactWrapper {
                               </Button>,
                               <Button
                                 classNames="small-outline-button"
+                                dataTarget=""
+                                dataToggle=""
+                                disabled={false}
                                 handleClick={[Function]}
-                                text={null}
+                                text=""
+                                type="button"
                               >
                                 <p
                                   className="action-button-text"
@@ -2987,8 +3241,12 @@ ReactWrapper {
                               </Button>,
                               <Button
                                 classNames="small-outline-button"
+                                dataTarget=""
+                                dataToggle=""
+                                disabled={false}
                                 handleClick={[Function]}
-                                text={null}
+                                text=""
+                                type="button"
                               >
                                 <p
                                   className="action-button-text"
@@ -3019,13 +3277,20 @@ ReactWrapper {
                                    MIN
                                 </p>,
                                 "classNames": "small-outline-button",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
-                                "text": null,
+                                "text": "",
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Object {
                                 "instance": <button
                                   class="small-outline-button"
+                                  data-target=""
+                                  data-toggle=""
+                                  type="button"
                                 >
                                   <p
                                     class="action-button-text"
@@ -3063,8 +3328,11 @@ ReactWrapper {
                                      MIN
                                   </p>,
                                   "className": "small-outline-button",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
-                                  "type": undefined,
+                                  "type": "button",
                                 },
                                 "ref": null,
                                 "rendered": Array [
@@ -3191,13 +3459,20 @@ ReactWrapper {
                                   2, lekki Aja road
                                 </p>,
                                 "classNames": "small-outline-button",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
-                                "text": null,
+                                "text": "",
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Object {
                                 "instance": <button
                                   class="small-outline-button"
+                                  data-target=""
+                                  data-toggle=""
+                                  type="button"
                                 >
                                   <p
                                     class="action-button-text"
@@ -3229,8 +3504,11 @@ ReactWrapper {
                                     2, lekki Aja road
                                   </p>,
                                   "className": "small-outline-button",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
-                                  "type": undefined,
+                                  "type": "button",
                                 },
                                 "ref": null,
                                 "rendered": Array [
@@ -3347,13 +3625,20 @@ ReactWrapper {
                                   <ChevronVertical />
                                 </p>,
                                 "classNames": "small-outline-button",
+                                "dataTarget": "",
+                                "dataToggle": "",
+                                "disabled": false,
                                 "handleClick": [Function],
-                                "text": null,
+                                "text": "",
+                                "type": "button",
                               },
                               "ref": null,
                               "rendered": Object {
                                 "instance": <button
                                   class="small-outline-button"
+                                  data-target=""
+                                  data-toggle=""
+                                  type="button"
                                 >
                                   <p
                                     class="action-button-text"
@@ -3382,8 +3667,11 @@ ReactWrapper {
                                     <ChevronVertical />
                                   </p>,
                                   "className": "small-outline-button",
+                                  "data-target": "",
+                                  "data-toggle": "",
+                                  "disabled": false,
                                   "onClick": [Function],
-                                  "type": undefined,
+                                  "type": "button",
                                 },
                                 "ref": null,
                                 "rendered": Array [
