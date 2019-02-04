@@ -29,7 +29,13 @@ const ControlRight = ({ handleClick }) => (
   </div>
 );
 
-const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItems }) => {
+/**
+ * @function carousel
+ * @param {*} param0
+ * @example
+ */
+
+const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItems, imageHeight }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // max-width = 100% divide by no of images expected to show at the same time
@@ -76,7 +82,7 @@ const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItem
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
                 classNames={classNames}
-                imageCount={noOfImagesShown === '2' ? '' : noOfImagesShown}
+                imageHeight={imageHeight}
               />))}
           </div>
         </div>
@@ -102,5 +108,6 @@ Carousel.propTypes = {
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,
   NumberOfViews: PropTypes.number.isRequired,
-  noOfImagesShown: PropTypes.string.isRequired
+  noOfImagesShown: PropTypes.string.isRequired,
+  imageHeight: PropTypes.string.isRequired
 };

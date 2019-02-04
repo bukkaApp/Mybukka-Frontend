@@ -4,9 +4,6 @@ import BukkaCard from 'Components/Carousel/BukkaCard';
 import Headline from 'Components/Carousel/Headline';
 import Carousel from 'Components/Carousel/Carousel';
 
-import foodJollof from '../images/food-Jollof.jpg';
-import Pie from '../images/banner-img-2.jpg';
-import chicken from '../images/banner-img-3.jpg';
 import './feed.scss';
 
 
@@ -24,24 +21,24 @@ const FeedPage = () => {
     deliveryTime: '30-50 min',
     author: 'Bane',
     deliveryCost: '#300',
-    image: foodJollof,
+    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg',
     rating: 'popular'
   }, {
     deliveryTime: '1 hour',
     author: "Ra's Al Ghul",
     deliveryCost: '$400',
-    image: Pie
+    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
   }, {
     deliveryTime: '40-50 min',
     author: 'Joker',
     deliveryCost: '#500',
-    image: chicken,
+    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/food-Jollof.jpg',
     rating: 'popular'
   }, {
     deliveryTime: '1 hour',
     author: "Ra's Al Ghul",
     deliveryCost: '$400',
-    image: Pie
+    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
   }];
 
   return (
@@ -54,6 +51,7 @@ const FeedPage = () => {
           title="New on Bukka"
           textOverlay
           slideItems={BukkaData}
+          imageHeight="img-big-height"
           classNames="col-lg-6 col-md-6 col-sm-12"
         />
 
@@ -61,8 +59,8 @@ const FeedPage = () => {
           noOfImagesShown="3"
           title="$1.99 Delivery"
           slideItems={BukkaData}
+          imageHeight="img-height"
           classNames="col-lg-4 col-md-4 col-sm-12"
-          imageCount="3"
         />
 
         <div className="mt-4 mb-4">
@@ -73,6 +71,7 @@ const FeedPage = () => {
               deliveryCost={BukkaData[0].deliveryCost}
               deliveryTime={BukkaData[0].deliveryTime}
               rating={BukkaData[0].rating}
+              imageHeight="img-height"
               classNames="col-lg-4 col-md-4 col-sm-12"
             />
           </div>
@@ -81,9 +80,9 @@ const FeedPage = () => {
         <Carousel
           noOfImagesShown="4"
           title="Touchdown"
+          imageHeight="img-height"
           slideItems={BukkaData}
           classNames="col-lg-3 col-md-3 col-sm-12"
-          imageCount="4"
         />
       </main>
 

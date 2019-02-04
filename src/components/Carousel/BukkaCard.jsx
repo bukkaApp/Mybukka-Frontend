@@ -31,12 +31,13 @@ const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
   </div>  
 )
 
+// Image = "img-height": "img-big-height"
 
-const card = ({ image, deliveryCost, deliveryTime, rating, classNames, imageCount }) => (
-  <div className={['mt-4-mb-4', classNames].join('')}>
-    <img className={imageCount? "img-height": "img-big-height"} src={image} alt="alt_image" />
-    {!imageCount && <TextOverlay />}
-    {imageCount && <NormalText
+const card = ({ image, deliveryCost, deliveryTime, rating, classNames, imageHeight, textOverlay }) => (
+  <div className={['mt-4 mb-4 ', classNames].join(' ')}>
+    <img className={imageHeight} src={image} alt="alt_image" />
+    {textOverlay && <TextOverlay />}
+    {!textOverlay && <NormalText
     deliveryCost={deliveryCost}
     deliveryTime={deliveryTime}
     rating={rating}
