@@ -3,17 +3,27 @@ import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
+import DeliveryOrPickupNav from './DeliveryOrPickupNav';
 import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
+import Headline from '../Carousel/Headline';
+import BukkaCard from '../Carousel/BukkaCard';
 import ChevronRight from '../icons/ChevronRight';
 import './LocationNavSmallScreen.scss';
 
-const DeliveryOrPickupNav = () => (
-  <div className="options-content">
-    <h2 className="options-h2"><span>Delivery</span></h2>
-    <span className="options-center">or</span>
-    <h2 className="options-h2"><span>Pickup</span></h2>
-    <div className="border-bottom" />
+const NearByBukka = ({ BukkaData }) => (
+  <div className="mt-4 mb-4">
+    <Headline title="Salty & Sweet" activeIndex="1" />
+    <div className="row pb-4">
+      {BukkaCard.map(bukka => (<BukkaCard
+        image={bukka.image}
+        deliveryCost={bukka.deliveryCost}
+        deliveryTime={bukka.deliveryTime}
+        rating={bukka.rating}
+        imageHeight="img-height"
+        classNames="col-lg-4 col-md-3 col-sm-12"
+      />))}
+    </div>
   </div>
 );
 
@@ -36,23 +46,24 @@ const SuggestionsDropdown = ({ handleClick }) => (
 
 
 const ButtonText = () => (
-  <Fragment>
-    <span>Delivery</span> to
-    <h2 className="inline-text"> MarryLand</h2>
-    <span className="ChevronDown"><ChevronRight /></span>
-  </Fragment>
+  <h2 className="inline-text">
+    <span>Delivery to</span>
+    <span className="text">MarryLand
+      <span className="chevron-down"><ChevronRight /></span>
+    </span>
+  </h2>
 );
 
 const CurrentLocation = ({ handleClick }) => (
   <Button
     type="button"
-    classNames="btn outline-none"
+    classNames="small-nav-btn"
     text={<ButtonText />}
     handleClick={handleClick}
   />
 );
 
-const LargeLocationNav = () => {
+const SmallLocationNav = () => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
 
@@ -75,19 +86,21 @@ const LargeLocationNav = () => {
     document.addEventListener('mousedown', handleClickOutside);
   });
 
-  return (<div ref={setWrapperRef} className="options-container d-sm-none">
+  return (<div ref={setWrapperRef} className="options-container">
     <div className="options-center col-lg-10">
       <div className="options-wrapper">
         <div className="options">
-          <DeliveryOrPickupNav />
-
-          <div title="vertical" className="divide" />
           <div className="btn-location">
             <CurrentLocation handleClick={handleClick} />
 
             { isFocused && <div className="search-container">
               <div className="search-wrapper">
-                <SuggestionsDropdown handleClick={() => {}} />
+                <div className="dropdown-suggestion">
+                  <Fragment>
+                    <DeliveryOrPickupNav />
+                    <SuggestionsDropdown />
+                  </Fragment>
+                </div>
 
               </div>
             </div>}
@@ -99,7 +112,7 @@ const LargeLocationNav = () => {
   );
 };
 
-export default LargeLocationNav;
+export default SmallLocationNav;
 
 SuggestionsDropdown.propTypes = {
   handleClick: PropTypes.func.isRequired,

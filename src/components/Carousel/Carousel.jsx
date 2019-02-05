@@ -11,7 +11,7 @@ const ControlLeft = ({ handleClick }) => (
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="d-col-none control-left"
+    className="d-sm-none d-md-block control-left"
   >
     <ChevronRight />
   </div>
@@ -23,7 +23,7 @@ const ControlRight = ({ handleClick }) => (
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="d-col-none control-right"
+    className="d-sm-none d-md-block control-right"
   >
     <ChevronRight />
   </div>

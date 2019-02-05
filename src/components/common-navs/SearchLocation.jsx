@@ -12,7 +12,7 @@ const SearchLocation = () => (
       style={{ border: '1 px solid #eceff1' }}
     >
       <div className="input-group-prepends">
-        <span className="magnifier">
+        <span>
           <Magnifier />
         </span>
       </div>

@@ -33,14 +33,6 @@
     padding-left: 15px;
 }
 
-// .flex-nowrap {
-//     flex-wrap: nowrap;
-//     min-width: 100%;
-//     overflow-x: visible;
-//     overflow-y: visible;
-//     transition: transform 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
-// }
-
 .flex-nowrap {
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -53,12 +45,10 @@
         overflow-y: visible;
     }
 }
+
 .overflow-hidden {
     position: relative;
     overflow-x: hidden;
-    // width: 100%;
-    // display: flex;
-    // justify-content: space-between
 }
 
 .control-left {

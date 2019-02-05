@@ -1,5 +1,6 @@
 import React from 'react';
-import LargeLocationNav from 'Components/common-navs/LocationNavLargeScreen';
+import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
+import LocationNavSmallScreen from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 import Headline from 'Components/Carousel/Headline';
 import Carousel from 'Components/Carousel/Carousel';
@@ -21,29 +22,40 @@ const FeedPage = () => {
     deliveryTime: '30-50 min',
     author: 'Bane',
     deliveryCost: '#300',
-    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg',
+    image:
+    'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg',
     rating: 'popular'
   }, {
     deliveryTime: '1 hour',
     author: "Ra's Al Ghul",
     deliveryCost: '$400',
-    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
+    image:
+    'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
   }, {
     deliveryTime: '40-50 min',
     author: 'Joker',
     deliveryCost: '#500',
-    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/food-Jollof.jpg',
+    image:
+    'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/food-Jollof.jpg',
     rating: 'popular'
   }, {
     deliveryTime: '1 hour',
     author: "Ra's Al Ghul",
     deliveryCost: '$400',
-    image: 'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
+    image:
+    'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
   }];
 
   return (
     <div className="container-fluid p-0">
-      <LargeLocationNav />
+      <div className="d-none sticky-nav-bar d-md-flex">
+        <LocationNavLargeScreen />
+      </div>
+      <div className="d-sm-block sticky-nav-bar d-md-none d-lg-none d-xl-none">
+        <LocationNavSmallScreen />
+      </div>
+
+      <div className="clear-sticky-position" />
 
       <main className="main-container mx-auto col-lg-10 col-md-12 col-sm-12">
         <Carousel
@@ -59,8 +71,8 @@ const FeedPage = () => {
           noOfImagesShown="3"
           title="$1.99 Delivery"
           slideItems={BukkaData}
-          imageHeight="img-height"
-          classNames="col-lg-4 col-md-6 col-sm-12 col-12"
+          imageHeight="img-height d-md-height"
+          classNames="col-lg-4 col-md-4 col-sm-12 col-12"
         />
 
         <div className="mt-4 mb-4">
@@ -82,7 +94,7 @@ const FeedPage = () => {
           title="Touchdown"
           imageHeight="small-img-height"
           slideItems={BukkaData}
-          classNames="col-lg-3 col-md-3 col-sm-12 col-12"
+          classNames="col-lg-3 col-md-4 col-sm-12 col-12"
         />
       </main>
 

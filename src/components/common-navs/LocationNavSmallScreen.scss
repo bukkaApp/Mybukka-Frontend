@@ -1,17 +1,13 @@
 $fontFamily: 'Roboto', sans-serif;
 
-.button {
+.small-nav-btn {
     cursor: pointer;
     font-family: $fontFamily;
-    font-size: 12px;
-    font-weight: 600;
     text-transform: uppercase;
-    line-height: normal;
     letter-spacing: 0.8px;
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
-    color: rgb(0, 204, 153);
     width: 100%;
     height: initial;
     text-align: left;
@@ -20,23 +16,36 @@ $fontFamily: 'Roboto', sans-serif;
     outline: none;
     transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
     border-radius: 0px;
-    padding: 20px 0px;
+    padding: 10px 0 0px;
+}
+
+.small-nav-btn:visited, .small-nav-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+    border: none
 }
 
 .inline-text {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     font-family: $fontFamily;
+    font-weight: 400;
     font-size: 24px;
-    font-weight: 600;
-    line-height: normal;
-    color: rgb(0, 0, 0);
-    letter-spacing: -1.2px;
-    text-transform: none;
-    margin-top: 11px;
+    span:first-child {
+        font-size: 13px !important;
+        align-self: flex-start;
+        color: #00CC99
+    };
+    .text {
+        font-size: 18px
+    }
+    .chevron-down {
+        margin-right: 4px;
+        margin-left: 7px;
+        transform: rotate(180deg);
+        .chevron-right-icon {
+            transform: rotate(90deg)
+        }
+    }
 }
 
-.ChevronDown {
-    margin-top: 4px;
-    margin-left: 7px;
-}
