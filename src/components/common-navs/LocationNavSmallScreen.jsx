@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { any } from 'prop-types';
 
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
@@ -15,7 +15,7 @@ const NearByBukka = ({ BukkaData }) => (
   <div className="mt-4 mb-4">
     <Headline title="Salty & Sweet" activeIndex="1" />
     <div className="row pb-4">
-      {BukkaCard.map(bukka => (<BukkaCard
+      {BukkaData.map(bukka => (<BukkaCard
         image={bukka.image}
         deliveryCost={bukka.deliveryCost}
         deliveryTime={bukka.deliveryTime}
@@ -120,4 +120,8 @@ SuggestionsDropdown.propTypes = {
 
 CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired,
+};
+
+NearByBukka.propTypes = {
+  BukkaData: PropTypes.objectOf(any).isRequired
 };
