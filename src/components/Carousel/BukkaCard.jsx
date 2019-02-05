@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import MarkIcon from 'Components/icons/Remark';
+import Link from 'Components/navlink/Navlink';
+
 import './BukkaCard.scss';
 
 const TextOverlay = () => (
@@ -28,22 +30,40 @@ const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
           ·
       <span className="pl-2">{ deliveryTime }</span>
     </div>
+    <div className="favorite">
+        <span className="delivery-fav"><i className="fas fa-star" /></span>
+      126 added to favorites
+    </div>
   </div>  
 )
 
-// Image = "img-height": "img-big-height"
+// Image = "img-height" small-img-height "img-big-height"
 
-const card = ({ image, deliveryCost, deliveryTime, rating, classNames, imageHeight, textOverlay }) => (
-  <div className={['mt-4 mb-4 ', classNames].join(' ')}>
+const BukkaCard =
+({ image, deliveryCost, deliveryTime, rating, imageHeight, textOverlay }) => (
+  <div className={['mt-4 mb-4 bukka-card'].join(' ')}>
     <img className={imageHeight} src={image} alt="alt_image" />
-    {textOverlay && <TextOverlay />}
-    {!textOverlay && <NormalText
-    deliveryCost={deliveryCost}
-    deliveryTime={deliveryTime}
-    rating={rating}
-    />}
+    {textOverlay
+        && <TextOverlay />}
+    {!textOverlay
+        && <NormalText
+            deliveryCost={deliveryCost}
+            deliveryTime={deliveryTime}
+            rating={rating}
+        />}
   </div>
 );
 
-export default card;
+const GetBukka = ({ classNames, ...props }) => (
+    <div className={`card-container ${classNames}`}>
+        <div className="card-wrap">
+          <Link classNames='link' href='/'
+            text={
+            <BukkaCard {...props} />
+          } />
+        </div>
+    </div>
+    
+)
+export default GetBukka;
 

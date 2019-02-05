@@ -45,14 +45,14 @@ const FeedPage = () => {
     <div className="container-fluid p-0">
       <LargeLocationNav />
 
-      <main className="main-container mx-auto col-lg-10 col-md-6 col-sm-6">
+      <main className="main-container mx-auto col-lg-10 col-md-12 col-sm-12">
         <Carousel
           noOfImagesShown="2"
           title="New on Bukka"
           textOverlay
           slideItems={BukkaData}
           imageHeight="img-big-height"
-          classNames="col-lg-6 col-md-6 col-sm-12"
+          classNames="col-lg-6 col-md-6 col-sm-12 col-12"
         />
 
         <Carousel
@@ -60,7 +60,7 @@ const FeedPage = () => {
           title="$1.99 Delivery"
           slideItems={BukkaData}
           imageHeight="img-height"
-          classNames="col-lg-4 col-md-4 col-sm-12"
+          classNames="col-lg-4 col-md-6 col-sm-12 col-12"
         />
 
         <div className="mt-4 mb-4">
@@ -72,7 +72,7 @@ const FeedPage = () => {
               deliveryTime={BukkaData[0].deliveryTime}
               rating={BukkaData[0].rating}
               imageHeight="img-height"
-              classNames="col-lg-4 col-md-4 col-sm-12"
+              classNames="col-lg-4 col-md-6 col-sm-12"
             />
           </div>
         </div>
@@ -80,9 +80,9 @@ const FeedPage = () => {
         <Carousel
           noOfImagesShown="4"
           title="Touchdown"
-          imageHeight="img-height"
+          imageHeight="small-img-height"
           slideItems={BukkaData}
-          classNames="col-lg-3 col-md-3 col-sm-12"
+          classNames="col-lg-3 col-md-3 col-sm-12 col-12"
         />
       </main>
 

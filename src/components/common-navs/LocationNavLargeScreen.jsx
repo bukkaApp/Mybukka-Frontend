@@ -8,12 +8,27 @@ import GeoSuggestions from './GeoSuggestions';
 import MapMarker from '../icons/MapMarker';
 import './LocationNavLargeScreen.scss';
 
-const DeliveryOrPickupNav = () => (
+const DeliveryOrPickupNav = ({ handleClick, isDeliveryorPickup }) => (
   <div className="options-content">
-    <h2 className="options-h2"><span>Delivery</span></h2>
+    <div
+      aria-pressed="false"
+      tabIndex="0"
+      role="button"
+      onClick={handleClick}
+    >
+      <h2 className="options-h2" > <span>Delivery</span> </h2>
+    </div>
     <span className="options-center">or</span>
-    <h2 className="options-h2"><span>Pickup</span></h2>
-    <div className="border-bottom" />
+    <div
+      aria-pressed="false"
+      tabIndex="0"
+      role="button"
+      onClick={handleClick}
+    >
+      <h2 className="options-h2" > <span>Pickup</span> </h2>
+    </div>
+
+    <div style={{ left: isDeliveryorPickup ? '80px' : '0px' }} className="border-bottom" />
   </div>
 );
 
@@ -54,10 +69,15 @@ const CurrentLocation = ({ handleClick }) => (
 const LargeLocationNav = () => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
+  const [isDeliveryorPickup, setDeliveryorPickup] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
     setFocus(!isFocused);
+  };
+
+  const handleDeliveryorPickupClicked = () => {
+    setDeliveryorPickup(!isDeliveryorPickup);
   };
 
   const setWrapperRef = (node) => {
@@ -78,7 +98,10 @@ const LargeLocationNav = () => {
     <div className="options-center col-lg-10">
       <div className="options-wrapper">
         <div className="options">
-          <DeliveryOrPickupNav />
+          <DeliveryOrPickupNav
+            handleClick={handleDeliveryorPickupClicked}
+            isDeliveryorPickup={isDeliveryorPickup}
+          />
 
           <div title="vertical" className="divide" />
           <div className="btn-location">
@@ -91,6 +114,15 @@ const LargeLocationNav = () => {
               </div>
             </div>}
           </div>
+          {isDeliveryorPickup
+            && <div className="display-right">
+              <Button
+                type="button"
+                text="view Map"
+                classNames="small-button"
+                handleClick={() => {}}
+              />
+            </div>}
         </div>
       </div>
     </div>
@@ -106,4 +138,9 @@ SuggestionsDropdown.propTypes = {
 
 CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired,
+};
+
+DeliveryOrPickupNav.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  isDeliveryorPickup: PropTypes.bool.isRequired
 };

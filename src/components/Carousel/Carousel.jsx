@@ -11,7 +11,7 @@ const ControlLeft = ({ handleClick }) => (
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="control-left"
+    className="d-col-none control-left"
   >
     <ChevronRight />
   </div>
@@ -23,7 +23,7 @@ const ControlRight = ({ handleClick }) => (
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="control-right"
+    className="d-col-none control-right"
   >
     <ChevronRight />
   </div>
@@ -35,7 +35,8 @@ const ControlRight = ({ handleClick }) => (
  * @example
  */
 
-const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItems, imageHeight }) => {
+const Carousel =
+({ textOverlay, classNames, noOfImagesShown, title, NumberOfViews, slideItems, imageHeight }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // max-width = 100% divide by no of images expected to show at the same time
@@ -73,7 +74,7 @@ const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItem
           <div
             style={
               { transform: `translateX(${activeIndex * -translate}%)` }}
-            className="row pb-4 flex-nowrap"
+            className="d-flex pb-4 flex-nowrap"
           >
             { slideItems.map(bukka =>
               (<FoodCard
@@ -81,7 +82,8 @@ const Carousel = ({ classNames, noOfImagesShown, title, NumberOfViews, slideItem
                 deliveryCost={bukka.deliveryCost}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
-                classNames={classNames}
+                classNames={`first-child-pl-0 ${classNames}`}
+                textOverlay={textOverlay}
                 imageHeight={imageHeight}
               />))}
           </div>
@@ -109,5 +111,6 @@ Carousel.propTypes = {
   title: PropTypes.string.isRequired,
   NumberOfViews: PropTypes.number.isRequired,
   noOfImagesShown: PropTypes.string.isRequired,
-  imageHeight: PropTypes.string.isRequired
+  imageHeight: PropTypes.string.isRequired,
+  textOverlay: PropTypes.bool.isRequired
 };
