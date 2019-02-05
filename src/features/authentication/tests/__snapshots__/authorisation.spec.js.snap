@@ -47,7 +47,7 @@ ShallowWrapper {
         </Container>,
         <logo />,
       ],
-      "className": "bg-color full-height",
+      "className": "bg-color full-height auth-page",
     },
     "ref": null,
     "rendered": Array [
@@ -174,7 +174,7 @@ ShallowWrapper {
           </Container>,
           <logo />,
         ],
-        "className": "bg-color full-height",
+        "className": "bg-color full-height auth-page",
       },
       "ref": null,
       "rendered": Array [

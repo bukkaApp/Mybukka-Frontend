@@ -1,127 +1,89 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import PropTypes, { any } from 'prop-types';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
+import DismissModal from '../modal/DismissModal';
+import Modal from '../modal';
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
 import DeliveryOrPickupNav from './DeliveryOrPickupNav';
 import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
-import Headline from '../Carousel/Headline';
-import BukkaCard from '../Carousel/BukkaCard';
 import ChevronRight from '../icons/ChevronRight';
+
 import './LocationNavSmallScreen.scss';
 
-const NearByBukka = ({ BukkaData }) => (
-  <div className="mt-4 mb-4">
-    <Headline title="Salty & Sweet" activeIndex="1" />
-    <div className="row pb-4">
-      {BukkaData.map(bukka => (<BukkaCard
-        image={bukka.image}
-        deliveryCost={bukka.deliveryCost}
-        deliveryTime={bukka.deliveryTime}
-        rating={bukka.rating}
-        imageHeight="img-height"
-        classNames="col-lg-4 col-md-3 col-sm-12"
-      />))}
+const SelectLocationModal = () => (
+  <Modal classNames="select-delivery-pickup">
+    <div className="small-search-container">
+      <DismissModal classNames="dismiss-modal-right" />
+      <div className="small-search-wrapper">
+        <div className="dropdown-suggestion">
+          <Fragment>
+            <DeliveryOrPickupNav />
+            <SuggestionsDropdown handleClick={() => {}} />
+          </Fragment>
+        </div>
+      </div>
     </div>
-  </div>
+  </Modal>
 );
 
 const SuggestionsDropdown = ({ handleClick }) => (
   <div className="suggestion-dropdown">
     <SearchLocation />
-    <UseCurrentLocation
-      handleClick={handleClick}
-    />
+    <UseCurrentLocation handleClick={handleClick} />
     <GeoSuggestions
       handleClick={handleClick}
       suggestions={[
         { location: 'Mende Maryland, Lagos', key: '1' },
         { location: 'Mende Maryland, Lagos', key: '2' },
-        { location: 'Mende Maryland, Lagos', key: '3' },
+        { location: 'Mende Maryland, Lagos', key: '3' }
       ]}
     />
   </div>
 );
 
-
 const ButtonText = () => (
   <h2 className="inline-text">
     <span>Delivery to</span>
-    <span className="text">MarryLand
-      <span className="chevron-down"><ChevronRight /></span>
+    <span className="text">
+      MarryLand
+      <span className="chevron-down">
+        <ChevronRight />
+      </span>
     </span>
   </h2>
 );
 
 const CurrentLocation = ({ handleClick }) => (
-  <Button
-    type="button"
-    classNames="small-nav-btn"
-    text={<ButtonText />}
-    handleClick={handleClick}
-  />
+  <Button type="button" classNames="small-nav-btn" handleClick={handleClick}>
+    <ButtonText />
+  </Button>
 );
 
-const SmallLocationNav = () => {
-  let wrapperRef;
-  const [isFocused, setFocus] = useState(false);
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    setFocus(!isFocused);
-  };
-
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
-  const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
-      setFocus(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-  });
-
-  return (<div ref={setWrapperRef} className="options-container">
+const SmallLocationNav = () => (
+  <div className="options-container">
     <div className="options-center col-lg-10">
       <div className="options-wrapper">
         <div className="options">
           <div className="btn-location">
-            <CurrentLocation handleClick={handleClick} />
-
-            { isFocused && <div className="search-container">
-              <div className="search-wrapper">
-                <div className="dropdown-suggestion">
-                  <Fragment>
-                    <DeliveryOrPickupNav />
-                    <SuggestionsDropdown />
-                  </Fragment>
-                </div>
-
-              </div>
-            </div>}
+            <div data-target="#modal" data-toggle="modal">
+              <CurrentLocation handleClick={() => {}} />
+            </div>
+            <SelectLocationModal />
           </div>
         </div>
       </div>
     </div>
   </div>
-  );
-};
+);
 
 export default SmallLocationNav;
 
 SuggestionsDropdown.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 CurrentLocation.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-};
-
-NearByBukka.propTypes = {
-  BukkaData: PropTypes.objectOf(any).isRequired
+  handleClick: PropTypes.func.isRequired
 };

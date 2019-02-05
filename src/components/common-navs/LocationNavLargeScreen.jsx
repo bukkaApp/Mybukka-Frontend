@@ -1,69 +1,68 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import Container from '../container';
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
 import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
 import MapMarker from '../icons/MapMarker';
+
 import './LocationNavLargeScreen.scss';
 
 const DeliveryOrPickupNav = ({ handleClick, isDeliveryorPickup }) => (
   <div className="options-content">
-    <div
-      aria-pressed="false"
-      tabIndex="0"
-      role="button"
-      onClick={handleClick}
-    >
-      <h2 className="options-h2" > <span>Delivery</span> </h2>
+    <div aria-pressed="false" tabIndex="0" role="button" onClick={handleClick}>
+      <h2 className="options-h2">
+        {' '}
+        <span>Delivery</span>{' '}
+      </h2>
     </div>
-    <span className="options-center">or</span>
-    <div
-      aria-pressed="false"
-      tabIndex="0"
-      role="button"
-      onClick={handleClick}
-    >
-      <h2 className="options-h2" > <span>Pickup</span> </h2>
+    <span className="options-center-small">or</span>
+    <div aria-pressed="false" tabIndex="0" role="button" onClick={handleClick}>
+      <h2 className="options-h2">
+        {' '}
+        <span>Pickup</span>{' '}
+      </h2>
     </div>
 
-    <div style={{ left: isDeliveryorPickup ? '80px' : '0px' }} className="border-bottom" />
+    <div
+      style={{ left: isDeliveryorPickup ? '80px' : '0px' }}
+      className="border-bottom"
+    />
   </div>
 );
 
 const SuggestionsDropdown = ({ handleClick }) => (
   <div className="suggestion-dropdown">
     <SearchLocation />
-    <UseCurrentLocation
-      handleClick={handleClick}
-    />
+    <UseCurrentLocation handleClick={handleClick} />
     <GeoSuggestions
       handleClick={handleClick}
       suggestions={[
         { location: 'Mende Maryland, Lagos', key: '1' },
         { location: 'Mende Maryland, Lagos', key: '2' },
-        { location: 'Mende Maryland, Lagos', key: '3' },
+        { location: 'Mende Maryland, Lagos', key: '3' }
       ]}
     />
   </div>
 );
 
-
 const ButtonText = () => (
   <Fragment>
-    <span><MapMarker /></span>
-    <div><h2 className="btn-location-h2">MarryLand</h2></div>
+    <span>
+      <MapMarker />
+    </span>
+    <div>
+      <h2 className="btn-location-h2">MarryLand</h2>
+    </div>
   </Fragment>
 );
 
 const CurrentLocation = ({ handleClick }) => (
-  <Button
-    type="button"
-    classNames="btn outline-none"
-    text={<ButtonText />}
-    handleClick={handleClick}
-  />
+  <Button type="button" classNames="btn outline-none" handleClick={handleClick}>
+    <ButtonText />
+  </Button>
 );
 
 const LargeLocationNav = () => {
@@ -94,50 +93,55 @@ const LargeLocationNav = () => {
     document.addEventListener('mousedown', handleClickOutside);
   });
 
-  return (<div ref={setWrapperRef} className="options-container d-sm-none d-md-block">
-    <div className="options-center col-lg-10">
-      <div className="options-wrapper">
-        <div className="options">
-          <DeliveryOrPickupNav
-            handleClick={handleDeliveryorPickupClicked}
-            isDeliveryorPickup={isDeliveryorPickup}
-          />
-
-          <div title="vertical" className="divide" />
-          <div className="btn-location">
-            <CurrentLocation handleClick={handleClick} />
-
-            { isFocused && <div className="search-container">
-              <div className="search-wrapper">
-                <SuggestionsDropdown handleClick={() => {}} />
-
-              </div>
-            </div>}
-          </div>
-          {isDeliveryorPickup
-            && <div className="display-right">
-              <Button
-                type="button"
-                text="view Map"
-                classNames="small-button"
-                handleClick={() => {}}
+  return (
+    <div ref={setWrapperRef} className="options-container d-sm-none d-md-block">
+      <Container classNames="delivery-pickup-nav-feed">
+        <div className="whole-center options-center col-lg-10">
+          <div className="options-wrapper">
+            <div className="options">
+              <DeliveryOrPickupNav
+                handleClick={handleDeliveryorPickupClicked}
+                isDeliveryorPickup={isDeliveryorPickup}
               />
-            </div>}
+
+              <div title="vertical" className="divide" />
+              <div className="btn-location">
+                <CurrentLocation handleClick={handleClick} />
+
+                {isFocused && (
+                  <div className="search-container">
+                    <div className="search-wrapper">
+                      <SuggestionsDropdown handleClick={() => {}} />
+                    </div>
+                  </div>
+                )}
+              </div>
+              {isDeliveryorPickup && (
+                <div className="display-right">
+                  <Button
+                    type="button"
+                    text="view Map"
+                    classNames="small-button"
+                    handleClick={() => {}}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
-  </div>
   );
 };
 
 export default LargeLocationNav;
 
 SuggestionsDropdown.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 CurrentLocation.propTypes = {
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 DeliveryOrPickupNav.propTypes = {

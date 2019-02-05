@@ -4,16 +4,22 @@ import PropTypes from 'prop-types';
 
 import './navlink.scss';
 
-const Navlink = ({ text, href, classNames }) => (
+const Navlink = ({ text, href, classNames, children }) => (
   <Link to={href} className={classNames}>
-    {text}
+    {text || children}
   </Link>
 );
 
 export default Navlink;
 
+Navlink.defaultProps = {
+  children: '',
+  text: ''
+};
+
 Navlink.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   href: PropTypes.string.isRequired,
   classNames: PropTypes.string.isRequired,
+  children: PropTypes.node,
 };

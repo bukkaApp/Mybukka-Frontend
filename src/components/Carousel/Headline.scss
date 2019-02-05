@@ -1,61 +1,62 @@
 $fontFamily: 'Roboto', sans-serif;
 
 .headline {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid rgba(217,219,224,0.5);
-    align-items: flex-end;
-    font-family: $fontFamily;
-    font-size: 24px;
-    letter-spacing: -1.16px;
-    font-weight: 600;
-    line-height: normal;
-    color: rgb(45, 49, 56);
-    padding-bottom: 16px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+  align-items: flex-end;
+  font-family: $fontFamily;
+  font-size: 24px;
+  letter-spacing: -1.16px;
+  font-weight: 600;
+  line-height: normal;
+  color: rgb(45, 49, 56);
+  padding-bottom: 16px;
 
-    margin-bottom: 20px;
-    margin-top: 5px;
-    @media screen {
-        
-    }
+  margin-bottom: 20px;
+  margin-top: 5px;
+  @media screen {
+  }
 }
+
 @media screen and (min-width: 1060px) {
-    .headline-h2 {
-        font-family: $fontFamily;
-        font-size: 24px !important;
-        letter-spacing: -1.16px;
-        font-weight: 600;
-        line-height: normal;
-    }
+  .headline-h2 {
+    font-family: $fontFamily;
+    font-size: 24px !important;
+    letter-spacing: -1.16px;
+    font-weight: 500;
+    line-height: normal;
+  }
 }
 
 .runner {
-    position: absolute;
-    /* margin-left: 1.2%; */
-    top: 2px;
-    // left: calc(0% - 0px);
-    transition: left 300ms cubic-bezier(0.86,0,0.07,1);
-    width: 32px;
-    height: 100%;
-    border-bottom: 2px solid rgba(0,0,0,0.9);
-    z-index: 200
+  position: absolute;
+  top: 2px;
+  transition: left 300ms cubic-bezier(0.86, 0, 0.07, 1);
+  width: 32px;
+  height: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+  z-index: 200;
 }
+
 .headline-h2 {
-    font-size: 18px;
-    color: #2D3138;
-    order: 0
+  font-size: 18px;
+  color: #2d3138;
+  order: 0;
+  margin-bottom: -5px;
 }
 
 .headline-link {
-    color: #8F95A3;
-    font-family: $fontFamily;
-    font-size: 16px;
-    letter-spacing: 0.14px;
-    font-weight: 400;
-    align-items: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    flex-grow: 0;
-    min-height: 24px;
+  color: #8f95a3;
+  font-family: $fontFamily;
+  font-size: 14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-height: 24px;
+  padding-top: 5px;
 }

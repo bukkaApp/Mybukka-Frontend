@@ -7,7 +7,9 @@ ShallowWrapper {
     classNames=""
     href="/back"
     text="signIn"
-  />,
+  >
+    
+  </Navlink>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],

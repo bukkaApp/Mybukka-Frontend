@@ -7,7 +7,7 @@
     "start": "npm run build && node server/server.js",
     "start:dev": "webpack-dev-server --host 0.0.0.0 --hot --mode development",
     "build": "webpack --mode production",
-    "test": "jest test --u"
+    "test": "jest test --u --runInBand"
   },
   "repository": {
     "type": "git",
@@ -65,6 +65,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "url-loader": "^0.6.2",
+    "weak": "^1.0.1",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1"
   }

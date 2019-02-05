@@ -1,17 +1,17 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import Feed from './components/feed';
 
-/**
- * @description All Meals component
- *
- * @function FeedPage
- *
- * @namespace Component
- *
- * @return {jsx} Component
- */
-const FeedPage = () => (
-  <Feed />
+const FeedPage = ({ history: { push } }) => (
+  <Feed push={push} />
 );
 
 export default FeedPage;
+
+FeedPage.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }).isRequired,
+};

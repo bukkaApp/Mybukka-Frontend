@@ -1,0 +1,436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headline Components renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Headline
+    activeIndex={1}
+    numberOfViews={2}
+    slidesLength={3}
+    title="Headline"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "activeIndex": 1,
+      "numberOfViews": 2,
+      "slidesLength": 3,
+      "title": "Headline",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="headline ml-3 mr-3"
+      >
+        <div
+          class="runner"
+          style="transform: translateX(74.6vw);"
+        />
+        <h2
+          class="headline-h2"
+        >
+          Headline
+        </h2>
+        <a
+          class="headline-link"
+          href="/"
+          rel="nofollow"
+        >
+          <span
+            class="d-none pr-3 d-sm-inline-flex"
+          >
+            View all 
+            2
+          </span>
+          <i
+            class="fas fa-chevron-right"
+          />
+        </a>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="runner"
+            style={
+              Object {
+                "transform": "translateX(74.6vw)",
+              }
+            }
+          />,
+          <h2
+            className="headline-h2"
+          >
+            Headline
+          </h2>,
+          <a
+            className="headline-link"
+            href="/"
+            rel="nofollow"
+          >
+            <span
+              className="d-none pr-3 d-sm-inline-flex"
+            >
+              View all 
+              2
+            </span>
+            <i
+              className="fas fa-chevron-right"
+            />
+          </a>,
+        ],
+        "className": "headline ml-3 mr-3",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="runner"
+            style="transform: translateX(74.6vw);"
+          />,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "runner",
+            "style": Object {
+              "transform": "translateX(74.6vw)",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <h2
+            class="headline-h2"
+          >
+            Headline
+          </h2>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Headline",
+            "className": "headline-h2",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Headline",
+          ],
+          "type": "h2",
+        },
+        Object {
+          "instance": <a
+            class="headline-link"
+            href="/"
+            rel="nofollow"
+          >
+            <span
+              class="d-none pr-3 d-sm-inline-flex"
+            >
+              View all 
+              2
+            </span>
+            <i
+              class="fas fa-chevron-right"
+            />
+          </a>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="d-none pr-3 d-sm-inline-flex"
+              >
+                View all 
+                2
+              </span>,
+              <i
+                className="fas fa-chevron-right"
+              />,
+            ],
+            "className": "headline-link",
+            "href": "/",
+            "rel": "nofollow",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <span
+                class="d-none pr-3 d-sm-inline-flex"
+              >
+                View all 
+                2
+              </span>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "View all ",
+                  2,
+                ],
+                "className": "d-none pr-3 d-sm-inline-flex",
+              },
+              "ref": null,
+              "rendered": Array [
+                "View all ",
+                "2",
+              ],
+              "type": "span",
+            },
+            Object {
+              "instance": <i
+                class="fas fa-chevron-right"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "fas fa-chevron-right",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "i",
+            },
+          ],
+          "type": "a",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "activeIndex": 1,
+        "numberOfViews": 2,
+        "slidesLength": 3,
+        "title": "Headline",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="headline ml-3 mr-3"
+        >
+          <div
+            class="runner"
+            style="transform: translateX(74.6vw);"
+          />
+          <h2
+            class="headline-h2"
+          >
+            Headline
+          </h2>
+          <a
+            class="headline-link"
+            href="/"
+            rel="nofollow"
+          >
+            <span
+              class="d-none pr-3 d-sm-inline-flex"
+            >
+              View all 
+              2
+            </span>
+            <i
+              class="fas fa-chevron-right"
+            />
+          </a>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="runner"
+              style={
+                Object {
+                  "transform": "translateX(74.6vw)",
+                }
+              }
+            />,
+            <h2
+              className="headline-h2"
+            >
+              Headline
+            </h2>,
+            <a
+              className="headline-link"
+              href="/"
+              rel="nofollow"
+            >
+              <span
+                className="d-none pr-3 d-sm-inline-flex"
+              >
+                View all 
+                2
+              </span>
+              <i
+                className="fas fa-chevron-right"
+              />
+            </a>,
+          ],
+          "className": "headline ml-3 mr-3",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="runner"
+              style="transform: translateX(74.6vw);"
+            />,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "runner",
+              "style": Object {
+                "transform": "translateX(74.6vw)",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <h2
+              class="headline-h2"
+            >
+              Headline
+            </h2>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Headline",
+              "className": "headline-h2",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Headline",
+            ],
+            "type": "h2",
+          },
+          Object {
+            "instance": <a
+              class="headline-link"
+              href="/"
+              rel="nofollow"
+            >
+              <span
+                class="d-none pr-3 d-sm-inline-flex"
+              >
+                View all 
+                2
+              </span>
+              <i
+                class="fas fa-chevron-right"
+              />
+            </a>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="d-none pr-3 d-sm-inline-flex"
+                >
+                  View all 
+                  2
+                </span>,
+                <i
+                  className="fas fa-chevron-right"
+                />,
+              ],
+              "className": "headline-link",
+              "href": "/",
+              "rel": "nofollow",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <span
+                  class="d-none pr-3 d-sm-inline-flex"
+                >
+                  View all 
+                  2
+                </span>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "View all ",
+                    2,
+                  ],
+                  "className": "d-none pr-3 d-sm-inline-flex",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "View all ",
+                  "2",
+                ],
+                "type": "span",
+              },
+              Object {
+                "instance": <i
+                  class="fas fa-chevron-right"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fas fa-chevron-right",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "i",
+              },
+            ],
+            "type": "a",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
