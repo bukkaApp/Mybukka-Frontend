@@ -12,37 +12,33 @@
     position: absolute;
     z-index: 2;
     align-self: center;
-    margin: -50px -10px 0;
+    margin: -50px -20px 0;
     cursor: pointer;
     transition: opacity .15s ease-in
-}
-
-@media screen and (max-width: 767px) {
-    .flex-nowrap {
-        flex: 0 0 calc(100% - 16px - 16px);
-    }
-}
-
-.first-child-pl-0:first-child {
-    padding-right: 15px;
-    padding-left: 0;
-}
-
-.first-child-pl-0:last-child {
-    padding-right: 0px;
-    padding-left: 15px;
 }
 
 .flex-nowrap {
     flex-flow: row nowrap;
     justify-content: space-between;
     transition: transform 300ms cubic-bezier(0.86,0,0.07,1);
+    @media screen and (max-width: 768px) {
+        position: relative;
+        overflow-x: auto;
+        top: 20px;
+    }
 }
 
-@media screen and (min-width: 768px) {
-    .flex-nowrap {
-        overflow-x: visible;
-        overflow-y: visible;
+.first-child-pl-0 {
+    padding-right: 10px;
+    padding-left: 5px;
+    :first-child {
+        padding-left: 0
+    };
+    :last-child {
+        padding-right: 0
+    };
+    @media (max-width: 768px) {
+        padding: 5px
     }
 }
 
@@ -55,22 +51,18 @@
     @include control;
     transform: rotate(180deg);
     left: 20px;
+    @media (max-width: 768px) {
+        display: none
+    }
 }
 
 .control-right {
     @include control;
     right: 20px;
-}
-
-@media (max-width: 576px) {
-    .control-right {
-        display: none
-    }
-    .control-right {
+    @media (max-width: 768px) {
         display: none
     }
 }
-
 
 .control-left:hover svg, .control-right:hover svg {
     outline: none;

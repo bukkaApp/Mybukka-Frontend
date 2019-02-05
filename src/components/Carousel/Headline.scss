@@ -15,7 +15,10 @@ $fontFamily: 'Roboto', sans-serif;
     padding-bottom: 16px;
 
     margin-bottom: 20px;
-    margin-top: 16px;
+    margin-top: 5px;
+    @media screen {
+        
+    }
 }
 @media screen and (min-width: 1060px) {
     .headline-h2 {

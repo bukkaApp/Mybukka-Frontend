@@ -36,7 +36,7 @@ const ControlRight = ({ handleClick }) => (
  */
 
 const Carousel =
-({ textOverlay, classNames, noOfImagesShown, title, NumberOfViews, slideItems, imageHeight }) => {
+({ textOverlay, classNames, noOfImagesShown, title, slideItems, imageHeight }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // max-width = 100% divide by no of images expected to show at the same time
@@ -66,7 +66,7 @@ const Carousel =
         activeIndex={activeIndex}
         title={title}
         slidesLenght={slidesLenght}
-        NumberOfViews={NumberOfViews}
+        NumberOfViews={slidesLenght}
       />
       <div className="carousel-container">
         {activeIndex >= 1 && <ControlLeft handleClick={goToPrevSlide} />}
@@ -74,7 +74,7 @@ const Carousel =
           <div
             style={
               { transform: `translateX(${activeIndex * -translate}%)` }}
-            className="d-flex pb-4 flex-nowrap"
+            className="d-flex flex-nowrap"
           >
             { slideItems.map(bukka =>
               (<FoodCard
@@ -109,7 +109,6 @@ Carousel.propTypes = {
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,
-  NumberOfViews: PropTypes.number.isRequired,
   noOfImagesShown: PropTypes.string.isRequired,
   imageHeight: PropTypes.string.isRequired,
   textOverlay: PropTypes.bool.isRequired

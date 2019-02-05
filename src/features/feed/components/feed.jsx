@@ -1,6 +1,9 @@
 import React from 'react';
-import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
-import LocationNavSmallScreen from 'Components/common-navs/LocationNavSmallScreen';
+// import { withRouter } from 'react-dom';
+import LocationNavLargeScreen
+  from 'Components/common-navs/LocationNavLargeScreen';
+import LocationNavSmallScreen
+  from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 import Headline from 'Components/Carousel/Headline';
 import Carousel from 'Components/Carousel/Carousel';
@@ -52,7 +55,7 @@ const FeedPage = () => {
         <LocationNavLargeScreen />
       </div>
       <div className="d-sm-block sticky-nav-bar d-md-none d-lg-none d-xl-none">
-        <LocationNavSmallScreen />
+        <LocationNavSmallScreen ref={span => console.log(span)} />
       </div>
 
       <div className="clear-sticky-position" />
@@ -71,7 +74,7 @@ const FeedPage = () => {
           noOfImagesShown="3"
           title="$1.99 Delivery"
           slideItems={BukkaData}
-          imageHeight="img-height d-md-height"
+          imageHeight="img-height"
           classNames="col-lg-4 col-md-4 col-sm-12 col-12"
         />
 

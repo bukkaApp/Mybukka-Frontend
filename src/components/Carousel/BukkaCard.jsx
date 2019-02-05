@@ -37,11 +37,11 @@ const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
   </div>  
 )
 
-// Image = "img-height" small-img-height "img-big-height"
+// Image = "img-height" "small-img-height" "img-big-height"
 
 const BukkaCard =
 ({ image, deliveryCost, deliveryTime, rating, imageHeight, textOverlay }) => (
-  <div className={['mt-4 mb-4 bukka-card'].join(' ')}>
+  <div className={['mt-4 bukka-card'].join(' ')}>
     <img className={imageHeight} src={image} alt="alt_image" />
     {textOverlay
         && <TextOverlay />}
@@ -63,7 +63,7 @@ const GetBukka = ({ classNames, ...props }) => (
           } />
         </div>
     </div>
-    
 )
+
 export default GetBukka;
 

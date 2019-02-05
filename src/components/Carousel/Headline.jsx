@@ -16,7 +16,7 @@ const Headline = ({ title, NumberOfViews, slidesLenght, activeIndex }) => {
       <h2 className="headline-h2">{ title }</h2>
       { NumberOfViews
           && <a className="headline-link" href="/" rel="nofollow">
-            <span>View all <span>{NumberOfViews} </span> </span>
+            <span className="d-none pr-3 d-sm-inline-flex">View all <span>{NumberOfViews} </span> </span>
             <i className="fas fa-chevron-right" />
           </a>
       }
@@ -30,5 +30,5 @@ Headline.propTypes = {
   NumberOfViews: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   slidesLenght: PropTypes.number.isRequired,
-  activeIndex: PropTypes.string.isRequired
+  activeIndex: PropTypes.number.isRequired
 };
