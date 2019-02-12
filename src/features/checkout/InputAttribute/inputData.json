@@ -1,5 +1,12 @@
 {
     "google_api": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
+    "deliveryTime": [
+        "As soon as possible (35-50 mins)",
+        "In the next (4-5 hours)",
+        "In two weeks time",
+        "Dapibus ac facilisis in",
+        "Porta ac consectetur ac"
+    ],
     "suggestedTray": [
         {
             "name": "Chicken Tenders and Fries",

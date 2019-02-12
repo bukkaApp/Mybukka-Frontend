@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import Button from 'Components/button/Button';
+import PropTypes, { any } from 'prop-types';
 import inputField from '../InputAttribute/inputData.json';
 import
 { validateAField, validateAllFields }
@@ -9,7 +10,48 @@ import './payment.scss';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
 
+const DeliveryForm =
+({ setWrapperRef, inputData, validationErrors, handleSaveButton, autoComplete, handleChange }) => (
+  <form ref={setWrapperRef} className="border padding-20 mt-4">
+    <AuthForm
+      inputData={inputData}
+      inputField={inputField.deliveryAddress}
+      handleChange={handleChange}
+      errors={validationErrors}
+      autoComplete={autoComplete}
+    />
+    <div className="form-group mb-4">
+      <textarea
+        placeholder="Add delivery
+              instructions. (e.g. “Use the call box when you arrive)."
+        name="instruction"
+        className="form-control instruction"
+      />
+    </div>
+    <div>
+      <Button
+        type="button"
+        text="Save"
+        classNames="medium-button"
+        handleClick={handleSaveButton}
+      />
+    </div>
+  </form>
+);
+
+const Pickup = ({ title, name }) => (
+  <section className="container mb-2 mt-4">
+    <h2 className="font-size-16">{title}</h2>
+    <ul className="list-group mt-4 time">
+      <li className="list-group-item">{name}</li>
+    </ul>
+  </section>
+);
+
 const Delivery = () => {
+  let wrapperRef;
+  const [isPickup, setIsPickup] = useState(false);
+  const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     streetAddress1: '',
     streetAddress2: '',
@@ -24,6 +66,20 @@ const Delivery = () => {
     phoneNumber: ''
   });
 
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      setAutoComplete(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
+
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
     const validation = validateAField(newFieldData, name);
@@ -35,6 +91,9 @@ const Delivery = () => {
       ...validationErrors,
       [name]: validation.message,
     });
+    if (name === 'streetAddress1') {
+      setAutoComplete(true);
+    }
   };
 
   const handleSaveButton = (e) => {
@@ -50,36 +109,39 @@ const Delivery = () => {
     <div className="container mb-2 mt-4">
       <h1 className="font-size-36">Checkout</h1>
       <div className="col-md-6 p-0 mb-4 mt-4 height-50">
-        <DeliveryOrPickupNav />
+        <DeliveryOrPickupNav handleClick={() => setIsPickup(!isPickup)} />
       </div>
       <h2 className="font-size-16">Delivery Address</h2>
-      <form className="border padding-20 mt-4">
-        <AuthForm
-          inputData={inputData}
-          inputField={inputField.deliveryAddress}
-          handleChange={handleChange}
-          errors={validationErrors}
-        />
-        <div className="form-group mb-4">
-          <textarea
-            placeholder="Add delivery
-            instructions. (e.g. “Use the call box when you arrive)."
-            name="instruction"
-            className="form-control instruction"
-          />
-        </div>
-        <div>
-          <Button
-            type="button"
-            text="Save"
-            classNames="medium-button"
-            handleClick={handleSaveButton}
-          />
-        </div>
-      </form>
-
+      <DeliveryForm
+        inputData={inputData}
+        handleChange={handleChange}
+        validationErrors={validationErrors}
+        autoComplete={autoComplete}
+        setWrapperRef={setWrapperRef}
+        handleSaveButton={handleSaveButton}
+      />
+      {isPickup &&
+      <Fragment>
+        <Pickup title="Pickup Address" name="801 Mission St., San Francisco (1.0 mi)" />
+        <Pickup title="Pickup time" name="Ready in 20 min" />
+      </Fragment>
+      }
     </div>
   );
 };
 
 export default Delivery;
+
+DeliveryForm.propTypes = {
+  inputData: PropTypes.objectOf(any).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  autoComplete: PropTypes.bool.isRequired,
+  setWrapperRef: PropTypes.objectOf(any).isRequired,
+  handleSaveButton: PropTypes.func.isRequired,
+  validationErrors: PropTypes.objectOf(any).isRequired
+};
+
+Pickup.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
+};

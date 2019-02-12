@@ -1,8 +1,9 @@
 import React from 'react';
 import Input from 'Components/input/InputField';
+import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 
 const AuthForm =
-({ inputData, inputField, handleChange, errors }) => (
+({ inputData, autoComplete, inputField, handleChange, errors }) => (
   inputField.map(propData => (
     <div className={propData.containerClassNames}>
       <label
@@ -12,7 +13,7 @@ const AuthForm =
         {propData.placeholderText}
       </label>
       <Input
-        autocomplete="off"
+        inputElement={{ autocomplete: 'off' }}
         type={propData.type}
         name={propData.name}
         handleChange={handleChange}
@@ -20,6 +21,8 @@ const AuthForm =
         placeholderText={propData.placeholderText}
         id={propData.id}
       />
+      {(propData.name === 'streetAddress1' && autoComplete)
+      && <SuggestionsDropdown handleClick={() => {}} />}
       <span
         className="text-danger font-size-11"
       >
