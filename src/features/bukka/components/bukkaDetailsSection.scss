@@ -1,0 +1,93 @@
+$primaryColor: #9c1c26;
+
+.action-button-text {
+  font-weight: 300;
+  margin-left: 10px;
+  padding-top: 7px;
+  margin-right: 10px;
+  text-overflow: ellipsis;
+}
+
+.action-buttons-section {
+  padding-top: 15px;
+}
+
+.delivery-price {
+  color: $primaryColor;
+  font-weight: 500px;
+  font-size: 12px;
+  letter-spacing: 0.50px;
+}
+
+.delivery-price-tag {
+  padding-top: 30px;
+  margin-bottom: -10px;
+}
+
+.tag-bukka {
+  text-align: right;
+}
+
+.tag-bukka-button {
+  font-weight: 500px;
+  font-size: 12px;
+  letter-spacing: 0.50px;
+  background-color: rgba(250,94,94,0.1);
+  color: #FA5E5E;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+
+.tag-bukka:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.bukka-details-section {
+  padding-bottom: 60px;
+}
+
+@mixin bukka-description-text {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.bukka-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.bukka-description {
+  @include bukka-description-text();
+  margin-top: -10px;
+  font-weight: 300;
+}
+
+.bukka-rating-text {
+  @include bukka-description-text();
+  margin-top: -10px;
+  font-weight: 300;
+}
+
+@media (max-width: 768.98px) {
+  .rating-details {
+    padding-left: 15px;
+  }
+
+  .action-buttons-section {
+    padding-left: 15px;
+  }
+
+  .action-button-text {
+    font-size: 7px;
+  }
+  
+  .bukka-details-title {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

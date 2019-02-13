@@ -5,6 +5,17 @@
   "buildpacks": [
 
   ],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
+    },
+    "YARN_PRODUCTION": {
+      "required": true
+    },
+    "NODE_MODULES_CACHE": {
+      "required": true
+    }
+  },
   "description": "Frontend of bukka App using React",
   "formation": {
   },

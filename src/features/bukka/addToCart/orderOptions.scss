@@ -1,0 +1,97 @@
+.title-special-instruction-section {
+  letter-spacing: 0.72px;
+}
+
+.title-special-instruction {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.options-details {
+  max-height: 480px;
+  min-height: 480px;
+  overflow-y: scroll;
+}
+
+.dismiss-modal-options {
+  padding-right: 30px;
+  text-align: right;
+  cursor: pointer;
+}
+
+.options-details::-webkit-scrollbar {
+  width: 0px;
+  background-color: #fff;
+}
+
+.order-options-section {
+  padding-top: 20px;
+  padding-left: 0px;
+
+  .meal-title-section {
+    padding-bottom: 17px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .meal-title {
+    font-size: 24px;
+  }
+
+  .meal-description-section {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+  }
+
+  .title-special-instruction-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .action-section {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .meal-description {
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .action-section {
+      padding-left: 18px;
+    }
+  }
+
+  @media (min-width: 992px) and (max-width: 1025.98px) {
+    .merge-group {
+      padding-top: 7px;
+      padding-bottom: 7px;
+    }
+
+    .btn-group {
+      .default-btn {
+        background: #fff
+      }
+    }
+
+    .dismiss-modal-options {
+      padding-right: 0px
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .order-options-section {
+    padding-top: 0px;
+    padding-right: 0px;
+  }
+
+  .options-details {
+    max-height: 38vh;
+    min-height:38vh;
+    padding-bottom: 150px;
+    padding-top: 20px;
+  }
+}

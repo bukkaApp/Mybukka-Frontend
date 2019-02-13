@@ -2,24 +2,29 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
-  inject: 'body'
+  inject: 'body',
 });
 
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
   devtool: 'eval',
   devServer: {
-    contentBase: './client',
-    port: 7700
+    contentBase: './build',
+    port: 7700,
+    hot: true,
+    historyApiFallback: true,
   },
   output: {
     path: path.join(__dirname, 'build'),
     filename: 'js/bundle.js',
-    publicPath: '/'
   },
-  plugins: [HtmlWebpackPluginConfig, new ExtractTextPlugin('./css/styles.css')],
+  plugins: [
+    HtmlWebpackPluginConfig,
+    extractTextPlugin,
+  ],
   module: {
     rules: [
       {

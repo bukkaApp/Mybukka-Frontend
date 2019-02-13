@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Group component renders properly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ButtonGroup
+    classNames="button-text"
+  >
+    <button>
+      CHILD
+    </button>
+  </ButtonGroup>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "aria-label": "Toolbar with button groups",
+      "children": <div
+        aria-label="First group"
+        className="btn-group mr-2"
+        role="group"
+      >
+        <button>
+          CHILD
+        </button>
+      </div>,
+      "className": "btn-toolbar button-text",
+      "role": "toolbar",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "aria-label": "First group",
+        "children": <button>
+          CHILD
+        </button>,
+        "className": "btn-group mr-2",
+        "role": "group",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "CHILD",
+        },
+        "ref": null,
+        "rendered": "CHILD",
+        "type": "button",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "aria-label": "Toolbar with button groups",
+        "children": <div
+          aria-label="First group"
+          className="btn-group mr-2"
+          role="group"
+        >
+          <button>
+            CHILD
+          </button>
+        </div>,
+        "className": "btn-toolbar button-text",
+        "role": "toolbar",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "aria-label": "First group",
+          "children": <button>
+            CHILD
+          </button>,
+          "className": "btn-group mr-2",
+          "role": "group",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "CHILD",
+          },
+          "ref": null,
+          "rendered": "CHILD",
+          "type": "button",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

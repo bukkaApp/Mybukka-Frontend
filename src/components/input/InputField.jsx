@@ -25,14 +25,15 @@ export default InputField;
 
 InputField.defaultProps = {
   type: 'text',
-  classNames: 'default-btn'
+  classNames: 'default-btn',
+  placeholderText: '',
 };
 
 InputField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
-  placeholderText: PropTypes.string.isRequired,
+  placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired
 };

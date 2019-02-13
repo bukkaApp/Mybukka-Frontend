@@ -30,13 +30,17 @@ ShallowWrapper {
             handleClick={[Function]}
             text="sign in"
             type="button"
-          />
+          >
+            <div />
+          </Button>
           <Button
             classNames="small-button"
             handleClick={[Function]}
             text="sign up"
             type="button"
-          />
+          >
+            <div />
+          </Button>
         </div>
       </nav>,
       "className": "container",
@@ -57,13 +61,17 @@ ShallowWrapper {
               handleClick={[Function]}
               text="sign in"
               type="button"
-            />
+            >
+              <div />
+            </Button>
             <Button
               classNames="small-button"
               handleClick={[Function]}
               text="sign up"
               type="button"
-            />
+            >
+              <div />
+            </Button>
           </div>,
         ],
         "className": "navbar navbar-light",
@@ -90,13 +98,17 @@ ShallowWrapper {
                 handleClick={[Function]}
                 text="sign in"
                 type="button"
-              />,
+              >
+                <div />
+              </Button>,
               <Button
                 classNames="small-button"
                 handleClick={[Function]}
                 text="sign up"
                 type="button"
-              />,
+              >
+                <div />
+              </Button>,
             ],
             "className": "form-inline",
           },
@@ -107,13 +119,22 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
+                "children": <div />,
                 "classNames": "small-outline-button",
                 "handleClick": [Function],
                 "text": "sign in",
                 "type": "button",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
               "type": [Function],
             },
             Object {
@@ -121,13 +142,22 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
+                "children": <div />,
                 "classNames": "small-button",
                 "handleClick": [Function],
                 "text": "sign up",
                 "type": "button",
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "div",
+              },
               "type": [Function],
             },
           ],
@@ -156,13 +186,17 @@ ShallowWrapper {
               handleClick={[Function]}
               text="sign in"
               type="button"
-            />
+            >
+              <div />
+            </Button>
             <Button
               classNames="small-button"
               handleClick={[Function]}
               text="sign up"
               type="button"
-            />
+            >
+              <div />
+            </Button>
           </div>
         </nav>,
         "className": "container",
@@ -183,13 +217,17 @@ ShallowWrapper {
                 handleClick={[Function]}
                 text="sign in"
                 type="button"
-              />
+              >
+                <div />
+              </Button>
               <Button
                 classNames="small-button"
                 handleClick={[Function]}
                 text="sign up"
                 type="button"
-              />
+              >
+                <div />
+              </Button>
             </div>,
           ],
           "className": "navbar navbar-light",
@@ -216,13 +254,17 @@ ShallowWrapper {
                   handleClick={[Function]}
                   text="sign in"
                   type="button"
-                />,
+                >
+                  <div />
+                </Button>,
                 <Button
                   classNames="small-button"
                   handleClick={[Function]}
                   text="sign up"
                   type="button"
-                />,
+                >
+                  <div />
+                </Button>,
               ],
               "className": "form-inline",
             },
@@ -233,13 +275,22 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
+                  "children": <div />,
                   "classNames": "small-outline-button",
                   "handleClick": [Function],
                   "text": "sign in",
                   "type": "button",
                 },
                 "ref": null,
-                "rendered": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
                 "type": [Function],
               },
               Object {
@@ -247,13 +298,22 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
+                  "children": <div />,
                   "classNames": "small-button",
                   "handleClick": [Function],
                   "text": "sign up",
                   "type": "button",
                 },
                 "ref": null,
-                "rendered": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "div",
+                },
                 "type": [Function],
               },
             ],
