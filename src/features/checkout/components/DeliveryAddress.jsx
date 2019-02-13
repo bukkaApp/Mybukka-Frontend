@@ -9,6 +9,7 @@ import
 import './payment.scss';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
+import Demarcation from '../common/SmallScreenDivider';
 
 const DeliveryForm =
 ({ setWrapperRef, inputData, validationErrors, handleSaveButton, autoComplete, handleChange }) => (
@@ -32,7 +33,7 @@ const DeliveryForm =
       <Button
         type="button"
         text="Save"
-        classNames="medium-button"
+        classNames="small-button"
         handleClick={handleSaveButton}
       />
     </div>
@@ -106,12 +107,13 @@ const Delivery = () => {
   };
 
   return (
-    <div className="container mb-2 mt-4">
-      <h1 className="font-size-36">Checkout</h1>
-      <div className="col-md-6 p-0 mb-4 mt-4 height-50">
+    <div className="mb-2 mt-4">
+      <h1 className="font-size-36 px-3 px-md-3 px-lg-0">Checkout</h1>
+      <div className="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50">
         <DeliveryOrPickupNav handleClick={() => setIsPickup(!isPickup)} />
       </div>
-      <h2 className="font-size-16">Delivery Address</h2>
+      <Demarcation />
+      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Delivery Address</h2>
       <DeliveryForm
         inputData={inputData}
         handleChange={handleChange}

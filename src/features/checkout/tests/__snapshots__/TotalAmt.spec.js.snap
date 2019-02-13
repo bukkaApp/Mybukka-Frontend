@@ -1,0 +1,1077 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Area to explore component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <totalAmount />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="px-lg-2 mt-2"
+      >
+        <div
+          class="d-flex justify-content-between"
+        >
+          <h5
+            class="font-size-14 ml-3 text-muted"
+          >
+            Subtotal
+          </h5>
+          <h5
+            class="font-size-14 text-muted"
+          >
+            TBD
+          </h5>
+        </div>
+        <div
+          class="d-flex justify-content-between"
+        >
+          <h5
+            class="font-size-14 ml-3 text-muted"
+          >
+            Tax & Fees
+          </h5>
+          <h5
+            class="font-size-14 text-muted"
+          >
+            TBD
+          </h5>
+        </div>
+        <div
+          class="d-flex justify-content-between"
+        >
+          <h5
+            class="font-size-14 ml-3 text-muted"
+          >
+            Delivery
+          </h5>
+          <h5
+            class="font-size-14 text-muted"
+          >
+            TBD
+          </h5>
+        </div>
+        <div
+          class="d-flex flex-column mt-3"
+        >
+          <h5
+            class="font-size-14 ml-3 text-success"
+          >
+            Do you have a promo code?
+          </h5>
+          <div
+            class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+          />
+        </div>
+        <div
+          class="d-flex justify-content-between mt-3 mb-1"
+        >
+          <h5
+            class="font-size-14 ml-3 text-muted"
+          >
+            Total
+          </h5>
+          <h5
+            class="font-size-14 text-muted"
+          >
+            TBD
+          </h5>
+        </div>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="d-flex justify-content-between"
+          >
+            <h5
+              className="font-size-14 ml-3 text-muted"
+            >
+              Subtotal
+            </h5>
+            <h5
+              className="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          <div
+            className="d-flex justify-content-between"
+          >
+            <h5
+              className="font-size-14 ml-3 text-muted"
+            >
+              Tax & Fees
+            </h5>
+            <h5
+              className="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          <div
+            className="d-flex justify-content-between"
+          >
+            <h5
+              className="font-size-14 ml-3 text-muted"
+            >
+              Delivery
+            </h5>
+            <h5
+              className="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          <div
+            className="d-flex flex-column mt-3"
+          >
+            <h5
+              className="font-size-14 ml-3 text-success"
+            >
+              Do you have a promo code?
+            </h5>
+            <div
+              className="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+            />
+          </div>,
+          <div
+            className="d-flex justify-content-between mt-3 mb-1"
+          >
+            <h5
+              className="font-size-14 ml-3 text-muted"
+            >
+              Total
+            </h5>
+            <h5
+              className="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+        ],
+        "className": "px-lg-2 mt-2",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Subtotal
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Subtotal
+              </h5>,
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+            ],
+            "className": "d-flex justify-content-between",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Subtotal
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Subtotal",
+                "className": "font-size-14 ml-3 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Subtotal",
+              ],
+              "type": "h5",
+            },
+            Object {
+              "instance": <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "TBD",
+                "className": "font-size-14 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "TBD",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Tax & Fees
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Tax & Fees
+              </h5>,
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+            ],
+            "className": "d-flex justify-content-between",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Tax & Fees
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Tax & Fees",
+                "className": "font-size-14 ml-3 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Tax & Fees",
+              ],
+              "type": "h5",
+            },
+            Object {
+              "instance": <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "TBD",
+                "className": "font-size-14 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "TBD",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Delivery
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Delivery
+              </h5>,
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+            ],
+            "className": "d-flex justify-content-between",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Delivery
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Delivery",
+                "className": "font-size-14 ml-3 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Delivery",
+              ],
+              "type": "h5",
+            },
+            Object {
+              "instance": <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "TBD",
+                "className": "font-size-14 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "TBD",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="d-flex flex-column mt-3"
+          >
+            <h5
+              class="font-size-14 ml-3 text-success"
+            >
+              Do you have a promo code?
+            </h5>
+            <div
+              class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+            />
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5
+                className="font-size-14 ml-3 text-success"
+              >
+                Do you have a promo code?
+              </h5>,
+              <div
+                className="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+              />,
+            ],
+            "className": "d-flex flex-column mt-3",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <h5
+                class="font-size-14 ml-3 text-success"
+              >
+                Do you have a promo code?
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Do you have a promo code?",
+                "className": "font-size-14 ml-3 text-success",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Do you have a promo code?",
+              ],
+              "type": "h5",
+            },
+            Object {
+              "instance": <div
+                class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "d-flex justify-content-between border-bottom ml-3 pb-4 mb-2",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": <div
+            class="d-flex justify-content-between mt-3 mb-1"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Total
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Total
+              </h5>,
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+            ],
+            "className": "d-flex justify-content-between mt-3 mb-1",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Total
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Total",
+                "className": "font-size-14 ml-3 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Total",
+              ],
+              "type": "h5",
+            },
+            Object {
+              "instance": <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "TBD",
+                "className": "font-size-14 text-muted",
+              },
+              "ref": null,
+              "rendered": Array [
+                "TBD",
+              ],
+              "type": "h5",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="px-lg-2 mt-2"
+        >
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Subtotal
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Tax & Fees
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Delivery
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>
+          <div
+            class="d-flex flex-column mt-3"
+          >
+            <h5
+              class="font-size-14 ml-3 text-success"
+            >
+              Do you have a promo code?
+            </h5>
+            <div
+              class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+            />
+          </div>
+          <div
+            class="d-flex justify-content-between mt-3 mb-1"
+          >
+            <h5
+              class="font-size-14 ml-3 text-muted"
+            >
+              Total
+            </h5>
+            <h5
+              class="font-size-14 text-muted"
+            >
+              TBD
+            </h5>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="d-flex justify-content-between"
+            >
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Subtotal
+              </h5>
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            <div
+              className="d-flex justify-content-between"
+            >
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Tax & Fees
+              </h5>
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            <div
+              className="d-flex justify-content-between"
+            >
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Delivery
+              </h5>
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            <div
+              className="d-flex flex-column mt-3"
+            >
+              <h5
+                className="font-size-14 ml-3 text-success"
+              >
+                Do you have a promo code?
+              </h5>
+              <div
+                className="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+              />
+            </div>,
+            <div
+              className="d-flex justify-content-between mt-3 mb-1"
+            >
+              <h5
+                className="font-size-14 ml-3 text-muted"
+              >
+                Total
+              </h5>
+              <h5
+                className="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+          ],
+          "className": "px-lg-2 mt-2",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Subtotal
+              </h5>
+              <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="font-size-14 ml-3 text-muted"
+                >
+                  Subtotal
+                </h5>,
+                <h5
+                  className="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+              ],
+              "className": "d-flex justify-content-between",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <h5
+                  class="font-size-14 ml-3 text-muted"
+                >
+                  Subtotal
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Subtotal",
+                  "className": "font-size-14 ml-3 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Subtotal",
+                ],
+                "type": "h5",
+              },
+              Object {
+                "instance": <h5
+                  class="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "TBD",
+                  "className": "font-size-14 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "TBD",
+                ],
+                "type": "h5",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Tax & Fees
+              </h5>
+              <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="font-size-14 ml-3 text-muted"
+                >
+                  Tax & Fees
+                </h5>,
+                <h5
+                  className="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+              ],
+              "className": "d-flex justify-content-between",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <h5
+                  class="font-size-14 ml-3 text-muted"
+                >
+                  Tax & Fees
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Tax & Fees",
+                  "className": "font-size-14 ml-3 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Tax & Fees",
+                ],
+                "type": "h5",
+              },
+              Object {
+                "instance": <h5
+                  class="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "TBD",
+                  "className": "font-size-14 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "TBD",
+                ],
+                "type": "h5",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Delivery
+              </h5>
+              <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="font-size-14 ml-3 text-muted"
+                >
+                  Delivery
+                </h5>,
+                <h5
+                  className="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+              ],
+              "className": "d-flex justify-content-between",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <h5
+                  class="font-size-14 ml-3 text-muted"
+                >
+                  Delivery
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Delivery",
+                  "className": "font-size-14 ml-3 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Delivery",
+                ],
+                "type": "h5",
+              },
+              Object {
+                "instance": <h5
+                  class="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "TBD",
+                  "className": "font-size-14 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "TBD",
+                ],
+                "type": "h5",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="d-flex flex-column mt-3"
+            >
+              <h5
+                class="font-size-14 ml-3 text-success"
+              >
+                Do you have a promo code?
+              </h5>
+              <div
+                class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+              />
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="font-size-14 ml-3 text-success"
+                >
+                  Do you have a promo code?
+                </h5>,
+                <div
+                  className="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+                />,
+              ],
+              "className": "d-flex flex-column mt-3",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <h5
+                  class="font-size-14 ml-3 text-success"
+                >
+                  Do you have a promo code?
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Do you have a promo code?",
+                  "className": "font-size-14 ml-3 text-success",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Do you have a promo code?",
+                ],
+                "type": "h5",
+              },
+              Object {
+                "instance": <div
+                  class="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2"
+                />,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "d-flex justify-content-between border-bottom ml-3 pb-4 mb-2",
+                },
+                "ref": null,
+                "rendered": Array [
+                  undefined,
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <div
+              class="d-flex justify-content-between mt-3 mb-1"
+            >
+              <h5
+                class="font-size-14 ml-3 text-muted"
+              >
+                Total
+              </h5>
+              <h5
+                class="font-size-14 text-muted"
+              >
+                TBD
+              </h5>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h5
+                  className="font-size-14 ml-3 text-muted"
+                >
+                  Total
+                </h5>,
+                <h5
+                  className="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+              ],
+              "className": "d-flex justify-content-between mt-3 mb-1",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <h5
+                  class="font-size-14 ml-3 text-muted"
+                >
+                  Total
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Total",
+                  "className": "font-size-14 ml-3 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Total",
+                ],
+                "type": "h5",
+              },
+              Object {
+                "instance": <h5
+                  class="font-size-14 text-muted"
+                >
+                  TBD
+                </h5>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "TBD",
+                  "className": "font-size-14 text-muted",
+                },
+                "ref": null,
+                "rendered": Array [
+                  "TBD",
+                ],
+                "type": "h5",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

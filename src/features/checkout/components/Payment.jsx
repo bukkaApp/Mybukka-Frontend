@@ -3,10 +3,11 @@ import Button from 'Components/button/Button';
 import
 { validateAField, validateAllFields }
   from '../validation/validateField';
-import CheckBox from '../common/CheckBoxBtn';
+import CheckBox from '../common/checkbox';
 import inputFeild from '../InputAttribute/inputData.json';
 import './payment.scss';
 import AuthForm from '../common/AuthForm';
+import Demarcation from '../common/SmallScreenDivider';
 
 const Payment = () => {
   const [validationErrors, setValidationErrors] = useState({
@@ -46,10 +47,10 @@ const Payment = () => {
   };
 
   return (
-    <section className="container mb-2 mt-4">
-      <h2 className="font-size-16">Payment</h2>
+    <section className="mb-2 mt-4">
+      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
       <form className="border padding-20 mt-4" action="">
-        <div className="row font-size-14">
+        <div className="row flex- flex-nowrap-sm font-size-14">
           <AuthForm
             inputData={inputData}
             inputField={inputFeild.payment}
@@ -66,11 +67,12 @@ const Payment = () => {
           <Button
             type="button"
             text="Save"
-            classNames="medium-button"
+            classNames="small-button"
             handleClick={handleSaveButton}
           />
         </div>
       </form>
+      <Demarcation />
 
     </section>
   );

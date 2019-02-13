@@ -14,7 +14,7 @@ const Add = ({ handleClick }) => (
 );
 
 const cartPane = ({ name, price, handleClick }) => (
-  <div className="p-0 bg-white mt-1 mb-1 mr-4 col-md-8">
+  <div className="p-0 bg-white mt-1 mb-1 mr-4 col-sm-8 col-md-8 col-8">
     <div className="d-flex justify-content-between p-2">
       <div className="border-right col-md-10 capitalize">
         <h5 className="font-size-14">{name}</h5>

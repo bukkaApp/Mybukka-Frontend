@@ -111,6 +111,7 @@ ReactWrapper {
               classNames="text-field form-control"
               handleChange={[Function]}
               handleFocus={[Function]}
+              inputElement=""
               name="search"
               placeholderText="Enter your address..."
               type="text"
@@ -212,6 +213,7 @@ ReactWrapper {
                 classNames="text-field form-control"
                 handleChange={[Function]}
                 handleFocus={[Function]}
+                inputElement=""
                 name="search"
                 placeholderText="Enter your address..."
                 type="text"
@@ -437,6 +439,7 @@ ReactWrapper {
                 "classNames": "text-field form-control",
                 "handleChange": [Function],
                 "handleFocus": [Function],
+                "inputElement": "",
                 "name": "search",
                 "placeholderText": "Enter your address...",
                 "type": "text",
@@ -776,6 +779,7 @@ ReactWrapper {
                 classNames="text-field form-control"
                 handleChange={[Function]}
                 handleFocus={[Function]}
+                inputElement=""
                 name="search"
                 placeholderText="Enter your address..."
                 type="text"
@@ -877,6 +881,7 @@ ReactWrapper {
                   classNames="text-field form-control"
                   handleChange={[Function]}
                   handleFocus={[Function]}
+                  inputElement=""
                   name="search"
                   placeholderText="Enter your address..."
                   type="text"
@@ -1102,6 +1107,7 @@ ReactWrapper {
                   "classNames": "text-field form-control",
                   "handleChange": [Function],
                   "handleFocus": [Function],
+                  "inputElement": "",
                   "name": "search",
                   "placeholderText": "Enter your address...",
                   "type": "text",

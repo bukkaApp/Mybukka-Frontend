@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Chevron from 'Components/icons/ChevronRight';
 import timeDetails from '../InputAttribute/inputData.json';
 import './time.scss';
+import Demarcation from '../common/SmallScreenDivider';
 
 const DoubledChevron = () => (
   <div className="d-flex flex-column p-0 doubled-chevron">
@@ -27,8 +28,9 @@ const Time = () => {
   };
 
   return (
-    <section className="container mb-2 mt-4">
-      <h2 className="font-size-16">Time</h2>
+    <section className="mb-2 mt-4 mb-2">
+      <Demarcation />
+      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Time</h2>
       <ul className={
         ['list-group mt-4', timeChanged ? 'time-dropdown' : 'time'].join(' ')
       }
@@ -51,6 +53,7 @@ const Time = () => {
           </li>
         ))}
       </ul>
+      <Demarcation />
     </section>
   );
 };

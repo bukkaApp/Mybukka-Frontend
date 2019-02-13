@@ -61,16 +61,18 @@ const SuggestedItemsWrapper = () => {
   };
 
   return (
-    <div className="container bg-gutter mt-2">
+    <div className="px-lg-4 bg-gutter mt-2">
       <div
         className="d-flex
         justify-content-between align-items-center text-center"
       >
         <h4 className="font-size-14">Suggested Items</h4>
+        {slidesLength >= 1 &&
         <div className="mr-5">
           <ChevronLeft handleClick={goToPrevSlide} />
           <ChevronRight handleClick={goToNextSlide} />
         </div>
+        }
       </div>
 
       <div className="overflow-hidden">

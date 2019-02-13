@@ -1,0 +1,2720 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Area to explore component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Delivery
+    handleChange={[MockFunction]}
+    handleClick={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "handleChange": [MockFunction],
+      "handleClick": [MockFunction],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="mb-2 mt-4"
+      >
+        <h1
+          class="font-size-36 px-3 px-md-3 px-lg-0"
+        >
+          Checkout
+        </h1>
+        <div
+          class="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+        >
+          <div
+            class="btn-group"
+            role="group"
+          >
+            <button
+              class="btn-delivery"
+              type="button"
+            >
+              delivery
+            </button>
+            <button
+              class="btn-pickup"
+              type="button"
+            >
+              pickup
+            </button>
+          </div>
+        </div>
+        <div
+          class="demarcation"
+        />
+        <h2
+          class="font-size-16 px-3 px-md-3 px-lg-0"
+        >
+          Delivery Address
+        </h2>
+        <form
+          class="border padding-20 mt-4"
+        >
+          <div
+            class="form-group font-size-14 mb-4"
+          >
+            <label
+              class="no-label"
+              for="address"
+            >
+              Address
+            </label>
+            <input
+              autocomplete="off"
+              class="form-control border-input-style p-0"
+              name="streetAddress1"
+              placeholder="Address"
+              type="text"
+            />
+            <span
+              class="text-danger font-size-11"
+            />
+          </div>
+          <div
+            class="form-group font-size-14 mb-4"
+          >
+            <label
+              class="no-label"
+              for="streetAddress2"
+            >
+              Apt no or company name
+            </label>
+            <input
+              autocomplete="off"
+              class="form-control border-input-style p-0"
+              name="streetAddress2"
+              placeholder="Apt no or company name"
+              type="text"
+            />
+            <span
+              class="text-danger font-size-11"
+            />
+          </div>
+          <div
+            class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+          >
+            <label
+              class="no-label"
+              for="contactName"
+            >
+              Contact name
+            </label>
+            <input
+              autocomplete="off"
+              class="form-control border-input-style p-0"
+              name="contactName"
+              placeholder="Contact name"
+              type="text"
+            />
+            <span
+              class="text-danger font-size-11"
+            />
+          </div>
+          <div
+            class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+          >
+            <label
+              class="no-label"
+              for="phoneNumber"
+            >
+              Phone number
+            </label>
+            <input
+              autocomplete="off"
+              class="form-control border-input-style p-0"
+              name="phoneNumber"
+              placeholder="Phone number"
+              type="text"
+            />
+            <span
+              class="text-danger font-size-11"
+            />
+          </div>
+          <div
+            class="form-group mb-4"
+          >
+            <textarea
+              class="form-control instruction"
+              name="instruction"
+              placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+            />
+          </div>
+          <div>
+            <button
+              class="small-button"
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1
+            className="font-size-36 px-3 px-md-3 px-lg-0"
+          >
+            Checkout
+          </h1>,
+          <div
+            className="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+          >
+            <DeliveryOrPickupNav
+              handleClick={[Function]}
+            />
+          </div>,
+          <Demarcation />,
+          <h2
+            className="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Delivery Address
+          </h2>,
+          <DeliveryForm
+            autoComplete={false}
+            handleChange={[Function]}
+            handleSaveButton={[Function]}
+            inputData={
+              Object {
+                "contactName": "",
+                "phoneNumber": "",
+                "streetAddress1": "",
+                "streetAddress2": "",
+              }
+            }
+            setWrapperRef={[Function]}
+            validationErrors={
+              Object {
+                "contactName": "",
+                "phoneNumber": "",
+                "streetAddress1": "",
+                "streetAddress2": "",
+              }
+            }
+          />,
+          false,
+        ],
+        "className": "mb-2 mt-4",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <h1
+            class="font-size-36 px-3 px-md-3 px-lg-0"
+          >
+            Checkout
+          </h1>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Checkout",
+            "className": "font-size-36 px-3 px-md-3 px-lg-0",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Checkout",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": <div
+            class="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+          >
+            <div
+              class="btn-group"
+              role="group"
+            >
+              <button
+                class="btn-delivery"
+                type="button"
+              >
+                delivery
+              </button>
+              <button
+                class="btn-pickup"
+                type="button"
+              >
+                pickup
+              </button>
+            </div>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <DeliveryOrPickupNav
+              handleClick={[Function]}
+            />,
+            "className": "col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "handleClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": <div
+                  class="btn-group"
+                  role="group"
+                >
+                  <button
+                    class="btn-delivery"
+                    type="button"
+                  >
+                    delivery
+                  </button>
+                  <button
+                    class="btn-pickup"
+                    type="button"
+                  >
+                    pickup
+                  </button>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <button
+                      autoFocus={true}
+                      className="btn-delivery"
+                      type="button"
+                    >
+                      delivery
+                    </button>,
+                    <button
+                      className="btn-pickup"
+                      type="button"
+                    >
+                      pickup
+                    </button>,
+                  ],
+                  "className": "btn-group",
+                  "role": "group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <button
+                      class="btn-delivery"
+                      type="button"
+                    >
+                      delivery
+                    </button>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "autoFocus": true,
+                      "children": "delivery",
+                      "className": "btn-delivery",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "delivery",
+                    ],
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": <button
+                      class="btn-pickup"
+                      type="button"
+                    >
+                      pickup
+                    </button>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "pickup",
+                      "className": "btn-pickup",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "pickup",
+                    ],
+                    "type": "button",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="demarcation"
+            />,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "demarcation",
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": <h2
+            class="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Delivery Address
+          </h2>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Delivery Address",
+            "className": "font-size-16 px-3 px-md-3 px-lg-0",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Delivery Address",
+          ],
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "autoComplete": false,
+            "handleChange": [Function],
+            "handleSaveButton": [Function],
+            "inputData": Object {
+              "contactName": "",
+              "phoneNumber": "",
+              "streetAddress1": "",
+              "streetAddress2": "",
+            },
+            "setWrapperRef": [Function],
+            "validationErrors": Object {
+              "contactName": "",
+              "phoneNumber": "",
+              "streetAddress1": "",
+              "streetAddress2": "",
+            },
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <form
+              class="border padding-20 mt-4"
+            >
+              <div
+                class="form-group font-size-14 mb-4"
+              >
+                <label
+                  class="no-label"
+                  for="address"
+                >
+                  Address
+                </label>
+                <input
+                  autocomplete="off"
+                  class="form-control border-input-style p-0"
+                  name="streetAddress1"
+                  placeholder="Address"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="form-group font-size-14 mb-4"
+              >
+                <label
+                  class="no-label"
+                  for="streetAddress2"
+                >
+                  Apt no or company name
+                </label>
+                <input
+                  autocomplete="off"
+                  class="form-control border-input-style p-0"
+                  name="streetAddress2"
+                  placeholder="Apt no or company name"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+              >
+                <label
+                  class="no-label"
+                  for="contactName"
+                >
+                  Contact name
+                </label>
+                <input
+                  autocomplete="off"
+                  class="form-control border-input-style p-0"
+                  name="contactName"
+                  placeholder="Contact name"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+              >
+                <label
+                  class="no-label"
+                  for="phoneNumber"
+                >
+                  Phone number
+                </label>
+                <input
+                  autocomplete="off"
+                  class="form-control border-input-style p-0"
+                  name="phoneNumber"
+                  placeholder="Phone number"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="form-group mb-4"
+              >
+                <textarea
+                  class="form-control instruction"
+                  name="instruction"
+                  placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                />
+              </div>
+              <div>
+                <button
+                  class="small-button"
+                  type="button"
+                >
+                  Save
+                </button>
+              </div>
+            </form>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <AuthForm
+                  autoComplete={false}
+                  errors={
+                    Object {
+                      "contactName": "",
+                      "phoneNumber": "",
+                      "streetAddress1": "",
+                      "streetAddress2": "",
+                    }
+                  }
+                  handleChange={[Function]}
+                  inputData={
+                    Object {
+                      "contactName": "",
+                      "phoneNumber": "",
+                      "streetAddress1": "",
+                      "streetAddress2": "",
+                    }
+                  }
+                  inputField={
+                    Array [
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "form-group font-size-14 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "address",
+                        "name": "streetAddress1",
+                        "placeholderText": "Address",
+                        "type": "text",
+                        "validityError": "Address is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "form-group font-size-14 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "streetAddress2",
+                        "name": "streetAddress2",
+                        "placeholderText": "Apt no or company name",
+                        "type": "text",
+                        "validityError": "Address is invalid",
+                      },
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "contactName",
+                        "name": "contactName",
+                        "placeholderText": "Contact name",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                        "id": "phoneNumber",
+                        "name": "phoneNumber",
+                        "placeholderText": "Phone number",
+                        "type": "text",
+                      },
+                    ]
+                  }
+                />,
+                <div
+                  className="form-group mb-4"
+                >
+                  <textarea
+                    className="form-control instruction"
+                    name="instruction"
+                    placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                  />
+                </div>,
+                <div>
+                  <Button
+                    classNames="small-button"
+                    handleClick={[Function]}
+                    text="Save"
+                    type="button"
+                  />
+                </div>,
+              ],
+              "className": "border padding-20 mt-4",
+            },
+            "ref": [Function],
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "autoComplete": false,
+                  "errors": Object {
+                    "contactName": "",
+                    "phoneNumber": "",
+                    "streetAddress1": "",
+                    "streetAddress2": "",
+                  },
+                  "handleChange": [Function],
+                  "inputData": Object {
+                    "contactName": "",
+                    "phoneNumber": "",
+                    "streetAddress1": "",
+                    "streetAddress2": "",
+                  },
+                  "inputField": Array [
+                    Object {
+                      "changed": false,
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "form-group font-size-14 mb-4",
+                      "emptyFieldError": "Required",
+                      "id": "address",
+                      "name": "streetAddress1",
+                      "placeholderText": "Address",
+                      "type": "text",
+                      "validityError": "Address is invalid",
+                      "value": "",
+                    },
+                    Object {
+                      "changed": false,
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "form-group font-size-14 mb-4",
+                      "emptyFieldError": "Required",
+                      "id": "streetAddress2",
+                      "name": "streetAddress2",
+                      "placeholderText": "Apt no or company name",
+                      "type": "text",
+                      "validityError": "Address is invalid",
+                    },
+                    Object {
+                      "changed": false,
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                      "emptyFieldError": "Required",
+                      "id": "contactName",
+                      "name": "contactName",
+                      "placeholderText": "Contact name",
+                      "type": "text",
+                    },
+                    Object {
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                      "id": "phoneNumber",
+                      "name": "phoneNumber",
+                      "placeholderText": "Phone number",
+                      "type": "text",
+                    },
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <div
+                      class="form-group font-size-14 mb-4"
+                    >
+                      <label
+                        class="no-label"
+                        for="address"
+                      >
+                        Address
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="form-control border-input-style p-0"
+                        name="streetAddress1"
+                        placeholder="Address"
+                        type="text"
+                      />
+                      <span
+                        class="text-danger font-size-11"
+                      />
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="no-label"
+                          htmlFor="address"
+                        >
+                          Address
+                        </label>,
+                        <InputField
+                          classNames="form-control border-input-style p-0"
+                          handleChange={[Function]}
+                          id="address"
+                          inputElement={
+                            Object {
+                              "autocomplete": "off",
+                            }
+                          }
+                          name="streetAddress1"
+                          placeholderText="Address"
+                          type="text"
+                        />,
+                        false,
+                        <span
+                          className="text-danger font-size-11"
+                        >
+                          
+                        </span>,
+                      ],
+                      "className": "form-group font-size-14 mb-4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <label
+                          class="no-label"
+                          for="address"
+                        >
+                          Address
+                        </label>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Address",
+                          "className": "no-label",
+                          "htmlFor": "address",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Address",
+                        ],
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "handleChange": [Function],
+                          "id": "address",
+                          "inputElement": Object {
+                            "autocomplete": "off",
+                          },
+                          "name": "streetAddress1",
+                          "placeholderText": "Address",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": <input
+                            autocomplete="off"
+                            class="form-control border-input-style p-0"
+                            name="streetAddress1"
+                            placeholder="Address"
+                            type="text"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "autocomplete": "off",
+                            "className": "form-control border-input-style p-0",
+                            "name": "streetAddress1",
+                            "onChange": [Function],
+                            "onFocus": undefined,
+                            "placeholder": "Address",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "input",
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": <span
+                          class="text-danger font-size-11"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "className": "text-danger font-size-11",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "",
+                        ],
+                        "type": "span",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": <div
+                      class="form-group font-size-14 mb-4"
+                    >
+                      <label
+                        class="no-label"
+                        for="streetAddress2"
+                      >
+                        Apt no or company name
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="form-control border-input-style p-0"
+                        name="streetAddress2"
+                        placeholder="Apt no or company name"
+                        type="text"
+                      />
+                      <span
+                        class="text-danger font-size-11"
+                      />
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="no-label"
+                          htmlFor="streetAddress2"
+                        >
+                          Apt no or company name
+                        </label>,
+                        <InputField
+                          classNames="form-control border-input-style p-0"
+                          handleChange={[Function]}
+                          id="streetAddress2"
+                          inputElement={
+                            Object {
+                              "autocomplete": "off",
+                            }
+                          }
+                          name="streetAddress2"
+                          placeholderText="Apt no or company name"
+                          type="text"
+                        />,
+                        false,
+                        <span
+                          className="text-danger font-size-11"
+                        >
+                          
+                        </span>,
+                      ],
+                      "className": "form-group font-size-14 mb-4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <label
+                          class="no-label"
+                          for="streetAddress2"
+                        >
+                          Apt no or company name
+                        </label>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Apt no or company name",
+                          "className": "no-label",
+                          "htmlFor": "streetAddress2",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Apt no or company name",
+                        ],
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "handleChange": [Function],
+                          "id": "streetAddress2",
+                          "inputElement": Object {
+                            "autocomplete": "off",
+                          },
+                          "name": "streetAddress2",
+                          "placeholderText": "Apt no or company name",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": <input
+                            autocomplete="off"
+                            class="form-control border-input-style p-0"
+                            name="streetAddress2"
+                            placeholder="Apt no or company name"
+                            type="text"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "autocomplete": "off",
+                            "className": "form-control border-input-style p-0",
+                            "name": "streetAddress2",
+                            "onChange": [Function],
+                            "onFocus": undefined,
+                            "placeholder": "Apt no or company name",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "input",
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": <span
+                          class="text-danger font-size-11"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "className": "text-danger font-size-11",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "",
+                        ],
+                        "type": "span",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": <div
+                      class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+                    >
+                      <label
+                        class="no-label"
+                        for="contactName"
+                      >
+                        Contact name
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="form-control border-input-style p-0"
+                        name="contactName"
+                        placeholder="Contact name"
+                        type="text"
+                      />
+                      <span
+                        class="text-danger font-size-11"
+                      />
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="no-label"
+                          htmlFor="contactName"
+                        >
+                          Contact name
+                        </label>,
+                        <InputField
+                          classNames="form-control border-input-style p-0"
+                          handleChange={[Function]}
+                          id="contactName"
+                          inputElement={
+                            Object {
+                              "autocomplete": "off",
+                            }
+                          }
+                          name="contactName"
+                          placeholderText="Contact name"
+                          type="text"
+                        />,
+                        false,
+                        <span
+                          className="text-danger font-size-11"
+                        >
+                          
+                        </span>,
+                      ],
+                      "className": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <label
+                          class="no-label"
+                          for="contactName"
+                        >
+                          Contact name
+                        </label>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Contact name",
+                          "className": "no-label",
+                          "htmlFor": "contactName",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Contact name",
+                        ],
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "handleChange": [Function],
+                          "id": "contactName",
+                          "inputElement": Object {
+                            "autocomplete": "off",
+                          },
+                          "name": "contactName",
+                          "placeholderText": "Contact name",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": <input
+                            autocomplete="off"
+                            class="form-control border-input-style p-0"
+                            name="contactName"
+                            placeholder="Contact name"
+                            type="text"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "autocomplete": "off",
+                            "className": "form-control border-input-style p-0",
+                            "name": "contactName",
+                            "onChange": [Function],
+                            "onFocus": undefined,
+                            "placeholder": "Contact name",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "input",
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": <span
+                          class="text-danger font-size-11"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "className": "text-danger font-size-11",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "",
+                        ],
+                        "type": "span",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": <div
+                      class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+                    >
+                      <label
+                        class="no-label"
+                        for="phoneNumber"
+                      >
+                        Phone number
+                      </label>
+                      <input
+                        autocomplete="off"
+                        class="form-control border-input-style p-0"
+                        name="phoneNumber"
+                        placeholder="Phone number"
+                        type="text"
+                      />
+                      <span
+                        class="text-danger font-size-11"
+                      />
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <label
+                          className="no-label"
+                          htmlFor="phoneNumber"
+                        >
+                          Phone number
+                        </label>,
+                        <InputField
+                          classNames="form-control border-input-style p-0"
+                          handleChange={[Function]}
+                          id="phoneNumber"
+                          inputElement={
+                            Object {
+                              "autocomplete": "off",
+                            }
+                          }
+                          name="phoneNumber"
+                          placeholderText="Phone number"
+                          type="text"
+                        />,
+                        false,
+                        <span
+                          className="text-danger font-size-11"
+                        >
+                          
+                        </span>,
+                      ],
+                      "className": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <label
+                          class="no-label"
+                          for="phoneNumber"
+                        >
+                          Phone number
+                        </label>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Phone number",
+                          "className": "no-label",
+                          "htmlFor": "phoneNumber",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Phone number",
+                        ],
+                        "type": "label",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "handleChange": [Function],
+                          "id": "phoneNumber",
+                          "inputElement": Object {
+                            "autocomplete": "off",
+                          },
+                          "name": "phoneNumber",
+                          "placeholderText": "Phone number",
+                          "type": "text",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": <input
+                            autocomplete="off"
+                            class="form-control border-input-style p-0"
+                            name="phoneNumber"
+                            placeholder="Phone number"
+                            type="text"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "autocomplete": "off",
+                            "className": "form-control border-input-style p-0",
+                            "name": "phoneNumber",
+                            "onChange": [Function],
+                            "onFocus": undefined,
+                            "placeholder": "Phone number",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "input",
+                        },
+                        "type": [Function],
+                      },
+                      Object {
+                        "instance": <span
+                          class="text-danger font-size-11"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "",
+                          "className": "text-danger font-size-11",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "",
+                        ],
+                        "type": "span",
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": [Function],
+              },
+              Object {
+                "instance": <div
+                  class="form-group mb-4"
+                >
+                  <textarea
+                    class="form-control instruction"
+                    name="instruction"
+                    placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                  />
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <textarea
+                    className="form-control instruction"
+                    name="instruction"
+                    placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                  />,
+                  "className": "form-group mb-4",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <textarea
+                      class="form-control instruction"
+                      name="instruction"
+                      placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "form-control instruction",
+                      "name": "instruction",
+                      "placeholder": "Add delivery
+ instructions. (e.g. “Use the call box when you arrive).",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "textarea",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": <div>
+                  <button
+                    class="small-button"
+                    type="button"
+                  >
+                    Save
+                  </button>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Button
+                    classNames="small-button"
+                    handleClick={[Function]}
+                    text="Save"
+                    type="button"
+                  />,
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "classNames": "small-button",
+                      "handleClick": [Function],
+                      "text": "Save",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <button
+                        class="small-button"
+                        type="button"
+                      >
+                        Save
+                      </button>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Save",
+                        "className": "small-button",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Save",
+                      ],
+                      "type": "button",
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "form",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "handleChange": [MockFunction],
+        "handleClick": [MockFunction],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="mb-2 mt-4"
+        >
+          <h1
+            class="font-size-36 px-3 px-md-3 px-lg-0"
+          >
+            Checkout
+          </h1>
+          <div
+            class="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+          >
+            <div
+              class="btn-group"
+              role="group"
+            >
+              <button
+                class="btn-delivery"
+                type="button"
+              >
+                delivery
+              </button>
+              <button
+                class="btn-pickup"
+                type="button"
+              >
+                pickup
+              </button>
+            </div>
+          </div>
+          <div
+            class="demarcation"
+          />
+          <h2
+            class="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Delivery Address
+          </h2>
+          <form
+            class="border padding-20 mt-4"
+          >
+            <div
+              class="form-group font-size-14 mb-4"
+            >
+              <label
+                class="no-label"
+                for="address"
+              >
+                Address
+              </label>
+              <input
+                autocomplete="off"
+                class="form-control border-input-style p-0"
+                name="streetAddress1"
+                placeholder="Address"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="form-group font-size-14 mb-4"
+            >
+              <label
+                class="no-label"
+                for="streetAddress2"
+              >
+                Apt no or company name
+              </label>
+              <input
+                autocomplete="off"
+                class="form-control border-input-style p-0"
+                name="streetAddress2"
+                placeholder="Apt no or company name"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+            >
+              <label
+                class="no-label"
+                for="contactName"
+              >
+                Contact name
+              </label>
+              <input
+                autocomplete="off"
+                class="form-control border-input-style p-0"
+                name="contactName"
+                placeholder="Contact name"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+            >
+              <label
+                class="no-label"
+                for="phoneNumber"
+              >
+                Phone number
+              </label>
+              <input
+                autocomplete="off"
+                class="form-control border-input-style p-0"
+                name="phoneNumber"
+                placeholder="Phone number"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="form-group mb-4"
+            >
+              <textarea
+                class="form-control instruction"
+                name="instruction"
+                placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+              />
+            </div>
+            <div>
+              <button
+                class="small-button"
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="font-size-36 px-3 px-md-3 px-lg-0"
+            >
+              Checkout
+            </h1>,
+            <div
+              className="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+            >
+              <DeliveryOrPickupNav
+                handleClick={[Function]}
+              />
+            </div>,
+            <Demarcation />,
+            <h2
+              className="font-size-16 px-3 px-md-3 px-lg-0"
+            >
+              Delivery Address
+            </h2>,
+            <DeliveryForm
+              autoComplete={false}
+              handleChange={[Function]}
+              handleSaveButton={[Function]}
+              inputData={
+                Object {
+                  "contactName": "",
+                  "phoneNumber": "",
+                  "streetAddress1": "",
+                  "streetAddress2": "",
+                }
+              }
+              setWrapperRef={[Function]}
+              validationErrors={
+                Object {
+                  "contactName": "",
+                  "phoneNumber": "",
+                  "streetAddress1": "",
+                  "streetAddress2": "",
+                }
+              }
+            />,
+            false,
+          ],
+          "className": "mb-2 mt-4",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <h1
+              class="font-size-36 px-3 px-md-3 px-lg-0"
+            >
+              Checkout
+            </h1>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Checkout",
+              "className": "font-size-36 px-3 px-md-3 px-lg-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Checkout",
+            ],
+            "type": "h1",
+          },
+          Object {
+            "instance": <div
+              class="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50"
+            >
+              <div
+                class="btn-group"
+                role="group"
+              >
+                <button
+                  class="btn-delivery"
+                  type="button"
+                >
+                  delivery
+                </button>
+                <button
+                  class="btn-pickup"
+                  type="button"
+                >
+                  pickup
+                </button>
+              </div>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <DeliveryOrPickupNav
+                handleClick={[Function]}
+              />,
+              "className": "col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "handleClick": [Function],
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": <div
+                    class="btn-group"
+                    role="group"
+                  >
+                    <button
+                      class="btn-delivery"
+                      type="button"
+                    >
+                      delivery
+                    </button>
+                    <button
+                      class="btn-pickup"
+                      type="button"
+                    >
+                      pickup
+                    </button>
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <button
+                        autoFocus={true}
+                        className="btn-delivery"
+                        type="button"
+                      >
+                        delivery
+                      </button>,
+                      <button
+                        className="btn-pickup"
+                        type="button"
+                      >
+                        pickup
+                      </button>,
+                    ],
+                    "className": "btn-group",
+                    "role": "group",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <button
+                        class="btn-delivery"
+                        type="button"
+                      >
+                        delivery
+                      </button>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "autoFocus": true,
+                        "children": "delivery",
+                        "className": "btn-delivery",
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "delivery",
+                      ],
+                      "type": "button",
+                    },
+                    Object {
+                      "instance": <button
+                        class="btn-pickup"
+                        type="button"
+                      >
+                        pickup
+                      </button>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "pickup",
+                        "className": "btn-pickup",
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "pickup",
+                      ],
+                      "type": "button",
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="demarcation"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "demarcation",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": <h2
+              class="font-size-16 px-3 px-md-3 px-lg-0"
+            >
+              Delivery Address
+            </h2>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Delivery Address",
+              "className": "font-size-16 px-3 px-md-3 px-lg-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Delivery Address",
+            ],
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "autoComplete": false,
+              "handleChange": [Function],
+              "handleSaveButton": [Function],
+              "inputData": Object {
+                "contactName": "",
+                "phoneNumber": "",
+                "streetAddress1": "",
+                "streetAddress2": "",
+              },
+              "setWrapperRef": [Function],
+              "validationErrors": Object {
+                "contactName": "",
+                "phoneNumber": "",
+                "streetAddress1": "",
+                "streetAddress2": "",
+              },
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <form
+                class="border padding-20 mt-4"
+              >
+                <div
+                  class="form-group font-size-14 mb-4"
+                >
+                  <label
+                    class="no-label"
+                    for="address"
+                  >
+                    Address
+                  </label>
+                  <input
+                    autocomplete="off"
+                    class="form-control border-input-style p-0"
+                    name="streetAddress1"
+                    placeholder="Address"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="form-group font-size-14 mb-4"
+                >
+                  <label
+                    class="no-label"
+                    for="streetAddress2"
+                  >
+                    Apt no or company name
+                  </label>
+                  <input
+                    autocomplete="off"
+                    class="form-control border-input-style p-0"
+                    name="streetAddress2"
+                    placeholder="Apt no or company name"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+                >
+                  <label
+                    class="no-label"
+                    for="contactName"
+                  >
+                    Contact name
+                  </label>
+                  <input
+                    autocomplete="off"
+                    class="form-control border-input-style p-0"
+                    name="contactName"
+                    placeholder="Contact name"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+                >
+                  <label
+                    class="no-label"
+                    for="phoneNumber"
+                  >
+                    Phone number
+                  </label>
+                  <input
+                    autocomplete="off"
+                    class="form-control border-input-style p-0"
+                    name="phoneNumber"
+                    placeholder="Phone number"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="form-group mb-4"
+                >
+                  <textarea
+                    class="form-control instruction"
+                    name="instruction"
+                    placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                  />
+                </div>
+                <div>
+                  <button
+                    class="small-button"
+                    type="button"
+                  >
+                    Save
+                  </button>
+                </div>
+              </form>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <AuthForm
+                    autoComplete={false}
+                    errors={
+                      Object {
+                        "contactName": "",
+                        "phoneNumber": "",
+                        "streetAddress1": "",
+                        "streetAddress2": "",
+                      }
+                    }
+                    handleChange={[Function]}
+                    inputData={
+                      Object {
+                        "contactName": "",
+                        "phoneNumber": "",
+                        "streetAddress1": "",
+                        "streetAddress2": "",
+                      }
+                    }
+                    inputField={
+                      Array [
+                        Object {
+                          "changed": false,
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "form-group font-size-14 mb-4",
+                          "emptyFieldError": "Required",
+                          "id": "address",
+                          "name": "streetAddress1",
+                          "placeholderText": "Address",
+                          "type": "text",
+                          "validityError": "Address is invalid",
+                          "value": "",
+                        },
+                        Object {
+                          "changed": false,
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "form-group font-size-14 mb-4",
+                          "emptyFieldError": "Required",
+                          "id": "streetAddress2",
+                          "name": "streetAddress2",
+                          "placeholderText": "Apt no or company name",
+                          "type": "text",
+                          "validityError": "Address is invalid",
+                        },
+                        Object {
+                          "changed": false,
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                          "emptyFieldError": "Required",
+                          "id": "contactName",
+                          "name": "contactName",
+                          "placeholderText": "Contact name",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                          "id": "phoneNumber",
+                          "name": "phoneNumber",
+                          "placeholderText": "Phone number",
+                          "type": "text",
+                        },
+                      ]
+                    }
+                  />,
+                  <div
+                    className="form-group mb-4"
+                  >
+                    <textarea
+                      className="form-control instruction"
+                      name="instruction"
+                      placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                    />
+                  </div>,
+                  <div>
+                    <Button
+                      classNames="small-button"
+                      handleClick={[Function]}
+                      text="Save"
+                      type="button"
+                    />
+                  </div>,
+                ],
+                "className": "border padding-20 mt-4",
+              },
+              "ref": [Function],
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "autoComplete": false,
+                    "errors": Object {
+                      "contactName": "",
+                      "phoneNumber": "",
+                      "streetAddress1": "",
+                      "streetAddress2": "",
+                    },
+                    "handleChange": [Function],
+                    "inputData": Object {
+                      "contactName": "",
+                      "phoneNumber": "",
+                      "streetAddress1": "",
+                      "streetAddress2": "",
+                    },
+                    "inputField": Array [
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "form-group font-size-14 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "address",
+                        "name": "streetAddress1",
+                        "placeholderText": "Address",
+                        "type": "text",
+                        "validityError": "Address is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "form-group font-size-14 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "streetAddress2",
+                        "name": "streetAddress2",
+                        "placeholderText": "Apt no or company name",
+                        "type": "text",
+                        "validityError": "Address is invalid",
+                      },
+                      Object {
+                        "changed": false,
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                        "emptyFieldError": "Required",
+                        "id": "contactName",
+                        "name": "contactName",
+                        "placeholderText": "Contact name",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                        "id": "phoneNumber",
+                        "name": "phoneNumber",
+                        "placeholderText": "Phone number",
+                        "type": "text",
+                      },
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <div
+                        class="form-group font-size-14 mb-4"
+                      >
+                        <label
+                          class="no-label"
+                          for="address"
+                        >
+                          Address
+                        </label>
+                        <input
+                          autocomplete="off"
+                          class="form-control border-input-style p-0"
+                          name="streetAddress1"
+                          placeholder="Address"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="address"
+                          >
+                            Address
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            id="address"
+                            inputElement={
+                              Object {
+                                "autocomplete": "off",
+                              }
+                            }
+                            name="streetAddress1"
+                            placeholderText="Address"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "form-group font-size-14 mb-4",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="address"
+                          >
+                            Address
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Address",
+                            "className": "no-label",
+                            "htmlFor": "address",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Address",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "id": "address",
+                            "inputElement": Object {
+                              "autocomplete": "off",
+                            },
+                            "name": "streetAddress1",
+                            "placeholderText": "Address",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              autocomplete="off"
+                              class="form-control border-input-style p-0"
+                              name="streetAddress1"
+                              placeholder="Address"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "autocomplete": "off",
+                              "className": "form-control border-input-style p-0",
+                              "name": "streetAddress1",
+                              "onChange": [Function],
+                              "onFocus": undefined,
+                              "placeholder": "Address",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="form-group font-size-14 mb-4"
+                      >
+                        <label
+                          class="no-label"
+                          for="streetAddress2"
+                        >
+                          Apt no or company name
+                        </label>
+                        <input
+                          autocomplete="off"
+                          class="form-control border-input-style p-0"
+                          name="streetAddress2"
+                          placeholder="Apt no or company name"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="streetAddress2"
+                          >
+                            Apt no or company name
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            id="streetAddress2"
+                            inputElement={
+                              Object {
+                                "autocomplete": "off",
+                              }
+                            }
+                            name="streetAddress2"
+                            placeholderText="Apt no or company name"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "form-group font-size-14 mb-4",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="streetAddress2"
+                          >
+                            Apt no or company name
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Apt no or company name",
+                            "className": "no-label",
+                            "htmlFor": "streetAddress2",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Apt no or company name",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "id": "streetAddress2",
+                            "inputElement": Object {
+                              "autocomplete": "off",
+                            },
+                            "name": "streetAddress2",
+                            "placeholderText": "Apt no or company name",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              autocomplete="off"
+                              class="form-control border-input-style p-0"
+                              name="streetAddress2"
+                              placeholder="Apt no or company name"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "autocomplete": "off",
+                              "className": "form-control border-input-style p-0",
+                              "name": "streetAddress2",
+                              "onChange": [Function],
+                              "onFocus": undefined,
+                              "placeholder": "Apt no or company name",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+                      >
+                        <label
+                          class="no-label"
+                          for="contactName"
+                        >
+                          Contact name
+                        </label>
+                        <input
+                          autocomplete="off"
+                          class="form-control border-input-style p-0"
+                          name="contactName"
+                          placeholder="Contact name"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="contactName"
+                          >
+                            Contact name
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            id="contactName"
+                            inputElement={
+                              Object {
+                                "autocomplete": "off",
+                              }
+                            }
+                            name="contactName"
+                            placeholderText="Contact name"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="contactName"
+                          >
+                            Contact name
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Contact name",
+                            "className": "no-label",
+                            "htmlFor": "contactName",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Contact name",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "id": "contactName",
+                            "inputElement": Object {
+                              "autocomplete": "off",
+                            },
+                            "name": "contactName",
+                            "placeholderText": "Contact name",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              autocomplete="off"
+                              class="form-control border-input-style p-0"
+                              name="contactName"
+                              placeholder="Contact name"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "autocomplete": "off",
+                              "className": "form-control border-input-style p-0",
+                              "name": "contactName",
+                              "onChange": [Function],
+                              "onFocus": undefined,
+                              "placeholder": "Contact name",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+                      >
+                        <label
+                          class="no-label"
+                          for="phoneNumber"
+                        >
+                          Phone number
+                        </label>
+                        <input
+                          autocomplete="off"
+                          class="form-control border-input-style p-0"
+                          name="phoneNumber"
+                          placeholder="Phone number"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="phoneNumber"
+                          >
+                            Phone number
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            id="phoneNumber"
+                            inputElement={
+                              Object {
+                                "autocomplete": "off",
+                              }
+                            }
+                            name="phoneNumber"
+                            placeholderText="Phone number"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="phoneNumber"
+                          >
+                            Phone number
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Phone number",
+                            "className": "no-label",
+                            "htmlFor": "phoneNumber",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Phone number",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "id": "phoneNumber",
+                            "inputElement": Object {
+                              "autocomplete": "off",
+                            },
+                            "name": "phoneNumber",
+                            "placeholderText": "Phone number",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              autocomplete="off"
+                              class="form-control border-input-style p-0"
+                              name="phoneNumber"
+                              placeholder="Phone number"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "autocomplete": "off",
+                              "className": "form-control border-input-style p-0",
+                              "name": "phoneNumber",
+                              "onChange": [Function],
+                              "onFocus": undefined,
+                              "placeholder": "Phone number",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": [Function],
+                },
+                Object {
+                  "instance": <div
+                    class="form-group mb-4"
+                  >
+                    <textarea
+                      class="form-control instruction"
+                      name="instruction"
+                      placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                    />
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <textarea
+                      className="form-control instruction"
+                      name="instruction"
+                      placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                    />,
+                    "className": "form-group mb-4",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <textarea
+                        class="form-control instruction"
+                        name="instruction"
+                        placeholder="Add delivery
+ instructions. (e.g. “Use the call box when you arrive)."
+                      />,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "form-control instruction",
+                        "name": "instruction",
+                        "placeholder": "Add delivery
+ instructions. (e.g. “Use the call box when you arrive).",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                      ],
+                      "type": "textarea",
+                    },
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": <div>
+                    <button
+                      class="small-button"
+                      type="button"
+                    >
+                      Save
+                    </button>
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <Button
+                      classNames="small-button"
+                      handleClick={[Function]}
+                      text="Save"
+                      type="button"
+                    />,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "classNames": "small-button",
+                        "handleClick": [Function],
+                        "text": "Save",
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <button
+                          class="small-button"
+                          type="button"
+                        >
+                          Save
+                        </button>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Save",
+                          "className": "small-button",
+                          "onClick": [Function],
+                          "type": "button",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Save",
+                        ],
+                        "type": "button",
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "form",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

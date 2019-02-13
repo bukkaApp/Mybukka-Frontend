@@ -13,7 +13,7 @@ const AuthForm =
         {propData.placeholderText}
       </label>
       <Input
-        inputElement={{ autocomplete: 'off' }}
+        inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
         handleChange={handleChange}

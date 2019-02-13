@@ -8,7 +8,7 @@ const Edit = ({ handleClick }) => (
     text="Edit"
     type="button"
     handleClick={handleClick}
-    classNames="uppercase bold font-size-11
+    classNames="uppercase bold font-size-12
     btn btn-link p-0 pr-2 text-success"
   />
 );
@@ -19,7 +19,7 @@ const Remove = ({ handleClick }) => (
     type="button"
     handleClick={handleClick}
     classNames="uppercase bold
-    font-size-11 text-muted btn btn-link p-0 pl-2 pr-2"
+    font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
   />
 );
 
@@ -56,8 +56,7 @@ const AddedItem = () => {
   });
 
   return (
-    <div className="container">
-
+    <div className="px-lg-2">
       <div className="d-flex justify-content-between border-bottom pb-4 mb-2">
         <h5 className="font-size-14">{"Mel's Drive-In"}</h5>
         <h5 className="font-size-12">

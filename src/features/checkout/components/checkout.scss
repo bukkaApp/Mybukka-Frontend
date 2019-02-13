@@ -1,8 +1,50 @@
-$bg-color: rgb(0, 204, 153);
+$bg-color: #9c1c26;
+
+.relative {
+    position: relative;
+}
 
 .card-shadow {
     box-shadow: rgba(0, 0, 0, 0.13) 0px 8px 15px 0px;
 }
+
+.font-size-24 {
+    font-size: 24px
+}
+
+.demarcation {
+    margin-bottom: 39px;
+    width: 100%;
+    height: 16px;
+    background-color: #f7f7f8;
+    @media screen and (min-width: 992px) {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .px-xl-10 {
+        padding-left: 80px!important;
+        padding-right: 80px!important;
+    }
+}
+
+@media (max-width: 992px) { 
+    .border {
+        border: none!important;
+    }
+    .card-shadow {
+        box-shadow: none;
+    }
+    .small-button {
+        width: 100%!important;
+        margin-right: 0!important;
+    }
+    .big-button {
+        width: 80%!important;
+        margin-right: 0!important;
+    }
+ }
 
 @mixin customBtn {
     cursor: pointer;
@@ -34,6 +76,12 @@ $bg-color: rgb(0, 204, 153);
 .big-button {
     @include customBtn;
     width: 160px;
+    height: 42px;
+}
+
+.small-button {
+    @include customBtn;
+    width: 100px;
     height: 42px;
 }
 

@@ -45,7 +45,7 @@
             "id": "number",
             "emptyFieldError": "Required",
             "validityError": "Card number is invalid",
-            "containerClassNames": "d-flex flex-column col-md-5"
+            "containerClassNames": "d-flex flex-column col-5 col-md-5"
         },
         {
             "name": "expDate",
@@ -54,7 +54,7 @@
             "placeholderText": "MM/YY",
             "id": "expDate",
             "emptyFieldError": "Required",
-            "containerClassNames": "d-flex flex-column col-md-2"
+            "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2"
         },
         {
             "name": "cvv",
@@ -63,7 +63,7 @@
             "placeholderText": "CVV",
             "id": "cvv",
             "emptyFieldError": "Required",
-            "containerClassNames": "d-flex flex-column col-md-2"
+            "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2"
         },
         {
             "name": "zipCode",
@@ -71,7 +71,7 @@
             "type": "text",
             "placeholderText": "Zip code",
             "id": "zipCode",
-            "containerClassNames": "d-flex flex-column col-md-3"
+            "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3"
         }
     ],
     "deliveryAddress": [
@@ -107,7 +107,7 @@
             "placeholderText": "Contact name",
             "id": "contactName",
             "emptyFieldError": "Required",
-            "containerClassNames": "d-inline-flex flex-column col-md-6 pl-0 mb-4"
+            "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
         },
         {
             "name": "phoneNumber",
@@ -115,7 +115,7 @@
             "type": "text",
             "placeholderText": "Phone number",
             "id": "phoneNumber",
-            "containerClassNames": "d-inline-flex flex-column col-md-6 pr-0 mb-4"
+            "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
         }
     ]
 }
