@@ -1,11 +1,14 @@
 import React, { Fragment, useState, useEffect } from 'react';
+
+import TextArea from 'Components/input/TextArea';
+import PropTypes, { any } from 'prop-types';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import Button from 'Components/button/Button';
-import PropTypes, { any } from 'prop-types';
 import inputField from '../InputAttribute/inputData.json';
 import
 { validateAField, validateAllFields }
   from '../validation/validateField';
+
 import './payment.scss';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
@@ -22,11 +25,10 @@ const DeliveryForm =
       autoComplete={autoComplete}
     />
     <div className="form-group mb-4">
-      <textarea
-        placeholder="Add delivery
-              instructions. (e.g. “Use the call box when you arrive)."
-        name="instruction"
-        className="form-control instruction"
+      <TextArea
+        placeholderText="Add delivery instructuctions..."
+        name="deliveryInstruction"
+        classNames="instruction"
       />
     </div>
     <div>

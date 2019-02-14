@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Input from 'Components/input/InputField';
+import PropTypes from 'prop-types';
 import './button.scss';
 
-const RadioInput = () => {
+const RadioInput = ({ name, labelText }) => {
   const [isChecked, setChecked] = useState(false);
   const handleClick = (e) => {
     e.stopPropagation();
     setChecked(!isChecked);
   };
+
   return (
     <div
       className="onfocus py-2"
@@ -17,10 +19,10 @@ const RadioInput = () => {
       onClick={handleClick}
     >
       <label
-        className="radio-container text-center"
+        className="radio-container"
         htmlFor="makeAsDefault"
       >
-        Make default payment method
+        <span>{labelText}</span>
         <Input
           type="radio"
           handleChange={() => {}}
@@ -28,13 +30,15 @@ const RadioInput = () => {
           handleFocus={() => {}}
           inputElement={{
             checked: isChecked,
-            id: 'gridCheck'
+            id: 'gridCheck',
+            value: labelText
           }}
-          classNames="check"
-          id="makeAsDefault"
+          placeholderText=""
+          name={name}
+          classNames=""
         />
         <span
-          className="checkmark"
+          className="checkmark mt-1"
         />
       </label>
     </div>
@@ -42,3 +46,8 @@ const RadioInput = () => {
 };
 
 export default RadioInput;
+
+RadioInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired
+};

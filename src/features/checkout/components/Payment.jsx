@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'Components/button/Button';
-import
-{ validateAField, validateAllFields }
-  from '../validation/validateField';
-import CheckBox from '../common/checkbox';
+
+import { validateAField, validateAllFields } from '../validation/validateField';
+import InputField from 'Components/input/InputField';
 import inputFeild from '../InputAttribute/inputData.json';
 import './payment.scss';
 import AuthForm from '../common/AuthForm';
@@ -29,20 +28,20 @@ const Payment = () => {
     const validation = validateAField(newFieldData, name);
     setInputData({
       ...inputData,
-      ...newFieldData,
+      ...newFieldData
     });
     setValidationErrors({
       ...validationErrors,
-      [name]: validation.message,
+      [name]: validation.message
     });
   };
 
-  const handleSaveButton = (e) => {
+  const handleSaveButton = e => {
     e.preventDefault();
     const validation = validateAllFields(inputData);
     setValidationErrors({
       ...validationErrors,
-      ...validation,
+      ...validation
     });
   };
 
@@ -60,7 +59,15 @@ const Payment = () => {
         </div>
 
         <div className="form-group checkbox-form-group">
-          <CheckBox />
+          <InputField
+            type="checkbox"
+            classNames="checkbox"
+            placeholder=""
+            name="makeDefaultPaymentOption"
+            handleChange={() => {}}
+            handleFocus={() => {}}
+          />
+          <span className="make-default-text">Make default payment method</span>
         </div>
 
         <div>
@@ -73,7 +80,6 @@ const Payment = () => {
         </div>
       </form>
       <Demarcation />
-
     </section>
   );
 };

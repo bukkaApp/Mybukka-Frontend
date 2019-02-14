@@ -132,11 +132,14 @@ ReactWrapper {
             >
               <label
                 class="checkbox-container"
-                for="makeAsDefault"
+                for="makePayment"
               >
                 Make default payment method
                 <input
-                  class="check"
+                  class=""
+                  id="makePayment"
+                  name="name"
+                  placeholder=""
                   type="checkbox"
                 />
                 <span
@@ -373,11 +376,14 @@ ReactWrapper {
               >
                 <label
                   class="checkbox-container"
-                  for="makeAsDefault"
+                  for="makePayment"
                 >
                   Make default payment method
                   <input
-                    class="check"
+                    class=""
+                    id="makePayment"
+                    name="name"
+                    placeholder=""
                     type="checkbox"
                   />
                   <span
@@ -731,7 +737,7 @@ ReactWrapper {
                             id="number"
                             inputElement={
                               Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               }
                             }
                             name="number"
@@ -778,7 +784,7 @@ ReactWrapper {
                             "handleChange": [Function],
                             "id": "number",
                             "inputElement": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                             },
                             "name": "number",
                             "placeholderText": "Card number",
@@ -796,7 +802,7 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "number",
                               "onChange": [Function],
@@ -868,7 +874,7 @@ ReactWrapper {
                             id="expDate"
                             inputElement={
                               Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               }
                             }
                             name="expDate"
@@ -915,7 +921,7 @@ ReactWrapper {
                             "handleChange": [Function],
                             "id": "expDate",
                             "inputElement": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                             },
                             "name": "expDate",
                             "placeholderText": "MM/YY",
@@ -933,7 +939,7 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "expDate",
                               "onChange": [Function],
@@ -1005,7 +1011,7 @@ ReactWrapper {
                             id="cvv"
                             inputElement={
                               Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               }
                             }
                             name="cvv"
@@ -1052,7 +1058,7 @@ ReactWrapper {
                             "handleChange": [Function],
                             "id": "cvv",
                             "inputElement": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                             },
                             "name": "cvv",
                             "placeholderText": "CVV",
@@ -1070,7 +1076,7 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "cvv",
                               "onChange": [Function],
@@ -1142,7 +1148,7 @@ ReactWrapper {
                             id="zipCode"
                             inputElement={
                               Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               }
                             }
                             name="zipCode"
@@ -1189,7 +1195,7 @@ ReactWrapper {
                             "handleChange": [Function],
                             "id": "zipCode",
                             "inputElement": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                             },
                             "name": "zipCode",
                             "placeholderText": "Zip code",
@@ -1207,7 +1213,7 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autocomplete": "off",
+                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "zipCode",
                               "onChange": [Function],
@@ -1260,11 +1266,14 @@ ReactWrapper {
                 >
                   <label
                     class="checkbox-container"
-                    for="makeAsDefault"
+                    for="makePayment"
                   >
                     Make default payment method
                     <input
-                      class="check"
+                      class=""
+                      id="makePayment"
+                      name="name"
+                      placeholder=""
                       type="checkbox"
                     />
                     <span
@@ -1296,11 +1305,14 @@ ReactWrapper {
                     >
                       <label
                         class="checkbox-container"
-                        for="makeAsDefault"
+                        for="makePayment"
                       >
                         Make default payment method
                         <input
-                          class="check"
+                          class=""
+                          id="makePayment"
+                          name="name"
+                          placeholder=""
                           type="checkbox"
                         />
                         <span
@@ -1314,20 +1326,22 @@ ReactWrapper {
                       "aria-pressed": "false",
                       "children": <label
                         className="checkbox-container"
-                        htmlFor="makeAsDefault"
+                        htmlFor="makePayment"
                       >
                         Make default payment method
                         <InputField
-                          classNames="check"
+                          classNames=""
                           handleChange={[Function]}
                           handleClick={[Function]}
                           handleFocus={[Function]}
-                          id="makeAsDefault"
                           inputElement={
                             Object {
                               "checked": false,
+                              "id": "makePayment",
                             }
                           }
+                          name="name"
+                          placeholderText=""
                           type="checkbox"
                         />
                         <span
@@ -1344,11 +1358,14 @@ ReactWrapper {
                       Object {
                         "instance": <label
                           class="checkbox-container"
-                          for="makeAsDefault"
+                          for="makePayment"
                         >
                           Make default payment method
                           <input
-                            class="check"
+                            class=""
+                            id="makePayment"
+                            name="name"
+                            placeholder=""
                             type="checkbox"
                           />
                           <span
@@ -1361,16 +1378,18 @@ ReactWrapper {
                           "children": Array [
                             "Make default payment method",
                             <InputField
-                              classNames="check"
+                              classNames=""
                               handleChange={[Function]}
                               handleClick={[Function]}
                               handleFocus={[Function]}
-                              id="makeAsDefault"
                               inputElement={
                                 Object {
                                   "checked": false,
+                                  "id": "makePayment",
                                 }
                               }
+                              name="name"
+                              placeholderText=""
                               type="checkbox"
                             />,
                             <span
@@ -1378,7 +1397,7 @@ ReactWrapper {
                             />,
                           ],
                           "className": "checkbox-container",
-                          "htmlFor": "makeAsDefault",
+                          "htmlFor": "makePayment",
                         },
                         "ref": null,
                         "rendered": Array [
@@ -1388,31 +1407,37 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "function",
                             "props": Object {
-                              "classNames": "check",
+                              "classNames": "",
                               "handleChange": [Function],
                               "handleClick": [Function],
                               "handleFocus": [Function],
-                              "id": "makeAsDefault",
                               "inputElement": Object {
                                 "checked": false,
+                                "id": "makePayment",
                               },
+                              "name": "name",
+                              "placeholderText": "",
                               "type": "checkbox",
                             },
                             "ref": null,
                             "rendered": Object {
                               "instance": <input
-                                class="check"
+                                class=""
+                                id="makePayment"
+                                name="name"
+                                placeholder=""
                                 type="checkbox"
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "checked": false,
-                                "className": "check",
-                                "name": undefined,
+                                "className": "",
+                                "id": "makePayment",
+                                "name": "name",
                                 "onChange": [Function],
                                 "onFocus": [Function],
-                                "placeholder": undefined,
+                                "placeholder": "",
                                 "type": "checkbox",
                               },
                               "ref": null,
@@ -1656,11 +1681,14 @@ ReactWrapper {
               >
                 <label
                   class="checkbox-container"
-                  for="makeAsDefault"
+                  for="makePayment"
                 >
                   Make default payment method
                   <input
-                    class="check"
+                    class=""
+                    id="makePayment"
+                    name="name"
+                    placeholder=""
                     type="checkbox"
                   />
                   <span
@@ -1897,11 +1925,14 @@ ReactWrapper {
                 >
                   <label
                     class="checkbox-container"
-                    for="makeAsDefault"
+                    for="makePayment"
                   >
                     Make default payment method
                     <input
-                      class="check"
+                      class=""
+                      id="makePayment"
+                      name="name"
+                      placeholder=""
                       type="checkbox"
                     />
                     <span
@@ -2255,7 +2286,7 @@ ReactWrapper {
                               id="number"
                               inputElement={
                                 Object {
-                                  "autocomplete": "off",
+                                  "autoComplete": "off",
                                 }
                               }
                               name="number"
@@ -2302,7 +2333,7 @@ ReactWrapper {
                               "handleChange": [Function],
                               "id": "number",
                               "inputElement": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               },
                               "name": "number",
                               "placeholderText": "Card number",
@@ -2320,7 +2351,7 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "number",
                                 "onChange": [Function],
@@ -2392,7 +2423,7 @@ ReactWrapper {
                               id="expDate"
                               inputElement={
                                 Object {
-                                  "autocomplete": "off",
+                                  "autoComplete": "off",
                                 }
                               }
                               name="expDate"
@@ -2439,7 +2470,7 @@ ReactWrapper {
                               "handleChange": [Function],
                               "id": "expDate",
                               "inputElement": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               },
                               "name": "expDate",
                               "placeholderText": "MM/YY",
@@ -2457,7 +2488,7 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "expDate",
                                 "onChange": [Function],
@@ -2529,7 +2560,7 @@ ReactWrapper {
                               id="cvv"
                               inputElement={
                                 Object {
-                                  "autocomplete": "off",
+                                  "autoComplete": "off",
                                 }
                               }
                               name="cvv"
@@ -2576,7 +2607,7 @@ ReactWrapper {
                               "handleChange": [Function],
                               "id": "cvv",
                               "inputElement": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               },
                               "name": "cvv",
                               "placeholderText": "CVV",
@@ -2594,7 +2625,7 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "cvv",
                                 "onChange": [Function],
@@ -2666,7 +2697,7 @@ ReactWrapper {
                               id="zipCode"
                               inputElement={
                                 Object {
-                                  "autocomplete": "off",
+                                  "autoComplete": "off",
                                 }
                               }
                               name="zipCode"
@@ -2713,7 +2744,7 @@ ReactWrapper {
                               "handleChange": [Function],
                               "id": "zipCode",
                               "inputElement": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                               },
                               "name": "zipCode",
                               "placeholderText": "Zip code",
@@ -2731,7 +2762,7 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autocomplete": "off",
+                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "zipCode",
                                 "onChange": [Function],
@@ -2784,11 +2815,14 @@ ReactWrapper {
                   >
                     <label
                       class="checkbox-container"
-                      for="makeAsDefault"
+                      for="makePayment"
                     >
                       Make default payment method
                       <input
-                        class="check"
+                        class=""
+                        id="makePayment"
+                        name="name"
+                        placeholder=""
                         type="checkbox"
                       />
                       <span
@@ -2820,11 +2854,14 @@ ReactWrapper {
                       >
                         <label
                           class="checkbox-container"
-                          for="makeAsDefault"
+                          for="makePayment"
                         >
                           Make default payment method
                           <input
-                            class="check"
+                            class=""
+                            id="makePayment"
+                            name="name"
+                            placeholder=""
                             type="checkbox"
                           />
                           <span
@@ -2838,20 +2875,22 @@ ReactWrapper {
                         "aria-pressed": "false",
                         "children": <label
                           className="checkbox-container"
-                          htmlFor="makeAsDefault"
+                          htmlFor="makePayment"
                         >
                           Make default payment method
                           <InputField
-                            classNames="check"
+                            classNames=""
                             handleChange={[Function]}
                             handleClick={[Function]}
                             handleFocus={[Function]}
-                            id="makeAsDefault"
                             inputElement={
                               Object {
                                 "checked": false,
+                                "id": "makePayment",
                               }
                             }
+                            name="name"
+                            placeholderText=""
                             type="checkbox"
                           />
                           <span
@@ -2868,11 +2907,14 @@ ReactWrapper {
                         Object {
                           "instance": <label
                             class="checkbox-container"
-                            for="makeAsDefault"
+                            for="makePayment"
                           >
                             Make default payment method
                             <input
-                              class="check"
+                              class=""
+                              id="makePayment"
+                              name="name"
+                              placeholder=""
                               type="checkbox"
                             />
                             <span
@@ -2885,16 +2927,18 @@ ReactWrapper {
                             "children": Array [
                               "Make default payment method",
                               <InputField
-                                classNames="check"
+                                classNames=""
                                 handleChange={[Function]}
                                 handleClick={[Function]}
                                 handleFocus={[Function]}
-                                id="makeAsDefault"
                                 inputElement={
                                   Object {
                                     "checked": false,
+                                    "id": "makePayment",
                                   }
                                 }
+                                name="name"
+                                placeholderText=""
                                 type="checkbox"
                               />,
                               <span
@@ -2902,7 +2946,7 @@ ReactWrapper {
                               />,
                             ],
                             "className": "checkbox-container",
-                            "htmlFor": "makeAsDefault",
+                            "htmlFor": "makePayment",
                           },
                           "ref": null,
                           "rendered": Array [
@@ -2912,31 +2956,37 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "function",
                               "props": Object {
-                                "classNames": "check",
+                                "classNames": "",
                                 "handleChange": [Function],
                                 "handleClick": [Function],
                                 "handleFocus": [Function],
-                                "id": "makeAsDefault",
                                 "inputElement": Object {
                                   "checked": false,
+                                  "id": "makePayment",
                                 },
+                                "name": "name",
+                                "placeholderText": "",
                                 "type": "checkbox",
                               },
                               "ref": null,
                               "rendered": Object {
                                 "instance": <input
-                                  class="check"
+                                  class=""
+                                  id="makePayment"
+                                  name="name"
+                                  placeholder=""
                                   type="checkbox"
                                 />,
                                 "key": undefined,
                                 "nodeType": "host",
                                 "props": Object {
                                   "checked": false,
-                                  "className": "check",
-                                  "name": undefined,
+                                  "className": "",
+                                  "id": "makePayment",
+                                  "name": "name",
                                   "onChange": [Function],
                                   "onFocus": [Function],
-                                  "placeholder": undefined,
+                                  "placeholder": "",
                                   "type": "checkbox",
                                 },
                                 "ref": null,

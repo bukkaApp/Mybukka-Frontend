@@ -77,9 +77,11 @@
   padding-left: 35px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 22px;
-  text-align: center;
   user-select: none;
+  font-size: 14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: 32px;
 }
 
 /* Hide the browser's default radio button */
@@ -109,7 +111,7 @@
 
 /* When the radio button is checked, add a blue background */
 .radio-container input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #9c1c26;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */

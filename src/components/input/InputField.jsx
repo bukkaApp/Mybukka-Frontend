@@ -37,7 +37,7 @@ InputField.propTypes = {
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   inputElement: PropTypes.objectOf(any),
-  placeholderText: PropTypes.string.isRequired,
+  placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired
 };
