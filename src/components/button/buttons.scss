@@ -4,7 +4,7 @@ $roundedBorders: 28px;
 $primaryColor: #9c1c26;
 
 @mixin button($width, $height, $bgcolor, $color, $fontSize) {
-  width: $width;
+  min-width: $width;
   height: $height;
   cursor: pointer;
   border-radius: $roundedBorders;
@@ -26,7 +26,7 @@ $primaryColor: #9c1c26;
 }
 
 .small-button {
-  @include button(80px, 32px, #222, #F5E7D8, 12px);
+  @include button(80px, 32px, #222, #f5e7d8, 12px);
   border: 1px solid #222;
 }
 
@@ -38,4 +38,29 @@ $primaryColor: #9c1c26;
 .small-outline-button:hover {
   @include button(80px, 32px, rgba(32, 47, 50, 0.04), #222, 12px);
   border: 1px solid rgba(32, 47, 50, 0.15);
+}
+
+.default-btn {
+  outline: none !important;
+  border: none;
+  padding: none;
+  width: 30px;
+}
+
+.merge-group {
+  border: 1px solid #eceff1;
+  border-radius: 28px;
+  height: 60px;
+  padding-left: 11px;
+  padding-right: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+@media (max-width: 767.98px) {
+  .merge-group {
+    border: 1px solid #eceff1;
+    border-radius: 28px;
+    height: 60px;
+  }
 }

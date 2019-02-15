@@ -1,0 +1,37 @@
+.text-length-section {
+  text-align: right;
+  padding-right: 50px;
+  padding-top: 7px;
+  height: 60px;
+}
+
+.text-length-indicator {
+  font-size: 13px;
+  color: rgb(143, 149, 163);
+}
+
+.quantity-toggler-md {
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-bottom: 40px;
+
+  .btn-group {
+    width: 80%;
+  }
+
+  .mr-2 {
+    margin-right: 0px !important;
+  }
+
+  .default-btn {
+    width: 100%;
+    background: #fff;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .special-instructions-section {
+    padding-left: 10px;
+  }
+}

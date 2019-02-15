@@ -1,0 +1,14 @@
+.bukka-image-section {
+  height: 260px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768.98px) {
+  .bukka-image-section {
+    height: 180px;
+  }
+}

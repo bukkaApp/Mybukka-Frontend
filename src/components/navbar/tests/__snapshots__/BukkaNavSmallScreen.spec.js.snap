@@ -1,0 +1,671 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bukka Nav Small Screen renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <BukkaNavSmallScreen
+    currentCategory="fish"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "currentCategory": "fish",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="bukka-nav-small"
+      >
+        <nav
+          class="navbar navbar-light bukka-nav-small-content"
+        >
+          <div
+            class="current-category"
+          >
+            <h5
+              class="current-category-text"
+            >
+              fish
+            </h5>
+          </div>
+          <svg
+            height="13"
+            viewBox="0 0 30 13"
+            width="30"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                stroke="currentColor"
+                stroke-linecap="square"
+                stroke-width="1.5"
+              />
+              <path
+                d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                fill="currentColor"
+                fill-rule="nonzero"
+              />
+            </g>
+          </svg>
+        </nav>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <nav
+          className="navbar navbar-light bukka-nav-small-content"
+        >
+          <div
+            className="current-category"
+          >
+            <h5
+              className="current-category-text"
+            >
+              fish
+            </h5>
+          </div>
+          <SearchPlusMenu />
+        </nav>,
+        "className": "bukka-nav-small",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <nav
+            class="navbar navbar-light bukka-nav-small-content"
+          >
+            <div
+              class="current-category"
+            >
+              <h5
+                class="current-category-text"
+              >
+                fish
+              </h5>
+            </div>
+            <svg
+              height="13"
+              viewBox="0 0 30 13"
+              width="30"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                  stroke="currentColor"
+                  stroke-linecap="square"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                />
+              </g>
+            </svg>
+          </nav>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="current-category"
+              >
+                <h5
+                  className="current-category-text"
+                >
+                  fish
+                </h5>
+              </div>,
+              <SearchPlusMenu />,
+            ],
+            "className": "navbar navbar-light bukka-nav-small-content",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <div
+                class="current-category"
+              >
+                <h5
+                  class="current-category-text"
+                >
+                  fish
+                </h5>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <h5
+                  className="current-category-text"
+                >
+                  fish
+                </h5>,
+                "className": "current-category",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <h5
+                    class="current-category-text"
+                  >
+                    fish
+                  </h5>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "fish",
+                    "className": "current-category-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "fish",
+                  ],
+                  "type": "h5",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": Object {
+                "instance": <svg
+                  height="13"
+                  viewBox="0 0 30 13"
+                  width="30"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <g
+                    fill="none"
+                    fillRule="evenodd"
+                  >
+                    <path
+                      d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                      stroke="currentColor"
+                      strokeLinecap="square"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                      fill="currentColor"
+                      fillRule="nonzero"
+                    />
+                  </g>,
+                  "height": "13",
+                  "viewBox": "0 0 30 13",
+                  "width": "30",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                        stroke="currentColor"
+                        stroke-linecap="square"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                        fill="currentColor"
+                        fill-rule="nonzero"
+                      />
+                    </g>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <path
+                          d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                          stroke="currentColor"
+                          strokeLinecap="square"
+                          strokeWidth="1.5"
+                        />,
+                        <path
+                          d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                          fill="currentColor"
+                          fillRule="nonzero"
+                        />,
+                      ],
+                      "fill": "none",
+                      "fillRule": "evenodd",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <path
+                          d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="1.5"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "d": "M13.5 1.5h15m-13 5h13m-11 5h11",
+                          "stroke": "currentColor",
+                          "strokeLinecap": "square",
+                          "strokeWidth": "1.5",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          undefined,
+                        ],
+                        "type": "path",
+                      },
+                      Object {
+                        "instance": <path
+                          d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                          fill="currentColor"
+                          fill-rule="nonzero"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "d": "M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z",
+                          "fill": "currentColor",
+                          "fillRule": "nonzero",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          undefined,
+                        ],
+                        "type": "path",
+                      },
+                    ],
+                    "type": "g",
+                  },
+                ],
+                "type": "svg",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "nav",
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "currentCategory": "fish",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="bukka-nav-small"
+        >
+          <nav
+            class="navbar navbar-light bukka-nav-small-content"
+          >
+            <div
+              class="current-category"
+            >
+              <h5
+                class="current-category-text"
+              >
+                fish
+              </h5>
+            </div>
+            <svg
+              height="13"
+              viewBox="0 0 30 13"
+              width="30"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                  stroke="currentColor"
+                  stroke-linecap="square"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                  fill="currentColor"
+                  fill-rule="nonzero"
+                />
+              </g>
+            </svg>
+          </nav>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <nav
+            className="navbar navbar-light bukka-nav-small-content"
+          >
+            <div
+              className="current-category"
+            >
+              <h5
+                className="current-category-text"
+              >
+                fish
+              </h5>
+            </div>
+            <SearchPlusMenu />
+          </nav>,
+          "className": "bukka-nav-small",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <nav
+              class="navbar navbar-light bukka-nav-small-content"
+            >
+              <div
+                class="current-category"
+              >
+                <h5
+                  class="current-category-text"
+                >
+                  fish
+                </h5>
+              </div>
+              <svg
+                height="13"
+                viewBox="0 0 30 13"
+                width="30"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                    stroke="currentColor"
+                    stroke-linecap="square"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                    fill="currentColor"
+                    fill-rule="nonzero"
+                  />
+                </g>
+              </svg>
+            </nav>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <div
+                  className="current-category"
+                >
+                  <h5
+                    className="current-category-text"
+                  >
+                    fish
+                  </h5>
+                </div>,
+                <SearchPlusMenu />,
+              ],
+              "className": "navbar navbar-light bukka-nav-small-content",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <div
+                  class="current-category"
+                >
+                  <h5
+                    class="current-category-text"
+                  >
+                    fish
+                  </h5>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <h5
+                    className="current-category-text"
+                  >
+                    fish
+                  </h5>,
+                  "className": "current-category",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <h5
+                      class="current-category-text"
+                    >
+                      fish
+                    </h5>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "fish",
+                      "className": "current-category-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "fish",
+                    ],
+                    "type": "h5",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {},
+                "ref": null,
+                "rendered": Object {
+                  "instance": <svg
+                    height="13"
+                    viewBox="0 0 30 13"
+                    width="30"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                        stroke="currentColor"
+                        stroke-linecap="square"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                        fill="currentColor"
+                        fill-rule="nonzero"
+                      />
+                    </g>
+                  </svg>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <g
+                      fill="none"
+                      fillRule="evenodd"
+                    >
+                      <path
+                        d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                        stroke="currentColor"
+                        strokeLinecap="square"
+                        strokeWidth="1.5"
+                      />
+                      <path
+                        d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                        fill="currentColor"
+                        fillRule="nonzero"
+                      />
+                    </g>,
+                    "height": "13",
+                    "viewBox": "0 0 30 13",
+                    "width": "30",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <g
+                        fill="none"
+                        fill-rule="evenodd"
+                      >
+                        <path
+                          d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                          stroke="currentColor"
+                          stroke-linecap="square"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                          fill="currentColor"
+                          fill-rule="nonzero"
+                        />
+                      </g>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <path
+                            d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                            stroke="currentColor"
+                            strokeLinecap="square"
+                            strokeWidth="1.5"
+                          />,
+                          <path
+                            d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                            fill="currentColor"
+                            fillRule="nonzero"
+                          />,
+                        ],
+                        "fill": "none",
+                        "fillRule": "evenodd",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <path
+                            d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                            stroke="currentColor"
+                            stroke-linecap="square"
+                            stroke-width="1.5"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "d": "M13.5 1.5h15m-13 5h13m-11 5h11",
+                            "stroke": "currentColor",
+                            "strokeLinecap": "square",
+                            "strokeWidth": "1.5",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "path",
+                        },
+                        Object {
+                          "instance": <path
+                            d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                            fill="currentColor"
+                            fill-rule="nonzero"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "d": "M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z",
+                            "fill": "currentColor",
+                            "fillRule": "nonzero",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "path",
+                        },
+                      ],
+                      "type": "g",
+                    },
+                  ],
+                  "type": "svg",
+                },
+                "type": [Function],
+              },
+            ],
+            "type": "nav",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

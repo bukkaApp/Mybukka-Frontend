@@ -1,0 +1,1869 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bukka Info Section renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <BukkaInfoDropdownSection />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <OperationHoursHeader
+            operationHoursHeaderDetails={
+              Array [
+                Object {
+                  "columnClassName": "col-6",
+                  "id": "1",
+                  "text": "Open Hours",
+                  "textClassName": "open-hour-text",
+                },
+                Object {
+                  "columnClassName": "col-6",
+                  "id": "2",
+                  "text": "delivery up to 8: 30am",
+                  "textClassName": "delivery-deadline-text",
+                },
+              ]
+            }
+            rowClassName="operation-hours-header"
+          />,
+          <OperationHoursBody
+            operationHoursBodyDetails={
+              Array [
+                Object {
+                  "day": "Monday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "1",
+                },
+                Object {
+                  "day": "Tuesday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "2",
+                },
+                Object {
+                  "day": "Wednesday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "3",
+                },
+                Object {
+                  "day": "Thursday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "4",
+                },
+                Object {
+                  "day": "Friday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "5",
+                },
+                Object {
+                  "day": "Saturday",
+                  "hours": "Closed",
+                  "id": "6",
+                },
+                Object {
+                  "day": "Sunday",
+                  "hours": "Closed",
+                  "id": "7",
+                },
+              ]
+            }
+          />,
+        ],
+        "classNames": "operation-hours-section",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="container operation-hours-section"
+        >
+          <div
+            class="row operation-hours-header"
+          >
+            <div
+              class="col col-6"
+            >
+              <h4
+                class="open-hour-text"
+              >
+                Open Hours
+              </h4>
+            </div>
+            <div
+              class="col col-6"
+            >
+              <h4
+                class="delivery-deadline-text"
+              >
+                delivery up to 8: 30am
+              </h4>
+            </div>
+          </div>
+          <div
+            class="row operation-hour-details"
+          >
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+            <div
+              class="col "
+            >
+              <h4 />
+            </div>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <OperationHoursHeader
+              operationHoursHeaderDetails={
+                Array [
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "1",
+                    "text": "Open Hours",
+                    "textClassName": "open-hour-text",
+                  },
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "2",
+                    "text": "delivery up to 8: 30am",
+                    "textClassName": "delivery-deadline-text",
+                  },
+                ]
+              }
+              rowClassName="operation-hours-header"
+            />,
+            <OperationHoursBody
+              operationHoursBodyDetails={
+                Array [
+                  Object {
+                    "day": "Monday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "1",
+                  },
+                  Object {
+                    "day": "Tuesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "2",
+                  },
+                  Object {
+                    "day": "Wednesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "3",
+                  },
+                  Object {
+                    "day": "Thursday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "4",
+                  },
+                  Object {
+                    "day": "Friday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "5",
+                  },
+                  Object {
+                    "day": "Saturday",
+                    "hours": "Closed",
+                    "id": "6",
+                  },
+                  Object {
+                    "day": "Sunday",
+                    "hours": "Closed",
+                    "id": "7",
+                  },
+                ]
+              }
+            />,
+          ],
+          "className": "container operation-hours-section",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "operationHoursHeaderDetails": Array [
+                Object {
+                  "columnClassName": "col-6",
+                  "id": "1",
+                  "text": "Open Hours",
+                  "textClassName": "open-hour-text",
+                },
+                Object {
+                  "columnClassName": "col-6",
+                  "id": "2",
+                  "text": "delivery up to 8: 30am",
+                  "textClassName": "delivery-deadline-text",
+                },
+              ],
+              "rowClassName": "operation-hours-header",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <Column
+                    classNames="col-6"
+                  >
+                    <h4
+                      className="open-hour-text"
+                    >
+                      Open Hours
+                    </h4>
+                  </Column>,
+                  <Column
+                    classNames="col-6"
+                  >
+                    <h4
+                      className="delivery-deadline-text"
+                    >
+                      delivery up to 8: 30am
+                    </h4>
+                  </Column>,
+                ],
+                "classNames": "operation-hours-header",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": <div
+                  class="row operation-hours-header"
+                >
+                  <div
+                    class="col col-6"
+                  >
+                    <h4
+                      class="open-hour-text"
+                    >
+                      Open Hours
+                    </h4>
+                  </div>
+                  <div
+                    class="col col-6"
+                  >
+                    <h4
+                      class="delivery-deadline-text"
+                    >
+                      delivery up to 8: 30am
+                    </h4>
+                  </div>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <Column
+                      classNames="col-6"
+                    >
+                      <h4
+                        className="open-hour-text"
+                      >
+                        Open Hours
+                      </h4>
+                    </Column>,
+                    <Column
+                      classNames="col-6"
+                    >
+                      <h4
+                        className="delivery-deadline-text"
+                      >
+                        delivery up to 8: 30am
+                      </h4>
+                    </Column>,
+                  ],
+                  "className": "row operation-hours-header",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "1",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4
+                        className="open-hour-text"
+                      >
+                        Open Hours
+                      </h4>,
+                      "classNames": "col-6",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col col-6"
+                      >
+                        <h4
+                          class="open-hour-text"
+                        >
+                          Open Hours
+                        </h4>
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4
+                          className="open-hour-text"
+                        >
+                          Open Hours
+                        </h4>,
+                        "className": "col col-6",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4
+                            class="open-hour-text"
+                          >
+                            Open Hours
+                          </h4>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Open Hours",
+                            "className": "open-hour-text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Open Hours",
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "2",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4
+                        className="delivery-deadline-text"
+                      >
+                        delivery up to 8: 30am
+                      </h4>,
+                      "classNames": "col-6",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col col-6"
+                      >
+                        <h4
+                          class="delivery-deadline-text"
+                        >
+                          delivery up to 8: 30am
+                        </h4>
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4
+                          className="delivery-deadline-text"
+                        >
+                          delivery up to 8: 30am
+                        </h4>,
+                        "className": "col col-6",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4
+                            class="delivery-deadline-text"
+                          >
+                            delivery up to 8: 30am
+                          </h4>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "delivery up to 8: 30am",
+                            "className": "delivery-deadline-text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "delivery up to 8: 30am",
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "operationHoursBodyDetails": Array [
+                Object {
+                  "day": "Monday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "1",
+                },
+                Object {
+                  "day": "Tuesday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "2",
+                },
+                Object {
+                  "day": "Wednesday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "3",
+                },
+                Object {
+                  "day": "Thursday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "4",
+                },
+                Object {
+                  "day": "Friday",
+                  "hours": "6:00 AM - 3:00 PM",
+                  "id": "5",
+                },
+                Object {
+                  "day": "Saturday",
+                  "hours": "Closed",
+                  "id": "6",
+                },
+                Object {
+                  "day": "Sunday",
+                  "hours": "Closed",
+                  "id": "7",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                  <Column
+                    classNames=""
+                  >
+                    <h4 />
+                  </Column>,
+                ],
+                "classNames": "operation-hour-details",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": <div
+                  class="row operation-hour-details"
+                >
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                  <div
+                    class="col "
+                  >
+                    <h4 />
+                  </div>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                  ],
+                  "className": "row operation-hour-details",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "1",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "2",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "3",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "4",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "5",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "6",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "7",
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <h4 />,
+                      "classNames": "",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <div
+                        class="col "
+                      >
+                        <h4 />
+                      </div>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <h4 />,
+                        "className": "col ",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <h4 />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": undefined,
+                            "className": undefined,
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "h4",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <OperationHoursHeader
+              operationHoursHeaderDetails={
+                Array [
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "1",
+                    "text": "Open Hours",
+                    "textClassName": "open-hour-text",
+                  },
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "2",
+                    "text": "delivery up to 8: 30am",
+                    "textClassName": "delivery-deadline-text",
+                  },
+                ]
+              }
+              rowClassName="operation-hours-header"
+            />,
+            <OperationHoursBody
+              operationHoursBodyDetails={
+                Array [
+                  Object {
+                    "day": "Monday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "1",
+                  },
+                  Object {
+                    "day": "Tuesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "2",
+                  },
+                  Object {
+                    "day": "Wednesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "3",
+                  },
+                  Object {
+                    "day": "Thursday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "4",
+                  },
+                  Object {
+                    "day": "Friday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "5",
+                  },
+                  Object {
+                    "day": "Saturday",
+                    "hours": "Closed",
+                    "id": "6",
+                  },
+                  Object {
+                    "day": "Sunday",
+                    "hours": "Closed",
+                    "id": "7",
+                  },
+                ]
+              }
+            />,
+          ],
+          "classNames": "operation-hours-section",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": <div
+            class="container operation-hours-section"
+          >
+            <div
+              class="row operation-hours-header"
+            >
+              <div
+                class="col col-6"
+              >
+                <h4
+                  class="open-hour-text"
+                >
+                  Open Hours
+                </h4>
+              </div>
+              <div
+                class="col col-6"
+              >
+                <h4
+                  class="delivery-deadline-text"
+                >
+                  delivery up to 8: 30am
+                </h4>
+              </div>
+            </div>
+            <div
+              class="row operation-hour-details"
+            >
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+              <div
+                class="col "
+              >
+                <h4 />
+              </div>
+            </div>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <OperationHoursHeader
+                operationHoursHeaderDetails={
+                  Array [
+                    Object {
+                      "columnClassName": "col-6",
+                      "id": "1",
+                      "text": "Open Hours",
+                      "textClassName": "open-hour-text",
+                    },
+                    Object {
+                      "columnClassName": "col-6",
+                      "id": "2",
+                      "text": "delivery up to 8: 30am",
+                      "textClassName": "delivery-deadline-text",
+                    },
+                  ]
+                }
+                rowClassName="operation-hours-header"
+              />,
+              <OperationHoursBody
+                operationHoursBodyDetails={
+                  Array [
+                    Object {
+                      "day": "Monday",
+                      "hours": "6:00 AM - 3:00 PM",
+                      "id": "1",
+                    },
+                    Object {
+                      "day": "Tuesday",
+                      "hours": "6:00 AM - 3:00 PM",
+                      "id": "2",
+                    },
+                    Object {
+                      "day": "Wednesday",
+                      "hours": "6:00 AM - 3:00 PM",
+                      "id": "3",
+                    },
+                    Object {
+                      "day": "Thursday",
+                      "hours": "6:00 AM - 3:00 PM",
+                      "id": "4",
+                    },
+                    Object {
+                      "day": "Friday",
+                      "hours": "6:00 AM - 3:00 PM",
+                      "id": "5",
+                    },
+                    Object {
+                      "day": "Saturday",
+                      "hours": "Closed",
+                      "id": "6",
+                    },
+                    Object {
+                      "day": "Sunday",
+                      "hours": "Closed",
+                      "id": "7",
+                    },
+                  ]
+                }
+              />,
+            ],
+            "className": "container operation-hours-section",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "operationHoursHeaderDetails": Array [
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "1",
+                    "text": "Open Hours",
+                    "textClassName": "open-hour-text",
+                  },
+                  Object {
+                    "columnClassName": "col-6",
+                    "id": "2",
+                    "text": "delivery up to 8: 30am",
+                    "textClassName": "delivery-deadline-text",
+                  },
+                ],
+                "rowClassName": "operation-hours-header",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <Column
+                      classNames="col-6"
+                    >
+                      <h4
+                        className="open-hour-text"
+                      >
+                        Open Hours
+                      </h4>
+                    </Column>,
+                    <Column
+                      classNames="col-6"
+                    >
+                      <h4
+                        className="delivery-deadline-text"
+                      >
+                        delivery up to 8: 30am
+                      </h4>
+                    </Column>,
+                  ],
+                  "classNames": "operation-hours-header",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": <div
+                    class="row operation-hours-header"
+                  >
+                    <div
+                      class="col col-6"
+                    >
+                      <h4
+                        class="open-hour-text"
+                      >
+                        Open Hours
+                      </h4>
+                    </div>
+                    <div
+                      class="col col-6"
+                    >
+                      <h4
+                        class="delivery-deadline-text"
+                      >
+                        delivery up to 8: 30am
+                      </h4>
+                    </div>
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <Column
+                        classNames="col-6"
+                      >
+                        <h4
+                          className="open-hour-text"
+                        >
+                          Open Hours
+                        </h4>
+                      </Column>,
+                      <Column
+                        classNames="col-6"
+                      >
+                        <h4
+                          className="delivery-deadline-text"
+                        >
+                          delivery up to 8: 30am
+                        </h4>
+                      </Column>,
+                    ],
+                    "className": "row operation-hours-header",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "1",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4
+                          className="open-hour-text"
+                        >
+                          Open Hours
+                        </h4>,
+                        "classNames": "col-6",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col col-6"
+                        >
+                          <h4
+                            class="open-hour-text"
+                          >
+                            Open Hours
+                          </h4>
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4
+                            className="open-hour-text"
+                          >
+                            Open Hours
+                          </h4>,
+                          "className": "col col-6",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4
+                              class="open-hour-text"
+                            >
+                              Open Hours
+                            </h4>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Open Hours",
+                              "className": "open-hour-text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "Open Hours",
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "2",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4
+                          className="delivery-deadline-text"
+                        >
+                          delivery up to 8: 30am
+                        </h4>,
+                        "classNames": "col-6",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col col-6"
+                        >
+                          <h4
+                            class="delivery-deadline-text"
+                          >
+                            delivery up to 8: 30am
+                          </h4>
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4
+                            className="delivery-deadline-text"
+                          >
+                            delivery up to 8: 30am
+                          </h4>,
+                          "className": "col col-6",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4
+                              class="delivery-deadline-text"
+                            >
+                              delivery up to 8: 30am
+                            </h4>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "delivery up to 8: 30am",
+                              "className": "delivery-deadline-text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "delivery up to 8: 30am",
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "operationHoursBodyDetails": Array [
+                  Object {
+                    "day": "Monday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "1",
+                  },
+                  Object {
+                    "day": "Tuesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "2",
+                  },
+                  Object {
+                    "day": "Wednesday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "3",
+                  },
+                  Object {
+                    "day": "Thursday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "4",
+                  },
+                  Object {
+                    "day": "Friday",
+                    "hours": "6:00 AM - 3:00 PM",
+                    "id": "5",
+                  },
+                  Object {
+                    "day": "Saturday",
+                    "hours": "Closed",
+                    "id": "6",
+                  },
+                  Object {
+                    "day": "Sunday",
+                    "hours": "Closed",
+                    "id": "7",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                    <Column
+                      classNames=""
+                    >
+                      <h4 />
+                    </Column>,
+                  ],
+                  "classNames": "operation-hour-details",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": <div
+                    class="row operation-hour-details"
+                  >
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                    <div
+                      class="col "
+                    >
+                      <h4 />
+                    </div>
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                      <Column
+                        classNames=""
+                      >
+                        <h4 />
+                      </Column>,
+                    ],
+                    "className": "row operation-hour-details",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": "1",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "2",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "3",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "4",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "5",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "6",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                    Object {
+                      "instance": null,
+                      "key": "7",
+                      "nodeType": "function",
+                      "props": Object {
+                        "children": <h4 />,
+                        "classNames": "",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": <div
+                          class="col "
+                        >
+                          <h4 />
+                        </div>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <h4 />,
+                          "className": "col ",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <h4 />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": undefined,
+                              "className": undefined,
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "h4",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

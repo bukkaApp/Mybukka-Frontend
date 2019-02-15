@@ -1,0 +1,92 @@
+{
+  "bukkaMeals": [
+    {
+      "name": "sample meal",
+      "category": "Breakfast",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "sample meal",
+      "category": "Breakfast",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "sample meal",
+      "category": "Breakfast",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "sample meal",
+      "category": "Breakfast",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Sagalita Burritos",
+      "category": "Dinner",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Sampalina Gurrima",
+      "category": "Dinner",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Cuisinola",
+      "category": "Cuisines",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Cuisinola",
+      "category": "Cuisines",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Cuisinola",
+      "category": "Cuisines",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Cuisinola",
+      "category": "Cuisines",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    },
+    {
+      "name": "Cuisinola",
+      "category": "Cuisines",
+      "title": "Amala",
+      "description": "A very great plate of Amala that will make you beg for more",
+      "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg",
+      "price": 30
+    }
+  ]
+}

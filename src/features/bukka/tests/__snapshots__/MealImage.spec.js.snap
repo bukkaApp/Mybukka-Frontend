@@ -1,0 +1,535 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meal Image Component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <MealImage
+    imageUrl="http://some-img-url"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "imageUrl": "http://some-img-url",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            className="cancel-modal-meal d-lg-none"
+            data-dismiss="modal"
+          >
+            <Cancel />
+          </div>,
+          <img
+            alt=""
+            className="image-details img-fluid"
+            src="http://some-img-url"
+          />,
+        ],
+        "classNames": "col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column"
+        >
+          <div
+            class="cancel-modal-meal d-lg-none"
+            data-dismiss="modal"
+          >
+            <svg
+              fill="currentColor"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <defs>
+                <path
+                  d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                  id="icon-close_svg__a"
+                />
+              </defs>
+              <use
+                transform="translate(4 4)"
+                xlink:href="#icon-close_svg__a"
+              />
+            </svg>
+          </div>
+          <img
+            alt=""
+            class="image-details img-fluid"
+            src="http://some-img-url"
+          />
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="cancel-modal-meal d-lg-none"
+              data-dismiss="modal"
+            >
+              <Cancel />
+            </div>,
+            <img
+              alt=""
+              className="image-details img-fluid"
+              src="http://some-img-url"
+            />,
+          ],
+          "className": "col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <div
+              class="cancel-modal-meal d-lg-none"
+              data-dismiss="modal"
+            >
+              <svg
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <defs>
+                  <path
+                    d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                    id="icon-close_svg__a"
+                  />
+                </defs>
+                <use
+                  transform="translate(4 4)"
+                  xlink:href="#icon-close_svg__a"
+                />
+              </svg>
+            </div>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <Cancel />,
+              "className": "cancel-modal-meal d-lg-none",
+              "data-dismiss": "modal",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {},
+                "ref": null,
+                "rendered": Object {
+                  "instance": <svg
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <defs>
+                      <path
+                        d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                        id="icon-close_svg__a"
+                      />
+                    </defs>
+                    <use
+                      transform="translate(4 4)"
+                      xlink:href="#icon-close_svg__a"
+                    />
+                  </svg>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <defs>
+                        <path
+                          d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                          id="icon-close_svg__a"
+                        />
+                      </defs>,
+                      <use
+                        transform="translate(4 4)"
+                        xlinkHref="#icon-close_svg__a"
+                      />,
+                    ],
+                    "fill": "currentColor",
+                    "height": "24",
+                    "viewBox": "0 0 24 24",
+                    "width": "24",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <defs>
+                        <path
+                          d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                          id="icon-close_svg__a"
+                        />
+                      </defs>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <path
+                          d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                          id="icon-close_svg__a"
+                        />,
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <path
+                            d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                            id="icon-close_svg__a"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "d": "M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z",
+                            "id": "icon-close_svg__a",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            undefined,
+                          ],
+                          "type": "path",
+                        },
+                      ],
+                      "type": "defs",
+                    },
+                    Object {
+                      "instance": <use
+                        transform="translate(4 4)"
+                        xlink:href="#icon-close_svg__a"
+                      />,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "transform": "translate(4 4)",
+                        "xlinkHref": "#icon-close_svg__a",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                      ],
+                      "type": "use",
+                    },
+                  ],
+                  "type": "svg",
+                },
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": <img
+              alt=""
+              class="image-details img-fluid"
+              src="http://some-img-url"
+            />,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "",
+              "className": "image-details img-fluid",
+              "src": "http://some-img-url",
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+            ],
+            "type": "img",
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "imageUrl": "http://some-img-url",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <div
+              className="cancel-modal-meal d-lg-none"
+              data-dismiss="modal"
+            >
+              <Cancel />
+            </div>,
+            <img
+              alt=""
+              className="image-details img-fluid"
+              src="http://some-img-url"
+            />,
+          ],
+          "classNames": "col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": <div
+            class="col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column"
+          >
+            <div
+              class="cancel-modal-meal d-lg-none"
+              data-dismiss="modal"
+            >
+              <svg
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <defs>
+                  <path
+                    d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                    id="icon-close_svg__a"
+                  />
+                </defs>
+                <use
+                  transform="translate(4 4)"
+                  xlink:href="#icon-close_svg__a"
+                />
+              </svg>
+            </div>
+            <img
+              alt=""
+              class="image-details img-fluid"
+              src="http://some-img-url"
+            />
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="cancel-modal-meal d-lg-none"
+                data-dismiss="modal"
+              >
+                <Cancel />
+              </div>,
+              <img
+                alt=""
+                className="image-details img-fluid"
+                src="http://some-img-url"
+              />,
+            ],
+            "className": "col col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <div
+                class="cancel-modal-meal d-lg-none"
+                data-dismiss="modal"
+              >
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <defs>
+                    <path
+                      d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                      id="icon-close_svg__a"
+                    />
+                  </defs>
+                  <use
+                    transform="translate(4 4)"
+                    xlink:href="#icon-close_svg__a"
+                  />
+                </svg>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Cancel />,
+                "className": "cancel-modal-meal d-lg-none",
+                "data-dismiss": "modal",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": <svg
+                      fill="currentColor"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <defs>
+                        <path
+                          d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                          id="icon-close_svg__a"
+                        />
+                      </defs>
+                      <use
+                        transform="translate(4 4)"
+                        xlink:href="#icon-close_svg__a"
+                      />
+                    </svg>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <defs>
+                          <path
+                            d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                            id="icon-close_svg__a"
+                          />
+                        </defs>,
+                        <use
+                          transform="translate(4 4)"
+                          xlinkHref="#icon-close_svg__a"
+                        />,
+                      ],
+                      "fill": "currentColor",
+                      "height": "24",
+                      "viewBox": "0 0 24 24",
+                      "width": "24",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <defs>
+                          <path
+                            d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                            id="icon-close_svg__a"
+                          />
+                        </defs>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <path
+                            d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                            id="icon-close_svg__a"
+                          />,
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <path
+                              d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                              id="icon-close_svg__a"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "d": "M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z",
+                              "id": "icon-close_svg__a",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "path",
+                          },
+                        ],
+                        "type": "defs",
+                      },
+                      Object {
+                        "instance": <use
+                          transform="translate(4 4)"
+                          xlink:href="#icon-close_svg__a"
+                        />,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "transform": "translate(4 4)",
+                          "xlinkHref": "#icon-close_svg__a",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          undefined,
+                        ],
+                        "type": "use",
+                      },
+                    ],
+                    "type": "svg",
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": <img
+                alt=""
+                class="image-details img-fluid"
+                src="http://some-img-url"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "",
+                "className": "image-details img-fluid",
+                "src": "http://some-img-url",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

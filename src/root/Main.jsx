@@ -1,15 +1,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import SearchLocation from '../features/home';
-
-const sampleComponent = () => (
-  <SearchLocation />
-);
+import Home from '../features/home';
+import Bukka from '../features/bukka';
 
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={sampleComponent} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/bukka" component={Bukka} />
     </Switch>
   </main>
 );

@@ -1,0 +1,57 @@
+{
+  "rowClassNames": {
+    "header": "operation-hours-header",
+    "body": "operation-hours-details"
+  },
+  "operationHoursHeaderDom": [
+    {
+      "columnClassName": "col-6",
+      "textClassName": "open-hour-text",
+      "text": "Open Hours",
+      "id": "1"
+    },
+    {
+      "columnClassName": "col-6",
+      "textClassName": "delivery-deadline-text",
+      "text": "delivery up to 8: 30am",
+      "id": "2"
+    }
+  ],
+  "operationDetailsDom": [
+    {
+      "day": "Monday",
+      "hours": "6:00 AM - 3:00 PM",
+      "id": "1"
+    },
+    {
+      "day": "Tuesday",
+      "hours": "6:00 AM - 3:00 PM",
+      "id": "2"
+    },
+    {
+      "day": "Wednesday",
+      "hours": "6:00 AM - 3:00 PM",
+      "id": "3"
+    },
+    {
+      "day": "Thursday",
+      "hours": "6:00 AM - 3:00 PM",
+      "id": "4"
+    },
+    {
+      "day": "Friday",
+      "hours": "6:00 AM - 3:00 PM",
+      "id": "5"
+    },
+    {
+      "day": "Saturday",
+      "hours": "Closed",
+      "id": "6"
+    },
+    {
+      "day": "Sunday",
+      "hours": "Closed",
+      "id": "7"
+    }
+  ]
+}

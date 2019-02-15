@@ -8,7 +8,9 @@ ShallowWrapper {
     handleClick={[MockFunction]}
     text="SIGN IN"
     type="button"
-  />,
+  >
+    <div />
+  </Button>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],

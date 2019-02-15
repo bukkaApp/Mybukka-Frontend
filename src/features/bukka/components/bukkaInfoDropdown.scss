@@ -1,0 +1,20 @@
+.open-hour-text {
+  font-size: 16px;
+}
+
+.delivery-deadline-text {
+  font-weight: 300;
+  font-size: 15px;
+  text-align: right;
+}
+
+.operation-hours-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eceff1;
+}
+
+@media (max-width: 767.98px) {
+  .delivery-deadline-text {
+    font-size: 12px;
+  }
+}
