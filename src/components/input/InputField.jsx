@@ -29,6 +29,7 @@ InputField.defaultProps = {
   type: 'text',
   classNames: 'default-btn',
   placeholderText: '',
+  handleFocus: () => {},
   defaultValue: '',
 };
 
@@ -36,8 +37,8 @@ InputField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
+  defaultValue: PropTypes.string,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired,
-  defaultValue: PropTypes.string
 };
