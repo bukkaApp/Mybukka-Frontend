@@ -1,19 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component renders properly 1`] = `
+exports[`Area to explore component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Button
-    classNames="small-button"
-    dataTarget=""
-    dataToggle=""
-    disabled={false}
-    handleClick={[MockFunction]}
-    text="SIGN IN"
-    type="button"
-  >
-    <div />
-  </Button>,
+  Symbol(enzyme.__unrendered__): <logo />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -28,17 +18,15 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "SIGN IN",
-      "className": "small-button",
-      "data-target": "",
-      "data-toggle": "",
-      "disabled": false,
-      "onClick": [MockFunction],
-      "type": "button",
+      "alt": "bukka-png",
+      "className": "logo",
+      "src": Object {
+        "process": [Function],
+      },
     },
     "ref": null,
-    "rendered": "SIGN IN",
-    "type": "button",
+    "rendered": null,
+    "type": "img",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -46,17 +34,15 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "SIGN IN",
-        "className": "small-button",
-        "data-target": "",
-        "data-toggle": "",
-        "disabled": false,
-        "onClick": [MockFunction],
-        "type": "button",
+        "alt": "bukka-png",
+        "className": "logo",
+        "src": Object {
+          "process": [Function],
+        },
       },
       "ref": null,
-      "rendered": "SIGN IN",
-      "type": "button",
+      "rendered": null,
+      "type": "img",
     },
   ],
   Symbol(enzyme.__options__): Object {

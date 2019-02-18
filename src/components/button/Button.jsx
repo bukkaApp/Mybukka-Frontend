@@ -3,8 +3,24 @@ import PropTypes from 'prop-types';
 
 import './buttons.scss';
 
-const Button = ({ type, classNames, text, handleClick, children }) => (
-  <button type={type} className={classNames} onClick={handleClick}>
+const Button = ({
+  type,
+  classNames,
+  text,
+  handleClick,
+  children,
+  disabled,
+  dataTarget,
+  dataToggle
+}) => (
+  <button
+    type={type}
+    className={classNames}
+    onClick={handleClick}
+    disabled={disabled}
+    data-target={dataTarget}
+    data-toggle={dataToggle}
+  >
     {text || children}
   </button>
 );
@@ -12,8 +28,11 @@ const Button = ({ type, classNames, text, handleClick, children }) => (
 export default Button;
 
 Button.defaultProps = {
-  text: null,
-  children: <div />
+  text: '',
+  dataTarget: '',
+  dataToggle: '',
+  children: <div />,
+  disabled: false
 };
 
 Button.propTypes = {
@@ -24,5 +43,8 @@ Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  disabled: PropTypes.bool,
+  dataTarget: PropTypes.string.isRequired,
+  dataToggle: PropTypes.string.isRequired,
 };

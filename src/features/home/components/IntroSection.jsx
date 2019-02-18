@@ -1,4 +1,7 @@
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import SearchLocation from '../common/SearchLocation';
 
@@ -26,9 +29,9 @@ const SearchLocationSection = () => (
   </div>
 );
 
-const IntroSection = () => (
+const IntroSection = ({ push }) => (
   <div className="intro-section">
-    <PrimaryNavbar />
+    <PrimaryNavbar push={push} />
     <LargeTextSection />
     <SmallTextSection />
     <SearchLocationSection />
@@ -36,3 +39,7 @@ const IntroSection = () => (
 );
 
 export default IntroSection;
+
+IntroSection.propTypes = {
+  push: PropTypes.func.isRequired,
+};

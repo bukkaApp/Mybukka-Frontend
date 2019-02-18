@@ -528,7 +528,7 @@ ReactWrapper {
               "rendered": Array [
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "4MtjDm68c6",
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -1183,7 +1183,7 @@ ReactWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": undefined,
+                  "key": "YWpPw8X2S-",
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -2344,7 +2344,7 @@ ReactWrapper {
                 "rendered": Array [
                   Object {
                     "instance": null,
-                    "key": undefined,
+                    "key": "4MtjDm68c6",
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -2999,7 +2999,7 @@ ReactWrapper {
                   },
                   Object {
                     "instance": null,
-                    "key": undefined,
+                    "key": "YWpPw8X2S-",
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard

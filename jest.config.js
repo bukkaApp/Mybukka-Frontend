@@ -1,12 +1,12 @@
 module.exports = {
-  verbose: true,
+  verbose: false,
   collectCoverage: true,
   moduleNameMapper: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/assetsTransformer.js',
     '\\.(css|less|scss)$': '<rootDir>/assetsTransformer.js',
     'Components(.*)$': '<rootDir>/src/components/$1',
-    'Icons(.*)$': '<rootDir>/src/components/icons/$1',
+    'Icons(.*)$': '<rootDir>/src/components/icons/$1'
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testMatch: ['<rootDir>/src/**/**/tests/*.js'],
