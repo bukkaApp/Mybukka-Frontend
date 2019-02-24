@@ -15,7 +15,8 @@
 }
 
 .modal-backdrop {
-  background-color:rgb(255, 255, 255)
+  background-color:rgb(255, 255, 255);
+  z-index: 0;
 }
 
 .modal-content {
@@ -46,4 +47,13 @@
   .modal {
     height: 100vh;
   }
+}
+
+.dismiss-modal {
+  padding: 15px 15px 15px;
+  color: #000;
+}
+
+.dismiss-modal-right {
+  text-align: right;
 }

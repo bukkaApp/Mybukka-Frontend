@@ -1,0 +1,102 @@
+@mixin control {
+  outline: none;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  font-weight: 400;
+  border: 0.2px solid #d9dbe0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 24px 0px;
+  position: absolute;
+  z-index: 2;
+  align-self: center;
+  margin: -35px -20px 0;
+  cursor: pointer;
+  transition: opacity 0.15s ease-in;
+}
+
+.carousel-divider {
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-bottom: 39px;
+  width: 100vw;
+  height: 16px;
+  background-color: #f7f7f8;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.flex-nowrap {
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1);
+  @media screen and (max-width: 768px) {
+    position: relative;
+    overflow-x: auto;
+    top: 20px;
+  }
+}
+
+.first-child-pl-0 {
+  padding-right: 10px;
+  padding-left: 5px;
+  :first-child {
+    padding-left: 0;
+  }
+  :last-child {
+    padding-right: 0;
+  }
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
+}
+
+.overflow-hidden {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.control-left {
+  @include control;
+  transform: rotate(180deg);
+  left: 20px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.control-right {
+  @include control;
+  right: 20px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.control-left:hover svg,
+.control-right:hover svg {
+  outline: none;
+  opacity: 0.5;
+}
+
+.control-left svg,
+.control-right svg {
+  position: relative;
+  top: 15%;
+  left: 13%;
+}
+
+.carousel-container {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  padding-bottom: 20px;
+}

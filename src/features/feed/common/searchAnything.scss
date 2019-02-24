@@ -1,0 +1,29 @@
+.magnifier {
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.nav-magnifier {
+  margin-left: 1px;
+  margin-top: 16px;
+  margin-right: 10px;
+}
+
+.feed-address-input-section {
+  background: inherit;
+  border: none !important;
+  :hover {
+    border: none !important;
+    box-shadow: none;
+  }
+  input {
+    background: inherit;
+  }
+}
+
+.feed-address-input-section input:focus {
+  border: none !important;
+  box-shadow: none;
+  background: inherit;
+}

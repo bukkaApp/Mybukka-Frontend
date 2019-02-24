@@ -43,7 +43,9 @@ ShallowWrapper {
             classNames="nav-link-white"
             href="/"
             text="link 1"
-          />
+          >
+            
+          </Navlink>
         </li>,
         <li
           className="list-item-white"
@@ -52,7 +54,9 @@ ShallowWrapper {
             classNames="nav-link-white"
             href="/"
             text="link 1"
-          />
+          >
+            
+          </Navlink>
         </li>,
       ],
       "className": "list-group",
@@ -68,7 +72,9 @@ ShallowWrapper {
             classNames="nav-link-white"
             href="/"
             text="link 1"
-          />,
+          >
+            
+          </Navlink>,
           "className": "list-item-white",
         },
         "ref": null,
@@ -77,12 +83,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "children": "",
             "classNames": "nav-link-white",
             "href": "/",
             "text": "link 1",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "",
           "type": [Function],
         },
         "type": "li",
@@ -96,7 +103,9 @@ ShallowWrapper {
             classNames="nav-link-white"
             href="/"
             text="link 1"
-          />,
+          >
+            
+          </Navlink>,
           "className": "list-item-white",
         },
         "ref": null,
@@ -105,12 +114,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "children": "",
             "classNames": "nav-link-white",
             "href": "/",
             "text": "link 1",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "",
           "type": [Function],
         },
         "type": "li",
@@ -132,7 +142,9 @@ ShallowWrapper {
               classNames="nav-link-white"
               href="/"
               text="link 1"
-            />
+            >
+              
+            </Navlink>
           </li>,
           <li
             className="list-item-white"
@@ -141,7 +153,9 @@ ShallowWrapper {
               classNames="nav-link-white"
               href="/"
               text="link 1"
-            />
+            >
+              
+            </Navlink>
           </li>,
         ],
         "className": "list-group",
@@ -157,7 +171,9 @@ ShallowWrapper {
               classNames="nav-link-white"
               href="/"
               text="link 1"
-            />,
+            >
+              
+            </Navlink>,
             "className": "list-item-white",
           },
           "ref": null,
@@ -166,12 +182,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "children": "",
               "classNames": "nav-link-white",
               "href": "/",
               "text": "link 1",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "",
             "type": [Function],
           },
           "type": "li",
@@ -185,7 +202,9 @@ ShallowWrapper {
               classNames="nav-link-white"
               href="/"
               text="link 1"
-            />,
+            >
+              
+            </Navlink>,
             "className": "list-item-white",
           },
           "ref": null,
@@ -194,12 +213,13 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "children": "",
               "classNames": "nav-link-white",
               "href": "/",
               "text": "link 1",
             },
             "ref": null,
-            "rendered": null,
+            "rendered": "",
             "type": [Function],
           },
           "type": "li",

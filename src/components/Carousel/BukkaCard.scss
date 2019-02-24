@@ -1,0 +1,144 @@
+$fontFamily: 'Roboto', sans-serif;
+
+.card-container {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.card-wrap {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+}
+
+.bukka-card {
+  position: relative;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.touchdown {
+  .rating {
+    display: none;
+  }
+}
+
+.details {
+  position: relative;
+  padding-top: 16px;
+}
+
+.details h3 {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 4px;
+  font-family: $fontFamily;
+  font-size: 16px;
+}
+
+.delivery {
+  display: flex;
+  flex-direction: row;
+  font-family: $fontFamily;
+  font-size: 14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 10px;
+  color: #8f95a3;
+}
+
+.bukka-card:hover .favorite {
+  opacity: 1;
+}
+
+.favorite {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+
+.delivery-fav {
+  display: inline-block;
+  margin-right: 5px;
+  color: gold;
+}
+
+.delivery-time-text,
+ {
+  margin-top: -3px;
+  margin-left: 4px;
+}
+
+.dot-spacing {
+  margin-top: -7px;
+  margin-left: 4px;
+}
+
+.details-location {
+  flex: 1;
+  color: #111;
+}
+
+.rating {
+  background-color: rgba(0, 198, 208, 0.1);
+  display: inline-flex;
+  color: #00c6d0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 0 14px;
+  align-items: center;
+  height: 24px;
+  margin: -3px 0 -3px 8px;
+}
+
+.icon {
+  align-self: center;
+  height: 14px;
+  width: 14px;
+  margin-left: 8px;
+  vertical-align: -2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  top: -110px;
+  position: relative;
+  margin: 24px 24px 0;
+  max-width: 164px;
+}
+
+.overlay h4 {
+  color: black;
+}
+
+.overlay h5 {
+  color: gray;
+}
+
+@media screen and (min-width: 768px) {
+  .overlay {
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .card-container {
+    padding-left: 0px
+  }
+
+  .ml-3 {
+    margin-left: 0px !important;
+  }
+
+  .mr-3 {
+    margin-right: 0px !important;
+  }
+}

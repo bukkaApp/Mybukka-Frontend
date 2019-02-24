@@ -16,7 +16,7 @@ const Wrapper = ({ children }) => (
 );
 
 const Authentication = ({ ...props }) => (
-  <div className="bg-color full-height">
+  <div className="bg-color full-height auth-page">
     <Container classNames="form-container">
       <Wrapper>
         <h2 className="text-center pt-4 font-size">{props.title}</h2>

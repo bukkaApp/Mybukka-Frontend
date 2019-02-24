@@ -12,6 +12,8 @@ import BukkaMeals from './BukkaMeals';
 
 import { bukkaMeals } from './mealData.json';
 
+import './bukkaScene.scss';
+
 const BukkaMenuScene = ({ push }) => (
   <div className="bukka-menu">
     <AddToCart />
