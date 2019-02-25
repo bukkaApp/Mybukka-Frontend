@@ -18,7 +18,7 @@ const FormOptions = ({ type }) => (
     <p>{type ? signInTetxtOptions : signUpTextOption}</p>
     <NavLink
       href={type ? '/signup' : '/login'}
-      classNames="btn btn-link"
+      classNames="btn-link"
       text={type ? 'SIGN UP' : 'LOG IN'}
     />
   </div>
@@ -33,6 +33,15 @@ const TermsAndConditions = () => (
     </p>
   </div>
 );
+
+const ErrorMessage = ({ message }) => {
+  if (message) {
+    return (
+      <div className="text-danger help-block text-center">{message}</div>
+    );
+  }
+  return null;
+};
 
 const Divider = () => (
   <div className="divider-box mt-2 mb-2">
@@ -58,6 +67,7 @@ const Form = ({
   domStructure,
   validationErrors,
   isFormCompleted,
+  errorMessage,
   type
 }) => (
   <form
@@ -70,6 +80,7 @@ const Form = ({
       domStructure={domStructure}
       validationErrors={validationErrors}
     />
+    <ErrorMessage message={errorMessage} />
     {!type && <TermsAndConditions />}
     <LargeButton
       type="submit"
@@ -87,7 +98,7 @@ const Form = ({
       type="button"
       href="/"
       key="1"
-      classNames="facebk-btn btn col-md-12"
+      classNames="facebk-btn col-md-12"
       text="Facebook"
       handleClick={() => {}}
     />
@@ -101,7 +112,8 @@ Form.defaultProps = {
   domStructure: {},
   isFormCompleted: false,
   type: 'text',
-  validationErrors: {}
+  validationErrors: {},
+  errorMessage: '',
 };
 
 Form.propTypes = {
@@ -110,7 +122,8 @@ Form.propTypes = {
   domStructure: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
   validationErrors: PropTypes.objectOf(PropTypes.string),
   isFormCompleted: PropTypes.bool,
-  type: PropTypes.string
+  type: PropTypes.string,
+  errorMessage: PropTypes.string,
 };
 
 FormOptions.defaultProps = {
@@ -127,4 +140,12 @@ LargeButton.defaultProps = {
 
 LargeButton.propTypes = {
   type: PropTypes.string
+};
+
+ErrorMessage.defaultProps = {
+  message: '',
+};
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string,
 };

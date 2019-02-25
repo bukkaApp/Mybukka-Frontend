@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StaticRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 
 import Carousel from '../Carousel';
 
@@ -27,13 +27,13 @@ describe('Carousel component', () => {
           'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
       }
     ],
-    imageHeight: 4
+    imageHeight: '4'
   };
 
-  const wrapper = shallow(
-    <StaticRouter>
+  const wrapper = render(
+    <MemoryRouter>
       <Carousel {...props} />
-    </StaticRouter>
+    </MemoryRouter>
   );
 
   it('renders properly', () => {

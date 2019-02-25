@@ -43,7 +43,6 @@ const Carousel = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // max-width = 100% divide by no of images expected to show at the same time
   const maxWidth = 100;
   const slidesLenght = slideItems.length;
   const translate = activeIndex >= 1 ? maxWidth / noOfImagesShown : 0;
@@ -120,7 +119,7 @@ Carousel.propTypes = {
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,
-  noOfImagesShown: PropTypes.string.isRequired,
+  noOfImagesShown: PropTypes.number.isRequired,
   imageHeight: PropTypes.string.isRequired,
   textOverlay: PropTypes.bool
 };

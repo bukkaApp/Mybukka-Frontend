@@ -1,228 +1,512 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Carousel component renders properly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <StaticRouter
-    basename=""
-    location="/"
-  >
-    <Carousel
-      classNames="some-classnames"
-      imageHeight={4}
-      noOfImagesShown={3}
-      slideItems={
-        Array [
-          Object {
-            "author": "Bane",
-            "deliveryCost": 300,
-            "deliveryTime": "30-50 min",
-            "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
-            "rating": "popular",
-          },
-          Object {
-            "author": "Ra's Al Ghul",
-            "deliveryCost": 400,
-            "deliveryTime": "1 hour",
-            "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg",
-          },
-        ]
-      }
-      textOverlay={false}
-      title="A carousel"
-    />
-  </StaticRouter>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "class",
-    "props": Object {
-      "children": <Carousel
-        classNames="some-classnames"
-        imageHeight={4}
-        noOfImagesShown={3}
-        slideItems={
-          Array [
-            Object {
-              "author": "Bane",
-              "deliveryCost": 300,
-              "deliveryTime": "30-50 min",
-              "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
-              "rating": "popular",
-            },
-            Object {
-              "author": "Ra's Al Ghul",
-              "deliveryCost": 400,
-              "deliveryTime": "1 hour",
-              "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg",
-            },
-          ]
-        }
-        textOverlay={false}
-        title="A carousel"
-      />,
-      "history": Object {
-        "action": "POP",
-        "block": [Function],
-        "createHref": [Function],
-        "go": [Function],
-        "goBack": [Function],
-        "goForward": [Function],
-        "listen": [Function],
-        "location": Object {
-          "hash": "",
-          "pathname": "/",
-          "search": "",
-          "state": undefined,
-        },
-        "push": [Function],
-        "replace": [Function],
-      },
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "classNames": "some-classnames",
-        "imageHeight": 4,
-        "noOfImagesShown": 3,
-        "slideItems": Array [
-          Object {
-            "author": "Bane",
-            "deliveryCost": 300,
-            "deliveryTime": "30-50 min",
-            "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
-            "rating": "popular",
-          },
-          Object {
-            "author": "Ra's Al Ghul",
-            "deliveryCost": 400,
-            "deliveryTime": "1 hour",
-            "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg",
-          },
-        ],
-        "textOverlay": false,
-        "title": "A carousel",
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": <Carousel
-          classNames="some-classnames"
-          imageHeight={4}
-          noOfImagesShown={3}
-          slideItems={
-            Array [
-              Object {
-                "author": "Bane",
-                "deliveryCost": 300,
-                "deliveryTime": "30-50 min",
-                "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
-                "rating": "popular",
-              },
-              Object {
-                "author": "Ra's Al Ghul",
-                "deliveryCost": 400,
-                "deliveryTime": "1 hour",
-                "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg",
-              },
-            ]
-          }
-          textOverlay={false}
-          title="A carousel"
-        />,
-        "history": Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        },
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "classNames": "some-classnames",
-          "imageHeight": 4,
-          "noOfImagesShown": 3,
-          "slideItems": Array [
-            Object {
-              "author": "Bane",
-              "deliveryCost": 300,
-              "deliveryTime": "30-50 min",
-              "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
-              "rating": "popular",
-            },
-            Object {
-              "author": "Ra's Al Ghul",
-              "deliveryCost": 400,
-              "deliveryTime": "1 hour",
-              "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg",
-            },
-          ],
-          "textOverlay": false,
-          "title": "A carousel",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="carousel"
+      >
+        <div
+          class="carousel-divider"
+        />
+        <div
+          class="headline ml-3 mr-3"
+        >
+          <div
+            class="runner"
+            style="transform: translateX(0vw);"
+          />
+          <h2
+            class="headline-h2"
+          >
+            A carousel
+          </h2>
+        </div>
+        <div
+          class="carousel-container pr-1 pl-1"
+        >
+          <div
+            class="overflow-hidden"
+          >
+            <div
+              class="d-flex flex-nowrap"
+              style="transform: translateX(0%);"
+            >
+              <div
+                class="card-container some-classnames"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="bukka-img 4"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            30-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container some-classnames"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="bukka-img 4"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            400
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            1 hour
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-pressed="false"
+            class="d-sm-none d-md-block control-right"
+            role="button"
+            tabindex="0"
+          >
+            <svg
+              class="chevron-right-icon"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <defs>
+                <path
+                  d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                  id="icon-chevron_svg__a"
+                />
+              </defs>
+              <use
+                fill="currentColor"
+                fill-rule="evenodd"
+                xlink:href="#icon-chevron_svg__a"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="carousel"
+    >
+      <div
+        class="carousel-divider"
+      />
+      <div
+        class="headline ml-3 mr-3"
+      >
+        <div
+          class="runner"
+          style="transform: translateX(0vw);"
+        />
+        <h2
+          class="headline-h2"
+        >
+          A carousel
+        </h2>
+      </div>
+      <div
+        class="carousel-container pr-1 pl-1"
+      >
+        <div
+          class="overflow-hidden"
+        >
+          <div
+            class="d-flex flex-nowrap"
+            style="transform: translateX(0%);"
+          >
+            <div
+              class="card-container some-classnames"
+            >
+              <div
+                class="card-wrap"
+              >
+                <a
+                  class="link"
+                  href="/"
+                >
+                  <div
+                    class="mt-4 bukka-card"
+                  >
+                    <img
+                      alt="alt_image"
+                      class="bukka-img 4"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
+                    />
+                    <div
+                      class="details"
+                    >
+                      <h3>
+                        <span
+                          class="details-location"
+                        >
+                          San francisco
+                          <span>
+                            kitchen
+                            <span
+                              class="icon"
+                            >
+                              <svg
+                                height="14"
+                                viewBox="0 0 14 14"
+                                width="14"
+                              >
+                                <g
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                >
+                                  <rect
+                                    fill="#9c1c26"
+                                    height="14"
+                                    rx="7"
+                                    width="14"
+                                  />
+                                  <path
+                                    d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                    fill="#FFF"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                        <span
+                          class="rating"
+                        >
+                          popular
+                        </span>
+                      </h3>
+                      <div
+                        class="delivery"
+                      >
+                        <h4
+                          class="price-badge"
+                        >
+                          ₦
+                          300
+                          .00
+                        </h4>
+                        <i
+                          class="dot-spacing"
+                        >
+                          .
+                        </i>
+                        <div
+                          class="delivery-time-text"
+                        >
+                          30-50 min
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              class="card-container some-classnames"
+            >
+              <div
+                class="card-wrap"
+              >
+                <a
+                  class="link"
+                  href="/"
+                >
+                  <div
+                    class="mt-4 bukka-card"
+                  >
+                    <img
+                      alt="alt_image"
+                      class="bukka-img 4"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg"
+                    />
+                    <div
+                      class="details"
+                    >
+                      <h3>
+                        <span
+                          class="details-location"
+                        >
+                          San francisco
+                          <span>
+                            kitchen
+                            <span
+                              class="icon"
+                            >
+                              <svg
+                                height="14"
+                                viewBox="0 0 14 14"
+                                width="14"
+                              >
+                                <g
+                                  fill="none"
+                                  fill-rule="evenodd"
+                                >
+                                  <rect
+                                    fill="#9c1c26"
+                                    height="14"
+                                    rx="7"
+                                    width="14"
+                                  />
+                                  <path
+                                    d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                    fill="#FFF"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                        
+                      </h3>
+                      <div
+                        class="delivery"
+                      >
+                        <h4
+                          class="price-badge"
+                        >
+                          ₦
+                          400
+                          .00
+                        </h4>
+                        <i
+                          class="dot-spacing"
+                        >
+                          .
+                        </i>
+                        <div
+                          class="delivery-time-text"
+                        >
+                          1 hour
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-pressed="false"
+          class="d-sm-none d-md-block control-right"
+          role="button"
+          tabindex="0"
+        >
+          <svg
+            class="chevron-right-icon"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <defs>
+              <path
+                d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                id="icon-chevron_svg__a"
+              />
+            </defs>
+            <use
+              fill="currentColor"
+              fill-rule="evenodd"
+              xlink:href="#icon-chevron_svg__a"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

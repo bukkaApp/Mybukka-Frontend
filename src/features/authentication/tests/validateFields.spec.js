@@ -1,15 +1,13 @@
-import {
-  validateAField,
-  validateAllFields,
-} from '../helper/validateFields';
+import { validateAField, validateAllFields } from '../helper/validateFields';
 
 describe('Validations test-suite', () => {
   describe('validateAField test-suite', () => {
     it(`returns a key:value message:error-message
     pair of error message`, () => {
       validateAField('hgy', 'firstName');
-      expect(validateAField('   ', 'firstName'))
-        .toEqual({ message: 'this field is required' });
+      expect(validateAField('   ', 'firstName')).toEqual({
+        message: 'this field is required'
+      });
     });
   });
 
@@ -18,24 +16,27 @@ describe('Validations test-suite', () => {
     pairs of all error messages`, () => {
       const data = {
         firstName: 'you',
-        password: 'swaddles',
+        password: 'swaddles'
       };
-      expect(validateAllFields(data))
-        .toEqual({
+      expect(validateAllFields(data)).toEqual({
+        errors: {
           lastName: 'this field is required',
           email: 'this field is required',
-          confirmPassword: 'this field is required',
-        });
+          confirmPassword: 'this field is required'
+        },
+        passes: false,
+      });
     });
 
     it(`validates if the confirmpassword field is
     equal to the password field`, () => {
       const data = {
         password: 'nonono',
-        confirmPassword: 'yesyes',
+        confirmPassword: 'yesyes'
       };
-      expect(validateAllFields(data).confirmPassword)
-        .toEqual('this value does not match the password');
+      expect(validateAllFields(data).errors.confirmPassword).toEqual(
+        'this value does not match the password'
+      );
     });
   });
 });

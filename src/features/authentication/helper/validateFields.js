@@ -59,5 +59,5 @@ export const validateAllFields = (data) => {
     // version of the error message
     [errors[errorKey]] = errors[errorKey];
   });
-  return errors;
+  return { errors, passes: validation.passes() };
 };

@@ -63,14 +63,15 @@ module.exports = {
       {
         test: /\.(mp3)$/,
         loader: 'file-loader?name=sounds/[name].[ext]'
-      }
-    ]
+      },
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       Components: path.resolve(__dirname, 'src/components'),
-      Icons: path.resolve(__dirname, 'src/components/icons')
-    }
-  }
+      Icons: path.resolve(__dirname, 'src/components/icons'),
+      Redux: path.resolve(__dirname, 'src/redux'),
+    },
+  },
 };

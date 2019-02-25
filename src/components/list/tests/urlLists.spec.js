@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { MemoryRouter } from 'react-router-dom';
+
 import UrlLists from '../UrlLists';
 
 describe('Urllists component,', () => {
@@ -10,7 +13,11 @@ describe('Urllists component,', () => {
     ],
     classNames: 'black'
   };
-  const wrapper = shallow(<UrlLists {...props} />);
+  const wrapper = render(
+    <MemoryRouter>
+      <UrlLists {...props} />
+    </MemoryRouter>
+  );
 
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
