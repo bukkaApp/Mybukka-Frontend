@@ -37,7 +37,7 @@ export const LoginPage = ({
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
+    const validation = validateAField(newFieldData, name, true);
     setInputData({
       ...inputData,
       ...newFieldData
@@ -50,7 +50,7 @@ export const LoginPage = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validation = validateAllFields(inputData);
+    const validation = validateAllFields(inputData, true);
 
     const { errors, passes } = validation;
     validateOnClick(errors);
@@ -83,9 +83,11 @@ export const LoginPage = ({
 };
 
 const mapStateToProps = ({
-  authenticationReducer: { status, errorMessage }
+  authenticationReducer: { status, user, errorMessage }
 }) => ({
-  status, errorMessage
+  status,
+  user,
+  errorMessage
 });
 
 export default connect(
