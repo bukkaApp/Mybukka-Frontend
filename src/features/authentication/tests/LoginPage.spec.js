@@ -3,7 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { LoginPage } from '../LoginPage';
 
-describe('Register Page component', () => {
+describe('Login Page component', () => {
   afterEach(cleanup);
 
   const props = {

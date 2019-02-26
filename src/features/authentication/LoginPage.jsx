@@ -12,10 +12,10 @@ import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
 
-const LoginPage = ({
+export const LoginPage = ({
   status,
   errorMessage,
-  authenticationUser,
+  authenticateUser,
   history: { push }
 }) => {
   const [validationErrors, setValidationErrors] = useState({
@@ -50,18 +50,18 @@ const LoginPage = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const validation = validateAllFields(inputData);
+
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
-      return authenticationUser('/user/signin', inputData);
+      return authenticateUser('/user/signin', inputData);
     }
   };
 
   useEffect(() => {
-    const { autheticated } = status;
-    if (autheticated) {
+    const { authenticated } = status;
+    if (authenticated) {
       push('/');
     }
   });
@@ -90,7 +90,7 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { authenticationUser: autheticate }
+  { authenticateUser: autheticate }
 )(LoginPage);
 
 LoginPage.defaultProps = {
@@ -103,5 +103,5 @@ LoginPage.propTypes = {
   }).isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   errorMessage: PropTypes.string,
-  authenticationUser: PropTypes.func.isRequired,
+  authenticateUser: PropTypes.func.isRequired,
 };
