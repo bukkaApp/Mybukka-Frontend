@@ -76,6 +76,7 @@ export const RegisterPage = ({
       <PrimaryNavbar push={push} />
       <Authentication
         title="Sign Up"
+        type="SignUp"
         errorMessage={errorMessage}
         handleChange={handleChange}
         validationErrors={validationErrors}
