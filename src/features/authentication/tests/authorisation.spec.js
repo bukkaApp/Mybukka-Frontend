@@ -8,7 +8,7 @@ describe('authorisation component', () => {
     handleChange: jest.fn(),
     handleSubmit: jest.fn(),
     isFormCompleted: true,
-    type: 'signin'
+    type: 'signin',
   };
   const wrapper = shallow(<Authorisation {...props} />);
 

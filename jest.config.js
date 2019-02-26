@@ -6,19 +6,19 @@ module.exports = {
       '<rootDir>/assetsTransformer.js',
     '\\.(css|less|scss)$': '<rootDir>/assetsTransformer.js',
     'Components(.*)$': '<rootDir>/src/components/$1',
-    'Icons(.*)$': '<rootDir>/src/components/icons/$1'
+    'Icons(.*)$': '<rootDir>/src/components/icons/$1',
+    'Redux(.*)$': '<rootDir>/src/redux/$1',
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testMatch: ['<rootDir>/src/**/**/tests/*.js'],
   testPathIgnorePatterns: [
     '<rootDir>/src/index.js',
-    '<rootDir>/src/public/js/bootstrap.bundle.js',
     '<rootDir>/src/components/root/'
   ],
   collectCoverageFrom: [
     '!<rootDir>/src/index.js',
-    '!<rootDir>/src/root/App.js',
-    '!<rootDir>/src/root/Main.js',
+    '!<rootDir>/src/root',
+    '!<rootDir>/src/redux',
     'src/**/*.{js,jsx}'
   ],
   globals: {

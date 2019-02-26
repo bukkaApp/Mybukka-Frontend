@@ -1,15 +1,22 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import Authentication from './components/Authentication';
 
+import authenticate from './actionCreators/authenticate';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signUpDomStructure from './signUpDomStructure.json';
 
-const RegisterPage = ({ history: { push } }) => {
+export const RegisterPage = ({
+  authenticateUser,
+  status,
+  errorMessage,
+  history: { push },
+}) => {
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
     lastName: '',
@@ -26,11 +33,10 @@ const RegisterPage = ({ history: { push } }) => {
     confirmPassword: '',
   });
 
-  const validateOnClick = () => {
-    const validation = validateAllFields(inputData);
+  const validateOnClick = (newValidationErrors) => {
     setValidationErrors({
       ...validationErrors,
-      ...validation
+      ...newValidationErrors,
     });
   };
 
@@ -49,16 +55,28 @@ const RegisterPage = ({ history: { push } }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const validation = validateAllFields(inputData);
 
-    validateOnClick();
-    this.props.history.push('/');
+    const { errors, passes } = validation;
+    validateOnClick(errors);
+    if (passes) {
+      return authenticateUser('/user/signup', inputData);
+    }
   };
+
+  useEffect(() => {
+    const { authenticated } = status;
+    if (authenticated) {
+      push('/');
+    }
+  });
 
   return (
     <Fragment>
       <PrimaryNavbar push={push} />
       <Authentication
         title="Sign Up"
+        errorMessage={errorMessage}
         handleChange={handleChange}
         validationErrors={validationErrors}
         handleSubmit={handleSubmit}
@@ -69,10 +87,28 @@ const RegisterPage = ({ history: { push } }) => {
   );
 };
 
-export default RegisterPage;
+const mapStateToProps = ({
+  authenticationReducer: { status, user, errorMessage }
+}) => ({
+  status,
+  user,
+  errorMessage
+});
+
+export default connect(
+  mapStateToProps,
+  { authenticateUser: authenticate }
+)(RegisterPage);
+
+RegisterPage.defaultProps = {
+  errorMessage: '',
+};
 
 RegisterPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  authenticateUser: PropTypes.func.isRequired,
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  errorMessage: PropTypes.string
 };

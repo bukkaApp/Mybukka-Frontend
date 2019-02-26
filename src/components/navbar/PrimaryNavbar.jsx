@@ -32,5 +32,5 @@ const PrimaryNavbar = ({ push }) => (
 export default PrimaryNavbar;
 
 PrimaryNavbar.propTypes = {
-  push: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired
 };

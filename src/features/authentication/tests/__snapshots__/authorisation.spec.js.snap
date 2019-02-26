@@ -36,6 +36,7 @@ ShallowWrapper {
             </h2>
             <Form
               domStructure={Object {}}
+              errorMessage=""
               handleChange={[MockFunction]}
               handleSubmit={[MockFunction]}
               isFormCompleted={true}
@@ -64,6 +65,7 @@ ShallowWrapper {
             </h2>
             <Form
               domStructure={Object {}}
+              errorMessage=""
               handleChange={[MockFunction]}
               handleSubmit={[MockFunction]}
               isFormCompleted={true}
@@ -88,6 +90,7 @@ ShallowWrapper {
               </h2>,
               <Form
                 domStructure={Object {}}
+                errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
                 isFormCompleted={true}
@@ -117,6 +120,7 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "domStructure": Object {},
+                "errorMessage": "",
                 "handleChange": [MockFunction],
                 "handleSubmit": [MockFunction],
                 "isFormCompleted": true,
@@ -163,6 +167,7 @@ ShallowWrapper {
               </h2>
               <Form
                 domStructure={Object {}}
+                errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
                 isFormCompleted={true}
@@ -191,6 +196,7 @@ ShallowWrapper {
               </h2>
               <Form
                 domStructure={Object {}}
+                errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
                 isFormCompleted={true}
@@ -215,6 +221,7 @@ ShallowWrapper {
                 </h2>,
                 <Form
                   domStructure={Object {}}
+                  errorMessage=""
                   handleChange={[MockFunction]}
                   handleSubmit={[MockFunction]}
                   isFormCompleted={true}
@@ -244,6 +251,7 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "domStructure": Object {},
+                  "errorMessage": "",
                   "handleChange": [MockFunction],
                   "handleSubmit": [MockFunction],
                   "isFormCompleted": true,

@@ -5,8 +5,9 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <GetBukka
     classNames="col-lg-3"
-    deliveryCost="#1000"
+    deliveryCost={1000}
     deliveryTime="20-20 hours"
+    image="http://some-image"
     imageHeight="img-height"
     rating=""
     textOverlay={true}
@@ -34,8 +35,9 @@ ShallowWrapper {
           text=""
         >
           <BukkaCard
-            deliveryCost="#1000"
+            deliveryCost={1000}
             deliveryTime="20-20 hours"
+            image="http://some-image"
             imageHeight="img-height"
             rating=""
             textOverlay={true}
@@ -56,8 +58,9 @@ ShallowWrapper {
           text=""
         >
           <BukkaCard
-            deliveryCost="#1000"
+            deliveryCost={1000}
             deliveryTime="20-20 hours"
+            image="http://some-image"
             imageHeight="img-height"
             rating=""
             textOverlay={true}
@@ -72,8 +75,9 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "children": <BukkaCard
-            deliveryCost="#1000"
+            deliveryCost={1000}
             deliveryTime="20-20 hours"
+            image="http://some-image"
             imageHeight="img-height"
             rating=""
             textOverlay={true}
@@ -88,8 +92,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "deliveryCost": "#1000",
+            "deliveryCost": 1000,
             "deliveryTime": "20-20 hours",
+            "image": "http://some-image",
             "imageHeight": "img-height",
             "rating": "",
             "textOverlay": true,
@@ -119,8 +124,9 @@ ShallowWrapper {
             text=""
           >
             <BukkaCard
-              deliveryCost="#1000"
+              deliveryCost={1000}
               deliveryTime="20-20 hours"
+              image="http://some-image"
               imageHeight="img-height"
               rating=""
               textOverlay={true}
@@ -141,8 +147,9 @@ ShallowWrapper {
             text=""
           >
             <BukkaCard
-              deliveryCost="#1000"
+              deliveryCost={1000}
               deliveryTime="20-20 hours"
+              image="http://some-image"
               imageHeight="img-height"
               rating=""
               textOverlay={true}
@@ -157,8 +164,9 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "children": <BukkaCard
-              deliveryCost="#1000"
+              deliveryCost={1000}
               deliveryTime="20-20 hours"
+              image="http://some-image"
               imageHeight="img-height"
               rating=""
               textOverlay={true}
@@ -173,8 +181,9 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
-              "deliveryCost": "#1000",
+              "deliveryCost": 1000,
               "deliveryTime": "20-20 hours",
+              "image": "http://some-image",
               "imageHeight": "img-height",
               "rating": "",
               "textOverlay": true,

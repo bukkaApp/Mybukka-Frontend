@@ -2,21 +2,6 @@ $fontFamily: 'Roboto', sans-serif;
 $color: #9c1c26;
 $white: rgb(217, 219, 224);
 
-@mixin button($btnColor) {
-  font-family: $fontFamily;
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 28px;
-  text-transform: uppercase;
-  height: 48px;
-  width: 100%;
-  outline: none;
-  border: none;
-  background: $btnColor;
-  transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
-}
-
 .padding {
   padding: 0 25px 0 25px;
   @media screen and (max-width: 761px) {
@@ -31,20 +16,6 @@ $white: rgb(217, 219, 224);
     background: rgb(255, 255, 255);
     box-shadow: none;
   }
-}
-
-.button {
-  @include button($color);
-}
-
-.disabled {
-  @include button($white);
-}
-
-.facebk-btn {
-  @include button($color);
-  background: rgb(59, 89, 152);
-  letter-spacing: 1.19px;
 }
 
 .facebk-icon {

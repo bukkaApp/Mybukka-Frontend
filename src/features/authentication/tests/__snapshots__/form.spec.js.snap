@@ -14,6 +14,7 @@ ShallowWrapper {
         },
       ]
     }
+    errorMessage=""
     handleChange={[MockFunction]}
     handleSubmit={[MockFunction]}
     inputData={
@@ -128,6 +129,9 @@ ShallowWrapper {
           handleChange={[MockFunction]}
           validationErrors={Object {}}
         />,
+        <ErrorMessage
+          message=""
+        />,
         false,
         <LargeButton
           classNames="disabled col-md-12 primary-button"
@@ -137,7 +141,7 @@ ShallowWrapper {
         />,
         <Divider />,
         <AuthByFacebook
-          classNames="facebk-btn btn col-md-12"
+          classNames="facebk-btn col-md-12"
           handleClick={[Function]}
           href="/"
           text="Facebook"
@@ -173,6 +177,17 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "message": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       false,
       Object {
         "instance": null,
@@ -202,7 +217,7 @@ ShallowWrapper {
         "key": "1",
         "nodeType": "function",
         "props": Object {
-          "classNames": "facebk-btn btn col-md-12",
+          "classNames": "facebk-btn col-md-12",
           "handleClick": [Function],
           "href": "/",
           "text": "Facebook",
@@ -247,6 +262,9 @@ ShallowWrapper {
             handleChange={[MockFunction]}
             validationErrors={Object {}}
           />,
+          <ErrorMessage
+            message=""
+          />,
           false,
           <LargeButton
             classNames="disabled col-md-12 primary-button"
@@ -256,7 +274,7 @@ ShallowWrapper {
           />,
           <Divider />,
           <AuthByFacebook
-            classNames="facebk-btn btn col-md-12"
+            classNames="facebk-btn col-md-12"
             handleClick={[Function]}
             href="/"
             text="Facebook"
@@ -292,6 +310,17 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "message": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         false,
         Object {
           "instance": null,
@@ -321,7 +350,7 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "function",
           "props": Object {
-            "classNames": "facebk-btn btn col-md-12",
+            "classNames": "facebk-btn col-md-12",
             "handleClick": [Function],
             "href": "/",
             "text": "Facebook",

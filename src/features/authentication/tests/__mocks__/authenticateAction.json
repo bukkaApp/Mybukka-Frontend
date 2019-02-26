@@ -1,0 +1,15 @@
+{
+  "success": {
+    "body": {
+      "message": "successful signin",
+      "token": "some-token"
+    }
+  },
+  "error": {
+    "response": {
+      "data": {
+        "message": "this user already eists"
+      }
+    }
+  }
+}

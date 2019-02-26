@@ -1,7 +1,9 @@
-$fontFamily: 'Fira Sans', sans-serif;
+$fontFamily: 'Roboto', sans-serif;
 $fontWeight: 600;
 $roundedBorders: 28px;
 $primaryColor: #9c1c26;
+$color: #9c1c26;
+$white: rgb(217, 219, 224);
 
 @mixin button($width, $height, $bgcolor, $color, $fontSize) {
   min-width: $width;
@@ -23,6 +25,20 @@ $primaryColor: #9c1c26;
 .primary-button {
   @include button(165px, 48px, $primaryColor, #ffffff, 12px);
   border: 1px solid $primaryColor;
+}
+
+.facebk-btn {
+  @include button(165px, 48px, #3b5998, #fff, 12px);
+  border: 1px solid #3b5998;
+}
+
+
+.button {
+  @include button(165px, 48px, $color, #ffffff, 12px);
+}
+
+.disabled {
+  @include button(165px, 48px, $white, #ffffff, 12px);
 }
 
 .small-button {

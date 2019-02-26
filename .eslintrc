@@ -11,7 +11,13 @@
     },
     "globals": {
       "shallow": true,
-      "mount": true
+      "mount": true,
+      "moxios": true,
+      "mockStore": true,
+      "axiosInstance": true,
+      "render": true,
+      "cleanup": true,
+      "fireEvent": true
     },
     "plugins": [
       "react-hooks"
