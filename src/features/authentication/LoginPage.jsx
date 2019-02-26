@@ -90,7 +90,7 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { authenticateUser: autheticate }
+  { authenticateUser: authenticate }
 )(LoginPage);
 
 LoginPage.defaultProps = {

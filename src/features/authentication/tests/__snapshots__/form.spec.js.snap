@@ -1,0 +1,424 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component renders properly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Form
+    domStructure={
+      Array [
+        Object {
+          "id": "firstName",
+          "name": "firstName",
+          "placeholder": "First Name",
+          "type": "text",
+        },
+      ]
+    }
+    errorMessage=""
+    handleChange={[MockFunction]}
+    handleSubmit={[MockFunction]}
+    inputData={
+      Object {
+        "confirmPassword": Object {
+          "errorMsg": Object {
+            "empty": "This field is Required",
+            "invalid": "This field must be the same with password",
+          },
+          "isSuccess": false,
+          "match": false,
+          "minLength": 8,
+          "placeholder": " Re-type Password",
+          "touched": false,
+          "type": "password",
+          "value": "",
+        },
+        "domStructureMock": Array [
+          Object {
+            "id": "firstName",
+            "name": "firstName",
+            "placeholder": "First Name",
+            "type": "text",
+          },
+        ],
+        "email": Object {
+          "errorMsg": Object {
+            "empty": "This field is Required",
+            "invalid": "Email must be valid",
+          },
+          "isSuccess": false,
+          "match": false,
+          "placeholder": "Email address",
+          "touched": false,
+          "type": "email",
+          "value": "",
+        },
+        "firstName": Object {
+          "errorMsg": Object {
+            "empty": "This field is Required",
+            "invalid": "This field can only be at least 3 letters",
+          },
+          "isSuccess": false,
+          "match": false,
+          "minLength": 3,
+          "placeholder": "First Name",
+          "touched": false,
+          "type": "text",
+          "value": "",
+        },
+        "lastName": Object {
+          "errorMsg": Object {
+            "empty": "This field is Required",
+            "invalid": "This field can only be at least 3 letters",
+          },
+          "isSuccess": false,
+          "match": false,
+          "minLength": 3,
+          "placeholder": "Last Name",
+          "touched": false,
+          "type": "text",
+          "value": "",
+        },
+        "password": Object {
+          "errorMsg": Object {
+            "empty": "This field is Required",
+            "invalid": "This field should contain at least 8 alphabets and numbers",
+          },
+          "isSuccess": false,
+          "match": false,
+          "minLength": 8,
+          "placeholder": " Password ",
+          "touched": false,
+          "type": "password",
+          "value": "",
+        },
+        "validationErrorsMock": Object {
+          "firstName": "",
+        },
+      }
+    }
+    isFormCompleted={false}
+    type="signin"
+    validationErrors={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <TextField
+          domStructure={
+            Array [
+              Object {
+                "id": "firstName",
+                "name": "firstName",
+                "placeholder": "First Name",
+                "type": "text",
+              },
+            ]
+          }
+          handleChange={[MockFunction]}
+          validationErrors={Object {}}
+        />,
+        <ErrorMessage
+          message=""
+        />,
+        <TermsAndConditions
+          type="signin"
+        />,
+        <LargeButton
+          classNames="disabled col-md-12 primary-button"
+          handleClick={[Function]}
+          text="Submit"
+          type="submit"
+        />,
+        <Divider />,
+        <AuthByFacebook
+          classNames="facebk-btn col-md-12"
+          handleClick={[Function]}
+          href="/"
+          text="Facebook"
+          type="button"
+        />,
+        <FormOptions
+          type="signin"
+        />,
+      ],
+      "className": "pb-3 form-auth",
+      "name": "form",
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "domStructure": Array [
+            Object {
+              "id": "firstName",
+              "name": "firstName",
+              "placeholder": "First Name",
+              "type": "text",
+            },
+          ],
+          "handleChange": [MockFunction],
+          "validationErrors": Object {},
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "message": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "type": "signin",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "0",
+        "nodeType": "function",
+        "props": Object {
+          "classNames": "disabled col-md-12 primary-button",
+          "handleClick": [Function],
+          "text": "Submit",
+          "type": "submit",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {
+          "classNames": "facebk-btn col-md-12",
+          "handleClick": [Function],
+          "href": "/",
+          "text": "Facebook",
+          "type": "button",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "type": "signin",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <TextField
+            domStructure={
+              Array [
+                Object {
+                  "id": "firstName",
+                  "name": "firstName",
+                  "placeholder": "First Name",
+                  "type": "text",
+                },
+              ]
+            }
+            handleChange={[MockFunction]}
+            validationErrors={Object {}}
+          />,
+          <ErrorMessage
+            message=""
+          />,
+          <TermsAndConditions
+            type="signin"
+          />,
+          <LargeButton
+            classNames="disabled col-md-12 primary-button"
+            handleClick={[Function]}
+            text="Submit"
+            type="submit"
+          />,
+          <Divider />,
+          <AuthByFacebook
+            classNames="facebk-btn col-md-12"
+            handleClick={[Function]}
+            href="/"
+            text="Facebook"
+            type="button"
+          />,
+          <FormOptions
+            type="signin"
+          />,
+        ],
+        "className": "pb-3 form-auth",
+        "name": "form",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "domStructure": Array [
+              Object {
+                "id": "firstName",
+                "name": "firstName",
+                "placeholder": "First Name",
+                "type": "text",
+              },
+            ],
+            "handleChange": [MockFunction],
+            "validationErrors": Object {},
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "message": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "type": "signin",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "function",
+          "props": Object {
+            "classNames": "disabled col-md-12 primary-button",
+            "handleClick": [Function],
+            "text": "Submit",
+            "type": "submit",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "function",
+          "props": Object {
+            "classNames": "facebk-btn col-md-12",
+            "handleClick": [Function],
+            "href": "/",
+            "text": "Facebook",
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "type": "signin",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
