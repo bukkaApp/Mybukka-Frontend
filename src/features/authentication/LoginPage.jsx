@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 
-import autheticate from './actionCreators/authenticate';
+import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
 
 import { validateAField, validateAllFields } from './helper/validateFields';
