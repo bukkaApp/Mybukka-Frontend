@@ -11,28 +11,37 @@ import './form.scss';
 
 const signUpTextOption = 'Already have an account?';
 
-const signInTetxtOptions = 'New to Bukka?';
+const signInTextOptions = 'New to Bukka?';
 
-const FormOptions = ({ type }) => (
-  <div className="form-options padding">
-    <p>{type ? signInTetxtOptions : signUpTextOption}</p>
-    <NavLink
-      href={type ? '/signup' : '/login'}
-      classNames="btn-link"
-      text={type ? 'SIGN UP' : 'LOG IN'}
-    />
-  </div>
-);
+const FormOptions = ({ type }) => {
+  const formType = type === 'SignUp';
+  const AltOption = (
+    <div className="form-options padding">
+      <p>{formType ? signUpTextOption : signInTextOptions}</p>
+      <NavLink
+        href={formType ? '/login' : '/signup'}
+        classNames="btn-link"
+        text={formType ? 'LOG IN' : 'SIGN UP'}
+      />
+    </div>
+  );
+  return AltOption;
+};
 
-const TermsAndConditions = () => (
-  <div className="col-lg-12 padding terms">
-    <p>
+const TermsAndConditions = ({ type }) => {
+  if (type === 'SignUp') {
+    return (
+      <div className="col-lg-12 padding terms">
+        <p>
       By clicking the Sign Up or Facebook button, you agree to our{' '}
-      <NavLink classNames="link" href="/" text="Terms of Service " />
+          <NavLink classNames="link" href="/" text="Terms of Service " />
       and <NavLink classNames="link" href="/" text="Privacy Policy" />.
-    </p>
-  </div>
-);
+        </p>
+      </div>
+    );
+  }
+  return null;
+};
 
 const ErrorMessage = ({ message }) => {
   if (message) {
@@ -81,7 +90,7 @@ const Form = ({
       validationErrors={validationErrors}
     />
     <ErrorMessage message={errorMessage} />
-    {!type && <TermsAndConditions />}
+    <TermsAndConditions type={type} />
     <LargeButton
       type="submit"
       classNames={
@@ -127,10 +136,18 @@ Form.propTypes = {
 };
 
 FormOptions.defaultProps = {
-  type: 'text'
+  type: ''
 };
 
 FormOptions.propTypes = {
+  type: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+};
+
+TermsAndConditions.defaultProps = {
+  type: ''
+};
+
+TermsAndConditions.propTypes = {
   type: PropTypes.string
 };
 

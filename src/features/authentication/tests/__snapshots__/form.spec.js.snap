@@ -132,7 +132,9 @@ ShallowWrapper {
         <ErrorMessage
           message=""
         />,
-        false,
+        <TermsAndConditions
+          type="signin"
+        />,
         <LargeButton
           classNames="disabled col-md-12 primary-button"
           handleClick={[Function]}
@@ -188,7 +190,17 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
-      false,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "type": "signin",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       Object {
         "instance": null,
         "key": "0",
@@ -265,7 +277,9 @@ ShallowWrapper {
           <ErrorMessage
             message=""
           />,
-          false,
+          <TermsAndConditions
+            type="signin"
+          />,
           <LargeButton
             classNames="disabled col-md-12 primary-button"
             handleClick={[Function]}
@@ -321,7 +335,17 @@ ShallowWrapper {
           "rendered": null,
           "type": [Function],
         },
-        false,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "type": "signin",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         Object {
           "instance": null,
           "key": "0",
