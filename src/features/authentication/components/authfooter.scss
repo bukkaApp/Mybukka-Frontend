@@ -1,0 +1,35 @@
+.form-options {
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid rgb(217, 219, 224);
+  margin-top: 40px;
+  padding-bottom: 15px;
+  text-align: center;
+  @media screen and (max-width: 761px) {
+    & {
+      display: none;
+    }
+  }
+}
+  
+.form-options p {
+  margin: 0;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.auth-footer-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: initial;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: normal;
+    color: #9c1c26;
+    &:focus, &:hover {
+        text-decoration: none;
+        outline: none;
+        color: #9c1c26;
+    };
+}

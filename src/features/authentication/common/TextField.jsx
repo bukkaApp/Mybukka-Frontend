@@ -12,7 +12,7 @@ const HelpBlock = ({ errorMsg }) => (
 
 const TextField = ({ handleChange, domStructure, validationErrors }) =>
   domStructure.map(structure => (
-    <div className="form-group has-error padding" key={structure.id}>
+    <div className="form-group padding" key={structure.id}>
       <InputField
         name={structure.name}
         classNames="default-input"
