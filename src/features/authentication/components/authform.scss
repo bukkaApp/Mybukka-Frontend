@@ -9,6 +9,19 @@ $white: rgb(217, 219, 224);
   }
 }
 
+.auth-option {
+  font-size: 14px;
+  letter-spacing: initial;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  color: $color;
+  &:hover {
+    text-decoration: none;
+    color: $color;
+  }
+}
+
 .form {
   background: rgb(249, 249, 249);
   padding: 10px 0 20px;
@@ -25,30 +38,8 @@ $white: rgb(217, 219, 224);
   bottom: 10px;
 }
 
-.link {
-  font-size: 12px;
-  letter-spacing: 0.19px;
-  font-weight: 400;
-}
-
-.form-options {
-  width: 100%;
-  margin: 0;
-  border-top: 1px solid rgb(217, 219, 224);
-  margin-top: 40px;
-  padding-bottom: 15px;
-  text-align: center;
-  @media screen and (max-width: 761px) {
-    & {
-      display: none;
-    }
-  }
-}
-
-.form-options p {
-  margin: 0;
-  padding-top: 20px;
-  font-size: 14px;
+.form-auth {
+  padding-top: 15px;
 }
 
 .divider-box {
@@ -61,6 +52,7 @@ $white: rgb(217, 219, 224);
 .divider {
   overflow: hidden;
   text-align: center;
+  color: rgb(217, 219, 224);
 }
 
 .divider:before,
@@ -84,12 +76,3 @@ $white: rgb(217, 219, 224);
   margin-right: -45%;
 }
 
-.form-auth {
-  padding-top: 15px;
-}
-
-@media (max-width: 500.98px) {
-  .pb-3 {
-    min-height: 100vh;
-  }
-}
