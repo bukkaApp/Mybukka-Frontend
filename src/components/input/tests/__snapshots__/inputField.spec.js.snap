@@ -7,7 +7,6 @@ ShallowWrapper {
     classNames="default-btn"
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
-    inputElement=""
     name="test"
     placeholderText="sign in"
     type="text"

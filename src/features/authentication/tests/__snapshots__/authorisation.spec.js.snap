@@ -4,6 +4,16 @@ exports[`authorisation component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Authentication
+    domStructure={
+      Array [
+        Object {
+          "id": "firstName",
+          "name": "firstName",
+          "placeholder": "First Name",
+          "type": "text",
+        },
+      ]
+    }
     handleChange={[MockFunction]}
     handleSubmit={[MockFunction]}
     isFormCompleted={true}
@@ -35,7 +45,16 @@ ShallowWrapper {
               Sign Up
             </h2>
             <Form
-              domStructure={Object {}}
+              domStructure={
+                Array [
+                  Object {
+                    "id": "firstName",
+                    "name": "firstName",
+                    "placeholder": "First Name",
+                    "type": "text",
+                  },
+                ]
+              }
               errorMessage=""
               handleChange={[MockFunction]}
               handleSubmit={[MockFunction]}
@@ -64,7 +83,16 @@ ShallowWrapper {
               Sign Up
             </h2>
             <Form
-              domStructure={Object {}}
+              domStructure={
+                Array [
+                  Object {
+                    "id": "firstName",
+                    "name": "firstName",
+                    "placeholder": "First Name",
+                    "type": "text",
+                  },
+                ]
+              }
               errorMessage=""
               handleChange={[MockFunction]}
               handleSubmit={[MockFunction]}
@@ -89,7 +117,16 @@ ShallowWrapper {
                 Sign Up
               </h2>,
               <Form
-                domStructure={Object {}}
+                domStructure={
+                  Array [
+                    Object {
+                      "id": "firstName",
+                      "name": "firstName",
+                      "placeholder": "First Name",
+                      "type": "text",
+                    },
+                  ]
+                }
                 errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
@@ -119,7 +156,14 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "function",
               "props": Object {
-                "domStructure": Object {},
+                "domStructure": Array [
+                  Object {
+                    "id": "firstName",
+                    "name": "firstName",
+                    "placeholder": "First Name",
+                    "type": "text",
+                  },
+                ],
                 "errorMessage": "",
                 "handleChange": [MockFunction],
                 "handleSubmit": [MockFunction],
@@ -166,7 +210,16 @@ ShallowWrapper {
                 Sign Up
               </h2>
               <Form
-                domStructure={Object {}}
+                domStructure={
+                  Array [
+                    Object {
+                      "id": "firstName",
+                      "name": "firstName",
+                      "placeholder": "First Name",
+                      "type": "text",
+                    },
+                  ]
+                }
                 errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
@@ -195,7 +248,16 @@ ShallowWrapper {
                 Sign Up
               </h2>
               <Form
-                domStructure={Object {}}
+                domStructure={
+                  Array [
+                    Object {
+                      "id": "firstName",
+                      "name": "firstName",
+                      "placeholder": "First Name",
+                      "type": "text",
+                    },
+                  ]
+                }
                 errorMessage=""
                 handleChange={[MockFunction]}
                 handleSubmit={[MockFunction]}
@@ -220,7 +282,16 @@ ShallowWrapper {
                   Sign Up
                 </h2>,
                 <Form
-                  domStructure={Object {}}
+                  domStructure={
+                    Array [
+                      Object {
+                        "id": "firstName",
+                        "name": "firstName",
+                        "placeholder": "First Name",
+                        "type": "text",
+                      },
+                    ]
+                  }
                   errorMessage=""
                   handleChange={[MockFunction]}
                   handleSubmit={[MockFunction]}
@@ -250,7 +321,14 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "function",
                 "props": Object {
-                  "domStructure": Object {},
+                  "domStructure": Array [
+                    Object {
+                      "id": "firstName",
+                      "name": "firstName",
+                      "placeholder": "First Name",
+                      "type": "text",
+                    },
+                  ],
                   "errorMessage": "",
                   "handleChange": [MockFunction],
                   "handleSubmit": [MockFunction],

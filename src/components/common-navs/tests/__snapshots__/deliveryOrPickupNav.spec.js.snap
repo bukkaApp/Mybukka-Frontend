@@ -3,7 +3,7 @@
 exports[`DeliveryOrPickupNav component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DeliveryOrPickupNav />,
+  Symbol(enzyme.__unrendered__): <Connect(DeliveryOrPickupNav) />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,113 +16,59 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": Array [
-        <button
-          autoFocus={true}
-          className="btn-delivery"
-          type="button"
-        >
-          delivery
-        </button>,
-        <button
-          className="btn-pickup"
-          type="button"
-        >
-          pickup
-        </button>,
-      ],
-      "className": "btn-group",
-      "role": "group",
+      "children": [Function],
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "autoFocus": true,
-          "children": "delivery",
-          "className": "btn-delivery",
-          "type": "button",
+    "rendered": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": Object {
+        "$$typeof": Symbol(react.context),
+        "Consumer": [Circular],
+        "Provider": Object {
+          "$$typeof": Symbol(react.provider),
+          "_context": [Circular],
         },
-        "ref": null,
-        "rendered": "delivery",
-        "type": "button",
+        "_calculateChangedBits": null,
+        "_currentRenderer": null,
+        "_currentRenderer2": null,
+        "_currentValue": null,
+        "_currentValue2": null,
+        "_threadCount": 0,
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "pickup",
-          "className": "btn-pickup",
-          "type": "button",
-        },
-        "ref": null,
-        "rendered": "pickup",
-        "type": "button",
-      },
-    ],
-    "type": "div",
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": Array [
-          <button
-            autoFocus={true}
-            className="btn-delivery"
-            type="button"
-          >
-            delivery
-          </button>,
-          <button
-            className="btn-pickup"
-            type="button"
-          >
-            pickup
-          </button>,
-        ],
-        "className": "btn-group",
-        "role": "group",
+        "children": [Function],
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "autoFocus": true,
-            "children": "delivery",
-            "className": "btn-delivery",
-            "type": "button",
+      "rendered": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.context),
+        "_calculateChangedBits": null,
+        "_context": Object {
+          "$$typeof": Symbol(react.context),
+          "Consumer": [Circular],
+          "Provider": Object {
+            "$$typeof": Symbol(react.provider),
+            "_context": [Circular],
           },
-          "ref": null,
-          "rendered": "delivery",
-          "type": "button",
+          "_calculateChangedBits": null,
+          "_currentRenderer": null,
+          "_currentRenderer2": null,
+          "_currentValue": null,
+          "_currentValue2": null,
+          "_threadCount": 0,
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "pickup",
-            "className": "btn-pickup",
-            "type": "button",
-          },
-          "ref": null,
-          "rendered": "pickup",
-          "type": "button",
-        },
-      ],
-      "type": "div",
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -75,6 +75,7 @@ const AddedItem = () => {
           price={item.price}
           key={item.name}
           handleRemove={() => removeItemHandler(index)}
+          handleEdit={() => {}}
         />
       ))}
     </div>

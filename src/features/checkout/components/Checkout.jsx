@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
@@ -7,13 +9,13 @@ import DeliveryAddress from './DeliveryAddress';
 import Time from './Time';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
-import MyLocation from '../common/Map';
+import Map from '../common/Map';
 
 import './checkout.scss';
 
-const Checkout = () => (
+const Checkout = ({ push }) => (
   <>
-    <PrimaryNavbar />
+    <PrimaryNavbar push={push} />
     <Container classNames="relative modal-open">
       <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
         <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
@@ -35,7 +37,7 @@ const Checkout = () => (
         >
           <div className="card-shadow card mb-3 border">
             <div className="map-address d-none d-lg-block d-xl-block">
-              <MyLocation />
+              <Map />
             </div>
             <ShoppingCart />
           </div>
@@ -54,3 +56,7 @@ const Checkout = () => (
 );
 
 export default Checkout;
+
+Checkout.propTypes = {
+  push: PropTypes.func.isRequired
+};

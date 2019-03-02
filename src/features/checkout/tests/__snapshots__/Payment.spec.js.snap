@@ -50,7 +50,6 @@ ReactWrapper {
                 Card number
               </label>
               <input
-                autocomplete="off"
                 class="form-control border-input-style p-0"
                 name="number"
                 placeholder="Card number"
@@ -70,7 +69,6 @@ ReactWrapper {
                 MM/YY
               </label>
               <input
-                autocomplete="off"
                 class="form-control border-input-style p-0"
                 name="expDate"
                 placeholder="MM/YY"
@@ -90,7 +88,6 @@ ReactWrapper {
                 CVV
               </label>
               <input
-                autocomplete="off"
                 class="form-control border-input-style p-0"
                 name="cvv"
                 placeholder="CVV"
@@ -110,7 +107,6 @@ ReactWrapper {
                 Zip code
               </label>
               <input
-                autocomplete="off"
                 class="form-control border-input-style p-0"
                 name="zipCode"
                 placeholder="Zip code"
@@ -124,33 +120,23 @@ ReactWrapper {
           <div
             class="form-group checkbox-form-group"
           >
-            <div
-              aria-pressed="false"
-              class="onfocus text-center"
-              role="button"
-              tabindex="0"
+            <input
+              class="checkbox"
+              name="makeDefaultPaymentOption"
+              placeholder=""
+              type="checkbox"
+            />
+            <span
+              class="make-default-text"
             >
-              <label
-                class="checkbox-container"
-                for="makePayment"
-              >
-                Make default payment method
-                <input
-                  class=""
-                  id="makePayment"
-                  name="name"
-                  placeholder=""
-                  type="checkbox"
-                />
-                <span
-                  class="checkmark"
-                />
-              </label>
-            </div>
+              Make default payment method
+            </span>
           </div>
           <div>
             <button
-              class="small-button"
+              class="small-button-save"
+              data-target=""
+              data-toggle=""
               type="button"
             >
               Save
@@ -241,15 +227,33 @@ ReactWrapper {
             <div
               className="form-group checkbox-form-group"
             >
-              <CheckBox />
+              <InputField
+                classNames="checkbox"
+                handleChange={[Function]}
+                handleFocus={[Function]}
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                placeholderText=""
+                type="checkbox"
+              />
+              <span
+                className="make-default-text"
+              >
+                Make default payment method
+              </span>
             </div>
             <div>
               <Button
-                classNames="small-button"
+                classNames="small-button-save"
+                dataTarget=""
+                dataToggle=""
+                disabled={false}
                 handleClick={[Function]}
                 text="Save"
                 type="button"
-              />
+              >
+                <div />
+              </Button>
             </div>
           </form>,
           <Demarcation />,
@@ -294,7 +298,6 @@ ReactWrapper {
                   Card number
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="number"
                   placeholder="Card number"
@@ -314,7 +317,6 @@ ReactWrapper {
                   MM/YY
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="expDate"
                   placeholder="MM/YY"
@@ -334,7 +336,6 @@ ReactWrapper {
                   CVV
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="cvv"
                   placeholder="CVV"
@@ -354,7 +355,6 @@ ReactWrapper {
                   Zip code
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="zipCode"
                   placeholder="Zip code"
@@ -368,33 +368,23 @@ ReactWrapper {
             <div
               class="form-group checkbox-form-group"
             >
-              <div
-                aria-pressed="false"
-                class="onfocus text-center"
-                role="button"
-                tabindex="0"
+              <input
+                class="checkbox"
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                type="checkbox"
+              />
+              <span
+                class="make-default-text"
               >
-                <label
-                  class="checkbox-container"
-                  for="makePayment"
-                >
-                  Make default payment method
-                  <input
-                    class=""
-                    id="makePayment"
-                    name="name"
-                    placeholder=""
-                    type="checkbox"
-                  />
-                  <span
-                    class="checkmark"
-                  />
-                </label>
-              </div>
+                Make default payment method
+              </span>
             </div>
             <div>
               <button
-                class="small-button"
+                class="small-button-save"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
                 Save
@@ -473,15 +463,33 @@ ReactWrapper {
               <div
                 className="form-group checkbox-form-group"
               >
-                <CheckBox />
+                <InputField
+                  classNames="checkbox"
+                  handleChange={[Function]}
+                  handleFocus={[Function]}
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  placeholderText=""
+                  type="checkbox"
+                />
+                <span
+                  className="make-default-text"
+                >
+                  Make default payment method
+                </span>
               </div>,
               <div>
                 <Button
-                  classNames="small-button"
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
                   handleClick={[Function]}
                   text="Save"
                   type="button"
-                />
+                >
+                  <div />
+                </Button>
               </div>,
             ],
             "className": "border padding-20 mt-4",
@@ -502,7 +510,6 @@ ReactWrapper {
                     Card number
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="number"
                     placeholder="Card number"
@@ -522,7 +529,6 @@ ReactWrapper {
                     MM/YY
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="expDate"
                     placeholder="MM/YY"
@@ -542,7 +548,6 @@ ReactWrapper {
                     CVV
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="cvv"
                     placeholder="CVV"
@@ -562,7 +567,6 @@ ReactWrapper {
                     Zip code
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="zipCode"
                     placeholder="Zip code"
@@ -711,7 +715,6 @@ ReactWrapper {
                           Card number
                         </label>
                         <input
-                          autocomplete="off"
                           class="form-control border-input-style p-0"
                           name="number"
                           placeholder="Card number"
@@ -721,7 +724,7 @@ ReactWrapper {
                           class="text-danger font-size-11"
                         />
                       </div>,
-                      "key": undefined,
+                      "key": "number",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -734,6 +737,7 @@ ReactWrapper {
                           <InputField
                             classNames="form-control border-input-style p-0"
                             handleChange={[Function]}
+                            handleFocus={[Function]}
                             id="number"
                             inputElement={
                               Object {
@@ -782,6 +786,7 @@ ReactWrapper {
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
                             "handleChange": [Function],
+                            "handleFocus": [Function],
                             "id": "number",
                             "inputElement": Object {
                               "autoComplete": "off",
@@ -793,7 +798,6 @@ ReactWrapper {
                           "ref": null,
                           "rendered": Object {
                             "instance": <input
-                              autocomplete="off"
                               class="form-control border-input-style p-0"
                               name="number"
                               placeholder="Card number"
@@ -802,11 +806,10 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "number",
                               "onChange": [Function],
-                              "onFocus": undefined,
+                              "onFocus": [Function],
                               "placeholder": "Card number",
                               "type": "text",
                             },
@@ -848,7 +851,6 @@ ReactWrapper {
                           MM/YY
                         </label>
                         <input
-                          autocomplete="off"
                           class="form-control border-input-style p-0"
                           name="expDate"
                           placeholder="MM/YY"
@@ -858,7 +860,7 @@ ReactWrapper {
                           class="text-danger font-size-11"
                         />
                       </div>,
-                      "key": undefined,
+                      "key": "expDate",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -871,6 +873,7 @@ ReactWrapper {
                           <InputField
                             classNames="form-control border-input-style p-0"
                             handleChange={[Function]}
+                            handleFocus={[Function]}
                             id="expDate"
                             inputElement={
                               Object {
@@ -919,6 +922,7 @@ ReactWrapper {
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
                             "handleChange": [Function],
+                            "handleFocus": [Function],
                             "id": "expDate",
                             "inputElement": Object {
                               "autoComplete": "off",
@@ -930,7 +934,6 @@ ReactWrapper {
                           "ref": null,
                           "rendered": Object {
                             "instance": <input
-                              autocomplete="off"
                               class="form-control border-input-style p-0"
                               name="expDate"
                               placeholder="MM/YY"
@@ -939,11 +942,10 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "expDate",
                               "onChange": [Function],
-                              "onFocus": undefined,
+                              "onFocus": [Function],
                               "placeholder": "MM/YY",
                               "type": "text",
                             },
@@ -985,7 +987,6 @@ ReactWrapper {
                           CVV
                         </label>
                         <input
-                          autocomplete="off"
                           class="form-control border-input-style p-0"
                           name="cvv"
                           placeholder="CVV"
@@ -995,7 +996,7 @@ ReactWrapper {
                           class="text-danger font-size-11"
                         />
                       </div>,
-                      "key": undefined,
+                      "key": "cvv",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -1008,6 +1009,7 @@ ReactWrapper {
                           <InputField
                             classNames="form-control border-input-style p-0"
                             handleChange={[Function]}
+                            handleFocus={[Function]}
                             id="cvv"
                             inputElement={
                               Object {
@@ -1056,6 +1058,7 @@ ReactWrapper {
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
                             "handleChange": [Function],
+                            "handleFocus": [Function],
                             "id": "cvv",
                             "inputElement": Object {
                               "autoComplete": "off",
@@ -1067,7 +1070,6 @@ ReactWrapper {
                           "ref": null,
                           "rendered": Object {
                             "instance": <input
-                              autocomplete="off"
                               class="form-control border-input-style p-0"
                               name="cvv"
                               placeholder="CVV"
@@ -1076,11 +1078,10 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "cvv",
                               "onChange": [Function],
-                              "onFocus": undefined,
+                              "onFocus": [Function],
                               "placeholder": "CVV",
                               "type": "text",
                             },
@@ -1122,7 +1123,6 @@ ReactWrapper {
                           Zip code
                         </label>
                         <input
-                          autocomplete="off"
                           class="form-control border-input-style p-0"
                           name="zipCode"
                           placeholder="Zip code"
@@ -1132,7 +1132,7 @@ ReactWrapper {
                           class="text-danger font-size-11"
                         />
                       </div>,
-                      "key": undefined,
+                      "key": "zipCode",
                       "nodeType": "host",
                       "props": Object {
                         "children": Array [
@@ -1145,6 +1145,7 @@ ReactWrapper {
                           <InputField
                             classNames="form-control border-input-style p-0"
                             handleChange={[Function]}
+                            handleFocus={[Function]}
                             id="zipCode"
                             inputElement={
                               Object {
@@ -1193,6 +1194,7 @@ ReactWrapper {
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
                             "handleChange": [Function],
+                            "handleFocus": [Function],
                             "id": "zipCode",
                             "inputElement": Object {
                               "autoComplete": "off",
@@ -1204,7 +1206,6 @@ ReactWrapper {
                           "ref": null,
                           "rendered": Object {
                             "instance": <input
-                              autocomplete="off"
                               class="form-control border-input-style p-0"
                               name="zipCode"
                               placeholder="Zip code"
@@ -1213,11 +1214,10 @@ ReactWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "autoComplete": "off",
                               "className": "form-control border-input-style p-0",
                               "name": "zipCode",
                               "onChange": [Function],
-                              "onFocus": undefined,
+                              "onFocus": [Function],
                               "placeholder": "Zip code",
                               "type": "text",
                             },
@@ -1258,34 +1258,37 @@ ReactWrapper {
               "instance": <div
                 class="form-group checkbox-form-group"
               >
-                <div
-                  aria-pressed="false"
-                  class="onfocus text-center"
-                  role="button"
-                  tabindex="0"
+                <input
+                  class="checkbox"
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  type="checkbox"
+                />
+                <span
+                  class="make-default-text"
                 >
-                  <label
-                    class="checkbox-container"
-                    for="makePayment"
-                  >
-                    Make default payment method
-                    <input
-                      class=""
-                      id="makePayment"
-                      name="name"
-                      placeholder=""
-                      type="checkbox"
-                    />
-                    <span
-                      class="checkmark"
-                    />
-                  </label>
-                </div>
+                  Make default payment method
+                </span>
               </div>,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <CheckBox />,
+                "children": Array [
+                  <InputField
+                    classNames="checkbox"
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    placeholderText=""
+                    type="checkbox"
+                  />,
+                  <span
+                    className="make-default-text"
+                  >
+                    Make default payment method
+                  </span>,
+                ],
                 "className": "form-group checkbox-form-group",
               },
               "ref": null,
@@ -1294,182 +1297,58 @@ ReactWrapper {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "function",
-                  "props": Object {},
+                  "props": Object {
+                    "classNames": "checkbox",
+                    "handleChange": [Function],
+                    "handleFocus": [Function],
+                    "name": "makeDefaultPaymentOption",
+                    "placeholder": "",
+                    "placeholderText": "",
+                    "type": "checkbox",
+                  },
                   "ref": null,
                   "rendered": Object {
-                    "instance": <div
-                      aria-pressed="false"
-                      class="onfocus text-center"
-                      role="button"
-                      tabindex="0"
-                    >
-                      <label
-                        class="checkbox-container"
-                        for="makePayment"
-                      >
-                        Make default payment method
-                        <input
-                          class=""
-                          id="makePayment"
-                          name="name"
-                          placeholder=""
-                          type="checkbox"
-                        />
-                        <span
-                          class="checkmark"
-                        />
-                      </label>
-                    </div>,
+                    "instance": <input
+                      class="checkbox"
+                      name="makeDefaultPaymentOption"
+                      placeholder=""
+                      type="checkbox"
+                    />,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "aria-pressed": "false",
-                      "children": <label
-                        className="checkbox-container"
-                        htmlFor="makePayment"
-                      >
-                        Make default payment method
-                        <InputField
-                          classNames=""
-                          handleChange={[Function]}
-                          handleClick={[Function]}
-                          handleFocus={[Function]}
-                          inputElement={
-                            Object {
-                              "checked": false,
-                              "id": "makePayment",
-                            }
-                          }
-                          name="name"
-                          placeholderText=""
-                          type="checkbox"
-                        />
-                        <span
-                          className="checkmark"
-                        />
-                      </label>,
-                      "className": "onfocus text-center",
-                      "onClick": [Function],
-                      "role": "button",
-                      "tabIndex": "0",
+                      "className": "checkbox",
+                      "name": "makeDefaultPaymentOption",
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "placeholder": "",
+                      "type": "checkbox",
                     },
                     "ref": null,
                     "rendered": Array [
-                      Object {
-                        "instance": <label
-                          class="checkbox-container"
-                          for="makePayment"
-                        >
-                          Make default payment method
-                          <input
-                            class=""
-                            id="makePayment"
-                            name="name"
-                            placeholder=""
-                            type="checkbox"
-                          />
-                          <span
-                            class="checkmark"
-                          />
-                        </label>,
-                        "key": undefined,
-                        "nodeType": "host",
-                        "props": Object {
-                          "children": Array [
-                            "Make default payment method",
-                            <InputField
-                              classNames=""
-                              handleChange={[Function]}
-                              handleClick={[Function]}
-                              handleFocus={[Function]}
-                              inputElement={
-                                Object {
-                                  "checked": false,
-                                  "id": "makePayment",
-                                }
-                              }
-                              name="name"
-                              placeholderText=""
-                              type="checkbox"
-                            />,
-                            <span
-                              className="checkmark"
-                            />,
-                          ],
-                          "className": "checkbox-container",
-                          "htmlFor": "makePayment",
-                        },
-                        "ref": null,
-                        "rendered": Array [
-                          "Make default payment method",
-                          Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "function",
-                            "props": Object {
-                              "classNames": "",
-                              "handleChange": [Function],
-                              "handleClick": [Function],
-                              "handleFocus": [Function],
-                              "inputElement": Object {
-                                "checked": false,
-                                "id": "makePayment",
-                              },
-                              "name": "name",
-                              "placeholderText": "",
-                              "type": "checkbox",
-                            },
-                            "ref": null,
-                            "rendered": Object {
-                              "instance": <input
-                                class=""
-                                id="makePayment"
-                                name="name"
-                                placeholder=""
-                                type="checkbox"
-                              />,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "checked": false,
-                                "className": "",
-                                "id": "makePayment",
-                                "name": "name",
-                                "onChange": [Function],
-                                "onFocus": [Function],
-                                "placeholder": "",
-                                "type": "checkbox",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                undefined,
-                              ],
-                              "type": "input",
-                            },
-                            "type": [Function],
-                          },
-                          Object {
-                            "instance": <span
-                              class="checkmark"
-                            />,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "className": "checkmark",
-                            },
-                            "ref": null,
-                            "rendered": Array [
-                              undefined,
-                            ],
-                            "type": "span",
-                          },
-                        ],
-                        "type": "label",
-                      },
+                      undefined,
                     ],
-                    "type": "div",
+                    "type": "input",
                   },
                   "type": [Function],
+                },
+                Object {
+                  "instance": <span
+                    class="make-default-text"
+                  >
+                    Make default payment method
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Make default payment method",
+                    "className": "make-default-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Make default payment method",
+                  ],
+                  "type": "span",
                 },
               ],
               "type": "div",
@@ -1477,7 +1356,9 @@ ReactWrapper {
             Object {
               "instance": <div>
                 <button
-                  class="small-button"
+                  class="small-button-save"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   Save
@@ -1487,11 +1368,16 @@ ReactWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <Button
-                  classNames="small-button"
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
                   handleClick={[Function]}
                   text="Save"
                   type="button"
-                />,
+                >
+                  <div />
+                </Button>,
               },
               "ref": null,
               "rendered": Array [
@@ -1500,7 +1386,11 @@ ReactWrapper {
                   "key": undefined,
                   "nodeType": "function",
                   "props": Object {
-                    "classNames": "small-button",
+                    "children": <div />,
+                    "classNames": "small-button-save",
+                    "dataTarget": "",
+                    "dataToggle": "",
+                    "disabled": false,
                     "handleClick": [Function],
                     "text": "Save",
                     "type": "button",
@@ -1508,7 +1398,9 @@ ReactWrapper {
                   "ref": null,
                   "rendered": Object {
                     "instance": <button
-                      class="small-button"
+                      class="small-button-save"
+                      data-target=""
+                      data-toggle=""
                       type="button"
                     >
                       Save
@@ -1517,7 +1409,10 @@ ReactWrapper {
                     "nodeType": "host",
                     "props": Object {
                       "children": "Save",
-                      "className": "small-button",
+                      "className": "small-button-save",
+                      "data-target": "",
+                      "data-toggle": "",
+                      "disabled": false,
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -1599,7 +1494,6 @@ ReactWrapper {
                   Card number
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="number"
                   placeholder="Card number"
@@ -1619,7 +1513,6 @@ ReactWrapper {
                   MM/YY
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="expDate"
                   placeholder="MM/YY"
@@ -1639,7 +1532,6 @@ ReactWrapper {
                   CVV
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="cvv"
                   placeholder="CVV"
@@ -1659,7 +1551,6 @@ ReactWrapper {
                   Zip code
                 </label>
                 <input
-                  autocomplete="off"
                   class="form-control border-input-style p-0"
                   name="zipCode"
                   placeholder="Zip code"
@@ -1673,33 +1564,23 @@ ReactWrapper {
             <div
               class="form-group checkbox-form-group"
             >
-              <div
-                aria-pressed="false"
-                class="onfocus text-center"
-                role="button"
-                tabindex="0"
+              <input
+                class="checkbox"
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                type="checkbox"
+              />
+              <span
+                class="make-default-text"
               >
-                <label
-                  class="checkbox-container"
-                  for="makePayment"
-                >
-                  Make default payment method
-                  <input
-                    class=""
-                    id="makePayment"
-                    name="name"
-                    placeholder=""
-                    type="checkbox"
-                  />
-                  <span
-                    class="checkmark"
-                  />
-                </label>
-              </div>
+                Make default payment method
+              </span>
             </div>
             <div>
               <button
-                class="small-button"
+                class="small-button-save"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
                 Save
@@ -1790,15 +1671,33 @@ ReactWrapper {
               <div
                 className="form-group checkbox-form-group"
               >
-                <CheckBox />
+                <InputField
+                  classNames="checkbox"
+                  handleChange={[Function]}
+                  handleFocus={[Function]}
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  placeholderText=""
+                  type="checkbox"
+                />
+                <span
+                  className="make-default-text"
+                >
+                  Make default payment method
+                </span>
               </div>
               <div>
                 <Button
-                  classNames="small-button"
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
                   handleClick={[Function]}
                   text="Save"
                   type="button"
-                />
+                >
+                  <div />
+                </Button>
               </div>
             </form>,
             <Demarcation />,
@@ -1843,7 +1742,6 @@ ReactWrapper {
                     Card number
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="number"
                     placeholder="Card number"
@@ -1863,7 +1761,6 @@ ReactWrapper {
                     MM/YY
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="expDate"
                     placeholder="MM/YY"
@@ -1883,7 +1780,6 @@ ReactWrapper {
                     CVV
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="cvv"
                     placeholder="CVV"
@@ -1903,7 +1799,6 @@ ReactWrapper {
                     Zip code
                   </label>
                   <input
-                    autocomplete="off"
                     class="form-control border-input-style p-0"
                     name="zipCode"
                     placeholder="Zip code"
@@ -1917,33 +1812,23 @@ ReactWrapper {
               <div
                 class="form-group checkbox-form-group"
               >
-                <div
-                  aria-pressed="false"
-                  class="onfocus text-center"
-                  role="button"
-                  tabindex="0"
+                <input
+                  class="checkbox"
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  type="checkbox"
+                />
+                <span
+                  class="make-default-text"
                 >
-                  <label
-                    class="checkbox-container"
-                    for="makePayment"
-                  >
-                    Make default payment method
-                    <input
-                      class=""
-                      id="makePayment"
-                      name="name"
-                      placeholder=""
-                      type="checkbox"
-                    />
-                    <span
-                      class="checkmark"
-                    />
-                  </label>
-                </div>
+                  Make default payment method
+                </span>
               </div>
               <div>
                 <button
-                  class="small-button"
+                  class="small-button-save"
+                  data-target=""
+                  data-toggle=""
                   type="button"
                 >
                   Save
@@ -2022,15 +1907,33 @@ ReactWrapper {
                 <div
                   className="form-group checkbox-form-group"
                 >
-                  <CheckBox />
+                  <InputField
+                    classNames="checkbox"
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    placeholderText=""
+                    type="checkbox"
+                  />
+                  <span
+                    className="make-default-text"
+                  >
+                    Make default payment method
+                  </span>
                 </div>,
                 <div>
                   <Button
-                    classNames="small-button"
+                    classNames="small-button-save"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
                     handleClick={[Function]}
                     text="Save"
                     type="button"
-                  />
+                  >
+                    <div />
+                  </Button>
                 </div>,
               ],
               "className": "border padding-20 mt-4",
@@ -2051,7 +1954,6 @@ ReactWrapper {
                       Card number
                     </label>
                     <input
-                      autocomplete="off"
                       class="form-control border-input-style p-0"
                       name="number"
                       placeholder="Card number"
@@ -2071,7 +1973,6 @@ ReactWrapper {
                       MM/YY
                     </label>
                     <input
-                      autocomplete="off"
                       class="form-control border-input-style p-0"
                       name="expDate"
                       placeholder="MM/YY"
@@ -2091,7 +1992,6 @@ ReactWrapper {
                       CVV
                     </label>
                     <input
-                      autocomplete="off"
                       class="form-control border-input-style p-0"
                       name="cvv"
                       placeholder="CVV"
@@ -2111,7 +2011,6 @@ ReactWrapper {
                       Zip code
                     </label>
                     <input
-                      autocomplete="off"
                       class="form-control border-input-style p-0"
                       name="zipCode"
                       placeholder="Zip code"
@@ -2260,7 +2159,6 @@ ReactWrapper {
                             Card number
                           </label>
                           <input
-                            autocomplete="off"
                             class="form-control border-input-style p-0"
                             name="number"
                             placeholder="Card number"
@@ -2270,7 +2168,7 @@ ReactWrapper {
                             class="text-danger font-size-11"
                           />
                         </div>,
-                        "key": undefined,
+                        "key": "number",
                         "nodeType": "host",
                         "props": Object {
                           "children": Array [
@@ -2283,6 +2181,7 @@ ReactWrapper {
                             <InputField
                               classNames="form-control border-input-style p-0"
                               handleChange={[Function]}
+                              handleFocus={[Function]}
                               id="number"
                               inputElement={
                                 Object {
@@ -2331,6 +2230,7 @@ ReactWrapper {
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
                               "handleChange": [Function],
+                              "handleFocus": [Function],
                               "id": "number",
                               "inputElement": Object {
                                 "autoComplete": "off",
@@ -2342,7 +2242,6 @@ ReactWrapper {
                             "ref": null,
                             "rendered": Object {
                               "instance": <input
-                                autocomplete="off"
                                 class="form-control border-input-style p-0"
                                 name="number"
                                 placeholder="Card number"
@@ -2351,11 +2250,10 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "number",
                                 "onChange": [Function],
-                                "onFocus": undefined,
+                                "onFocus": [Function],
                                 "placeholder": "Card number",
                                 "type": "text",
                               },
@@ -2397,7 +2295,6 @@ ReactWrapper {
                             MM/YY
                           </label>
                           <input
-                            autocomplete="off"
                             class="form-control border-input-style p-0"
                             name="expDate"
                             placeholder="MM/YY"
@@ -2407,7 +2304,7 @@ ReactWrapper {
                             class="text-danger font-size-11"
                           />
                         </div>,
-                        "key": undefined,
+                        "key": "expDate",
                         "nodeType": "host",
                         "props": Object {
                           "children": Array [
@@ -2420,6 +2317,7 @@ ReactWrapper {
                             <InputField
                               classNames="form-control border-input-style p-0"
                               handleChange={[Function]}
+                              handleFocus={[Function]}
                               id="expDate"
                               inputElement={
                                 Object {
@@ -2468,6 +2366,7 @@ ReactWrapper {
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
                               "handleChange": [Function],
+                              "handleFocus": [Function],
                               "id": "expDate",
                               "inputElement": Object {
                                 "autoComplete": "off",
@@ -2479,7 +2378,6 @@ ReactWrapper {
                             "ref": null,
                             "rendered": Object {
                               "instance": <input
-                                autocomplete="off"
                                 class="form-control border-input-style p-0"
                                 name="expDate"
                                 placeholder="MM/YY"
@@ -2488,11 +2386,10 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "expDate",
                                 "onChange": [Function],
-                                "onFocus": undefined,
+                                "onFocus": [Function],
                                 "placeholder": "MM/YY",
                                 "type": "text",
                               },
@@ -2534,7 +2431,6 @@ ReactWrapper {
                             CVV
                           </label>
                           <input
-                            autocomplete="off"
                             class="form-control border-input-style p-0"
                             name="cvv"
                             placeholder="CVV"
@@ -2544,7 +2440,7 @@ ReactWrapper {
                             class="text-danger font-size-11"
                           />
                         </div>,
-                        "key": undefined,
+                        "key": "cvv",
                         "nodeType": "host",
                         "props": Object {
                           "children": Array [
@@ -2557,6 +2453,7 @@ ReactWrapper {
                             <InputField
                               classNames="form-control border-input-style p-0"
                               handleChange={[Function]}
+                              handleFocus={[Function]}
                               id="cvv"
                               inputElement={
                                 Object {
@@ -2605,6 +2502,7 @@ ReactWrapper {
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
                               "handleChange": [Function],
+                              "handleFocus": [Function],
                               "id": "cvv",
                               "inputElement": Object {
                                 "autoComplete": "off",
@@ -2616,7 +2514,6 @@ ReactWrapper {
                             "ref": null,
                             "rendered": Object {
                               "instance": <input
-                                autocomplete="off"
                                 class="form-control border-input-style p-0"
                                 name="cvv"
                                 placeholder="CVV"
@@ -2625,11 +2522,10 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "cvv",
                                 "onChange": [Function],
-                                "onFocus": undefined,
+                                "onFocus": [Function],
                                 "placeholder": "CVV",
                                 "type": "text",
                               },
@@ -2671,7 +2567,6 @@ ReactWrapper {
                             Zip code
                           </label>
                           <input
-                            autocomplete="off"
                             class="form-control border-input-style p-0"
                             name="zipCode"
                             placeholder="Zip code"
@@ -2681,7 +2576,7 @@ ReactWrapper {
                             class="text-danger font-size-11"
                           />
                         </div>,
-                        "key": undefined,
+                        "key": "zipCode",
                         "nodeType": "host",
                         "props": Object {
                           "children": Array [
@@ -2694,6 +2589,7 @@ ReactWrapper {
                             <InputField
                               classNames="form-control border-input-style p-0"
                               handleChange={[Function]}
+                              handleFocus={[Function]}
                               id="zipCode"
                               inputElement={
                                 Object {
@@ -2742,6 +2638,7 @@ ReactWrapper {
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
                               "handleChange": [Function],
+                              "handleFocus": [Function],
                               "id": "zipCode",
                               "inputElement": Object {
                                 "autoComplete": "off",
@@ -2753,7 +2650,6 @@ ReactWrapper {
                             "ref": null,
                             "rendered": Object {
                               "instance": <input
-                                autocomplete="off"
                                 class="form-control border-input-style p-0"
                                 name="zipCode"
                                 placeholder="Zip code"
@@ -2762,11 +2658,10 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
-                                "autoComplete": "off",
                                 "className": "form-control border-input-style p-0",
                                 "name": "zipCode",
                                 "onChange": [Function],
-                                "onFocus": undefined,
+                                "onFocus": [Function],
                                 "placeholder": "Zip code",
                                 "type": "text",
                               },
@@ -2807,34 +2702,37 @@ ReactWrapper {
                 "instance": <div
                   class="form-group checkbox-form-group"
                 >
-                  <div
-                    aria-pressed="false"
-                    class="onfocus text-center"
-                    role="button"
-                    tabindex="0"
+                  <input
+                    class="checkbox"
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    type="checkbox"
+                  />
+                  <span
+                    class="make-default-text"
                   >
-                    <label
-                      class="checkbox-container"
-                      for="makePayment"
-                    >
-                      Make default payment method
-                      <input
-                        class=""
-                        id="makePayment"
-                        name="name"
-                        placeholder=""
-                        type="checkbox"
-                      />
-                      <span
-                        class="checkmark"
-                      />
-                    </label>
-                  </div>
+                    Make default payment method
+                  </span>
                 </div>,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": <CheckBox />,
+                  "children": Array [
+                    <InputField
+                      classNames="checkbox"
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      name="makeDefaultPaymentOption"
+                      placeholder=""
+                      placeholderText=""
+                      type="checkbox"
+                    />,
+                    <span
+                      className="make-default-text"
+                    >
+                      Make default payment method
+                    </span>,
+                  ],
                   "className": "form-group checkbox-form-group",
                 },
                 "ref": null,
@@ -2843,182 +2741,58 @@ ReactWrapper {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "function",
-                    "props": Object {},
+                    "props": Object {
+                      "classNames": "checkbox",
+                      "handleChange": [Function],
+                      "handleFocus": [Function],
+                      "name": "makeDefaultPaymentOption",
+                      "placeholder": "",
+                      "placeholderText": "",
+                      "type": "checkbox",
+                    },
                     "ref": null,
                     "rendered": Object {
-                      "instance": <div
-                        aria-pressed="false"
-                        class="onfocus text-center"
-                        role="button"
-                        tabindex="0"
-                      >
-                        <label
-                          class="checkbox-container"
-                          for="makePayment"
-                        >
-                          Make default payment method
-                          <input
-                            class=""
-                            id="makePayment"
-                            name="name"
-                            placeholder=""
-                            type="checkbox"
-                          />
-                          <span
-                            class="checkmark"
-                          />
-                        </label>
-                      </div>,
+                      "instance": <input
+                        class="checkbox"
+                        name="makeDefaultPaymentOption"
+                        placeholder=""
+                        type="checkbox"
+                      />,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "aria-pressed": "false",
-                        "children": <label
-                          className="checkbox-container"
-                          htmlFor="makePayment"
-                        >
-                          Make default payment method
-                          <InputField
-                            classNames=""
-                            handleChange={[Function]}
-                            handleClick={[Function]}
-                            handleFocus={[Function]}
-                            inputElement={
-                              Object {
-                                "checked": false,
-                                "id": "makePayment",
-                              }
-                            }
-                            name="name"
-                            placeholderText=""
-                            type="checkbox"
-                          />
-                          <span
-                            className="checkmark"
-                          />
-                        </label>,
-                        "className": "onfocus text-center",
-                        "onClick": [Function],
-                        "role": "button",
-                        "tabIndex": "0",
+                        "className": "checkbox",
+                        "name": "makeDefaultPaymentOption",
+                        "onChange": [Function],
+                        "onFocus": [Function],
+                        "placeholder": "",
+                        "type": "checkbox",
                       },
                       "ref": null,
                       "rendered": Array [
-                        Object {
-                          "instance": <label
-                            class="checkbox-container"
-                            for="makePayment"
-                          >
-                            Make default payment method
-                            <input
-                              class=""
-                              id="makePayment"
-                              name="name"
-                              placeholder=""
-                              type="checkbox"
-                            />
-                            <span
-                              class="checkmark"
-                            />
-                          </label>,
-                          "key": undefined,
-                          "nodeType": "host",
-                          "props": Object {
-                            "children": Array [
-                              "Make default payment method",
-                              <InputField
-                                classNames=""
-                                handleChange={[Function]}
-                                handleClick={[Function]}
-                                handleFocus={[Function]}
-                                inputElement={
-                                  Object {
-                                    "checked": false,
-                                    "id": "makePayment",
-                                  }
-                                }
-                                name="name"
-                                placeholderText=""
-                                type="checkbox"
-                              />,
-                              <span
-                                className="checkmark"
-                              />,
-                            ],
-                            "className": "checkbox-container",
-                            "htmlFor": "makePayment",
-                          },
-                          "ref": null,
-                          "rendered": Array [
-                            "Make default payment method",
-                            Object {
-                              "instance": null,
-                              "key": undefined,
-                              "nodeType": "function",
-                              "props": Object {
-                                "classNames": "",
-                                "handleChange": [Function],
-                                "handleClick": [Function],
-                                "handleFocus": [Function],
-                                "inputElement": Object {
-                                  "checked": false,
-                                  "id": "makePayment",
-                                },
-                                "name": "name",
-                                "placeholderText": "",
-                                "type": "checkbox",
-                              },
-                              "ref": null,
-                              "rendered": Object {
-                                "instance": <input
-                                  class=""
-                                  id="makePayment"
-                                  name="name"
-                                  placeholder=""
-                                  type="checkbox"
-                                />,
-                                "key": undefined,
-                                "nodeType": "host",
-                                "props": Object {
-                                  "checked": false,
-                                  "className": "",
-                                  "id": "makePayment",
-                                  "name": "name",
-                                  "onChange": [Function],
-                                  "onFocus": [Function],
-                                  "placeholder": "",
-                                  "type": "checkbox",
-                                },
-                                "ref": null,
-                                "rendered": Array [
-                                  undefined,
-                                ],
-                                "type": "input",
-                              },
-                              "type": [Function],
-                            },
-                            Object {
-                              "instance": <span
-                                class="checkmark"
-                              />,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "className": "checkmark",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                undefined,
-                              ],
-                              "type": "span",
-                            },
-                          ],
-                          "type": "label",
-                        },
+                        undefined,
                       ],
-                      "type": "div",
+                      "type": "input",
                     },
                     "type": [Function],
+                  },
+                  Object {
+                    "instance": <span
+                      class="make-default-text"
+                    >
+                      Make default payment method
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Make default payment method",
+                      "className": "make-default-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Make default payment method",
+                    ],
+                    "type": "span",
                   },
                 ],
                 "type": "div",
@@ -3026,7 +2800,9 @@ ReactWrapper {
               Object {
                 "instance": <div>
                   <button
-                    class="small-button"
+                    class="small-button-save"
+                    data-target=""
+                    data-toggle=""
                     type="button"
                   >
                     Save
@@ -3036,11 +2812,16 @@ ReactWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <Button
-                    classNames="small-button"
+                    classNames="small-button-save"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
                     handleClick={[Function]}
                     text="Save"
                     type="button"
-                  />,
+                  >
+                    <div />
+                  </Button>,
                 },
                 "ref": null,
                 "rendered": Array [
@@ -3049,7 +2830,11 @@ ReactWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "classNames": "small-button",
+                      "children": <div />,
+                      "classNames": "small-button-save",
+                      "dataTarget": "",
+                      "dataToggle": "",
+                      "disabled": false,
                       "handleClick": [Function],
                       "text": "Save",
                       "type": "button",
@@ -3057,7 +2842,9 @@ ReactWrapper {
                     "ref": null,
                     "rendered": Object {
                       "instance": <button
-                        class="small-button"
+                        class="small-button-save"
+                        data-target=""
+                        data-toggle=""
                         type="button"
                       >
                         Save
@@ -3066,7 +2853,10 @@ ReactWrapper {
                       "nodeType": "host",
                       "props": Object {
                         "children": "Save",
-                        "className": "small-button",
+                        "className": "small-button-save",
+                        "data-target": "",
+                        "data-toggle": "",
+                        "disabled": false,
                         "onClick": [Function],
                         "type": "button",
                       },

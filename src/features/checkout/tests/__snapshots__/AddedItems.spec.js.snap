@@ -1,44 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Area to explore component renders properly 1`] = `
-ReactWrapper {
-  Symbol(enzyme.__unrendered__): <AddedItem
-    handleClick={[MockFunction]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "handleClick": [MockFunction],
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": <div
-        class="px-lg-2"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="cart-menu"
       >
         <div
-          class="d-flex justify-content-between border-bottom pb-4 mb-2"
+          class="cart-bukka-details"
         >
           <h5
-            class="font-size-14"
+            class="cart-bukka-name"
           >
             Mel's Drive-In
           </h5>
           <h5
-            class="font-size-12"
+            class="cart-bukka-view-menu"
           >
             <a
-              class="text-success"
+              class="text-success view-menu-text"
               href="/feed"
             >
               VIEW MENU
@@ -46,1910 +28,255 @@ ReactWrapper {
           </h5>
         </div>
         <div
-          class="d-flex justify-content-between mt-4"
+          class="d-flex order-tray"
         >
           <div
             class="col p-0"
           >
             <h5
-              class="font-size-14"
+              class="item-name"
             >
               1 × 
               Chicken Tenders and Fries
             </h5>
             <div
-              class="justify-content-between p-0"
+              class="action-item-section"
             >
               <button
-                class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
+                class="cart-action-button-primary"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
-                Edit
+                EDIT
               </button>
               <button
-                class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
+                class="cart-action-button-default"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
-                Remove
+                REMOVE
               </button>
             </div>
           </div>
           <div
             class="p-0"
           >
-            <h5
-              class="font-size-14"
+            <h4
+              class="price-badge-black"
             >
+              ₦
               $15.73
-            </h5>
+              .00
+            </h4>
           </div>
         </div>
         <div
-          class="d-flex justify-content-between mt-4"
+          class="d-flex order-tray"
         >
           <div
             class="col p-0"
           >
             <h5
-              class="font-size-14"
+              class="item-name"
             >
               1 × 
               Side of beacon
             </h5>
             <div
-              class="justify-content-between p-0"
+              class="action-item-section"
             >
               <button
-                class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
+                class="cart-action-button-primary"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
-                Edit
+                EDIT
               </button>
               <button
-                class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
+                class="cart-action-button-default"
+                data-target=""
+                data-toggle=""
                 type="button"
               >
-                Remove
+                REMOVE
               </button>
             </div>
           </div>
           <div
             class="p-0"
           >
-            <h5
-              class="font-size-14"
+            <h4
+              class="price-badge-black"
             >
+              ₦
               $15.73
-            </h5>
+              .00
+            </h4>
           </div>
         </div>
-      </div>,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="d-flex justify-content-between border-bottom pb-4 mb-2"
-          >
-            <h5
-              className="font-size-14"
-            >
-              Mel's Drive-In
-            </h5>
-            <h5
-              className="font-size-12"
-            >
-              <a
-                className="text-success"
-                href="/feed"
-              >
-                VIEW MENU
-              </a>
-            </h5>
-          </div>,
-          Array [
-            <OrderTray
-              handleRemove={[Function]}
-              name="Chicken Tenders and Fries"
-              price="$15.73"
-            />,
-            <OrderTray
-              handleRemove={[Function]}
-              name="Side of beacon"
-              price="$15.73"
-            />,
-          ],
-        ],
-        "className": "px-lg-2",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": <div
-            class="d-flex justify-content-between border-bottom pb-4 mb-2"
-          >
-            <h5
-              class="font-size-14"
-            >
-              Mel's Drive-In
-            </h5>
-            <h5
-              class="font-size-12"
-            >
-              <a
-                class="text-success"
-                href="/feed"
-              >
-                VIEW MENU
-              </a>
-            </h5>
-          </div>,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <h5
-                className="font-size-14"
-              >
-                Mel's Drive-In
-              </h5>,
-              <h5
-                className="font-size-12"
-              >
-                <a
-                  className="text-success"
-                  href="/feed"
-                >
-                  VIEW MENU
-                </a>
-              </h5>,
-            ],
-            "className": "d-flex justify-content-between border-bottom pb-4 mb-2",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": <h5
-                class="font-size-14"
-              >
-                Mel's Drive-In
-              </h5>,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Mel's Drive-In",
-                "className": "font-size-14",
-              },
-              "ref": null,
-              "rendered": Array [
-                "Mel's Drive-In",
-              ],
-              "type": "h5",
-            },
-            Object {
-              "instance": <h5
-                class="font-size-12"
-              >
-                <a
-                  class="text-success"
-                  href="/feed"
-                >
-                  VIEW MENU
-                </a>
-              </h5>,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <a
-                  className="text-success"
-                  href="/feed"
-                >
-                  VIEW MENU
-                </a>,
-                "className": "font-size-12",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": <a
-                    class="text-success"
-                    href="/feed"
-                  >
-                    VIEW MENU
-                  </a>,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "VIEW MENU",
-                    "className": "text-success",
-                    "href": "/feed",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    "VIEW MENU",
-                  ],
-                  "type": "a",
-                },
-              ],
-              "type": "h5",
-            },
-          ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": "Chicken Tenders and Fries",
-          "nodeType": "function",
-          "props": Object {
-            "handleRemove": [Function],
-            "name": "Chicken Tenders and Fries",
-            "price": "$15.73",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": <div
-              class="d-flex justify-content-between mt-4"
-            >
-              <div
-                class="col p-0"
-              >
-                <h5
-                  class="font-size-14"
-                >
-                  1 × 
-                  Chicken Tenders and Fries
-                </h5>
-                <div
-                  class="justify-content-between p-0"
-                >
-                  <button
-                    class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                    type="button"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                    type="button"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-              <div
-                class="p-0"
-              >
-                <h5
-                  class="font-size-14"
-                >
-                  $15.73
-                </h5>
-              </div>
-            </div>,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <div
-                  className="col p-0"
-                >
-                  <h5
-                    className="font-size-14"
-                  >
-                    1 × 
-                    Chicken Tenders and Fries
-                  </h5>
-                  <div
-                    className="justify-content-between p-0"
-                  >
-                    <Edit />
-                    <Remove
-                      handleClick={[Function]}
-                    />
-                  </div>
-                </div>,
-                <div
-                  className="p-0"
-                >
-                  <h5
-                    className="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>,
-              ],
-              "className": "d-flex justify-content-between mt-4",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": <div
-                  class="col p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    1 × 
-                    Chicken Tenders and Fries
-                  </h5>
-                  <div
-                    class="justify-content-between p-0"
-                  >
-                    <button
-                      class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                      type="button"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                      type="button"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <h5
-                      className="font-size-14"
-                    >
-                      1 × 
-                      Chicken Tenders and Fries
-                    </h5>,
-                    <div
-                      className="justify-content-between p-0"
-                    >
-                      <Edit />
-                      <Remove
-                        handleClick={[Function]}
-                      />
-                    </div>,
-                  ],
-                  "className": "col p-0",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": <h5
-                      class="font-size-14"
-                    >
-                      1 × 
-                      Chicken Tenders and Fries
-                    </h5>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        "1 × ",
-                        "Chicken Tenders and Fries",
-                      ],
-                      "className": "font-size-14",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "1 × ",
-                      "Chicken Tenders and Fries",
-                    ],
-                    "type": "h5",
-                  },
-                  Object {
-                    "instance": <div
-                      class="justify-content-between p-0"
-                    >
-                      <button
-                        class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                        type="button"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                        type="button"
-                      >
-                        Remove
-                      </button>
-                    </div>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        <Edit />,
-                        <Remove
-                          handleClick={[Function]}
-                        />,
-                      ],
-                      "className": "justify-content-between p-0",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "function",
-                        "props": Object {
-                          "handleClick": undefined,
-                        },
-                        "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "classNames": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                            "handleClick": undefined,
-                            "text": "Edit",
-                            "type": "button",
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": <button
-                              class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                              type="button"
-                            >
-                              Edit
-                            </button>,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "children": "Edit",
-                              "className": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                              "onClick": undefined,
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Array [
-                              "Edit",
-                            ],
-                            "type": "button",
-                          },
-                          "type": [Function],
-                        },
-                        "type": [Function],
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "function",
-                        "props": Object {
-                          "handleClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "classNames": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                            "handleClick": [Function],
-                            "text": "Remove",
-                            "type": "button",
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": <button
-                              class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                              type="button"
-                            >
-                              Remove
-                            </button>,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "children": "Remove",
-                              "className": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                              "onClick": [Function],
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Array [
-                              "Remove",
-                            ],
-                            "type": "button",
-                          },
-                          "type": [Function],
-                        },
-                        "type": [Function],
-                      },
-                    ],
-                    "type": "div",
-                  },
-                ],
-                "type": "div",
-              },
-              Object {
-                "instance": <div
-                  class="p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <h5
-                    className="font-size-14"
-                  >
-                    $15.73
-                  </h5>,
-                  "className": "p-0",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": <h5
-                      class="font-size-14"
-                    >
-                      $15.73
-                    </h5>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "$15.73",
-                      "className": "font-size-14",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "$15.73",
-                    ],
-                    "type": "h5",
-                  },
-                ],
-                "type": "div",
-              },
-            ],
-            "type": "div",
-          },
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "Side of beacon",
-          "nodeType": "function",
-          "props": Object {
-            "handleRemove": [Function],
-            "name": "Side of beacon",
-            "price": "$15.73",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": <div
-              class="d-flex justify-content-between mt-4"
-            >
-              <div
-                class="col p-0"
-              >
-                <h5
-                  class="font-size-14"
-                >
-                  1 × 
-                  Side of beacon
-                </h5>
-                <div
-                  class="justify-content-between p-0"
-                >
-                  <button
-                    class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                    type="button"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                    type="button"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-              <div
-                class="p-0"
-              >
-                <h5
-                  class="font-size-14"
-                >
-                  $15.73
-                </h5>
-              </div>
-            </div>,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <div
-                  className="col p-0"
-                >
-                  <h5
-                    className="font-size-14"
-                  >
-                    1 × 
-                    Side of beacon
-                  </h5>
-                  <div
-                    className="justify-content-between p-0"
-                  >
-                    <Edit />
-                    <Remove
-                      handleClick={[Function]}
-                    />
-                  </div>
-                </div>,
-                <div
-                  className="p-0"
-                >
-                  <h5
-                    className="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>,
-              ],
-              "className": "d-flex justify-content-between mt-4",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": <div
-                  class="col p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    1 × 
-                    Side of beacon
-                  </h5>
-                  <div
-                    class="justify-content-between p-0"
-                  >
-                    <button
-                      class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                      type="button"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                      type="button"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <h5
-                      className="font-size-14"
-                    >
-                      1 × 
-                      Side of beacon
-                    </h5>,
-                    <div
-                      className="justify-content-between p-0"
-                    >
-                      <Edit />
-                      <Remove
-                        handleClick={[Function]}
-                      />
-                    </div>,
-                  ],
-                  "className": "col p-0",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": <h5
-                      class="font-size-14"
-                    >
-                      1 × 
-                      Side of beacon
-                    </h5>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        "1 × ",
-                        "Side of beacon",
-                      ],
-                      "className": "font-size-14",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "1 × ",
-                      "Side of beacon",
-                    ],
-                    "type": "h5",
-                  },
-                  Object {
-                    "instance": <div
-                      class="justify-content-between p-0"
-                    >
-                      <button
-                        class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                        type="button"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                        type="button"
-                      >
-                        Remove
-                      </button>
-                    </div>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": Array [
-                        <Edit />,
-                        <Remove
-                          handleClick={[Function]}
-                        />,
-                      ],
-                      "className": "justify-content-between p-0",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "function",
-                        "props": Object {
-                          "handleClick": undefined,
-                        },
-                        "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "classNames": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                            "handleClick": undefined,
-                            "text": "Edit",
-                            "type": "button",
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": <button
-                              class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                              type="button"
-                            >
-                              Edit
-                            </button>,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "children": "Edit",
-                              "className": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                              "onClick": undefined,
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Array [
-                              "Edit",
-                            ],
-                            "type": "button",
-                          },
-                          "type": [Function],
-                        },
-                        "type": [Function],
-                      },
-                      Object {
-                        "instance": null,
-                        "key": undefined,
-                        "nodeType": "function",
-                        "props": Object {
-                          "handleClick": [Function],
-                        },
-                        "ref": null,
-                        "rendered": Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "classNames": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                            "handleClick": [Function],
-                            "text": "Remove",
-                            "type": "button",
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": <button
-                              class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                              type="button"
-                            >
-                              Remove
-                            </button>,
-                            "key": undefined,
-                            "nodeType": "host",
-                            "props": Object {
-                              "children": "Remove",
-                              "className": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                              "onClick": [Function],
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Array [
-                              "Remove",
-                            ],
-                            "type": "button",
-                          },
-                          "type": [Function],
-                        },
-                        "type": [Function],
-                      },
-                    ],
-                    "type": "div",
-                  },
-                ],
-                "type": "div",
-              },
-              Object {
-                "instance": <div
-                  class="p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <h5
-                    className="font-size-14"
-                  >
-                    $15.73
-                  </h5>,
-                  "className": "p-0",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": <h5
-                      class="font-size-14"
-                    >
-                      $15.73
-                    </h5>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "$15.73",
-                      "className": "font-size-14",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "$15.73",
-                    ],
-                    "type": "h5",
-                  },
-                ],
-                "type": "div",
-              },
-            ],
-            "type": "div",
-          },
-          "type": [Function],
-        },
-      ],
-      "type": "div",
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "handleClick": [MockFunction],
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": <div
-          class="px-lg-2"
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="cart-menu"
+    >
+      <div
+        class="cart-bukka-details"
+      >
+        <h5
+          class="cart-bukka-name"
         >
-          <div
-            class="d-flex justify-content-between border-bottom pb-4 mb-2"
+          Mel's Drive-In
+        </h5>
+        <h5
+          class="cart-bukka-view-menu"
+        >
+          <a
+            class="text-success view-menu-text"
+            href="/feed"
           >
-            <h5
-              class="font-size-14"
-            >
-              Mel's Drive-In
-            </h5>
-            <h5
-              class="font-size-12"
-            >
-              <a
-                class="text-success"
-                href="/feed"
-              >
-                VIEW MENU
-              </a>
-            </h5>
-          </div>
-          <div
-            class="d-flex justify-content-between mt-4"
+            VIEW MENU
+          </a>
+        </h5>
+      </div>
+      <div
+        class="d-flex order-tray"
+      >
+        <div
+          class="col p-0"
+        >
+          <h5
+            class="item-name"
           >
-            <div
-              class="col p-0"
-            >
-              <h5
-                class="font-size-14"
-              >
-                1 × 
-                Chicken Tenders and Fries
-              </h5>
-              <div
-                class="justify-content-between p-0"
-              >
-                <button
-                  class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                  type="button"
-                >
-                  Edit
-                </button>
-                <button
-                  class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                  type="button"
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-            <div
-              class="p-0"
-            >
-              <h5
-                class="font-size-14"
-              >
-                $15.73
-              </h5>
-            </div>
-          </div>
+            1 × 
+            Chicken Tenders and Fries
+          </h5>
           <div
-            class="d-flex justify-content-between mt-4"
+            class="action-item-section"
           >
-            <div
-              class="col p-0"
+            <button
+              class="cart-action-button-primary"
+              data-target=""
+              data-toggle=""
+              type="button"
             >
-              <h5
-                class="font-size-14"
-              >
-                1 × 
-                Side of beacon
-              </h5>
-              <div
-                class="justify-content-between p-0"
-              >
-                <button
-                  class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                  type="button"
-                >
-                  Edit
-                </button>
-                <button
-                  class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                  type="button"
-                >
-                  Remove
-                </button>
-              </div>
-            </div>
-            <div
-              class="p-0"
+              EDIT
+            </button>
+            <button
+              class="cart-action-button-default"
+              data-target=""
+              data-toggle=""
+              type="button"
             >
-              <h5
-                class="font-size-14"
-              >
-                $15.73
-              </h5>
-            </div>
+              REMOVE
+            </button>
           </div>
-        </div>,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <div
-              className="d-flex justify-content-between border-bottom pb-4 mb-2"
+        </div>
+        <div
+          class="p-0"
+        >
+          <h4
+            class="price-badge-black"
+          >
+            ₦
+            $15.73
+            .00
+          </h4>
+        </div>
+      </div>
+      <div
+        class="d-flex order-tray"
+      >
+        <div
+          class="col p-0"
+        >
+          <h5
+            class="item-name"
+          >
+            1 × 
+            Side of beacon
+          </h5>
+          <div
+            class="action-item-section"
+          >
+            <button
+              class="cart-action-button-primary"
+              data-target=""
+              data-toggle=""
+              type="button"
             >
-              <h5
-                className="font-size-14"
-              >
-                Mel's Drive-In
-              </h5>
-              <h5
-                className="font-size-12"
-              >
-                <a
-                  className="text-success"
-                  href="/feed"
-                >
-                  VIEW MENU
-                </a>
-              </h5>
-            </div>,
-            Array [
-              <OrderTray
-                handleRemove={[Function]}
-                name="Chicken Tenders and Fries"
-                price="$15.73"
-              />,
-              <OrderTray
-                handleRemove={[Function]}
-                name="Side of beacon"
-                price="$15.73"
-              />,
-            ],
-          ],
-          "className": "px-lg-2",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": <div
-              class="d-flex justify-content-between border-bottom pb-4 mb-2"
+              EDIT
+            </button>
+            <button
+              class="cart-action-button-default"
+              data-target=""
+              data-toggle=""
+              type="button"
             >
-              <h5
-                class="font-size-14"
-              >
-                Mel's Drive-In
-              </h5>
-              <h5
-                class="font-size-12"
-              >
-                <a
-                  class="text-success"
-                  href="/feed"
-                >
-                  VIEW MENU
-                </a>
-              </h5>
-            </div>,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <h5
-                  className="font-size-14"
-                >
-                  Mel's Drive-In
-                </h5>,
-                <h5
-                  className="font-size-12"
-                >
-                  <a
-                    className="text-success"
-                    href="/feed"
-                  >
-                    VIEW MENU
-                  </a>
-                </h5>,
-              ],
-              "className": "d-flex justify-content-between border-bottom pb-4 mb-2",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": <h5
-                  class="font-size-14"
-                >
-                  Mel's Drive-In
-                </h5>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Mel's Drive-In",
-                  "className": "font-size-14",
-                },
-                "ref": null,
-                "rendered": Array [
-                  "Mel's Drive-In",
-                ],
-                "type": "h5",
-              },
-              Object {
-                "instance": <h5
-                  class="font-size-12"
-                >
-                  <a
-                    class="text-success"
-                    href="/feed"
-                  >
-                    VIEW MENU
-                  </a>
-                </h5>,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": <a
-                    className="text-success"
-                    href="/feed"
-                  >
-                    VIEW MENU
-                  </a>,
-                  "className": "font-size-12",
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": <a
-                      class="text-success"
-                      href="/feed"
-                    >
-                      VIEW MENU
-                    </a>,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "VIEW MENU",
-                      "className": "text-success",
-                      "href": "/feed",
-                    },
-                    "ref": null,
-                    "rendered": Array [
-                      "VIEW MENU",
-                    ],
-                    "type": "a",
-                  },
-                ],
-                "type": "h5",
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": "Chicken Tenders and Fries",
-            "nodeType": "function",
-            "props": Object {
-              "handleRemove": [Function],
-              "name": "Chicken Tenders and Fries",
-              "price": "$15.73",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": <div
-                class="d-flex justify-content-between mt-4"
-              >
-                <div
-                  class="col p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    1 × 
-                    Chicken Tenders and Fries
-                  </h5>
-                  <div
-                    class="justify-content-between p-0"
-                  >
-                    <button
-                      class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                      type="button"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                      type="button"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>
-              </div>,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <div
-                    className="col p-0"
-                  >
-                    <h5
-                      className="font-size-14"
-                    >
-                      1 × 
-                      Chicken Tenders and Fries
-                    </h5>
-                    <div
-                      className="justify-content-between p-0"
-                    >
-                      <Edit />
-                      <Remove
-                        handleClick={[Function]}
-                      />
-                    </div>
-                  </div>,
-                  <div
-                    className="p-0"
-                  >
-                    <h5
-                      className="font-size-14"
-                    >
-                      $15.73
-                    </h5>
-                  </div>,
-                ],
-                "className": "d-flex justify-content-between mt-4",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": <div
-                    class="col p-0"
-                  >
-                    <h5
-                      class="font-size-14"
-                    >
-                      1 × 
-                      Chicken Tenders and Fries
-                    </h5>
-                    <div
-                      class="justify-content-between p-0"
-                    >
-                      <button
-                        class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                        type="button"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                        type="button"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </div>,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <h5
-                        className="font-size-14"
-                      >
-                        1 × 
-                        Chicken Tenders and Fries
-                      </h5>,
-                      <div
-                        className="justify-content-between p-0"
-                      >
-                        <Edit />
-                        <Remove
-                          handleClick={[Function]}
-                        />
-                      </div>,
-                    ],
-                    "className": "col p-0",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": <h5
-                        class="font-size-14"
-                      >
-                        1 × 
-                        Chicken Tenders and Fries
-                      </h5>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          "1 × ",
-                          "Chicken Tenders and Fries",
-                        ],
-                        "className": "font-size-14",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        "1 × ",
-                        "Chicken Tenders and Fries",
-                      ],
-                      "type": "h5",
-                    },
-                    Object {
-                      "instance": <div
-                        class="justify-content-between p-0"
-                      >
-                        <button
-                          class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                          type="button"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                          type="button"
-                        >
-                          Remove
-                        </button>
-                      </div>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          <Edit />,
-                          <Remove
-                            handleClick={[Function]}
-                          />,
-                        ],
-                        "className": "justify-content-between p-0",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "handleClick": undefined,
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "function",
-                            "props": Object {
-                              "classNames": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                              "handleClick": undefined,
-                              "text": "Edit",
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Object {
-                              "instance": <button
-                                class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                                type="button"
-                              >
-                                Edit
-                              </button>,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "children": "Edit",
-                                "className": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                                "onClick": undefined,
-                                "type": "button",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                "Edit",
-                              ],
-                              "type": "button",
-                            },
-                            "type": [Function],
-                          },
-                          "type": [Function],
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "handleClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "function",
-                            "props": Object {
-                              "classNames": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                              "handleClick": [Function],
-                              "text": "Remove",
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Object {
-                              "instance": <button
-                                class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                                type="button"
-                              >
-                                Remove
-                              </button>,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "children": "Remove",
-                                "className": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                                "onClick": [Function],
-                                "type": "button",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                "Remove",
-                              ],
-                              "type": "button",
-                            },
-                            "type": [Function],
-                          },
-                          "type": [Function],
-                        },
-                      ],
-                      "type": "div",
-                    },
-                  ],
-                  "type": "div",
-                },
-                Object {
-                  "instance": <div
-                    class="p-0"
-                  >
-                    <h5
-                      class="font-size-14"
-                    >
-                      $15.73
-                    </h5>
-                  </div>,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": <h5
-                      className="font-size-14"
-                    >
-                      $15.73
-                    </h5>,
-                    "className": "p-0",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": <h5
-                        class="font-size-14"
-                      >
-                        $15.73
-                      </h5>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "$15.73",
-                        "className": "font-size-14",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        "$15.73",
-                      ],
-                      "type": "h5",
-                    },
-                  ],
-                  "type": "div",
-                },
-              ],
-              "type": "div",
-            },
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": "Side of beacon",
-            "nodeType": "function",
-            "props": Object {
-              "handleRemove": [Function],
-              "name": "Side of beacon",
-              "price": "$15.73",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": <div
-                class="d-flex justify-content-between mt-4"
-              >
-                <div
-                  class="col p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    1 × 
-                    Side of beacon
-                  </h5>
-                  <div
-                    class="justify-content-between p-0"
-                  >
-                    <button
-                      class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                      type="button"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                      type="button"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
-                <div
-                  class="p-0"
-                >
-                  <h5
-                    class="font-size-14"
-                  >
-                    $15.73
-                  </h5>
-                </div>
-              </div>,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <div
-                    className="col p-0"
-                  >
-                    <h5
-                      className="font-size-14"
-                    >
-                      1 × 
-                      Side of beacon
-                    </h5>
-                    <div
-                      className="justify-content-between p-0"
-                    >
-                      <Edit />
-                      <Remove
-                        handleClick={[Function]}
-                      />
-                    </div>
-                  </div>,
-                  <div
-                    className="p-0"
-                  >
-                    <h5
-                      className="font-size-14"
-                    >
-                      $15.73
-                    </h5>
-                  </div>,
-                ],
-                "className": "d-flex justify-content-between mt-4",
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": <div
-                    class="col p-0"
-                  >
-                    <h5
-                      class="font-size-14"
-                    >
-                      1 × 
-                      Side of beacon
-                    </h5>
-                    <div
-                      class="justify-content-between p-0"
-                    >
-                      <button
-                        class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                        type="button"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                        type="button"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  </div>,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": Array [
-                      <h5
-                        className="font-size-14"
-                      >
-                        1 × 
-                        Side of beacon
-                      </h5>,
-                      <div
-                        className="justify-content-between p-0"
-                      >
-                        <Edit />
-                        <Remove
-                          handleClick={[Function]}
-                        />
-                      </div>,
-                    ],
-                    "className": "col p-0",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": <h5
-                        class="font-size-14"
-                      >
-                        1 × 
-                        Side of beacon
-                      </h5>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          "1 × ",
-                          "Side of beacon",
-                        ],
-                        "className": "font-size-14",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        "1 × ",
-                        "Side of beacon",
-                      ],
-                      "type": "h5",
-                    },
-                    Object {
-                      "instance": <div
-                        class="justify-content-between p-0"
-                      >
-                        <button
-                          class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                          type="button"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                          type="button"
-                        >
-                          Remove
-                        </button>
-                      </div>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": Array [
-                          <Edit />,
-                          <Remove
-                            handleClick={[Function]}
-                          />,
-                        ],
-                        "className": "justify-content-between p-0",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "handleClick": undefined,
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "function",
-                            "props": Object {
-                              "classNames": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                              "handleClick": undefined,
-                              "text": "Edit",
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Object {
-                              "instance": <button
-                                class="uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success"
-                                type="button"
-                              >
-                                Edit
-                              </button>,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "children": "Edit",
-                                "className": "uppercase bold font-size-12
- btn btn-link p-0 pr-2 text-success",
-                                "onClick": undefined,
-                                "type": "button",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                "Edit",
-                              ],
-                              "type": "button",
-                            },
-                            "type": [Function],
-                          },
-                          "type": [Function],
-                        },
-                        Object {
-                          "instance": null,
-                          "key": undefined,
-                          "nodeType": "function",
-                          "props": Object {
-                            "handleClick": [Function],
-                          },
-                          "ref": null,
-                          "rendered": Object {
-                            "instance": null,
-                            "key": undefined,
-                            "nodeType": "function",
-                            "props": Object {
-                              "classNames": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                              "handleClick": [Function],
-                              "text": "Remove",
-                              "type": "button",
-                            },
-                            "ref": null,
-                            "rendered": Object {
-                              "instance": <button
-                                class="uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
-                                type="button"
-                              >
-                                Remove
-                              </button>,
-                              "key": undefined,
-                              "nodeType": "host",
-                              "props": Object {
-                                "children": "Remove",
-                                "className": "uppercase bold
- font-size-12 text-muted btn btn-link p-0 pl-2 pr-2",
-                                "onClick": [Function],
-                                "type": "button",
-                              },
-                              "ref": null,
-                              "rendered": Array [
-                                "Remove",
-                              ],
-                              "type": "button",
-                            },
-                            "type": [Function],
-                          },
-                          "type": [Function],
-                        },
-                      ],
-                      "type": "div",
-                    },
-                  ],
-                  "type": "div",
-                },
-                Object {
-                  "instance": <div
-                    class="p-0"
-                  >
-                    <h5
-                      class="font-size-14"
-                    >
-                      $15.73
-                    </h5>
-                  </div>,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": <h5
-                      className="font-size-14"
-                    >
-                      $15.73
-                    </h5>,
-                    "className": "p-0",
-                  },
-                  "ref": null,
-                  "rendered": Array [
-                    Object {
-                      "instance": <h5
-                        class="font-size-14"
-                      >
-                        $15.73
-                      </h5>,
-                      "key": undefined,
-                      "nodeType": "host",
-                      "props": Object {
-                        "children": "$15.73",
-                        "className": "font-size-14",
-                      },
-                      "ref": null,
-                      "rendered": Array [
-                        "$15.73",
-                      ],
-                      "type": "h5",
-                    },
-                  ],
-                  "type": "div",
-                },
-              ],
-              "type": "div",
-            },
-            "type": [Function],
-          },
-        ],
-        "type": "div",
-      },
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
+              REMOVE
+            </button>
+          </div>
+        </div>
+        <div
+          class="p-0"
+        >
+          <h4
+            class="price-badge-black"
+          >
+            ₦
+            $15.73
+            .00
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

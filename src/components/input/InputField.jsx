@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { any } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import './input.scss';
 
@@ -10,7 +10,6 @@ const InputField = ({
   placeholderText,
   handleChange,
   handleFocus,
-  inputElement
 }) => (
   <input
     type={type}
@@ -19,7 +18,6 @@ const InputField = ({
     placeholder={placeholderText}
     onChange={handleChange}
     onFocus={handleFocus}
-    {...inputElement}
   />
 );
 
@@ -29,14 +27,12 @@ InputField.defaultProps = {
   type: 'text',
   classNames: 'default-btn',
   placeholderText: '',
-  inputElement: ''
 };
 
 InputField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
-  inputElement: PropTypes.objectOf(any),
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired

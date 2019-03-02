@@ -33,6 +33,8 @@ const DeliveryForm = ({
         placeholderText="Add delivery instructuctions..."
         name="deliveryInstruction"
         classNames="instruction"
+        handleChange={() => {}}
+        handleFocus={() => {}}
       />
     </div>
     <div>
@@ -147,7 +149,7 @@ DeliveryForm.propTypes = {
   inputData: PropTypes.objectOf(any).isRequired,
   handleChange: PropTypes.func.isRequired,
   autoComplete: PropTypes.bool.isRequired,
-  setWrapperRef: PropTypes.objectOf(any).isRequired,
+  setWrapperRef: PropTypes.func.isRequired,
   handleSaveButton: PropTypes.func.isRequired,
   validationErrors: PropTypes.objectOf(any).isRequired
 };
