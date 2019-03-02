@@ -6,7 +6,7 @@ import NavLink from 'Components/navlink/Navlink';
 import './termsandconditions.scss';
 
 const TermsAndConditions = ({ title }) => {
-  if (title === 'SignUp') {
+  if (title === 'Sign Up') {
     return (
       <div className="col-lg-12 padding terms">
         <p>
