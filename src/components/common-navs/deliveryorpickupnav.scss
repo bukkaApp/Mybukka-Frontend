@@ -19,8 +19,22 @@
   background-color: #fff
 }
 
+.btn-delivery {
+  border-left: 1px solid #eceff1;
+  border-bottom: 1px solid #eceff1;
+}
+
+.btn-pickup {
+  border-right: 1px solid #eceff1;
+  border-bottom: 1px solid #eceff1;
+}
 
 .btn-delivery:focus, .btn-pickup:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.delivery-mode-active {
   box-shadow: none;
   outline: none;
   border-bottom: 2px solid #9c1c26;

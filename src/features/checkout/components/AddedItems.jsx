@@ -1,39 +1,42 @@
 import React, { useState, useEffect } from 'react';
+
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Price from 'Components/badge/Price';
 import Button from 'Components/button/Button';
 import itemDetails from '../InputAttribute/inputData.json';
 
+import './addedItem.scss';
+
 const Edit = ({ handleClick }) => (
   <Button
-    text="Edit"
+    text="EDIT"
     type="button"
     handleClick={handleClick}
-    classNames="uppercase bold font-size-12
-    btn btn-link p-0 pr-2 text-success"
+    classNames="cart-action-button-primary"
   />
 );
 
 const Remove = ({ handleClick }) => (
   <Button
-    text="Remove"
+    text="REMOVE"
     type="button"
     handleClick={handleClick}
-    classNames="uppercase bold
-    font-size-12 text-muted btn btn-link p-0 pl-2 pr-2"
+    classNames="cart-action-button-default"
   />
 );
 
 const OrderTray = ({ handleRemove, handleEdit, name, price }) => (
-  <div className="d-flex justify-content-between mt-4">
+  <div className="d-flex order-tray">
     <div className="col p-0">
-      <h5 className="font-size-14">1 × {name}</h5>
-      <div className="justify-content-between p-0">
+      <h5 className="item-name">1 × {name}</h5>
+      <div className="action-item-section">
         <Edit handleClick={handleEdit} />
         <Remove handleClick={handleRemove} />
       </div>
     </div>
     <div className="p-0">
-      <h5 className="font-size-14">{ price }</h5>
+      <Price price={price} classNames="price-badge-black" />
     </div>
   </div>
 );
@@ -56,11 +59,13 @@ const AddedItem = () => {
   });
 
   return (
-    <div className="px-lg-2">
-      <div className="d-flex justify-content-between border-bottom pb-4 mb-2">
-        <h5 className="font-size-14">{"Mel's Drive-In"}</h5>
-        <h5 className="font-size-12">
-          <a className="text-success" href="/feed">VIEW MENU</a>
+    <div className="cart-menu">
+      <div className="cart-bukka-details">
+        <h5 className="cart-bukka-name">{"Mel's Drive-In"}</h5>
+        <h5 className="cart-bukka-view-menu">
+          <Link className="text-success view-menu-text" to="/feed">
+            VIEW MENU
+          </Link>
         </h5>
       </div>
 
@@ -72,7 +77,6 @@ const AddedItem = () => {
           handleRemove={() => removeItemHandler(index)}
         />
       ))}
-
     </div>
   );
 };

@@ -1,31 +1,29 @@
 import React from 'react';
+
+import Container from 'Components/container';
 import './suggestedItems.scss';
 
 const totalAmount = () => (
-  <div className="px-lg-2 mt-2">
-    <div className="d-flex justify-content-between">
-      <h5 className="font-size-14 ml-3 text-muted">Subtotal</h5>
-      <h5 className="font-size-14 text-muted">TBD</h5>
-    </div>
-    <div className="d-flex justify-content-between">
-      <h5 className="font-size-14 ml-3 text-muted">Tax & Fees</h5>
-      <h5 className="font-size-14 text-muted">TBD</h5>
-    </div>
-    <div className="d-flex justify-content-between">
-      <h5 className="font-size-14 ml-3 text-muted">Delivery</h5>
-      <h5 className="font-size-14 text-muted">TBD</h5>
-    </div>
-    <div className="d-flex flex-column mt-3">
-      <h5 className="font-size-14 ml-3 text-success">
-        Do you have a promo code?
-      </h5>
-      <div className="d-flex justify-content-between border-bottom ml-3 pb-4 mb-2" />
+  <Container classNames="total-amount-section">
+    <div className="before-grand-total-section">
+      <div className="d-flex justify-content-between">
+        <h5 className="text-sub-total">Subtotal</h5>
+        <h5 className="tbd-price">TBD</h5>
+      </div>
+      <div className="d-flex justify-content-between">
+        <h5 className="text-sub-total">Tax & Fees</h5>
+        <h5 className="tbd-price">TBD</h5>
+      </div>
+      <div className="d-flex justify-content-between">
+        <h5 className="text-sub-total">Delivery</h5>
+        <h5 className="tbd-price">TBD</h5>
+      </div>
     </div>
     <div className="d-flex justify-content-between mt-3 mb-1">
-      <h5 className="font-size-14 ml-3 text-muted">Total</h5>
-      <h5 className="font-size-14 text-muted">TBD</h5>
+      <h5 className="text-sub-total">Total</h5>
+      <h5 className="tbd-price">TBD</h5>
     </div>
-  </div>
+  </Container>
 );
 
 export default totalAmount;

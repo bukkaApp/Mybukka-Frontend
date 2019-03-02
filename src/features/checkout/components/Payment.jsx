@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+
+import InputField from 'Components/input/InputField';
 import Button from 'Components/button/Button';
 
 import { validateAField, validateAllFields } from '../validation/validateField';
-import InputField from 'Components/input/InputField';
 import inputFeild from '../InputAttribute/inputData.json';
 import './payment.scss';
 import AuthForm from '../common/AuthForm';
@@ -36,8 +37,8 @@ const Payment = () => {
     });
   };
 
-  const handleSaveButton = e => {
-    e.preventDefault();
+  const handleSaveButton = (event) => {
+    event.preventDefault();
     const validation = validateAllFields(inputData);
     setValidationErrors({
       ...validationErrors,
@@ -74,7 +75,7 @@ const Payment = () => {
           <Button
             type="button"
             text="Save"
-            classNames="small-button"
+            classNames="small-button-save"
             handleClick={handleSaveButton}
           />
         </div>

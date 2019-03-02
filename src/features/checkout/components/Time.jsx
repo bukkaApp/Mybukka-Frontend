@@ -32,7 +32,7 @@ const Time = () => {
       <Demarcation />
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Time</h2>
       <ul className={
-        ['list-group mt-4', timeChanged ? 'time-dropdown' : 'time'].join(' ')
+        ['list-group time-list mt-4', timeChanged ? 'time-dropdown' : 'time'].join(' ')
       }
       >
         {timeDetails.deliveryTime.map((time, index) => (

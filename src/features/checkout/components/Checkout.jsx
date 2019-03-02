@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
+import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
 import DeliveryAddress from './DeliveryAddress';
@@ -7,7 +8,6 @@ import Time from './Time';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
 import MyLocation from '../common/Map';
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 
 import './checkout.scss';
 
@@ -31,7 +31,8 @@ const Checkout = () => (
         </div>
         <div
           className="col-xl-5 col-lg-5 col-md-12 col-sm-12 mb-2 px-0 px-md-0
-        px-lg-3 mt-0 mt-lg-4 mt-xl-4">
+        px-lg-3 mt-0 mt-lg-4 mt-xl-4"
+        >
           <div className="card-shadow card mb-3 border">
             <div className="map-address d-none d-lg-block d-xl-block">
               <MyLocation />

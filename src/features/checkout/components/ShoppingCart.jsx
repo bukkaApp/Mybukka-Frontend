@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react';
+
+import Container from 'Components/container';
 import AddedItems from './AddedItems';
 import SuggestedItems from './SuggestedItems';
 import TotalAmount from './TotalAmt';
 
 const CartDetails = () => (
   <Fragment>
-    <div className="card-body">
+    <Container classNames="added-items-wrapper">
       <AddedItems />
-    </div>
+    </Container>
     <SuggestedItems />
-    <div className="card-body">
+    <Container className="total-amounts-wrapper">
       <TotalAmount />
-    </div>
+    </Container>
   </Fragment>
 );
 

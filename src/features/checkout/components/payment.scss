@@ -17,7 +17,7 @@
 
 .border-input-style:focus {
   border: none;
-  border-bottom: 2px solid #28a745;
+  border-bottom: 2px solid #9c1c26;
   border-radius: 0;
   box-shadow: none;
 }
@@ -41,4 +41,11 @@
 .make-default-text {
   margin-left: 5px;
   font-size: 12px;
+}
+
+@media (max-width: 768.98px) {
+  .time-list {
+    padding-left: 15px;
+    padding-right: 15px;
+  } 
 }

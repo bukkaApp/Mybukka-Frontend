@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import Container from 'Components/container';
 import Button from 'Components/button/Button';
 import Chevron from 'Components/icons/ChevronRight';
 import SuggestedItemPane from '../common/suggestedPane';
 import itemDetails from '../InputAttribute/inputData.json';
+
 import './suggestedItems.scss';
 
 const ChevronRight = ({ handleClick }) => (
   <Button
     type="button"
     handleClick={handleClick}
-    classNames="mb-1 btn btn-link bg-white p-0 ml-4">
+    classNames="right btn-chevron"
+  >
     <Chevron />
   </Button>
 );
@@ -20,8 +23,10 @@ const ChevronLeft = ({ handleClick }) => (
   <Button
     type="button"
     handleClick={handleClick}
-    classNames="left btn btn-link bg-white p-0 mr-4"
-  ><Chevron /></Button>
+    classNames="left btn-chevron"
+  >
+    <Chevron />
+  </Button>
 );
 
 const SuggestedItemsWrapper = () => {
@@ -29,7 +34,7 @@ const SuggestedItemsWrapper = () => {
 
   const [suggestItem, setSuggestItems] = useState(itemDetails.suggestedItems);
 
-  const AddItemHandler = index => {
+  const AddItemHandler = (index) => {
     const trayItem = [...suggestItem];
     // add item to tray | shopping basket
     const addItem = trayItem.slice(index);
@@ -44,30 +49,38 @@ const SuggestedItemsWrapper = () => {
   const slidesLength = suggestItem.length - 1;
   const translate = activeIndex >= 1 ? maxWidth : 0;
 
-  const goToPrevSlide = e => {
+  const goToPrevSlide = (e) => {
     let index = activeIndex;
     e.preventDefault();
 
-    index -= 1;
+    if (activeIndex > 0) {
+      index -= 1;
+    }
     setActiveIndex(index);
   };
 
-  const goToNextSlide = e => {
+  const goToNextSlide = (e) => {
     let index = activeIndex;
     e.preventDefault();
 
-    index += activeIndex === slidesLength ? 0 : 1;
+    if (activeIndex === 0) {
+      index = 1;
+    } else {
+      index += activeIndex === slidesLength ? 0 : 1;
+    }
+
     setActiveIndex(index);
   };
 
   return (
-    <div className="px-lg-4 bg-gutter mt-2">
+    <Container classNames="suggested-items-section bg-gutter">
       <div
         className="d-flex
-        justify-content-between align-items-center text-center">
+        justify-content-between align-items-center text-center"
+      >
         <h4 className="font-size-14">Suggested Items</h4>
         {slidesLength >= 1 && (
-          <div className="mr-5">
+          <div className="suggested-items-tray">
             <ChevronLeft handleClick={goToPrevSlide} />
             <ChevronRight handleClick={goToNextSlide} />
           </div>
@@ -77,7 +90,8 @@ const SuggestedItemsWrapper = () => {
       <div className="overflow-hidden">
         <div
           style={{ transform: `translateX(${activeIndex * -translate}%)` }}
-          className="d-flex flex-start overflow-visible">
+          className="d-flex flex-start overflow-visible suggested-items-pane-section"
+        >
           {suggestItem.map((suggestedItem, index) => (
             <SuggestedItemPane
               name={suggestedItem.name}
@@ -88,7 +102,7 @@ const SuggestedItemsWrapper = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

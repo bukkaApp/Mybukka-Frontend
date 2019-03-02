@@ -5,17 +5,21 @@ import PropTypes, { any } from 'prop-types';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import Button from 'Components/button/Button';
 import inputField from '../InputAttribute/inputData.json';
-import
-{ validateAField, validateAllFields }
-  from '../validation/validateField';
+import { validateAField, validateAllFields } from '../validation/validateField';
 
 import './payment.scss';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
 import Demarcation from '../common/SmallScreenDivider';
 
-const DeliveryForm =
-({ setWrapperRef, inputData, validationErrors, handleSaveButton, autoComplete, handleChange }) => (
+const DeliveryForm = ({
+  setWrapperRef,
+  inputData,
+  validationErrors,
+  handleSaveButton,
+  autoComplete,
+  handleChange
+}) => (
   <form ref={setWrapperRef} className="border padding-20 mt-4">
     <AuthForm
       inputData={inputData}
@@ -35,7 +39,7 @@ const DeliveryForm =
       <Button
         type="button"
         text="Save"
-        classNames="small-button"
+        classNames="small-button-save"
         handleClick={handleSaveButton}
       />
     </div>
@@ -88,11 +92,11 @@ const Delivery = () => {
     const validation = validateAField(newFieldData, name);
     setInputData({
       ...inputData,
-      ...newFieldData,
+      ...newFieldData
     });
     setValidationErrors({
       ...validationErrors,
-      [name]: validation.message,
+      [name]: validation.message
     });
     if (name === 'streetAddress1') {
       setAutoComplete(true);
@@ -104,7 +108,7 @@ const Delivery = () => {
     const validation = validateAllFields(inputData);
     setValidationErrors({
       ...validationErrors,
-      ...validation,
+      ...validation
     });
   };
 
@@ -124,12 +128,15 @@ const Delivery = () => {
         setWrapperRef={setWrapperRef}
         handleSaveButton={handleSaveButton}
       />
-      {isPickup &&
-      <Fragment>
-        <Pickup title="Pickup Address" name="801 Mission St., San Francisco (1.0 mi)" />
-        <Pickup title="Pickup time" name="Ready in 20 min" />
-      </Fragment>
-      }
+      {isPickup && (
+        <Fragment>
+          <Pickup
+            title="Pickup Address"
+            name="801 Mission St., San Francisco (1.0 mi)"
+          />
+          <Pickup title="Pickup time" name="Ready in 20 min" />
+        </Fragment>
+      )}
     </div>
   );
 };

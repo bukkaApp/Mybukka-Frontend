@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 
 import './price.scss';
 
-const Price = ({ price }) => <h4 className="price-badge">₦{price}.00</h4>;
+const Price = ({ price, classNames }) => (
+  <h4 className={classNames}>₦{price}.00</h4>
+);
 
 export default Price;
 
+Price.defaultProps = {
+  classNames: 'price-badge',
+};
+
 Price.propTypes = {
-  price: PropTypes.number.isRequired
+  price: PropTypes.number.isRequired,
+  classNames: PropTypes.string,
 };

@@ -1,17 +1,99 @@
 .bg-gutter {
-    background-color: rgb(250, 250, 250);
-    padding: 24px 0px 24px 20px;
+  background-color: rgb(250, 250, 250);
+  padding: 24px 0px 24px 20px;
 }
 
 .left {
-    transform: rotate(180deg)
+  transform: rotate(180deg);
 }
 
 .overflow-visible {
-    overflow: visible;
-    transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  overflow: visible;
+  transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
 }
 
 .overflow-hidden {
-    overflow: hidden
+  overflow: hidden;
+}
+
+.suggested-items-tray {
+  display: flex;
+  flex-direction: row;
+}
+
+.btn-chevron {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  justify-content: center;
+  outline: none;
+  background-color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.btn-chevron:focus {
+  outline: none;
+}
+
+.left {
+  padding-right: 0px;
+  margin-right: 25px;
+}
+
+.right {
+  padding-left: 10px;
+}
+
+.suggested-item-card {
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-left: 5px;
+  box-shadow:rgba(0, 0, 0, 0.05) 0px 2px 10px 0px;
+  z-index: 10;
+}
+
+.suggested-items-pane-section {
+  padding-top: 10px;
+}
+
+.btn-add-item-suggested {
+  margin-right: 3px;
+}
+
+.suggested-items-section {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.text-sub-total, .tbd-price {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(143, 149, 163);
+}
+
+.before-grand-total-section {
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 20px;
+}
+
+.total-amount-section {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.suggested-item-price {
+  color: rgb(143, 149, 163);
+}
+
+@media (max-width: 768.98px) {
+  .suggested-items-section,.total-amount-section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-add-item-suggested {
+    margin-left: 15px;
+  }
 }
