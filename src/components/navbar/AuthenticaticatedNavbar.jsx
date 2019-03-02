@@ -1,17 +1,17 @@
 import React from 'react';
 import Brand from 'Components/brand/Brand';
-import UserIcon from 'Components/icons/User';
-import './primaryNavbar.scss';
+import UserDefaultImage from './UserDefaultImage';
+import './navbar.scss';
 
 const AuthenticaticatedNavbar = () => (
-    <div className="container">
-        <nav className="navbar navbar-light">
-            <Brand />
-            <div className="form-inline">
-                <UserIcon />
-            </div>
-        </nav>
-    </div>
+  <div className="container">
+    <nav className="navbar navbar-light">
+      <Brand />
+      <div className="form-inline">
+          <UserDefaultImage />
+      </div>
+    </nav>
+  </div>
 );
 
 export default AuthenticaticatedNavbar;

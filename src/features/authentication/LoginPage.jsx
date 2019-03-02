@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import PrimaryNavbar from 'Components/navbar';
 
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
