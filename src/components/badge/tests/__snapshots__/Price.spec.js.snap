@@ -4,6 +4,7 @@ exports[`Price Component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Price
+    classNames="price-badge"
     price={17}
   />,
   Symbol(enzyme.__renderer__): Object {
