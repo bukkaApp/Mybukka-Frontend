@@ -26,7 +26,7 @@ import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
-import AddToCart from './AddToCart';
+import fetchCartAction from 'Redux/fetchCartAction';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -40,8 +40,10 @@ const FreshSection = ({
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
-  freshBukkas, // eslint-disable-line
-  status: { error }
+  status: { error },
+  cartIsUpdated,
+  fetchCart,
+  authenticated,
 }) => {
   const [searchResultCategories, setCategories] = useState([]);
   const [searches, setSearch] = useState('');
@@ -78,9 +80,7 @@ const FreshSection = ({
 
   return (
     <div className="container-fluid p-0">
-      <AddToCart />
-      <ResponsiveCategories placeholderText="Search Fresh" />
-      <SelectLocationModal delivery />
+      <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
@@ -178,17 +178,21 @@ const mapStateToProps = ({
   bukkasReducer: { fetchedBukkas, status },
   freshReducer: { fetchedBukkas: { nearbyBukkas: freshBukkas } },
   selectedLocationReducer: { coordinates },
+  cartReducer: { status: { updated, error } },
+  authenticationReducer: { status: { authenticated } }
 }) => ({
   fetchedBukkas,
   status,
   coordinates,
   mode,
-  freshBukkas
+  cartIsUpdated: updated,
+  errorUpdatingCart: error,
+  authenticated,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas }
+  { fetchNearbyBukkas: fetchBukkas, fetchCart: fetchCartAction }
 )(FreshSection);
 
 FreshSection.propTypes = {
@@ -199,5 +203,8 @@ FreshSection.propTypes = {
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
   }).isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  cartIsUpdated: PropTypes.bool.isRequired,
+  fetchCart: PropTypes.func.isRequired,
+  authenticated: PropTypes.bool.isRequired,
 };

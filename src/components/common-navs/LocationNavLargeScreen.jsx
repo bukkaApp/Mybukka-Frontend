@@ -52,7 +52,7 @@ const SuggestionsDropdown = () => (
   </div>
 );
 
-const CurrentLocation = ({ handleClick, focus }) => (
+const CurrentLocation = ({ handleClick, focus, selectedLocation }) => (
   <div className="pr-17">
     <div className="position-relative">
       <div>
@@ -65,7 +65,11 @@ const CurrentLocation = ({ handleClick, focus }) => (
             <MapMarker />
           </span>
           <div>
-            <h2 className="current-location-button-text">MarryLand</h2>
+            <h2 className="current-location-button-text">
+              {Object.keys(selectedLocation).length > 0
+                ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
+                : 'Current Location'}
+            </h2>
           </div>
         </Button>
       </div>
@@ -84,6 +88,7 @@ const LocationNavLargeScreen = ({
   mode,
   setDeliveryModeAction,
   handleMapClick,
+  selectedLocation
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -134,7 +139,11 @@ const LocationNavLargeScreen = ({
               mode={mode}
             />
             <div className="delivery-or-pickup-vertical-divider" />
-            <CurrentLocation handleClick={handleClick} focus={isFocused} />
+            <CurrentLocation
+              handleClick={handleClick}
+              focus={isFocused}
+              selectedLocation={selectedLocation}
+            />
           </div>
         </div>
         {mode === 'pickup' && (
@@ -152,8 +161,12 @@ const LocationNavLargeScreen = ({
   );
 };
 
-const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
-  mode
+const mapStateToProps = ({
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { selectedLocation }
+}) => ({
+  mode,
+  selectedLocation
 });
 
 export default connect(

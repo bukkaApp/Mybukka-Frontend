@@ -13,14 +13,19 @@ import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import Duration from './Duration';
 import CartDropdown from './CartIconSection';
-// import CartIconSection from './CartIconSection';
-import { ReusableButton, ReusableDropdown, ReusableWrapper }
-  from './ReusableNavElements';
-import Categories from './Categories';
+import {
+  ReusableButton,
+  ReusableDropdown,
+  ReusableWrapper
+} from './ReusableNavElements';
 
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
+import inputData from './inputData/duration';
+
 import './locationnavlarge.scss';
+
+const { categoryItems } = inputData;
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -32,19 +37,23 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
           tabIndex="0"
           role="button"
           onClick={() => handleClick('delivery')}
-        >Delivery</div>
-        {deliveryorpickup &&
-        <Fragment>
-          <div className="delivery-or-pickup-divider">or</div>
-          <div
-            className="delivery-or-pickup-mode"
-            aria-pressed="false"
-            tabIndex="0"
-            role="button"
-            onClick={() => handleClick('pickup')}
-          >Pickup</div>
-        </Fragment>
-        }
+        >
+          Delivery
+        </div>
+        {deliveryorpickup && (
+          <Fragment>
+            <div className="delivery-or-pickup-divider">or</div>
+            <div
+              className="delivery-or-pickup-mode"
+              aria-pressed="false"
+              tabIndex="0"
+              role="button"
+              onClick={() => handleClick('pickup')}
+            >
+              Pickup
+            </div>
+          </Fragment>
+        )}
       </div>
       <div
         style={{ left: mode === 'pickup' ? '85px' : '2px' }}
@@ -54,19 +63,41 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   </div>
 );
 
-const CurrentLocation = props => (
+const SearchInputField = () => (
+  <InputField
+    type="text"
+    name="searchLocation"
+    placeholderText="Search items..."
+    classNames="text-field form-control searchlocation"
+    // handleFocus={() => setFocus(true)}
+    handleChange={() => {}}
+    defaultValue={''}
+  />
+);
+
+const CurrentLocation = ({ selectedLocation, focus }) => (
   <ReusableWrapper>
-    <ReusableButton classNames="custom-current-loc" {...props}>
+    <ReusableButton
+      classNames="custom-current-loc"
+      selectedLocation={selectedLocation}
+      focus={focus}
+    >
       <span className="current-location-button-icon mr-0">
         <MapMarker />
       </span>
       <div>
-        <h2 className={`current-location-button-text ml-1 ${props.focus ?
-          'current-loc-h2-text-active' : 'current-loc-h2-text'}`}
-        >MarryLand</h2>
+        <h2
+          className={`current-location-button-text ml-1 ${
+            focus ? 'current-loc-h2-text-active' : 'current-loc-h2-text'
+          }`}
+        >
+          {Object.keys(selectedLocation).length > 0
+            ? selectedLocation.structured_formatting.main_text
+            : 'Current Location'}
+        </h2>
       </div>
     </ReusableButton>
-    <ReusableDropdown classNames={`${props.focus ? '' : 'dropdown--disapear'}`}>
+    <ReusableDropdown classNames={`${focus ? '' : 'dropdown--disapear'}`}>
       <SearchLocation
         chevronButtonVisible={false}
         showDeliveryOrPickupNav={false}
@@ -75,16 +106,27 @@ const CurrentLocation = props => (
   </ReusableWrapper>
 );
 
-const SearchInputField = ({ handleChange }) => (
-  <InputField
-    type="text"
-    name="searchLocation"
-    placeholderText="Enter your address..."
-    classNames="text-field form-control searchlocation"
-    // handleFocus={() => setFocus(true)}
-    handleChange={handleChange}
-    defaultValue={''}
-  />
+const Categories = props => (
+  <ReusableWrapper>
+    <ReusableButton {...props}>
+      <div>
+        <h2 className="current-location-button-text">Categories</h2>
+      </div>
+      <span className="current-location-button-icon custom-mt-minus1 pl-4">
+        <ChevronVertical />
+      </span>
+    </ReusableButton>
+    <ReusableDropdown
+      classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}
+    >
+      <CategoryLists
+        handleClick={() => {}}
+        lists={categoryItems}
+        classNames="category-dropdown-section"
+        maxHeight="category-dropdown-height"
+      />
+    </ReusableDropdown>
+  </ReusableWrapper>
 );
 
 const Search = props => (
@@ -95,7 +137,7 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField handleChange={props.handleChange} />
+          <SearchInputField handleClick={() => {}} />
         </div>
       </div>
     </ReusableButton>
@@ -110,7 +152,7 @@ const LocationNavLarge = ({
   deliveryorpickup,
   scheduleTime,
   cartItemsQuantity,
-  handleSearch,
+  selectedLocation
 }) => {
   let wrapperRef;
   const unFocus = {
@@ -120,13 +162,12 @@ const LocationNavLarge = ({
     search: false,
     cart: false,
   };
-
   const [isFocused, setFocus] = useState({
     location: false,
     duration: false,
     categories: false,
     search: false,
-    cart: false,
+    cart: false
   });
 
   const handleClick = (name) => {
@@ -165,43 +206,36 @@ const LocationNavLarge = ({
       <Container classNames="location-navbar-content">
         <Container classNames="pl-0 location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
-            {!isFocused.search &&
-            <Fragment>
-              <DeliveryOrPickUp
-                handleClick={setDeliveryModeAction}
-                mode={mode}
-                deliveryorpickup={deliveryorpickup}
-              />
-              <div
-                className="delivery-or-pickup-vertical-divider"
-              />
-              <CurrentLocation
-                handleClick={() => handleClick('location')}
-                focus={isFocused.location}
-              />
-              <div
-                className="delivery-or-pickup-vertical-divider"
-              />
-              {scheduleTime &&
+            {!isFocused.search && (
               <Fragment>
-                <Duration
-                  handleClick={() => handleClick('duration')}
-                  focus={isFocused.duration}
+                <DeliveryOrPickUp
+                  handleClick={setDeliveryModeAction}
+                  mode={mode}
+                  deliveryorpickup={deliveryorpickup}
                 />
-                <div
-                  className="delivery-or-pickup-vertical-divider"
+                <div className="delivery-or-pickup-vertical-divider" />
+                <CurrentLocation
+                  handleClick={() => handleClick('location')}
+                  focus={isFocused.location}
+                  selectedLocation={selectedLocation}
                 />
+                <div className="delivery-or-pickup-vertical-divider" />
+                {scheduleTime && (
+                  <Fragment>
+                    <Duration
+                      handleClick={() => handleClick('duration')}
+                      focus={isFocused.duration}
+                    />
+                    <div className="delivery-or-pickup-vertical-divider" />
+                  </Fragment>
+                )}
+                <Categories
+                  handleClick={() => handleClick('categories')}
+                  focus={isFocused.categories}
+                />
+                <div className="delivery-or-pickup-vertical-divider" />
               </Fragment>
-              }
-              <Categories
-                handleClick={() => handleClick('categories')}
-                focus={isFocused.categories}
-              />
-              <div
-                className="delivery-or-pickup-vertical-divider"
-              />
-            </Fragment>
-            }
+            )}
             <Search
               handleClick={() => handleClick('search')}
               focus={isFocused.search}
@@ -216,10 +250,10 @@ const LocationNavLarge = ({
               classNames="cart-button border"
               handleClick={() => handleClick('cart')}
             >
-              <span className="cart-icon"><Cart /></span>
-              <span
-                className="cart-divider"
-              />
+              <span className="cart-icon">
+                <Cart />
+              </span>
+              <span className="cart-divider" />
               {cartItemsQuantity} cart
             </Button>
             <CartDropdown
@@ -235,23 +269,26 @@ const LocationNavLarge = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  fetchBukkaMenuReducer: { cart }
+  cartReducer: { items },
+  selectedLocationReducer: { selectedLocation }
 }) => ({
   mode,
-  cartItemsQuantity: cart.length,
+  cartItemsQuantity: items.length,
+  selectedLocation
 });
 
 export default connect(
   mapStateToProps,
-  { setDeliveryModeAction: setDeliveryMode,
-    handleCheckoutMode: setCheckoutMode }
+  {
+    setDeliveryModeAction: setDeliveryMode,
+    handleCheckoutMode: setCheckoutMode
+  }
 )(LocationNavLarge);
 
 LocationNavLarge.defaultProps = {
   classNames: '',
   deliveryorpickup: false,
-  scheduleTime: false,
-  handleSearch: () => {}
+  scheduleTime: false
 };
 
 LocationNavLarge.propTypes = {

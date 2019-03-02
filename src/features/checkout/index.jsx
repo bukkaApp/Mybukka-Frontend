@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Checkout from './components/Checkout';
 
-const checkoutPage = ({ history: { push } }) => <Checkout push={push} />;
+const checkoutPage = ({ history: { push, location } }) => <Checkout push={push} />;
 
 export default checkoutPage;
 

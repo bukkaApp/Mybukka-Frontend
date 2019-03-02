@@ -41,7 +41,7 @@ InputField.defaultProps = {
   defaultValue: '',
   inputRef: () => {},
   accept: '',
-  autoComplete: '',
+  autoComplete: 'off',
 };
 
 InputField.propTypes = {

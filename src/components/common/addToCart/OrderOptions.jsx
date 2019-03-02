@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Column from 'Components/grid/Column';
 
+
+import Column from 'Components/grid/Column';
 import Cancel from 'Components/icons/Cancel';
+import { MealTitle, MealDescription } from 'Components/card/MealCard';
 
 import SpecialInstructions from './SpecialInstructions';
 import ActionSection from './ActionSection';
-import { MealTitle, MealDescription } from '../components/MealCard';
 
 import './orderOptions.scss';
 

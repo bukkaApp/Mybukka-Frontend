@@ -35,7 +35,7 @@ const Main = () => (
       <Route exact path="/search" component={Search} />
       <Route exact path="/favorites" component={Favorites} />
       <Route exact path="/categories/:id" component={Category} />
-      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/merchant/:slug/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/history" component={TransactionHistory} />
       <Route exact path="/reset-password" component={ResetPassword} />

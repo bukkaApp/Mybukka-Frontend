@@ -1,48 +1,63 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import toastr from 'toastr';
 
 import BukkaNavSmallScreen, { ResponsiveCategories }
   from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
 import Navbar from 'Components/navbar';
 
-import LocationNavLargeScreen
-  from 'Components/common-navs/LocationNavLarge';
-import UnAuthenticatedCheckout
-  from 'Components/common-navs/UnAuthenticatedCheckout';
+import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
+import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
 
-import LocationNavSmallScreen, { SelectLocationModal }
-  from 'Components/common-navs/LocationNavSmallScreen';
+import LocationNavSmallScreen, {
+  SelectLocationModal
+} from 'Components/common-navs/LocationNavSmallScreen';
 
-import AddToCart from '../addToCart';
+import AddToCart from 'Components/common/addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
 import BukkaMeals from './BukkaMeals';
 
 import './bukkaScene.scss';
 
-const BukkaMenuScene = ({ push }) => (
-  <div className="bukka-menu">
-    <AddToCart />
-    <SelectLocationModal />
-    <ResponsiveCategories placeholderText="Search Bukka" />
-    <Navbar push={push} bukka />
-    <BukkaImageSection />
-    <LocationNavLargeScreen deliveryorpickup classNames="bukka-location-nav" />
-    <LocationNavSmallScreen />
-    <div className="carousel-divider mb-0" />
-    <BukkaNavSmallScreen classNames="top-0" currentCategory="breakfast" />
-    <BukkaDetailsSection />
+const BukkaMenuScene = ({ push, errorMessage }) => {
+  useEffect(() => {
+    if (errorMessage !== '') return toastr.error(errorMessage);
+  });
 
-    <BukkaMeals />
-    <Footer />
-    <UnAuthenticatedCheckout push={push} />
-    {/* <ClosedNotification /> */}
-  </div>
-);
+  return (
+    <div className="bukka-menu">
+      <AddToCart />
+      <SelectLocationModal />
+      <Navbar push={push} bukka />
+      <BukkaImageSection />
+      <LocationNavLargeScreen
+        deliveryorpickup
+        classNames="bukka-location-nav"
+      />
+      <LocationNavSmallScreen />
+      <div className="carousel-divider mb-0" />
+      <BukkaNavSmallScreen classNames="top-0" currentCategory="breakfast" />
+      <BukkaDetailsSection />
 
-export default BukkaMenuScene;
+      <BukkaMeals />
+      <Footer />
+      <UnAuthenticatedCheckout push={push} />
+    </div>
+  );
+};
+
+const mapStateToProps = ({ cartReducer: { errorMessage } }) => ({
+  errorMessage
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(BukkaMenuScene);
 
 BukkaMenuScene.defaultProps = {
   push: () => {}

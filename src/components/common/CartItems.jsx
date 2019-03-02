@@ -10,33 +10,30 @@ import DropDown from 'Components/dropdown';
 import Button from 'Components/button/Button';
 import Price from 'Components/badge/Price';
 
-import removeFromCartAction from 'Redux/removeFromCartAction';
+import removeFromCart from 'Redux/removeFromCart';
 
 import './cartItems.scss';
 
-const SubtotalSection = ({ totalPriceInCart }) => {
-
-  return (
-    <div className="subtotal-section">
-      <div className="subtotal-text">
-        <h5> Subtotal</h5>
-        <Price price={totalPriceInCart} />
-      </div>
-      <div className="checkout-button-section">
-        <Link to="/checkout">
-          <Button
-            classNames="primary-block-btn"
-            text="CHECKOUT"
-            type="button"
-            handleClick={() => ({})}
-          />
-        </Link>
-      </div>
+const SubtotalSection = ({ totalPriceInCart }) => (
+  <div className="subtotal-section">
+    <div className="subtotal-text">
+      <h5> Subtotal</h5>
+      <Price price={totalPriceInCart} />
     </div>
-  );
-};
+    <div className="checkout-button-section">
+      <Link to="/checkout">
+        <Button
+          classNames="primary-block-btn"
+          text="CHECKOUT"
+          type="button"
+          handleClick={() => ({})}
+        />
+      </Link>
+    </div>
+  </div>
+);
 
-const CartItem = ({ item, removeFromCart }) => (
+const CartItem = ({ item, removeFromCartAction }) => (
   <div className="single-cart-item-section">
     <div className="quantity-section">{item.quantity}</div>
     <div>{item.title}</div>
@@ -54,7 +51,7 @@ const CartItem = ({ item, removeFromCart }) => (
   </div>
 );
 
-const CartItems = ({ cartItems, removeFromCart, totalPriceInCart }) => {
+const CartItems = ({ cartItems, removeFromCartAction, totalPriceInCart }) => {
   if (cartItems.length > 0) {
     return (
       <DropDown>
@@ -75,18 +72,18 @@ const CartItems = ({ cartItems, removeFromCart, totalPriceInCart }) => {
   return null;
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { cart, totalPriceInCart } }) => ({
-  cartItems: cart,
-  totalPriceInCart,
+const mapStateToProps = ({ cartReducer: { items, totalCost } }) => ({
+  cartItems: items,
+  totalPriceInCart: totalCost
 });
 
 export default connect(
   mapStateToProps,
-  { removeFromCart: removeFromCartAction }
+  { removeFromCartAction: removeFromCart }
 )(CartItems);
 
 SubtotalSection.propTypes = {
-  cartItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  totalPriceInCart: PropTypes.number
 };
 
 CartItems.propTypes = {

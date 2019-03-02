@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
+import AddToCart from 'Components/common/addToCart';
+
 import FoodSection from './FoodSection';
 import DrinkSection from './DrinkSection';
 import SearchResult from './SearchResult';
@@ -13,6 +15,7 @@ import './feed.scss';
 
 const Feed = ({ push, food, drink, search, category, fresh, favorites }) => (
   <Fragment>
+    <AddToCart />
     {food && <FoodSection push={push} />}
     {drink && <DrinkSection push={push} />}
     {search && <SearchResult push={push} />}

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import removeFromCartAction from 'Redux/removeFromCartAction';
+import removeFromCartAction from 'Redux/removeFromCart';
+import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
 import Price from 'Components/badge/Price';
 import Button from 'Components/button/Button';
 
@@ -16,6 +17,8 @@ const Edit = ({ handleClick }) => (
     type="button"
     handleClick={handleClick}
     classNames="cart-action-button-primary"
+    dataTarget="#mealModal"
+    dataToggle="modal"
   />
 );
 
@@ -43,12 +46,15 @@ const OrderTray = ({ handleRemove, handleEdit, name, price }) => (
   </div>
 );
 
-const AddedItem = ({ cart, bukka, removeFromCart }) => (
+const AddedItem = ({ cart, bukka, removeFromCart, setMealToDisplay }) => (
   <div className="cart-menu">
     <div className="cart-bukka-details">
       <h5 className="cart-bukka-name">{bukka.name}</h5>
       <h5 className="cart-bukka-view-menu">
-        <Link className="text-success view-menu-text" to={`/bukka/${bukka.slug}`}>
+        <Link
+          className="text-success view-menu-text"
+          to={`/bukka/${bukka.slug}`}
+        >
           VIEW MENU
         </Link>
       </h5>
@@ -60,20 +66,23 @@ const AddedItem = ({ cart, bukka, removeFromCart }) => (
         price={item.price}
         key={item.slug}
         handleRemove={() => removeFromCart(item.slug)}
-        handleEdit={() => {}}
+        handleEdit={() => setMealToDisplay(item, true)}
       />
     ))}
   </div>
 );
 
 const mapStateToProps = ({
-  fetchBukkaMenuReducer: { cart },
+  cartReducer: { items },
   fetchBukkaReducer: { fetchedBukka }
-}) => ({ cart, bukka: fetchedBukka });
+}) => ({ cart: items, bukka: fetchedBukka });
 
 export default connect(
   mapStateToProps,
-  { removeFromCart: removeFromCartAction }
+  {
+    removeFromCart: removeFromCartAction,
+    setMealToDisplay: setMealToDisplayAction
+  }
 )(AddedItem);
 
 OrderTray.propTypes = {

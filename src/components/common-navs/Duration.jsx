@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+
+import setDeliverySchedule from 'Redux/setDeliverySchedule';
 
 import Clock from '../icons/Clock';
-import { ReusableButton, ReusableDropdown, ReusableWrapper }
-  from './ReusableNavElements';
-import inputData from './inputData/duration.json';
+import {
+  ReusableButton,
+  ReusableDropdown,
+  ReusableWrapper
+} from './ReusableNavElements';
+import inputData from './inputData/duration';
 import './duration.scss';
-
-// Note: duration timelist needs to be genuinely generated (durationList).
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
 
@@ -76,7 +79,7 @@ const Schedule = ({ placeholder, handleClick, lists, name }) => {
   );
 };
 
-const Asap = ({ handleClick }) =>
+const Asap = () =>
   asapTime.map(text => (
     <div className="border-bottom" key={text}>
       <div className="position-relative">
@@ -87,7 +90,6 @@ const Asap = ({ handleClick }) =>
               tabIndex="0"
               role="button"
               aria-pressed="false"
-              onClick={() => handleClick(text)}
             >
               <span>{text}</span>
             </div>
@@ -97,21 +99,19 @@ const Asap = ({ handleClick }) =>
     </div>
   ));
 
-export const DurationContent = () => {
-  const [activeOption, setOption] = useState(false);
+const DurationContent = ({ mode, setDeliverySchedule, currentSchedule }) => {
+  const { time, day } = currentSchedule;
+  const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({
-    day: 'Today',
-    time: '7:00 AM - 7:30 AM',
+    day,
+    time,
   });
-
-  const [asap, setAsap] = useState('');
 
   const handleDeliveryTime = (name, value) => {
     reSchedule({
       ...scheduled,
       [name]: value
     });
-    console.log(asap);
   };
 
   return (
@@ -134,27 +134,38 @@ export const DurationContent = () => {
       </div>
       <div className="duration-dropdown-body">
         <div className="duration-dropdown-content">
-          {!activeOption &&
-          <Asap handleClick={setAsap} />
-          }
+          {!activeOption && <Asap />}
           {activeOption &&
-          scheduleData.map(schedule => (
-            <Schedule
-              key={`${schedule.selector} hi`}
-              placeholder={scheduled[schedule.selector]}
-              lists={schedule.options}
-              name={schedule.selector}
-              handleClick={handleDeliveryTime}
-            />
-          ))}
+            scheduleData.map(schedule => (
+              <Schedule
+                key={`${schedule.selector} hi`}
+                placeholder={scheduled[schedule.selector]}
+                lists={schedule.options}
+                name={schedule.selector}
+                handleClick={handleDeliveryTime}
+              />
+            ))}
         </div>
-        <button className="duration-dropdown-footer-button">
+        <button
+          className="duration-dropdown-footer-button"
+          onClick={() => setDeliverySchedule(scheduled)}
+        >
           <span>Set Delivery Time</span>
         </button>
       </div>
     </div>
   );
 };
+
+const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
+  mode,
+  currentSchedule: schedule
+});
+
+const ConnectedDurationContent = connect(
+  mapStateToProps,
+  { setDeliverySchedule }
+)(DurationContent);
 
 const Duration = props => (
   <ReusableWrapper>
@@ -175,7 +186,7 @@ const Duration = props => (
       </div>
     </ReusableButton>
     <ReusableDropdown classNames={`${props.focus ? '' : 'dropdown--disapear'}`}>
-      <DurationContent />
+      <ConnectedDurationContent />
     </ReusableDropdown>
   </ReusableWrapper>
 );
@@ -188,22 +199,25 @@ Duration.propTypes = {
 
 TimeLists.defaultProps = {
   classNames: '',
-  maxHeight: '',
+  maxHeight: ''
 };
 
 TimeLists.propTypes = {
-  lists: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])).isRequired,
+  lists: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ).isRequired,
   handleClick: PropTypes.func.isRequired,
   classNames: PropTypes.string,
-  maxHeight: PropTypes.string,
+  maxHeight: PropTypes.string
 };
 
 Schedule.propTypes = {
-  lists: PropTypes.arrayOf([PropTypes.string]).isRequired,
+  lists: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleClick: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
+};
+
+DurationContent.propTypes = {
+  mode: PropTypes.string.isRequired
 };

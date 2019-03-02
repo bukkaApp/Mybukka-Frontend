@@ -35,7 +35,7 @@ const NearByBukka = ({
               rating={bukka.rating}
               imageHeight={imageHeight}
               classNames={classNames}
-              dataTarget="#bukkaAddToCart"
+              dataTarget="#mealModal"
               dataToggle="modal"
             />
           ))}

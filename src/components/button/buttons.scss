@@ -27,6 +27,12 @@ $white: rgb(217, 219, 224);
   border: 1px solid $primaryColor;
 }
 
+.disabled-primary-button {
+  @include button(165px, 48px,#e0e0e0, #ffffff, 12px);
+  border: 1px solid #e0e0e0;
+  cursor: default;
+}
+
 .btn-go {
   @include button(100px, 48px, $primaryColor, #ffffff, 12px);
   border: 1px solid $primaryColor;

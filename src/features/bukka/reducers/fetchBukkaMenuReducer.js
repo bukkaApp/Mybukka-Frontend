@@ -99,9 +99,15 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
     }
 
     case 'SET_MEAL_TO_DISPLAY': {
-      const { cart, bukkaMenu } = state;
+      const { bukkaMenu } = state;
       const { isCart, slug } = action;
-      const menuToFilter = isCart ? cart : bukkaMenu;
+      const menuToFilter = isCart ? 'WHOLE_DATA' : bukkaMenu;
+      if (menuToFilter === 'WHOLE_DATA') {
+        return {
+          ...state,
+          mealToDisplay: action.slug
+        };
+      }
       return {
         ...state,
         mealToDisplay: {

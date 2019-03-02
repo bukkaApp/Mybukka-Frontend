@@ -41,6 +41,8 @@ import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
 import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
 import signOutReducer from '../components/navbar/reducers/signOutReducer';
 import searchAnythingReducer from './searchAnythingReducer';
+import deliveryScheduleReducer from './deliveryScheduleReducer';
+import cartReducer from './cartReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -69,6 +71,8 @@ const reducer = combineReducers({
   searchAnythingReducer,
   freshReducer,
   drinkReducer,
+  deliveryScheduleReducer,
+  cartReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);
@@ -79,7 +83,10 @@ const persistConfig = {
   whitelist: [
     'authenticationReducer',
     'fetchBukkaReducer',
-    'fetchBukkaMenuReducer'
+    'fetchBukkaMenuReducer',
+    'selectedLocationReducer',
+    'deliveryScheduleReducer',
+    'cartReducer',
   ]
 };
 const persistedReducer = persistReducer(persistConfig, reducer);

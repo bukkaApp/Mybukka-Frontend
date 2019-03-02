@@ -25,7 +25,6 @@ import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
-import AddToCart from './AddToCart';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -78,9 +77,7 @@ const DrinkSection = ({
 
   return (
     <div className="container-fluid p-0">
-      <AddToCart />
-      <ResponsiveCategories placeholderText="Search Drink" />
-      <SelectLocationModal delivery />
+      <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />

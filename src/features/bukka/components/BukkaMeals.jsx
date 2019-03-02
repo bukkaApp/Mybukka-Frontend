@@ -8,7 +8,7 @@ import Container from 'Components/container';
 import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 
-import MealCard from './MealCard';
+import MealCard from 'Components/card/MealCard';
 
 import './bukkaMeals.scss';
 
@@ -30,9 +30,7 @@ const BukkaMeals = ({ bukkaMenu }) => {
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
             {bukkaMenu.map((mealData) => {
-              if (mealData.category !== eachCategory) {
-                return null;
-              }
+              if (mealData.category !== eachCategory) return null;
               return (
                 <Column
                   classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
