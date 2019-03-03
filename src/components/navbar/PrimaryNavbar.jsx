@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
@@ -25,14 +26,6 @@ const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
       dataTarget: '#modal',
       handleClick: goToAuthRoute
     };
-    // disable click on SignUp page Requesting SignUp Modal
-    if (location.pathname.match('/signup')) {
-      btnAttribute = {};
-    }
-    // disable click on SignIn page Requesting SignIn Modal
-    if (location.pathname.match('/login')) {
-      btnAttribute = {};
-    }
   }
 
   return (
@@ -63,9 +56,13 @@ const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
   );
 };
 
-export default connect(null, {
-  navigateToNextRoute: navAuthentication
-})(PrimaryNavbar);
+const WithRouterPrimaryNavbar = withRouter(PrimaryNavbar);
+export default connect(
+  null,
+  {
+    navigateToNextRoute: navAuthentication
+  }
+)(WithRouterPrimaryNavbar);
 
 PrimaryNavbar.propTypes = {
   push: PropTypes.func.isRequired,
