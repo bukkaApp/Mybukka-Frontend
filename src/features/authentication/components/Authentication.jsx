@@ -43,7 +43,7 @@ const Authentication = ({ ...props }) => {
   );
 };
 const AuthContainer = ({ ...props }) => {
-  const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-6';
+  const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-8';
   const authClass = props.authModal ? '' : className;
   return (
     <div className={authClass}>

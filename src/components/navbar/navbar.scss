@@ -2,6 +2,24 @@
   height: 65px
 }
 
+.user-default-img {
+  height: 32px;
+  width: 32px;
+  img {
+    border-radius: 50%
+  }
+}
+
+.bg-transparent {
+  background: transparent
+}
+
+@media (min-width: 767px) {
+    .bukka-md-inline-flex {
+      display: inline-flex!important
+    }
+}
+
 @media (max-width: 767.98px) { 
   .container {
     padding: 0px

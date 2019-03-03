@@ -2,12 +2,14 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger';  // eslint-disable-line
 import thunk from 'redux-thunk';
 
+import homeReducer from 'Components/navbar/reducers';
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
+  homeReducer
 });
 
 let middleware = applyMiddleware(thunk, logger);
