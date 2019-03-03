@@ -7,23 +7,36 @@ import AuthenticateLogin from '../../../features/authentication/LoginPage';
 import AuthenticateRegister from '../../../features/authentication/RegisterPage';
 import './authmodal.scss';
 
-const AuthModal = ({ type, push }) => {
+const AuthModal = ({ type, push, status }) => {
+  const { authenticated } = status;
   let AuthForm = AuthenticateLogin;
   if (type === '/signup') {
     AuthForm = AuthenticateRegister;
   }
+  const AuthenticatedAuthForm = () => {
+    if (authenticated) {
+      return null;
+    }
+    return (
+      <div className="container">
+        <Modal classNames="auth-modal">
+          <DismissModal classNames="close mr-5" />
+          <AuthForm authModal history={{ push }} classNames="pt-5" />
+        </Modal>
+      </div>
+    );
+  }
   return (
-    <div className="container">
-      <Modal classNames="auth-modal">
-        <DismissModal classNames="close mr-5" />
-        <AuthForm authModal history={{ push }} classNames="pt-5" />
-      </Modal>
-    </div>
+    <AuthenticatedAuthForm />
   );
 };
 
-const mapStateToProps = ({ homeReducer: { type } }) => ({
+const mapStateToProps = ({
+  homeReducer: { type },
+  authenticationReducer: { status }
+}) => ({
   type,
+  status
 });
 
 export default connect(mapStateToProps, null)(AuthModal);
@@ -34,5 +47,6 @@ AuthModal.defaultProps = {
 
 AuthModal.propTypes = {
   type: PropTypes.string,
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
+  status: PropTypes.objectOf(PropTypes.bool).isRequired
 };
