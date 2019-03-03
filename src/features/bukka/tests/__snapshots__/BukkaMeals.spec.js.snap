@@ -528,7 +528,11 @@ ReactWrapper {
               "rendered": Array [
                 Object {
                   "instance": null,
-                  "key": "VLA63D2_Ps",
+<<<<<<< HEAD
+                  "key": "w4demyYp09",
+=======
+                  "key": "M7cPfnHK3r",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -1006,6 +1010,7 @@ ReactWrapper {
                                               "nodeType": "host",
                                               "props": Object {
                                                 "children": <Price
+                                                  classNames="price-badge"
                                                   price={30}
                                                 />,
                                                 "className": "price-tag-section",
@@ -1017,6 +1022,7 @@ ReactWrapper {
                                                   "key": undefined,
                                                   "nodeType": "function",
                                                   "props": Object {
+                                                    "classNames": "price-badge",
                                                     "price": 30,
                                                   },
                                                   "ref": null,
@@ -1183,7 +1189,11 @@ ReactWrapper {
                 },
                 Object {
                   "instance": null,
-                  "key": "_m_McyCFQu",
+<<<<<<< HEAD
+                  "key": "50ysR19eG7",
+=======
+                  "key": "-4sjxSN9E9",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -1661,6 +1671,7 @@ ReactWrapper {
                                               "nodeType": "host",
                                               "props": Object {
                                                 "children": <Price
+                                                  classNames="price-badge"
                                                   price={30}
                                                 />,
                                                 "className": "price-tag-section",
@@ -1672,6 +1683,7 @@ ReactWrapper {
                                                   "key": undefined,
                                                   "nodeType": "function",
                                                   "props": Object {
+                                                    "classNames": "price-badge",
                                                     "price": 30,
                                                   },
                                                   "ref": null,
@@ -2344,7 +2356,11 @@ ReactWrapper {
                 "rendered": Array [
                   Object {
                     "instance": null,
-                    "key": "VLA63D2_Ps",
+<<<<<<< HEAD
+                    "key": "w4demyYp09",
+=======
+                    "key": "M7cPfnHK3r",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -2822,6 +2838,7 @@ ReactWrapper {
                                                 "nodeType": "host",
                                                 "props": Object {
                                                   "children": <Price
+                                                    classNames="price-badge"
                                                     price={30}
                                                   />,
                                                   "className": "price-tag-section",
@@ -2833,6 +2850,7 @@ ReactWrapper {
                                                     "key": undefined,
                                                     "nodeType": "function",
                                                     "props": Object {
+                                                      "classNames": "price-badge",
                                                       "price": 30,
                                                     },
                                                     "ref": null,
@@ -2999,7 +3017,11 @@ ReactWrapper {
                   },
                   Object {
                     "instance": null,
-                    "key": "_m_McyCFQu",
+<<<<<<< HEAD
+                    "key": "50ysR19eG7",
+=======
+                    "key": "-4sjxSN9E9",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -3477,6 +3499,7 @@ ReactWrapper {
                                                 "nodeType": "host",
                                                 "props": Object {
                                                   "children": <Price
+                                                    classNames="price-badge"
                                                     price={30}
                                                   />,
                                                   "className": "price-tag-section",
@@ -3488,6 +3511,7 @@ ReactWrapper {
                                                     "key": undefined,
                                                     "nodeType": "function",
                                                     "props": Object {
+                                                      "classNames": "price-badge",
                                                       "price": 30,
                                                     },
                                                     "ref": null,

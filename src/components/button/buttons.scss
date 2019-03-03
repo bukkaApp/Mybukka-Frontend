@@ -1,5 +1,5 @@
 $fontFamily: 'Roboto', sans-serif;
-$fontWeight: 600;
+$fontWeight: 500;
 $roundedBorders: 28px;
 $primaryColor: #9c1c26;
 $color: #9c1c26;
@@ -41,6 +41,11 @@ $white: rgb(217, 219, 224);
   @include button(165px, 48px, $white, #ffffff, 12px);
 }
 
+.small-button-save {
+  @include button(80px, 32px, $primaryColor, #fff, 12px);
+  border: 1px solid $primaryColor;
+}
+
 .small-button {
   @include button(80px, 32px, #222, #f5e7d8, 12px);
   border: 1px solid #222;
@@ -78,5 +83,33 @@ $white: rgb(217, 219, 224);
     border: 1px solid #eceff1;
     border-radius: 28px;
     height: 60px;
+  }
+}
+
+@mixin cart-action-button {
+  outline: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+.cart-action-button-default {
+  @include cart-action-button();
+  color:gray;
+}
+
+.cart-action-button-primary {
+  @include cart-action-button();
+  color: #9c1c26;
+}
+
+@media (max-width: 1025px) {
+  .cart-action-button-default {
+    background-color: #fff;
+  }
+  .cart-action-button-primary {
+    background-color: #fff;
   }
 }

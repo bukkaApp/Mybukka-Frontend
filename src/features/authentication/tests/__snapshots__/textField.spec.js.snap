@@ -50,7 +50,7 @@ ReactWrapper {
     "ref": null,
     "rendered": Object {
       "instance": <div
-        class="form-group has-error padding"
+        class="form-group padding"
       >
         <input
           class="default-input"
@@ -78,7 +78,7 @@ ReactWrapper {
             errorMsg=""
           />,
         ],
-        "className": "form-group has-error padding",
+        "className": "form-group padding",
       },
       "ref": null,
       "rendered": Array [
@@ -173,7 +173,7 @@ ReactWrapper {
       "ref": null,
       "rendered": Object {
         "instance": <div
-          class="form-group has-error padding"
+          class="form-group padding"
         >
           <input
             class="default-input"
@@ -201,7 +201,7 @@ ReactWrapper {
               errorMsg=""
             />,
           ],
-          "className": "form-group has-error padding",
+          "className": "form-group padding",
         },
         "ref": null,
         "rendered": Array [

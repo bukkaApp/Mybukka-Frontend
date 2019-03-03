@@ -1,0 +1,2928 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Area to explore component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <Payment
+    handleChange={[MockFunction]}
+    handleClick={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "handleChange": [MockFunction],
+      "handleClick": [MockFunction],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <section
+        class="mb-2 mt-4"
+      >
+        <h2
+          class="font-size-16 px-3 px-md-3 px-lg-0"
+        >
+          Payment
+        </h2>
+        <form
+          action=""
+          class="border padding-20 mt-4"
+        >
+          <div
+            class="row flex- flex-nowrap-sm font-size-14"
+          >
+            <div
+              class="d-flex flex-column col-5 col-md-5"
+            >
+              <label
+                class="no-label"
+                for="number"
+              >
+                Card number
+              </label>
+              <input
+                class="form-control border-input-style p-0"
+                name="number"
+                placeholder="Card number"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+            >
+              <label
+                class="no-label"
+                for="expDate"
+              >
+                MM/YY
+              </label>
+              <input
+                class="form-control border-input-style p-0"
+                name="expDate"
+                placeholder="MM/YY"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+            >
+              <label
+                class="no-label"
+                for="cvv"
+              >
+                CVV
+              </label>
+              <input
+                class="form-control border-input-style p-0"
+                name="cvv"
+                placeholder="CVV"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+            <div
+              class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+            >
+              <label
+                class="no-label"
+                for="zipCode"
+              >
+                Zip code
+              </label>
+              <input
+                class="form-control border-input-style p-0"
+                name="zipCode"
+                placeholder="Zip code"
+                type="text"
+              />
+              <span
+                class="text-danger font-size-11"
+              />
+            </div>
+          </div>
+          <div
+            class="form-group checkbox-form-group"
+          >
+            <input
+              class="checkbox"
+              name="makeDefaultPaymentOption"
+              placeholder=""
+              type="checkbox"
+            />
+            <span
+              class="make-default-text"
+            >
+              Make default payment method
+            </span>
+          </div>
+          <div>
+            <button
+              class="small-button-save"
+              data-target=""
+              data-toggle=""
+              type="button"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+        <div
+          class="demarcation"
+        />
+      </section>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2
+            className="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Payment
+          </h2>,
+          <form
+            action=""
+            className="border padding-20 mt-4"
+          >
+            <div
+              className="row flex- flex-nowrap-sm font-size-14"
+            >
+              <AuthForm
+                errors={
+                  Object {
+                    "cvv": "",
+                    "expDate": "",
+                    "number": "",
+                    "zipCode": "",
+                  }
+                }
+                handleChange={[Function]}
+                inputData={
+                  Object {
+                    "cvv": "",
+                    "expDate": "",
+                    "number": "",
+                    "zipCode": "",
+                  }
+                }
+                inputField={
+                  Array [
+                    Object {
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                      "emptyFieldError": "Required",
+                      "id": "number",
+                      "name": "number",
+                      "placeholderText": "Card number",
+                      "type": "text",
+                      "validityError": "Card number is invalid",
+                      "value": "",
+                    },
+                    Object {
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                      "emptyFieldError": "Required",
+                      "id": "expDate",
+                      "name": "expDate",
+                      "placeholderText": "MM/YY",
+                      "type": "text",
+                    },
+                    Object {
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                      "emptyFieldError": "Required",
+                      "id": "cvv",
+                      "name": "cvv",
+                      "placeholderText": "CVV",
+                      "type": "text",
+                    },
+                    Object {
+                      "classNames": "form-control border-input-style p-0",
+                      "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                      "id": "zipCode",
+                      "name": "zipCode",
+                      "placeholderText": "Zip code",
+                      "type": "text",
+                    },
+                  ]
+                }
+              />
+            </div>
+            <div
+              className="form-group checkbox-form-group"
+            >
+              <InputField
+                classNames="checkbox"
+                handleChange={[Function]}
+                handleFocus={[Function]}
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                placeholderText=""
+                type="checkbox"
+              />
+              <span
+                className="make-default-text"
+              >
+                Make default payment method
+              </span>
+            </div>
+            <div>
+              <Button
+                classNames="small-button-save"
+                dataTarget=""
+                dataToggle=""
+                disabled={false}
+                handleClick={[Function]}
+                text="Save"
+                type="button"
+              >
+                <div />
+              </Button>
+            </div>
+          </form>,
+          <Demarcation />,
+        ],
+        "className": "mb-2 mt-4",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": <h2
+            class="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Payment
+          </h2>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Payment",
+            "className": "font-size-16 px-3 px-md-3 px-lg-0",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Payment",
+          ],
+          "type": "h2",
+        },
+        Object {
+          "instance": <form
+            action=""
+            class="border padding-20 mt-4"
+          >
+            <div
+              class="row flex- flex-nowrap-sm font-size-14"
+            >
+              <div
+                class="d-flex flex-column col-5 col-md-5"
+              >
+                <label
+                  class="no-label"
+                  for="number"
+                >
+                  Card number
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="number"
+                  placeholder="Card number"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+              >
+                <label
+                  class="no-label"
+                  for="expDate"
+                >
+                  MM/YY
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="expDate"
+                  placeholder="MM/YY"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+              >
+                <label
+                  class="no-label"
+                  for="cvv"
+                >
+                  CVV
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="cvv"
+                  placeholder="CVV"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+              >
+                <label
+                  class="no-label"
+                  for="zipCode"
+                >
+                  Zip code
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="zipCode"
+                  placeholder="Zip code"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+            </div>
+            <div
+              class="form-group checkbox-form-group"
+            >
+              <input
+                class="checkbox"
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                type="checkbox"
+              />
+              <span
+                class="make-default-text"
+              >
+                Make default payment method
+              </span>
+            </div>
+            <div>
+              <button
+                class="small-button-save"
+                data-target=""
+                data-toggle=""
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </form>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "action": "",
+            "children": Array [
+              <div
+                className="row flex- flex-nowrap-sm font-size-14"
+              >
+                <AuthForm
+                  errors={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  handleChange={[Function]}
+                  inputData={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  inputField={
+                    Array [
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                        "emptyFieldError": "Required",
+                        "id": "number",
+                        "name": "number",
+                        "placeholderText": "Card number",
+                        "type": "text",
+                        "validityError": "Card number is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "expDate",
+                        "name": "expDate",
+                        "placeholderText": "MM/YY",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "cvv",
+                        "name": "cvv",
+                        "placeholderText": "CVV",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                        "id": "zipCode",
+                        "name": "zipCode",
+                        "placeholderText": "Zip code",
+                        "type": "text",
+                      },
+                    ]
+                  }
+                />
+              </div>,
+              <div
+                className="form-group checkbox-form-group"
+              >
+                <InputField
+                  classNames="checkbox"
+                  handleChange={[Function]}
+                  handleFocus={[Function]}
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  placeholderText=""
+                  type="checkbox"
+                />
+                <span
+                  className="make-default-text"
+                >
+                  Make default payment method
+                </span>
+              </div>,
+              <div>
+                <Button
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
+                  handleClick={[Function]}
+                  text="Save"
+                  type="button"
+                >
+                  <div />
+                </Button>
+              </div>,
+            ],
+            "className": "border padding-20 mt-4",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": <div
+                class="row flex- flex-nowrap-sm font-size-14"
+              >
+                <div
+                  class="d-flex flex-column col-5 col-md-5"
+                >
+                  <label
+                    class="no-label"
+                    for="number"
+                  >
+                    Card number
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="number"
+                    placeholder="Card number"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                >
+                  <label
+                    class="no-label"
+                    for="expDate"
+                  >
+                    MM/YY
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="expDate"
+                    placeholder="MM/YY"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                >
+                  <label
+                    class="no-label"
+                    for="cvv"
+                  >
+                    CVV
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="cvv"
+                    placeholder="CVV"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+                >
+                  <label
+                    class="no-label"
+                    for="zipCode"
+                  >
+                    Zip code
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="zipCode"
+                    placeholder="Zip code"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <AuthForm
+                  errors={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  handleChange={[Function]}
+                  inputData={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  inputField={
+                    Array [
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                        "emptyFieldError": "Required",
+                        "id": "number",
+                        "name": "number",
+                        "placeholderText": "Card number",
+                        "type": "text",
+                        "validityError": "Card number is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "expDate",
+                        "name": "expDate",
+                        "placeholderText": "MM/YY",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "cvv",
+                        "name": "cvv",
+                        "placeholderText": "CVV",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                        "id": "zipCode",
+                        "name": "zipCode",
+                        "placeholderText": "Zip code",
+                        "type": "text",
+                      },
+                    ]
+                  }
+                />,
+                "className": "row flex- flex-nowrap-sm font-size-14",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "errors": Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    },
+                    "handleChange": [Function],
+                    "inputData": Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    },
+                    "inputField": Array [
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                        "emptyFieldError": "Required",
+                        "id": "number",
+                        "name": "number",
+                        "placeholderText": "Card number",
+                        "type": "text",
+                        "validityError": "Card number is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "expDate",
+                        "name": "expDate",
+                        "placeholderText": "MM/YY",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "cvv",
+                        "name": "cvv",
+                        "placeholderText": "CVV",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                        "id": "zipCode",
+                        "name": "zipCode",
+                        "placeholderText": "Zip code",
+                        "type": "text",
+                      },
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": <div
+                        class="d-flex flex-column col-5 col-md-5"
+                      >
+                        <label
+                          class="no-label"
+                          for="number"
+                        >
+                          Card number
+                        </label>
+                        <input
+                          class="form-control border-input-style p-0"
+                          name="number"
+                          placeholder="Card number"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": "number",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="number"
+                          >
+                            Card number
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            handleFocus={[Function]}
+                            id="number"
+                            inputElement={
+                              Object {
+                                "autoComplete": "off",
+                              }
+                            }
+                            name="number"
+                            placeholderText="Card number"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-flex flex-column col-5 col-md-5",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="number"
+                          >
+                            Card number
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Card number",
+                            "className": "no-label",
+                            "htmlFor": "number",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Card number",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "handleFocus": [Function],
+                            "id": "number",
+                            "inputElement": Object {
+                              "autoComplete": "off",
+                            },
+                            "name": "number",
+                            "placeholderText": "Card number",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              class="form-control border-input-style p-0"
+                              name="number"
+                              placeholder="Card number"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "form-control border-input-style p-0",
+                              "name": "number",
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "placeholder": "Card number",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                      >
+                        <label
+                          class="no-label"
+                          for="expDate"
+                        >
+                          MM/YY
+                        </label>
+                        <input
+                          class="form-control border-input-style p-0"
+                          name="expDate"
+                          placeholder="MM/YY"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": "expDate",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="expDate"
+                          >
+                            MM/YY
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            handleFocus={[Function]}
+                            id="expDate"
+                            inputElement={
+                              Object {
+                                "autoComplete": "off",
+                              }
+                            }
+                            name="expDate"
+                            placeholderText="MM/YY"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="expDate"
+                          >
+                            MM/YY
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "MM/YY",
+                            "className": "no-label",
+                            "htmlFor": "expDate",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "MM/YY",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "handleFocus": [Function],
+                            "id": "expDate",
+                            "inputElement": Object {
+                              "autoComplete": "off",
+                            },
+                            "name": "expDate",
+                            "placeholderText": "MM/YY",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              class="form-control border-input-style p-0"
+                              name="expDate"
+                              placeholder="MM/YY"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "form-control border-input-style p-0",
+                              "name": "expDate",
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "placeholder": "MM/YY",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                      >
+                        <label
+                          class="no-label"
+                          for="cvv"
+                        >
+                          CVV
+                        </label>
+                        <input
+                          class="form-control border-input-style p-0"
+                          name="cvv"
+                          placeholder="CVV"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": "cvv",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="cvv"
+                          >
+                            CVV
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            handleFocus={[Function]}
+                            id="cvv"
+                            inputElement={
+                              Object {
+                                "autoComplete": "off",
+                              }
+                            }
+                            name="cvv"
+                            placeholderText="CVV"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="cvv"
+                          >
+                            CVV
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "CVV",
+                            "className": "no-label",
+                            "htmlFor": "cvv",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "CVV",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "handleFocus": [Function],
+                            "id": "cvv",
+                            "inputElement": Object {
+                              "autoComplete": "off",
+                            },
+                            "name": "cvv",
+                            "placeholderText": "CVV",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              class="form-control border-input-style p-0"
+                              name="cvv"
+                              placeholder="CVV"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "form-control border-input-style p-0",
+                              "name": "cvv",
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "placeholder": "CVV",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": <div
+                        class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+                      >
+                        <label
+                          class="no-label"
+                          for="zipCode"
+                        >
+                          Zip code
+                        </label>
+                        <input
+                          class="form-control border-input-style p-0"
+                          name="zipCode"
+                          placeholder="Zip code"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger font-size-11"
+                        />
+                      </div>,
+                      "key": "zipCode",
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <label
+                            className="no-label"
+                            htmlFor="zipCode"
+                          >
+                            Zip code
+                          </label>,
+                          <InputField
+                            classNames="form-control border-input-style p-0"
+                            handleChange={[Function]}
+                            handleFocus={[Function]}
+                            id="zipCode"
+                            inputElement={
+                              Object {
+                                "autoComplete": "off",
+                              }
+                            }
+                            name="zipCode"
+                            placeholderText="Zip code"
+                            type="text"
+                          />,
+                          false,
+                          <span
+                            className="text-danger font-size-11"
+                          >
+                            
+                          </span>,
+                        ],
+                        "className": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <label
+                            class="no-label"
+                            for="zipCode"
+                          >
+                            Zip code
+                          </label>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Zip code",
+                            "className": "no-label",
+                            "htmlFor": "zipCode",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Zip code",
+                          ],
+                          "type": "label",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "classNames": "form-control border-input-style p-0",
+                            "handleChange": [Function],
+                            "handleFocus": [Function],
+                            "id": "zipCode",
+                            "inputElement": Object {
+                              "autoComplete": "off",
+                            },
+                            "name": "zipCode",
+                            "placeholderText": "Zip code",
+                            "type": "text",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <input
+                              class="form-control border-input-style p-0"
+                              name="zipCode"
+                              placeholder="Zip code"
+                              type="text"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "form-control border-input-style p-0",
+                              "name": "zipCode",
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "placeholder": "Zip code",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              undefined,
+                            ],
+                            "type": "input",
+                          },
+                          "type": [Function],
+                        },
+                        Object {
+                          "instance": <span
+                            class="text-danger font-size-11"
+                          />,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "",
+                            "className": "text-danger font-size-11",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "",
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "div",
+                    },
+                  ],
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": <div
+                class="form-group checkbox-form-group"
+              >
+                <input
+                  class="checkbox"
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  type="checkbox"
+                />
+                <span
+                  class="make-default-text"
+                >
+                  Make default payment method
+                </span>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <InputField
+                    classNames="checkbox"
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    placeholderText=""
+                    type="checkbox"
+                  />,
+                  <span
+                    className="make-default-text"
+                  >
+                    Make default payment method
+                  </span>,
+                ],
+                "className": "form-group checkbox-form-group",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "classNames": "checkbox",
+                    "handleChange": [Function],
+                    "handleFocus": [Function],
+                    "name": "makeDefaultPaymentOption",
+                    "placeholder": "",
+                    "placeholderText": "",
+                    "type": "checkbox",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": <input
+                      class="checkbox"
+                      name="makeDefaultPaymentOption"
+                      placeholder=""
+                      type="checkbox"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "checkbox",
+                      "name": "makeDefaultPaymentOption",
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                      "placeholder": "",
+                      "type": "checkbox",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "input",
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": <span
+                    class="make-default-text"
+                  >
+                    Make default payment method
+                  </span>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Make default payment method",
+                    "className": "make-default-text",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "Make default payment method",
+                  ],
+                  "type": "span",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": <div>
+                <button
+                  class="small-button-save"
+                  data-target=""
+                  data-toggle=""
+                  type="button"
+                >
+                  Save
+                </button>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Button
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
+                  handleClick={[Function]}
+                  text="Save"
+                  type="button"
+                >
+                  <div />
+                </Button>,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "children": <div />,
+                    "classNames": "small-button-save",
+                    "dataTarget": "",
+                    "dataToggle": "",
+                    "disabled": false,
+                    "handleClick": [Function],
+                    "text": "Save",
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": <button
+                      class="small-button-save"
+                      data-target=""
+                      data-toggle=""
+                      type="button"
+                    >
+                      Save
+                    </button>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Save",
+                      "className": "small-button-save",
+                      "data-target": "",
+                      "data-toggle": "",
+                      "disabled": false,
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Save",
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": Object {
+            "instance": <div
+              class="demarcation"
+            />,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "demarcation",
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+            ],
+            "type": "div",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "section",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "handleChange": [MockFunction],
+        "handleClick": [MockFunction],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <section
+          class="mb-2 mt-4"
+        >
+          <h2
+            class="font-size-16 px-3 px-md-3 px-lg-0"
+          >
+            Payment
+          </h2>
+          <form
+            action=""
+            class="border padding-20 mt-4"
+          >
+            <div
+              class="row flex- flex-nowrap-sm font-size-14"
+            >
+              <div
+                class="d-flex flex-column col-5 col-md-5"
+              >
+                <label
+                  class="no-label"
+                  for="number"
+                >
+                  Card number
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="number"
+                  placeholder="Card number"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+              >
+                <label
+                  class="no-label"
+                  for="expDate"
+                >
+                  MM/YY
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="expDate"
+                  placeholder="MM/YY"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+              >
+                <label
+                  class="no-label"
+                  for="cvv"
+                >
+                  CVV
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="cvv"
+                  placeholder="CVV"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+              <div
+                class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+              >
+                <label
+                  class="no-label"
+                  for="zipCode"
+                >
+                  Zip code
+                </label>
+                <input
+                  class="form-control border-input-style p-0"
+                  name="zipCode"
+                  placeholder="Zip code"
+                  type="text"
+                />
+                <span
+                  class="text-danger font-size-11"
+                />
+              </div>
+            </div>
+            <div
+              class="form-group checkbox-form-group"
+            >
+              <input
+                class="checkbox"
+                name="makeDefaultPaymentOption"
+                placeholder=""
+                type="checkbox"
+              />
+              <span
+                class="make-default-text"
+              >
+                Make default payment method
+              </span>
+            </div>
+            <div>
+              <button
+                class="small-button-save"
+                data-target=""
+                data-toggle=""
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+          <div
+            class="demarcation"
+          />
+        </section>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2
+              className="font-size-16 px-3 px-md-3 px-lg-0"
+            >
+              Payment
+            </h2>,
+            <form
+              action=""
+              className="border padding-20 mt-4"
+            >
+              <div
+                className="row flex- flex-nowrap-sm font-size-14"
+              >
+                <AuthForm
+                  errors={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  handleChange={[Function]}
+                  inputData={
+                    Object {
+                      "cvv": "",
+                      "expDate": "",
+                      "number": "",
+                      "zipCode": "",
+                    }
+                  }
+                  inputField={
+                    Array [
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                        "emptyFieldError": "Required",
+                        "id": "number",
+                        "name": "number",
+                        "placeholderText": "Card number",
+                        "type": "text",
+                        "validityError": "Card number is invalid",
+                        "value": "",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "expDate",
+                        "name": "expDate",
+                        "placeholderText": "MM/YY",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        "emptyFieldError": "Required",
+                        "id": "cvv",
+                        "name": "cvv",
+                        "placeholderText": "CVV",
+                        "type": "text",
+                      },
+                      Object {
+                        "classNames": "form-control border-input-style p-0",
+                        "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                        "id": "zipCode",
+                        "name": "zipCode",
+                        "placeholderText": "Zip code",
+                        "type": "text",
+                      },
+                    ]
+                  }
+                />
+              </div>
+              <div
+                className="form-group checkbox-form-group"
+              >
+                <InputField
+                  classNames="checkbox"
+                  handleChange={[Function]}
+                  handleFocus={[Function]}
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  placeholderText=""
+                  type="checkbox"
+                />
+                <span
+                  className="make-default-text"
+                >
+                  Make default payment method
+                </span>
+              </div>
+              <div>
+                <Button
+                  classNames="small-button-save"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
+                  handleClick={[Function]}
+                  text="Save"
+                  type="button"
+                >
+                  <div />
+                </Button>
+              </div>
+            </form>,
+            <Demarcation />,
+          ],
+          "className": "mb-2 mt-4",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": <h2
+              class="font-size-16 px-3 px-md-3 px-lg-0"
+            >
+              Payment
+            </h2>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Payment",
+              "className": "font-size-16 px-3 px-md-3 px-lg-0",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Payment",
+            ],
+            "type": "h2",
+          },
+          Object {
+            "instance": <form
+              action=""
+              class="border padding-20 mt-4"
+            >
+              <div
+                class="row flex- flex-nowrap-sm font-size-14"
+              >
+                <div
+                  class="d-flex flex-column col-5 col-md-5"
+                >
+                  <label
+                    class="no-label"
+                    for="number"
+                  >
+                    Card number
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="number"
+                    placeholder="Card number"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                >
+                  <label
+                    class="no-label"
+                    for="expDate"
+                  >
+                    MM/YY
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="expDate"
+                    placeholder="MM/YY"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                >
+                  <label
+                    class="no-label"
+                    for="cvv"
+                  >
+                    CVV
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="cvv"
+                    placeholder="CVV"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+                <div
+                  class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+                >
+                  <label
+                    class="no-label"
+                    for="zipCode"
+                  >
+                    Zip code
+                  </label>
+                  <input
+                    class="form-control border-input-style p-0"
+                    name="zipCode"
+                    placeholder="Zip code"
+                    type="text"
+                  />
+                  <span
+                    class="text-danger font-size-11"
+                  />
+                </div>
+              </div>
+              <div
+                class="form-group checkbox-form-group"
+              >
+                <input
+                  class="checkbox"
+                  name="makeDefaultPaymentOption"
+                  placeholder=""
+                  type="checkbox"
+                />
+                <span
+                  class="make-default-text"
+                >
+                  Make default payment method
+                </span>
+              </div>
+              <div>
+                <button
+                  class="small-button-save"
+                  data-target=""
+                  data-toggle=""
+                  type="button"
+                >
+                  Save
+                </button>
+              </div>
+            </form>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "action": "",
+              "children": Array [
+                <div
+                  className="row flex- flex-nowrap-sm font-size-14"
+                >
+                  <AuthForm
+                    errors={
+                      Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      }
+                    }
+                    handleChange={[Function]}
+                    inputData={
+                      Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      }
+                    }
+                    inputField={
+                      Array [
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                          "emptyFieldError": "Required",
+                          "id": "number",
+                          "name": "number",
+                          "placeholderText": "Card number",
+                          "type": "text",
+                          "validityError": "Card number is invalid",
+                          "value": "",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "expDate",
+                          "name": "expDate",
+                          "placeholderText": "MM/YY",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "cvv",
+                          "name": "cvv",
+                          "placeholderText": "CVV",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                          "id": "zipCode",
+                          "name": "zipCode",
+                          "placeholderText": "Zip code",
+                          "type": "text",
+                        },
+                      ]
+                    }
+                  />
+                </div>,
+                <div
+                  className="form-group checkbox-form-group"
+                >
+                  <InputField
+                    classNames="checkbox"
+                    handleChange={[Function]}
+                    handleFocus={[Function]}
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    placeholderText=""
+                    type="checkbox"
+                  />
+                  <span
+                    className="make-default-text"
+                  >
+                    Make default payment method
+                  </span>
+                </div>,
+                <div>
+                  <Button
+                    classNames="small-button-save"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
+                    handleClick={[Function]}
+                    text="Save"
+                    type="button"
+                  >
+                    <div />
+                  </Button>
+                </div>,
+              ],
+              "className": "border padding-20 mt-4",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": <div
+                  class="row flex- flex-nowrap-sm font-size-14"
+                >
+                  <div
+                    class="d-flex flex-column col-5 col-md-5"
+                  >
+                    <label
+                      class="no-label"
+                      for="number"
+                    >
+                      Card number
+                    </label>
+                    <input
+                      class="form-control border-input-style p-0"
+                      name="number"
+                      placeholder="Card number"
+                      type="text"
+                    />
+                    <span
+                      class="text-danger font-size-11"
+                    />
+                  </div>
+                  <div
+                    class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                  >
+                    <label
+                      class="no-label"
+                      for="expDate"
+                    >
+                      MM/YY
+                    </label>
+                    <input
+                      class="form-control border-input-style p-0"
+                      name="expDate"
+                      placeholder="MM/YY"
+                      type="text"
+                    />
+                    <span
+                      class="text-danger font-size-11"
+                    />
+                  </div>
+                  <div
+                    class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                  >
+                    <label
+                      class="no-label"
+                      for="cvv"
+                    >
+                      CVV
+                    </label>
+                    <input
+                      class="form-control border-input-style p-0"
+                      name="cvv"
+                      placeholder="CVV"
+                      type="text"
+                    />
+                    <span
+                      class="text-danger font-size-11"
+                    />
+                  </div>
+                  <div
+                    class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+                  >
+                    <label
+                      class="no-label"
+                      for="zipCode"
+                    >
+                      Zip code
+                    </label>
+                    <input
+                      class="form-control border-input-style p-0"
+                      name="zipCode"
+                      placeholder="Zip code"
+                      type="text"
+                    />
+                    <span
+                      class="text-danger font-size-11"
+                    />
+                  </div>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <AuthForm
+                    errors={
+                      Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      }
+                    }
+                    handleChange={[Function]}
+                    inputData={
+                      Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      }
+                    }
+                    inputField={
+                      Array [
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                          "emptyFieldError": "Required",
+                          "id": "number",
+                          "name": "number",
+                          "placeholderText": "Card number",
+                          "type": "text",
+                          "validityError": "Card number is invalid",
+                          "value": "",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "expDate",
+                          "name": "expDate",
+                          "placeholderText": "MM/YY",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "cvv",
+                          "name": "cvv",
+                          "placeholderText": "CVV",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                          "id": "zipCode",
+                          "name": "zipCode",
+                          "placeholderText": "Zip code",
+                          "type": "text",
+                        },
+                      ]
+                    }
+                  />,
+                  "className": "row flex- flex-nowrap-sm font-size-14",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "errors": Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      },
+                      "handleChange": [Function],
+                      "inputData": Object {
+                        "cvv": "",
+                        "expDate": "",
+                        "number": "",
+                        "zipCode": "",
+                      },
+                      "inputField": Array [
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column col-5 col-md-5",
+                          "emptyFieldError": "Required",
+                          "id": "number",
+                          "name": "number",
+                          "placeholderText": "Card number",
+                          "type": "text",
+                          "validityError": "Card number is invalid",
+                          "value": "",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "expDate",
+                          "name": "expDate",
+                          "placeholderText": "MM/YY",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                          "emptyFieldError": "Required",
+                          "id": "cvv",
+                          "name": "cvv",
+                          "placeholderText": "CVV",
+                          "type": "text",
+                        },
+                        Object {
+                          "classNames": "form-control border-input-style p-0",
+                          "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                          "id": "zipCode",
+                          "name": "zipCode",
+                          "placeholderText": "Zip code",
+                          "type": "text",
+                        },
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <div
+                          class="d-flex flex-column col-5 col-md-5"
+                        >
+                          <label
+                            class="no-label"
+                            for="number"
+                          >
+                            Card number
+                          </label>
+                          <input
+                            class="form-control border-input-style p-0"
+                            name="number"
+                            placeholder="Card number"
+                            type="text"
+                          />
+                          <span
+                            class="text-danger font-size-11"
+                          />
+                        </div>,
+                        "key": "number",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <label
+                              className="no-label"
+                              htmlFor="number"
+                            >
+                              Card number
+                            </label>,
+                            <InputField
+                              classNames="form-control border-input-style p-0"
+                              handleChange={[Function]}
+                              handleFocus={[Function]}
+                              id="number"
+                              inputElement={
+                                Object {
+                                  "autoComplete": "off",
+                                }
+                              }
+                              name="number"
+                              placeholderText="Card number"
+                              type="text"
+                            />,
+                            false,
+                            <span
+                              className="text-danger font-size-11"
+                            >
+                              
+                            </span>,
+                          ],
+                          "className": "d-flex flex-column col-5 col-md-5",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <label
+                              class="no-label"
+                              for="number"
+                            >
+                              Card number
+                            </label>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Card number",
+                              "className": "no-label",
+                              "htmlFor": "number",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "Card number",
+                            ],
+                            "type": "label",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "classNames": "form-control border-input-style p-0",
+                              "handleChange": [Function],
+                              "handleFocus": [Function],
+                              "id": "number",
+                              "inputElement": Object {
+                                "autoComplete": "off",
+                              },
+                              "name": "number",
+                              "placeholderText": "Card number",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": <input
+                                class="form-control border-input-style p-0"
+                                name="number"
+                                placeholder="Card number"
+                                type="text"
+                              />,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "form-control border-input-style p-0",
+                                "name": "number",
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "placeholder": "Card number",
+                                "type": "text",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                undefined,
+                              ],
+                              "type": "input",
+                            },
+                            "type": [Function],
+                          },
+                          Object {
+                            "instance": <span
+                              class="text-danger font-size-11"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "",
+                              "className": "text-danger font-size-11",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "",
+                            ],
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": <div
+                          class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                        >
+                          <label
+                            class="no-label"
+                            for="expDate"
+                          >
+                            MM/YY
+                          </label>
+                          <input
+                            class="form-control border-input-style p-0"
+                            name="expDate"
+                            placeholder="MM/YY"
+                            type="text"
+                          />
+                          <span
+                            class="text-danger font-size-11"
+                          />
+                        </div>,
+                        "key": "expDate",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <label
+                              className="no-label"
+                              htmlFor="expDate"
+                            >
+                              MM/YY
+                            </label>,
+                            <InputField
+                              classNames="form-control border-input-style p-0"
+                              handleChange={[Function]}
+                              handleFocus={[Function]}
+                              id="expDate"
+                              inputElement={
+                                Object {
+                                  "autoComplete": "off",
+                                }
+                              }
+                              name="expDate"
+                              placeholderText="MM/YY"
+                              type="text"
+                            />,
+                            false,
+                            <span
+                              className="text-danger font-size-11"
+                            >
+                              
+                            </span>,
+                          ],
+                          "className": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <label
+                              class="no-label"
+                              for="expDate"
+                            >
+                              MM/YY
+                            </label>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "MM/YY",
+                              "className": "no-label",
+                              "htmlFor": "expDate",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "MM/YY",
+                            ],
+                            "type": "label",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "classNames": "form-control border-input-style p-0",
+                              "handleChange": [Function],
+                              "handleFocus": [Function],
+                              "id": "expDate",
+                              "inputElement": Object {
+                                "autoComplete": "off",
+                              },
+                              "name": "expDate",
+                              "placeholderText": "MM/YY",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": <input
+                                class="form-control border-input-style p-0"
+                                name="expDate"
+                                placeholder="MM/YY"
+                                type="text"
+                              />,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "form-control border-input-style p-0",
+                                "name": "expDate",
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "placeholder": "MM/YY",
+                                "type": "text",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                undefined,
+                              ],
+                              "type": "input",
+                            },
+                            "type": [Function],
+                          },
+                          Object {
+                            "instance": <span
+                              class="text-danger font-size-11"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "",
+                              "className": "text-danger font-size-11",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "",
+                            ],
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": <div
+                          class="d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+                        >
+                          <label
+                            class="no-label"
+                            for="cvv"
+                          >
+                            CVV
+                          </label>
+                          <input
+                            class="form-control border-input-style p-0"
+                            name="cvv"
+                            placeholder="CVV"
+                            type="text"
+                          />
+                          <span
+                            class="text-danger font-size-11"
+                          />
+                        </div>,
+                        "key": "cvv",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <label
+                              className="no-label"
+                              htmlFor="cvv"
+                            >
+                              CVV
+                            </label>,
+                            <InputField
+                              classNames="form-control border-input-style p-0"
+                              handleChange={[Function]}
+                              handleFocus={[Function]}
+                              id="cvv"
+                              inputElement={
+                                Object {
+                                  "autoComplete": "off",
+                                }
+                              }
+                              name="cvv"
+                              placeholderText="CVV"
+                              type="text"
+                            />,
+                            false,
+                            <span
+                              className="text-danger font-size-11"
+                            >
+                              
+                            </span>,
+                          ],
+                          "className": "d-flex flex-column px-1 px-md-3 col-2 col-md-2",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <label
+                              class="no-label"
+                              for="cvv"
+                            >
+                              CVV
+                            </label>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "CVV",
+                              "className": "no-label",
+                              "htmlFor": "cvv",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "CVV",
+                            ],
+                            "type": "label",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "classNames": "form-control border-input-style p-0",
+                              "handleChange": [Function],
+                              "handleFocus": [Function],
+                              "id": "cvv",
+                              "inputElement": Object {
+                                "autoComplete": "off",
+                              },
+                              "name": "cvv",
+                              "placeholderText": "CVV",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": <input
+                                class="form-control border-input-style p-0"
+                                name="cvv"
+                                placeholder="CVV"
+                                type="text"
+                              />,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "form-control border-input-style p-0",
+                                "name": "cvv",
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "placeholder": "CVV",
+                                "type": "text",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                undefined,
+                              ],
+                              "type": "input",
+                            },
+                            "type": [Function],
+                          },
+                          Object {
+                            "instance": <span
+                              class="text-danger font-size-11"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "",
+                              "className": "text-danger font-size-11",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "",
+                            ],
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                      Object {
+                        "instance": <div
+                          class="d-flex flex-column px-1  px-md-3  col-2 col-md-3"
+                        >
+                          <label
+                            class="no-label"
+                            for="zipCode"
+                          >
+                            Zip code
+                          </label>
+                          <input
+                            class="form-control border-input-style p-0"
+                            name="zipCode"
+                            placeholder="Zip code"
+                            type="text"
+                          />
+                          <span
+                            class="text-danger font-size-11"
+                          />
+                        </div>,
+                        "key": "zipCode",
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <label
+                              className="no-label"
+                              htmlFor="zipCode"
+                            >
+                              Zip code
+                            </label>,
+                            <InputField
+                              classNames="form-control border-input-style p-0"
+                              handleChange={[Function]}
+                              handleFocus={[Function]}
+                              id="zipCode"
+                              inputElement={
+                                Object {
+                                  "autoComplete": "off",
+                                }
+                              }
+                              name="zipCode"
+                              placeholderText="Zip code"
+                              type="text"
+                            />,
+                            false,
+                            <span
+                              className="text-danger font-size-11"
+                            >
+                              
+                            </span>,
+                          ],
+                          "className": "d-flex flex-column px-1  px-md-3  col-2 col-md-3",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": <label
+                              class="no-label"
+                              for="zipCode"
+                            >
+                              Zip code
+                            </label>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Zip code",
+                              "className": "no-label",
+                              "htmlFor": "zipCode",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "Zip code",
+                            ],
+                            "type": "label",
+                          },
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "classNames": "form-control border-input-style p-0",
+                              "handleChange": [Function],
+                              "handleFocus": [Function],
+                              "id": "zipCode",
+                              "inputElement": Object {
+                                "autoComplete": "off",
+                              },
+                              "name": "zipCode",
+                              "placeholderText": "Zip code",
+                              "type": "text",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": <input
+                                class="form-control border-input-style p-0"
+                                name="zipCode"
+                                placeholder="Zip code"
+                                type="text"
+                              />,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "form-control border-input-style p-0",
+                                "name": "zipCode",
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "placeholder": "Zip code",
+                                "type": "text",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                undefined,
+                              ],
+                              "type": "input",
+                            },
+                            "type": [Function],
+                          },
+                          Object {
+                            "instance": <span
+                              class="text-danger font-size-11"
+                            />,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "",
+                              "className": "text-danger font-size-11",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              "",
+                            ],
+                            "type": "span",
+                          },
+                        ],
+                        "type": "div",
+                      },
+                    ],
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": <div
+                  class="form-group checkbox-form-group"
+                >
+                  <input
+                    class="checkbox"
+                    name="makeDefaultPaymentOption"
+                    placeholder=""
+                    type="checkbox"
+                  />
+                  <span
+                    class="make-default-text"
+                  >
+                    Make default payment method
+                  </span>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <InputField
+                      classNames="checkbox"
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      name="makeDefaultPaymentOption"
+                      placeholder=""
+                      placeholderText=""
+                      type="checkbox"
+                    />,
+                    <span
+                      className="make-default-text"
+                    >
+                      Make default payment method
+                    </span>,
+                  ],
+                  "className": "form-group checkbox-form-group",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "classNames": "checkbox",
+                      "handleChange": [Function],
+                      "handleFocus": [Function],
+                      "name": "makeDefaultPaymentOption",
+                      "placeholder": "",
+                      "placeholderText": "",
+                      "type": "checkbox",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <input
+                        class="checkbox"
+                        name="makeDefaultPaymentOption"
+                        placeholder=""
+                        type="checkbox"
+                      />,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "checkbox",
+                        "name": "makeDefaultPaymentOption",
+                        "onChange": [Function],
+                        "onFocus": [Function],
+                        "placeholder": "",
+                        "type": "checkbox",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        undefined,
+                      ],
+                      "type": "input",
+                    },
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": <span
+                      class="make-default-text"
+                    >
+                      Make default payment method
+                    </span>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Make default payment method",
+                      "className": "make-default-text",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "Make default payment method",
+                    ],
+                    "type": "span",
+                  },
+                ],
+                "type": "div",
+              },
+              Object {
+                "instance": <div>
+                  <button
+                    class="small-button-save"
+                    data-target=""
+                    data-toggle=""
+                    type="button"
+                  >
+                    Save
+                  </button>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Button
+                    classNames="small-button-save"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
+                    handleClick={[Function]}
+                    text="Save"
+                    type="button"
+                  >
+                    <div />
+                  </Button>,
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <div />,
+                      "classNames": "small-button-save",
+                      "dataTarget": "",
+                      "dataToggle": "",
+                      "disabled": false,
+                      "handleClick": [Function],
+                      "text": "Save",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <button
+                        class="small-button-save"
+                        data-target=""
+                        data-toggle=""
+                        type="button"
+                      >
+                        Save
+                      </button>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Save",
+                        "className": "small-button-save",
+                        "data-target": "",
+                        "data-toggle": "",
+                        "disabled": false,
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Save",
+                      ],
+                      "type": "button",
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "form",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="demarcation"
+              />,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "demarcation",
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "section",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
