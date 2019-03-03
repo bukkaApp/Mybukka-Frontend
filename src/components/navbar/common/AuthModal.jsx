@@ -17,6 +17,9 @@ const AuthModal = ({ type, push, status }) => {
     if (authenticated) {
       document.body.classList.remove('modal-open');
       document.body.style.padding = 0;
+      document
+        .getElementsByClassName("modal-backdrop fade show")[0]
+        .remove();
       return null;
     }
     return (
