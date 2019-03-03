@@ -1,7 +1,25 @@
 $fontFamily: 'Roboto', sans-serif;
 
 .font-size {
-  font-size: 18px;
+  font-size: 24px;
+  letter-spacing: -1.16px;
+  font-weight: 600;
+}
+
+.auth-title {
+  font-family: $fontFamily;
+  font-size: 24px;
+  letter-spacing: -1.16px;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.chevron-left {
+  transform: rotate(180deg);
+  position: absolute;
+  padding-right: 20px;
+  cursor: pointer;
 }
 
 .padding {
@@ -17,17 +35,12 @@ $fontFamily: 'Roboto', sans-serif;
   background: rgb(249, 249, 249);
 }
 
-.form-wrapper {
+.auth-wrapper {
   font-family: $fontFamily;
   background: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 24px 0px;
   padding: 0;
   margin: 0;
-}
-
-// navbar-height = 65px, logo-margin-height = 10px
-.full-height {
-  min-height: calc(#{'100vh - 75px'});
 }
 
 .form-container {

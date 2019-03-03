@@ -1,10 +1,8 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
-
 import './navbar.scss';
 
 const PrimaryNavbar = ({ push }) => (
@@ -15,14 +13,16 @@ const PrimaryNavbar = ({ push }) => (
         <Button
           type="button"
           text="sign in"
-          classNames="small-outline-button"
           handleClick={() => push('/login')}
+          classNames="small-outline-button"
+          id="/login"
         />
         <Button
           type="button"
           text="sign up"
-          classNames="small-button"
           handleClick={() => push('/signup')}
+          classNames="small-button"
+          id="/signup"
         />
       </div>
     </nav>
@@ -32,5 +32,6 @@ const PrimaryNavbar = ({ push }) => (
 export default PrimaryNavbar;
 
 PrimaryNavbar.propTypes = {
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
 };
+

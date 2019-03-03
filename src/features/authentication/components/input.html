@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: auto;
+            border: 1px solid grey;
+            align-items: center;
+            overflow: hidden
+        }
+        input {
+            /* max-width: 335px; */
+            min-width: 90%;
+            box-sizing: border-box;
+            flex-basis: 100%;
+            margin-left: 14px;
+            margin-right: 14px;
+            font-size: 16px;
+            letter-spacing: 0.14px;
+            font-weight: 400;
+            line-height: normal;
+            font-family: inherit;
+            width: 100%;
+            caret-color: rgb(0, 0, 0);
+            background-color: inherit;
+            color: rgb(45, 49, 56);
+            margin-top: 81px;
+            margin-bottom: 53px;
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid rgb(217, 219, 224);
+            padding: 22px 0px;
+        }
+        button {
+            -webkit-appearance: none;
+            cursor: pointer;
+            text-align: center;
+            background-color: rgb(0, 204, 153);
+            color: rgb(255, 255, 255);
+            font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+            font-size: 14px;
+            letter-spacing: initial;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: normal;
+            height: 48px;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            outline: none;
+            transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+            border-radius: 28px;
+        }
+        .input-container {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <input placeholder="Email" type="text">
+            <input placeholder="Password" type="text">
+        </div>
+        <button>Continue</button>
+    </div>
+</body>
+</html>

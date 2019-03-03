@@ -1,0 +1,46 @@
+$fontFamily: 'Roboto', sans-serif;
+
+.mt-9 {
+  margin-top: 81px
+}
+
+.auth-form-title {
+  font-family: $fontFamily;
+  font-size: 18px;
+  letter-spacing: -0.64px;
+  font-weight: 600;
+  line-height: normal;
+  overflow-wrap: break-word;
+}
+
+.slide-next-input {
+  transform: translateX(-100%);
+}
+
+.input-group-wrapper {
+  overflow: hidden
+}
+
+.input-slide {
+  display: flex;
+  overflow: visible;
+  transition: transform 300ms cubic-bezier(0.86, 0, 0.07, 1) 0s;
+  .padding {
+    min-width: 100%
+  }
+  input {
+    width: 90%;
+    text-align: center;
+    margin: 0 5% 0 5%
+  }
+}
+
+.form-title  {
+  font-family: $fontFamily;
+  font-size: 15px;
+  letter-spacing: initial;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  color: rgb(45, 49, 56);
+}
