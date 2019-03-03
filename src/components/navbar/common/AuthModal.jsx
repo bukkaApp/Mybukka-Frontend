@@ -15,6 +15,8 @@ const AuthModal = ({ type, push, status }) => {
   }
   const AuthenticatedAuthForm = () => {
     if (authenticated) {
+      document.body.classList.remove('modal-open');
+      document.body.style.padding = 0;
       return null;
     }
     return (
