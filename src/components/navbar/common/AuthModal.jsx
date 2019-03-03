@@ -14,8 +14,10 @@ const AuthModal = ({ type, push, status }) => {
     AuthForm = AuthenticateRegister;
   }
   const AuthenticatedAuthForm = () => {
-    if (authenticated) {
-      document.body.classList.remove('modal-open');
+    const modalOpen = document.body.classList.value;
+    if (authenticated && modalOpen) {
+      // close modal
+      document.body.classList.remove("modal-open");
       document.body.style.padding = 0;
       document
         .getElementsByClassName("modal-backdrop fade show")[0]
