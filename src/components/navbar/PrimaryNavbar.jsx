@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
@@ -57,16 +58,13 @@ const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
   );
 };
 
+const WithRouterPrimaryNavbar = withRouter(PrimaryNavbar);
 export default connect(
   null,
   {
     navigateToNextRoute: navAuthentication
   }
-)(PrimaryNavbar);
-
-PrimaryNavbar.defaultProps = {
-  authButton: true
-};
+)(WithRouterPrimaryNavbar);
 
 PrimaryNavbar.propTypes = {
   authButton: PropTypes.bool,

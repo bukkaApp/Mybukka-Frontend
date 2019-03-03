@@ -44,9 +44,11 @@ const FreshSection = ({
   cartIsUpdated,
   fetchCart,
   authenticated,
+  freshBukkas,
 }) => {
   const [searchResultCategories, setCategories] = useState([]);
   const [searches, setSearch] = useState('');
+
   const bukkaCategories = [
     ...new Set(freshBukkas.map(mealData => mealData.bukka))
   ];
@@ -188,6 +190,7 @@ const mapStateToProps = ({
   cartIsUpdated: updated,
   errorUpdatingCart: error,
   authenticated,
+  freshBukkas,
 });
 
 export default connect(
