@@ -528,11 +528,7 @@ ReactWrapper {
               "rendered": Array [
                 Object {
                   "instance": null,
-<<<<<<< HEAD
-                  "key": "w4demyYp09",
-=======
                   "key": "M7cPfnHK3r",
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -1189,11 +1185,7 @@ ReactWrapper {
                 },
                 Object {
                   "instance": null,
-<<<<<<< HEAD
-                  "key": "50ysR19eG7",
-=======
                   "key": "-4sjxSN9E9",
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -2356,11 +2348,7 @@ ReactWrapper {
                 "rendered": Array [
                   Object {
                     "instance": null,
-<<<<<<< HEAD
-                    "key": "w4demyYp09",
-=======
                     "key": "M7cPfnHK3r",
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -3017,11 +3005,7 @@ ReactWrapper {
                   },
                   Object {
                     "instance": null,
-<<<<<<< HEAD
-                    "key": "50ysR19eG7",
-=======
                     "key": "-4sjxSN9E9",
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
