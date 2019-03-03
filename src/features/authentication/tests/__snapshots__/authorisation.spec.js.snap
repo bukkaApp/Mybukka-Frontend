@@ -3,10 +3,6 @@
 exports[`authorisation component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-<<<<<<< HEAD
-  Symbol(enzyme.__unrendered__): <AuthContainer
-    authModal={false}
-=======
   Symbol(enzyme.__unrendered__): <Authentication
     domStructure={
       Array [
@@ -19,8 +15,11 @@ ShallowWrapper {
       ]
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
 >>>>>>> refactor(redux): refactor authentication pages
     handleChange={[MockFunction]}
     handleSubmit={[MockFunction]}
@@ -42,34 +41,6 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-<<<<<<< HEAD
-      "children": <Authentication
-        authModal={false}
-        classNames=""
-        handleChange={[MockFunction]}
-        handleSubmit={[MockFunction]}
-        isFormCompleted={true}
-        slideToNextInput={false}
-        title="Sign Up"
-        type="signin"
-      />,
-      "className": "pt-2 mx-auto col-lg-4 col-md-6 col-sm-8",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "authModal": false,
-        "classNames": "",
-        "handleChange": [MockFunction],
-        "handleSubmit": [MockFunction],
-        "isFormCompleted": true,
-        "slideToNextInput": false,
-        "title": "Sign Up",
-        "type": "signin",
-=======
       "children": Array [
         <Container
           classNames="form-container"
@@ -225,7 +196,6 @@ ShallowWrapper {
         "ref": null,
         "rendered": null,
         "type": [Function],
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
       },
       "ref": null,
       "rendered": null,
@@ -239,34 +209,6 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-<<<<<<< HEAD
-        "children": <Authentication
-          authModal={false}
-          classNames=""
-          handleChange={[MockFunction]}
-          handleSubmit={[MockFunction]}
-          isFormCompleted={true}
-          slideToNextInput={false}
-          title="Sign Up"
-          type="signin"
-        />,
-        "className": "pt-2 mx-auto col-lg-4 col-md-6 col-sm-8",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "authModal": false,
-          "classNames": "",
-          "handleChange": [MockFunction],
-          "handleSubmit": [MockFunction],
-          "isFormCompleted": true,
-          "slideToNextInput": false,
-          "title": "Sign Up",
-          "type": "signin",
-=======
         "children": Array [
           <Container
             classNames="form-container"
@@ -422,7 +364,6 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": [Function],
->>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
         },
         "ref": null,
         "rendered": null,

@@ -90,6 +90,7 @@ ShallowWrapper {
           Object {
             "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
             "key": "N72Lwz7EW",
 =======
 <<<<<<< HEAD
@@ -97,6 +98,9 @@ ShallowWrapper {
 =======
             "key": "G_DNEO7y-",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+            "key": "G_DNEO7y-",
 >>>>>>> refactor(redux): refactor authentication pages
             "nodeType": "function",
             "props": Object {
@@ -183,6 +187,7 @@ ShallowWrapper {
             Object {
               "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
               "key": "N72Lwz7EW",
 =======
 <<<<<<< HEAD
@@ -190,6 +195,9 @@ ShallowWrapper {
 =======
               "key": "G_DNEO7y-",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+              "key": "G_DNEO7y-",
 >>>>>>> refactor(redux): refactor authentication pages
               "nodeType": "function",
               "props": Object {

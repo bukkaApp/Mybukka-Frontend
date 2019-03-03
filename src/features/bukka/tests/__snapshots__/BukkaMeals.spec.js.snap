@@ -529,6 +529,7 @@ ReactWrapper {
                 Object {
                   "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
                   "key": "Ckln6WzDgi",
 =======
 <<<<<<< HEAD
@@ -536,6 +537,9 @@ ReactWrapper {
 =======
                   "key": "M7cPfnHK3r",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+                  "key": "M7cPfnHK3r",
 >>>>>>> refactor(redux): refactor authentication pages
                   "nodeType": "function",
                   "props": Object {
@@ -1194,6 +1198,7 @@ ReactWrapper {
                 Object {
                   "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
                   "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -1201,6 +1206,9 @@ ReactWrapper {
 =======
                   "key": "-4sjxSN9E9",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+                  "key": "-4sjxSN9E9",
 >>>>>>> refactor(redux): refactor authentication pages
                   "nodeType": "function",
                   "props": Object {
@@ -2365,6 +2373,7 @@ ReactWrapper {
                   Object {
                     "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "Ckln6WzDgi",
 =======
 <<<<<<< HEAD
@@ -2372,6 +2381,9 @@ ReactWrapper {
 =======
                     "key": "M7cPfnHK3r",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+                    "key": "M7cPfnHK3r",
 >>>>>>> refactor(redux): refactor authentication pages
                     "nodeType": "function",
                     "props": Object {
@@ -3030,6 +3042,7 @@ ReactWrapper {
                   Object {
                     "instance": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -3037,6 +3050,9 @@ ReactWrapper {
 =======
                     "key": "-4sjxSN9E9",
 >>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
+=======
+                    "key": "-4sjxSN9E9",
 >>>>>>> refactor(redux): refactor authentication pages
                     "nodeType": "function",
                     "props": Object {
