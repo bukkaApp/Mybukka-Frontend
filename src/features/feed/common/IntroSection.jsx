@@ -22,7 +22,9 @@ const IntroSection = ({ push }) => (
     className="feed-intro-section img-fluid intro-section-fixed-height"
     style={{ backgroundImage: `url(${bgImage})` }}
   >
-    <PrimaryNavbar push={push} bukka />
+    <div className="intro-navbar-area">
+      <PrimaryNavbar push={push} bukka />
+    </div>
     <div className="fixed-top text-left" style={{ zIndex: '100' }}>
       <LargeTextSection />
     </div>
