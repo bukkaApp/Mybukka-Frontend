@@ -234,7 +234,10 @@ ReactWrapper {
             >
               <InputField
                 classNames="checkbox"
+<<<<<<< HEAD
                 defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 handleChange={[Function]}
                 handleFocus={[Function]}
                 name="makeDefaultPaymentOption"
@@ -308,7 +311,10 @@ ReactWrapper {
                   name="number"
                   placeholder="Card number"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -328,7 +334,10 @@ ReactWrapper {
                   name="expDate"
                   placeholder="MM/YY"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -348,7 +357,10 @@ ReactWrapper {
                   name="cvv"
                   placeholder="CVV"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -368,7 +380,10 @@ ReactWrapper {
                   name="zipCode"
                   placeholder="Zip code"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -383,7 +398,10 @@ ReactWrapper {
                 name="makeDefaultPaymentOption"
                 placeholder=""
                 type="checkbox"
+<<<<<<< HEAD
                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
               />
               <span
                 class="make-default-text"
@@ -476,7 +494,10 @@ ReactWrapper {
               >
                 <InputField
                   classNames="checkbox"
+<<<<<<< HEAD
                   defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   handleChange={[Function]}
                   handleFocus={[Function]}
                   name="makeDefaultPaymentOption"
@@ -526,7 +547,10 @@ ReactWrapper {
                     name="number"
                     placeholder="Card number"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -546,7 +570,10 @@ ReactWrapper {
                     name="expDate"
                     placeholder="MM/YY"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -566,7 +593,10 @@ ReactWrapper {
                     name="cvv"
                     placeholder="CVV"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -586,7 +616,10 @@ ReactWrapper {
                     name="zipCode"
                     placeholder="Zip code"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -735,7 +768,10 @@ ReactWrapper {
                           name="number"
                           placeholder="Card number"
                           type="text"
+<<<<<<< HEAD
                           value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                         />
                         <span
                           class="text-danger font-size-11"
@@ -753,7 +789,10 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                             defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="number"
@@ -803,7 +842,10 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                             "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "number",
@@ -821,13 +863,19 @@ ReactWrapper {
                               name="number"
                               placeholder="Card number"
                               type="text"
+<<<<<<< HEAD
                               value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "name": "number",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -876,7 +924,10 @@ ReactWrapper {
                           name="expDate"
                           placeholder="MM/YY"
                           type="text"
+<<<<<<< HEAD
                           value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                         />
                         <span
                           class="text-danger font-size-11"
@@ -894,7 +945,10 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                             defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="expDate"
@@ -944,7 +998,10 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                             "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "expDate",
@@ -962,13 +1019,19 @@ ReactWrapper {
                               name="expDate"
                               placeholder="MM/YY"
                               type="text"
+<<<<<<< HEAD
                               value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "name": "expDate",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -1017,7 +1080,10 @@ ReactWrapper {
                           name="cvv"
                           placeholder="CVV"
                           type="text"
+<<<<<<< HEAD
                           value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                         />
                         <span
                           class="text-danger font-size-11"
@@ -1035,7 +1101,10 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                             defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="cvv"
@@ -1085,7 +1154,10 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                             "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "cvv",
@@ -1103,13 +1175,19 @@ ReactWrapper {
                               name="cvv"
                               placeholder="CVV"
                               type="text"
+<<<<<<< HEAD
                               value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "name": "cvv",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -1158,7 +1236,10 @@ ReactWrapper {
                           name="zipCode"
                           placeholder="Zip code"
                           type="text"
+<<<<<<< HEAD
                           value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                         />
                         <span
                           class="text-danger font-size-11"
@@ -1176,7 +1257,10 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                             defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="zipCode"
@@ -1226,7 +1310,10 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                             "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "zipCode",
@@ -1244,13 +1331,19 @@ ReactWrapper {
                               name="zipCode"
                               placeholder="Zip code"
                               type="text"
+<<<<<<< HEAD
                               value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "name": "zipCode",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -1299,7 +1392,10 @@ ReactWrapper {
                   name="makeDefaultPaymentOption"
                   placeholder=""
                   type="checkbox"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="make-default-text"
@@ -1313,7 +1409,10 @@ ReactWrapper {
                 "children": Array [
                   <InputField
                     classNames="checkbox"
+<<<<<<< HEAD
                     defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     name="makeDefaultPaymentOption"
@@ -1337,7 +1436,10 @@ ReactWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "classNames": "checkbox",
+<<<<<<< HEAD
                     "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     "handleChange": [Function],
                     "handleFocus": [Function],
                     "name": "makeDefaultPaymentOption",
@@ -1352,13 +1454,19 @@ ReactWrapper {
                       name="makeDefaultPaymentOption"
                       placeholder=""
                       type="checkbox"
+<<<<<<< HEAD
                       value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     />,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
                       "className": "checkbox",
+<<<<<<< HEAD
                       "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                       "name": "makeDefaultPaymentOption",
                       "onChange": [Function],
                       "onFocus": [Function],
@@ -1539,7 +1647,10 @@ ReactWrapper {
                   name="number"
                   placeholder="Card number"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1559,7 +1670,10 @@ ReactWrapper {
                   name="expDate"
                   placeholder="MM/YY"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1579,7 +1693,10 @@ ReactWrapper {
                   name="cvv"
                   placeholder="CVV"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1599,7 +1716,10 @@ ReactWrapper {
                   name="zipCode"
                   placeholder="Zip code"
                   type="text"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1614,7 +1734,10 @@ ReactWrapper {
                 name="makeDefaultPaymentOption"
                 placeholder=""
                 type="checkbox"
+<<<<<<< HEAD
                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
               />
               <span
                 class="make-default-text"
@@ -1719,7 +1842,10 @@ ReactWrapper {
               >
                 <InputField
                   classNames="checkbox"
+<<<<<<< HEAD
                   defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   handleChange={[Function]}
                   handleFocus={[Function]}
                   name="makeDefaultPaymentOption"
@@ -1793,7 +1919,10 @@ ReactWrapper {
                     name="number"
                     placeholder="Card number"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1813,7 +1942,10 @@ ReactWrapper {
                     name="expDate"
                     placeholder="MM/YY"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1833,7 +1965,10 @@ ReactWrapper {
                     name="cvv"
                     placeholder="CVV"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1853,7 +1988,10 @@ ReactWrapper {
                     name="zipCode"
                     placeholder="Zip code"
                     type="text"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1868,7 +2006,10 @@ ReactWrapper {
                   name="makeDefaultPaymentOption"
                   placeholder=""
                   type="checkbox"
+<<<<<<< HEAD
                   value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                 />
                 <span
                   class="make-default-text"
@@ -1961,7 +2102,10 @@ ReactWrapper {
                 >
                   <InputField
                     classNames="checkbox"
+<<<<<<< HEAD
                     defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     name="makeDefaultPaymentOption"
@@ -2011,7 +2155,10 @@ ReactWrapper {
                       name="number"
                       placeholder="Card number"
                       type="text"
+<<<<<<< HEAD
                       value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2031,7 +2178,10 @@ ReactWrapper {
                       name="expDate"
                       placeholder="MM/YY"
                       type="text"
+<<<<<<< HEAD
                       value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2051,7 +2201,10 @@ ReactWrapper {
                       name="cvv"
                       placeholder="CVV"
                       type="text"
+<<<<<<< HEAD
                       value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2071,7 +2224,10 @@ ReactWrapper {
                       name="zipCode"
                       placeholder="Zip code"
                       type="text"
+<<<<<<< HEAD
                       value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2220,7 +2376,10 @@ ReactWrapper {
                             name="number"
                             placeholder="Card number"
                             type="text"
+<<<<<<< HEAD
                             value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2238,7 +2397,10 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                               defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="number"
@@ -2288,7 +2450,10 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "number",
@@ -2306,13 +2471,19 @@ ReactWrapper {
                                 name="number"
                                 placeholder="Card number"
                                 type="text"
+<<<<<<< HEAD
                                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                                 "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                                 "name": "number",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2361,7 +2532,10 @@ ReactWrapper {
                             name="expDate"
                             placeholder="MM/YY"
                             type="text"
+<<<<<<< HEAD
                             value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2379,7 +2553,10 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                               defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="expDate"
@@ -2429,7 +2606,10 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "expDate",
@@ -2447,13 +2627,19 @@ ReactWrapper {
                                 name="expDate"
                                 placeholder="MM/YY"
                                 type="text"
+<<<<<<< HEAD
                                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                                 "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                                 "name": "expDate",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2502,7 +2688,10 @@ ReactWrapper {
                             name="cvv"
                             placeholder="CVV"
                             type="text"
+<<<<<<< HEAD
                             value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2520,7 +2709,10 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                               defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="cvv"
@@ -2570,7 +2762,10 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "cvv",
@@ -2588,13 +2783,19 @@ ReactWrapper {
                                 name="cvv"
                                 placeholder="CVV"
                                 type="text"
+<<<<<<< HEAD
                                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                                 "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                                 "name": "cvv",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2643,7 +2844,10 @@ ReactWrapper {
                             name="zipCode"
                             placeholder="Zip code"
                             type="text"
+<<<<<<< HEAD
                             value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2661,7 +2865,10 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+<<<<<<< HEAD
                               defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="zipCode"
@@ -2711,7 +2918,10 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+<<<<<<< HEAD
                               "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "zipCode",
@@ -2729,13 +2939,19 @@ ReactWrapper {
                                 name="zipCode"
                                 placeholder="Zip code"
                                 type="text"
+<<<<<<< HEAD
                                 value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+<<<<<<< HEAD
                                 "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                                 "name": "zipCode",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2784,7 +3000,10 @@ ReactWrapper {
                     name="makeDefaultPaymentOption"
                     placeholder=""
                     type="checkbox"
+<<<<<<< HEAD
                     value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                   />
                   <span
                     class="make-default-text"
@@ -2798,7 +3017,10 @@ ReactWrapper {
                   "children": Array [
                     <InputField
                       classNames="checkbox"
+<<<<<<< HEAD
                       defaultValue=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                       handleChange={[Function]}
                       handleFocus={[Function]}
                       name="makeDefaultPaymentOption"
@@ -2822,7 +3044,10 @@ ReactWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "classNames": "checkbox",
+<<<<<<< HEAD
                       "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                       "handleChange": [Function],
                       "handleFocus": [Function],
                       "name": "makeDefaultPaymentOption",
@@ -2837,13 +3062,19 @@ ReactWrapper {
                         name="makeDefaultPaymentOption"
                         placeholder=""
                         type="checkbox"
+<<<<<<< HEAD
                         value=""
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                       />,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
                         "className": "checkbox",
+<<<<<<< HEAD
                         "defaultValue": "",
+=======
+>>>>>>> refactor(redux): refactor authentication pages
                         "name": "makeDefaultPaymentOption",
                         "onChange": [Function],
                         "onFocus": [Function],

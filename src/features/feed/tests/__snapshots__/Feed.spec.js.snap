@@ -33,7 +33,15 @@ ShallowWrapper {
         "entries": Array [
           Object {
             "hash": "",
+<<<<<<< HEAD
             "key": "dnh0ov",
+=======
+<<<<<<< HEAD
+            "key": "lvm0ce",
+=======
+            "key": "wzk1i5",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -47,7 +55,15 @@ ShallowWrapper {
         "listen": [Function],
         "location": Object {
           "hash": "",
+<<<<<<< HEAD
           "key": "dnh0ov",
+=======
+<<<<<<< HEAD
+          "key": "lvm0ce",
+=======
+          "key": "wzk1i5",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -87,7 +103,15 @@ ShallowWrapper {
           "entries": Array [
             Object {
               "hash": "",
+<<<<<<< HEAD
               "key": "dnh0ov",
+=======
+<<<<<<< HEAD
+              "key": "lvm0ce",
+=======
+              "key": "wzk1i5",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -101,7 +125,15 @@ ShallowWrapper {
           "listen": [Function],
           "location": Object {
             "hash": "",
+<<<<<<< HEAD
             "key": "dnh0ov",
+=======
+<<<<<<< HEAD
+            "key": "lvm0ce",
+=======
+            "key": "wzk1i5",
+>>>>>>> 4f32cf5cc833b962d73d3cda3c7a5db57852a558
+>>>>>>> refactor(redux): refactor authentication pages
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -146,5 +178,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

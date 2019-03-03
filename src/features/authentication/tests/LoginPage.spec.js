@@ -1,7 +1,22 @@
 import React from 'react';
 
 import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
 import { LoginPage } from '../LoginPage';
+
+// create any initial state needed
+const initialState = {
+  user: {},
+  status: {
+    authenticated: false,
+    error: false
+  },
+  errorMessage: ''
+};
+// here it is possible to pass in any middleware if needed into //configureStore
+const mockStore = configureStore();
+// let wrapper;
+let store;
 
 describe('Login Page component', () => {
   afterEach(cleanup);
@@ -16,9 +31,10 @@ describe('Login Page component', () => {
     history: { push: jest.fn() }
   };
 
+  store = mockStore(initialState);
   const { getByText, getByPlaceholderText, rerender } = render(
     <MemoryRouter>
-      <LoginPage {...props} />
+      <LoginPage store={store} {...props} />
     </MemoryRouter>
   );
 
