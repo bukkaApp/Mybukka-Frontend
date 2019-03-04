@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+
 import PropTypes from 'prop-types';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import googleApiKey from '../InputAttribute/inputData.json';
 
-const MapContainer = (props) => {
+const MapContainer = ({ google, isVisible }) => {
   const [mapConfigurations, setMapConfigurations] = useState({
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {}
+    selectedPlace: {},
   });
 
   const onMarkerClick = (newProps, marker) => {
@@ -18,7 +18,7 @@ const MapContainer = (props) => {
     });
   };
 
-  if (!props.google) {
+  if (!google) {
     return <div>Loading...</div>;
   }
 
@@ -29,15 +29,16 @@ const MapContainer = (props) => {
           minWidth: '200px',
           minHeight: '140px'
         }}
-        google={props.google}
+        google={google}
         zoom={14}
+        visible={isVisible}
       >
         <Marker
           onClick={onMarkerClick}
           icon={{
             url: '/img/icon.svg',
-            anchor: new google.maps.Point(32, 32), // eslint-disable-line
-            scaledSize: new google.maps.Size(64, 64)  // eslint-disable-line
+            anchor: new google.maps.Point(32, 32),
+            scaledSize: new google.maps.Size(64, 64)
           }}
           name={'Current location'}
         />
@@ -55,10 +56,15 @@ const MapContainer = (props) => {
 };
 
 export default GoogleApiWrapper({
-  apiKey: googleApiKey.google_api,
+  apiKey: process.env.GOOGLE_API_KEY,
   v: '3'
 })(MapContainer);
 
+MapContainer.defaultProps = {
+  isVisible: true,
+};
+
 MapContainer.propTypes = {
   google: PropTypes.shape({}).isRequired,
+  isVisible: PropTypes.bool,
 };

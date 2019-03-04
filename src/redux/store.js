@@ -6,11 +6,16 @@ import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 import deliveryModeReducer from
   '../components/common-navs/reducers/deliveryModeReducer';
+import selectedLocationReducer from './selectedLocationReducer';
+
+import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
 
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
-  deliveryModeReducer
+  deliveryModeReducer,
+  locationsPredictionReducer,
+  selectedLocationReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

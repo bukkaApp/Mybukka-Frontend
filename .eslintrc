@@ -17,7 +17,8 @@
     "axiosInstance": true,
     "render": true,
     "cleanup": true,
-    "fireEvent": true
+    "fireEvent": true,
+    "Provider": true
   },
   "plugins": ["react-hooks"],
   "rules": {

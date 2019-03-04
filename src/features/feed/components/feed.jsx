@@ -37,7 +37,7 @@ const FeedPage = ({ push }) => (
     >
       <main className="main-container pr-0 pl-0 mx-auto col-lg-10 col-md-12 col-sm-12">
         <Carousel
-          noOfImagesShown="2"
+          noOfImagesShown={2}
           title="New on Bukka"
           textOverlay
           slideItems={bukkaData}
@@ -46,7 +46,7 @@ const FeedPage = ({ push }) => (
         />
 
         <Carousel
-          noOfImagesShown="3"
+          noOfImagesShown={3}
           title="$1.99 Delivery"
           slideItems={bukkaData}
           imageHeight="img-height"
@@ -69,7 +69,7 @@ const FeedPage = ({ push }) => (
         </Fragment>
 
         <Carousel
-          noOfImagesShown="4"
+          noOfImagesShown={4}
           title="Touchdown"
           imageHeight="small-img-height"
           slideItems={bukkaData}
