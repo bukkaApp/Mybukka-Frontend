@@ -25,13 +25,17 @@
   box-shadow: rgba(34, 34, 34, 0.15) 0px 2px 20px 0px;
 }
 
+.dismiss-modal {
+  cursor: pointer;
+}
+
 @media (max-width: 767.98px) { 
   .modal-dialog {
     margin: 0px;
   }
 
   .modal {
-    height: 100vh;
+    min-height: 100vh;
   }
 
   .modal-content {

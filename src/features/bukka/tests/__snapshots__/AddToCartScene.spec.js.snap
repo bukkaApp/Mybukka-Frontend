@@ -43,6 +43,7 @@ ReactWrapper {
           />
         </Row>,
         "classNames": "order-meals-section",
+        "dataTarget": "modal",
       },
       "ref": null,
       "rendered": Object {
@@ -3987,6 +3988,7 @@ ReactWrapper {
             />
           </Row>,
           "classNames": "order-meals-section",
+          "dataTarget": "modal",
         },
         "ref": null,
         "rendered": Object {
