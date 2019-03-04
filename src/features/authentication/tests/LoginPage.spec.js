@@ -88,7 +88,7 @@ describe('Login Page component', () => {
       ...props,
       status: {
         authenticated: true,
-        error: false
+        error: false,
       }
     };
 

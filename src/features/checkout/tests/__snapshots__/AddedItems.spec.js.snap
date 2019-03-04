@@ -45,9 +45,7 @@ Object {
               <button
                 class="cart-action-button-primary"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="RCUQ6RQ0Q"
                 type="button"
               >
                 EDIT
@@ -55,9 +53,7 @@ Object {
               <button
                 class="cart-action-button-default"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="RCUQ6RQ0Q"
                 type="button"
               >
                 REMOVE
@@ -94,9 +90,7 @@ Object {
               <button
                 class="cart-action-button-primary"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="RCUQ6RQ0Q"
                 type="button"
               >
                 EDIT
@@ -104,9 +98,7 @@ Object {
               <button
                 class="cart-action-button-default"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="RCUQ6RQ0Q"
                 type="button"
               >
                 REMOVE
@@ -169,9 +161,7 @@ Object {
             <button
               class="cart-action-button-primary"
               data-target=""
-              data-testid="button"
               data-toggle=""
-              id="RCUQ6RQ0Q"
               type="button"
             >
               EDIT
@@ -179,9 +169,7 @@ Object {
             <button
               class="cart-action-button-default"
               data-target=""
-              data-testid="button"
               data-toggle=""
-              id="RCUQ6RQ0Q"
               type="button"
             >
               REMOVE
@@ -218,9 +206,7 @@ Object {
             <button
               class="cart-action-button-primary"
               data-target=""
-              data-testid="button"
               data-toggle=""
-              id="RCUQ6RQ0Q"
               type="button"
             >
               EDIT
@@ -228,9 +214,7 @@ Object {
             <button
               class="cart-action-button-default"
               data-target=""
-              data-testid="button"
               data-toggle=""
-              id="RCUQ6RQ0Q"
               type="button"
             >
               REMOVE

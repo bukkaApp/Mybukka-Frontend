@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import { render, fireEvent, getByTestId, cleanup } from 'react-testing-library';
+import { Provider } from 'react-redux';
 import axios from '../src/redux/axios';
 
 const middlewares = [thunk];
@@ -22,3 +23,4 @@ global.render = render;
 global.fireEvent = fireEvent;
 global.getByTestId = getByTestId;
 global.cleanup = cleanup;
+global.Provider = Provider;

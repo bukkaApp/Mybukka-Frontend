@@ -1,14 +1,28 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { GoogleApiWrapper } from 'google-maps-react';
+
+import setSelectedLocation from 'Redux/setSelectedLocation';
 import MapMarker from 'Icons/MapMarker';
 import ChevronRight from 'Icons/ChevronRight';
 import InputField from 'Components/input/InputField';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 
+import updateLocationsPrediction from
+  '../actionCreators/updateLocationsPrediction';
+
 import './searchlocation.scss';
 
-const SearchLocation = () => {
+const SearchLocation = ({
+  google,
+  updatePredictions,
+  selectedLocation,
+  selectLocation,
+  chevronButtonVisible
+}) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
 
@@ -20,6 +34,51 @@ const SearchLocation = () => {
     if (wrapperRef && !wrapperRef.contains(event.target)) {
       setFocus(false);
     }
+  };
+
+  const displaySuggestions = (predictions, status) => {
+    if (status !== google.maps.places.PlacesServiceStatus.OK) {
+      return;
+    }
+    updatePredictions(predictions);
+  };
+
+  const handleChange = ({ target: { value } }) => {
+    if (value) {
+      const autoCompleteService = new google.maps.places.AutocompleteService();
+      autoCompleteService.getPlacePredictions(
+        { input: value },
+        displaySuggestions
+      );
+    }
+  };
+
+  const geoCodeLocation = (placeId) => {
+    const GeoCoder = new google.maps.Geocoder();
+    GeoCoder.geocode({ placeId }, (response) => {
+      const lattitude = response[0].geometry.location.lat();
+      const longitude = response[0].geometry.location.lng();
+      const coordinates = [longitude, lattitude];
+      selectLocation(coordinates, true);
+    });
+  };
+
+  const selectAndGeocodeLocation = (suggestion) => {
+    selectLocation(suggestion);
+    geoCodeLocation(suggestion.place_id);
+  };
+
+  const showChevronButton = () => {
+    if (chevronButtonVisible) {
+      return (
+        <div className="input-group-append">
+          <span className="input-group-text button-search">
+            <ChevronRight />
+          </span>
+        </div>
+      );
+    }
+    return null;
   };
 
   useEffect(() => {
@@ -39,23 +98,20 @@ const SearchLocation = () => {
         </div>
         <InputField
           type="text"
-          name="search"
+          name="searchLocation"
           placeholderText="Enter your address..."
-          classNames="text-field form-control"
+          classNames="text-field form-control searchlocation"
           handleFocus={() => setFocus(true)}
-          handleChange={() => {}}
+          handleChange={handleChange}
+          defaultValue={selectedLocation.description}
         />
-        <div className="input-group-append">
-          <span className="input-group-text button-search">
-            <ChevronRight />
-          </span>
-        </div>
+        {showChevronButton()}
       </div>
       <div className="dropdown-suggestion">
         {isFocused && (
           <Fragment>
             <DeliveryOrPickupNav />
-            <SuggestionsDropdown />
+            <SuggestionsDropdown setLocation={selectAndGeocodeLocation} />
           </Fragment>
         )}
       </div>
@@ -63,4 +119,35 @@ const SearchLocation = () => {
   );
 };
 
-export default SearchLocation;
+const mapStateToProps = ({
+  locationsPredictionReducer: { predictions },
+  selectedLocationReducer: { selectedLocation }
+}) => ({
+  predictions,
+  selectedLocation
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    updatePredictions: updateLocationsPrediction,
+    selectLocation: setSelectedLocation
+  }
+)(
+  GoogleApiWrapper({
+    apiKey: process.env.GOOGLE_API_KEY,
+    v: '3'
+  })(SearchLocation)
+);
+
+SearchLocation.defaultProps = {
+  chevronButtonVisible: true
+};
+
+SearchLocation.propTypes = {
+  google: PropTypes.shape({}).isRequired,
+  updatePredictions: PropTypes.func.isRequired,
+  selectedLocation: PropTypes.shape({}).isRequired,
+  selectLocation: PropTypes.func.isRequired,
+  chevronButtonVisible: PropTypes.bool
+};

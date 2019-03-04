@@ -3,7 +3,7 @@
 exports[`Home Component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Home
+  Symbol(enzyme.__unrendered__): <Connect(Home)
     history={
       Object {
         "push": [MockFunction],
@@ -22,139 +22,59 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": Array [
-        <IntroSection
-          push={[MockFunction]}
-        />,
-        <DiscoverSection />,
-        <ChooseAreaToExploreSection />,
-        <ReadyToOrderSection />,
-        <Footer />,
-      ],
-      "className": "home",
+      "children": [Function],
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "push": [MockFunction],
+    "rendered": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": Object {
+        "$$typeof": Symbol(react.context),
+        "Consumer": [Circular],
+        "Provider": Object {
+          "$$typeof": Symbol(react.provider),
+          "_context": [Circular],
         },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "_calculateChangedBits": null,
+        "_currentRenderer": null,
+        "_currentRenderer2": null,
+        "_currentValue": null,
+        "_currentValue2": null,
+        "_threadCount": 0,
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
-    "type": "div",
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": Array [
-          <IntroSection
-            push={[MockFunction]}
-          />,
-          <DiscoverSection />,
-          <ChooseAreaToExploreSection />,
-          <ReadyToOrderSection />,
-          <Footer />,
-        ],
-        "className": "home",
+        "children": [Function],
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "push": [MockFunction],
+      "rendered": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.context),
+        "_calculateChangedBits": null,
+        "_context": Object {
+          "$$typeof": Symbol(react.context),
+          "Consumer": [Circular],
+          "Provider": Object {
+            "$$typeof": Symbol(react.provider),
+            "_context": [Circular],
           },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "_calculateChangedBits": null,
+          "_currentRenderer": null,
+          "_currentRenderer2": null,
+          "_currentValue": null,
+          "_currentValue2": null,
+          "_threadCount": 0,
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "div",
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

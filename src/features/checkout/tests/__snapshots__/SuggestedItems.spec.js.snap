@@ -25,8 +25,7 @@ ReactWrapper {
       "props": Object {
         "children": Array [
           <div
-            className="d-flex
- justify-content-between align-items-center text-center"
+            className="d-flex justify-content-between align-items-center text-center"
           >
             <h4
               className="font-size-14"
@@ -86,8 +85,7 @@ ReactWrapper {
           class="container suggested-items-section bg-gutter"
         >
           <div
-            class="d-flex
- justify-content-between align-items-center text-center"
+            class="d-flex justify-content-between align-items-center text-center"
           >
             <h4
               class="font-size-14"
@@ -100,9 +98,7 @@ ReactWrapper {
               <button
                 class="left btn-chevron"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="Tte48If2Q"
                 type="button"
               >
                 <svg
@@ -127,9 +123,7 @@ ReactWrapper {
               <button
                 class="right btn-chevron"
                 data-target=""
-                data-testid="button"
                 data-toggle=""
-                id="Tte48If2Q"
                 type="button"
               >
                 <svg
@@ -183,9 +177,7 @@ ReactWrapper {
                   <button
                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -231,9 +223,7 @@ ReactWrapper {
                   <button
                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -279,9 +269,7 @@ ReactWrapper {
                   <button
                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -327,9 +315,7 @@ ReactWrapper {
                   <button
                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -360,8 +346,7 @@ ReactWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="d-flex
- justify-content-between align-items-center text-center"
+              className="d-flex justify-content-between align-items-center text-center"
             >
               <h4
                 className="font-size-14"
@@ -419,8 +404,7 @@ ReactWrapper {
         "rendered": Array [
           Object {
             "instance": <div
-              class="d-flex
- justify-content-between align-items-center text-center"
+              class="d-flex justify-content-between align-items-center text-center"
             >
               <h4
                 class="font-size-14"
@@ -433,9 +417,7 @@ ReactWrapper {
                 <button
                   class="left btn-chevron"
                   data-target=""
-                  data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
                   type="button"
                 >
                   <svg
@@ -460,9 +442,7 @@ ReactWrapper {
                 <button
                   class="right btn-chevron"
                   data-target=""
-                  data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
                   type="button"
                 >
                   <svg
@@ -506,8 +486,7 @@ ReactWrapper {
                   />
                 </div>,
               ],
-              "className": "d-flex
- justify-content-between align-items-center text-center",
+              "className": "d-flex justify-content-between align-items-center text-center",
             },
             "ref": null,
             "rendered": Array [
@@ -536,9 +515,7 @@ ReactWrapper {
                   <button
                     class="left btn-chevron"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -563,9 +540,7 @@ ReactWrapper {
                   <button
                     class="right btn-chevron"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -622,7 +597,6 @@ ReactWrapper {
                         "dataToggle": "",
                         "disabled": false,
                         "handleClick": [Function],
-                        "id": "Tte48If2Q",
                         "text": "",
                         "type": "button",
                       },
@@ -631,9 +605,7 @@ ReactWrapper {
                         "instance": <button
                           class="left btn-chevron"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -661,10 +633,8 @@ ReactWrapper {
                           "children": <ChevronRight />,
                           "className": "left btn-chevron",
                           "data-target": "",
-                          "data-testid": "button",
                           "data-toggle": "",
                           "disabled": false,
-                          "id": "Tte48If2Q",
                           "onClick": [Function],
                           "type": "button",
                         },
@@ -805,7 +775,6 @@ ReactWrapper {
                         "dataToggle": "",
                         "disabled": false,
                         "handleClick": [Function],
-                        "id": "Tte48If2Q",
                         "text": "",
                         "type": "button",
                       },
@@ -814,9 +783,7 @@ ReactWrapper {
                         "instance": <button
                           class="right btn-chevron"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -844,10 +811,8 @@ ReactWrapper {
                           "children": <ChevronRight />,
                           "className": "right btn-chevron",
                           "data-target": "",
-                          "data-testid": "button",
                           "data-toggle": "",
                           "disabled": false,
-                          "id": "Tte48If2Q",
                           "onClick": [Function],
                           "type": "button",
                         },
@@ -1006,9 +971,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -1054,9 +1017,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -1102,9 +1063,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -1150,9 +1109,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -1241,9 +1198,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -1289,9 +1244,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -1337,9 +1290,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -1385,9 +1336,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -1477,9 +1426,7 @@ ReactWrapper {
                           <button
                             class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -1551,9 +1498,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -1693,7 +1638,6 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -1702,9 +1646,7 @@ ReactWrapper {
                                   "instance": <button
                                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                     data-target=""
-                                    data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
                                     type="button"
                                   >
                                     <svg
@@ -1731,10 +1673,8 @@ ReactWrapper {
                                     "children": <Plus />,
                                     "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                     "data-target": "",
-                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -1899,9 +1839,7 @@ ReactWrapper {
                           <button
                             class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -1973,9 +1911,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -2115,7 +2051,6 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2124,9 +2059,7 @@ ReactWrapper {
                                   "instance": <button
                                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                     data-target=""
-                                    data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
                                     type="button"
                                   >
                                     <svg
@@ -2153,10 +2086,8 @@ ReactWrapper {
                                     "children": <Plus />,
                                     "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                     "data-target": "",
-                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2321,9 +2252,7 @@ ReactWrapper {
                           <button
                             class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -2395,9 +2324,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -2537,7 +2464,6 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2546,9 +2472,7 @@ ReactWrapper {
                                   "instance": <button
                                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                     data-target=""
-                                    data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
                                     type="button"
                                   >
                                     <svg
@@ -2575,10 +2499,8 @@ ReactWrapper {
                                     "children": <Plus />,
                                     "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                     "data-target": "",
-                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2743,9 +2665,7 @@ ReactWrapper {
                           <button
                             class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -2817,9 +2737,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -2959,7 +2877,6 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2968,9 +2885,7 @@ ReactWrapper {
                                   "instance": <button
                                     class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                     data-target=""
-                                    data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
                                     type="button"
                                   >
                                     <svg
@@ -2997,10 +2912,8 @@ ReactWrapper {
                                     "children": <Plus />,
                                     "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                     "data-target": "",
-                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -3158,8 +3071,7 @@ ReactWrapper {
         "props": Object {
           "children": Array [
             <div
-              className="d-flex
- justify-content-between align-items-center text-center"
+              className="d-flex justify-content-between align-items-center text-center"
             >
               <h4
                 className="font-size-14"
@@ -3219,13 +3131,7 @@ ReactWrapper {
             class="container suggested-items-section bg-gutter"
           >
             <div
-              class="d-flex
- justify-content-between align-items-center text-center"
-            >
-              <h4
-                class="font-size-14"
               >
-                Suggested Items
               </h4>
               <div
                 class="suggested-items-tray"
@@ -3233,9 +3139,7 @@ ReactWrapper {
                 <button
                   class="left btn-chevron"
                   data-target=""
-                  data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
                   type="button"
                 >
                   <svg
@@ -3260,9 +3164,7 @@ ReactWrapper {
                 <button
                   class="right btn-chevron"
                   data-target=""
-                  data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
                   type="button"
                 >
                   <svg
@@ -3316,9 +3218,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3364,9 +3264,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3412,9 +3310,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3460,9 +3356,7 @@ ReactWrapper {
                     <button
                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3493,8 +3387,7 @@ ReactWrapper {
           "props": Object {
             "children": Array [
               <div
-                className="d-flex
- justify-content-between align-items-center text-center"
+                className="d-flex justify-content-between align-items-center text-center"
               >
                 <h4
                   className="font-size-14"
@@ -3552,8 +3445,7 @@ ReactWrapper {
           "rendered": Array [
             Object {
               "instance": <div
-                class="d-flex
- justify-content-between align-items-center text-center"
+                class="d-flex justify-content-between align-items-center text-center"
               >
                 <h4
                   class="font-size-14"
@@ -3566,9 +3458,7 @@ ReactWrapper {
                   <button
                     class="left btn-chevron"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -3593,9 +3483,7 @@ ReactWrapper {
                   <button
                     class="right btn-chevron"
                     data-target=""
-                    data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
                     type="button"
                   >
                     <svg
@@ -3639,8 +3527,7 @@ ReactWrapper {
                     />
                   </div>,
                 ],
-                "className": "d-flex
- justify-content-between align-items-center text-center",
+                "className": "d-flex justify-content-between align-items-center text-center",
               },
               "ref": null,
               "rendered": Array [
@@ -3669,9 +3556,7 @@ ReactWrapper {
                     <button
                       class="left btn-chevron"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3696,9 +3581,7 @@ ReactWrapper {
                     <button
                       class="right btn-chevron"
                       data-target=""
-                      data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
                       type="button"
                     >
                       <svg
@@ -3755,7 +3638,6 @@ ReactWrapper {
                           "dataToggle": "",
                           "disabled": false,
                           "handleClick": [Function],
-                          "id": "Tte48If2Q",
                           "text": "",
                           "type": "button",
                         },
@@ -3764,9 +3646,7 @@ ReactWrapper {
                           "instance": <button
                             class="left btn-chevron"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -3794,10 +3674,8 @@ ReactWrapper {
                             "children": <ChevronRight />,
                             "className": "left btn-chevron",
                             "data-target": "",
-                            "data-testid": "button",
                             "data-toggle": "",
                             "disabled": false,
-                            "id": "Tte48If2Q",
                             "onClick": [Function],
                             "type": "button",
                           },
@@ -3938,7 +3816,6 @@ ReactWrapper {
                           "dataToggle": "",
                           "disabled": false,
                           "handleClick": [Function],
-                          "id": "Tte48If2Q",
                           "text": "",
                           "type": "button",
                         },
@@ -3947,9 +3824,7 @@ ReactWrapper {
                           "instance": <button
                             class="right btn-chevron"
                             data-target=""
-                            data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
                             type="button"
                           >
                             <svg
@@ -3977,10 +3852,8 @@ ReactWrapper {
                             "children": <ChevronRight />,
                             "className": "right btn-chevron",
                             "data-target": "",
-                            "data-testid": "button",
                             "data-toggle": "",
                             "disabled": false,
-                            "id": "Tte48If2Q",
                             "onClick": [Function],
                             "type": "button",
                           },
@@ -4139,9 +4012,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -4187,9 +4058,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -4235,9 +4104,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -4283,9 +4150,7 @@ ReactWrapper {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
-                        data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
                         type="button"
                       >
                         <svg
@@ -4374,9 +4239,7 @@ ReactWrapper {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -4422,9 +4285,7 @@ ReactWrapper {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -4470,9 +4331,7 @@ ReactWrapper {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -4518,9 +4377,7 @@ ReactWrapper {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
-                          data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
                           type="button"
                         >
                           <svg
@@ -4610,9 +4467,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -4684,9 +4539,7 @@ ReactWrapper {
                               <button
                                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                 data-target=""
-                                data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
                                 type="button"
                               >
                                 <svg
@@ -4826,7 +4679,6 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -4835,9 +4687,7 @@ ReactWrapper {
                                     "instance": <button
                                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                       data-target=""
-                                      data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
                                       type="button"
                                     >
                                       <svg
@@ -4864,10 +4714,8 @@ ReactWrapper {
                                       "children": <Plus />,
                                       "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                       "data-target": "",
-                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5032,9 +4880,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -5106,9 +4952,7 @@ ReactWrapper {
                               <button
                                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                 data-target=""
-                                data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
                                 type="button"
                               >
                                 <svg
@@ -5248,7 +5092,6 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -5257,9 +5100,7 @@ ReactWrapper {
                                     "instance": <button
                                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                       data-target=""
-                                      data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
                                       type="button"
                                     >
                                       <svg
@@ -5286,10 +5127,8 @@ ReactWrapper {
                                       "children": <Plus />,
                                       "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                       "data-target": "",
-                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5454,9 +5293,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -5528,9 +5365,7 @@ ReactWrapper {
                               <button
                                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                 data-target=""
-                                data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
                                 type="button"
                               >
                                 <svg
@@ -5670,7 +5505,6 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -5679,9 +5513,7 @@ ReactWrapper {
                                     "instance": <button
                                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                       data-target=""
-                                      data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
                                       type="button"
                                     >
                                       <svg
@@ -5708,10 +5540,8 @@ ReactWrapper {
                                       "children": <Plus />,
                                       "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                       "data-target": "",
-                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5876,9 +5706,7 @@ ReactWrapper {
                             <button
                               class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                               data-target=""
-                              data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
                               type="button"
                             >
                               <svg
@@ -5950,9 +5778,7 @@ ReactWrapper {
                               <button
                                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                 data-target=""
-                                data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
                                 type="button"
                               >
                                 <svg
@@ -6092,7 +5918,6 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -6101,9 +5926,7 @@ ReactWrapper {
                                     "instance": <button
                                       class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                                       data-target=""
-                                      data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
                                       type="button"
                                     >
                                       <svg
@@ -6130,10 +5953,8 @@ ReactWrapper {
                                       "children": <Plus />,
                                       "className": "btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36",
                                       "data-target": "",
-                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
                                       "onClick": [Function],
                                       "type": "button",
                                     },

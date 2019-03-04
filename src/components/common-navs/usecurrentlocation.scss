@@ -1,4 +1,4 @@
-.location-arrow {
+.location-arrow, .spinner-loading {
   background: inherit;
   border: none;
 }
@@ -27,4 +27,14 @@
 
 .input-group:focus {
   outline: none;
+}
+
+.input-group-text {
+  min-width: 40px;
+  .double-bounce1, .double-bounce2 {
+    width: 25px;
+    height: 25px;
+    margin-top: 17px;
+    margin-left: 10px;
+  }
 }

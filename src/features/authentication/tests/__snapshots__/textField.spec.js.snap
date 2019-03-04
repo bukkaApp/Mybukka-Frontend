@@ -57,6 +57,7 @@ ReactWrapper {
           name="firstName"
           placeholder="First Name"
           type="text"
+          value=""
         />
         <div
           class="text-danger help-block"
@@ -68,6 +69,7 @@ ReactWrapper {
         "children": Array [
           <InputField
             classNames="default-input"
+            defaultValue=""
             handleChange={[MockFunction]}
             handleFocus={[Function]}
             name="firstName"
@@ -88,6 +90,7 @@ ReactWrapper {
           "nodeType": "function",
           "props": Object {
             "classNames": "default-input",
+            "defaultValue": "",
             "handleChange": [MockFunction],
             "handleFocus": [Function],
             "name": "firstName",
@@ -101,11 +104,13 @@ ReactWrapper {
               name="firstName"
               placeholder="First Name"
               type="text"
+              value=""
             />,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
               "className": "default-input",
+              "defaultValue": "",
               "name": "firstName",
               "onChange": [MockFunction],
               "onFocus": [Function],
@@ -180,6 +185,7 @@ ReactWrapper {
             name="firstName"
             placeholder="First Name"
             type="text"
+            value=""
           />
           <div
             class="text-danger help-block"
@@ -191,6 +197,7 @@ ReactWrapper {
           "children": Array [
             <InputField
               classNames="default-input"
+              defaultValue=""
               handleChange={[MockFunction]}
               handleFocus={[Function]}
               name="firstName"
@@ -211,6 +218,7 @@ ReactWrapper {
             "nodeType": "function",
             "props": Object {
               "classNames": "default-input",
+              "defaultValue": "",
               "handleChange": [MockFunction],
               "handleFocus": [Function],
               "name": "firstName",
@@ -224,11 +232,13 @@ ReactWrapper {
                 name="firstName"
                 placeholder="First Name"
                 type="text"
+                value=""
               />,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
                 "className": "default-input",
+                "defaultValue": "",
                 "name": "firstName",
                 "onChange": [MockFunction],
                 "onFocus": [Function],

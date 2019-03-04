@@ -10,12 +10,12 @@ const ReadyToOrderHeader = () => (
   </div>
 );
 
-const ReadyToOrderSection = () => (
+const ReadyToOrderSection = ({ push }) => (
   <div className="ready-to-order-section">
     <div className="container">
       <ReadyToOrderHeader />
       <div className="search-location-section">
-        <SearchLocation />
+        <SearchLocation push={push} />
       </div>
     </div>
   </div>

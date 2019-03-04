@@ -59,6 +59,7 @@ Object {
               name="streetAddress1"
               placeholder="Address"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -78,6 +79,7 @@ Object {
               name="streetAddress2"
               placeholder="Apt no or company name"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -97,6 +99,7 @@ Object {
               name="contactName"
               placeholder="Contact name"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -116,6 +119,7 @@ Object {
               name="phoneNumber"
               placeholder="Phone number"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -135,9 +139,7 @@ Object {
             <button
               class="small-button-save"
               data-target=""
-              data-testid="button"
               data-toggle=""
-              id="n8J8mD2FM"
               type="button"
             >
               Save
@@ -202,6 +204,7 @@ Object {
             name="streetAddress1"
             placeholder="Address"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -221,6 +224,7 @@ Object {
             name="streetAddress2"
             placeholder="Apt no or company name"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -240,6 +244,7 @@ Object {
             name="contactName"
             placeholder="Contact name"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -259,6 +264,7 @@ Object {
             name="phoneNumber"
             placeholder="Phone number"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -278,9 +284,7 @@ Object {
           <button
             class="small-button-save"
             data-target=""
-            data-testid="button"
             data-toggle=""
-            id="n8J8mD2FM"
             type="button"
           >
             Save

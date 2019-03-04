@@ -3005,7 +3005,11 @@ ReactWrapper {
                   },
                   Object {
                     "instance": null,
+<<<<<<< HEAD
                     "key": "pcDpA6Nfes",
+=======
+                    "key": "S05NagTzUV",
+>>>>>>> 521f9c77f4f4c5a349bb267ea6108ca7a1128b7d
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard

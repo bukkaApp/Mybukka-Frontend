@@ -20,8 +20,7 @@ ReactWrapper {
     "ref": null,
     "rendered": Object {
       "instance": <div
-        class="input-group address-input-section
- feed-address-input-section d-inline-flex ml-3"
+        class="input-group address-input-section feed-address-input-section d-inline-flex ml-3"
       >
         <div
           class="input-group-prepends"
@@ -55,6 +54,7 @@ ReactWrapper {
           name="search"
           placeholder="Search for anything..."
           type="text"
+          value=""
         />
       </div>,
       "key": undefined,
@@ -72,6 +72,7 @@ ReactWrapper {
           </div>,
           <InputField
             classNames="text-field form-control"
+            defaultValue=""
             handleChange={[Function]}
             handleFocus={[Function]}
             name="search"
@@ -79,8 +80,7 @@ ReactWrapper {
             type="text"
           />,
         ],
-        "className": "input-group address-input-section
- feed-address-input-section d-inline-flex ml-3",
+        "className": "input-group address-input-section feed-address-input-section d-inline-flex ml-3",
       },
       "ref": null,
       "rendered": Array [
@@ -281,6 +281,7 @@ ReactWrapper {
           "nodeType": "function",
           "props": Object {
             "classNames": "text-field form-control",
+            "defaultValue": "",
             "handleChange": [Function],
             "handleFocus": [Function],
             "name": "search",
@@ -294,11 +295,13 @@ ReactWrapper {
               name="search"
               placeholder="Search for anything..."
               type="text"
+              value=""
             />,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
               "className": "text-field form-control",
+              "defaultValue": "",
               "name": "search",
               "onChange": [Function],
               "onFocus": [Function],
@@ -327,8 +330,7 @@ ReactWrapper {
       "ref": null,
       "rendered": Object {
         "instance": <div
-          class="input-group address-input-section
- feed-address-input-section d-inline-flex ml-3"
+          class="input-group address-input-section feed-address-input-section d-inline-flex ml-3"
         >
           <div
             class="input-group-prepends"
@@ -362,6 +364,7 @@ ReactWrapper {
             name="search"
             placeholder="Search for anything..."
             type="text"
+            value=""
           />
         </div>,
         "key": undefined,
@@ -379,6 +382,7 @@ ReactWrapper {
             </div>,
             <InputField
               classNames="text-field form-control"
+              defaultValue=""
               handleChange={[Function]}
               handleFocus={[Function]}
               name="search"
@@ -386,8 +390,7 @@ ReactWrapper {
               type="text"
             />,
           ],
-          "className": "input-group address-input-section
- feed-address-input-section d-inline-flex ml-3",
+          "className": "input-group address-input-section feed-address-input-section d-inline-flex ml-3",
         },
         "ref": null,
         "rendered": Array [
@@ -588,6 +591,7 @@ ReactWrapper {
             "nodeType": "function",
             "props": Object {
               "classNames": "text-field form-control",
+              "defaultValue": "",
               "handleChange": [Function],
               "handleFocus": [Function],
               "name": "search",
@@ -601,11 +605,13 @@ ReactWrapper {
                 name="search"
                 placeholder="Search for anything..."
                 type="text"
+                value=""
               />,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
                 "className": "text-field form-control",
+                "defaultValue": "",
                 "name": "search",
                 "onChange": [Function],
                 "onFocus": [Function],
