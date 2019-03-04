@@ -15,16 +15,13 @@ module.exports = {
     contentBase: './build',
     port: 7700,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.js'
   },
-  plugins: [
-    HtmlWebpackPluginConfig,
-    extractTextPlugin,
-  ],
+  plugins: [HtmlWebpackPluginConfig, extractTextPlugin],
   module: {
     rules: [
       {
@@ -63,15 +60,15 @@ module.exports = {
       {
         test: /\.(mp3)$/,
         loader: 'file-loader?name=sounds/[name].[ext]'
-      },
-    ],
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       Components: path.resolve(__dirname, 'src/components'),
       Icons: path.resolve(__dirname, 'src/components/icons'),
-      Redux: path.resolve(__dirname, 'src/redux'),
-    },
-  },
+      Redux: path.resolve(__dirname, 'src/redux')
+    }
+  }
 };

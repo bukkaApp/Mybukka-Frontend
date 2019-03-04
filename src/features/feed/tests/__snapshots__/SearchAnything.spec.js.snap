@@ -20,7 +20,8 @@ ReactWrapper {
     "ref": null,
     "rendered": Object {
       "instance": <div
-        class="input-group address-input-section feed-address-input-section d-inline-flex ml-3"
+        class="input-group address-input-section
+ feed-address-input-section d-inline-flex ml-3"
       >
         <div
           class="input-group-prepends"
@@ -78,7 +79,8 @@ ReactWrapper {
             type="text"
           />,
         ],
-        "className": "input-group address-input-section feed-address-input-section d-inline-flex ml-3",
+        "className": "input-group address-input-section
+ feed-address-input-section d-inline-flex ml-3",
       },
       "ref": null,
       "rendered": Array [
@@ -325,7 +327,8 @@ ReactWrapper {
       "ref": null,
       "rendered": Object {
         "instance": <div
-          class="input-group address-input-section feed-address-input-section d-inline-flex ml-3"
+          class="input-group address-input-section
+ feed-address-input-section d-inline-flex ml-3"
         >
           <div
             class="input-group-prepends"
@@ -383,7 +386,8 @@ ReactWrapper {
               type="text"
             />,
           ],
-          "className": "input-group address-input-section feed-address-input-section d-inline-flex ml-3",
+          "className": "input-group address-input-section
+ feed-address-input-section d-inline-flex ml-3",
         },
         "ref": null,
         "rendered": Array [

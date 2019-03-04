@@ -8,6 +8,176 @@ Object {
       <div
         class="container"
       >
+        <div
+          aria-hidden="true"
+          aria-labelledby="exampleModalLabel"
+          class="modal fade"
+          id="modal"
+          role="dialog"
+          tabindex="-1"
+        >
+          <div
+            class="modal-dialog modal-dialog-centered auth-modal"
+            role="document"
+          >
+            <div
+              class="modal-content"
+            >
+              <div
+                class="modal-header"
+              />
+              <div
+                class="modal-body"
+              >
+                <div
+                  class="dismiss-modal close mr-5"
+                  data-dismiss="modal"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <defs>
+                      <path
+                        d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                        id="icon-close_svg__a"
+                      />
+                    </defs>
+                    <use
+                      transform="translate(4 4)"
+                      xlink:href="#icon-close_svg__a"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="bg-color auth-page"
+                >
+                  <div
+                    class=""
+                  >
+                    <div
+                      class="auth-wrapper pt-5"
+                    >
+                      <h2
+                        class="text-center pt-4 mb-0 auth-title"
+                      >
+                        Log In
+                      </h2>
+                      <form
+                        class="pb-3 form-auth"
+                        name="form"
+                      >
+                        <div
+                          class="form-title mb-4"
+                        >
+                          <span>
+                            Type your email
+                          </span>
+                        </div>
+                        <div
+                          class="input-group-wrapper mt-9"
+                        >
+                          <div
+                            class="input-slide text-center "
+                          >
+                            <div
+                              class="form-group padding"
+                            >
+                              <input
+                                class="default-input"
+                                name="email"
+                                placeholder="Email"
+                                type="email"
+                              />
+                              <div
+                                class="text-danger help-block"
+                              />
+                            </div>
+                            <div
+                              class="form-group padding"
+                            >
+                              <input
+                                class="default-input"
+                                name="password"
+                                placeholder="Password"
+                                type="password"
+                              />
+                              <div
+                                class="text-danger help-block"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="padding"
+                        >
+                          <button
+                            class="button col-md-12 primary-button mt-5"
+                            data-target=""
+                            data-testid="button"
+                            data-toggle=""
+                            id="submit"
+                            type="submit"
+                          >
+                            Log In
+                          </button>
+                        </div>
+                        <div
+                          class="divider-box mt-2 mb-2"
+                        >
+                          <div
+                            class="divider"
+                          >
+                            <span>
+                              or
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          class="padding"
+                        >
+                          <button
+                            class="facebk-btn col-md-12"
+                            data-target=""
+                            data-testid="button"
+                            data-toggle=""
+                            id="_h1DudOdR"
+                            type="button"
+                          >
+                            Facebook
+                          </button>
+                        </div>
+                        <div
+                          class="form-options padding"
+                        >
+                          <p>
+                            New to Bukka?
+                          </p>
+                          <button
+                            class="btn-link auth-footer-btn"
+                            data-target=""
+                            data-testid="button"
+                            data-toggle=""
+                            id="/signup"
+                            type="button"
+                          >
+                            SIGN UP
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container"
+      >
         <nav
           class="navbar navbar-light"
         >
@@ -24,16 +194,20 @@ Object {
           >
             <button
               class="small-outline-button"
-              data-target=""
-              data-toggle=""
+              data-target="#modal"
+              data-testid="button"
+              data-toggle="modal"
+              id="/login"
               type="button"
             >
               sign in
             </button>
             <button
               class="small-button"
-              data-target=""
-              data-toggle=""
+              data-target="#modal"
+              data-testid="button"
+              data-toggle="modal"
+              id="/signup"
               type="button"
             >
               sign up
@@ -180,7 +354,9 @@ Object {
                   <button
                     class="small-button-save"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="_h1DudOdR"
                     type="button"
                   >
                     Save
@@ -608,7 +784,9 @@ Object {
                   <button
                     class="small-button-save"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="_h1DudOdR"
                     type="button"
                   >
                     Save
@@ -625,7 +803,9 @@ Object {
               <button
                 class="big-button"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="_h1DudOdR"
                 type="submit"
               >
                 CONTINUE
@@ -633,7 +813,8 @@ Object {
             </div>
           </div>
           <div
-            class="col-xl-5 col-lg-5 col-md-12 col-sm-12 mb-2 px-0 px-md-0 px-lg-3 mt-0 mt-lg-4 mt-xl-4"
+            class="col-xl-5 col-lg-5 col-md-12 col-sm-12 mb-2 px-0 px-md-0
+ px-lg-3 mt-0 mt-lg-4 mt-xl-4"
           >
             <div
               class="card-shadow card mb-3 border"
@@ -688,7 +869,9 @@ Object {
                         <button
                           class="cart-action-button-primary"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           EDIT
@@ -696,7 +879,9 @@ Object {
                         <button
                           class="cart-action-button-default"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           REMOVE
@@ -733,7 +918,9 @@ Object {
                         <button
                           class="cart-action-button-primary"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           EDIT
@@ -741,7 +928,9 @@ Object {
                         <button
                           class="cart-action-button-default"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           REMOVE
@@ -766,7 +955,8 @@ Object {
                 class="container suggested-items-section bg-gutter"
               >
                 <div
-                  class="d-flex justify-content-between align-items-center text-center"
+                  class="d-flex
+ justify-content-between align-items-center text-center"
                 >
                   <h4
                     class="font-size-14"
@@ -779,7 +969,9 @@ Object {
                     <button
                       class="left btn-chevron"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="_h1DudOdR"
                       type="button"
                     >
                       <svg
@@ -804,7 +996,9 @@ Object {
                     <button
                       class="right btn-chevron"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="_h1DudOdR"
                       type="button"
                     >
                       <svg
@@ -858,7 +1052,9 @@ Object {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           <svg
@@ -904,7 +1100,9 @@ Object {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           <svg
@@ -950,7 +1148,9 @@ Object {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           <svg
@@ -996,7 +1196,9 @@ Object {
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="_h1DudOdR"
                           type="button"
                         >
                           <svg
@@ -1097,7 +1299,9 @@ Object {
               <button
                 class="big-button"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="_h1DudOdR"
                 type="submit"
               >
                 CONTINUE
@@ -1108,11 +1312,181 @@ Object {
       </div>
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs&callback=loaderCB01551564965882&libraries=places&v=3&language=en"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs&callback=loaderCB01551710030918&libraries=places&v=3&language=en"
       type="text/javascript"
     />
   </body>,
   "container": <div>
+    <div
+      class="container"
+    >
+      <div
+        aria-hidden="true"
+        aria-labelledby="exampleModalLabel"
+        class="modal fade"
+        id="modal"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered auth-modal"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header"
+            />
+            <div
+              class="modal-body"
+            >
+              <div
+                class="dismiss-modal close mr-5"
+                data-dismiss="modal"
+              >
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <defs>
+                    <path
+                      d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                      id="icon-close_svg__a"
+                    />
+                  </defs>
+                  <use
+                    transform="translate(4 4)"
+                    xlink:href="#icon-close_svg__a"
+                  />
+                </svg>
+              </div>
+              <div
+                class="bg-color auth-page"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="auth-wrapper pt-5"
+                  >
+                    <h2
+                      class="text-center pt-4 mb-0 auth-title"
+                    >
+                      Log In
+                    </h2>
+                    <form
+                      class="pb-3 form-auth"
+                      name="form"
+                    >
+                      <div
+                        class="form-title mb-4"
+                      >
+                        <span>
+                          Type your email
+                        </span>
+                      </div>
+                      <div
+                        class="input-group-wrapper mt-9"
+                      >
+                        <div
+                          class="input-slide text-center "
+                        >
+                          <div
+                            class="form-group padding"
+                          >
+                            <input
+                              class="default-input"
+                              name="email"
+                              placeholder="Email"
+                              type="email"
+                            />
+                            <div
+                              class="text-danger help-block"
+                            />
+                          </div>
+                          <div
+                            class="form-group padding"
+                          >
+                            <input
+                              class="default-input"
+                              name="password"
+                              placeholder="Password"
+                              type="password"
+                            />
+                            <div
+                              class="text-danger help-block"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="padding"
+                      >
+                        <button
+                          class="button col-md-12 primary-button mt-5"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="submit"
+                          type="submit"
+                        >
+                          Log In
+                        </button>
+                      </div>
+                      <div
+                        class="divider-box mt-2 mb-2"
+                      >
+                        <div
+                          class="divider"
+                        >
+                          <span>
+                            or
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="padding"
+                      >
+                        <button
+                          class="facebk-btn col-md-12"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="_h1DudOdR"
+                          type="button"
+                        >
+                          Facebook
+                        </button>
+                      </div>
+                      <div
+                        class="form-options padding"
+                      >
+                        <p>
+                          New to Bukka?
+                        </p>
+                        <button
+                          class="btn-link auth-footer-btn"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="/signup"
+                          type="button"
+                        >
+                          SIGN UP
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="container"
     >
@@ -1132,16 +1506,20 @@ Object {
         >
           <button
             class="small-outline-button"
-            data-target=""
-            data-toggle=""
+            data-target="#modal"
+            data-testid="button"
+            data-toggle="modal"
+            id="/login"
             type="button"
           >
             sign in
           </button>
           <button
             class="small-button"
-            data-target=""
-            data-toggle=""
+            data-target="#modal"
+            data-testid="button"
+            data-toggle="modal"
+            id="/signup"
             type="button"
           >
             sign up
@@ -1288,7 +1666,9 @@ Object {
                 <button
                   class="small-button-save"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="_h1DudOdR"
                   type="button"
                 >
                   Save
@@ -1716,7 +2096,9 @@ Object {
                 <button
                   class="small-button-save"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="_h1DudOdR"
                   type="button"
                 >
                   Save
@@ -1733,7 +2115,9 @@ Object {
             <button
               class="big-button"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="_h1DudOdR"
               type="submit"
             >
               CONTINUE
@@ -1741,7 +2125,8 @@ Object {
           </div>
         </div>
         <div
-          class="col-xl-5 col-lg-5 col-md-12 col-sm-12 mb-2 px-0 px-md-0 px-lg-3 mt-0 mt-lg-4 mt-xl-4"
+          class="col-xl-5 col-lg-5 col-md-12 col-sm-12 mb-2 px-0 px-md-0
+ px-lg-3 mt-0 mt-lg-4 mt-xl-4"
         >
           <div
             class="card-shadow card mb-3 border"
@@ -1796,7 +2181,9 @@ Object {
                       <button
                         class="cart-action-button-primary"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         EDIT
@@ -1804,7 +2191,9 @@ Object {
                       <button
                         class="cart-action-button-default"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         REMOVE
@@ -1841,7 +2230,9 @@ Object {
                       <button
                         class="cart-action-button-primary"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         EDIT
@@ -1849,7 +2240,9 @@ Object {
                       <button
                         class="cart-action-button-default"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         REMOVE
@@ -1874,7 +2267,8 @@ Object {
               class="container suggested-items-section bg-gutter"
             >
               <div
-                class="d-flex justify-content-between align-items-center text-center"
+                class="d-flex
+ justify-content-between align-items-center text-center"
               >
                 <h4
                   class="font-size-14"
@@ -1887,7 +2281,9 @@ Object {
                   <button
                     class="left btn-chevron"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="_h1DudOdR"
                     type="button"
                   >
                     <svg
@@ -1912,7 +2308,9 @@ Object {
                   <button
                     class="right btn-chevron"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="_h1DudOdR"
                     type="button"
                   >
                     <svg
@@ -1966,7 +2364,9 @@ Object {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         <svg
@@ -2012,7 +2412,9 @@ Object {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         <svg
@@ -2058,7 +2460,9 @@ Object {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         <svg
@@ -2104,7 +2508,9 @@ Object {
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="_h1DudOdR"
                         type="button"
                       >
                         <svg
@@ -2205,7 +2611,9 @@ Object {
             <button
               class="big-button"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="_h1DudOdR"
               type="submit"
             >
               CONTINUE
