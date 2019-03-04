@@ -90,6 +90,7 @@ Object {
                                 name="email"
                                 placeholder="Email"
                                 type="email"
+                                value=""
                               />
                               <div
                                 class="text-danger help-block"
@@ -103,6 +104,7 @@ Object {
                                 name="password"
                                 placeholder="Password"
                                 type="password"
+                                value=""
                               />
                               <div
                                 class="text-danger help-block"
@@ -143,7 +145,7 @@ Object {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="_h1DudOdR"
+                            id="XM1LPEqzK"
                             type="button"
                           >
                             Facebook
@@ -278,6 +280,7 @@ Object {
                     name="streetAddress1"
                     placeholder="Address"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -297,6 +300,7 @@ Object {
                     name="streetAddress2"
                     placeholder="Apt no or company name"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -316,6 +320,7 @@ Object {
                     name="contactName"
                     placeholder="Contact name"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -335,6 +340,7 @@ Object {
                     name="phoneNumber"
                     placeholder="Phone number"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -356,7 +362,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="_h1DudOdR"
+                    id="XM1LPEqzK"
                     type="button"
                   >
                     Save
@@ -702,6 +708,7 @@ Object {
                       name="number"
                       placeholder="Card number"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -721,6 +728,7 @@ Object {
                       name="expDate"
                       placeholder="MM/YY"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -740,6 +748,7 @@ Object {
                       name="cvv"
                       placeholder="CVV"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -759,6 +768,7 @@ Object {
                       name="zipCode"
                       placeholder="Zip code"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -773,6 +783,7 @@ Object {
                     name="makeDefaultPaymentOption"
                     placeholder=""
                     type="checkbox"
+                    value=""
                   />
                   <span
                     class="make-default-text"
@@ -786,7 +797,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="_h1DudOdR"
+                    id="XM1LPEqzK"
                     type="button"
                   >
                     Save
@@ -805,7 +816,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="_h1DudOdR"
+                id="XM1LPEqzK"
                 type="submit"
               >
                 CONTINUE
@@ -871,7 +882,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           EDIT
@@ -881,7 +892,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           REMOVE
@@ -895,7 +906,7 @@ Object {
                         class="price-badge-black"
                       >
                         ₦
-                        $15.73
+                        15.73
                         .00
                       </h4>
                     </div>
@@ -920,7 +931,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           EDIT
@@ -930,7 +941,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           REMOVE
@@ -944,7 +955,7 @@ Object {
                         class="price-badge-black"
                       >
                         ₦
-                        $15.73
+                        15.73
                         .00
                       </h4>
                     </div>
@@ -971,7 +982,7 @@ Object {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="_h1DudOdR"
+                      id="XM1LPEqzK"
                       type="button"
                     >
                       <svg
@@ -998,7 +1009,7 @@ Object {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="_h1DudOdR"
+                      id="XM1LPEqzK"
                       type="button"
                     >
                       <svg
@@ -1046,7 +1057,7 @@ Object {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $3.54
+                            3.54
                           </h5>
                         </div>
                         <button
@@ -1054,7 +1065,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           <svg
@@ -1094,7 +1105,7 @@ Object {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $12.54
+                            12.54
                           </h5>
                         </div>
                         <button
@@ -1102,7 +1113,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           <svg
@@ -1142,7 +1153,7 @@ Object {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $24.54
+                            24.54
                           </h5>
                         </div>
                         <button
@@ -1150,7 +1161,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           <svg
@@ -1190,7 +1201,7 @@ Object {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $14.54
+                            14.54
                           </h5>
                         </div>
                         <button
@@ -1198,7 +1209,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           <svg
@@ -1301,7 +1312,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="_h1DudOdR"
+                id="XM1LPEqzK"
                 type="submit"
               >
                 CONTINUE
@@ -1312,7 +1323,7 @@ Object {
       </div>
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs&callback=loaderCB01551710030918&libraries=places&v=3&language=en"
+      src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01551787071520&libraries=places&v=3&language=en"
       type="text/javascript"
     />
   </body>,
@@ -1402,6 +1413,7 @@ Object {
                               name="email"
                               placeholder="Email"
                               type="email"
+                              value=""
                             />
                             <div
                               class="text-danger help-block"
@@ -1415,6 +1427,7 @@ Object {
                               name="password"
                               placeholder="Password"
                               type="password"
+                              value=""
                             />
                             <div
                               class="text-danger help-block"
@@ -1455,7 +1468,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="_h1DudOdR"
+                          id="XM1LPEqzK"
                           type="button"
                         >
                           Facebook
@@ -1590,6 +1603,7 @@ Object {
                   name="streetAddress1"
                   placeholder="Address"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1609,6 +1623,7 @@ Object {
                   name="streetAddress2"
                   placeholder="Apt no or company name"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1628,6 +1643,7 @@ Object {
                   name="contactName"
                   placeholder="Contact name"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1647,6 +1663,7 @@ Object {
                   name="phoneNumber"
                   placeholder="Phone number"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1668,7 +1685,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="_h1DudOdR"
+                  id="XM1LPEqzK"
                   type="button"
                 >
                   Save
@@ -2014,6 +2031,7 @@ Object {
                     name="number"
                     placeholder="Card number"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -2033,6 +2051,7 @@ Object {
                     name="expDate"
                     placeholder="MM/YY"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -2052,6 +2071,7 @@ Object {
                     name="cvv"
                     placeholder="CVV"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -2071,6 +2091,7 @@ Object {
                     name="zipCode"
                     placeholder="Zip code"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -2085,6 +2106,7 @@ Object {
                   name="makeDefaultPaymentOption"
                   placeholder=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="make-default-text"
@@ -2098,7 +2120,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="_h1DudOdR"
+                  id="XM1LPEqzK"
                   type="button"
                 >
                   Save
@@ -2117,7 +2139,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="_h1DudOdR"
+              id="XM1LPEqzK"
               type="submit"
             >
               CONTINUE
@@ -2183,7 +2205,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         EDIT
@@ -2193,7 +2215,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         REMOVE
@@ -2207,7 +2229,7 @@ Object {
                       class="price-badge-black"
                     >
                       ₦
-                      $15.73
+                      15.73
                       .00
                     </h4>
                   </div>
@@ -2232,7 +2254,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         EDIT
@@ -2242,7 +2264,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         REMOVE
@@ -2256,7 +2278,7 @@ Object {
                       class="price-badge-black"
                     >
                       ₦
-                      $15.73
+                      15.73
                       .00
                     </h4>
                   </div>
@@ -2283,7 +2305,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="_h1DudOdR"
+                    id="XM1LPEqzK"
                     type="button"
                   >
                     <svg
@@ -2310,7 +2332,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="_h1DudOdR"
+                    id="XM1LPEqzK"
                     type="button"
                   >
                     <svg
@@ -2358,7 +2380,7 @@ Object {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $3.54
+                          3.54
                         </h5>
                       </div>
                       <button
@@ -2366,7 +2388,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         <svg
@@ -2406,7 +2428,7 @@ Object {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $12.54
+                          12.54
                         </h5>
                       </div>
                       <button
@@ -2414,7 +2436,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         <svg
@@ -2454,7 +2476,7 @@ Object {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $24.54
+                          24.54
                         </h5>
                       </div>
                       <button
@@ -2462,7 +2484,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         <svg
@@ -2502,7 +2524,7 @@ Object {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $14.54
+                          14.54
                         </h5>
                       </div>
                       <button
@@ -2510,7 +2532,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="_h1DudOdR"
+                        id="XM1LPEqzK"
                         type="button"
                       >
                         <svg
@@ -2613,7 +2635,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="_h1DudOdR"
+              id="XM1LPEqzK"
               type="submit"
             >
               CONTINUE

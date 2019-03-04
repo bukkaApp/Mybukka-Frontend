@@ -58,22 +58,22 @@ ReactWrapper {
               <CartPane
                 handleClick={[Function]}
                 name="whole milk"
-                price="$3.54"
+                price="3.54"
               />
               <CartPane
                 handleClick={[Function]}
                 name="cheese"
-                price="$12.54"
+                price="12.54"
               />
               <CartPane
                 handleClick={[Function]}
                 name="vegetables"
-                price="$24.54"
+                price="24.54"
               />
               <CartPane
                 handleClick={[Function]}
                 name="Ham and cheese mellet"
-                price="$14.54"
+                price="14.54"
               />
             </div>
           </div>,
@@ -102,7 +102,7 @@ ReactWrapper {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Tte48If2Q"
+                id="txboSrf_0"
                 type="button"
               >
                 <svg
@@ -129,7 +129,7 @@ ReactWrapper {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Tte48If2Q"
+                id="txboSrf_0"
                 type="button"
               >
                 <svg
@@ -177,7 +177,7 @@ ReactWrapper {
                     <h5
                       class="font-size-14 suggested-item-price"
                     >
-                      $3.54
+                      3.54
                     </h5>
                   </div>
                   <button
@@ -185,7 +185,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -225,7 +225,7 @@ ReactWrapper {
                     <h5
                       class="font-size-14 suggested-item-price"
                     >
-                      $12.54
+                      12.54
                     </h5>
                   </div>
                   <button
@@ -233,7 +233,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -273,7 +273,7 @@ ReactWrapper {
                     <h5
                       class="font-size-14 suggested-item-price"
                     >
-                      $24.54
+                      24.54
                     </h5>
                   </div>
                   <button
@@ -281,7 +281,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -321,7 +321,7 @@ ReactWrapper {
                     <h5
                       class="font-size-14 suggested-item-price"
                     >
-                      $14.54
+                      14.54
                     </h5>
                   </div>
                   <button
@@ -329,7 +329,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -393,22 +393,22 @@ ReactWrapper {
                 <CartPane
                   handleClick={[Function]}
                   name="whole milk"
-                  price="$3.54"
+                  price="3.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="cheese"
-                  price="$12.54"
+                  price="12.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="vegetables"
-                  price="$24.54"
+                  price="24.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="Ham and cheese mellet"
-                  price="$14.54"
+                  price="14.54"
                 />
               </div>
             </div>,
@@ -435,7 +435,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
+                  id="txboSrf_0"
                   type="button"
                 >
                   <svg
@@ -462,7 +462,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
+                  id="txboSrf_0"
                   type="button"
                 >
                   <svg
@@ -538,7 +538,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -565,7 +565,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -622,7 +622,7 @@ ReactWrapper {
                         "dataToggle": "",
                         "disabled": false,
                         "handleClick": [Function],
-                        "id": "Tte48If2Q",
+                        "id": "txboSrf_0",
                         "text": "",
                         "type": "button",
                       },
@@ -633,7 +633,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -664,7 +664,7 @@ ReactWrapper {
                           "data-testid": "button",
                           "data-toggle": "",
                           "disabled": false,
-                          "id": "Tte48If2Q",
+                          "id": "txboSrf_0",
                           "onClick": [Function],
                           "type": "button",
                         },
@@ -805,7 +805,7 @@ ReactWrapper {
                         "dataToggle": "",
                         "disabled": false,
                         "handleClick": [Function],
-                        "id": "Tte48If2Q",
+                        "id": "txboSrf_0",
                         "text": "",
                         "type": "button",
                       },
@@ -816,7 +816,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -847,7 +847,7 @@ ReactWrapper {
                           "data-testid": "button",
                           "data-toggle": "",
                           "disabled": false,
-                          "id": "Tte48If2Q",
+                          "id": "txboSrf_0",
                           "onClick": [Function],
                           "type": "button",
                         },
@@ -1000,7 +1000,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $3.54
+                        3.54
                       </h5>
                     </div>
                     <button
@@ -1008,7 +1008,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -1048,7 +1048,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $12.54
+                        12.54
                       </h5>
                     </div>
                     <button
@@ -1056,7 +1056,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -1096,7 +1096,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $24.54
+                        24.54
                       </h5>
                     </div>
                     <button
@@ -1104,7 +1104,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -1144,7 +1144,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $14.54
+                        14.54
                       </h5>
                     </div>
                     <button
@@ -1152,7 +1152,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -1191,22 +1191,22 @@ ReactWrapper {
                 <CartPane
                   handleClick={[Function]}
                   name="whole milk"
-                  price="$3.54"
+                  price="3.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="cheese"
-                  price="$12.54"
+                  price="12.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="vegetables"
-                  price="$24.54"
+                  price="24.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="Ham and cheese mellet"
-                  price="$14.54"
+                  price="14.54"
                 />
               </div>,
               "className": "overflow-hidden",
@@ -1235,7 +1235,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $3.54
+                          3.54
                         </h5>
                       </div>
                       <button
@@ -1243,7 +1243,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -1283,7 +1283,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $12.54
+                          12.54
                         </h5>
                       </div>
                       <button
@@ -1291,7 +1291,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -1331,7 +1331,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $24.54
+                          24.54
                         </h5>
                       </div>
                       <button
@@ -1339,7 +1339,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -1379,7 +1379,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $14.54
+                          14.54
                         </h5>
                       </div>
                       <button
@@ -1387,7 +1387,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -1418,22 +1418,22 @@ ReactWrapper {
                     <CartPane
                       handleClick={[Function]}
                       name="whole milk"
-                      price="$3.54"
+                      price="3.54"
                     />,
                     <CartPane
                       handleClick={[Function]}
                       name="cheese"
-                      price="$12.54"
+                      price="12.54"
                     />,
                     <CartPane
                       handleClick={[Function]}
                       name="vegetables"
-                      price="$24.54"
+                      price="24.54"
                     />,
                     <CartPane
                       handleClick={[Function]}
                       name="Ham and cheese mellet"
-                      price="$14.54"
+                      price="14.54"
                     />,
                   ],
                   "className": "d-flex flex-start overflow-visible suggested-items-pane-section",
@@ -1450,7 +1450,7 @@ ReactWrapper {
                     "props": Object {
                       "handleClick": [Function],
                       "name": "whole milk",
-                      "price": "$3.54",
+                      "price": "3.54",
                     },
                     "ref": null,
                     "rendered": Object {
@@ -1471,7 +1471,7 @@ ReactWrapper {
                             <h5
                               class="font-size-14 suggested-item-price"
                             >
-                              $3.54
+                              3.54
                             </h5>
                           </div>
                           <button
@@ -1479,7 +1479,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -1519,7 +1519,7 @@ ReactWrapper {
                             <h5
                               className="font-size-14 suggested-item-price"
                             >
-                              $3.54
+                              3.54
                             </h5>
                           </div>
                           <Add
@@ -1545,7 +1545,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $3.54
+                                3.54
                               </h5>
                             </div>
                             <button
@@ -1553,7 +1553,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -1590,7 +1590,7 @@ ReactWrapper {
                                 <h5
                                   className="font-size-14 suggested-item-price"
                                 >
-                                  $3.54
+                                  3.54
                                 </h5>
                               </div>,
                               <Add
@@ -1613,7 +1613,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $3.54
+                                  3.54
                                 </h5>
                               </div>,
                               "key": undefined,
@@ -1628,7 +1628,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $3.54
+                                    3.54
                                   </h5>,
                                 ],
                                 "className": "border-right col-md-10 capitalize",
@@ -1657,17 +1657,17 @@ ReactWrapper {
                                   "instance": <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $3.54
+                                    3.54
                                   </h5>,
                                   "key": undefined,
                                   "nodeType": "host",
                                   "props": Object {
-                                    "children": "$3.54",
+                                    "children": "3.54",
                                     "className": "font-size-14 suggested-item-price",
                                   },
                                   "ref": null,
                                   "rendered": Array [
-                                    "$3.54",
+                                    "3.54",
                                   ],
                                   "type": "h5",
                                 },
@@ -1693,7 +1693,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
+                                  "id": "txboSrf_0",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -1704,7 +1704,7 @@ ReactWrapper {
                                     data-target=""
                                     data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
+                                    id="txboSrf_0"
                                     type="button"
                                   >
                                     <svg
@@ -1734,7 +1734,7 @@ ReactWrapper {
                                     "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -1872,7 +1872,7 @@ ReactWrapper {
                     "props": Object {
                       "handleClick": [Function],
                       "name": "cheese",
-                      "price": "$12.54",
+                      "price": "12.54",
                     },
                     "ref": null,
                     "rendered": Object {
@@ -1893,7 +1893,7 @@ ReactWrapper {
                             <h5
                               class="font-size-14 suggested-item-price"
                             >
-                              $12.54
+                              12.54
                             </h5>
                           </div>
                           <button
@@ -1901,7 +1901,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -1941,7 +1941,7 @@ ReactWrapper {
                             <h5
                               className="font-size-14 suggested-item-price"
                             >
-                              $12.54
+                              12.54
                             </h5>
                           </div>
                           <Add
@@ -1967,7 +1967,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $12.54
+                                12.54
                               </h5>
                             </div>
                             <button
@@ -1975,7 +1975,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -2012,7 +2012,7 @@ ReactWrapper {
                                 <h5
                                   className="font-size-14 suggested-item-price"
                                 >
-                                  $12.54
+                                  12.54
                                 </h5>
                               </div>,
                               <Add
@@ -2035,7 +2035,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $12.54
+                                  12.54
                                 </h5>
                               </div>,
                               "key": undefined,
@@ -2050,7 +2050,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $12.54
+                                    12.54
                                   </h5>,
                                 ],
                                 "className": "border-right col-md-10 capitalize",
@@ -2079,17 +2079,17 @@ ReactWrapper {
                                   "instance": <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $12.54
+                                    12.54
                                   </h5>,
                                   "key": undefined,
                                   "nodeType": "host",
                                   "props": Object {
-                                    "children": "$12.54",
+                                    "children": "12.54",
                                     "className": "font-size-14 suggested-item-price",
                                   },
                                   "ref": null,
                                   "rendered": Array [
-                                    "$12.54",
+                                    "12.54",
                                   ],
                                   "type": "h5",
                                 },
@@ -2115,7 +2115,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
+                                  "id": "txboSrf_0",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2126,7 +2126,7 @@ ReactWrapper {
                                     data-target=""
                                     data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
+                                    id="txboSrf_0"
                                     type="button"
                                   >
                                     <svg
@@ -2156,7 +2156,7 @@ ReactWrapper {
                                     "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2294,7 +2294,7 @@ ReactWrapper {
                     "props": Object {
                       "handleClick": [Function],
                       "name": "vegetables",
-                      "price": "$24.54",
+                      "price": "24.54",
                     },
                     "ref": null,
                     "rendered": Object {
@@ -2315,7 +2315,7 @@ ReactWrapper {
                             <h5
                               class="font-size-14 suggested-item-price"
                             >
-                              $24.54
+                              24.54
                             </h5>
                           </div>
                           <button
@@ -2323,7 +2323,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -2363,7 +2363,7 @@ ReactWrapper {
                             <h5
                               className="font-size-14 suggested-item-price"
                             >
-                              $24.54
+                              24.54
                             </h5>
                           </div>
                           <Add
@@ -2389,7 +2389,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $24.54
+                                24.54
                               </h5>
                             </div>
                             <button
@@ -2397,7 +2397,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -2434,7 +2434,7 @@ ReactWrapper {
                                 <h5
                                   className="font-size-14 suggested-item-price"
                                 >
-                                  $24.54
+                                  24.54
                                 </h5>
                               </div>,
                               <Add
@@ -2457,7 +2457,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $24.54
+                                  24.54
                                 </h5>
                               </div>,
                               "key": undefined,
@@ -2472,7 +2472,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $24.54
+                                    24.54
                                   </h5>,
                                 ],
                                 "className": "border-right col-md-10 capitalize",
@@ -2501,17 +2501,17 @@ ReactWrapper {
                                   "instance": <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $24.54
+                                    24.54
                                   </h5>,
                                   "key": undefined,
                                   "nodeType": "host",
                                   "props": Object {
-                                    "children": "$24.54",
+                                    "children": "24.54",
                                     "className": "font-size-14 suggested-item-price",
                                   },
                                   "ref": null,
                                   "rendered": Array [
-                                    "$24.54",
+                                    "24.54",
                                   ],
                                   "type": "h5",
                                 },
@@ -2537,7 +2537,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
+                                  "id": "txboSrf_0",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2548,7 +2548,7 @@ ReactWrapper {
                                     data-target=""
                                     data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
+                                    id="txboSrf_0"
                                     type="button"
                                   >
                                     <svg
@@ -2578,7 +2578,7 @@ ReactWrapper {
                                     "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2716,7 +2716,7 @@ ReactWrapper {
                     "props": Object {
                       "handleClick": [Function],
                       "name": "Ham and cheese mellet",
-                      "price": "$14.54",
+                      "price": "14.54",
                     },
                     "ref": null,
                     "rendered": Object {
@@ -2737,7 +2737,7 @@ ReactWrapper {
                             <h5
                               class="font-size-14 suggested-item-price"
                             >
-                              $14.54
+                              14.54
                             </h5>
                           </div>
                           <button
@@ -2745,7 +2745,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -2785,7 +2785,7 @@ ReactWrapper {
                             <h5
                               className="font-size-14 suggested-item-price"
                             >
-                              $14.54
+                              14.54
                             </h5>
                           </div>
                           <Add
@@ -2811,7 +2811,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $14.54
+                                14.54
                               </h5>
                             </div>
                             <button
@@ -2819,7 +2819,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -2856,7 +2856,7 @@ ReactWrapper {
                                 <h5
                                   className="font-size-14 suggested-item-price"
                                 >
-                                  $14.54
+                                  14.54
                                 </h5>
                               </div>,
                               <Add
@@ -2879,7 +2879,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $14.54
+                                  14.54
                                 </h5>
                               </div>,
                               "key": undefined,
@@ -2894,7 +2894,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $14.54
+                                    14.54
                                   </h5>,
                                 ],
                                 "className": "border-right col-md-10 capitalize",
@@ -2923,17 +2923,17 @@ ReactWrapper {
                                   "instance": <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $14.54
+                                    14.54
                                   </h5>,
                                   "key": undefined,
                                   "nodeType": "host",
                                   "props": Object {
-                                    "children": "$14.54",
+                                    "children": "14.54",
                                     "className": "font-size-14 suggested-item-price",
                                   },
                                   "ref": null,
                                   "rendered": Array [
-                                    "$14.54",
+                                    "14.54",
                                   ],
                                   "type": "h5",
                                 },
@@ -2959,7 +2959,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
-                                  "id": "Tte48If2Q",
+                                  "id": "txboSrf_0",
                                   "text": "",
                                   "type": "button",
                                 },
@@ -2970,7 +2970,7 @@ ReactWrapper {
                                     data-target=""
                                     data-testid="button"
                                     data-toggle=""
-                                    id="Tte48If2Q"
+                                    id="txboSrf_0"
                                     type="button"
                                   >
                                     <svg
@@ -3000,7 +3000,7 @@ ReactWrapper {
                                     "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -3191,22 +3191,22 @@ ReactWrapper {
                 <CartPane
                   handleClick={[Function]}
                   name="whole milk"
-                  price="$3.54"
+                  price="3.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="cheese"
-                  price="$12.54"
+                  price="12.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="vegetables"
-                  price="$24.54"
+                  price="24.54"
                 />
                 <CartPane
                   handleClick={[Function]}
                   name="Ham and cheese mellet"
-                  price="$14.54"
+                  price="14.54"
                 />
               </div>
             </div>,
@@ -3235,7 +3235,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
+                  id="txboSrf_0"
                   type="button"
                 >
                   <svg
@@ -3262,7 +3262,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Tte48If2Q"
+                  id="txboSrf_0"
                   type="button"
                 >
                   <svg
@@ -3310,7 +3310,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $3.54
+                        3.54
                       </h5>
                     </div>
                     <button
@@ -3318,7 +3318,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3358,7 +3358,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $12.54
+                        12.54
                       </h5>
                     </div>
                     <button
@@ -3366,7 +3366,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3406,7 +3406,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $24.54
+                        24.54
                       </h5>
                     </div>
                     <button
@@ -3414,7 +3414,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3454,7 +3454,7 @@ ReactWrapper {
                       <h5
                         class="font-size-14 suggested-item-price"
                       >
-                        $14.54
+                        14.54
                       </h5>
                     </div>
                     <button
@@ -3462,7 +3462,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3526,22 +3526,22 @@ ReactWrapper {
                   <CartPane
                     handleClick={[Function]}
                     name="whole milk"
-                    price="$3.54"
+                    price="3.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="cheese"
-                    price="$12.54"
+                    price="12.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="vegetables"
-                    price="$24.54"
+                    price="24.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="Ham and cheese mellet"
-                    price="$14.54"
+                    price="14.54"
                   />
                 </div>
               </div>,
@@ -3568,7 +3568,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -3595,7 +3595,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="Tte48If2Q"
+                    id="txboSrf_0"
                     type="button"
                   >
                     <svg
@@ -3671,7 +3671,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3698,7 +3698,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="Tte48If2Q"
+                      id="txboSrf_0"
                       type="button"
                     >
                       <svg
@@ -3755,7 +3755,7 @@ ReactWrapper {
                           "dataToggle": "",
                           "disabled": false,
                           "handleClick": [Function],
-                          "id": "Tte48If2Q",
+                          "id": "txboSrf_0",
                           "text": "",
                           "type": "button",
                         },
@@ -3766,7 +3766,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -3797,7 +3797,7 @@ ReactWrapper {
                             "data-testid": "button",
                             "data-toggle": "",
                             "disabled": false,
-                            "id": "Tte48If2Q",
+                            "id": "txboSrf_0",
                             "onClick": [Function],
                             "type": "button",
                           },
@@ -3938,7 +3938,7 @@ ReactWrapper {
                           "dataToggle": "",
                           "disabled": false,
                           "handleClick": [Function],
-                          "id": "Tte48If2Q",
+                          "id": "txboSrf_0",
                           "text": "",
                           "type": "button",
                         },
@@ -3949,7 +3949,7 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="Tte48If2Q"
+                            id="txboSrf_0"
                             type="button"
                           >
                             <svg
@@ -3980,7 +3980,7 @@ ReactWrapper {
                             "data-testid": "button",
                             "data-toggle": "",
                             "disabled": false,
-                            "id": "Tte48If2Q",
+                            "id": "txboSrf_0",
                             "onClick": [Function],
                             "type": "button",
                           },
@@ -4133,7 +4133,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $3.54
+                          3.54
                         </h5>
                       </div>
                       <button
@@ -4141,7 +4141,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -4181,7 +4181,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $12.54
+                          12.54
                         </h5>
                       </div>
                       <button
@@ -4189,7 +4189,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -4229,7 +4229,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $24.54
+                          24.54
                         </h5>
                       </div>
                       <button
@@ -4237,7 +4237,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -4277,7 +4277,7 @@ ReactWrapper {
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          $14.54
+                          14.54
                         </h5>
                       </div>
                       <button
@@ -4285,7 +4285,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="Tte48If2Q"
+                        id="txboSrf_0"
                         type="button"
                       >
                         <svg
@@ -4324,22 +4324,22 @@ ReactWrapper {
                   <CartPane
                     handleClick={[Function]}
                     name="whole milk"
-                    price="$3.54"
+                    price="3.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="cheese"
-                    price="$12.54"
+                    price="12.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="vegetables"
-                    price="$24.54"
+                    price="24.54"
                   />
                   <CartPane
                     handleClick={[Function]}
                     name="Ham and cheese mellet"
-                    price="$14.54"
+                    price="14.54"
                   />
                 </div>,
                 "className": "overflow-hidden",
@@ -4368,7 +4368,7 @@ ReactWrapper {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $3.54
+                            3.54
                           </h5>
                         </div>
                         <button
@@ -4376,7 +4376,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -4416,7 +4416,7 @@ ReactWrapper {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $12.54
+                            12.54
                           </h5>
                         </div>
                         <button
@@ -4424,7 +4424,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -4464,7 +4464,7 @@ ReactWrapper {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $24.54
+                            24.54
                           </h5>
                         </div>
                         <button
@@ -4472,7 +4472,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -4512,7 +4512,7 @@ ReactWrapper {
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            $14.54
+                            14.54
                           </h5>
                         </div>
                         <button
@@ -4520,7 +4520,7 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="Tte48If2Q"
+                          id="txboSrf_0"
                           type="button"
                         >
                           <svg
@@ -4551,22 +4551,22 @@ ReactWrapper {
                       <CartPane
                         handleClick={[Function]}
                         name="whole milk"
-                        price="$3.54"
+                        price="3.54"
                       />,
                       <CartPane
                         handleClick={[Function]}
                         name="cheese"
-                        price="$12.54"
+                        price="12.54"
                       />,
                       <CartPane
                         handleClick={[Function]}
                         name="vegetables"
-                        price="$24.54"
+                        price="24.54"
                       />,
                       <CartPane
                         handleClick={[Function]}
                         name="Ham and cheese mellet"
-                        price="$14.54"
+                        price="14.54"
                       />,
                     ],
                     "className": "d-flex flex-start overflow-visible suggested-items-pane-section",
@@ -4583,7 +4583,7 @@ ReactWrapper {
                       "props": Object {
                         "handleClick": [Function],
                         "name": "whole milk",
-                        "price": "$3.54",
+                        "price": "3.54",
                       },
                       "ref": null,
                       "rendered": Object {
@@ -4604,7 +4604,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $3.54
+                                3.54
                               </h5>
                             </div>
                             <button
@@ -4612,7 +4612,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -4652,7 +4652,7 @@ ReactWrapper {
                               <h5
                                 className="font-size-14 suggested-item-price"
                               >
-                                $3.54
+                                3.54
                               </h5>
                             </div>
                             <Add
@@ -4678,7 +4678,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $3.54
+                                  3.54
                                 </h5>
                               </div>
                               <button
@@ -4686,7 +4686,7 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
+                                id="txboSrf_0"
                                 type="button"
                               >
                                 <svg
@@ -4723,7 +4723,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $3.54
+                                    3.54
                                   </h5>
                                 </div>,
                                 <Add
@@ -4746,7 +4746,7 @@ ReactWrapper {
                                   <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $3.54
+                                    3.54
                                   </h5>
                                 </div>,
                                 "key": undefined,
@@ -4761,7 +4761,7 @@ ReactWrapper {
                                     <h5
                                       className="font-size-14 suggested-item-price"
                                     >
-                                      $3.54
+                                      3.54
                                     </h5>,
                                   ],
                                   "className": "border-right col-md-10 capitalize",
@@ -4790,17 +4790,17 @@ ReactWrapper {
                                     "instance": <h5
                                       class="font-size-14 suggested-item-price"
                                     >
-                                      $3.54
+                                      3.54
                                     </h5>,
                                     "key": undefined,
                                     "nodeType": "host",
                                     "props": Object {
-                                      "children": "$3.54",
+                                      "children": "3.54",
                                       "className": "font-size-14 suggested-item-price",
                                     },
                                     "ref": null,
                                     "rendered": Array [
-                                      "$3.54",
+                                      "3.54",
                                     ],
                                     "type": "h5",
                                   },
@@ -4826,7 +4826,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -4837,7 +4837,7 @@ ReactWrapper {
                                       data-target=""
                                       data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
+                                      id="txboSrf_0"
                                       type="button"
                                     >
                                       <svg
@@ -4867,7 +4867,7 @@ ReactWrapper {
                                       "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
+                                      "id": "txboSrf_0",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5005,7 +5005,7 @@ ReactWrapper {
                       "props": Object {
                         "handleClick": [Function],
                         "name": "cheese",
-                        "price": "$12.54",
+                        "price": "12.54",
                       },
                       "ref": null,
                       "rendered": Object {
@@ -5026,7 +5026,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $12.54
+                                12.54
                               </h5>
                             </div>
                             <button
@@ -5034,7 +5034,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -5074,7 +5074,7 @@ ReactWrapper {
                               <h5
                                 className="font-size-14 suggested-item-price"
                               >
-                                $12.54
+                                12.54
                               </h5>
                             </div>
                             <Add
@@ -5100,7 +5100,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $12.54
+                                  12.54
                                 </h5>
                               </div>
                               <button
@@ -5108,7 +5108,7 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
+                                id="txboSrf_0"
                                 type="button"
                               >
                                 <svg
@@ -5145,7 +5145,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $12.54
+                                    12.54
                                   </h5>
                                 </div>,
                                 <Add
@@ -5168,7 +5168,7 @@ ReactWrapper {
                                   <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $12.54
+                                    12.54
                                   </h5>
                                 </div>,
                                 "key": undefined,
@@ -5183,7 +5183,7 @@ ReactWrapper {
                                     <h5
                                       className="font-size-14 suggested-item-price"
                                     >
-                                      $12.54
+                                      12.54
                                     </h5>,
                                   ],
                                   "className": "border-right col-md-10 capitalize",
@@ -5212,17 +5212,17 @@ ReactWrapper {
                                     "instance": <h5
                                       class="font-size-14 suggested-item-price"
                                     >
-                                      $12.54
+                                      12.54
                                     </h5>,
                                     "key": undefined,
                                     "nodeType": "host",
                                     "props": Object {
-                                      "children": "$12.54",
+                                      "children": "12.54",
                                       "className": "font-size-14 suggested-item-price",
                                     },
                                     "ref": null,
                                     "rendered": Array [
-                                      "$12.54",
+                                      "12.54",
                                     ],
                                     "type": "h5",
                                   },
@@ -5248,7 +5248,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -5259,7 +5259,7 @@ ReactWrapper {
                                       data-target=""
                                       data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
+                                      id="txboSrf_0"
                                       type="button"
                                     >
                                       <svg
@@ -5289,7 +5289,7 @@ ReactWrapper {
                                       "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
+                                      "id": "txboSrf_0",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5427,7 +5427,7 @@ ReactWrapper {
                       "props": Object {
                         "handleClick": [Function],
                         "name": "vegetables",
-                        "price": "$24.54",
+                        "price": "24.54",
                       },
                       "ref": null,
                       "rendered": Object {
@@ -5448,7 +5448,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $24.54
+                                24.54
                               </h5>
                             </div>
                             <button
@@ -5456,7 +5456,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -5496,7 +5496,7 @@ ReactWrapper {
                               <h5
                                 className="font-size-14 suggested-item-price"
                               >
-                                $24.54
+                                24.54
                               </h5>
                             </div>
                             <Add
@@ -5522,7 +5522,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $24.54
+                                  24.54
                                 </h5>
                               </div>
                               <button
@@ -5530,7 +5530,7 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
+                                id="txboSrf_0"
                                 type="button"
                               >
                                 <svg
@@ -5567,7 +5567,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $24.54
+                                    24.54
                                   </h5>
                                 </div>,
                                 <Add
@@ -5590,7 +5590,7 @@ ReactWrapper {
                                   <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $24.54
+                                    24.54
                                   </h5>
                                 </div>,
                                 "key": undefined,
@@ -5605,7 +5605,7 @@ ReactWrapper {
                                     <h5
                                       className="font-size-14 suggested-item-price"
                                     >
-                                      $24.54
+                                      24.54
                                     </h5>,
                                   ],
                                   "className": "border-right col-md-10 capitalize",
@@ -5634,17 +5634,17 @@ ReactWrapper {
                                     "instance": <h5
                                       class="font-size-14 suggested-item-price"
                                     >
-                                      $24.54
+                                      24.54
                                     </h5>,
                                     "key": undefined,
                                     "nodeType": "host",
                                     "props": Object {
-                                      "children": "$24.54",
+                                      "children": "24.54",
                                       "className": "font-size-14 suggested-item-price",
                                     },
                                     "ref": null,
                                     "rendered": Array [
-                                      "$24.54",
+                                      "24.54",
                                     ],
                                     "type": "h5",
                                   },
@@ -5670,7 +5670,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -5681,7 +5681,7 @@ ReactWrapper {
                                       data-target=""
                                       data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
+                                      id="txboSrf_0"
                                       type="button"
                                     >
                                       <svg
@@ -5711,7 +5711,7 @@ ReactWrapper {
                                       "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
+                                      "id": "txboSrf_0",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -5849,7 +5849,7 @@ ReactWrapper {
                       "props": Object {
                         "handleClick": [Function],
                         "name": "Ham and cheese mellet",
-                        "price": "$14.54",
+                        "price": "14.54",
                       },
                       "ref": null,
                       "rendered": Object {
@@ -5870,7 +5870,7 @@ ReactWrapper {
                               <h5
                                 class="font-size-14 suggested-item-price"
                               >
-                                $14.54
+                                14.54
                               </h5>
                             </div>
                             <button
@@ -5878,7 +5878,7 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="Tte48If2Q"
+                              id="txboSrf_0"
                               type="button"
                             >
                               <svg
@@ -5918,7 +5918,7 @@ ReactWrapper {
                               <h5
                                 className="font-size-14 suggested-item-price"
                               >
-                                $14.54
+                                14.54
                               </h5>
                             </div>
                             <Add
@@ -5944,7 +5944,7 @@ ReactWrapper {
                                 <h5
                                   class="font-size-14 suggested-item-price"
                                 >
-                                  $14.54
+                                  14.54
                                 </h5>
                               </div>
                               <button
@@ -5952,7 +5952,7 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
-                                id="Tte48If2Q"
+                                id="txboSrf_0"
                                 type="button"
                               >
                                 <svg
@@ -5989,7 +5989,7 @@ ReactWrapper {
                                   <h5
                                     className="font-size-14 suggested-item-price"
                                   >
-                                    $14.54
+                                    14.54
                                   </h5>
                                 </div>,
                                 <Add
@@ -6012,7 +6012,7 @@ ReactWrapper {
                                   <h5
                                     class="font-size-14 suggested-item-price"
                                   >
-                                    $14.54
+                                    14.54
                                   </h5>
                                 </div>,
                                 "key": undefined,
@@ -6027,7 +6027,7 @@ ReactWrapper {
                                     <h5
                                       className="font-size-14 suggested-item-price"
                                     >
-                                      $14.54
+                                      14.54
                                     </h5>,
                                   ],
                                   "className": "border-right col-md-10 capitalize",
@@ -6056,17 +6056,17 @@ ReactWrapper {
                                     "instance": <h5
                                       class="font-size-14 suggested-item-price"
                                     >
-                                      $14.54
+                                      14.54
                                     </h5>,
                                     "key": undefined,
                                     "nodeType": "host",
                                     "props": Object {
-                                      "children": "$14.54",
+                                      "children": "14.54",
                                       "className": "font-size-14 suggested-item-price",
                                     },
                                     "ref": null,
                                     "rendered": Array [
-                                      "$14.54",
+                                      "14.54",
                                     ],
                                     "type": "h5",
                                   },
@@ -6092,7 +6092,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
-                                    "id": "Tte48If2Q",
+                                    "id": "txboSrf_0",
                                     "text": "",
                                     "type": "button",
                                   },
@@ -6103,7 +6103,7 @@ ReactWrapper {
                                       data-target=""
                                       data-testid="button"
                                       data-toggle=""
-                                      id="Tte48If2Q"
+                                      id="txboSrf_0"
                                       type="button"
                                     >
                                       <svg
@@ -6133,7 +6133,7 @@ ReactWrapper {
                                       "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
-                                      "id": "Tte48If2Q",
+                                      "id": "txboSrf_0",
                                       "onClick": [Function],
                                       "type": "button",
                                     },

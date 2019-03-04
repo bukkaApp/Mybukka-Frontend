@@ -3,18 +3,18 @@ import React from 'react';
 import UseCurrentLocation from '../UseCurrentLocation';
 
 describe('Use current location ccomponent', () => {
+  const store = mockStore({});
+
   const props = {
-    handleClick: jest.fn(),
+    selectLocation: jest.fn()
   };
-  const wrapper = shallow(<UseCurrentLocation {...props} />);
+  const wrapper = render(
+    <Provider store={store}>
+      <UseCurrentLocation {...props} />
+    </Provider>
+  );
 
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('calls the handleClick prop function whenb the clickable element is clicked', () => {
-    wrapper.find('.suggestion-geo-group').simulate('click');
-
-    expect(props.handleClick).toBeCalled();
   });
 });

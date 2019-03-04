@@ -1,198 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Use current location ccomponent renders properly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <UseCurrentLocation
-    handleClick={[MockFunction]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "checkPropTypes": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="suggestion-geo-group input-group"
+        role="link"
+        tabindex="0"
+      >
         <div
-          className="input-group-prepend"
+          class="input-group-prepend"
         >
           <span
-            className="input-group-text location-arrow"
+            class="input-group-text location-arrow spinner-loading"
           >
-            <LocationArrow />
+            <svg
+              class="css-3n0dwa e13fwc0q0"
+              height="18"
+              viewBox="0 0 18 18"
+              width="18"
+            >
+              <defs>
+                <path
+                  d="M20 28h9v9l9-18z"
+                  id="icon-current-location_svg__a"
+                />
+              </defs>
+              <use
+                fill="#9c1c26"
+                fill-rule="evenodd"
+                transform="translate(-20 -19)"
+                xlink:href="#icon-current-location_svg__a"
+              />
+            </svg>
           </span>
-        </div>,
+        </div>
         <h4
-          className="suggestion text-center d-block"
+          class="suggestion text-center d-block"
         >
           Use current location
-        </h4>,
-      ],
-      "className": "suggestion-geo-group input-group",
-      "onClick": [MockFunction],
-      "role": "link",
-      "tabIndex": 0,
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <span
-            className="input-group-text location-arrow"
+        </h4>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="suggestion-geo-group input-group"
+      role="link"
+      tabindex="0"
+    >
+      <div
+        class="input-group-prepend"
+      >
+        <span
+          class="input-group-text location-arrow spinner-loading"
+        >
+          <svg
+            class="css-3n0dwa e13fwc0q0"
+            height="18"
+            viewBox="0 0 18 18"
+            width="18"
           >
-            <LocationArrow />
-          </span>,
-          "className": "input-group-prepend",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <LocationArrow />,
-            "className": "input-group-text location-arrow",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": "span",
-        },
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Use current location",
-          "className": "suggestion text-center d-block",
-        },
-        "ref": null,
-        "rendered": "Use current location",
-        "type": "h4",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <div
-            className="input-group-prepend"
-          >
-            <span
-              className="input-group-text location-arrow"
-            >
-              <LocationArrow />
-            </span>
-          </div>,
-          <h4
-            className="suggestion text-center d-block"
-          >
-            Use current location
-          </h4>,
-        ],
-        "className": "suggestion-geo-group input-group",
-        "onClick": [MockFunction],
-        "role": "link",
-        "tabIndex": 0,
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <span
-              className="input-group-text location-arrow"
-            >
-              <LocationArrow />
-            </span>,
-            "className": "input-group-prepend",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": <LocationArrow />,
-              "className": "input-group-text location-arrow",
-            },
-            "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {},
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-            "type": "span",
-          },
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Use current location",
-            "className": "suggestion text-center d-block",
-          },
-          "ref": null,
-          "rendered": "Use current location",
-          "type": "h4",
-        },
-      ],
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "legacyContextMode": "parent",
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getChildContext": Object {
-            "calledByRenderer": false,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
+            <defs>
+              <path
+                d="M20 28h9v9l9-18z"
+                id="icon-current-location_svg__a"
+              />
+            </defs>
+            <use
+              fill="#9c1c26"
+              fill-rule="evenodd"
+              transform="translate(-20 -19)"
+              xlink:href="#icon-current-location_svg__a"
+            />
+          </svg>
+        </span>
+      </div>
+      <h4
+        class="suggestion text-center d-block"
+      >
+        Use current location
+      </h4>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
 }
 `;

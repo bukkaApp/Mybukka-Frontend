@@ -1,5 +1,4 @@
 {
-  "google_api": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
   "deliveryTime": [
     "As soon as possible (35-50 mins)",
     "In the next (4-5 hours)",
@@ -10,29 +9,29 @@
   "suggestedTray": [
     {
       "name": "Chicken Tenders and Fries",
-      "price": "$15.73"
+      "price": "15.73"
     },
     {
       "name": "Side of beacon",
-      "price": "$15.73"
+      "price": "15.73"
     }
   ],
   "suggestedItems": [
     {
       "name": "whole milk",
-      "price": "$3.54"
+      "price": "3.54"
     },
     {
       "name": "cheese",
-      "price": "$12.54"
+      "price": "12.54"
     },
     {
       "name": "vegetables",
-      "price": "$24.54"
+      "price": "24.54"
     },
     {
       "name": "Ham and cheese mellet",
-      "price": "$14.54"
+      "price": "14.54"
     }
   ],
   "payment": [

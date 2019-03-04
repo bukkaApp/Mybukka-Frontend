@@ -50,7 +50,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   EDIT
@@ -60,7 +60,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   REMOVE
@@ -74,7 +74,7 @@ Object {
                 class="price-badge-black"
               >
                 ₦
-                $15.73
+                15.73
                 .00
               </h4>
             </div>
@@ -99,7 +99,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   EDIT
@@ -109,7 +109,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   REMOVE
@@ -123,7 +123,7 @@ Object {
                 class="price-badge-black"
               >
                 ₦
-                $15.73
+                15.73
                 .00
               </h4>
             </div>
@@ -150,7 +150,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="Y9LN2qaHR"
+              id="Pj_XzAP3E"
               type="button"
             >
               <svg
@@ -177,7 +177,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="Y9LN2qaHR"
+              id="Pj_XzAP3E"
               type="button"
             >
               <svg
@@ -225,7 +225,7 @@ Object {
                   <h5
                     class="font-size-14 suggested-item-price"
                   >
-                    $3.54
+                    3.54
                   </h5>
                 </div>
                 <button
@@ -233,7 +233,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   <svg
@@ -273,7 +273,7 @@ Object {
                   <h5
                     class="font-size-14 suggested-item-price"
                   >
-                    $12.54
+                    12.54
                   </h5>
                 </div>
                 <button
@@ -281,7 +281,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   <svg
@@ -321,7 +321,7 @@ Object {
                   <h5
                     class="font-size-14 suggested-item-price"
                   >
-                    $24.54
+                    24.54
                   </h5>
                 </div>
                 <button
@@ -329,7 +329,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   <svg
@@ -369,7 +369,7 @@ Object {
                   <h5
                     class="font-size-14 suggested-item-price"
                   >
-                    $14.54
+                    14.54
                   </h5>
                 </div>
                 <button
@@ -377,7 +377,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="Y9LN2qaHR"
+                  id="Pj_XzAP3E"
                   type="button"
                 >
                   <svg
@@ -519,7 +519,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 EDIT
@@ -529,7 +529,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 REMOVE
@@ -543,7 +543,7 @@ Object {
               class="price-badge-black"
             >
               ₦
-              $15.73
+              15.73
               .00
             </h4>
           </div>
@@ -568,7 +568,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 EDIT
@@ -578,7 +578,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 REMOVE
@@ -592,7 +592,7 @@ Object {
               class="price-badge-black"
             >
               ₦
-              $15.73
+              15.73
               .00
             </h4>
           </div>
@@ -619,7 +619,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="Y9LN2qaHR"
+            id="Pj_XzAP3E"
             type="button"
           >
             <svg
@@ -646,7 +646,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="Y9LN2qaHR"
+            id="Pj_XzAP3E"
             type="button"
           >
             <svg
@@ -694,7 +694,7 @@ Object {
                 <h5
                   class="font-size-14 suggested-item-price"
                 >
-                  $3.54
+                  3.54
                 </h5>
               </div>
               <button
@@ -702,7 +702,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 <svg
@@ -742,7 +742,7 @@ Object {
                 <h5
                   class="font-size-14 suggested-item-price"
                 >
-                  $12.54
+                  12.54
                 </h5>
               </div>
               <button
@@ -750,7 +750,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 <svg
@@ -790,7 +790,7 @@ Object {
                 <h5
                   class="font-size-14 suggested-item-price"
                 >
-                  $24.54
+                  24.54
                 </h5>
               </div>
               <button
@@ -798,7 +798,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 <svg
@@ -838,7 +838,7 @@ Object {
                 <h5
                   class="font-size-14 suggested-item-price"
                 >
-                  $14.54
+                  14.54
                 </h5>
               </div>
               <button
@@ -846,7 +846,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="Y9LN2qaHR"
+                id="Pj_XzAP3E"
                 type="button"
               >
                 <svg

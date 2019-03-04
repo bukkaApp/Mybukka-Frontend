@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from '../../modal/Modal';
@@ -13,28 +13,21 @@ const AuthModal = ({ type, push, status }) => {
   if (type === '/signup') {
     AuthForm = AuthenticateRegister;
   }
-  const AuthenticatedAuthForm = () => {
-    const modalOpen = document.body.classList.value;
-    if (authenticated && modalOpen) {
+
+  useEffect(() => {
+    if (authenticated) {
       // close modal
-      document.body.classList.remove('modal-open');
-      document.body.style.padding = 0;
-      document
-        .getElementsByClassName('modal-backdrop fade show')[0]
-        .remove();
-      return null;
+      $('.close').click();
     }
-    return (
-      <div className="container">
-        <Modal classNames="auth-modal">
-          <DismissModal classNames="close mr-5" />
-          <AuthForm authModal history={{ push }} classNames="pt-5" />
-        </Modal>
-      </div>
-    );
-  };
+  });
+
   return (
-    <AuthenticatedAuthForm />
+    <div className="container">
+      <Modal classNames="auth-modal">
+        <DismissModal classNames="close mr-5" />
+        <AuthForm authModal history={{ push }} classNames="pt-5" />
+      </Modal>
+    </div>
   );
 };
 

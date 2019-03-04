@@ -530,7 +530,7 @@ ReactWrapper {
           "loaded": false,
           "map": null,
           "options": Object {
-            "apiKey": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
+            "apiKey": undefined,
             "v": "3",
           },
         },
@@ -982,7 +982,7 @@ ReactWrapper {
             "loaded": false,
             "promise": Promise {},
             "tag": <script
-              src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs&callback=loaderCB01551710041396&libraries=places&v=3&language=en"
+              src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01551786466101&libraries=places&v=3&language=en"
               type="text/javascript"
             />,
           },
@@ -993,7 +993,7 @@ ReactWrapper {
         "loaded": false,
         "map": null,
         "options": Object {
-          "apiKey": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
+          "apiKey": undefined,
           "v": "3",
         },
       },
@@ -1553,7 +1553,7 @@ ReactWrapper {
             "loaded": false,
             "map": null,
             "options": Object {
-              "apiKey": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
+              "apiKey": undefined,
               "v": "3",
             },
           },
@@ -2005,7 +2005,7 @@ ReactWrapper {
               "loaded": false,
               "promise": Promise {},
               "tag": <script
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs&callback=loaderCB01551710041396&libraries=places&v=3&language=en"
+                src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01551786466101&libraries=places&v=3&language=en"
                 type="text/javascript"
               />,
             },
@@ -2016,7 +2016,7 @@ ReactWrapper {
           "loaded": false,
           "map": null,
           "options": Object {
-            "apiKey": "AIzaSyD0ZjQlPBKaXujm4SiKXSwIVVbE-iFw9vs",
+            "apiKey": undefined,
             "v": "3",
           },
         },

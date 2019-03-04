@@ -54,6 +54,7 @@ ReactWrapper {
                 name="number"
                 placeholder="Card number"
                 type="text"
+                value=""
               />
               <span
                 class="text-danger font-size-11"
@@ -73,6 +74,7 @@ ReactWrapper {
                 name="expDate"
                 placeholder="MM/YY"
                 type="text"
+                value=""
               />
               <span
                 class="text-danger font-size-11"
@@ -92,6 +94,7 @@ ReactWrapper {
                 name="cvv"
                 placeholder="CVV"
                 type="text"
+                value=""
               />
               <span
                 class="text-danger font-size-11"
@@ -111,6 +114,7 @@ ReactWrapper {
                 name="zipCode"
                 placeholder="Zip code"
                 type="text"
+                value=""
               />
               <span
                 class="text-danger font-size-11"
@@ -125,6 +129,7 @@ ReactWrapper {
               name="makeDefaultPaymentOption"
               placeholder=""
               type="checkbox"
+              value=""
             />
             <span
               class="make-default-text"
@@ -138,7 +143,7 @@ ReactWrapper {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="D8SpAUgUj"
+              id="nqJNEC9Pb"
               type="button"
             >
               Save
@@ -231,6 +236,7 @@ ReactWrapper {
             >
               <InputField
                 classNames="checkbox"
+                defaultValue=""
                 handleChange={[Function]}
                 handleFocus={[Function]}
                 name="makeDefaultPaymentOption"
@@ -251,7 +257,7 @@ ReactWrapper {
                 dataToggle=""
                 disabled={false}
                 handleClick={[Function]}
-                id="D8SpAUgUj"
+                id="nqJNEC9Pb"
                 text="Save"
                 type="button"
               >
@@ -305,6 +311,7 @@ ReactWrapper {
                   name="number"
                   placeholder="Card number"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -324,6 +331,7 @@ ReactWrapper {
                   name="expDate"
                   placeholder="MM/YY"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -343,6 +351,7 @@ ReactWrapper {
                   name="cvv"
                   placeholder="CVV"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -362,6 +371,7 @@ ReactWrapper {
                   name="zipCode"
                   placeholder="Zip code"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -376,6 +386,7 @@ ReactWrapper {
                 name="makeDefaultPaymentOption"
                 placeholder=""
                 type="checkbox"
+                value=""
               />
               <span
                 class="make-default-text"
@@ -389,7 +400,7 @@ ReactWrapper {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="D8SpAUgUj"
+                id="nqJNEC9Pb"
                 type="button"
               >
                 Save
@@ -470,6 +481,7 @@ ReactWrapper {
               >
                 <InputField
                   classNames="checkbox"
+                  defaultValue=""
                   handleChange={[Function]}
                   handleFocus={[Function]}
                   name="makeDefaultPaymentOption"
@@ -490,7 +502,7 @@ ReactWrapper {
                   dataToggle=""
                   disabled={false}
                   handleClick={[Function]}
-                  id="D8SpAUgUj"
+                  id="nqJNEC9Pb"
                   text="Save"
                   type="button"
                 >
@@ -520,6 +532,7 @@ ReactWrapper {
                     name="number"
                     placeholder="Card number"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -539,6 +552,7 @@ ReactWrapper {
                     name="expDate"
                     placeholder="MM/YY"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -558,6 +572,7 @@ ReactWrapper {
                     name="cvv"
                     placeholder="CVV"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -577,6 +592,7 @@ ReactWrapper {
                     name="zipCode"
                     placeholder="Zip code"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -725,6 +741,7 @@ ReactWrapper {
                           name="number"
                           placeholder="Card number"
                           type="text"
+                          value=""
                         />
                         <span
                           class="text-danger font-size-11"
@@ -742,6 +759,7 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+                            defaultValue=""
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="number"
@@ -791,6 +809,7 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+                            "defaultValue": "",
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "number",
@@ -808,11 +827,13 @@ ReactWrapper {
                               name="number"
                               placeholder="Card number"
                               type="text"
+                              value=""
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "name": "number",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -861,6 +882,7 @@ ReactWrapper {
                           name="expDate"
                           placeholder="MM/YY"
                           type="text"
+                          value=""
                         />
                         <span
                           class="text-danger font-size-11"
@@ -878,6 +900,7 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+                            defaultValue=""
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="expDate"
@@ -927,6 +950,7 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+                            "defaultValue": "",
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "expDate",
@@ -944,11 +968,13 @@ ReactWrapper {
                               name="expDate"
                               placeholder="MM/YY"
                               type="text"
+                              value=""
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "name": "expDate",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -997,6 +1023,7 @@ ReactWrapper {
                           name="cvv"
                           placeholder="CVV"
                           type="text"
+                          value=""
                         />
                         <span
                           class="text-danger font-size-11"
@@ -1014,6 +1041,7 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+                            defaultValue=""
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="cvv"
@@ -1063,6 +1091,7 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+                            "defaultValue": "",
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "cvv",
@@ -1080,11 +1109,13 @@ ReactWrapper {
                               name="cvv"
                               placeholder="CVV"
                               type="text"
+                              value=""
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "name": "cvv",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -1133,6 +1164,7 @@ ReactWrapper {
                           name="zipCode"
                           placeholder="Zip code"
                           type="text"
+                          value=""
                         />
                         <span
                           class="text-danger font-size-11"
@@ -1150,6 +1182,7 @@ ReactWrapper {
                           </label>,
                           <InputField
                             classNames="form-control border-input-style p-0"
+                            defaultValue=""
                             handleChange={[Function]}
                             handleFocus={[Function]}
                             id="zipCode"
@@ -1199,6 +1232,7 @@ ReactWrapper {
                           "nodeType": "function",
                           "props": Object {
                             "classNames": "form-control border-input-style p-0",
+                            "defaultValue": "",
                             "handleChange": [Function],
                             "handleFocus": [Function],
                             "id": "zipCode",
@@ -1216,11 +1250,13 @@ ReactWrapper {
                               name="zipCode"
                               placeholder="Zip code"
                               type="text"
+                              value=""
                             />,
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
                               "className": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "name": "zipCode",
                               "onChange": [Function],
                               "onFocus": [Function],
@@ -1269,6 +1305,7 @@ ReactWrapper {
                   name="makeDefaultPaymentOption"
                   placeholder=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="make-default-text"
@@ -1282,6 +1319,7 @@ ReactWrapper {
                 "children": Array [
                   <InputField
                     classNames="checkbox"
+                    defaultValue=""
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     name="makeDefaultPaymentOption"
@@ -1305,6 +1343,7 @@ ReactWrapper {
                   "nodeType": "function",
                   "props": Object {
                     "classNames": "checkbox",
+                    "defaultValue": "",
                     "handleChange": [Function],
                     "handleFocus": [Function],
                     "name": "makeDefaultPaymentOption",
@@ -1319,11 +1358,13 @@ ReactWrapper {
                       name="makeDefaultPaymentOption"
                       placeholder=""
                       type="checkbox"
+                      value=""
                     />,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
                       "className": "checkbox",
+                      "defaultValue": "",
                       "name": "makeDefaultPaymentOption",
                       "onChange": [Function],
                       "onFocus": [Function],
@@ -1366,7 +1407,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="D8SpAUgUj"
+                  id="nqJNEC9Pb"
                   type="button"
                 >
                   Save
@@ -1381,7 +1422,7 @@ ReactWrapper {
                   dataToggle=""
                   disabled={false}
                   handleClick={[Function]}
-                  id="D8SpAUgUj"
+                  id="nqJNEC9Pb"
                   text="Save"
                   type="button"
                 >
@@ -1401,7 +1442,7 @@ ReactWrapper {
                     "dataToggle": "",
                     "disabled": false,
                     "handleClick": [Function],
-                    "id": "D8SpAUgUj",
+                    "id": "nqJNEC9Pb",
                     "text": "Save",
                     "type": "button",
                   },
@@ -1412,7 +1453,7 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="D8SpAUgUj"
+                      id="nqJNEC9Pb"
                       type="button"
                     >
                       Save
@@ -1426,7 +1467,7 @@ ReactWrapper {
                       "data-testid": "button",
                       "data-toggle": "",
                       "disabled": false,
-                      "id": "D8SpAUgUj",
+                      "id": "nqJNEC9Pb",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -1512,6 +1553,7 @@ ReactWrapper {
                   name="number"
                   placeholder="Card number"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1531,6 +1573,7 @@ ReactWrapper {
                   name="expDate"
                   placeholder="MM/YY"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1550,6 +1593,7 @@ ReactWrapper {
                   name="cvv"
                   placeholder="CVV"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1569,6 +1613,7 @@ ReactWrapper {
                   name="zipCode"
                   placeholder="Zip code"
                   type="text"
+                  value=""
                 />
                 <span
                   class="text-danger font-size-11"
@@ -1583,6 +1628,7 @@ ReactWrapper {
                 name="makeDefaultPaymentOption"
                 placeholder=""
                 type="checkbox"
+                value=""
               />
               <span
                 class="make-default-text"
@@ -1596,7 +1642,7 @@ ReactWrapper {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="D8SpAUgUj"
+                id="nqJNEC9Pb"
                 type="button"
               >
                 Save
@@ -1689,6 +1735,7 @@ ReactWrapper {
               >
                 <InputField
                   classNames="checkbox"
+                  defaultValue=""
                   handleChange={[Function]}
                   handleFocus={[Function]}
                   name="makeDefaultPaymentOption"
@@ -1709,7 +1756,7 @@ ReactWrapper {
                   dataToggle=""
                   disabled={false}
                   handleClick={[Function]}
-                  id="D8SpAUgUj"
+                  id="nqJNEC9Pb"
                   text="Save"
                   type="button"
                 >
@@ -1763,6 +1810,7 @@ ReactWrapper {
                     name="number"
                     placeholder="Card number"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1782,6 +1830,7 @@ ReactWrapper {
                     name="expDate"
                     placeholder="MM/YY"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1801,6 +1850,7 @@ ReactWrapper {
                     name="cvv"
                     placeholder="CVV"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1820,6 +1870,7 @@ ReactWrapper {
                     name="zipCode"
                     placeholder="Zip code"
                     type="text"
+                    value=""
                   />
                   <span
                     class="text-danger font-size-11"
@@ -1834,6 +1885,7 @@ ReactWrapper {
                   name="makeDefaultPaymentOption"
                   placeholder=""
                   type="checkbox"
+                  value=""
                 />
                 <span
                   class="make-default-text"
@@ -1847,7 +1899,7 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="D8SpAUgUj"
+                  id="nqJNEC9Pb"
                   type="button"
                 >
                   Save
@@ -1928,6 +1980,7 @@ ReactWrapper {
                 >
                   <InputField
                     classNames="checkbox"
+                    defaultValue=""
                     handleChange={[Function]}
                     handleFocus={[Function]}
                     name="makeDefaultPaymentOption"
@@ -1948,7 +2001,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
-                    id="D8SpAUgUj"
+                    id="nqJNEC9Pb"
                     text="Save"
                     type="button"
                   >
@@ -1978,6 +2031,7 @@ ReactWrapper {
                       name="number"
                       placeholder="Card number"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -1997,6 +2051,7 @@ ReactWrapper {
                       name="expDate"
                       placeholder="MM/YY"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2016,6 +2071,7 @@ ReactWrapper {
                       name="cvv"
                       placeholder="CVV"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2035,6 +2091,7 @@ ReactWrapper {
                       name="zipCode"
                       placeholder="Zip code"
                       type="text"
+                      value=""
                     />
                     <span
                       class="text-danger font-size-11"
@@ -2183,6 +2240,7 @@ ReactWrapper {
                             name="number"
                             placeholder="Card number"
                             type="text"
+                            value=""
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2200,6 +2258,7 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+                              defaultValue=""
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="number"
@@ -2249,6 +2308,7 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "number",
@@ -2266,11 +2326,13 @@ ReactWrapper {
                                 name="number"
                                 placeholder="Card number"
                                 type="text"
+                                value=""
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+                                "defaultValue": "",
                                 "name": "number",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2319,6 +2381,7 @@ ReactWrapper {
                             name="expDate"
                             placeholder="MM/YY"
                             type="text"
+                            value=""
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2336,6 +2399,7 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+                              defaultValue=""
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="expDate"
@@ -2385,6 +2449,7 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "expDate",
@@ -2402,11 +2467,13 @@ ReactWrapper {
                                 name="expDate"
                                 placeholder="MM/YY"
                                 type="text"
+                                value=""
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+                                "defaultValue": "",
                                 "name": "expDate",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2455,6 +2522,7 @@ ReactWrapper {
                             name="cvv"
                             placeholder="CVV"
                             type="text"
+                            value=""
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2472,6 +2540,7 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+                              defaultValue=""
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="cvv"
@@ -2521,6 +2590,7 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "cvv",
@@ -2538,11 +2608,13 @@ ReactWrapper {
                                 name="cvv"
                                 placeholder="CVV"
                                 type="text"
+                                value=""
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+                                "defaultValue": "",
                                 "name": "cvv",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2591,6 +2663,7 @@ ReactWrapper {
                             name="zipCode"
                             placeholder="Zip code"
                             type="text"
+                            value=""
                           />
                           <span
                             class="text-danger font-size-11"
@@ -2608,6 +2681,7 @@ ReactWrapper {
                             </label>,
                             <InputField
                               classNames="form-control border-input-style p-0"
+                              defaultValue=""
                               handleChange={[Function]}
                               handleFocus={[Function]}
                               id="zipCode"
@@ -2657,6 +2731,7 @@ ReactWrapper {
                             "nodeType": "function",
                             "props": Object {
                               "classNames": "form-control border-input-style p-0",
+                              "defaultValue": "",
                               "handleChange": [Function],
                               "handleFocus": [Function],
                               "id": "zipCode",
@@ -2674,11 +2749,13 @@ ReactWrapper {
                                 name="zipCode"
                                 placeholder="Zip code"
                                 type="text"
+                                value=""
                               />,
                               "key": undefined,
                               "nodeType": "host",
                               "props": Object {
                                 "className": "form-control border-input-style p-0",
+                                "defaultValue": "",
                                 "name": "zipCode",
                                 "onChange": [Function],
                                 "onFocus": [Function],
@@ -2727,6 +2804,7 @@ ReactWrapper {
                     name="makeDefaultPaymentOption"
                     placeholder=""
                     type="checkbox"
+                    value=""
                   />
                   <span
                     class="make-default-text"
@@ -2740,6 +2818,7 @@ ReactWrapper {
                   "children": Array [
                     <InputField
                       classNames="checkbox"
+                      defaultValue=""
                       handleChange={[Function]}
                       handleFocus={[Function]}
                       name="makeDefaultPaymentOption"
@@ -2763,6 +2842,7 @@ ReactWrapper {
                     "nodeType": "function",
                     "props": Object {
                       "classNames": "checkbox",
+                      "defaultValue": "",
                       "handleChange": [Function],
                       "handleFocus": [Function],
                       "name": "makeDefaultPaymentOption",
@@ -2777,11 +2857,13 @@ ReactWrapper {
                         name="makeDefaultPaymentOption"
                         placeholder=""
                         type="checkbox"
+                        value=""
                       />,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
                         "className": "checkbox",
+                        "defaultValue": "",
                         "name": "makeDefaultPaymentOption",
                         "onChange": [Function],
                         "onFocus": [Function],
@@ -2824,7 +2906,7 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="D8SpAUgUj"
+                    id="nqJNEC9Pb"
                     type="button"
                   >
                     Save
@@ -2839,7 +2921,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
-                    id="D8SpAUgUj"
+                    id="nqJNEC9Pb"
                     text="Save"
                     type="button"
                   >
@@ -2859,7 +2941,7 @@ ReactWrapper {
                       "dataToggle": "",
                       "disabled": false,
                       "handleClick": [Function],
-                      "id": "D8SpAUgUj",
+                      "id": "nqJNEC9Pb",
                       "text": "Save",
                       "type": "button",
                     },
@@ -2870,7 +2952,7 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="D8SpAUgUj"
+                        id="nqJNEC9Pb"
                         type="button"
                       >
                         Save
@@ -2884,7 +2966,7 @@ ReactWrapper {
                         "data-testid": "button",
                         "data-toggle": "",
                         "disabled": false,
-                        "id": "D8SpAUgUj",
+                        "id": "nqJNEC9Pb",
                         "onClick": [Function],
                         "type": "button",
                       },
