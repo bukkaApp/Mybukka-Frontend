@@ -7,7 +7,8 @@
     "start": "npm run build && node server/server.js",
     "start:dev": "webpack-dev-server --host 0.0.0.0 --hot --mode development",
     "build": "webpack --mode production",
-    "test": "jest test --u --runInBand"
+    "test": "jest test --u --runInBand",
+    "test:watch": "jest test --u --runInBand --watch"
   },
   "repository": {
     "type": "git",

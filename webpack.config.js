@@ -1,4 +1,7 @@
+require('dotenv').config();
+
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -6,6 +9,10 @@ const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   inject: 'body',
+});
+
+const defineVariablesPlugin = new webpack.DefinePlugin({
+  'process.env.GOOGLE_API_KEY': JSON.stringify(process.env.GOOGLE_API_KEY)
 });
 
 module.exports = {
@@ -24,6 +31,7 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
     extractTextPlugin,
+    defineVariablesPlugin,
   ],
   module: {
     rules: [
@@ -72,6 +80,7 @@ module.exports = {
       Components: path.resolve(__dirname, 'src/components'),
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
+      Utils: path.resolve(__dirname, 'src/utils'),
     },
   },
 };

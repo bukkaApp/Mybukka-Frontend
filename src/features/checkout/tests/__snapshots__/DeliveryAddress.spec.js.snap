@@ -59,6 +59,7 @@ Object {
               name="streetAddress1"
               placeholder="Address"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -78,6 +79,7 @@ Object {
               name="streetAddress2"
               placeholder="Apt no or company name"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -97,6 +99,7 @@ Object {
               name="contactName"
               placeholder="Contact name"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -116,6 +119,7 @@ Object {
               name="phoneNumber"
               placeholder="Phone number"
               type="text"
+              value=""
             />
             <span
               class="text-danger font-size-11"
@@ -200,6 +204,7 @@ Object {
             name="streetAddress1"
             placeholder="Address"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -219,6 +224,7 @@ Object {
             name="streetAddress2"
             placeholder="Apt no or company name"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -238,6 +244,7 @@ Object {
             name="contactName"
             placeholder="Contact name"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"
@@ -257,6 +264,7 @@ Object {
             name="phoneNumber"
             placeholder="Phone number"
             type="text"
+            value=""
           />
           <span
             class="text-danger font-size-11"

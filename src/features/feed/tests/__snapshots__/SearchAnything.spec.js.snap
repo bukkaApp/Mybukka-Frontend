@@ -54,6 +54,7 @@ ReactWrapper {
           name="search"
           placeholder="Search for anything..."
           type="text"
+          value=""
         />
       </div>,
       "key": undefined,
@@ -71,6 +72,7 @@ ReactWrapper {
           </div>,
           <InputField
             classNames="text-field form-control"
+            defaultValue=""
             handleChange={[Function]}
             handleFocus={[Function]}
             name="search"
@@ -279,6 +281,7 @@ ReactWrapper {
           "nodeType": "function",
           "props": Object {
             "classNames": "text-field form-control",
+            "defaultValue": "",
             "handleChange": [Function],
             "handleFocus": [Function],
             "name": "search",
@@ -292,11 +295,13 @@ ReactWrapper {
               name="search"
               placeholder="Search for anything..."
               type="text"
+              value=""
             />,
             "key": undefined,
             "nodeType": "host",
             "props": Object {
               "className": "text-field form-control",
+              "defaultValue": "",
               "name": "search",
               "onChange": [Function],
               "onFocus": [Function],
@@ -359,6 +364,7 @@ ReactWrapper {
             name="search"
             placeholder="Search for anything..."
             type="text"
+            value=""
           />
         </div>,
         "key": undefined,
@@ -376,6 +382,7 @@ ReactWrapper {
             </div>,
             <InputField
               classNames="text-field form-control"
+              defaultValue=""
               handleChange={[Function]}
               handleFocus={[Function]}
               name="search"
@@ -584,6 +591,7 @@ ReactWrapper {
             "nodeType": "function",
             "props": Object {
               "classNames": "text-field form-control",
+              "defaultValue": "",
               "handleChange": [Function],
               "handleFocus": [Function],
               "name": "search",
@@ -597,11 +605,13 @@ ReactWrapper {
                 name="search"
                 placeholder="Search for anything..."
                 type="text"
+                value=""
               />,
               "key": undefined,
               "nodeType": "host",
               "props": Object {
                 "className": "text-field form-control",
+                "defaultValue": "",
                 "name": "search",
                 "onChange": [Function],
                 "onFocus": [Function],

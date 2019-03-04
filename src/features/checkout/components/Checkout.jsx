@@ -2,6 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import Map from 'Components/map';
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
@@ -9,7 +10,6 @@ import DeliveryAddress from './DeliveryAddress';
 import Time from './Time';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
-import Map from '../common/Map';
 
 import './checkout.scss';
 

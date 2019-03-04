@@ -23,9 +23,9 @@ const SmallTextSection = () => (
   </div>
 );
 
-const SearchLocationSection = () => (
+const SearchLocationSection = ({ push }) => (
   <div className="container search-location-section">
-    <SearchLocation />
+    <SearchLocation push={push} />
   </div>
 );
 
@@ -34,12 +34,16 @@ const IntroSection = ({ push }) => (
     <PrimaryNavbar push={push} />
     <LargeTextSection />
     <SmallTextSection />
-    <SearchLocationSection />
+    <SearchLocationSection push={push} />
   </div>
 );
 
 export default IntroSection;
 
 IntroSection.propTypes = {
+  push: PropTypes.func.isRequired,
+};
+
+SearchLocationSection.propTypes = {
   push: PropTypes.func.isRequired,
 };
