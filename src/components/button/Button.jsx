@@ -23,6 +23,7 @@ const Button = ({
     disabled={disabled}
     data-target={dataTarget}
     data-toggle={dataToggle}
+    data-testid="button"
     id={id}
   >
     {text || children}

@@ -13,7 +13,7 @@ const Divider = () => (
 );
 
 const SubmitButton = ({ ...props }) => (
-  <div className="padding test-button">
+  <div className="padding">
     <Button {...props} />
   </div>
 );
@@ -24,6 +24,7 @@ const AuthButtonGroup = props => (
   <Fragment>
     <SubmitButton
       type="submit"
+      id="submit"
       classNames={
         !props.isFormCompleted
           ? 'disabled col-md-12 primary-button mt-5'

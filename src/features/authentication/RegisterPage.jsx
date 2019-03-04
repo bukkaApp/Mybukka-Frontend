@@ -11,6 +11,7 @@ import authenticate from './actionCreators/authenticate';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signUpDomStructure from './signUpDomStructure.json';
+import './auth.scss';
 
 export const RegisterPage = ({
   authModal,

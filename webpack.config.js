@@ -22,17 +22,21 @@ module.exports = {
     contentBase: './build',
     port: 7700,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.js'
   },
+<<<<<<< HEAD
   plugins: [
     HtmlWebpackPluginConfig,
     extractTextPlugin,
     defineVariablesPlugin,
   ],
+=======
+  plugins: [HtmlWebpackPluginConfig, extractTextPlugin],
+>>>>>>> refactor(redux): refactor authentication pages
   module: {
     rules: [
       {
@@ -71,8 +75,8 @@ module.exports = {
       {
         test: /\.(mp3)$/,
         loader: 'file-loader?name=sounds/[name].[ext]'
-      },
-    ],
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -80,7 +84,7 @@ module.exports = {
       Components: path.resolve(__dirname, 'src/components'),
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
-      Utils: path.resolve(__dirname, 'src/utils'),
+      Utilities: path.resolve(__dirname, 'src/utils'),
     },
   },
 };

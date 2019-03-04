@@ -12,6 +12,7 @@ import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
+import './auth.scss';
 
 export const LoginPage = ({
   status,

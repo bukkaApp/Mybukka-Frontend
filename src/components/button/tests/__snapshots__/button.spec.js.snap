@@ -9,7 +9,7 @@ ShallowWrapper {
     dataToggle=""
     disabled={false}
     handleClick={[MockFunction]}
-    id="vY2QDk6qY"
+    id="RAMWBeT1L"
     text="SIGN IN"
     type="button"
   >
@@ -32,9 +32,10 @@ ShallowWrapper {
       "children": "SIGN IN",
       "className": "small-button",
       "data-target": "",
+      "data-testid": "button",
       "data-toggle": "",
       "disabled": false,
-      "id": "vY2QDk6qY",
+      "id": "RAMWBeT1L",
       "onClick": [MockFunction],
       "type": "button",
     },
@@ -51,9 +52,10 @@ ShallowWrapper {
         "children": "SIGN IN",
         "className": "small-button",
         "data-target": "",
+        "data-testid": "button",
         "data-toggle": "",
         "disabled": false,
-        "id": "vY2QDk6qY",
+        "id": "RAMWBeT1L",
         "onClick": [MockFunction],
         "type": "button",
       },

@@ -17,10 +17,10 @@ const AuthModal = ({ type, push, status }) => {
     const modalOpen = document.body.classList.value;
     if (authenticated && modalOpen) {
       // close modal
-      document.body.classList.remove("modal-open");
+      document.body.classList.remove('modal-open');
       document.body.style.padding = 0;
       document
-        .getElementsByClassName("modal-backdrop fade show")[0]
+        .getElementsByClassName('modal-backdrop fade show')[0]
         .remove();
       return null;
     }
@@ -32,7 +32,7 @@ const AuthModal = ({ type, push, status }) => {
         </Modal>
       </div>
     );
-  }
+  };
   return (
     <AuthenticatedAuthForm />
   );

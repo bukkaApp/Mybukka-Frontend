@@ -1,9 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DeliveryOrPickupNav component renders properly 1`] = `
+exports[`Primary Navbar renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(DeliveryOrPickupNav) />,
+  Symbol(enzyme.__unrendered__): <Connect(AuthModal)
+    navigateToNextRoute={[MockFunction]}
+    push={[MockFunction]}
+    status={
+      Object {
+        "authenticated": false,
+      }
+    }
+    type="Sign In"
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],

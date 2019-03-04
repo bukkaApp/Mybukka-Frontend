@@ -48,7 +48,9 @@ Object {
                 <button
                   class="cart-action-button-primary"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   EDIT
@@ -56,7 +58,9 @@ Object {
                 <button
                   class="cart-action-button-default"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   REMOVE
@@ -93,7 +97,9 @@ Object {
                 <button
                   class="cart-action-button-primary"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   EDIT
@@ -101,7 +107,9 @@ Object {
                 <button
                   class="cart-action-button-default"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   REMOVE
@@ -126,7 +134,8 @@ Object {
         class="container suggested-items-section bg-gutter"
       >
         <div
-          class="d-flex justify-content-between align-items-center text-center"
+          class="d-flex
+ justify-content-between align-items-center text-center"
         >
           <h4
             class="font-size-14"
@@ -139,7 +148,9 @@ Object {
             <button
               class="left btn-chevron"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="Y9LN2qaHR"
               type="button"
             >
               <svg
@@ -164,7 +175,9 @@ Object {
             <button
               class="right btn-chevron"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="Y9LN2qaHR"
               type="button"
             >
               <svg
@@ -218,7 +231,9 @@ Object {
                 <button
                   class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   <svg
@@ -264,7 +279,9 @@ Object {
                 <button
                   class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   <svg
@@ -310,7 +327,9 @@ Object {
                 <button
                   class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   <svg
@@ -356,7 +375,9 @@ Object {
                 <button
                   class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="Y9LN2qaHR"
                   type="button"
                 >
                   <svg
@@ -496,7 +517,9 @@ Object {
               <button
                 class="cart-action-button-primary"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 EDIT
@@ -504,7 +527,9 @@ Object {
               <button
                 class="cart-action-button-default"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 REMOVE
@@ -541,7 +566,9 @@ Object {
               <button
                 class="cart-action-button-primary"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 EDIT
@@ -549,7 +576,9 @@ Object {
               <button
                 class="cart-action-button-default"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 REMOVE
@@ -574,7 +603,8 @@ Object {
       class="container suggested-items-section bg-gutter"
     >
       <div
-        class="d-flex justify-content-between align-items-center text-center"
+        class="d-flex
+ justify-content-between align-items-center text-center"
       >
         <h4
           class="font-size-14"
@@ -587,7 +617,9 @@ Object {
           <button
             class="left btn-chevron"
             data-target=""
+            data-testid="button"
             data-toggle=""
+            id="Y9LN2qaHR"
             type="button"
           >
             <svg
@@ -612,7 +644,9 @@ Object {
           <button
             class="right btn-chevron"
             data-target=""
+            data-testid="button"
             data-toggle=""
+            id="Y9LN2qaHR"
             type="button"
           >
             <svg
@@ -666,7 +700,9 @@ Object {
               <button
                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 <svg
@@ -712,7 +748,9 @@ Object {
               <button
                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 <svg
@@ -758,7 +796,9 @@ Object {
               <button
                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 <svg
@@ -804,7 +844,9 @@ Object {
               <button
                 class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="Y9LN2qaHR"
                 type="button"
               >
                 <svg
