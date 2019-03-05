@@ -5,11 +5,15 @@ import thunk from 'redux-thunk';
 import homeReducer from 'Components/navbar/reducers';
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
+
 import deliveryModeReducer from
   '../components/common-navs/reducers/deliveryModeReducer';
 import selectedLocationReducer from './selectedLocationReducer';
 
-import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
+import locationsPredictionReducer from
+  '../features/home/reducers/locationsPredictionReducer';
+
+import bukkasReducer from '../features/feed/reducers/bukkasReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -18,6 +22,7 @@ const reducer = combineReducers({
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,
+  bukkasReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

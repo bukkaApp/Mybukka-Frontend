@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
-import SearchLocation from '../common/SearchLocation';
+import SearchLocation from 'Components/common-navs/SearchLocation';
+
 import './introsection.scss';
 
 const LargeTextSection = () => (

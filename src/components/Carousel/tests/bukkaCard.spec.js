@@ -9,7 +9,7 @@ describe('BukkaCard component', () => {
     classNames: 'col-lg-3',
     imageHeight: 'img-height',
     textOverlay: true,
-    image: 'http://some-image',
+    imageUrl: 'http://some-image',
   };
   const wrapper = shallow(<BukkaCard {...props} />);
 

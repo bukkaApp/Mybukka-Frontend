@@ -1185,7 +1185,11 @@ ReactWrapper {
                 },
                 Object {
                   "instance": null,
+<<<<<<< HEAD
                   "key": "TnyCWsVyDj",
+=======
+                  "key": "c3uas8SD0b",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -2348,7 +2352,11 @@ ReactWrapper {
                 "rendered": Array [
                   Object {
                     "instance": null,
+<<<<<<< HEAD
                     "key": "Y48Yp_2FIr",
+=======
+                    "key": "XoYc_lLJer",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -3005,7 +3013,11 @@ ReactWrapper {
                   },
                   Object {
                     "instance": null,
+<<<<<<< HEAD
                     "key": "TnyCWsVyDj",
+=======
+                    "key": "c3uas8SD0b",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard

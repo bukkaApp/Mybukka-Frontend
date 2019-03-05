@@ -5,7 +5,6 @@ import Modal from '../../modal/Modal';
 import DismissModal from '../../modal/DismissModal';
 import AuthenticateLogin from '../../../features/authentication/LoginPage';
 import AuthenticateRegister from '../../../features/authentication/RegisterPage';
-import './authmodal.scss';
 
 const AuthModal = ({ type, push, status }) => {
   const { authenticated } = status;

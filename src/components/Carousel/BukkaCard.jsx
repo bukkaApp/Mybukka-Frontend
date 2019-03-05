@@ -30,15 +30,15 @@ const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
       {rating && <span className="rating">{rating}</span>}
     </h3>
     <div className="delivery">
-      <Price price={deliveryCost} />
-      <i className="dot-spacing">.</i>
+      {deliveryCost ? <Price price={deliveryCost} /> : null}
+      {deliveryCost ? <i className="dot-spacing">.</i> : null}
       <div className="delivery-time-text">{deliveryTime}</div>
     </div>
   </div>
 );
 
 const BukkaCard = ({
-  image,
+  imageUrl,
   deliveryCost,
   deliveryTime,
   rating,
@@ -46,7 +46,7 @@ const BukkaCard = ({
   textOverlay
 }) => (
   <div className={['mt-4 bukka-card'].join(' ')}>
-    <img className={`bukka-img ${imageHeight}`} src={image} alt="alt_image" />
+    <img className={`bukka-img ${imageHeight}`} src={imageUrl} alt="alt_image" />
     {textOverlay && <TextOverlay />}
     {!textOverlay && (
       <NormalText
@@ -71,26 +71,28 @@ const GetBukka = ({ classNames, ...props }) => (
 export default GetBukka;
 
 NormalText.defaultProps = {
-  deliveryTime: '',
-  rating: ''
+  deliveryTime: '20 - 40',
+  rating: '',
+  deliveryCost: 0
 };
 
 NormalText.propTypes = {
-  deliveryCost: PropTypes.number.isRequired,
+  deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
   rating: PropTypes.string
 };
 
 BukkaCard.defaultProps = {
-  deliveryTime: '',
+  deliveryTime: '20 - 40',
   rating: '',
   imageHeight: '',
-  textOverlay: false
+  textOverlay: false,
+  deliveryCost: 0,
 };
 
 BukkaCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  deliveryCost: PropTypes.number.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
   rating: PropTypes.string,
   imageHeight: PropTypes.string,

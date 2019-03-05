@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Container from '../container';
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
-import UseCurrentLocation from './UseCurrentLocation';
-import GeoSuggestions from './GeoSuggestions';
 import MapMarker from '../icons/MapMarker';
 
 import './LocationNavLargeScreen.scss';
@@ -33,17 +31,11 @@ const DeliveryOrPickupNav = ({ handleClick, isDeliveryorPickup }) => (
   </div>
 );
 
-const SuggestionsDropdown = ({ handleClick }) => (
+const SuggestionsDropdown = () => (
   <div className="suggestion-dropdown">
-    <SearchLocation />
-    <UseCurrentLocation handleClick={handleClick} />
-    <GeoSuggestions
-      handleClick={handleClick}
-      suggestions={[
-        { location: 'Mende Maryland, Lagos', key: '1' },
-        { location: 'Mende Maryland, Lagos', key: '2' },
-        { location: 'Mende Maryland, Lagos', key: '3' }
-      ]}
+    <SearchLocation
+      chevronButtonVisible={false}
+      showDeliveryOrPickupNav={false}
     />
   </div>
 );

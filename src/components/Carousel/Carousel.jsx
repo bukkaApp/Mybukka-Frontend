@@ -82,7 +82,7 @@ const Carousel = ({
             {slideItems.map(bukka => (
               <FoodCard
                 key={shortId.generate()}
-                image={bukka.image}
+                imageUrl={bukka.imageUrl}
                 deliveryCost={bukka.deliveryCost}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}

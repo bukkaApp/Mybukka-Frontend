@@ -12,9 +12,7 @@ import ReadyToOrderSection from './components/ReadyToOrderSection';
 
 const Home = ({ history: { push }, coordinates }) => {
   useEffect(
-    () => () => {
-      push('/feed');
-    },
+    () => () => push('/feed'),
     [coordinates]
   );
 
@@ -45,5 +43,5 @@ Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number)
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
