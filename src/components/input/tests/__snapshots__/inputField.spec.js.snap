@@ -5,6 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <InputField
     classNames="default-btn"
+    defaultValue=""
     handleChange={[MockFunction]}
     handleFocus={[MockFunction]}
     name="test"
@@ -26,6 +27,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "className": "default-btn",
+      "defaultValue": "",
       "name": "test",
       "onChange": [MockFunction],
       "onFocus": [MockFunction],
@@ -43,6 +45,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "className": "default-btn",
+        "defaultValue": "",
         "name": "test",
         "onChange": [MockFunction],
         "onFocus": [MockFunction],

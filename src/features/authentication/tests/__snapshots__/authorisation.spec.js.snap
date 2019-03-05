@@ -3,7 +3,18 @@
 exports[`authorisation component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Authentication
+  Symbol(enzyme.__unrendered__): <AuthContainer
+    authModal={false}
+    domStructure={
+      Array [
+        Object {
+          "id": "firstName",
+          "name": "firstName",
+          "placeholder": "First Name",
+          "type": "text",
+        },
+      ]
+    }
     handleChange={[MockFunction]}
     handleSubmit={[MockFunction]}
     isFormCompleted={true}
@@ -24,129 +35,55 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
-        <Container
-          classNames="form-container"
-        >
-          <Wrapper>
-            <h2
-              className="text-center pt-4 font-size"
-            >
-              Sign Up
-            </h2>
-            <Form
-              domStructure={Object {}}
-              errorMessage=""
-              handleChange={[MockFunction]}
-              handleSubmit={[MockFunction]}
-              isFormCompleted={true}
-              title="Sign Up"
-              type="signin"
-              validationErrors={Object {}}
-            />
-          </Wrapper>
-        </Container>,
-        <logo />,
-      ],
-      "className": "bg-color full-height auth-page",
+      "children": <Authentication
+        authModal={false}
+        classNames=""
+        domStructure={
+          Array [
+            Object {
+              "id": "firstName",
+              "name": "firstName",
+              "placeholder": "First Name",
+              "type": "text",
+            },
+          ]
+        }
+        handleChange={[MockFunction]}
+        handleSubmit={[MockFunction]}
+        isFormCompleted={true}
+        slideToNextInput={false}
+        title="Sign Up"
+        type="signin"
+      />,
+      "className": "pt-2 mx-auto col-lg-4 col-md-6 col-sm-8",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "children": <Wrapper>
-            <h2
-              className="text-center pt-4 font-size"
-            >
-              Sign Up
-            </h2>
-            <Form
-              domStructure={Object {}}
-              errorMessage=""
-              handleChange={[MockFunction]}
-              handleSubmit={[MockFunction]}
-              isFormCompleted={true}
-              title="Sign Up"
-              type="signin"
-              validationErrors={Object {}}
-            />
-          </Wrapper>,
-          "classNames": "form-container",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": Array [
-              <h2
-                className="text-center pt-4 font-size"
-              >
-                Sign Up
-              </h2>,
-              <Form
-                domStructure={Object {}}
-                errorMessage=""
-                handleChange={[MockFunction]}
-                handleSubmit={[MockFunction]}
-                isFormCompleted={true}
-                title="Sign Up"
-                type="signin"
-                validationErrors={Object {}}
-              />,
-            ],
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "authModal": false,
+        "classNames": "",
+        "domStructure": Array [
+          Object {
+            "id": "firstName",
+            "name": "firstName",
+            "placeholder": "First Name",
+            "type": "text",
           },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Sign Up",
-                "className": "text-center pt-4 font-size",
-              },
-              "ref": null,
-              "rendered": "Sign Up",
-              "type": "h2",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "domStructure": Object {},
-                "errorMessage": "",
-                "handleChange": [MockFunction],
-                "handleSubmit": [MockFunction],
-                "isFormCompleted": true,
-                "title": "Sign Up",
-                "type": "signin",
-                "validationErrors": Object {},
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": [Function],
-        },
-        "type": [Function],
+        ],
+        "handleChange": [MockFunction],
+        "handleSubmit": [MockFunction],
+        "isFormCompleted": true,
+        "slideToNextInput": false,
+        "title": "Sign Up",
+        "type": "signin",
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-    ],
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
     "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
@@ -155,129 +92,55 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": Array [
-          <Container
-            classNames="form-container"
-          >
-            <Wrapper>
-              <h2
-                className="text-center pt-4 font-size"
-              >
-                Sign Up
-              </h2>
-              <Form
-                domStructure={Object {}}
-                errorMessage=""
-                handleChange={[MockFunction]}
-                handleSubmit={[MockFunction]}
-                isFormCompleted={true}
-                title="Sign Up"
-                type="signin"
-                validationErrors={Object {}}
-              />
-            </Wrapper>
-          </Container>,
-          <logo />,
-        ],
-        "className": "bg-color full-height auth-page",
+        "children": <Authentication
+          authModal={false}
+          classNames=""
+          domStructure={
+            Array [
+              Object {
+                "id": "firstName",
+                "name": "firstName",
+                "placeholder": "First Name",
+                "type": "text",
+              },
+            ]
+          }
+          handleChange={[MockFunction]}
+          handleSubmit={[MockFunction]}
+          isFormCompleted={true}
+          slideToNextInput={false}
+          title="Sign Up"
+          type="signin"
+        />,
+        "className": "pt-2 mx-auto col-lg-4 col-md-6 col-sm-8",
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": <Wrapper>
-              <h2
-                className="text-center pt-4 font-size"
-              >
-                Sign Up
-              </h2>
-              <Form
-                domStructure={Object {}}
-                errorMessage=""
-                handleChange={[MockFunction]}
-                handleSubmit={[MockFunction]}
-                isFormCompleted={true}
-                title="Sign Up"
-                type="signin"
-                validationErrors={Object {}}
-              />
-            </Wrapper>,
-            "classNames": "form-container",
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": Array [
-                <h2
-                  className="text-center pt-4 font-size"
-                >
-                  Sign Up
-                </h2>,
-                <Form
-                  domStructure={Object {}}
-                  errorMessage=""
-                  handleChange={[MockFunction]}
-                  handleSubmit={[MockFunction]}
-                  isFormCompleted={true}
-                  title="Sign Up"
-                  type="signin"
-                  validationErrors={Object {}}
-                />,
-              ],
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "authModal": false,
+          "classNames": "",
+          "domStructure": Array [
+            Object {
+              "id": "firstName",
+              "name": "firstName",
+              "placeholder": "First Name",
+              "type": "text",
             },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Sign Up",
-                  "className": "text-center pt-4 font-size",
-                },
-                "ref": null,
-                "rendered": "Sign Up",
-                "type": "h2",
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "domStructure": Object {},
-                  "errorMessage": "",
-                  "handleChange": [MockFunction],
-                  "handleSubmit": [MockFunction],
-                  "isFormCompleted": true,
-                  "title": "Sign Up",
-                  "type": "signin",
-                  "validationErrors": Object {},
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": [Function],
-          },
-          "type": [Function],
+          ],
+          "handleChange": [MockFunction],
+          "handleSubmit": [MockFunction],
+          "isFormCompleted": true,
+          "slideToNextInput": false,
+          "title": "Sign Up",
+          "type": "signin",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
       "type": "div",
     },
   ],

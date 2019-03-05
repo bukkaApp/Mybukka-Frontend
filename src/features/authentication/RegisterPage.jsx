@@ -3,7 +3,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import Authentication from './components/Authentication';
 
 import Logo from './common/Logo';
@@ -11,6 +11,7 @@ import authenticate from './actionCreators/authenticate';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signUpDomStructure from './signUpDomStructure.json';
+import './auth.scss';
 
 export const RegisterPage = ({
   authModal,

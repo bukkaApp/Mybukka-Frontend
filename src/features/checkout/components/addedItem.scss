@@ -1,0 +1,44 @@
+.action-item-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.item-name {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.order-tray {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.added-items-wrapper {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.cart-bukka-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 12px;
+  border-bottom: 1px solid #eceff1;
+}
+
+.view-menu-text {
+  font-size: 12px;
+}
+
+.cart-bukka-name {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768.98px) {
+  .added-items-wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

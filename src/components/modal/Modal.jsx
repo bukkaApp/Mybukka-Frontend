@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import './modal.scss';
 
-const Modal = ({ children, classNames }) => (
+const Modal = ({ children, classNames, dataTarget }) => (
   <div
     className="modal fade"
-    id="modal"
+    id={dataTarget}
     tabIndex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
@@ -27,7 +27,8 @@ const Modal = ({ children, classNames }) => (
 export default Modal;
 
 Modal.defaultProps = {
-  classNames: ''
+  classNames: '',
+  dataTarget: 'modal',
 };
 
 Modal.propTypes = {
@@ -35,5 +36,6 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  classNames: PropTypes.string
+  classNames: PropTypes.string,
+  dataTarget: PropTypes.string,
 };

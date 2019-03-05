@@ -1,5 +1,4 @@
 import React from 'react';
-import Brand from 'Components/brand/Brand';
 import './navbar.scss';
 
 const UserDefaultImage = () => (

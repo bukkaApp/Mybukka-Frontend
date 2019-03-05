@@ -1,0 +1,1071 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileImageSection component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <ProfileImageSection />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {},
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ProfileImage
+            imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+          />,
+          <UploadImageSection />,
+        ],
+        "classNames": "profile-image-section",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="container profile-image-section"
+        >
+          <div
+            class="profile-image-div text-center"
+          >
+            <img
+              alt=""
+              class="img-fluid profile-photo"
+              src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+            />
+            <div
+              class="d-lg-none profile-header-small"
+            >
+              <div
+                class="container profile-header"
+              >
+                <h1
+                  class="profile-header-title"
+                >
+                  Efosa
+                   
+                  Okpugie
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            class="upload-image-button-section d-flex justify-content-center"
+          >
+            <button
+              class="button-upload"
+              data-target=""
+              data-testid="button"
+              data-toggle=""
+              id="HYdJZzuIe"
+              type="button"
+            >
+              <span
+                class="button-text"
+              >
+                Change Photo
+                <input
+                  class="select-photo"
+                  name="selectFile"
+                  placeholder=""
+                  type="file"
+                  value=""
+                />
+              </span>
+            </button>
+          </div>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <ProfileImage
+              imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+            />,
+            <UploadImageSection />,
+          ],
+          "className": "container profile-image-section",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="profile-image-div text-center"
+              >
+                <img
+                  alt=""
+                  class="img-fluid profile-photo"
+                  src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                />
+                <div
+                  class="d-lg-none profile-header-small"
+                >
+                  <div
+                    class="container profile-header"
+                  >
+                    <h1
+                      class="profile-header-title"
+                    >
+                      Efosa
+                       
+                      Okpugie
+                    </h1>
+                  </div>
+                </div>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt=""
+                    className="img-fluid profile-photo"
+                    src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                  />,
+                  <div
+                    className="d-lg-none profile-header-small"
+                  >
+                    <ProfileHeaderTitle
+                      firstName="Efosa"
+                      lastName="Okpugie"
+                    />
+                  </div>,
+                ],
+                "className": "profile-image-div text-center",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": <img
+                    alt=""
+                    class="img-fluid profile-photo"
+                    src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                  />,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "",
+                    "className": "img-fluid profile-photo",
+                    "src": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    undefined,
+                  ],
+                  "type": "img",
+                },
+                Object {
+                  "instance": <div
+                    class="d-lg-none profile-header-small"
+                  >
+                    <div
+                      class="container profile-header"
+                    >
+                      <h1
+                        class="profile-header-title"
+                      >
+                        Efosa
+                         
+                        Okpugie
+                      </h1>
+                    </div>
+                  </div>,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <ProfileHeaderTitle
+                      firstName="Efosa"
+                      lastName="Okpugie"
+                    />,
+                    "className": "d-lg-none profile-header-small",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "firstName": "Efosa",
+                        "lastName": "Okpugie",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "children": <h1
+                            className="profile-header-title"
+                          >
+                            Efosa
+                             
+                            Okpugie
+                          </h1>,
+                          "classNames": "profile-header",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": <div
+                            class="container profile-header"
+                          >
+                            <h1
+                              class="profile-header-title"
+                            >
+                              Efosa
+                               
+                              Okpugie
+                            </h1>
+                          </div>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <h1
+                              className="profile-header-title"
+                            >
+                              Efosa
+                               
+                              Okpugie
+                            </h1>,
+                            "className": "container profile-header",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": <h1
+                                class="profile-header-title"
+                              >
+                                Efosa
+                                 
+                                Okpugie
+                              </h1>,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": Array [
+                                  "Efosa",
+                                  " ",
+                                  "Okpugie",
+                                ],
+                                "className": "profile-header-title",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                "Efosa",
+                                " ",
+                                "Okpugie",
+                              ],
+                              "type": "h1",
+                            },
+                          ],
+                          "type": "div",
+                        },
+                        "type": [Function],
+                      },
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {},
+            "ref": null,
+            "rendered": Object {
+              "instance": <div
+                class="upload-image-button-section d-flex justify-content-center"
+              >
+                <button
+                  class="button-upload"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="HYdJZzuIe"
+                  type="button"
+                >
+                  <span
+                    class="button-text"
+                  >
+                    Change Photo
+                    <input
+                      class="select-photo"
+                      name="selectFile"
+                      placeholder=""
+                      type="file"
+                      value=""
+                    />
+                  </span>
+                </button>
+              </div>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <Button
+                  classNames="button-upload"
+                  dataTarget=""
+                  dataToggle=""
+                  disabled={false}
+                  handleClick={[Function]}
+                  id="HYdJZzuIe"
+                  text=""
+                  type="button"
+                >
+                  <span
+                    className="button-text"
+                  >
+                    Change Photo
+                    <InputField
+                      classNames="select-photo"
+                      defaultValue=""
+                      handleChange={[Function]}
+                      handleFocus={[Function]}
+                      name="selectFile"
+                      placeholderText=""
+                      type="file"
+                    />
+                  </span>
+                </Button>,
+                "className": "upload-image-button-section d-flex justify-content-center",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "children": <span
+                      className="button-text"
+                    >
+                      Change Photo
+                      <InputField
+                        classNames="select-photo"
+                        defaultValue=""
+                        handleChange={[Function]}
+                        handleFocus={[Function]}
+                        name="selectFile"
+                        placeholderText=""
+                        type="file"
+                      />
+                    </span>,
+                    "classNames": "button-upload",
+                    "dataTarget": "",
+                    "dataToggle": "",
+                    "disabled": false,
+                    "handleClick": [Function],
+                    "id": "HYdJZzuIe",
+                    "text": "",
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": <button
+                      class="button-upload"
+                      data-target=""
+                      data-testid="button"
+                      data-toggle=""
+                      id="HYdJZzuIe"
+                      type="button"
+                    >
+                      <span
+                        class="button-text"
+                      >
+                        Change Photo
+                        <input
+                          class="select-photo"
+                          name="selectFile"
+                          placeholder=""
+                          type="file"
+                          value=""
+                        />
+                      </span>
+                    </button>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <span
+                        className="button-text"
+                      >
+                        Change Photo
+                        <InputField
+                          classNames="select-photo"
+                          defaultValue=""
+                          handleChange={[Function]}
+                          handleFocus={[Function]}
+                          name="selectFile"
+                          placeholderText=""
+                          type="file"
+                        />
+                      </span>,
+                      "className": "button-upload",
+                      "data-target": "",
+                      "data-testid": "button",
+                      "data-toggle": "",
+                      "disabled": false,
+                      "id": "HYdJZzuIe",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": <span
+                          class="button-text"
+                        >
+                          Change Photo
+                          <input
+                            class="select-photo"
+                            name="selectFile"
+                            placeholder=""
+                            type="file"
+                            value=""
+                          />
+                        </span>,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Change Photo",
+                            <InputField
+                              classNames="select-photo"
+                              defaultValue=""
+                              handleChange={[Function]}
+                              handleFocus={[Function]}
+                              name="selectFile"
+                              placeholderText=""
+                              type="file"
+                            />,
+                          ],
+                          "className": "button-text",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Change Photo",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "function",
+                            "props": Object {
+                              "classNames": "select-photo",
+                              "defaultValue": "",
+                              "handleChange": [Function],
+                              "handleFocus": [Function],
+                              "name": "selectFile",
+                              "placeholderText": "",
+                              "type": "file",
+                            },
+                            "ref": null,
+                            "rendered": Object {
+                              "instance": <input
+                                class="select-photo"
+                                name="selectFile"
+                                placeholder=""
+                                type="file"
+                                value=""
+                              />,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "className": "select-photo",
+                                "defaultValue": "",
+                                "name": "selectFile",
+                                "onChange": [Function],
+                                "onFocus": [Function],
+                                "placeholder": "",
+                                "type": "file",
+                              },
+                              "ref": null,
+                              "rendered": Array [
+                                undefined,
+                              ],
+                              "type": "input",
+                            },
+                            "type": [Function],
+                          },
+                        ],
+                        "type": "span",
+                      },
+                    ],
+                    "type": "button",
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <ProfileImage
+              imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+            />,
+            <UploadImageSection />,
+          ],
+          "classNames": "profile-image-section",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": <div
+            class="container profile-image-section"
+          >
+            <div
+              class="profile-image-div text-center"
+            >
+              <img
+                alt=""
+                class="img-fluid profile-photo"
+                src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+              />
+              <div
+                class="d-lg-none profile-header-small"
+              >
+                <div
+                  class="container profile-header"
+                >
+                  <h1
+                    class="profile-header-title"
+                  >
+                    Efosa
+                     
+                    Okpugie
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div
+              class="upload-image-button-section d-flex justify-content-center"
+            >
+              <button
+                class="button-upload"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="HYdJZzuIe"
+                type="button"
+              >
+                <span
+                  class="button-text"
+                >
+                  Change Photo
+                  <input
+                    class="select-photo"
+                    name="selectFile"
+                    placeholder=""
+                    type="file"
+                    value=""
+                  />
+                </span>
+              </button>
+            </div>
+          </div>,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <ProfileImage
+                imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+              />,
+              <UploadImageSection />,
+            ],
+            "className": "container profile-image-section",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "imageUrl": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": <div
+                  class="profile-image-div text-center"
+                >
+                  <img
+                    alt=""
+                    class="img-fluid profile-photo"
+                    src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                  />
+                  <div
+                    class="d-lg-none profile-header-small"
+                  >
+                    <div
+                      class="container profile-header"
+                    >
+                      <h1
+                        class="profile-header-title"
+                      >
+                        Efosa
+                         
+                        Okpugie
+                      </h1>
+                    </div>
+                  </div>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <img
+                      alt=""
+                      className="img-fluid profile-photo"
+                      src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                    />,
+                    <div
+                      className="d-lg-none profile-header-small"
+                    >
+                      <ProfileHeaderTitle
+                        firstName="Efosa"
+                        lastName="Okpugie"
+                      />
+                    </div>,
+                  ],
+                  "className": "profile-image-div text-center",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": <img
+                      alt=""
+                      class="img-fluid profile-photo"
+                      src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png"
+                    />,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "alt": "",
+                      "className": "img-fluid profile-photo",
+                      "src": "https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      undefined,
+                    ],
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": <div
+                      class="d-lg-none profile-header-small"
+                    >
+                      <div
+                        class="container profile-header"
+                      >
+                        <h1
+                          class="profile-header-title"
+                        >
+                          Efosa
+                           
+                          Okpugie
+                        </h1>
+                      </div>
+                    </div>,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <ProfileHeaderTitle
+                        firstName="Efosa"
+                        lastName="Okpugie"
+                      />,
+                      "className": "d-lg-none profile-header-small",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "firstName": "Efosa",
+                          "lastName": "Okpugie",
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "function",
+                          "props": Object {
+                            "children": <h1
+                              className="profile-header-title"
+                            >
+                              Efosa
+                               
+                              Okpugie
+                            </h1>,
+                            "classNames": "profile-header",
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": <div
+                              class="container profile-header"
+                            >
+                              <h1
+                                class="profile-header-title"
+                              >
+                                Efosa
+                                 
+                                Okpugie
+                              </h1>
+                            </div>,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": <h1
+                                className="profile-header-title"
+                              >
+                                Efosa
+                                 
+                                Okpugie
+                              </h1>,
+                              "className": "container profile-header",
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": <h1
+                                  class="profile-header-title"
+                                >
+                                  Efosa
+                                   
+                                  Okpugie
+                                </h1>,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": Array [
+                                    "Efosa",
+                                    " ",
+                                    "Okpugie",
+                                  ],
+                                  "className": "profile-header-title",
+                                },
+                                "ref": null,
+                                "rendered": Array [
+                                  "Efosa",
+                                  " ",
+                                  "Okpugie",
+                                ],
+                                "type": "h1",
+                              },
+                            ],
+                            "type": "div",
+                          },
+                          "type": [Function],
+                        },
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {},
+              "ref": null,
+              "rendered": Object {
+                "instance": <div
+                  class="upload-image-button-section d-flex justify-content-center"
+                >
+                  <button
+                    class="button-upload"
+                    data-target=""
+                    data-testid="button"
+                    data-toggle=""
+                    id="HYdJZzuIe"
+                    type="button"
+                  >
+                    <span
+                      class="button-text"
+                    >
+                      Change Photo
+                      <input
+                        class="select-photo"
+                        name="selectFile"
+                        placeholder=""
+                        type="file"
+                        value=""
+                      />
+                    </span>
+                  </button>
+                </div>,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <Button
+                    classNames="button-upload"
+                    dataTarget=""
+                    dataToggle=""
+                    disabled={false}
+                    handleClick={[Function]}
+                    id="HYdJZzuIe"
+                    text=""
+                    type="button"
+                  >
+                    <span
+                      className="button-text"
+                    >
+                      Change Photo
+                      <InputField
+                        classNames="select-photo"
+                        defaultValue=""
+                        handleChange={[Function]}
+                        handleFocus={[Function]}
+                        name="selectFile"
+                        placeholderText=""
+                        type="file"
+                      />
+                    </span>
+                  </Button>,
+                  "className": "upload-image-button-section d-flex justify-content-center",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": <span
+                        className="button-text"
+                      >
+                        Change Photo
+                        <InputField
+                          classNames="select-photo"
+                          defaultValue=""
+                          handleChange={[Function]}
+                          handleFocus={[Function]}
+                          name="selectFile"
+                          placeholderText=""
+                          type="file"
+                        />
+                      </span>,
+                      "classNames": "button-upload",
+                      "dataTarget": "",
+                      "dataToggle": "",
+                      "disabled": false,
+                      "handleClick": [Function],
+                      "id": "HYdJZzuIe",
+                      "text": "",
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": <button
+                        class="button-upload"
+                        data-target=""
+                        data-testid="button"
+                        data-toggle=""
+                        id="HYdJZzuIe"
+                        type="button"
+                      >
+                        <span
+                          class="button-text"
+                        >
+                          Change Photo
+                          <input
+                            class="select-photo"
+                            name="selectFile"
+                            placeholder=""
+                            type="file"
+                            value=""
+                          />
+                        </span>
+                      </button>,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <span
+                          className="button-text"
+                        >
+                          Change Photo
+                          <InputField
+                            classNames="select-photo"
+                            defaultValue=""
+                            handleChange={[Function]}
+                            handleFocus={[Function]}
+                            name="selectFile"
+                            placeholderText=""
+                            type="file"
+                          />
+                        </span>,
+                        "className": "button-upload",
+                        "data-target": "",
+                        "data-testid": "button",
+                        "data-toggle": "",
+                        "disabled": false,
+                        "id": "HYdJZzuIe",
+                        "onClick": [Function],
+                        "type": "button",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": <span
+                            class="button-text"
+                          >
+                            Change Photo
+                            <input
+                              class="select-photo"
+                              name="selectFile"
+                              placeholder=""
+                              type="file"
+                              value=""
+                            />
+                          </span>,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              "Change Photo",
+                              <InputField
+                                classNames="select-photo"
+                                defaultValue=""
+                                handleChange={[Function]}
+                                handleFocus={[Function]}
+                                name="selectFile"
+                                placeholderText=""
+                                type="file"
+                              />,
+                            ],
+                            "className": "button-text",
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            "Change Photo",
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "function",
+                              "props": Object {
+                                "classNames": "select-photo",
+                                "defaultValue": "",
+                                "handleChange": [Function],
+                                "handleFocus": [Function],
+                                "name": "selectFile",
+                                "placeholderText": "",
+                                "type": "file",
+                              },
+                              "ref": null,
+                              "rendered": Object {
+                                "instance": <input
+                                  class="select-photo"
+                                  name="selectFile"
+                                  placeholder=""
+                                  type="file"
+                                  value=""
+                                />,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "className": "select-photo",
+                                  "defaultValue": "",
+                                  "name": "selectFile",
+                                  "onChange": [Function],
+                                  "onFocus": [Function],
+                                  "placeholder": "",
+                                  "type": "file",
+                                },
+                                "ref": null,
+                                "rendered": Array [
+                                  undefined,
+                                ],
+                                "type": "input",
+                              },
+                              "type": [Function],
+                            },
+                          ],
+                          "type": "span",
+                        },
+                      ],
+                      "type": "button",
+                    },
+                    "type": [Function],
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

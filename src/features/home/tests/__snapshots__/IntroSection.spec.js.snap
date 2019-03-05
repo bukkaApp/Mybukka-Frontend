@@ -21,12 +21,14 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <PrimaryNavbar
+        <Connect(PrimaryNavbar)
           push={[MockFunction]}
         />,
         <LargeTextSection />,
         <SmallTextSection />,
-        <SearchLocationSection />,
+        <SearchLocationSection
+          push={[MockFunction]}
+        />,
       ],
       "className": "intro-section",
     },
@@ -35,7 +37,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "push": [MockFunction],
         },
@@ -65,7 +67,9 @@ ShallowWrapper {
         "instance": null,
         "key": undefined,
         "nodeType": "function",
-        "props": Object {},
+        "props": Object {
+          "push": [MockFunction],
+        },
         "ref": null,
         "rendered": null,
         "type": [Function],
@@ -80,12 +84,14 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <PrimaryNavbar
+          <Connect(PrimaryNavbar)
             push={[MockFunction]}
           />,
           <LargeTextSection />,
           <SmallTextSection />,
-          <SearchLocationSection />,
+          <SearchLocationSection
+            push={[MockFunction]}
+          />,
         ],
         "className": "intro-section",
       },
@@ -94,7 +100,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "push": [MockFunction],
           },
@@ -124,7 +130,9 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "push": [MockFunction],
+          },
           "ref": null,
           "rendered": null,
           "type": [Function],

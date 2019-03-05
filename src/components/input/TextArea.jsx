@@ -26,7 +26,8 @@ export default TextArea;
 
 TextArea.defaultProps = {
   classNames: '',
-  placeholderText: 'Add text...'
+  placeholderText: 'Add text...',
+  maxLength: 200
 };
 
 TextArea.propTypes = {
@@ -35,5 +36,5 @@ TextArea.propTypes = {
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired,
-  maxLength: PropTypes.number.isRequired,
+  maxLength: PropTypes.number,
 };

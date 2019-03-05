@@ -1,11 +1,9 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // import NavLink from 'Components/navlink/Navlink';
 import Button from 'Components/button/Button';
-import navAuthentication from 'Components/navbar/actionCreators/navAuthentication';
 import './authfooter.scss';
 
 const signUpTextOption = 'Already have an account?';
@@ -14,34 +12,14 @@ const signInTextOptions = 'New to Bukka?';
 
 const AuthFooter = ({
   title,
-  navigateToNextRoute,
-  location,
   history: { push }
 }) => {
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };
 
-  const goToAuthRoute = ({ target: { id } }) => {
-    navigateToNextRoute(id);
-  };
 
-  const minWidth = window.innerWidth;
-  let btnAttribute = { handleClick: navigateToAuth };
-  if (minWidth > 767) {
-    if (location.pathname.match('/login')
-        || location.pathname.match('/signup')) {
-      btnAttribute = {
-        dataToggle: 'modal',
-        dataTarget: '#modal',
-        handleClick: goToAuthRoute
-      };
-    } else {
-      btnAttribute = {
-        handleClick: goToAuthRoute
-      };
-    }
-  }
+  const btnAttribute = { handleClick: navigateToAuth };
 
   const formType = title === 'Sign Up';
   const AltOption = (
@@ -61,9 +39,7 @@ const AuthFooter = ({
 
 const AuthFooterComponent = withRouter(AuthFooter);
 
-export default connect(null, {
-  navigateToNextRoute: navAuthentication
-})(AuthFooterComponent);
+export default AuthFooterComponent;
 
 AuthFooter.defaultProps = {
   title: 'Sign Up'

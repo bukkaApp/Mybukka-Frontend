@@ -119,7 +119,10 @@ Carousel.propTypes = {
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,
-  noOfImagesShown: PropTypes.number.isRequired,
+  noOfImagesShown: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   imageHeight: PropTypes.string.isRequired,
   textOverlay: PropTypes.bool
 };

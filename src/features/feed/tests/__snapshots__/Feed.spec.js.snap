@@ -33,7 +33,7 @@ ShallowWrapper {
         "entries": Array [
           Object {
             "hash": "",
-            "key": "97apx0",
+            "key": "vp0hc7",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -47,7 +47,7 @@ ShallowWrapper {
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "97apx0",
+          "key": "vp0hc7",
           "pathname": "/",
           "search": "",
           "state": undefined,
@@ -87,7 +87,7 @@ ShallowWrapper {
           "entries": Array [
             Object {
               "hash": "",
-              "key": "97apx0",
+              "key": "vp0hc7",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -101,7 +101,7 @@ ShallowWrapper {
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "97apx0",
+            "key": "vp0hc7",
             "pathname": "/",
             "search": "",
             "state": undefined,
@@ -146,5 +146,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

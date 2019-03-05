@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
@@ -12,6 +12,7 @@ import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
+import './auth.scss';
 
 export const LoginPage = ({
   status,

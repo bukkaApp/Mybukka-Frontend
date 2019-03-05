@@ -5,6 +5,8 @@ import Bukka from '../features/bukka';
 import Register from '../features/authentication/RegisterPage';
 import Login from '../features/authentication/LoginPage';
 import FeedPage from '../features/feed';
+import Checkout from '../features/checkout/index';
+import Profile from '../features/profile';
 
 const Main = () => (
   <main>
@@ -14,6 +16,8 @@ const Main = () => (
       <Route exact path="/signup" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/feed" component={FeedPage} />
+      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/profile" component={Profile} />
     </Switch>
   </main>
 );

@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` EditTogglerButton component renders properly 1`] = `
+ReactWrapper {
+  Symbol(enzyme.__unrendered__): <EditTogglerButton
+    text="EDIT"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "text": "EDIT",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": <div
+        class="edit-toggler-button"
+      >
+        <button
+          class="edit-save-toggler d-flex justify-content-end"
+          data-target=""
+          data-testid="button"
+          data-toggle=""
+          id="zg8_Cykd7"
+          type="button"
+        >
+          EDIT
+        </button>
+      </div>,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Button
+          classNames="edit-save-toggler d-flex justify-content-end"
+          dataTarget=""
+          dataToggle=""
+          disabled={false}
+          handleClick={[Function]}
+          id="zg8_Cykd7"
+          text="EDIT"
+          type="button"
+        >
+          <div />
+        </Button>,
+        "className": "edit-toggler-button",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <div />,
+            "classNames": "edit-save-toggler d-flex justify-content-end",
+            "dataTarget": "",
+            "dataToggle": "",
+            "disabled": false,
+            "handleClick": [Function],
+            "id": "zg8_Cykd7",
+            "text": "EDIT",
+            "type": "button",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": <button
+              class="edit-save-toggler d-flex justify-content-end"
+              data-target=""
+              data-testid="button"
+              data-toggle=""
+              id="zg8_Cykd7"
+              type="button"
+            >
+              EDIT
+            </button>,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "EDIT",
+              "className": "edit-save-toggler d-flex justify-content-end",
+              "data-target": "",
+              "data-testid": "button",
+              "data-toggle": "",
+              "disabled": false,
+              "id": "zg8_Cykd7",
+              "onClick": [Function],
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Array [
+              "EDIT",
+            ],
+            "type": "button",
+          },
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "text": "EDIT",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": <div
+          class="edit-toggler-button"
+        >
+          <button
+            class="edit-save-toggler d-flex justify-content-end"
+            data-target=""
+            data-testid="button"
+            data-toggle=""
+            id="zg8_Cykd7"
+            type="button"
+          >
+            EDIT
+          </button>
+        </div>,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Button
+            classNames="edit-save-toggler d-flex justify-content-end"
+            dataTarget=""
+            dataToggle=""
+            disabled={false}
+            handleClick={[Function]}
+            id="zg8_Cykd7"
+            text="EDIT"
+            type="button"
+          >
+            <div />
+          </Button>,
+          "className": "edit-toggler-button",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <div />,
+              "classNames": "edit-save-toggler d-flex justify-content-end",
+              "dataTarget": "",
+              "dataToggle": "",
+              "disabled": false,
+              "handleClick": [Function],
+              "id": "zg8_Cykd7",
+              "text": "EDIT",
+              "type": "button",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": <button
+                class="edit-save-toggler d-flex justify-content-end"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="zg8_Cykd7"
+                type="button"
+              >
+                EDIT
+              </button>,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "EDIT",
+                "className": "edit-save-toggler d-flex justify-content-end",
+                "data-target": "",
+                "data-testid": "button",
+                "data-toggle": "",
+                "disabled": false,
+                "id": "zg8_Cykd7",
+                "onClick": [Function],
+                "type": "button",
+              },
+              "ref": null,
+              "rendered": Array [
+                "EDIT",
+              ],
+              "type": "button",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

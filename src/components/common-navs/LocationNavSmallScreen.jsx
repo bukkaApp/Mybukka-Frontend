@@ -47,7 +47,7 @@ const ButtonText = () => (
   <h2 className="inline-text">
     <span>Delivery to</span>
     <span className="text">
-      MarryLand
+      MaryLand
       <span className="chevron-down">
         <ChevronRight />
       </span>

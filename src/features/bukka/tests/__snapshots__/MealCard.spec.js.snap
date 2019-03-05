@@ -403,6 +403,7 @@ ReactWrapper {
                           "nodeType": "host",
                           "props": Object {
                             "children": <Price
+                              classNames="price-badge"
                               price={17}
                             />,
                             "className": "price-tag-section",
@@ -414,6 +415,7 @@ ReactWrapper {
                               "key": undefined,
                               "nodeType": "function",
                               "props": Object {
+                                "classNames": "price-badge",
                                 "price": 17,
                               },
                               "ref": null,
@@ -960,6 +962,7 @@ ReactWrapper {
                             "nodeType": "host",
                             "props": Object {
                               "children": <Price
+                                classNames="price-badge"
                                 price={17}
                               />,
                               "className": "price-tag-section",
@@ -971,6 +974,7 @@ ReactWrapper {
                                 "key": undefined,
                                 "nodeType": "function",
                                 "props": Object {
+                                  "classNames": "price-badge",
                                   "price": 17,
                                 },
                                 "ref": null,

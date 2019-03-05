@@ -10,6 +10,7 @@ const InputField = ({
   placeholderText,
   handleChange,
   handleFocus,
+  defaultValue,
 }) => (
   <input
     type={type}
@@ -18,6 +19,7 @@ const InputField = ({
     placeholder={placeholderText}
     onChange={handleChange}
     onFocus={handleFocus}
+    defaultValue={defaultValue}
   />
 );
 
@@ -27,13 +29,16 @@ InputField.defaultProps = {
   type: 'text',
   classNames: 'default-btn',
   placeholderText: '',
+  handleFocus: () => {},
+  defaultValue: '',
 };
 
 InputField.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
+  defaultValue: PropTypes.string,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
-  handleFocus: PropTypes.func.isRequired
+  handleFocus: PropTypes.func.isRequired,
 };
