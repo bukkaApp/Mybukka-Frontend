@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Index from 'Components/navbar';
+import Index from '..';
 
 describe('Bukka Nav Small Screen', () => {
   const wrapper = mount(<Index />);

@@ -25,14 +25,6 @@ const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
       dataTarget: '#modal',
       handleClick: goToAuthRoute
     };
-    // disable click on SignUp page Requesting SignUp Modal
-    if (location.pathname.match('/signup')) {
-      btnAttribute = {};
-    }
-    // disable click on SignIn page Requesting SignIn Modal
-    if (location.pathname.match('/login')) {
-      btnAttribute = {};
-    }
   }
 
   return (

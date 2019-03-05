@@ -9,10 +9,13 @@ import './navbar.scss';
 
 const Navbar = (props) => {
   const { status: { authenticated }, bukka } = props;
+  // default primary navbar
   let AuthNavbar = PrimaryNavbar;
+  // Primary Authenticated navbar
   if (authenticated && !bukka) {
     AuthNavbar = AuthenticaticatedNavbar;
   } else if (bukka) {
+  // bukka navbar with expected bukka prop to be true
     AuthNavbar = BukkaAuthenticatedNav;
   }
   return (
@@ -29,10 +32,12 @@ const mapStateToProps = ({
 export default connect(mapStateToProps, null)(Navbar);
 
 Navbar.defaultProps = {
-  status: { authenticated: false }
+  status: { authenticated: false },
+  bukka: false
 };
 
 Navbar.propTypes = {
-  status: PropTypes.objectOf(PropTypes.bool)
+  status: PropTypes.objectOf(PropTypes.bool),
+  bukka: PropTypes.bool
 };
 

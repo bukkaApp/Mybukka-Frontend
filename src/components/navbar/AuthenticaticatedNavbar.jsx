@@ -8,7 +8,7 @@ const AuthenticaticatedNavbar = () => (
     <nav className="navbar navbar-light">
       <Brand />
       <div className="form-inline">
-          <UserDefaultImage />
+        <UserDefaultImage />
       </div>
     </nav>
   </div>

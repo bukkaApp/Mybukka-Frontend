@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from "react-router";
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
@@ -12,9 +11,10 @@ import navAuthentication from './actionCreators/navAuthentication';
 import './bukka-authenticated-nav.scss';
 import './navbar.scss';
 
-const buttonProps = [{ name: 'Food' }, { name: 'Fresh' }, { name: 'Drinks'} ];
+const buttonProps = [{ name: 'Food' }, { name: 'Fresh' }, { name: 'Drinks' }];
 
-const BukkaAuthenticatedNav = ({ push, authenticated, navigateToNextRoute }) => {
+const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
+  const { authenticated } = status;
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };
@@ -31,35 +31,27 @@ const BukkaAuthenticatedNav = ({ push, authenticated, navigateToNextRoute }) => 
       dataTarget: '#modal',
       handleClick: goToAuthRoute
     };
-    // disable click on SignUp page Requesting SignUp Modal
-    if (location.pathname.match('/signup')) {
-      btnAttribute = {};
-    }
-    // disable click on SignIn page Requesting SignIn Modal
-    if (location.pathname.match('/login')) {
-      btnAttribute = {};
-    }
   }
   let DefaultAuthenticatedImgOrButton = () => (
-      <Fragment>
-        <Button
-          type="button"
-          text="sign in"
-          classNames="small-outline-button bg-transparent"
-          id="/login"
-          {...btnAttribute}
-        />
-        <Button
-          type="button"
-          text="sign up"
-          classNames="small-button"
-          id="/signup"
-          {...btnAttribute}
-        />
-      </Fragment>
+    <Fragment>
+      <Button
+        type="button"
+        text="sign in"
+        classNames="small-outline-button bg-transparent"
+        id="/login"
+        {...btnAttribute}
+      />
+      <Button
+        type="button"
+        text="sign up"
+        classNames="small-button"
+        id="/signup"
+        {...btnAttribute}
+      />
+    </Fragment>
   );
   if (authenticated) {
-      DefaultAuthenticatedImgOrButton = UserDefaultImage;
+    DefaultAuthenticatedImgOrButton = UserDefaultImage;
   }
   return (
     <Fragment>
@@ -86,14 +78,13 @@ const BukkaAuthenticatedNav = ({ push, authenticated, navigateToNextRoute }) => 
   );
 };
 
-const BukkaAuthNav = withRouter(BukkaAuthenticatedNav);
-
 export default connect(null, {
   navigateToNextRoute: navAuthentication
-})(BukkaAuthNav);
+})(BukkaAuthenticatedNav);
 
 BukkaAuthenticatedNav.propTypes = {
   push: PropTypes.func.isRequired,
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };
 
