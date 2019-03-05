@@ -9,11 +9,15 @@ import storage from 'redux-persist/lib/storage';
 
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
+
 import deliveryModeReducer from
   '../components/common-navs/reducers/deliveryModeReducer';
 import selectedLocationReducer from './selectedLocationReducer';
 
-import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
+import locationsPredictionReducer from
+  '../features/home/reducers/locationsPredictionReducer';
+
+import bukkasReducer from '../features/feed/reducers/bukkasReducer';
 
 import profileReducer from '../features/profile/reducers';
 
@@ -25,6 +29,7 @@ const reducer = combineReducers({
   selectedLocationReducer,
   homeReducer,
   profileReducer,
+  bukkasReducer,
 });
 
 const logger = store => next => (action) => {

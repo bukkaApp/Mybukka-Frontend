@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchLocation from '../common/SearchLocation';
+import SearchLocation from '../SearchLocation';
 
 describe('Search Location', () => {
   const store = mockStore({

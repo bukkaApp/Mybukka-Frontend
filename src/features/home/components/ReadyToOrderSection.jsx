@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchLocation from '../common/SearchLocation';
+import SearchLocation from 'Components/common-navs/SearchLocation';
 
 import './readyToOrderSection.scss';
 
@@ -10,12 +10,12 @@ const ReadyToOrderHeader = () => (
   </div>
 );
 
-const ReadyToOrderSection = ({ push }) => (
+const ReadyToOrderSection = () => (
   <div className="ready-to-order-section">
     <div className="container">
       <ReadyToOrderHeader />
       <div className="search-location-section">
-        <SearchLocation push={push} />
+        <SearchLocation />
       </div>
     </div>
   </div>

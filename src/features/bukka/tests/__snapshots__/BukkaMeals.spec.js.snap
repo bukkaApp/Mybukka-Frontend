@@ -1204,6 +1204,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -1218,6 +1219,12 @@ ReactWrapper {
 =======
                   "key": "pcDpA6Nfes",
 >>>>>>> refactor(redux): refactor authentication pages
+=======
+                  "key": "TnyCWsVyDj",
+=======
+                  "key": "c3uas8SD0b",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -2383,6 +2390,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "Ckln6WzDgi",
 =======
 <<<<<<< HEAD
@@ -2397,6 +2405,12 @@ ReactWrapper {
 =======
                     "key": "GPPfPngc74",
 >>>>>>> refactor(redux): refactor authentication pages
+=======
+                    "key": "Y48Yp_2FIr",
+=======
+                    "key": "XoYc_lLJer",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -3056,6 +3070,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -3070,6 +3085,12 @@ ReactWrapper {
 =======
                     "key": "pcDpA6Nfes",
 >>>>>>> refactor(redux): refactor authentication pages
+=======
+                    "key": "TnyCWsVyDj",
+=======
+                    "key": "c3uas8SD0b",
+>>>>>>> feture(redux): display nearby bukkas on feedpage
+>>>>>>> feture(redux): display nearby bukkas on feedpage
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard

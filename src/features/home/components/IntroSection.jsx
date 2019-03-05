@@ -2,8 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
-import SearchLocation from '../common/SearchLocation';
+import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import SearchLocation from 'Components/common-navs/SearchLocation';
+
 import './introsection.scss';
 
 const LargeTextSection = () => (

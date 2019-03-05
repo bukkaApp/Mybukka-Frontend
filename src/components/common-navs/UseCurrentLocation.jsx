@@ -19,12 +19,11 @@ const UseCurrentLocation = ({ selectLocation }) => {
           const lattitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           const coordinates = [longitude, lattitude];
+          setIsGettingLocation(false);
           selectLocation(coordinates, true);
         },
-        () => {
-          setIsGettingLocation(false);
-          console.log('the geolocation service has failed');
-        }
+        () =>
+          setIsGettingLocation(false)
       );
     } else {
       // Browser doesn't support Geolocation

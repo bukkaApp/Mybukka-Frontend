@@ -44,7 +44,6 @@ ShallowWrapper {
             classNames="col-lg-4 col-md-4 col-sm-12"
             deliveryCost={300}
             deliveryTime="30-50 min"
-            image="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
             imageHeight="img-height"
             rating="popular"
           />
@@ -78,7 +77,6 @@ ShallowWrapper {
               classNames="col-lg-4 col-md-4 col-sm-12"
               deliveryCost={300}
               deliveryTime="30-50 min"
-              image="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
               imageHeight="img-height"
               rating="popular"
             />,
@@ -111,8 +109,8 @@ ShallowWrapper {
               "classNames": "col-lg-4 col-md-4 col-sm-12",
               "deliveryCost": 300,
               "deliveryTime": "30-50 min",
-              "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
               "imageHeight": "img-height",
+              "imageUrl": undefined,
               "rating": "popular",
             },
             "ref": null,
@@ -145,7 +143,6 @@ ShallowWrapper {
               classNames="col-lg-4 col-md-4 col-sm-12"
               deliveryCost={300}
               deliveryTime="30-50 min"
-              image="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
               imageHeight="img-height"
               rating="popular"
             />
@@ -179,7 +176,6 @@ ShallowWrapper {
                 classNames="col-lg-4 col-md-4 col-sm-12"
                 deliveryCost={300}
                 deliveryTime="30-50 min"
-                image="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
                 imageHeight="img-height"
                 rating="popular"
               />,
@@ -212,8 +208,8 @@ ShallowWrapper {
                 "classNames": "col-lg-4 col-md-4 col-sm-12",
                 "deliveryCost": 300,
                 "deliveryTime": "30-50 min",
-                "image": "https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg",
                 "imageHeight": "img-height",
+                "imageUrl": undefined,
                 "rating": "popular",
               },
               "ref": null,

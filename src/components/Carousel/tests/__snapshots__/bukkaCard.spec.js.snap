@@ -7,8 +7,8 @@ ShallowWrapper {
     classNames="col-lg-3"
     deliveryCost={1000}
     deliveryTime="20-20 hours"
-    image="http://some-image"
     imageHeight="img-height"
+    imageUrl="http://some-image"
     rating=""
     textOverlay={true}
   />,
@@ -37,8 +37,8 @@ ShallowWrapper {
           <BukkaCard
             deliveryCost={1000}
             deliveryTime="20-20 hours"
-            image="http://some-image"
             imageHeight="img-height"
+            imageUrl="http://some-image"
             rating=""
             textOverlay={true}
           />
@@ -60,8 +60,8 @@ ShallowWrapper {
           <BukkaCard
             deliveryCost={1000}
             deliveryTime="20-20 hours"
-            image="http://some-image"
             imageHeight="img-height"
+            imageUrl="http://some-image"
             rating=""
             textOverlay={true}
           />
@@ -77,8 +77,8 @@ ShallowWrapper {
           "children": <BukkaCard
             deliveryCost={1000}
             deliveryTime="20-20 hours"
-            image="http://some-image"
             imageHeight="img-height"
+            imageUrl="http://some-image"
             rating=""
             textOverlay={true}
           />,
@@ -94,8 +94,8 @@ ShallowWrapper {
           "props": Object {
             "deliveryCost": 1000,
             "deliveryTime": "20-20 hours",
-            "image": "http://some-image",
             "imageHeight": "img-height",
+            "imageUrl": "http://some-image",
             "rating": "",
             "textOverlay": true,
           },
@@ -126,8 +126,8 @@ ShallowWrapper {
             <BukkaCard
               deliveryCost={1000}
               deliveryTime="20-20 hours"
-              image="http://some-image"
               imageHeight="img-height"
+              imageUrl="http://some-image"
               rating=""
               textOverlay={true}
             />
@@ -149,8 +149,8 @@ ShallowWrapper {
             <BukkaCard
               deliveryCost={1000}
               deliveryTime="20-20 hours"
-              image="http://some-image"
               imageHeight="img-height"
+              imageUrl="http://some-image"
               rating=""
               textOverlay={true}
             />
@@ -166,8 +166,8 @@ ShallowWrapper {
             "children": <BukkaCard
               deliveryCost={1000}
               deliveryTime="20-20 hours"
-              image="http://some-image"
               imageHeight="img-height"
+              imageUrl="http://some-image"
               rating=""
               textOverlay={true}
             />,
@@ -183,8 +183,8 @@ ShallowWrapper {
             "props": Object {
               "deliveryCost": 1000,
               "deliveryTime": "20-20 hours",
-              "image": "http://some-image",
               "imageHeight": "img-height",
+              "imageUrl": "http://some-image",
               "rating": "",
               "textOverlay": true,
             },
