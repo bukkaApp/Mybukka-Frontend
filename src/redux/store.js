@@ -13,6 +13,7 @@ import locationsPredictionReducer from '../features/home/reducers/locationsPredi
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
+  homeReducer,
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,
