@@ -3,6 +3,10 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
 import homeReducer from 'Components/navbar/reducers';
+
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 import deliveryModeReducer from
@@ -11,13 +15,16 @@ import selectedLocationReducer from './selectedLocationReducer';
 
 import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
 
+import profileReducer from '../features/profile/reducers';
+
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,
-  homeReducer
+  homeReducer,
+  profileReducer,
 });
 
 const logger = store => next => (action) => {
@@ -32,8 +39,20 @@ const logger = store => next => (action) => {
 
 let middleware = applyMiddleware(thunk, logger);
 
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
 if (process.env.NODE_ENV === 'production') {
   middleware = applyMiddleware(thunk);
 }
 
-export default createStore(reducer, middleware);
+export default () => {
+  const store = createStore(persistedReducer, middleware);
+  const persistor = persistStore(store);
+  return { store, persistor };
+};

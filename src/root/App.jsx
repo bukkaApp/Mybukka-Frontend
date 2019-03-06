@@ -5,16 +5,21 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import store from '../redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+
+import reduxStore from '../redux/store';
 import Main from './Main';
 import IndeterminateProgressbar from '../components/progress-bar/IndeterminateProgressbar';
 
+const { store, persistor } = reduxStore();
 const App = () => (
   <Provider store={store}>
-    <IndeterminateProgressbar />
-    <BrowserRouter>
-      <Main />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <IndeterminateProgressbar />
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>
 );
 

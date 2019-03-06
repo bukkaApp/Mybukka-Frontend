@@ -14,6 +14,7 @@ const InputAccountDetails = ({
   type,
   defaultValue,
   children,
+  handleChange,
 }) => (
   <div className="input-acc-details-section">
     <form className="form-acc-details">
@@ -24,7 +25,7 @@ const InputAccountDetails = ({
             placeholderText={placeHolder}
             classNames="input-acc-details"
             name={name}
-            handleChange={() => {}}
+            handleChange={handleChange}
             defaultValue={defaultValue}
           />
         )}
@@ -40,6 +41,7 @@ InputAccountDetails.defaultProps = {
   type: 'text',
   defaultValue: '',
   children: '',
+  handleChange: () => {},
 };
 
 InputAccountDetails.propTypes = {
@@ -48,4 +50,5 @@ InputAccountDetails.propTypes = {
   type: PropTypes.string,
   defaultValue: PropTypes.string,
   children: PropTypes.node,
+  handleChange: PropTypes.func,
 };
