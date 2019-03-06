@@ -66,7 +66,9 @@ ReactWrapper {
             <button
               class="button-upload"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="HYdJZzuIe"
               type="button"
             >
               <span
@@ -302,7 +304,9 @@ ReactWrapper {
                 <button
                   class="button-upload"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="HYdJZzuIe"
                   type="button"
                 >
                   <span
@@ -328,6 +332,7 @@ ReactWrapper {
                   dataToggle=""
                   disabled={false}
                   handleClick={[Function]}
+                  id="HYdJZzuIe"
                   text=""
                   type="button"
                 >
@@ -374,6 +379,7 @@ ReactWrapper {
                     "dataToggle": "",
                     "disabled": false,
                     "handleClick": [Function],
+                    "id": "HYdJZzuIe",
                     "text": "",
                     "type": "button",
                   },
@@ -382,7 +388,9 @@ ReactWrapper {
                     "instance": <button
                       class="button-upload"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="HYdJZzuIe"
                       type="button"
                     >
                       <span
@@ -417,8 +425,10 @@ ReactWrapper {
                       </span>,
                       "className": "button-upload",
                       "data-target": "",
+                      "data-testid": "button",
                       "data-toggle": "",
                       "disabled": false,
+                      "id": "HYdJZzuIe",
                       "onClick": [Function],
                       "type": "button",
                     },
@@ -573,7 +583,9 @@ ReactWrapper {
               <button
                 class="button-upload"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="HYdJZzuIe"
                 type="button"
               >
                 <span
@@ -809,7 +821,9 @@ ReactWrapper {
                   <button
                     class="button-upload"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="HYdJZzuIe"
                     type="button"
                   >
                     <span
@@ -835,6 +849,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+                    id="HYdJZzuIe"
                     text=""
                     type="button"
                   >
@@ -881,6 +896,7 @@ ReactWrapper {
                       "dataToggle": "",
                       "disabled": false,
                       "handleClick": [Function],
+                      "id": "HYdJZzuIe",
                       "text": "",
                       "type": "button",
                     },
@@ -889,7 +905,9 @@ ReactWrapper {
                       "instance": <button
                         class="button-upload"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="HYdJZzuIe"
                         type="button"
                       >
                         <span
@@ -924,8 +942,10 @@ ReactWrapper {
                         </span>,
                         "className": "button-upload",
                         "data-target": "",
+                        "data-testid": "button",
                         "data-toggle": "",
                         "disabled": false,
+                        "id": "HYdJZzuIe",
                         "onClick": [Function],
                         "type": "button",
                       },

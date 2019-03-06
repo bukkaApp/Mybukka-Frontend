@@ -63,7 +63,9 @@ ReactWrapper {
                 <button
                   class="default-btn toggle-quantity d-block"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="MLIN5xu2C"
                   type="button"
                 >
                   -
@@ -71,7 +73,9 @@ ReactWrapper {
                 <button
                   class="default-btn d-block"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="MLIN5xu2C"
                   type="button"
                 >
                   1
@@ -79,7 +83,9 @@ ReactWrapper {
                 <button
                   class="default-btn toggle-quantity d-block"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="MLIN5xu2C"
                   type="button"
                 >
                   +
@@ -93,7 +99,9 @@ ReactWrapper {
             <button
               class="primary-button add-to-cart-button"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="MLIN5xu2C"
               type="button"
             >
               <div
@@ -167,7 +175,9 @@ ReactWrapper {
                     <button
                       class="default-btn toggle-quantity d-block"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="MLIN5xu2C"
                       type="button"
                     >
                       -
@@ -175,7 +185,9 @@ ReactWrapper {
                     <button
                       class="default-btn d-block"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="MLIN5xu2C"
                       type="button"
                     >
                       1
@@ -183,7 +195,9 @@ ReactWrapper {
                     <button
                       class="default-btn toggle-quantity d-block"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="MLIN5xu2C"
                       type="button"
                     >
                       +
@@ -241,7 +255,9 @@ ReactWrapper {
                           <button
                             class="default-btn toggle-quantity d-block"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="MLIN5xu2C"
                             type="button"
                           >
                             -
@@ -249,7 +265,9 @@ ReactWrapper {
                           <button
                             class="default-btn d-block"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="MLIN5xu2C"
                             type="button"
                           >
                             1
@@ -257,7 +275,9 @@ ReactWrapper {
                           <button
                             class="default-btn toggle-quantity d-block"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="MLIN5xu2C"
                             type="button"
                           >
                             +
@@ -300,7 +320,9 @@ ReactWrapper {
                             <button
                               class="default-btn toggle-quantity d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               -
@@ -308,7 +330,9 @@ ReactWrapper {
                             <button
                               class="default-btn d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               1
@@ -316,7 +340,9 @@ ReactWrapper {
                             <button
                               class="default-btn toggle-quantity d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               +
@@ -365,6 +391,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
+                                  "id": "MLIN5xu2C",
                                   "text": "-",
                                   "type": "button",
                                 },
@@ -373,7 +400,9 @@ ReactWrapper {
                                   "instance": <button
                                     class="default-btn toggle-quantity d-block"
                                     data-target=""
+                                    data-testid="button"
                                     data-toggle=""
+                                    id="MLIN5xu2C"
                                     type="button"
                                   >
                                     -
@@ -384,8 +413,10 @@ ReactWrapper {
                                     "children": "-",
                                     "className": "default-btn toggle-quantity d-block",
                                     "data-target": "",
+                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
+                                    "id": "MLIN5xu2C",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -419,6 +450,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
+                                  "id": "MLIN5xu2C",
                                   "text": "1",
                                   "type": "button",
                                 },
@@ -427,7 +459,9 @@ ReactWrapper {
                                   "instance": <button
                                     class="default-btn d-block"
                                     data-target=""
+                                    data-testid="button"
                                     data-toggle=""
+                                    id="MLIN5xu2C"
                                     type="button"
                                   >
                                     1
@@ -438,8 +472,10 @@ ReactWrapper {
                                     "children": "1",
                                     "className": "default-btn d-block",
                                     "data-target": "",
+                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
+                                    "id": "MLIN5xu2C",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -473,6 +509,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
+                                  "id": "MLIN5xu2C",
                                   "text": "+",
                                   "type": "button",
                                 },
@@ -481,7 +518,9 @@ ReactWrapper {
                                   "instance": <button
                                     class="default-btn toggle-quantity d-block"
                                     data-target=""
+                                    data-testid="button"
                                     data-toggle=""
+                                    id="MLIN5xu2C"
                                     type="button"
                                   >
                                     +
@@ -492,8 +531,10 @@ ReactWrapper {
                                     "children": "+",
                                     "className": "default-btn toggle-quantity d-block",
                                     "data-target": "",
+                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
+                                    "id": "MLIN5xu2C",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -542,6 +583,7 @@ ReactWrapper {
                   dataToggle=""
                   disabled={false}
                   handleClick={[MockFunction]}
+                  id="MLIN5xu2C"
                   text=""
                   type="button"
                 >
@@ -580,7 +622,9 @@ ReactWrapper {
                   <button
                     class="primary-button add-to-cart-button"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="MLIN5xu2C"
                     type="button"
                   >
                     <div
@@ -618,6 +662,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[MockFunction]}
+                    id="MLIN5xu2C"
                     text=""
                     type="button"
                   >
@@ -684,6 +729,7 @@ ReactWrapper {
                       "dataToggle": "",
                       "disabled": false,
                       "handleClick": [MockFunction],
+                      "id": "MLIN5xu2C",
                       "text": "",
                       "type": "button",
                     },
@@ -692,7 +738,9 @@ ReactWrapper {
                       "instance": <button
                         class="primary-button add-to-cart-button"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="MLIN5xu2C"
                         type="button"
                       >
                         <div
@@ -749,8 +797,10 @@ ReactWrapper {
                         </Row>,
                         "className": "primary-button add-to-cart-button",
                         "data-target": "",
+                        "data-testid": "button",
                         "data-toggle": "",
                         "disabled": false,
+                        "id": "MLIN5xu2C",
                         "onClick": [MockFunction],
                         "type": "button",
                       },
@@ -1043,7 +1093,9 @@ ReactWrapper {
                   <button
                     class="default-btn toggle-quantity d-block"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="MLIN5xu2C"
                     type="button"
                   >
                     -
@@ -1051,7 +1103,9 @@ ReactWrapper {
                   <button
                     class="default-btn d-block"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="MLIN5xu2C"
                     type="button"
                   >
                     1
@@ -1059,7 +1113,9 @@ ReactWrapper {
                   <button
                     class="default-btn toggle-quantity d-block"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="MLIN5xu2C"
                     type="button"
                   >
                     +
@@ -1073,7 +1129,9 @@ ReactWrapper {
               <button
                 class="primary-button add-to-cart-button"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="MLIN5xu2C"
                 type="button"
               >
                 <div
@@ -1147,7 +1205,9 @@ ReactWrapper {
                       <button
                         class="default-btn toggle-quantity d-block"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="MLIN5xu2C"
                         type="button"
                       >
                         -
@@ -1155,7 +1215,9 @@ ReactWrapper {
                       <button
                         class="default-btn d-block"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="MLIN5xu2C"
                         type="button"
                       >
                         1
@@ -1163,7 +1225,9 @@ ReactWrapper {
                       <button
                         class="default-btn toggle-quantity d-block"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="MLIN5xu2C"
                         type="button"
                       >
                         +
@@ -1221,7 +1285,9 @@ ReactWrapper {
                             <button
                               class="default-btn toggle-quantity d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               -
@@ -1229,7 +1295,9 @@ ReactWrapper {
                             <button
                               class="default-btn d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               1
@@ -1237,7 +1305,9 @@ ReactWrapper {
                             <button
                               class="default-btn toggle-quantity d-block"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="MLIN5xu2C"
                               type="button"
                             >
                               +
@@ -1280,7 +1350,9 @@ ReactWrapper {
                               <button
                                 class="default-btn toggle-quantity d-block"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="MLIN5xu2C"
                                 type="button"
                               >
                                 -
@@ -1288,7 +1360,9 @@ ReactWrapper {
                               <button
                                 class="default-btn d-block"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="MLIN5xu2C"
                                 type="button"
                               >
                                 1
@@ -1296,7 +1370,9 @@ ReactWrapper {
                               <button
                                 class="default-btn toggle-quantity d-block"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="MLIN5xu2C"
                                 type="button"
                               >
                                 +
@@ -1345,6 +1421,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
+                                    "id": "MLIN5xu2C",
                                     "text": "-",
                                     "type": "button",
                                   },
@@ -1353,7 +1430,9 @@ ReactWrapper {
                                     "instance": <button
                                       class="default-btn toggle-quantity d-block"
                                       data-target=""
+                                      data-testid="button"
                                       data-toggle=""
+                                      id="MLIN5xu2C"
                                       type="button"
                                     >
                                       -
@@ -1364,8 +1443,10 @@ ReactWrapper {
                                       "children": "-",
                                       "className": "default-btn toggle-quantity d-block",
                                       "data-target": "",
+                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
+                                      "id": "MLIN5xu2C",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -1399,6 +1480,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
+                                    "id": "MLIN5xu2C",
                                     "text": "1",
                                     "type": "button",
                                   },
@@ -1407,7 +1489,9 @@ ReactWrapper {
                                     "instance": <button
                                       class="default-btn d-block"
                                       data-target=""
+                                      data-testid="button"
                                       data-toggle=""
+                                      id="MLIN5xu2C"
                                       type="button"
                                     >
                                       1
@@ -1418,8 +1502,10 @@ ReactWrapper {
                                       "children": "1",
                                       "className": "default-btn d-block",
                                       "data-target": "",
+                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
+                                      "id": "MLIN5xu2C",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -1453,6 +1539,7 @@ ReactWrapper {
                                     "dataToggle": "",
                                     "disabled": false,
                                     "handleClick": [Function],
+                                    "id": "MLIN5xu2C",
                                     "text": "+",
                                     "type": "button",
                                   },
@@ -1461,7 +1548,9 @@ ReactWrapper {
                                     "instance": <button
                                       class="default-btn toggle-quantity d-block"
                                       data-target=""
+                                      data-testid="button"
                                       data-toggle=""
+                                      id="MLIN5xu2C"
                                       type="button"
                                     >
                                       +
@@ -1472,8 +1561,10 @@ ReactWrapper {
                                       "children": "+",
                                       "className": "default-btn toggle-quantity d-block",
                                       "data-target": "",
+                                      "data-testid": "button",
                                       "data-toggle": "",
                                       "disabled": false,
+                                      "id": "MLIN5xu2C",
                                       "onClick": [Function],
                                       "type": "button",
                                     },
@@ -1522,6 +1613,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[MockFunction]}
+                    id="MLIN5xu2C"
                     text=""
                     type="button"
                   >
@@ -1560,7 +1652,9 @@ ReactWrapper {
                     <button
                       class="primary-button add-to-cart-button"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="MLIN5xu2C"
                       type="button"
                     >
                       <div
@@ -1598,6 +1692,7 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[MockFunction]}
+                      id="MLIN5xu2C"
                       text=""
                       type="button"
                     >
@@ -1664,6 +1759,7 @@ ReactWrapper {
                         "dataToggle": "",
                         "disabled": false,
                         "handleClick": [MockFunction],
+                        "id": "MLIN5xu2C",
                         "text": "",
                         "type": "button",
                       },
@@ -1672,7 +1768,9 @@ ReactWrapper {
                         "instance": <button
                           class="primary-button add-to-cart-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="MLIN5xu2C"
                           type="button"
                         >
                           <div
@@ -1729,8 +1827,10 @@ ReactWrapper {
                           </Row>,
                           "className": "primary-button add-to-cart-button",
                           "data-target": "",
+                          "data-testid": "button",
                           "data-toggle": "",
                           "disabled": false,
+                          "id": "MLIN5xu2C",
                           "onClick": [MockFunction],
                           "type": "button",
                         },

@@ -1,0 +1,78 @@
+$fontFamily: 'Roboto', sans-serif;
+$color: #9c1c26;
+$white: rgb(217, 219, 224);
+
+.padding {
+  padding: 0 25px 0 25px;
+  @media screen and (max-width: 761px) {
+    padding: 0 15px;
+  }
+}
+
+.auth-option {
+  font-size: 14px;
+  letter-spacing: initial;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  color: $color;
+  &:hover {
+    text-decoration: none;
+    color: $color;
+  }
+}
+
+.form {
+  background: rgb(249, 249, 249);
+  padding: 10px 0 20px;
+  @media screen and (max-width: 761px) {
+    background: rgb(255, 255, 255);
+    box-shadow: none;
+  }
+}
+
+.facebk-icon {
+  color: white;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+.form-auth {
+  padding-top: 15px;
+}
+
+.divider-box {
+  padding: 0 25px 0 25px;
+  @media screen and (max-width: 761px) {
+    padding: 0 15px;
+  }
+}
+
+.divider {
+  overflow: hidden;
+  text-align: center;
+  color: rgb(217, 219, 224);
+}
+
+.divider:before,
+.divider:after {
+  background-color: rgb(217, 219, 224);
+  content: '';
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 45%;
+}
+
+.divider:before {
+  right: 0.5em;
+  margin-left: -45%;
+}
+
+.divider:after {
+  left: 0.4em;
+  margin-right: -45%;
+}
+

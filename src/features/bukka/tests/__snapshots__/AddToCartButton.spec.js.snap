@@ -35,6 +35,7 @@ ReactWrapper {
           dataToggle=""
           disabled={false}
           handleClick={[MockFunction]}
+          id="P6_tmnEPP"
           text=""
           type="button"
         >
@@ -73,7 +74,9 @@ ReactWrapper {
           <button
             class="primary-button add-to-cart-button"
             data-target=""
+            data-testid="button"
             data-toggle=""
+            id="P6_tmnEPP"
             type="button"
           >
             <div
@@ -111,6 +114,7 @@ ReactWrapper {
             dataToggle=""
             disabled={false}
             handleClick={[MockFunction]}
+            id="P6_tmnEPP"
             text=""
             type="button"
           >
@@ -177,6 +181,7 @@ ReactWrapper {
               "dataToggle": "",
               "disabled": false,
               "handleClick": [MockFunction],
+              "id": "P6_tmnEPP",
               "text": "",
               "type": "button",
             },
@@ -185,7 +190,9 @@ ReactWrapper {
               "instance": <button
                 class="primary-button add-to-cart-button"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="P6_tmnEPP"
                 type="button"
               >
                 <div
@@ -242,8 +249,10 @@ ReactWrapper {
                 </Row>,
                 "className": "primary-button add-to-cart-button",
                 "data-target": "",
+                "data-testid": "button",
                 "data-toggle": "",
                 "disabled": false,
+                "id": "P6_tmnEPP",
                 "onClick": [MockFunction],
                 "type": "button",
               },
@@ -501,6 +510,7 @@ ReactWrapper {
             dataToggle=""
             disabled={false}
             handleClick={[MockFunction]}
+            id="P6_tmnEPP"
             text=""
             type="button"
           >
@@ -539,7 +549,9 @@ ReactWrapper {
             <button
               class="primary-button add-to-cart-button"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="P6_tmnEPP"
               type="button"
             >
               <div
@@ -577,6 +589,7 @@ ReactWrapper {
               dataToggle=""
               disabled={false}
               handleClick={[MockFunction]}
+              id="P6_tmnEPP"
               text=""
               type="button"
             >
@@ -643,6 +656,7 @@ ReactWrapper {
                 "dataToggle": "",
                 "disabled": false,
                 "handleClick": [MockFunction],
+                "id": "P6_tmnEPP",
                 "text": "",
                 "type": "button",
               },
@@ -651,7 +665,9 @@ ReactWrapper {
                 "instance": <button
                   class="primary-button add-to-cart-button"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="P6_tmnEPP"
                   type="button"
                 >
                   <div
@@ -708,8 +724,10 @@ ReactWrapper {
                   </Row>,
                   "className": "primary-button add-to-cart-button",
                   "data-target": "",
+                  "data-testid": "button",
                   "data-toggle": "",
                   "disabled": false,
+                  "id": "P6_tmnEPP",
                   "onClick": [MockFunction],
                   "type": "button",
                 },

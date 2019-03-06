@@ -22,11 +22,11 @@ module.exports = {
     contentBase: './build',
     port: 7700,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.js'
   },
   plugins: [
     HtmlWebpackPluginConfig,
@@ -71,8 +71,8 @@ module.exports = {
       {
         test: /\.(mp3)$/,
         loader: 'file-loader?name=sounds/[name].[ext]'
-      },
-    ],
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],

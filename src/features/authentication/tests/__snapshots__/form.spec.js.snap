@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form component renders properly 1`] = `
+exports[`Auth Form component renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Form
+  Symbol(enzyme.__unrendered__): <AuthForm
     domStructure={
       Array [
         Object {
@@ -97,7 +97,10 @@ ShallowWrapper {
       }
     }
     isFormCompleted={false}
+    slideToNextInput={false}
+    title=""
     type="signin"
+    userEmail=""
     validationErrors={Object {}}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -115,7 +118,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <TextField
+        <AuthInputGroup
           domStructure={
             Array [
               Object {
@@ -127,30 +130,23 @@ ShallowWrapper {
             ]
           }
           handleChange={[MockFunction]}
+          slideToNextInput={false}
+          title=""
+          userEmail=""
           validationErrors={Object {}}
         />,
         <ErrorMessage
           message=""
         />,
         <TermsAndConditions
-          type="signin"
+          title=""
         />,
-        <LargeButton
-          classNames="disabled col-md-12 primary-button"
-          handleClick={[Function]}
-          text="Submit"
-          type="submit"
+        <AuthButtonGroup
+          isFormCompleted={false}
+          title=""
         />,
-        <Divider />,
-        <AuthByFacebook
-          classNames="facebk-btn col-md-12"
-          handleClick={[Function]}
-          href="/"
-          text="Facebook"
-          type="button"
-        />,
-        <FormOptions
-          type="signin"
+        <Connect(withRouter(AuthFooter))
+          title=""
         />,
       ],
       "className": "pb-3 form-auth",
@@ -173,6 +169,9 @@ ShallowWrapper {
             },
           ],
           "handleChange": [MockFunction],
+          "slideToNextInput": false,
+          "title": "",
+          "userEmail": "",
           "validationErrors": Object {},
         },
         "ref": null,
@@ -195,45 +194,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "type": "signin",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "0",
-        "nodeType": "function",
-        "props": Object {
-          "classNames": "disabled col-md-12 primary-button",
-          "handleClick": [Function],
-          "text": "Submit",
-          "type": "submit",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {},
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": "1",
-        "nodeType": "function",
-        "props": Object {
-          "classNames": "facebk-btn col-md-12",
-          "handleClick": [Function],
-          "href": "/",
-          "text": "Facebook",
-          "type": "button",
+          "title": "",
         },
         "ref": null,
         "rendered": null,
@@ -244,7 +205,19 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "type": "signin",
+          "isFormCompleted": false,
+          "title": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "title": "",
         },
         "ref": null,
         "rendered": null,
@@ -260,7 +233,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <TextField
+          <AuthInputGroup
             domStructure={
               Array [
                 Object {
@@ -272,30 +245,23 @@ ShallowWrapper {
               ]
             }
             handleChange={[MockFunction]}
+            slideToNextInput={false}
+            title=""
+            userEmail=""
             validationErrors={Object {}}
           />,
           <ErrorMessage
             message=""
           />,
           <TermsAndConditions
-            type="signin"
+            title=""
           />,
-          <LargeButton
-            classNames="disabled col-md-12 primary-button"
-            handleClick={[Function]}
-            text="Submit"
-            type="submit"
+          <AuthButtonGroup
+            isFormCompleted={false}
+            title=""
           />,
-          <Divider />,
-          <AuthByFacebook
-            classNames="facebk-btn col-md-12"
-            handleClick={[Function]}
-            href="/"
-            text="Facebook"
-            type="button"
-          />,
-          <FormOptions
-            type="signin"
+          <Connect(withRouter(AuthFooter))
+            title=""
           />,
         ],
         "className": "pb-3 form-auth",
@@ -318,6 +284,9 @@ ShallowWrapper {
               },
             ],
             "handleChange": [MockFunction],
+            "slideToNextInput": false,
+            "title": "",
+            "userEmail": "",
             "validationErrors": Object {},
           },
           "ref": null,
@@ -340,45 +309,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "type": "signin",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "0",
-          "nodeType": "function",
-          "props": Object {
-            "classNames": "disabled col-md-12 primary-button",
-            "handleClick": [Function],
-            "text": "Submit",
-            "type": "submit",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": "1",
-          "nodeType": "function",
-          "props": Object {
-            "classNames": "facebk-btn col-md-12",
-            "handleClick": [Function],
-            "href": "/",
-            "text": "Facebook",
-            "type": "button",
+            "title": "",
           },
           "ref": null,
           "rendered": null,
@@ -389,7 +320,19 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "type": "signin",
+            "isFormCompleted": false,
+            "title": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "title": "",
           },
           "ref": null,
           "rendered": null,

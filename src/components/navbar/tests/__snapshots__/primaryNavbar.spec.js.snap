@@ -3,7 +3,8 @@
 exports[`Primary Navbar renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <PrimaryNavbar
+  Symbol(enzyme.__unrendered__): <Connect(PrimaryNavbar)
+    navigateToNextRoute={[MockFunction]}
     push={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -18,361 +19,59 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "host",
+    "nodeType": "function",
     "props": Object {
-      "children": <nav
-        className="navbar navbar-light"
-      >
-        <Brand />
-        <div
-          className="form-inline"
-        >
-          <Button
-            classNames="small-outline-button"
-            dataTarget=""
-            dataToggle=""
-            disabled={false}
-            handleClick={[Function]}
-            text="sign in"
-            type="button"
-          >
-            <div />
-          </Button>
-          <Button
-            classNames="small-button"
-            dataTarget=""
-            dataToggle=""
-            disabled={false}
-            handleClick={[Function]}
-            text="sign up"
-            type="button"
-          >
-            <div />
-          </Button>
-        </div>
-      </nav>,
-      "className": "container",
+      "children": [Function],
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <Brand />,
-          <div
-            className="form-inline"
-          >
-            <Button
-              classNames="small-outline-button"
-              dataTarget=""
-              dataToggle=""
-              disabled={false}
-              handleClick={[Function]}
-              text="sign in"
-              type="button"
-            >
-              <div />
-            </Button>
-            <Button
-              classNames="small-button"
-              dataTarget=""
-              dataToggle=""
-              disabled={false}
-              handleClick={[Function]}
-              text="sign up"
-              type="button"
-            >
-              <div />
-            </Button>
-          </div>,
-        ],
-        "className": "navbar navbar-light",
+    "rendered": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.context),
+      "_calculateChangedBits": null,
+      "_context": Object {
+        "$$typeof": Symbol(react.context),
+        "Consumer": [Circular],
+        "Provider": Object {
+          "$$typeof": Symbol(react.provider),
+          "_context": [Circular],
+        },
+        "_calculateChangedBits": null,
+        "_currentRenderer": null,
+        "_currentRenderer2": null,
+        "_currentValue": null,
+        "_currentValue2": null,
+        "_threadCount": 0,
       },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <Button
-                classNames="small-outline-button"
-                dataTarget=""
-                dataToggle=""
-                disabled={false}
-                handleClick={[Function]}
-                text="sign in"
-                type="button"
-              >
-                <div />
-              </Button>,
-              <Button
-                classNames="small-button"
-                dataTarget=""
-                dataToggle=""
-                disabled={false}
-                handleClick={[Function]}
-                text="sign up"
-                type="button"
-              >
-                <div />
-              </Button>,
-            ],
-            "className": "form-inline",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "children": <div />,
-                "classNames": "small-outline-button",
-                "dataTarget": "",
-                "dataToggle": "",
-                "disabled": false,
-                "handleClick": [Function],
-                "text": "sign in",
-                "type": "button",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": "div",
-              },
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "children": <div />,
-                "classNames": "small-button",
-                "dataTarget": "",
-                "dataToggle": "",
-                "disabled": false,
-                "handleClick": [Function],
-                "text": "sign up",
-                "type": "button",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {},
-                "ref": null,
-                "rendered": null,
-                "type": "div",
-              },
-              "type": [Function],
-            },
-          ],
-          "type": "div",
-        },
-      ],
-      "type": "nav",
     },
-    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
+      "nodeType": "function",
       "props": Object {
-        "children": <nav
-          className="navbar navbar-light"
-        >
-          <Brand />
-          <div
-            className="form-inline"
-          >
-            <Button
-              classNames="small-outline-button"
-              dataTarget=""
-              dataToggle=""
-              disabled={false}
-              handleClick={[Function]}
-              text="sign in"
-              type="button"
-            >
-              <div />
-            </Button>
-            <Button
-              classNames="small-button"
-              dataTarget=""
-              dataToggle=""
-              disabled={false}
-              handleClick={[Function]}
-              text="sign up"
-              type="button"
-            >
-              <div />
-            </Button>
-          </div>
-        </nav>,
-        "className": "container",
+        "children": [Function],
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <Brand />,
-            <div
-              className="form-inline"
-            >
-              <Button
-                classNames="small-outline-button"
-                dataTarget=""
-                dataToggle=""
-                disabled={false}
-                handleClick={[Function]}
-                text="sign in"
-                type="button"
-              >
-                <div />
-              </Button>
-              <Button
-                classNames="small-button"
-                dataTarget=""
-                dataToggle=""
-                disabled={false}
-                handleClick={[Function]}
-                text="sign up"
-                type="button"
-              >
-                <div />
-              </Button>
-            </div>,
-          ],
-          "className": "navbar navbar-light",
+      "rendered": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.context),
+        "_calculateChangedBits": null,
+        "_context": Object {
+          "$$typeof": Symbol(react.context),
+          "Consumer": [Circular],
+          "Provider": Object {
+            "$$typeof": Symbol(react.provider),
+            "_context": [Circular],
+          },
+          "_calculateChangedBits": null,
+          "_currentRenderer": null,
+          "_currentRenderer2": null,
+          "_currentValue": null,
+          "_currentValue2": null,
+          "_threadCount": 0,
         },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <Button
-                  classNames="small-outline-button"
-                  dataTarget=""
-                  dataToggle=""
-                  disabled={false}
-                  handleClick={[Function]}
-                  text="sign in"
-                  type="button"
-                >
-                  <div />
-                </Button>,
-                <Button
-                  classNames="small-button"
-                  dataTarget=""
-                  dataToggle=""
-                  disabled={false}
-                  handleClick={[Function]}
-                  text="sign up"
-                  type="button"
-                >
-                  <div />
-                </Button>,
-              ],
-              "className": "form-inline",
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "children": <div />,
-                  "classNames": "small-outline-button",
-                  "dataTarget": "",
-                  "dataToggle": "",
-                  "disabled": false,
-                  "handleClick": [Function],
-                  "text": "sign in",
-                  "type": "button",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "div",
-                },
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "children": <div />,
-                  "classNames": "small-button",
-                  "dataTarget": "",
-                  "dataToggle": "",
-                  "disabled": false,
-                  "handleClick": [Function],
-                  "text": "sign up",
-                  "type": "button",
-                },
-                "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "div",
-                },
-                "type": [Function],
-              },
-            ],
-            "type": "div",
-          },
-        ],
-        "type": "nav",
       },
-      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -396,5 +95,6 @@ ShallowWrapper {
       },
     },
   },
+  Symbol(enzyme.__childContext__): null,
 }
 `;

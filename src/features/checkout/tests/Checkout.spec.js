@@ -6,9 +6,18 @@ import Checkout from '../components/Checkout';
 
 describe('Area to explore component', () => {
   const store = mockStore({
-    deliveryModeReducer: {
-      mode: 'pickup',
+    homeReducer: { type: 'Sign Up' },
+    authenticationReducer: {
+      user: {},
+      status: {
+        authenticated: false,
+        error: false
+      },
+      errorMessage: ''
     },
+    deliveryModeReducer: {
+      mode: 'pickup'
+    }
   });
 
   const wrapper = render(

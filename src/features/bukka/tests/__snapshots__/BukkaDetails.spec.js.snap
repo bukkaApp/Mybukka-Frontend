@@ -75,7 +75,9 @@ ReactWrapper {
                   <button
                     class="tag-bukka-button"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="vXcC6zL7f"
                     type="button"
                   >
                     AFRICAN
@@ -105,7 +107,7 @@ ReactWrapper {
                   data-prefix="fas"
                   focusable="false"
                   role="img"
-                  style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                  style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                   viewBox="0 0 576 512"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -139,7 +141,9 @@ ReactWrapper {
                 <button
                   class="small-outline-button"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="vXcC6zL7f"
                   type="button"
                 >
                   <p
@@ -167,7 +171,9 @@ ReactWrapper {
                 <button
                   class="small-outline-button"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="vXcC6zL7f"
                   type="button"
                 >
                   <p
@@ -192,7 +198,9 @@ ReactWrapper {
                 <button
                   class="small-outline-button"
                   data-target=""
+                  data-testid="button"
                   data-toggle=""
+                  id="vXcC6zL7f"
                   type="button"
                 >
                   <p
@@ -271,7 +279,9 @@ ReactWrapper {
                       <button
                         class="tag-bukka-button"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="vXcC6zL7f"
                         type="button"
                       >
                         AFRICAN
@@ -309,6 +319,7 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+                        id="vXcC6zL7f"
                         text="AFRICAN"
                         type="button"
                       >
@@ -345,7 +356,9 @@ ReactWrapper {
                         <button
                           class="tag-bukka-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="vXcC6zL7f"
                           type="button"
                         >
                           AFRICAN
@@ -380,6 +393,7 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+                            id="vXcC6zL7f"
                             text="AFRICAN"
                             type="button"
                           >
@@ -457,7 +471,9 @@ ReactWrapper {
                           <button
                             class="tag-bukka-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             AFRICAN
@@ -476,6 +492,7 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+                            id="vXcC6zL7f"
                             text="AFRICAN"
                             type="button"
                           >
@@ -493,7 +510,9 @@ ReactWrapper {
                             <button
                               class="tag-bukka-button"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="vXcC6zL7f"
                               type="button"
                             >
                               AFRICAN
@@ -508,6 +527,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text="AFRICAN"
                               type="button"
                             >
@@ -528,6 +548,7 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+                                "id": "vXcC6zL7f",
                                 "text": "AFRICAN",
                                 "type": "button",
                               },
@@ -536,7 +557,9 @@ ReactWrapper {
                                 "instance": <button
                                   class="tag-bukka-button"
                                   data-target=""
+                                  data-testid="button"
                                   data-toggle=""
+                                  id="vXcC6zL7f"
                                   type="button"
                                 >
                                   AFRICAN
@@ -547,8 +570,10 @@ ReactWrapper {
                                   "children": "AFRICAN",
                                   "className": "tag-bukka-button",
                                   "data-target": "",
+                                  "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+                                  "id": "vXcC6zL7f",
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -605,7 +630,7 @@ ReactWrapper {
                       data-prefix="fas"
                       focusable="false"
                       role="img"
-                      style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                      style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                       viewBox="0 0 576 512"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -684,7 +709,7 @@ ReactWrapper {
                         data-prefix="fas"
                         focusable="false"
                         role="img"
-                        style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                        style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                         viewBox="0 0 576 512"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -720,7 +745,7 @@ ReactWrapper {
                           data-prefix="fas"
                           focusable="false"
                           role="img"
-                          style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                          style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                           viewBox="0 0 576 512"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -756,7 +781,7 @@ ReactWrapper {
                               data-prefix="fas"
                               focusable="false"
                               role="img"
-                              style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                              style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                               viewBox="0 0 576 512"
                               xmlns="http://www.w3.org/2000/svg"
                             >
@@ -867,7 +892,9 @@ ReactWrapper {
                     <button
                       class="small-outline-button"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="vXcC6zL7f"
                       type="button"
                     >
                       <p
@@ -895,7 +922,9 @@ ReactWrapper {
                     <button
                       class="small-outline-button"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="vXcC6zL7f"
                       type="button"
                     >
                       <p
@@ -920,7 +949,9 @@ ReactWrapper {
                     <button
                       class="small-outline-button"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="vXcC6zL7f"
                       type="button"
                     >
                       <p
@@ -955,6 +986,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+                    id="vXcC6zL7f"
                     text=""
                     type="button"
                   >
@@ -975,6 +1007,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+                    id="vXcC6zL7f"
                     text=""
                     type="button"
                   >
@@ -992,6 +1025,7 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+                    id="vXcC6zL7f"
                     text=""
                     type="button"
                   >
@@ -1019,6 +1053,7 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+                        id="vXcC6zL7f"
                         text=""
                         type="button"
                       >
@@ -1039,6 +1074,7 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+                        id="vXcC6zL7f"
                         text=""
                         type="button"
                       >
@@ -1056,6 +1092,7 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+                        id="vXcC6zL7f"
                         text=""
                         type="button"
                       >
@@ -1084,7 +1121,9 @@ ReactWrapper {
                         <button
                           class="small-outline-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="vXcC6zL7f"
                           type="button"
                         >
                           <p
@@ -1112,7 +1151,9 @@ ReactWrapper {
                         <button
                           class="small-outline-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="vXcC6zL7f"
                           type="button"
                         >
                           <p
@@ -1137,7 +1178,9 @@ ReactWrapper {
                         <button
                           class="small-outline-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="vXcC6zL7f"
                           type="button"
                         >
                           <p
@@ -1174,6 +1217,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -1194,6 +1238,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -1211,6 +1256,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -1236,7 +1282,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -1264,7 +1312,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -1289,7 +1339,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -1321,6 +1373,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text=""
                               type="button"
                             >
@@ -1341,6 +1394,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text=""
                               type="button"
                             >
@@ -1358,6 +1412,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text=""
                               type="button"
                             >
@@ -1394,6 +1449,7 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+                              "id": "vXcC6zL7f",
                               "text": "",
                               "type": "button",
                             },
@@ -1402,7 +1458,9 @@ ReactWrapper {
                               "instance": <button
                                 class="small-outline-button"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="vXcC6zL7f"
                                 type="button"
                               >
                                 <p
@@ -1442,8 +1500,10 @@ ReactWrapper {
                                 </p>,
                                 "className": "small-outline-button",
                                 "data-target": "",
+                                "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+                                "id": "vXcC6zL7f",
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -1576,6 +1636,7 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+                              "id": "vXcC6zL7f",
                               "text": "",
                               "type": "button",
                             },
@@ -1584,7 +1645,9 @@ ReactWrapper {
                               "instance": <button
                                 class="small-outline-button"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="vXcC6zL7f"
                                 type="button"
                               >
                                 <p
@@ -1618,8 +1681,10 @@ ReactWrapper {
                                 </p>,
                                 "className": "small-outline-button",
                                 "data-target": "",
+                                "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+                                "id": "vXcC6zL7f",
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -1742,6 +1807,7 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+                              "id": "vXcC6zL7f",
                               "text": "",
                               "type": "button",
                             },
@@ -1750,7 +1816,9 @@ ReactWrapper {
                               "instance": <button
                                 class="small-outline-button"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="vXcC6zL7f"
                                 type="button"
                               >
                                 <p
@@ -1781,8 +1849,10 @@ ReactWrapper {
                                 </p>,
                                 "className": "small-outline-button",
                                 "data-target": "",
+                                "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+                                "id": "vXcC6zL7f",
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -1962,7 +2032,9 @@ ReactWrapper {
                     <button
                       class="tag-bukka-button"
                       data-target=""
+                      data-testid="button"
                       data-toggle=""
+                      id="vXcC6zL7f"
                       type="button"
                     >
                       AFRICAN
@@ -1992,7 +2064,7 @@ ReactWrapper {
                     data-prefix="fas"
                     focusable="false"
                     role="img"
-                    style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                    style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                     viewBox="0 0 576 512"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -2026,7 +2098,9 @@ ReactWrapper {
                   <button
                     class="small-outline-button"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="vXcC6zL7f"
                     type="button"
                   >
                     <p
@@ -2054,7 +2128,9 @@ ReactWrapper {
                   <button
                     class="small-outline-button"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="vXcC6zL7f"
                     type="button"
                   >
                     <p
@@ -2079,7 +2155,9 @@ ReactWrapper {
                   <button
                     class="small-outline-button"
                     data-target=""
+                    data-testid="button"
                     data-toggle=""
+                    id="vXcC6zL7f"
                     type="button"
                   >
                     <p
@@ -2158,7 +2236,9 @@ ReactWrapper {
                         <button
                           class="tag-bukka-button"
                           data-target=""
+                          data-testid="button"
                           data-toggle=""
+                          id="vXcC6zL7f"
                           type="button"
                         >
                           AFRICAN
@@ -2196,6 +2276,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text="AFRICAN"
                           type="button"
                         >
@@ -2232,7 +2313,9 @@ ReactWrapper {
                           <button
                             class="tag-bukka-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             AFRICAN
@@ -2267,6 +2350,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text="AFRICAN"
                               type="button"
                             >
@@ -2344,7 +2428,9 @@ ReactWrapper {
                             <button
                               class="tag-bukka-button"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="vXcC6zL7f"
                               type="button"
                             >
                               AFRICAN
@@ -2363,6 +2449,7 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+                              id="vXcC6zL7f"
                               text="AFRICAN"
                               type="button"
                             >
@@ -2380,7 +2467,9 @@ ReactWrapper {
                               <button
                                 class="tag-bukka-button"
                                 data-target=""
+                                data-testid="button"
                                 data-toggle=""
+                                id="vXcC6zL7f"
                                 type="button"
                               >
                                 AFRICAN
@@ -2395,6 +2484,7 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+                                id="vXcC6zL7f"
                                 text="AFRICAN"
                                 type="button"
                               >
@@ -2415,6 +2505,7 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
+                                  "id": "vXcC6zL7f",
                                   "text": "AFRICAN",
                                   "type": "button",
                                 },
@@ -2423,7 +2514,9 @@ ReactWrapper {
                                   "instance": <button
                                     class="tag-bukka-button"
                                     data-target=""
+                                    data-testid="button"
                                     data-toggle=""
+                                    id="vXcC6zL7f"
                                     type="button"
                                   >
                                     AFRICAN
@@ -2434,8 +2527,10 @@ ReactWrapper {
                                     "children": "AFRICAN",
                                     "className": "tag-bukka-button",
                                     "data-target": "",
+                                    "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
+                                    "id": "vXcC6zL7f",
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2492,7 +2587,7 @@ ReactWrapper {
                         data-prefix="fas"
                         focusable="false"
                         role="img"
-                        style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                        style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                         viewBox="0 0 576 512"
                         xmlns="http://www.w3.org/2000/svg"
                       >
@@ -2571,7 +2666,7 @@ ReactWrapper {
                           data-prefix="fas"
                           focusable="false"
                           role="img"
-                          style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                          style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                           viewBox="0 0 576 512"
                           xmlns="http://www.w3.org/2000/svg"
                         >
@@ -2607,7 +2702,7 @@ ReactWrapper {
                             data-prefix="fas"
                             focusable="false"
                             role="img"
-                            style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                            style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                             viewBox="0 0 576 512"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -2643,7 +2738,7 @@ ReactWrapper {
                                 data-prefix="fas"
                                 focusable="false"
                                 role="img"
-                                style="height: 14px; padding-right: 5px; padding-bottom: 2px;"
+                                style="color: gold; height: 14px; padding-right: 5px; padding-bottom: 2px;"
                                 viewBox="0 0 576 512"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
@@ -2754,7 +2849,9 @@ ReactWrapper {
                       <button
                         class="small-outline-button"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="vXcC6zL7f"
                         type="button"
                       >
                         <p
@@ -2782,7 +2879,9 @@ ReactWrapper {
                       <button
                         class="small-outline-button"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="vXcC6zL7f"
                         type="button"
                       >
                         <p
@@ -2807,7 +2906,9 @@ ReactWrapper {
                       <button
                         class="small-outline-button"
                         data-target=""
+                        data-testid="button"
                         data-toggle=""
+                        id="vXcC6zL7f"
                         type="button"
                       >
                         <p
@@ -2842,6 +2943,7 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+                      id="vXcC6zL7f"
                       text=""
                       type="button"
                     >
@@ -2862,6 +2964,7 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+                      id="vXcC6zL7f"
                       text=""
                       type="button"
                     >
@@ -2879,6 +2982,7 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+                      id="vXcC6zL7f"
                       text=""
                       type="button"
                     >
@@ -2906,6 +3010,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -2926,6 +3031,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -2943,6 +3049,7 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+                          id="vXcC6zL7f"
                           text=""
                           type="button"
                         >
@@ -2971,7 +3078,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -2999,7 +3108,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -3024,7 +3135,9 @@ ReactWrapper {
                           <button
                             class="small-outline-button"
                             data-target=""
+                            data-testid="button"
                             data-toggle=""
+                            id="vXcC6zL7f"
                             type="button"
                           >
                             <p
@@ -3061,6 +3174,7 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+                            id="vXcC6zL7f"
                             text=""
                             type="button"
                           >
@@ -3081,6 +3195,7 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+                            id="vXcC6zL7f"
                             text=""
                             type="button"
                           >
@@ -3098,6 +3213,7 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+                            id="vXcC6zL7f"
                             text=""
                             type="button"
                           >
@@ -3123,7 +3239,9 @@ ReactWrapper {
                             <button
                               class="small-outline-button"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="vXcC6zL7f"
                               type="button"
                             >
                               <p
@@ -3151,7 +3269,9 @@ ReactWrapper {
                             <button
                               class="small-outline-button"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="vXcC6zL7f"
                               type="button"
                             >
                               <p
@@ -3176,7 +3296,9 @@ ReactWrapper {
                             <button
                               class="small-outline-button"
                               data-target=""
+                              data-testid="button"
                               data-toggle=""
+                              id="vXcC6zL7f"
                               type="button"
                             >
                               <p
@@ -3208,6 +3330,7 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+                                id="vXcC6zL7f"
                                 text=""
                                 type="button"
                               >
@@ -3228,6 +3351,7 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+                                id="vXcC6zL7f"
                                 text=""
                                 type="button"
                               >
@@ -3245,6 +3369,7 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+                                id="vXcC6zL7f"
                                 text=""
                                 type="button"
                               >
@@ -3281,6 +3406,7 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+                                "id": "vXcC6zL7f",
                                 "text": "",
                                 "type": "button",
                               },
@@ -3289,7 +3415,9 @@ ReactWrapper {
                                 "instance": <button
                                   class="small-outline-button"
                                   data-target=""
+                                  data-testid="button"
                                   data-toggle=""
+                                  id="vXcC6zL7f"
                                   type="button"
                                 >
                                   <p
@@ -3329,8 +3457,10 @@ ReactWrapper {
                                   </p>,
                                   "className": "small-outline-button",
                                   "data-target": "",
+                                  "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+                                  "id": "vXcC6zL7f",
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -3463,6 +3593,7 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+                                "id": "vXcC6zL7f",
                                 "text": "",
                                 "type": "button",
                               },
@@ -3471,7 +3602,9 @@ ReactWrapper {
                                 "instance": <button
                                   class="small-outline-button"
                                   data-target=""
+                                  data-testid="button"
                                   data-toggle=""
+                                  id="vXcC6zL7f"
                                   type="button"
                                 >
                                   <p
@@ -3505,8 +3638,10 @@ ReactWrapper {
                                   </p>,
                                   "className": "small-outline-button",
                                   "data-target": "",
+                                  "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+                                  "id": "vXcC6zL7f",
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -3629,6 +3764,7 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+                                "id": "vXcC6zL7f",
                                 "text": "",
                                 "type": "button",
                               },
@@ -3637,7 +3773,9 @@ ReactWrapper {
                                 "instance": <button
                                   class="small-outline-button"
                                   data-target=""
+                                  data-testid="button"
                                   data-toggle=""
+                                  id="vXcC6zL7f"
                                   type="button"
                                 >
                                   <p
@@ -3668,8 +3806,10 @@ ReactWrapper {
                                   </p>,
                                   "className": "small-outline-button",
                                   "data-target": "",
+                                  "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+                                  "id": "vXcC6zL7f",
                                   "onClick": [Function],
                                   "type": "button",
                                 },

@@ -8,16 +8,22 @@ import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
 
+import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
+import './auth.scss';
 
 export const LoginPage = ({
   status,
+  authModal,
   errorMessage,
+  classNames,
   authenticateUser,
   history: { push }
 }) => {
+  const [nextSlide, setNextSlide] = useState(false);
+
   const [validationErrors, setValidationErrors] = useState({
     email: '',
     password: ''
@@ -54,9 +60,44 @@ export const LoginPage = ({
 
     const { errors, passes } = validation;
     validateOnClick(errors);
-    if (passes) {
-      return authenticateUser('/user/signin', inputData);
+    // if No AutoSuggestion
+    if (!errors.email && errors.password && !nextSlide) {
+      setNextSlide(true);
+      setValidationErrors({
+        ...validationErrors,
+        password: ''
+      });
     }
+    if (passes) {
+      setNextSlide(true);
+      if (nextSlide) {
+        return authenticateUser('/user/signin', inputData);
+      }
+    }
+  };
+
+  const goToPrev = () => {
+    setNextSlide(false);
+  };
+
+  const BukkaLogo = () => {
+    if (!authModal) {
+      return (
+        <div className="pb-3">
+          <Logo />
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const ToolBar = () => {
+    if (!authModal) {
+      return (
+        <PrimaryNavbar push={push} />
+      );
+    }
+    return null;
   };
 
   useEffect(() => {
@@ -68,16 +109,24 @@ export const LoginPage = ({
 
   return (
     <Fragment>
-      <PrimaryNavbar push={push} />
-      <Authentication
-        title="Log In"
-        errorMessage={errorMessage}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        domStructure={signInDomStructure}
-        validationErrors={validationErrors}
-        isFormCompleted
-      />
+      <ToolBar />
+      <div className="bg-color auth-page">
+        <Authentication
+          title="Log In"
+          errorMessage={errorMessage}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          domStructure={signInDomStructure}
+          validationErrors={validationErrors}
+          isFormCompleted
+          authModal={authModal}
+          classNames={classNames}
+          userEmail={inputData.email}
+          slideToNextInput={nextSlide}
+          handleBackClick={goToPrev}
+        />
+        <BukkaLogo />
+      </div>
     </Fragment>
   );
 };
@@ -96,13 +145,17 @@ export default connect(
 )(LoginPage);
 
 LoginPage.defaultProps = {
-  errorMessage: ''
+  errorMessage: '',
+  authModal: false,
+  classNames: ''
 };
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  authModal: PropTypes.bool,
+  classNames: PropTypes.string,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   errorMessage: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired,
