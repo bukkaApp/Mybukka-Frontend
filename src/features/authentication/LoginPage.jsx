@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import PrimaryNavbar from 'Components/navbar';
 
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
@@ -22,6 +22,7 @@ export const LoginPage = ({
   authenticateUser,
   history: { push }
 }) => {
+  const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
 
   const [validationErrors, setValidationErrors] = useState({
@@ -33,6 +34,9 @@ export const LoginPage = ({
     email: '',
     password: ''
   });
+
+  // fix error message coincedence for both signup and signin
+  const errorMsg = isRequested ? errorMessage : '';
 
   const validateOnClick = (newValidationError) => {
     setValidationErrors({
@@ -71,6 +75,7 @@ export const LoginPage = ({
     if (passes) {
       setNextSlide(true);
       if (nextSlide) {
+        setIsRequested(true);
         return authenticateUser('/user/signin', inputData);
       }
     }
@@ -113,7 +118,7 @@ export const LoginPage = ({
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
-          errorMessage={errorMessage}
+          errorMessage={errorMsg}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           domStructure={signInDomStructure}
