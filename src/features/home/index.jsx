@@ -6,17 +6,13 @@ import { connect } from 'react-redux';
 import Footer from 'Components/footer/Footer';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
-import ChooseAreaToExploreSection from
-  './components/ChooseAreaToExploreSection';
+
+import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection';
+
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-const Home = ({ history: { push }, coordinates }) => {
-  useEffect(
-    () => () => {
-      push('/feed');
-    },
-    [coordinates]
-  );
+const Home = ({ history: { location, push }, coordinates }) => {
+  useEffect(() => () => push('/feed'), [coordinates]);
 
   return (
     <div className="home">
@@ -38,12 +34,9 @@ export default connect(
   null
 )(Home);
 
-Home.defaultProps = {
-};
-
 Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number)
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
 };

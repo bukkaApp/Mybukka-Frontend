@@ -6,8 +6,6 @@ import Modal from '../modal';
 import Button from '../button/Button';
 import SearchLocation from './SearchLocation';
 import DeliveryOrPickupNav from './DeliveryOrPickupNav';
-import UseCurrentLocation from './UseCurrentLocation';
-import GeoSuggestions from './GeoSuggestions';
 import ChevronRight from '../icons/ChevronRight';
 
 import './LocationNavSmallScreen.scss';
@@ -28,17 +26,11 @@ const SelectLocationModal = () => (
   </Modal>
 );
 
-const SuggestionsDropdown = ({ handleClick }) => (
+const SuggestionsDropdown = () => (
   <div className="suggestion-dropdown">
-    <SearchLocation />
-    <UseCurrentLocation handleClick={handleClick} />
-    <GeoSuggestions
-      handleClick={handleClick}
-      suggestions={[
-        { location: 'Mende Maryland, Lagos', key: '1' },
-        { location: 'Mende Maryland, Lagos', key: '2' },
-        { location: 'Mende Maryland, Lagos', key: '3' }
-      ]}
+    <SearchLocation
+      chevronButtonVisible={false}
+      showDeliveryOrPickupNav={false}
     />
   </div>
 );
@@ -79,10 +71,6 @@ const SmallLocationNav = () => (
 );
 
 export default SmallLocationNav;
-
-SuggestionsDropdown.propTypes = {
-  handleClick: PropTypes.func.isRequired
-};
 
 CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired

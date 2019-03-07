@@ -14,7 +14,7 @@ const NearByBukka = ({ bukkaData }) => (
       {bukkaData.map(bukka => (
         <BukkaCard
           key={shortId.generate()}
-          image={bukka.image}
+          imageUrl={bukka.imageUrl}
           deliveryCost={bukka.deliveryCost}
           deliveryTime={bukka.deliveryTime}
           rating={bukka.rating}

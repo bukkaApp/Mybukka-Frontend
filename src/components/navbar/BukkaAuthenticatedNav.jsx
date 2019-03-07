@@ -22,15 +22,16 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
     navigateToNextRoute(id);
   };
 
-  const minWidth = window.innerWidth;
+  const windowWidth = window.innerWidth;
   let btnAttribute = { handleClick: navigateToAuth };
-  if (minWidth > 767) {
+  if (windowWidth > 767) {
     btnAttribute = {
       dataToggle: 'modal',
       dataTarget: '#modal',
       handleClick: goToAuthRoute
     };
   }
+
   let DefaultAuthenticatedImgOrButton = () => (
     <Fragment>
       <Button
@@ -49,9 +50,11 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
       />
     </Fragment>
   );
+
   if (authenticated) {
     DefaultAuthenticatedImgOrButton = UserDefaultImage;
   }
+
   return (
     <Fragment>
       <AuthModal push={push} />
@@ -65,7 +68,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
                   text={propData.name}
                   key={propData.name}
                   classNames="bukka-btn"
-                  href="/login"
+                  href="/feed"
                 />
               ))}
             </div>
@@ -84,6 +87,6 @@ export default connect(null, {
 BukkaAuthenticatedNav.propTypes = {
   push: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
-  navigateToNextRoute: PropTypes.func.isRequired
+  navigateToNextRoute: PropTypes.func.isRequired,
 };
 

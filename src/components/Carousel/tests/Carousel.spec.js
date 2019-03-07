@@ -15,7 +15,7 @@ describe('Carousel component', () => {
         deliveryTime: '30-50 min',
         author: 'Bane',
         deliveryCost: 300,
-        image:
+        imageUrl:
           'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg',
         rating: 'popular'
       },
@@ -23,7 +23,7 @@ describe('Carousel component', () => {
         deliveryTime: '1 hour',
         author: "Ra's Al Ghul",
         deliveryCost: 400,
-        image:
+        imageUrl:
           'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
       }
     ],
