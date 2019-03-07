@@ -3,7 +3,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import PrimaryNavbar from 'Components/navbar';
 import Authentication from './components/Authentication';
 
 import Logo from './common/Logo';
@@ -21,6 +21,7 @@ export const RegisterPage = ({
   classNames,
   history: { push },
 }) => {
+  const [isRequested, setIsRequested] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
     lastName: '',
@@ -36,6 +37,9 @@ export const RegisterPage = ({
     password: '',
     confirmPassword: '',
   });
+
+  // fix error message coincedence for both signup and signin
+  const errorMsg = isRequested ? errorMessage : '';
 
   const validateOnClick = (newValidationErrors) => {
     setValidationErrors({
@@ -64,6 +68,7 @@ export const RegisterPage = ({
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
+      setIsRequested(true);
       return authenticateUser('/user/signup', inputData);
     }
   };
@@ -101,7 +106,7 @@ export const RegisterPage = ({
       <div className="bg-color auth-page">
         <Authentication
           title="Sign Up"
-          errorMessage={errorMessage}
+          errorMessage={errorMsg}
           handleChange={handleChange}
           validationErrors={validationErrors}
           handleSubmit={handleSubmit}
