@@ -22,7 +22,8 @@ const ProfileScene = ({
   status,
   finishedRequest,
   loading,
-  editUserData
+  editUserData,
+  userAddress
 }) => {
   const { userInfo, updatedUser } = user;
   const userData = userInfo || updatedUser;
@@ -59,15 +60,13 @@ const ProfileScene = ({
     const token = localStorage.getItem('x-access-token');
     const { slug } = verifyToken(token);
     const formData = appendCloudinaryDetails(file);
-    storeOnCloudinary(formData).then(
-      (response) => {
-        const data = {
-          ...userData,
-          imageUrl: response.body.secure_url
-        };
-        return editUserData(`/user/${slug}`, data);
-      }
-    );
+    storeOnCloudinary(formData).then((response) => {
+      const data = {
+        ...userData,
+        imageUrl: response.body.secure_url
+      };
+      return editUserData(`/user/${slug}`, data);
+    });
   };
 
   const uploadImageToCloudinary = (file) => {
@@ -105,7 +104,12 @@ const ProfileScene = ({
             />
           </Column>
           <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
-            <AccountDetails editUserData={editUserData} userInfo={userData} loading={loading} />
+            <AccountDetails
+              editUserData={editUserData}
+              userInfo={userData}
+              loading={loading}
+              userAddress={userAddress}
+            />
           </Column>
         </Row>
       </Container>
@@ -116,12 +120,12 @@ const ProfileScene = ({
 const mapStateToProps = ({
   loadingReducer: { status: loading },
   authenticationReducer: { status },
-  profileReducer: { userInfo: user, address, finishedRequest }
+  profileReducer: { userInfo: user, address: userAddress, finishedRequest }
 }) => ({
   loading,
   status,
   user,
-  address,
+  userAddress,
   finishedRequest
 });
 
@@ -132,6 +136,7 @@ export default connect(mapStateToProps,
 
 ProfileScene.defaultProps = {
   loading: false,
+  userAddress: {}
 };
 
 ProfileScene.propTypes = {
@@ -145,5 +150,11 @@ ProfileScene.propTypes = {
       PropTypes.objectOf(PropTypes.string),
       PropTypes.string
     ])
-  ).isRequired
+  ).isRequired,
+  userAddress: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.objectOf(PropTypes.string),
+      PropTypes.string
+    ])
+  )
 };

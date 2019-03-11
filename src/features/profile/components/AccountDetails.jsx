@@ -10,7 +10,7 @@ import { validateAField, validateAllFields } from '../validations/validateFields
 import signUpDomStructure from './signUpDomStructure.json';
 import './accountDetails.scss';
 
-const AccountDetails = ({ userInfo, loading, editUserData }) => {
+const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
   const [activeInput, setActiveInput] = useState('firstName');
   const textInputFocus = {
     firstName: React.createRef(),
@@ -127,6 +127,7 @@ const AccountDetails = ({ userInfo, loading, editUserData }) => {
     }
   });
 
+  const address = userAddress.newAddress.address || '1, Aminu street, Mende';
   return (
     <div className="account-details">
       <AccountDetailsGroupHeader text="Account Details" />
@@ -150,7 +151,7 @@ const AccountDetails = ({ userInfo, loading, editUserData }) => {
         handleEdit={event => handleEditButton(event, 'password')}
         handleSave={event => handleInputSaveButton(event, 'password')}
       />
-      <Addresses addresses={['1, Aminu street, Mende']} />
+      <Addresses addresses={[address]} />
       {/* <Payment /> */}
     </div>
   );
@@ -158,8 +159,18 @@ const AccountDetails = ({ userInfo, loading, editUserData }) => {
 
 export default AccountDetails;
 
+AccountDetails.defaultProps = {
+  userAddress: {}
+};
+
 AccountDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
   userInfo: PropTypes.objectOf(PropTypes.string).isRequired,
   editUserData: PropTypes.func.isRequired,
+  userAddress: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.objectOf(PropTypes.string),
+      PropTypes.string
+    ])
+  )
 };

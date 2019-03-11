@@ -10,7 +10,7 @@ import { validateAField, validateAllFields } from '../validations/validateAddres
 
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
-import postUserData from '../actionCreators/postUserData';
+import postUserAddress from '../actionCreators/postUserAddress';
 
 const DeliveryForm = ({
   setWrapperRef,
@@ -48,7 +48,7 @@ const DeliveryForm = ({
   </form>
 );
 
-const Delivery = ({ sendUserAddress }) => {
+const Delivery = ({ sendUserAddress, errorMessage }) => {
   let wrapperRef;
   const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -104,21 +104,29 @@ const Delivery = ({ sendUserAddress }) => {
 
   const handleSaveButton = (e) => {
     e.preventDefault();
-    const address = `${inputData.streetAddress1} ${inputData.streetAddress2}`;
-    const data = {
-      ...inputData,
-      address,
-    };
+    const address = inputData.streetAddress1;
+    const apartmentNumber = inputData.streetAddress2;
     const validation = validateAllFields(inputData);
     const { errors, passes } = validation;
     setValidationErrors({
       ...validationErrors,
       ...errors
     });
-    console.log(passes);
     if (passes) {
       const token = localStorage.getItem('x-access-token');
       const { slug } = verifyToken(token);
+      // create data
+      const data = {
+        ...inputData,
+        apartmentNumber,
+        address,
+        location: {
+          type: 'Point',
+          coordinates: [-112.110492, 36.098948]
+        },
+        slug
+      };
+      // reset back to default
       setInputData({
         ...inputData,
         ...defaultData
@@ -131,6 +139,7 @@ const Delivery = ({ sendUserAddress }) => {
   return (
     <div className="mb-2 mt-4">
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Add Address</h2>
+      <span className="text-danger font-size-11">{errorMessage.address}</span>
       <DeliveryForm
         inputData={inputData}
         handleChange={handleChange}
@@ -143,12 +152,24 @@ const Delivery = ({ sendUserAddress }) => {
   );
 };
 
-export default connect(null,
-  { sendUserAddress: postUserData }
+const mapStateToProps = ({
+  profileReducer: { errorMessage }
+}) => ({
+  errorMessage,
+});
+
+export default connect(
+  mapStateToProps,
+  { sendUserAddress: postUserAddress }
 )(Delivery);
+
+Delivery.defaultProps = {
+  errorMessage: { address: '' }
+};
 
 Delivery.propTypes = {
   sendUserAddress: PropTypes.func.isRequired,
+  errorMessage: PropTypes.objectOf(PropTypes.string)
 };
 
 DeliveryForm.propTypes = {

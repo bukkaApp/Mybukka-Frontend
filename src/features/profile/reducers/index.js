@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
         finishedRequest: true,
         address: action.data,
         errorMessage: {
-          ...state.errorMessage.address,
+          ...state.errorMessage,
           address: ''
         }
       };
