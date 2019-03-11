@@ -19,6 +19,7 @@ export const LoginPage = ({
   authModal,
   errorMessage,
   classNames,
+  user,
   authenticateUser,
   history: { push }
 }) => {
@@ -108,6 +109,7 @@ export const LoginPage = ({
   useEffect(() => {
     const { authenticated } = status;
     if (authenticated) {
+      localStorage.setItem('x-access-token', user.token);
       push('/');
     }
   });
@@ -157,11 +159,15 @@ LoginPage.defaultProps = {
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func,
+    push: PropTypes.func
   }).isRequired,
   authModal: PropTypes.bool,
   classNames: PropTypes.string,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  user: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ])).isRequired,
   errorMessage: PropTypes.string,
-  authenticateUser: PropTypes.func.isRequired,
+  authenticateUser: PropTypes.func.isRequired
 };

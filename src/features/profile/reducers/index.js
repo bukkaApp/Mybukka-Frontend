@@ -1,6 +1,11 @@
-import { FETCH_USER_DATA, FETCH_USER_ADDRESS } from 'Redux/actionTypes';
+import {
+  FETCH_USER_DATA,
+  POST_USER_ADDRESS,
+  POST_USER_DATA
+} from 'Redux/actionTypes';
 
 const initialState = {
+  finishedRequest: false,
   userInfo: {},
   address: {},
   errorMessage: {
@@ -14,16 +19,18 @@ export default (state = initialState, action) => {
     case `${FETCH_USER_DATA}_SUCCESS`:
       return {
         ...state,
+        finishedRequest: true,
         userInfo: action.data,
         errorMessage: {
-          ...state.errorMessage.user,
+          ...state.errorMessage.userInfo,
           userInfo: ''
         }
       };
 
-    case `${FETCH_USER_ADDRESS}_SUCCESS`:
+    case `${POST_USER_ADDRESS}_SUCCESS`:
       return {
         ...state,
+        finishedRequest: true,
         address: action.data,
         errorMessage: {
           ...state.errorMessage.address,
@@ -31,23 +38,44 @@ export default (state = initialState, action) => {
         }
       };
 
+    case `${POST_USER_DATA}_SUCCESS`:
+      return {
+        ...state,
+        finishedRequest: true,
+        userInfo: action.data,
+        errorMessage: {
+          ...state.errorMessage,
+          userInfo: ''
+        }
+      };
+
     case `${FETCH_USER_DATA}_ERROR`:
       return {
         ...state,
-        userInfo: action.data,
+        finishedRequest: true,
         errorMessage: {
-          ...state.errorMessage.user,
+          ...state.errorMessage,
           userInfo: action.data.message
         }
       };
 
-    case `${FETCH_USER_ADDRESS}_ERROR`:
+    case `${POST_USER_ADDRESS}_ERROR`:
       return {
         ...state,
-        address: action.data,
+        finishedRequest: true,
         errorMessage: {
-          ...state.errorMessage.address,
+          ...state.errorMessage,
           address: action.data.message
+        }
+      };
+
+    case `${POST_USER_DATA}_ERROR`:
+      return {
+        ...state,
+        finishedRequest: true,
+        errorMessage: {
+          ...state.errorMessage,
+          userInfo: action.data.message
         }
       };
 

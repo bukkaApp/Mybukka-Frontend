@@ -17,6 +17,7 @@ export const RegisterPage = ({
   authModal,
   authenticateUser,
   status,
+  user,
   errorMessage,
   classNames,
   history: { push },
@@ -96,6 +97,7 @@ export const RegisterPage = ({
   useEffect(() => {
     const { authenticated } = status;
     if (authenticated) {
+      localStorage.setItem('x-access-token', user.token);
       push('/');
     }
   });
@@ -137,7 +139,8 @@ export default connect(
 RegisterPage.defaultProps = {
   errorMessage: '',
   authModal: false,
-  classNames: ''
+  classNames: '',
+  user: { message: '' },
 };
 
 RegisterPage.propTypes = {
@@ -147,6 +150,7 @@ RegisterPage.propTypes = {
   }).isRequired,
   classNames: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired,
+  user: PropTypes.objectOf(PropTypes.string).isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   errorMessage: PropTypes.string
 };

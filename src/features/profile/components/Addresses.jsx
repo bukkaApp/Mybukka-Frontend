@@ -9,16 +9,20 @@ import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import InputAccountDetails from '../common/InputAccountDetails';
 import AddMoreSection from '../common/AddMoreSection';
 
+import AddPaymentForm from '../forms/AddPaymentForm';
 import './addresses.scss';
 
 const AddAnAddress = () => (
-  <div className="add-address" data-toggle="modal" data-target="#modal">
-    <AddMoreSection text="add new address"><RoundedPlus /></AddMoreSection>
+  <div className="add-address" data-toggle="modal">
+    <AddMoreSection dataTarget="#modal" text="add new address">
+      <RoundedPlus />
+    </AddMoreSection>
   </div>
 );
 
-const Addresses = ({ addresses }) => (
+const Addresses = ({ addresses, ...props }) => (
   <div className="addresses-section">
+    <AddPaymentForm {...props} type="payment" />
     <AccountDetailsGroupHeader text="Addresses" />
     {addresses.map(address => (
       <InputAccountDetails

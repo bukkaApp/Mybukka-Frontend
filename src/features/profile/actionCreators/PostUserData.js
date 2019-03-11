@@ -1,24 +1,24 @@
-import { FETCH_USER_DATA } from 'Redux/actionTypes';
+import { POST_USER_DATA } from 'Redux/actionTypes';
 
 import loading from 'Redux/loading';
 
 import axios from 'Redux/axios';
 
-const fetchUserDataAction = (type, data) => ({
-  type: `${FETCH_USER_DATA}_${type}`,
+const postUserDataAction = (type, data) => ({
+  type: `${POST_USER_DATA}_${type}`,
   data,
 });
 
-const fetchUserData = (url, data) => async (dispatch) => {
+const postUserData = (url, data) => async (dispatch) => {
   try {
-    dispatch(loading(FETCH_USER_DATA, true));
-    const request = await axios.post(url, data);
-    dispatch(fetchUserDataAction('SUCCESS', request.data));
-    dispatch(loading(FETCH_USER_DATA, false));
+    dispatch(loading(POST_USER_DATA, true));
+    const request = await axios.put(url, data);
+    dispatch(postUserDataAction('SUCCESS', request.data));
+    dispatch(loading(POST_USER_DATA, false));
   } catch (error) {
-    dispatch(fetchUserDataAction('ERROR', error.response.data));
-    dispatch(loading(FETCH_USER_DATA, false));
+    dispatch(postUserDataAction('ERROR', error.response.data));
+    dispatch(loading(POST_USER_DATA, false));
   }
 };
 
-export default fetchUserData;
+export default postUserData;

@@ -1,17 +1,28 @@
 import Validator from 'validatorjs';
 
 const rules = {
-  firstName: 'required|alpha',
-  lastName: 'required|alpha',
-  email: 'required|email',
+  streetAddress1: 'required',
+  streetAddress2: 'alpha',
+  name: 'required|alpha|min:3',
+  mobileNumber: 'required|min:8',
 };
-const passRules = {
-  password: 'required|alpha|min:8'
+
+
+const paymentRules = {
+  number: 'required',
+  expDate: 'required|max:5',
+  cvv: 'required:min:3|max:3',
+  zipCode: 'required'
 };
+
+// req_add: 'An address is required.',
+// card_num: 'Card number is invalid.',
+//   num: 'this field can only be numbers',
 const errorMessages = {
-  required: 'this field is required',
   alpha: 'this field can only be letters',
-  email: 'your email is not yet valid',
+  required: 'Required.',
+  min: 'this field is not valid',
+  max: 'this field is too long'
 };
 
 /**
@@ -19,9 +30,10 @@ const errorMessages = {
  * @param {object} data containing key:value pairs
  * of field and value to be validated
  * @param {string} field field in rules to run validation against
- * @param {boolean} useSignInRules use SignIn Rules
+ * @param {object} rules rules validation
  * @returns {object} containing key:value pairs of a field:errormessage
  */
+
 export const validateAField = (data, field) => {
   const validation = new Validator(data, rules, errorMessages);
   validation.passes();
@@ -35,15 +47,12 @@ export const validateAField = (data, field) => {
 /**
  *
  * @param {object} data object to run rules against
- * @param {boolean} pass use signIn Rules
+ * @param {object} rules object to run rules against
  * @returns {object} containing keys:value pair of field:errormessage
  *
  */
-export const validateAllFields = (data, pass) => {
-  let validation = new Validator(data, rules, errorMessages);
-  if (pass) {
-    validation = new Validator(data, passRules, errorMessages);
-  }
+export const validateAllFields = (data) => {
+  const validation = new Validator(data, rules, errorMessages);
   validation.passes();
   const errors = validation.errors.all();
   Object.keys(errors).forEach((errorKey) => {

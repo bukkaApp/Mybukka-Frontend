@@ -14,12 +14,12 @@ import IndeterminateProgressbar from '../components/progress-bar/IndeterminatePr
 const { store, persistor } = reduxStore();
 const App = () => (
   <Provider store={store}>
-    <PersistGate loading={null} persistor={persistor}>
+    {/* <PersistGate loading={null} persistor={persistor}> */}
       <IndeterminateProgressbar />
       <BrowserRouter>
         <Main />
       </BrowserRouter>
-    </PersistGate>
+    {/* </PersistGate> */}
   </Provider>
 );
 

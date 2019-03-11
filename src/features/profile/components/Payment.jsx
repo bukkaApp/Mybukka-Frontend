@@ -18,8 +18,8 @@ const AddPayment = () => (
 
 const Payment = () => (
   <div className="payment-details-section">
-    <AddPaymentForm />
-    <AccountDetailsGroupHeader text="Payment" />
+    <AddPaymentForm type="payment" />
+    <AccountDetailsGroupHeader text="payment" />
     <AddPayment />
   </div>
 );

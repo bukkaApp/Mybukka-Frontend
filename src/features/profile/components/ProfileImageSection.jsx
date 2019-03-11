@@ -9,16 +9,16 @@ import ProfileHeaderTitle from '../common/ProfileHeaderTitle';
 
 import './profileImageSection.scss';
 
-const ProfileImage = ({ imageUrl }) => (
+const ProfileImage = ({ imageUrl, firstName, lastName }) => (
   <div className="profile-image-div text-center">
     <img src={imageUrl} className="img-fluid profile-photo" alt="" />
     <div className="d-lg-none profile-header-small">
-      <ProfileHeaderTitle firstName="Efosa" lastName="Okpugie" />
+      <ProfileHeaderTitle firstName={firstName} lastName={lastName} />
     </div>
   </div>
 );
 
-const UploadImageSection = () => (
+const UploadImageSection = ({ handleChange }) => (
   <div className="upload-image-button-section d-flex justify-content-center">
     <Button classNames="button-upload" type="button" handleClick={() => {}}>
       <span className="button-text">
@@ -27,21 +27,30 @@ const UploadImageSection = () => (
           type="file"
           classNames="select-photo"
           name="selectFile"
-          handleChange={() => {}}
+          accept="image/*"
+          handleChange={handleChange}
         />
       </span>
     </Button>
   </div>
 );
 
-const ProfileImageSection = () => (
+const ProfileImageSection = props => (
   <Container classNames="profile-image-section">
-    <ProfileImage />
-    <UploadImageSection />
+    <ProfileImage {...props} />
+    <UploadImageSection {...props} />
   </Container>
 );
 
 export default ProfileImageSection;
+
+UploadImageSection.defaultProps = {
+  handleChange: () => {},
+};
+
+UploadImageSection.propTypes = {
+  handleChange: PropTypes.func,
+};
 
 ProfileImage.defaultProps = {
   imageUrl:
@@ -49,5 +58,7 @@ ProfileImage.defaultProps = {
 };
 
 ProfileImage.propTypes = {
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string,
+  firstName: PropTypes.string.isRequired,
+  lastName: PropTypes.string.isRequired,
 };

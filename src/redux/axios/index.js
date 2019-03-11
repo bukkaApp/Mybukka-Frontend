@@ -7,7 +7,7 @@ const token = localStorage.getItem('x-access-token') || null;
 const instance = axios.create({
   baseURL,
   headers: {
-    authentication: token,
+    authorization: token,
     accept: 'application/json',
   }
 });
