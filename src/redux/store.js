@@ -19,17 +19,23 @@ import locationsPredictionReducer from
 
 import bukkasReducer from '../features/feed/reducers/bukkasReducer';
 
-import profileReducer from '../features/profile/reducers';
+import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
+import fetchUserData from '../features/profile/reducers/fetchUserData';
+import postUserAddress from '../features/profile/reducers/postUserAddress';
+import postUserData from '../features/profile/reducers/postUserData';
 
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
+  homeReducer,
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,
-  homeReducer,
-  profileReducer,
   bukkasReducer,
+  fetchUserAddress,
+  fetchUserData,
+  postUserAddress,
+  postUserData,
 });
 
 const logger = store => next => (action) => {

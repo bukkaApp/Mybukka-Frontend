@@ -141,6 +141,8 @@ RegisterPage.defaultProps = {
   authModal: false,
   classNames: '',
   user: { message: '' },
+  authModal: false,
+  classNames: ''
 };
 
 RegisterPage.propTypes = {

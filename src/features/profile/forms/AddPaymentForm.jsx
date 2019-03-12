@@ -13,8 +13,10 @@ import './addPaymentForm.scss';
 
 const CardFormHeader = () => (
   <div className="card-form-header">
-    <AccountDetailsGroupHeader text="Add Payment Card" />
-    <DismissModal classNames="add-card-close" />
+    <div className="text-end">
+      <DismissModal classNames="add-card-close" />
+    </div>
+    <AccountDetailsGroupHeader text="Add Delivery Address" />
   </div>
 );
 

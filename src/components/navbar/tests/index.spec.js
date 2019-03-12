@@ -1,11 +1,9 @@
 import React from 'react';
 
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router-dom';
-import AuthenticaticatedNavbar from '../BukkaAuthenticatedNav';
+import Index from '..';
 
-
-describe('Primary Navbar', () => {
+describe('Navbar Index container', () => {
   const store = mockStore({
     homeReducer: { type: 'Sign Up' },
     authenticationReducer: {
@@ -21,15 +19,9 @@ describe('Primary Navbar', () => {
     }
   });
 
-  const props = {
-    status: { authenticated: true }
-  };
-
   const wrapper = shallow(
     <Provider store={store}>
-      <MemoryRouter>
-        <AuthenticaticatedNavbar {...props} />
-      </MemoryRouter>
+      <Index />
     </Provider>
   );
 

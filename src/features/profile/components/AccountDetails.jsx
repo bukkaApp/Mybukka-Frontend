@@ -6,7 +6,8 @@ import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import Addresses from './Addresses';
 // import Payment from './Payment';
 import PasswordSection from './PasswordSection';
-import { validateAField, validateAllFields } from '../validations/validateFields';
+import { validateAField, validateAllFields }
+  from '../validations/validateFields';
 import signUpDomStructure from './signUpDomStructure.json';
 import './accountDetails.scss';
 
@@ -105,7 +106,8 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
       [name]: inputData[name]
     };
     const isPasswordCheck = name === 'password';
-    const validation = isPasswordCheck ? validateAllFields(data, true) : validateAllFields(data);
+    const validation = isPasswordCheck ? validateAllFields(data, true)
+      : validateAllFields(data);
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
@@ -127,7 +129,6 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
     }
   });
 
-  const address = userAddress.newAddress.address || '1, Aminu street, Mende';
   return (
     <div className="account-details">
       <AccountDetailsGroupHeader text="Account Details" />
@@ -151,7 +152,7 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
         handleEdit={event => handleEditButton(event, 'password')}
         handleSave={event => handleInputSaveButton(event, 'password')}
       />
-      <Addresses addresses={[address]} />
+      <Addresses addresses={userAddress} />
       {/* <Payment /> */}
     </div>
   );
@@ -167,10 +168,15 @@ AccountDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
   userInfo: PropTypes.objectOf(PropTypes.string).isRequired,
   editUserData: PropTypes.func.isRequired,
-  userAddress: PropTypes.objectOf(
-    PropTypes.oneOfType([
+  userAddress: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.objectOf(PropTypes.string),
+        PropTypes.string
+      ]),
       PropTypes.objectOf(PropTypes.string),
       PropTypes.string
-    ])
-  )
+    ),
+    PropTypes.string
+  ])
 };

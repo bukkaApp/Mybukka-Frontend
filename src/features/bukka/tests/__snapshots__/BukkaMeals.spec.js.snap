@@ -531,6 +531,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   "key": "Ckln6WzDgi",
 =======
 <<<<<<< HEAD
@@ -545,6 +546,9 @@ ReactWrapper {
 =======
                   "key": "GPPfPngc74",
 >>>>>>> refactor(redux): refactor authentication pages
+=======
+                  "key": "Y48Yp_2FIr",
+>>>>>>> feature(redux): user should be able to view and edit profile
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -1205,6 +1209,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -1220,11 +1225,16 @@ ReactWrapper {
                   "key": "pcDpA6Nfes",
 >>>>>>> refactor(redux): refactor authentication pages
 =======
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                   "key": "TnyCWsVyDj",
 =======
                   "key": "c3uas8SD0b",
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+<<<<<<< HEAD
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                   "nodeType": "function",
                   "props": Object {
                     "children": <MealCard
@@ -2391,6 +2401,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "Ckln6WzDgi",
 =======
 <<<<<<< HEAD
@@ -2406,11 +2417,16 @@ ReactWrapper {
                     "key": "GPPfPngc74",
 >>>>>>> refactor(redux): refactor authentication pages
 =======
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                     "key": "Y48Yp_2FIr",
 =======
                     "key": "XoYc_lLJer",
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+<<<<<<< HEAD
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard
@@ -3071,6 +3087,7 @@ ReactWrapper {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     "key": "S05NagTzUV",
 =======
 <<<<<<< HEAD
@@ -3086,11 +3103,16 @@ ReactWrapper {
                     "key": "pcDpA6Nfes",
 >>>>>>> refactor(redux): refactor authentication pages
 =======
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                     "key": "TnyCWsVyDj",
 =======
                     "key": "c3uas8SD0b",
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+<<<<<<< HEAD
 >>>>>>> feture(redux): display nearby bukkas on feedpage
+=======
+>>>>>>> feature(redux): user should be able to view and edit profile
                     "nodeType": "function",
                     "props": Object {
                       "children": <MealCard

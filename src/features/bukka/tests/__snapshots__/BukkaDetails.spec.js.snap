@@ -77,7 +77,11 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     type="button"
                   >
                     AFRICAN
@@ -143,7 +147,11 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
+<<<<<<< HEAD
                   id="zMi5BUgyu"
+=======
+                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                   type="button"
                 >
                   <p
@@ -173,7 +181,11 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
+<<<<<<< HEAD
                   id="zMi5BUgyu"
+=======
+                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                   type="button"
                 >
                   <p
@@ -200,7 +212,11 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
+<<<<<<< HEAD
                   id="zMi5BUgyu"
+=======
+                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                   type="button"
                 >
                   <p
@@ -281,7 +297,11 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         type="button"
                       >
                         AFRICAN
@@ -319,7 +339,11 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         text="AFRICAN"
                         type="button"
                       >
@@ -358,7 +382,11 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           type="button"
                         >
                           AFRICAN
@@ -393,7 +421,11 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             text="AFRICAN"
                             type="button"
                           >
@@ -473,7 +505,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             AFRICAN
@@ -492,7 +528,11 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             text="AFRICAN"
                             type="button"
                           >
@@ -512,7 +552,11 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               type="button"
                             >
                               AFRICAN
@@ -527,7 +571,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text="AFRICAN"
                               type="button"
                             >
@@ -548,7 +596,11 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "text": "AFRICAN",
                                 "type": "button",
                               },
@@ -559,7 +611,11 @@ ReactWrapper {
                                   data-target=""
                                   data-testid="button"
                                   data-toggle=""
+<<<<<<< HEAD
                                   id="zMi5BUgyu"
+=======
+                                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   type="button"
                                 >
                                   AFRICAN
@@ -573,7 +629,11 @@ ReactWrapper {
                                   "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+<<<<<<< HEAD
                                   "id": "zMi5BUgyu",
+=======
+                                  "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -894,7 +954,11 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       type="button"
                     >
                       <p
@@ -924,7 +988,11 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       type="button"
                     >
                       <p
@@ -951,7 +1019,11 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       type="button"
                     >
                       <p
@@ -986,7 +1058,11 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     text=""
                     type="button"
                   >
@@ -1007,7 +1083,11 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     text=""
                     type="button"
                   >
@@ -1025,7 +1105,11 @@ ReactWrapper {
                     dataToggle=""
                     disabled={false}
                     handleClick={[Function]}
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     text=""
                     type="button"
                   >
@@ -1053,7 +1137,11 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         text=""
                         type="button"
                       >
@@ -1074,7 +1162,11 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         text=""
                         type="button"
                       >
@@ -1092,7 +1184,11 @@ ReactWrapper {
                         dataToggle=""
                         disabled={false}
                         handleClick={[Function]}
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         text=""
                         type="button"
                       >
@@ -1123,7 +1219,11 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           type="button"
                         >
                           <p
@@ -1153,7 +1253,11 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           type="button"
                         >
                           <p
@@ -1180,7 +1284,11 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           type="button"
                         >
                           <p
@@ -1217,7 +1325,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -1238,7 +1350,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -1256,7 +1372,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -1284,7 +1404,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -1314,7 +1438,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -1341,7 +1469,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -1373,7 +1505,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text=""
                               type="button"
                             >
@@ -1394,7 +1530,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text=""
                               type="button"
                             >
@@ -1412,7 +1552,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text=""
                               type="button"
                             >
@@ -1449,7 +1593,11 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+<<<<<<< HEAD
                               "id": "zMi5BUgyu",
+=======
+                              "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                               "text": "",
                               "type": "button",
                             },
@@ -1460,7 +1608,11 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 type="button"
                               >
                                 <p
@@ -1503,7 +1655,11 @@ ReactWrapper {
                                 "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -1636,7 +1792,11 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+<<<<<<< HEAD
                               "id": "zMi5BUgyu",
+=======
+                              "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                               "text": "",
                               "type": "button",
                             },
@@ -1647,7 +1807,11 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 type="button"
                               >
                                 <p
@@ -1684,7 +1848,11 @@ ReactWrapper {
                                 "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -1807,7 +1975,11 @@ ReactWrapper {
                               "dataToggle": "",
                               "disabled": false,
                               "handleClick": [Function],
+<<<<<<< HEAD
                               "id": "zMi5BUgyu",
+=======
+                              "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                               "text": "",
                               "type": "button",
                             },
@@ -1818,7 +1990,11 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 type="button"
                               >
                                 <p
@@ -1852,7 +2028,11 @@ ReactWrapper {
                                 "data-testid": "button",
                                 "data-toggle": "",
                                 "disabled": false,
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "onClick": [Function],
                                 "type": "button",
                               },
@@ -2034,7 +2214,11 @@ ReactWrapper {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       type="button"
                     >
                       AFRICAN
@@ -2100,7 +2284,11 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     type="button"
                   >
                     <p
@@ -2130,7 +2318,11 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     type="button"
                   >
                     <p
@@ -2157,7 +2349,11 @@ ReactWrapper {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
+<<<<<<< HEAD
                     id="zMi5BUgyu"
+=======
+                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                     type="button"
                   >
                     <p
@@ -2238,7 +2434,11 @@ ReactWrapper {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           type="button"
                         >
                           AFRICAN
@@ -2276,7 +2476,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text="AFRICAN"
                           type="button"
                         >
@@ -2315,7 +2519,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             AFRICAN
@@ -2350,7 +2558,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text="AFRICAN"
                               type="button"
                             >
@@ -2430,7 +2642,11 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               type="button"
                             >
                               AFRICAN
@@ -2449,7 +2665,11 @@ ReactWrapper {
                               dataToggle=""
                               disabled={false}
                               handleClick={[Function]}
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               text="AFRICAN"
                               type="button"
                             >
@@ -2469,7 +2689,11 @@ ReactWrapper {
                                 data-target=""
                                 data-testid="button"
                                 data-toggle=""
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 type="button"
                               >
                                 AFRICAN
@@ -2484,7 +2708,11 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 text="AFRICAN"
                                 type="button"
                               >
@@ -2505,7 +2733,11 @@ ReactWrapper {
                                   "dataToggle": "",
                                   "disabled": false,
                                   "handleClick": [Function],
+<<<<<<< HEAD
                                   "id": "zMi5BUgyu",
+=======
+                                  "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   "text": "AFRICAN",
                                   "type": "button",
                                 },
@@ -2516,7 +2748,11 @@ ReactWrapper {
                                     data-target=""
                                     data-testid="button"
                                     data-toggle=""
+<<<<<<< HEAD
                                     id="zMi5BUgyu"
+=======
+                                    id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                     type="button"
                                   >
                                     AFRICAN
@@ -2530,7 +2766,11 @@ ReactWrapper {
                                     "data-testid": "button",
                                     "data-toggle": "",
                                     "disabled": false,
+<<<<<<< HEAD
                                     "id": "zMi5BUgyu",
+=======
+                                    "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                     "onClick": [Function],
                                     "type": "button",
                                   },
@@ -2851,7 +3091,11 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         type="button"
                       >
                         <p
@@ -2881,7 +3125,11 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         type="button"
                       >
                         <p
@@ -2908,7 +3156,11 @@ ReactWrapper {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
+<<<<<<< HEAD
                         id="zMi5BUgyu"
+=======
+                        id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                         type="button"
                       >
                         <p
@@ -2943,7 +3195,11 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       text=""
                       type="button"
                     >
@@ -2964,7 +3220,11 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       text=""
                       type="button"
                     >
@@ -2982,7 +3242,11 @@ ReactWrapper {
                       dataToggle=""
                       disabled={false}
                       handleClick={[Function]}
+<<<<<<< HEAD
                       id="zMi5BUgyu"
+=======
+                      id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                       text=""
                       type="button"
                     >
@@ -3010,7 +3274,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -3031,7 +3299,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -3049,7 +3321,11 @@ ReactWrapper {
                           dataToggle=""
                           disabled={false}
                           handleClick={[Function]}
+<<<<<<< HEAD
                           id="zMi5BUgyu"
+=======
+                          id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                           text=""
                           type="button"
                         >
@@ -3080,7 +3356,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -3110,7 +3390,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -3137,7 +3421,11 @@ ReactWrapper {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             type="button"
                           >
                             <p
@@ -3174,7 +3462,11 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             text=""
                             type="button"
                           >
@@ -3195,7 +3487,11 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             text=""
                             type="button"
                           >
@@ -3213,7 +3509,11 @@ ReactWrapper {
                             dataToggle=""
                             disabled={false}
                             handleClick={[Function]}
+<<<<<<< HEAD
                             id="zMi5BUgyu"
+=======
+                            id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                             text=""
                             type="button"
                           >
@@ -3241,7 +3541,11 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               type="button"
                             >
                               <p
@@ -3271,7 +3575,11 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               type="button"
                             >
                               <p
@@ -3298,7 +3606,11 @@ ReactWrapper {
                               data-target=""
                               data-testid="button"
                               data-toggle=""
+<<<<<<< HEAD
                               id="zMi5BUgyu"
+=======
+                              id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                               type="button"
                             >
                               <p
@@ -3330,7 +3642,11 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 text=""
                                 type="button"
                               >
@@ -3351,7 +3667,11 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 text=""
                                 type="button"
                               >
@@ -3369,7 +3689,11 @@ ReactWrapper {
                                 dataToggle=""
                                 disabled={false}
                                 handleClick={[Function]}
+<<<<<<< HEAD
                                 id="zMi5BUgyu"
+=======
+                                id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 text=""
                                 type="button"
                               >
@@ -3406,7 +3730,11 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "text": "",
                                 "type": "button",
                               },
@@ -3417,7 +3745,11 @@ ReactWrapper {
                                   data-target=""
                                   data-testid="button"
                                   data-toggle=""
+<<<<<<< HEAD
                                   id="zMi5BUgyu"
+=======
+                                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   type="button"
                                 >
                                   <p
@@ -3460,7 +3792,11 @@ ReactWrapper {
                                   "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+<<<<<<< HEAD
                                   "id": "zMi5BUgyu",
+=======
+                                  "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -3593,7 +3929,11 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "text": "",
                                 "type": "button",
                               },
@@ -3604,7 +3944,11 @@ ReactWrapper {
                                   data-target=""
                                   data-testid="button"
                                   data-toggle=""
+<<<<<<< HEAD
                                   id="zMi5BUgyu"
+=======
+                                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   type="button"
                                 >
                                   <p
@@ -3641,7 +3985,11 @@ ReactWrapper {
                                   "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+<<<<<<< HEAD
                                   "id": "zMi5BUgyu",
+=======
+                                  "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   "onClick": [Function],
                                   "type": "button",
                                 },
@@ -3764,7 +4112,11 @@ ReactWrapper {
                                 "dataToggle": "",
                                 "disabled": false,
                                 "handleClick": [Function],
+<<<<<<< HEAD
                                 "id": "zMi5BUgyu",
+=======
+                                "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                 "text": "",
                                 "type": "button",
                               },
@@ -3775,7 +4127,11 @@ ReactWrapper {
                                   data-target=""
                                   data-testid="button"
                                   data-toggle=""
+<<<<<<< HEAD
                                   id="zMi5BUgyu"
+=======
+                                  id="vXcC6zL7f"
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   type="button"
                                 >
                                   <p
@@ -3809,7 +4165,11 @@ ReactWrapper {
                                   "data-testid": "button",
                                   "data-toggle": "",
                                   "disabled": false,
+<<<<<<< HEAD
                                   "id": "zMi5BUgyu",
+=======
+                                  "id": "vXcC6zL7f",
+>>>>>>> feature(redux): user should be able to view and edit profile
                                   "onClick": [Function],
                                   "type": "button",
                                 },

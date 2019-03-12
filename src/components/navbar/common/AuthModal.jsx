@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import Modal from '../../modal/Modal';
 import DismissModal from '../../modal/DismissModal';
 import AuthenticateLogin from '../../../features/authentication/LoginPage';
-import AuthenticateRegister from '../../../features/authentication/RegisterPage';
+
+import AuthenticateRegister from
+  '../../../features/authentication/RegisterPage';
 
 const AuthModal = ({ type, push, status }) => {
   const { authenticated } = status;
@@ -15,13 +17,17 @@ const AuthModal = ({ type, push, status }) => {
 
   useEffect(() => {
     if (authenticated) {
-      // close modal
       $('.close').click();
     }
   });
 
   return (
-    <AuthenticatedAuthForm />
+    <div className="container">
+      <Modal classNames="auth-modal">
+        <DismissModal classNames="close" />
+        <AuthForm authModal history={{ push }} classNames="pt-5" />
+      </Modal>
+    </div>
   );
 };
 
@@ -42,5 +48,5 @@ AuthModal.defaultProps = {
 AuthModal.propTypes = {
   type: PropTypes.string,
   push: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
 };

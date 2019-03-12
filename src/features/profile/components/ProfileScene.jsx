@@ -4,15 +4,16 @@ import Container from 'Components/container';
 import Row from 'Components/grid/Row';
 import PropTypes from 'prop-types';
 import request from 'superagent';
-import axios from 'axios';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
+import AuthenticaticatedNavbar from 'Components/navbar/AuthenticaticatedNavbar';
 import verifyToken from 'Utils/verifyToken';
 import ProfileHeader from './ProfileHeader';
 import ProfileImageSection from './ProfileImageSection';
 import AccountDetails from './AccountDetails';
 import postUserData from '../actionCreators/postUserData';
 import fetchUserData from '../actionCreators/fetchUserData';
+import fetchUserAddress from '../actionCreators/fetchUserAddress';
 
 import './profileScene.scss';
 
@@ -23,7 +24,8 @@ const ProfileScene = ({
   finishedRequest,
   loading,
   editUserData,
-  userAddress
+  userAddress,
+  requestUserAddress,
 }) => {
   const { userInfo, updatedUser } = user;
   const userData = userInfo || updatedUser;
@@ -34,49 +36,20 @@ const ProfileScene = ({
         const token = localStorage.getItem('x-access-token');
         const { slug } = verifyToken(token);
         requestUserData(`/user/${slug}`);
+        requestUserAddress(`/${slug}/address`);
       }
     }
   });
 
-  const appendCloudinaryDetails = (fileUrl) => {
-    const formData = new FormData();
-    formData.append('api_key', process.env.API_KEY);
-    formData.append('api_secret', process.env.API_SECRET);
-    formData.append('file', fileUrl);
-    formData.append('cloud_name', process.env.CLOUD_NAME);
-    formData.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
-    return formData;
-  };
-
-  const storeOnCloudinary = formData =>
-    axios.post(process.env.CLOUDINARY_UPLOAD_URL, formData, {
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'Allow-Control-Allow-Origin': '*'
-      }
-    });
-
-  const handleImageUpload = (file) => {
-    const token = localStorage.getItem('x-access-token');
-    const { slug } = verifyToken(token);
-    const formData = appendCloudinaryDetails(file);
-    storeOnCloudinary(formData).then((response) => {
-      const data = {
-        ...userData,
-        imageUrl: response.body.secure_url
-      };
-      return editUserData(`/user/${slug}`, data);
-    });
-  };
-
-  const uploadImageToCloudinary = (file) => {
+  const uploadImageToCloudinary = (event) => {
+    const file = event.target.files[0];
     const upload = request
       .post(process.env.CLOUDINARY_UPLOAD_URL)
       .field('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET)
       .field('file', file);
 
     upload.end((err, response) => {
-      if (response.body.secure_url !== '') {
+      if (!err) {
         const token = localStorage.getItem('x-access-token');
         const { slug } = verifyToken(token);
         const data = {
@@ -90,6 +63,7 @@ const ProfileScene = ({
 
   return authenticated && finishedRequest ? (
     <Fragment>
+      <AuthenticaticatedNavbar />
       <ProfileHeader
         firstName={userData.firstName}
         lastName={userData.lastName}
@@ -101,6 +75,7 @@ const ProfileScene = ({
               firstName={userData.firstName}
               lastName={userData.lastName}
               handleChange={uploadImageToCloudinary}
+              imageUrl={userData.imageUrl}
             />
           </Column>
           <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
@@ -120,18 +95,21 @@ const ProfileScene = ({
 const mapStateToProps = ({
   loadingReducer: { status: loading },
   authenticationReducer: { status },
-  profileReducer: { userInfo: user, address: userAddress, finishedRequest }
+  fetchUserData: { userInfo: user, finishedRequest },
+  fetchUserAddress: { address: userAddress, }
 }) => ({
   loading,
   status,
   user,
-  userAddress,
+  userAddress: userAddress.userAddresses,
   finishedRequest
 });
 
 export default connect(mapStateToProps,
   { requestUserData: fetchUserData,
-    editUserData: postUserData }
+    editUserData: postUserData,
+    requestUserAddress: fetchUserAddress
+  }
 )(ProfileScene);
 
 ProfileScene.defaultProps = {
@@ -142,6 +120,7 @@ ProfileScene.defaultProps = {
 ProfileScene.propTypes = {
   loading: PropTypes.bool,
   requestUserData: PropTypes.func.isRequired,
+  requestUserAddress: PropTypes.func.isRequired,
   finishedRequest: PropTypes.bool.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   editUserData: PropTypes.func.isRequired,
@@ -151,10 +130,23 @@ ProfileScene.propTypes = {
       PropTypes.string
     ])
   ).isRequired,
-  userAddress: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.objectOf(PropTypes.string),
-      PropTypes.string
-    ])
-  )
+  userAddress: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.objectOf(
+          PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.bool,
+          ])),
+        PropTypes.string,
+        PropTypes.bool
+      ])),
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.bool,
+      ])),
+    PropTypes.string,
+    PropTypes.bool
+  ])
 };

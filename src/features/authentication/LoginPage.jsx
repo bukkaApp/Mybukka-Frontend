@@ -20,6 +20,7 @@ export const LoginPage = ({
   errorMessage,
   classNames,
   user,
+  classNames,
   authenticateUser,
   history: { push }
 }) => {

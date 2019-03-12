@@ -8,6 +8,7 @@ import Button from 'Components/button/Button';
 import inputField from '../InputAttribute/inputData.json';
 import { validateAField, validateAllFields } from '../validations/validateAddressAndPayment';
 
+import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
 import postUserAddress from '../actionCreators/postUserAddress';
@@ -48,7 +49,7 @@ const DeliveryForm = ({
   </form>
 );
 
-const Delivery = ({ sendUserAddress, errorMessage }) => {
+const Delivery = ({ sendUserAddress, errorMessage, requestUserAddress, posted }) => {
   let wrapperRef;
   const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -84,6 +85,9 @@ const Delivery = ({ sendUserAddress, errorMessage }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    if (posted) {
+      $('.close').click();
+    }
   });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -102,7 +106,7 @@ const Delivery = ({ sendUserAddress, errorMessage }) => {
     }
   };
 
-  const handleSaveButton = (e) => {
+  const handleSaveButton = async (e) => {
     e.preventDefault();
     const address = inputData.streetAddress1;
     const apartmentNumber = inputData.streetAddress2;
@@ -132,7 +136,8 @@ const Delivery = ({ sendUserAddress, errorMessage }) => {
         ...defaultData
       });
       // if token expires re-login
-      return sendUserAddress(`/${slug}/address`, data);
+      await sendUserAddress(`/${slug}/address`, data);
+      await requestUserAddress(`/${slug}/address`);
     }
   };
 
@@ -153,23 +158,28 @@ const Delivery = ({ sendUserAddress, errorMessage }) => {
 };
 
 const mapStateToProps = ({
-  profileReducer: { errorMessage }
+  postUserAddress: { errorMessage, posted }
 }) => ({
-  errorMessage,
+  errorMessage, posted
 });
 
 export default connect(
   mapStateToProps,
-  { sendUserAddress: postUserAddress }
+  { sendUserAddress: postUserAddress,
+    requestUserAddress: fetchUserAddress
+  }
 )(Delivery);
 
 Delivery.defaultProps = {
-  errorMessage: { address: '' }
+  errorMessage: '',
+  posted: false
 };
 
 Delivery.propTypes = {
+  posted: PropTypes.bool,
   sendUserAddress: PropTypes.func.isRequired,
-  errorMessage: PropTypes.objectOf(PropTypes.string)
+  requestUserAddress: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string
 };
 
 DeliveryForm.propTypes = {

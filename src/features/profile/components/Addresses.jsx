@@ -6,7 +6,7 @@ import shortId from 'shortid';
 import { RoundedPlus } from 'Icons/Plus';
 
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
-import InputAccountDetails from '../common/InputAccountDetails';
+import AccountDetailsSection from '../common/AccountDetailsSection';
 import AddMoreSection from '../common/AddMoreSection';
 
 import AddPaymentForm from '../forms/AddPaymentForm';
@@ -25,11 +25,11 @@ const Addresses = ({ addresses, ...props }) => (
     <AddPaymentForm {...props} type="payment" />
     <AccountDetailsGroupHeader text="Addresses" />
     {addresses.map(address => (
-      <InputAccountDetails
+      <AccountDetailsSection
         placeHolder="address"
         name="address"
         type="text"
-        defaultValue={address}
+        defaultValue={address.address}
         key={shortId.generate()}
       />
     ))}
@@ -44,5 +44,12 @@ Addresses.defaultProps = {
 };
 
 Addresses.propTypes = {
-  addresses: PropTypes.arrayOf(PropTypes.string)
+  addresses: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+      ),
+      PropTypes.string
+    ])
+  )
 };

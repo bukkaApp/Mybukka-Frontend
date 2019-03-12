@@ -41,5 +41,8 @@ PasswordSection.propTypes = {
   handleSave: PropTypes.func,
   handleChange: PropTypes.func,
   handleEdit: PropTypes.func,
-  inputRef: PropTypes.func,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
 };

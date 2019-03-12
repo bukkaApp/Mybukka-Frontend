@@ -35,7 +35,11 @@ ReactWrapper {
           dataToggle=""
           disabled={false}
           handleClick={[MockFunction]}
+<<<<<<< HEAD
           id="F-izl4Sdq"
+=======
+          id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
           text=""
           type="button"
         >
@@ -76,7 +80,11 @@ ReactWrapper {
             data-target=""
             data-testid="button"
             data-toggle=""
+<<<<<<< HEAD
             id="F-izl4Sdq"
+=======
+            id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
             type="button"
           >
             <div
@@ -114,7 +122,11 @@ ReactWrapper {
             dataToggle=""
             disabled={false}
             handleClick={[MockFunction]}
+<<<<<<< HEAD
             id="F-izl4Sdq"
+=======
+            id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
             text=""
             type="button"
           >
@@ -181,7 +193,11 @@ ReactWrapper {
               "dataToggle": "",
               "disabled": false,
               "handleClick": [MockFunction],
+<<<<<<< HEAD
               "id": "F-izl4Sdq",
+=======
+              "id": "P6_tmnEPP",
+>>>>>>> feature(redux): user should be able to view and edit profile
               "text": "",
               "type": "button",
             },
@@ -192,7 +208,11 @@ ReactWrapper {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
+<<<<<<< HEAD
                 id="F-izl4Sdq"
+=======
+                id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
                 type="button"
               >
                 <div
@@ -252,7 +272,11 @@ ReactWrapper {
                 "data-testid": "button",
                 "data-toggle": "",
                 "disabled": false,
+<<<<<<< HEAD
                 "id": "F-izl4Sdq",
+=======
+                "id": "P6_tmnEPP",
+>>>>>>> feature(redux): user should be able to view and edit profile
                 "onClick": [MockFunction],
                 "type": "button",
               },
@@ -510,7 +534,11 @@ ReactWrapper {
             dataToggle=""
             disabled={false}
             handleClick={[MockFunction]}
+<<<<<<< HEAD
             id="F-izl4Sdq"
+=======
+            id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
             text=""
             type="button"
           >
@@ -551,7 +579,11 @@ ReactWrapper {
               data-target=""
               data-testid="button"
               data-toggle=""
+<<<<<<< HEAD
               id="F-izl4Sdq"
+=======
+              id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
               type="button"
             >
               <div
@@ -589,7 +621,11 @@ ReactWrapper {
               dataToggle=""
               disabled={false}
               handleClick={[MockFunction]}
+<<<<<<< HEAD
               id="F-izl4Sdq"
+=======
+              id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
               text=""
               type="button"
             >
@@ -656,7 +692,11 @@ ReactWrapper {
                 "dataToggle": "",
                 "disabled": false,
                 "handleClick": [MockFunction],
+<<<<<<< HEAD
                 "id": "F-izl4Sdq",
+=======
+                "id": "P6_tmnEPP",
+>>>>>>> feature(redux): user should be able to view and edit profile
                 "text": "",
                 "type": "button",
               },
@@ -667,7 +707,11 @@ ReactWrapper {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
+<<<<<<< HEAD
                   id="F-izl4Sdq"
+=======
+                  id="P6_tmnEPP"
+>>>>>>> feature(redux): user should be able to view and edit profile
                   type="button"
                 >
                   <div
@@ -727,7 +771,11 @@ ReactWrapper {
                   "data-testid": "button",
                   "data-toggle": "",
                   "disabled": false,
+<<<<<<< HEAD
                   "id": "F-izl4Sdq",
+=======
+                  "id": "P6_tmnEPP",
+>>>>>>> feature(redux): user should be able to view and edit profile
                   "onClick": [MockFunction],
                   "type": "button",
                 },

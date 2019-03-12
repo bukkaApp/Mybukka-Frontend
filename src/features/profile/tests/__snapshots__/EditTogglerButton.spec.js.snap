@@ -29,7 +29,9 @@ ReactWrapper {
         <button
           class="edit-save-toggler d-flex justify-content-end"
           data-target=""
+          data-testid="button"
           data-toggle=""
+          id="zg8_Cykd7"
           type="button"
         >
           EDIT
@@ -44,6 +46,7 @@ ReactWrapper {
           dataToggle=""
           disabled={false}
           handleClick={[Function]}
+          id="zg8_Cykd7"
           text="EDIT"
           type="button"
         >
@@ -64,6 +67,7 @@ ReactWrapper {
             "dataToggle": "",
             "disabled": false,
             "handleClick": [Function],
+            "id": "zg8_Cykd7",
             "text": "EDIT",
             "type": "button",
           },
@@ -72,7 +76,9 @@ ReactWrapper {
             "instance": <button
               class="edit-save-toggler d-flex justify-content-end"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="zg8_Cykd7"
               type="button"
             >
               EDIT
@@ -83,8 +89,10 @@ ReactWrapper {
               "children": "EDIT",
               "className": "edit-save-toggler d-flex justify-content-end",
               "data-target": "",
+              "data-testid": "button",
               "data-toggle": "",
               "disabled": false,
+              "id": "zg8_Cykd7",
               "onClick": [Function],
               "type": "button",
             },
@@ -117,7 +125,9 @@ ReactWrapper {
           <button
             class="edit-save-toggler d-flex justify-content-end"
             data-target=""
+            data-testid="button"
             data-toggle=""
+            id="zg8_Cykd7"
             type="button"
           >
             EDIT
@@ -132,6 +142,7 @@ ReactWrapper {
             dataToggle=""
             disabled={false}
             handleClick={[Function]}
+            id="zg8_Cykd7"
             text="EDIT"
             type="button"
           >
@@ -152,6 +163,7 @@ ReactWrapper {
               "dataToggle": "",
               "disabled": false,
               "handleClick": [Function],
+              "id": "zg8_Cykd7",
               "text": "EDIT",
               "type": "button",
             },
@@ -160,7 +172,9 @@ ReactWrapper {
               "instance": <button
                 class="edit-save-toggler d-flex justify-content-end"
                 data-target=""
+                data-testid="button"
                 data-toggle=""
+                id="zg8_Cykd7"
                 type="button"
               >
                 EDIT
@@ -171,8 +185,10 @@ ReactWrapper {
                 "children": "EDIT",
                 "className": "edit-save-toggler d-flex justify-content-end",
                 "data-target": "",
+                "data-testid": "button",
                 "data-toggle": "",
                 "disabled": false,
+                "id": "zg8_Cykd7",
                 "onClick": [Function],
                 "type": "button",
               },
