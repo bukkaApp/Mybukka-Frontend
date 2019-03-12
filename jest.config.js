@@ -8,6 +8,7 @@ module.exports = {
     'Components(.*)$': '<rootDir>/src/components/$1',
     'Icons(.*)$': '<rootDir>/src/components/icons/$1',
     'Redux(.*)$': '<rootDir>/src/redux/$1',
+    'Utils(.*)$': '<rootDir>/src/utils/$1'
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testMatch: ['<rootDir>/src/**/**/tests/*.js'],
@@ -19,6 +20,7 @@ module.exports = {
     '!<rootDir>/src/index.js',
     '!<rootDir>/src/root',
     '!<rootDir>/src/redux',
+    '!<rootDir>/src/utils',
     'src/**/*.{js,jsx}'
   ],
   globals: {
