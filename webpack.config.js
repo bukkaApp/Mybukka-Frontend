@@ -38,15 +38,11 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     filename: 'js/bundle.js'
   },
-<<<<<<< HEAD
   plugins: [
     HtmlWebpackPluginConfig,
     extractTextPlugin,
     defineVariablesPlugin,
   ],
-=======
-  plugins: [HtmlWebpackPluginConfig, extractTextPlugin],
->>>>>>> refactor(redux): refactor authentication pages
   module: {
     rules: [
       {

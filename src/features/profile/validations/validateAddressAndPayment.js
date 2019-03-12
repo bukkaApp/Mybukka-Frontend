@@ -2,8 +2,8 @@ import Validator from 'validatorjs';
 
 const rules = {
   streetAddress1: 'required',
-  streetAddress2: 'alpha',
-  name: 'required|alpha|min:3',
+  streetAddress2: 'required',
+  name: 'required|min:3',
   mobileNumber: 'required|min:8',
 };
 

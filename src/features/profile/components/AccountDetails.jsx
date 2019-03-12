@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import verifyToken from 'Utils/verifyToken';
 import AccountDetailsSection from '../common/AccountDetailsSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import Addresses from './Addresses';
@@ -11,14 +10,23 @@ import { validateAField, validateAllFields }
 import signUpDomStructure from './signUpDomStructure.json';
 import './accountDetails.scss';
 
-const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
+const AccountDetails = ({
+  userInfo,
+  loading,
+  editUserData,
+  deleteUserAddress,
+  requestUserAddress,
+  requestUserData,
+  userAddress,
+  errorMessage,
+}) => {
   const [activeInput, setActiveInput] = useState('firstName');
   const textInputFocus = {
     firstName: React.createRef(),
     lastName: React.createRef(),
     email: React.createRef(),
     contactMobile: React.createRef(),
-    password: React.createRef(),
+    password: React.createRef()
   };
 
   const [inputStatus, setInputStatus] = useState({
@@ -26,7 +34,7 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
     lastName: 'save',
     email: 'save',
     contactMobile: 'save',
-    password: 'save',
+    password: 'save'
   });
 
   const [inputData, setInputData] = useState({
@@ -48,7 +56,7 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
     lastName: '',
     email: '',
     contactMobile: '',
-    password: '',
+    password: ''
   });
 
   const defaultData = {
@@ -79,6 +87,22 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
     });
   };
 
+  const handleEmailErrorMsg = (name) => {
+    if (name === 'email' && !validationErrors[name]) {
+      setValidationErrors({
+        ...validationErrors,
+        [name]: errorMessage
+      });
+    }
+  };
+
+  const handleDeleteButton = async (address) => {
+    // eslint-disable-next-line no-underscore-dangle
+    const id = address._id;
+    await deleteUserAddress(`/user/address/${id}`);
+    await requestUserAddress('/user/address');
+  };
+
   const handleEditButton = (e, inputName) => {
     e.preventDefault();
     // set selector for calling focus on input field in componenDidMount
@@ -99,27 +123,28 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
     });
   };
 
-  const handleInputSaveButton = (event, name) => {
+  const handleInputSaveButton = async (event, name) => {
     event.preventDefault();
     const data = {
       ...userInfo,
       [name]: inputData[name]
     };
-    const isPasswordCheck = name === 'password';
-    const validation = isPasswordCheck ? validateAllFields(data, true)
-      : validateAllFields(data);
+    let validation = validateAllFields(data);
+    if (name === 'password') {
+      validation = validateAllFields(data, true);
+    }
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
       handleSaveButton(name);
-      const token = localStorage.getItem('x-access-token');
-      const { slug } = verifyToken(token);
       setInputData({
         ...inputData,
         ...defaultData
       });
       // if token expires re-login
-      return editUserData(`/user/${slug}`, data);
+      await editUserData('/user/profile', data);
+      await requestUserData('/user/profile');
+      handleEmailErrorMsg(name);
     }
   };
 
@@ -134,6 +159,7 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
       <AccountDetailsGroupHeader text="Account Details" />
       {signUpDomStructure.map(propData => (
         <AccountDetailsSection
+          errorMessage={validationErrors[propData.name]}
           inputRef={textInputFocus[propData.name]}
           handleChange={handleAccountDetails}
           placeHolder={propData.placeholder}
@@ -152,7 +178,7 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
         handleEdit={event => handleEditButton(event, 'password')}
         handleSave={event => handleInputSaveButton(event, 'password')}
       />
-      <Addresses addresses={userAddress} />
+      <Addresses handleDelete={handleDeleteButton} addresses={userAddress} />
       {/* <Payment /> */}
     </div>
   );
@@ -160,23 +186,40 @@ const AccountDetails = ({ userInfo, loading, editUserData, userAddress }) => {
 
 export default AccountDetails;
 
+const proptypes = PropTypes.objectOf(
+  PropTypes.oneOfType([
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.number),
+        PropTypes.string
+      ])
+    ),
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number
+  ])
+);
+
 AccountDetails.defaultProps = {
-  userAddress: {}
+  errorMessage: ''
 };
 
 AccountDetails.propTypes = {
+  errorMessage: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   userInfo: PropTypes.objectOf(PropTypes.string).isRequired,
+  requestUserAddress: PropTypes.func.isRequired,
+  deleteUserAddress: PropTypes.func.isRequired,
+  requestUserData: PropTypes.func.isRequired,
   editUserData: PropTypes.func.isRequired,
   userAddress: PropTypes.oneOfType([
-    PropTypes.arrayOf(
+    PropTypes.arrayOf(proptypes),
+    PropTypes.objectOf(
       PropTypes.oneOfType([
-        PropTypes.objectOf(PropTypes.string),
-        PropTypes.string
-      ]),
-      PropTypes.objectOf(PropTypes.string),
-      PropTypes.string
-    ),
-    PropTypes.string
-  ])
+        PropTypes.string,
+        PropTypes.bool,
+        PropTypes.arrayOf(proptypes)
+      ])
+    )
+  ]).isRequired
 };

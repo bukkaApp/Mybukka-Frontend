@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-// import logger from 'redux-logger'; // eslint-disable-line
+import logger from 'redux-logger'; // eslint-disable-line
 import thunk from 'redux-thunk';
 
 import homeReducer from 'Components/navbar/reducers';
@@ -38,22 +38,13 @@ const reducer = combineReducers({
   postUserData,
 });
 
-const logger = store => next => (action) => {
-  const previous = JSON.stringify(store.getState());
-  next(action);
-  console.log(
-    `action: ${JSON.stringify(action)
-    }\n\tprevious: ${previous
-    }\n\tcurrent: ${JSON.stringify(store.getState())}`
-  );
-};
-
 let middleware = applyMiddleware(thunk, logger);
 
 
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['authenticationReducer']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);

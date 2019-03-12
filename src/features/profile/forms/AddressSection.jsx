@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import TextArea from 'Components/input/TextArea';
 import PropTypes, { any } from 'prop-types';
 import { connect } from 'react-redux';
-import verifyToken from 'Utils/verifyToken';
 import Button from 'Components/button/Button';
 import inputField from '../InputAttribute/inputData.json';
 import { validateAField, validateAllFields } from '../validations/validateAddressAndPayment';
@@ -32,9 +31,9 @@ const DeliveryForm = ({
     <div className="form-group mb-4">
       <TextArea
         placeholderText="Add delivery instructuctions..."
-        name="deliveryInstruction"
+        name="deliveryInstructions"
         classNames="instruction"
-        handleChange={() => {}}
+        handleChange={handleChange}
         handleFocus={() => {}}
       />
     </div>
@@ -49,7 +48,9 @@ const DeliveryForm = ({
   </form>
 );
 
-const Delivery = ({ sendUserAddress, errorMessage, requestUserAddress, posted }) => {
+const Delivery = ({
+  sendUserAddress, errorMessage, requestUserAddress, posted, coordinates
+}) => {
   let wrapperRef;
   const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -117,18 +118,12 @@ const Delivery = ({ sendUserAddress, errorMessage, requestUserAddress, posted })
       ...errors
     });
     if (passes) {
-      const token = localStorage.getItem('x-access-token');
-      const { slug } = verifyToken(token);
       // create data
       const data = {
         ...inputData,
         apartmentNumber,
         address,
-        location: {
-          type: 'Point',
-          coordinates: [-112.110492, 36.098948]
-        },
-        slug
+        location: { type: 'Point', coordinates },
       };
       // reset back to default
       setInputData({
@@ -136,15 +131,15 @@ const Delivery = ({ sendUserAddress, errorMessage, requestUserAddress, posted })
         ...defaultData
       });
       // if token expires re-login
-      await sendUserAddress(`/${slug}/address`, data);
-      await requestUserAddress(`/${slug}/address`);
+      await sendUserAddress('/user/address', data);
+      await requestUserAddress('/user/address');
     }
   };
 
   return (
     <div className="mb-2 mt-4">
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Add Address</h2>
-      <span className="text-danger font-size-11">{errorMessage.address}</span>
+      <span className="text-danger font-size-11">{errorMessage}</span>
       <DeliveryForm
         inputData={inputData}
         handleChange={handleChange}
@@ -158,9 +153,12 @@ const Delivery = ({ sendUserAddress, errorMessage, requestUserAddress, posted })
 };
 
 const mapStateToProps = ({
-  postUserAddress: { errorMessage, posted }
+  postUserAddress: { errorMessage, posted },
+  selectedLocationReducer: { coordinates }
 }) => ({
-  errorMessage, posted
+  errorMessage,
+  posted,
+  coordinates,
 });
 
 export default connect(
@@ -179,7 +177,8 @@ Delivery.propTypes = {
   posted: PropTypes.bool,
   sendUserAddress: PropTypes.func.isRequired,
   requestUserAddress: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string
+  errorMessage: PropTypes.string,
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
 DeliveryForm.propTypes = {

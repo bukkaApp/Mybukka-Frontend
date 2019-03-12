@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -15,11 +15,8 @@ import signInDomStructure from './signInDomStructure.json';
 import './auth.scss';
 
 export const LoginPage = ({
-  status,
   authModal,
   errorMessage,
-  classNames,
-  user,
   classNames,
   authenticateUser,
   history: { push }
@@ -107,14 +104,6 @@ export const LoginPage = ({
     return null;
   };
 
-  useEffect(() => {
-    const { authenticated } = status;
-    if (authenticated) {
-      localStorage.setItem('x-access-token', user.token);
-      push('/');
-    }
-  });
-
   return (
     <Fragment>
       <ToolBar />
@@ -164,11 +153,6 @@ LoginPage.propTypes = {
   }).isRequired,
   authModal: PropTypes.bool,
   classNames: PropTypes.string,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
-  user: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.bool
-  ])).isRequired,
   errorMessage: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired
 };

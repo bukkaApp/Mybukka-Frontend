@@ -11,8 +11,8 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-const Home = ({ history: { location, push }, coordinates }) => {
-  useEffect(() => () => push('/feed'), [coordinates]);
+const Home = ({ history: { push }, coordinates }) => {
+  // useEffect(() => () => push('/feed'), [coordinates]);
 
   return (
     <div className="home">
@@ -38,9 +38,5 @@ Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
-<<<<<<< HEAD
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-=======
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
->>>>>>> feature(redux): user should be able to view and edit profile
 };

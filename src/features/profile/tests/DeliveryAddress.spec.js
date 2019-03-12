@@ -8,12 +8,15 @@ describe('Area to explore component', () => {
   const store = mockStore({
     deliveryModeReducer: {
       mode: 'pickup'
-    }
+    },
+    postUserAddress: { errorMessage: '', posted: false },
+    selectedLocationReducer: { coordinates: [3.361476, 6.5560715] }
   });
 
   const props = {
     handleClick: jest.fn(),
-    handleChange: jest.fn()
+    handleChange: jest.fn(),
+    errorMessage: ''
   };
   const wrapper = render(
     <Provider store={store}>

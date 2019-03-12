@@ -14,6 +14,15 @@
     },
     "NODE_MODULES_CACHE": {
       "required": true
+    },
+    "GOOGLE_API_KEY": {
+      "required": true
+    },
+    "CLOUDINARY_UPLOAD_PRESET": {
+      "required": true
+    },
+    "CLOUDINARY_PROD_URL": {
+      "required": true
     }
   },
   "description": "Frontend of bukka App using React",

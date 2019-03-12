@@ -4,21 +4,28 @@ import loading from 'Redux/loading';
 
 import axios from 'Redux/axios';
 
-const fetchUserDataAction = (type, data) => ({
+const fetchUserAddressAction = (type, data) => ({
   type: `${FETCH_USER_ADDRESS}_${type}`,
   data,
 });
 
-const fetchUserData = url => async (dispatch) => {
+const fetchUserAddress = url => async (dispatch) => {
   try {
     dispatch(loading(FETCH_USER_ADDRESS, true));
-    const request = await axios.get(url);
-    dispatch(fetchUserDataAction('SUCCESS', request.data));
+    const request = await axios({
+      method: 'GET',
+      url,
+      headers: {
+        authorization: localStorage.getItem('x-access-token'),
+        accept: 'application/json',
+      }
+    });
+    dispatch(fetchUserAddressAction('SUCCESS', request.data));
     dispatch(loading(FETCH_USER_ADDRESS, false));
   } catch (error) {
-    dispatch(fetchUserDataAction('ERROR', error.response.data));
     dispatch(loading(FETCH_USER_ADDRESS, false));
+    dispatch(fetchUserAddressAction('ERROR', error.response.data));
   }
 };
 
-export default fetchUserData;
+export default fetchUserAddress;

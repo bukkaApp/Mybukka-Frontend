@@ -1,0 +1,986 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Area to explore component renders properly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container added-items-wrapper"
+      >
+        <div
+          class="cart-menu"
+        >
+          <div
+            class="cart-bukka-details"
+          >
+            <h5
+              class="cart-bukka-name"
+            >
+              Mel's Drive-In
+            </h5>
+            <h5
+              class="cart-bukka-view-menu"
+            >
+              <a
+                class="text-success view-menu-text"
+                href="/feed"
+              >
+                VIEW MENU
+              </a>
+            </h5>
+          </div>
+          <div
+            class="d-flex order-tray"
+          >
+            <div
+              class="col p-0"
+            >
+              <h5
+                class="item-name"
+              >
+                1 × 
+                Chicken Tenders and Fries
+              </h5>
+              <div
+                class="action-item-section"
+              >
+                <button
+                  class="cart-action-button-primary"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  EDIT
+                </button>
+                <button
+                  class="cart-action-button-default"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  REMOVE
+                </button>
+              </div>
+            </div>
+            <div
+              class="p-0"
+            >
+              <h4
+                class="price-badge-black"
+              >
+                ₦
+                15.73
+                .00
+              </h4>
+            </div>
+          </div>
+          <div
+            class="d-flex order-tray"
+          >
+            <div
+              class="col p-0"
+            >
+              <h5
+                class="item-name"
+              >
+                1 × 
+                Side of beacon
+              </h5>
+              <div
+                class="action-item-section"
+              >
+                <button
+                  class="cart-action-button-primary"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  EDIT
+                </button>
+                <button
+                  class="cart-action-button-default"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  REMOVE
+                </button>
+              </div>
+            </div>
+            <div
+              class="p-0"
+            >
+              <h4
+                class="price-badge-black"
+              >
+                ₦
+                15.73
+                .00
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container suggested-items-section bg-gutter"
+      >
+        <div
+          class="d-flex justify-content-between align-items-center text-center"
+        >
+          <h4
+            class="font-size-14"
+          >
+            Suggested Items
+          </h4>
+          <div
+            class="suggested-items-tray"
+          >
+            <button
+              class="left btn-chevron"
+              data-target=""
+              data-testid="button"
+              data-toggle=""
+              id="MwViggeqw"
+              type="button"
+            >
+              <svg
+                class="chevron-right-icon"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <defs>
+                  <path
+                    d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                    id="icon-chevron_svg__a"
+                  />
+                </defs>
+                <use
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  xlink:href="#icon-chevron_svg__a"
+                />
+              </svg>
+            </button>
+            <button
+              class="right btn-chevron"
+              data-target=""
+              data-testid="button"
+              data-toggle=""
+              id="MwViggeqw"
+              type="button"
+            >
+              <svg
+                class="chevron-right-icon"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <defs>
+                  <path
+                    d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                    id="icon-chevron_svg__a"
+                  />
+                </defs>
+                <use
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  xlink:href="#icon-chevron_svg__a"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div
+          class="overflow-hidden"
+        >
+          <div
+            class="d-flex flex-start overflow-visible suggested-items-pane-section"
+            style="transform: translateX(0%);"
+          >
+            <div
+              class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+            >
+              <div
+                class="d-flex justify-content-between"
+              >
+                <div
+                  class="border-right col-md-10 capitalize"
+                >
+                  <h5
+                    class="font-size-14"
+                  >
+                    whole milk
+                  </h5>
+                  <h5
+                    class="font-size-14 suggested-item-price"
+                  >
+                    3.54
+                  </h5>
+                </div>
+                <button
+                  class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <g
+                      fill="#9c1c26"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 7h16v2H0z"
+                      />
+                      <path
+                        d="M7 16V0h2v16z"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+            >
+              <div
+                class="d-flex justify-content-between"
+              >
+                <div
+                  class="border-right col-md-10 capitalize"
+                >
+                  <h5
+                    class="font-size-14"
+                  >
+                    cheese
+                  </h5>
+                  <h5
+                    class="font-size-14 suggested-item-price"
+                  >
+                    12.54
+                  </h5>
+                </div>
+                <button
+                  class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <g
+                      fill="#9c1c26"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 7h16v2H0z"
+                      />
+                      <path
+                        d="M7 16V0h2v16z"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+            >
+              <div
+                class="d-flex justify-content-between"
+              >
+                <div
+                  class="border-right col-md-10 capitalize"
+                >
+                  <h5
+                    class="font-size-14"
+                  >
+                    vegetables
+                  </h5>
+                  <h5
+                    class="font-size-14 suggested-item-price"
+                  >
+                    24.54
+                  </h5>
+                </div>
+                <button
+                  class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <g
+                      fill="#9c1c26"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 7h16v2H0z"
+                      />
+                      <path
+                        d="M7 16V0h2v16z"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div
+              class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+            >
+              <div
+                class="d-flex justify-content-between"
+              >
+                <div
+                  class="border-right col-md-10 capitalize"
+                >
+                  <h5
+                    class="font-size-14"
+                  >
+                    Ham and cheese mellet
+                  </h5>
+                  <h5
+                    class="font-size-14 suggested-item-price"
+                  >
+                    14.54
+                  </h5>
+                </div>
+                <button
+                  class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="MwViggeqw"
+                  type="button"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <g
+                      fill="#9c1c26"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 7h16v2H0z"
+                      />
+                      <path
+                        d="M7 16V0h2v16z"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="container "
+      >
+        <div
+          class="container total-amount-section"
+        >
+          <div
+            class="before-grand-total-section"
+          >
+            <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="text-sub-total"
+              >
+                Subtotal
+              </h5>
+              <h5
+                class="tbd-price"
+              >
+                TBD
+              </h5>
+            </div>
+            <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="text-sub-total"
+              >
+                Tax & Fees
+              </h5>
+              <h5
+                class="tbd-price"
+              >
+                TBD
+              </h5>
+            </div>
+            <div
+              class="d-flex justify-content-between"
+            >
+              <h5
+                class="text-sub-total"
+              >
+                Delivery
+              </h5>
+              <h5
+                class="tbd-price"
+              >
+                TBD
+              </h5>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-between mt-3 mb-1"
+          >
+            <h5
+              class="text-sub-total"
+            >
+              Total
+            </h5>
+            <h5
+              class="tbd-price"
+            >
+              TBD
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container added-items-wrapper"
+    >
+      <div
+        class="cart-menu"
+      >
+        <div
+          class="cart-bukka-details"
+        >
+          <h5
+            class="cart-bukka-name"
+          >
+            Mel's Drive-In
+          </h5>
+          <h5
+            class="cart-bukka-view-menu"
+          >
+            <a
+              class="text-success view-menu-text"
+              href="/feed"
+            >
+              VIEW MENU
+            </a>
+          </h5>
+        </div>
+        <div
+          class="d-flex order-tray"
+        >
+          <div
+            class="col p-0"
+          >
+            <h5
+              class="item-name"
+            >
+              1 × 
+              Chicken Tenders and Fries
+            </h5>
+            <div
+              class="action-item-section"
+            >
+              <button
+                class="cart-action-button-primary"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                EDIT
+              </button>
+              <button
+                class="cart-action-button-default"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                REMOVE
+              </button>
+            </div>
+          </div>
+          <div
+            class="p-0"
+          >
+            <h4
+              class="price-badge-black"
+            >
+              ₦
+              15.73
+              .00
+            </h4>
+          </div>
+        </div>
+        <div
+          class="d-flex order-tray"
+        >
+          <div
+            class="col p-0"
+          >
+            <h5
+              class="item-name"
+            >
+              1 × 
+              Side of beacon
+            </h5>
+            <div
+              class="action-item-section"
+            >
+              <button
+                class="cart-action-button-primary"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                EDIT
+              </button>
+              <button
+                class="cart-action-button-default"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                REMOVE
+              </button>
+            </div>
+          </div>
+          <div
+            class="p-0"
+          >
+            <h4
+              class="price-badge-black"
+            >
+              ₦
+              15.73
+              .00
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container suggested-items-section bg-gutter"
+    >
+      <div
+        class="d-flex justify-content-between align-items-center text-center"
+      >
+        <h4
+          class="font-size-14"
+        >
+          Suggested Items
+        </h4>
+        <div
+          class="suggested-items-tray"
+        >
+          <button
+            class="left btn-chevron"
+            data-target=""
+            data-testid="button"
+            data-toggle=""
+            id="MwViggeqw"
+            type="button"
+          >
+            <svg
+              class="chevron-right-icon"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <defs>
+                <path
+                  d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                  id="icon-chevron_svg__a"
+                />
+              </defs>
+              <use
+                fill="currentColor"
+                fill-rule="evenodd"
+                xlink:href="#icon-chevron_svg__a"
+              />
+            </svg>
+          </button>
+          <button
+            class="right btn-chevron"
+            data-target=""
+            data-testid="button"
+            data-toggle=""
+            id="MwViggeqw"
+            type="button"
+          >
+            <svg
+              class="chevron-right-icon"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <defs>
+                <path
+                  d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                  id="icon-chevron_svg__a"
+                />
+              </defs>
+              <use
+                fill="currentColor"
+                fill-rule="evenodd"
+                xlink:href="#icon-chevron_svg__a"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="overflow-hidden"
+      >
+        <div
+          class="d-flex flex-start overflow-visible suggested-items-pane-section"
+          style="transform: translateX(0%);"
+        >
+          <div
+            class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+          >
+            <div
+              class="d-flex justify-content-between"
+            >
+              <div
+                class="border-right col-md-10 capitalize"
+              >
+                <h5
+                  class="font-size-14"
+                >
+                  whole milk
+                </h5>
+                <h5
+                  class="font-size-14 suggested-item-price"
+                >
+                  3.54
+                </h5>
+              </div>
+              <button
+                class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                <svg
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <g
+                    fill="#9c1c26"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 7h16v2H0z"
+                    />
+                    <path
+                      d="M7 16V0h2v16z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+          >
+            <div
+              class="d-flex justify-content-between"
+            >
+              <div
+                class="border-right col-md-10 capitalize"
+              >
+                <h5
+                  class="font-size-14"
+                >
+                  cheese
+                </h5>
+                <h5
+                  class="font-size-14 suggested-item-price"
+                >
+                  12.54
+                </h5>
+              </div>
+              <button
+                class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                <svg
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <g
+                    fill="#9c1c26"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 7h16v2H0z"
+                    />
+                    <path
+                      d="M7 16V0h2v16z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+          >
+            <div
+              class="d-flex justify-content-between"
+            >
+              <div
+                class="border-right col-md-10 capitalize"
+              >
+                <h5
+                  class="font-size-14"
+                >
+                  vegetables
+                </h5>
+                <h5
+                  class="font-size-14 suggested-item-price"
+                >
+                  24.54
+                </h5>
+              </div>
+              <button
+                class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                <svg
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <g
+                    fill="#9c1c26"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 7h16v2H0z"
+                    />
+                    <path
+                      d="M7 16V0h2v16z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div
+            class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
+          >
+            <div
+              class="d-flex justify-content-between"
+            >
+              <div
+                class="border-right col-md-10 capitalize"
+              >
+                <h5
+                  class="font-size-14"
+                >
+                  Ham and cheese mellet
+                </h5>
+                <h5
+                  class="font-size-14 suggested-item-price"
+                >
+                  14.54
+                </h5>
+              </div>
+              <button
+                class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                data-target=""
+                data-testid="button"
+                data-toggle=""
+                id="MwViggeqw"
+                type="button"
+              >
+                <svg
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <g
+                    fill="#9c1c26"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 7h16v2H0z"
+                    />
+                    <path
+                      d="M7 16V0h2v16z"
+                    />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container "
+    >
+      <div
+        class="container total-amount-section"
+      >
+        <div
+          class="before-grand-total-section"
+        >
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="text-sub-total"
+            >
+              Subtotal
+            </h5>
+            <h5
+              class="tbd-price"
+            >
+              TBD
+            </h5>
+          </div>
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="text-sub-total"
+            >
+              Tax & Fees
+            </h5>
+            <h5
+              class="tbd-price"
+            >
+              TBD
+            </h5>
+          </div>
+          <div
+            class="d-flex justify-content-between"
+          >
+            <h5
+              class="text-sub-total"
+            >
+              Delivery
+            </h5>
+            <h5
+              class="tbd-price"
+            >
+              TBD
+            </h5>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-between mt-3 mb-1"
+        >
+          <h5
+            class="text-sub-total"
+          >
+            Total
+          </h5>
+          <h5
+            class="tbd-price"
+          >
+            TBD
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

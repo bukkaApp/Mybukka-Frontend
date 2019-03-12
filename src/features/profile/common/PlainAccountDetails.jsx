@@ -6,11 +6,12 @@ import EditTogglerButton from './EditTogglerButton';
 
 import './inputAccountDetails.scss';
 
-const plainAccountDetails = ({
+const PlainAccountDetails = ({
   text,
   altText,
   children,
   handleEdit,
+  btnText,
 }) => (
   <div className="input-acc-details-section">
     <div className="form-acc-details">
@@ -23,20 +24,22 @@ const plainAccountDetails = ({
           </p>
         )}
       </div>
-      <EditTogglerButton handleClick={handleEdit} text="EDIT" />
+      <EditTogglerButton handleClick={handleEdit} text={btnText} />
     </div>
   </div>
 );
 
-export default plainAccountDetails;
+export default PlainAccountDetails;
 
-plainAccountDetails.defaultProps = {
+PlainAccountDetails.defaultProps = {
+  btnText: 'EDIT',
   children: '',
   altText: '',
   handleEdit: () => {},
 };
 
-plainAccountDetails.propTypes = {
+PlainAccountDetails.propTypes = {
+  btnText: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   altText: PropTypes.string,
   children: PropTypes.node,

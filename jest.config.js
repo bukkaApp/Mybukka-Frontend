@@ -8,7 +8,7 @@ module.exports = {
     'Components(.*)$': '<rootDir>/src/components/$1',
     'Icons(.*)$': '<rootDir>/src/components/icons/$1',
     'Redux(.*)$': '<rootDir>/src/redux/$1',
-    'Utils(.*)$': '<rootDir>/src/utils/$1'
+    'Utilities(.*)$': '<rootDir>/src/utils/$1'
   },
   setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
   testMatch: ['<rootDir>/src/**/**/tests/*.js'],

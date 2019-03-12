@@ -17,6 +17,7 @@ export default (state = initialState, action) => {
     case `${FETCH_USER_ADDRESS}_ERROR`:
       return {
         ...state,
+        address: {},
         errorMessage: action.data.message
       };
 

@@ -12,12 +12,19 @@ const fetchUserDataAction = (type, data) => ({
 const fetchUserData = url => async (dispatch) => {
   try {
     dispatch(loading(FETCH_USER_DATA, true));
-    const request = await axios.get(url);
+    const request = await axios({
+      method: 'GET',
+      url,
+      headers: {
+        authorization: localStorage.getItem('x-access-token'),
+        accept: 'application/json',
+      }
+    });
     dispatch(fetchUserDataAction('SUCCESS', request.data));
     dispatch(loading(FETCH_USER_DATA, false));
   } catch (error) {
-    dispatch(fetchUserDataAction('ERROR', error.response.data));
     dispatch(loading(FETCH_USER_DATA, false));
+    dispatch(fetchUserDataAction('ERROR', error.response.data));
   }
 };
 

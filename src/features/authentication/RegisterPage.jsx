@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -16,8 +16,6 @@ import './auth.scss';
 export const RegisterPage = ({
   authModal,
   authenticateUser,
-  status,
-  user,
   errorMessage,
   classNames,
   history: { push },
@@ -94,14 +92,6 @@ export const RegisterPage = ({
     return null;
   };
 
-  useEffect(() => {
-    const { authenticated } = status;
-    if (authenticated) {
-      localStorage.setItem('x-access-token', user.token);
-      push('/');
-    }
-  });
-
   return (
     <Fragment>
       <ToolBar />
@@ -141,8 +131,6 @@ RegisterPage.defaultProps = {
   authModal: false,
   classNames: '',
   user: { message: '' },
-  authModal: false,
-  classNames: ''
 };
 
 RegisterPage.propTypes = {
@@ -152,7 +140,5 @@ RegisterPage.propTypes = {
   }).isRequired,
   classNames: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired,
-  user: PropTypes.objectOf(PropTypes.string).isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   errorMessage: PropTypes.string
 };

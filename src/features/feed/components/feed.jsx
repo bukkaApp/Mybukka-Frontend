@@ -9,7 +9,7 @@ import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScree
 
 import LocationNavSmallScreen from 'Components/common-navs/LocationNavSmallScreen';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 import Carousel from 'Components/Carousel/Carousel';
 import BukkaCard from 'Components/Carousel/BukkaCard';
@@ -37,7 +37,7 @@ const FeedPage = ({
   if (nearbyBukkas.length === 0 && error) {
     return (
       <div>
-        <PrimaryNavbar push={push} />
+        <Navbar push={push} />
         <NotAvailable />
       </div>
     );

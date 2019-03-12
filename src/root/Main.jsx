@@ -6,10 +6,7 @@ import Register from '../features/authentication/RegisterPage';
 import Login from '../features/authentication/LoginPage';
 import FeedPage from '../features/feed';
 import Checkout from '../features/checkout/index';
-<<<<<<< HEAD
 import Profile from '../features/profile';
-=======
->>>>>>> refactor(redux): refactor authentication pages
 
 const Main = () => (
   <main>
@@ -20,10 +17,7 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/feed" component={FeedPage} />
       <Route exact path="/checkout" component={Checkout} />
-<<<<<<< HEAD
       <Route exact path="/profile" component={Profile} />
-=======
->>>>>>> refactor(redux): refactor authentication pages
     </Switch>
   </main>
 );

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Container from 'Components/container';
-import PrimaryNavbar from 'Components/navbar';
+import Navbar from 'Components/navbar';
 
 import './introsection.scss';
 
@@ -23,7 +23,7 @@ const IntroSection = ({ push }) => (
     style={{ backgroundImage: `url(${bgImage})` }}
   >
     <div className="intro-navbar-area">
-      <PrimaryNavbar push={push} bukka />
+      <Navbar push={push} bukka />
     </div>
     <div className="fixed-top text-left" style={{ zIndex: '100' }}>
       <LargeTextSection />
