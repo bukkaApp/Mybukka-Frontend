@@ -51,6 +51,8 @@ const reducer = combineReducers({
   validateTokenReducer,
   requestPasswordChangesReducer,
   changePasswordReducer,
+  fetchBukkaMenuReducer,
+  fetchBukkaReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

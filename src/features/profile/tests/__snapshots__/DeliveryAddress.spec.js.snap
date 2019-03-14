@@ -116,6 +116,7 @@ Object {
           <div>
             <button
               class="small-button-save"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
@@ -241,6 +242,7 @@ Object {
         <div>
           <button
             class="small-button-save"
+            data-dismiss=""
             data-target=""
             data-testid="button"
             data-toggle=""

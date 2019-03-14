@@ -66,4 +66,3 @@ PrimaryNavbar.propTypes = {
   push: PropTypes.func.isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };
-

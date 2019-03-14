@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+import { connect } from 'react-redux';
 import shortId from 'shortid';
 import PropTypes from 'prop-types';
 
@@ -17,9 +18,9 @@ const BukkaMealsHeader = ({ category }) => (
   </div>
 );
 
-const BukkaMeals = ({ mealsData }) => {
+const BukkaMeals = ({ bukkaMenu }) => {
   const bukkaCategories = [
-    ...new Set(mealsData.map(mealData => mealData.category))
+    ...new Set(bukkaMenu.map(mealData => mealData.category))
   ];
 
   return (
@@ -28,7 +29,7 @@ const BukkaMeals = ({ mealsData }) => {
         <Fragment key={shortId.generate()}>
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
-            {mealsData.map((mealData) => {
+            {bukkaMenu.map((mealData) => {
               if (mealData.category !== eachCategory) {
                 return null;
               }
@@ -48,19 +49,25 @@ const BukkaMeals = ({ mealsData }) => {
   );
 };
 
-export default BukkaMeals;
+const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
+  bukkaMenu
+});
+
+export default connect(mapStateToProps, null)(BukkaMeals);
 
 BukkaMealsHeader.propTypes = {
   category: PropTypes.string.isRequired
 };
 
 BukkaMeals.propTypes = {
-  mealsData: PropTypes.arrayOf(PropTypes.shape({
-    category: PropTypes.string,
-    description: PropTypes.string,
-    price: PropTypes.number,
-    title: PropTypes.string,
-    name: PropTypes.string,
-    imageUrl: PropTypes.string,
-  })).isRequired
+  bukkaMenu: PropTypes.arrayOf(
+    PropTypes.shape({
+      category: PropTypes.string,
+      description: PropTypes.string,
+      price: PropTypes.number,
+      title: PropTypes.string,
+      name: PropTypes.string,
+      imageUrl: PropTypes.string
+    })
+  ).isRequired
 };

@@ -19,8 +19,6 @@ import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import NearByBukka from './NearByBukka';
 
-import bukkaData from './bukkaData.json';
-
 import './feed.scss';
 
 const FeedPage = ({
@@ -58,7 +56,7 @@ const FeedPage = ({
             className="d-none sticky-nav-bar d-md-flex"
             style={{ zIndex: "200" }}
           >
-            <LocationNavLargeScreen />
+            <LocationNavLargeScreen bukka />
           </div>
           <div
             className="d-sm-block sticky-nav-bar d-md-none d-lg-none d-xl-none"
@@ -71,6 +69,7 @@ const FeedPage = ({
             className="bg-white col-lg-12 col-md-12 col-sm-12"
             style={{ zIndex: '150' }}
           >
+<<<<<<< HEAD:src/features/feed/components/root.jsx
             <section className="container">
               {mode === 'delivery' && (
                 <Fragment>
@@ -87,10 +86,41 @@ const FeedPage = ({
                     noOfImagesShown={3}
                     title="$1.99 Delivery"
                     slideItems={bukkaData}
+=======
+            <main className="main-container pr-0 pl-0 mx-auto col-lg-10 col-md-12 col-sm-12">
+              <Carousel
+                noOfImagesShown={2}
+                title="New on Bukka"
+                textOverlay
+                slideItems={nearbyBukkas}
+                imageHeight="img-big-height"
+                classNames="col-lg-6 col-md-6 col-sm-12 col-12"
+              />
+
+              <Carousel
+                noOfImagesShown={3}
+                title="$1.99 Delivery"
+                slideItems={nearbyBukkas}
+                imageHeight="img-height"
+                classNames="col-lg-4 col-md-4 col-sm-12 col-12"
+              />
+
+              <Fragment>
+                <div className="carousel-divider" />
+                <Headline title="Salty & Sweet" activeIndex={1} />
+                <Row classNames="pb-4 ml-1">
+                  <BukkaCard
+                    imageUrl={nearbyBukkas[0].imageUrl}
+                    deliveryPrice={nearbyBukkas[0].deliveryPrice}
+                    deliveryTime={nearbyBukkas[0].deliveryTime}
+                    tags={nearbyBukkas[0].tags}
+                    slug={nearbyBukkas[0].slug}
+>>>>>>> feature(redux): integrate redux into bukka page:src/features/feed/components/feed.jsx
                     imageHeight="img-height"
                     classNames="col-lg-4 col-md-4 col-sm-12 col-12"
                   />
 
+<<<<<<< HEAD:src/features/feed/components/root.jsx
                   <Fragment>
                     <div className="carousel-divider" />
                     <Headline title="Salty & Sweet" activeIndex={1} />
@@ -115,6 +145,15 @@ const FeedPage = ({
                   />
                 </Fragment>
               )}
+=======
+              <Carousel
+                noOfImagesShown={4}
+                title="Touchdown"
+                imageHeight="small-img-height"
+                slideItems={nearbyBukkas}
+                classNames="col-lg-3 col-md-4 col-sm-12 col-12 touchdown"
+              />
+>>>>>>> feature(redux): integrate redux into bukka page:src/features/feed/components/feed.jsx
 
               <Fragment>
                 <div className="carousel-divider" />

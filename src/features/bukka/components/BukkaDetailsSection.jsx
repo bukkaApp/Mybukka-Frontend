@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Button from 'Components/button/Button';
@@ -34,17 +36,29 @@ const DeliveryPriceAndtag = ({ deliveryPrice }) => (
 const ActionButtons = ({ deliveryTime, address }) => (
   <div className="action-buttons-section">
     <ButtonGroup>
-      <Button classNames="small-outline-button" handleClick={() => {}} type="button">
+      <Button
+        classNames="small-outline-button"
+        handleClick={() => {}}
+        type="button"
+      >
         <p className="action-button-text">
           <Clock /> {deliveryTime} - {deliveryTime + 15} MIN
         </p>
       </Button>
-      <Button classNames="small-outline-button" handleClick={() => {}} type="button">
+      <Button
+        classNames="small-outline-button"
+        handleClick={() => {}}
+        type="button"
+      >
         <p className="action-button-text">
           <MapMarkerAlt /> {address}
         </p>
       </Button>
-      <Button classNames="small-outline-button" handleClick={() => {}} type="button">
+      <Button
+        classNames="small-outline-button"
+        handleClick={() => {}}
+        type="button"
+      >
         <p className="action-button-text">
           MORE INFO <ChevronVertical />
         </p>
@@ -53,9 +67,9 @@ const ActionButtons = ({ deliveryTime, address }) => (
   </div>
 );
 
-const TitleAndDescription = ({ bukkaName, description }) => (
+const TitleAndDescription = ({ name, description }) => (
   <div className="bukka-details-title">
-    <h1 className="bukka-title">{bukkaName}</h1>
+    <h1 className="bukka-title">{name}</h1>
     <div className="rating-details">
       <p className="bukka-rating-text">
         <Star /> 107 persons rated
@@ -65,39 +79,52 @@ const TitleAndDescription = ({ bukkaName, description }) => (
   </div>
 );
 
-const BukkaDetailsSection = ({ bukkaName, description }) => (
+const BukkaDetailsSection = ({ bukkaName, description, address }) => (
   <Container classNames="bukka-details-section">
     <DeliveryPriceAndtag deliveryPrice={30} />
     <TitleAndDescription bukkaName={bukkaName} description={description} />
-    <ActionButtons deliveryTime={'15'} address="2, lekki Aja road" />
+    <ActionButtons deliveryTime={'15'} address={address} />
   </Container>
 );
 
-export default BukkaDetailsSection;
+const mapStateToProps = ({
+  fetchBukkaReducer: {
+    fetchedBukka: { name, description }
+  }
+}) => ({
+  name,
+  description
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(BukkaDetailsSection);
 
 BukkaDetailsSection.defaultProps = {
-  description: '',
+  description: ''
 };
 
 BukkaDetailsSection.propTypes = {
   bukkaName: PropTypes.string.isRequired,
   description: PropTypes.string,
+  address: PropTypes.string.isRequired,
 };
 
 DeliveryPriceAndtag.propTypes = {
-  deliveryPrice: PropTypes.number.isRequired,
+  deliveryPrice: PropTypes.number.isRequired
 };
 
 ActionButtons.propTypes = {
   deliveryTime: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired
 };
 
 TitleAndDescription.defaultProps = {
-  description: '',
+  description: ''
 };
 
 TitleAndDescription.propTypes = {
-  bukkaName: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string
 };

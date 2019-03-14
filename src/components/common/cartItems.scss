@@ -1,0 +1,35 @@
+.subtotal-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  border-top: 1px solid #eceff1;
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.single-cart-item-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cart-order-heading {
+  padding-top: 20px;
+}
+
+.single-cart-item-section {
+  padding-top: 20px;
+  width: 100%
+}
+
+.dropdown-children {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.remove-from-cart-icon-section {
+  cursor: pointer;
+  padding-bottom: 5px;
+}

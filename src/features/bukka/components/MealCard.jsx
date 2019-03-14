@@ -1,9 +1,13 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 import Price from 'Components/badge/Price';
+
+import setMealToDisplayAction from '../actionCreators/setMealToDisplayAction';
 
 import './mealCard.scss';
 
@@ -43,8 +47,22 @@ const MealPicture = ({ imageUrl }) => (
   </Column>
 );
 
-const MealCard = ({ title, imageUrl, description, price }) => (
-  <div className="meal-card" data-target="#modal" data-toggle="modal" >
+const MealCard = ({
+  title,
+  imageUrl,
+  description,
+  price,
+  setMealToDisplay,
+  slug
+}) => (
+  <div
+    className="meal-card"
+    data-target="#mealModal"
+    data-toggle="modal"
+    onClick={() => setMealToDisplay(slug)}
+    tabIndex={0}
+    role="button"
+  >
     <Row classNames="meals">
       <MealDetails title={title} price={price} description={description} />
       <MealPicture imageUrl={imageUrl} />
@@ -52,7 +70,10 @@ const MealCard = ({ title, imageUrl, description, price }) => (
   </div>
 );
 
-export default MealCard;
+export default connect(
+  () => ({}),
+  { setMealToDisplay: setMealToDisplayAction }
+)(MealCard);
 
 PriceTag.propTypes = {
   price: PropTypes.number.isRequired
@@ -71,15 +92,14 @@ MealPicture.defaultProps = {
 };
 
 MealPicture.propTypes = {
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.string
 };
 
 MealDetails.defaultProps = {
   title: '',
   description: '',
-  price: 0,
+  price: 0
 };
-
 
 MealDetails.propTypes = {
   title: PropTypes.string,
@@ -91,13 +111,14 @@ MealCard.defaultProps = {
   title: '',
   description: '',
   price: 0,
-  imageUrl: '',
+  imageUrl: ''
 };
-
 
 MealCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
   imageUrl: PropTypes.string,
+  setMealToDisplay: PropTypes.func.isRequired,
+  slug: PropTypes.string.isRequired
 };

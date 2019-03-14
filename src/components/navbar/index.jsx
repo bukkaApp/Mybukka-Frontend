@@ -40,4 +40,3 @@ Navbar.propTypes = {
   status: PropTypes.objectOf(PropTypes.bool),
   bukka: PropTypes.bool
 };
-

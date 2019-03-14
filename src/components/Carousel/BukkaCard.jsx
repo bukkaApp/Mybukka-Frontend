@@ -47,7 +47,7 @@ const NormalText = ({
         </span>
         }
       </span>
-      {rating && <span className="rating">{rating}</span>}
+      <span className="rating">{tags[0]}</span>
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
@@ -64,9 +64,8 @@ const BukkaCard = ({
   mealName,
   remark,
   imageUrl,
-  deliveryCost,
+  deliveryPrice,
   deliveryTime,
-  rating,
   imageHeight,
   textOverlay,
   top,
@@ -99,9 +98,8 @@ const BukkaCard = ({
       )}
       {!textOverlay && (
         <NormalText
-          deliveryCost={deliveryCost}
+          deliveryCost={deliveryPrice}
           deliveryTime={deliveryTime}
-          rating={rating}
           mealName={mealName}
           remark={remark}
           delivery={delivery}
@@ -138,7 +136,7 @@ NormalText.propTypes = {
   mealName: PropTypes.string,
   deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
-  rating: PropTypes.string
+  tags: PropTypes.arrayOf(PropTypes.string)
 };
 
 TextOverlay.propTypes = {
@@ -174,7 +172,8 @@ BukkaCard.defaultProps = {
   top: false,
   bottom: false,
   heading: 'Free Delivery',
-  subHeading: ''
+  subHeading: '',
+  tags: ['nearby'],
 };
 
 BukkaCard.propTypes = {
@@ -182,9 +181,8 @@ BukkaCard.propTypes = {
   remark: PropTypes.bool,
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
-  deliveryCost: PropTypes.number,
+  deliveryPrice: PropTypes.number.isRequired,
   deliveryTime: PropTypes.string,
-  rating: PropTypes.string,
   imageHeight: PropTypes.string,
   textOverlay: PropTypes.bool,
   top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
@@ -200,5 +198,6 @@ GetBukka.defaultProps = {
 
 GetBukka.propTypes = {
   classNames: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  slug: PropTypes.string.isRequired,
 };

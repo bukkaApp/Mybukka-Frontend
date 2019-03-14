@@ -13,6 +13,7 @@ const AddToCartButton = ({ price, handleClick }) => (
       handleClick={handleClick}
       classNames="primary-button add-to-cart-button"
       type="button"
+      dataDismiss="modal"
     >
       <Row>
         <Column classNames="col-6">

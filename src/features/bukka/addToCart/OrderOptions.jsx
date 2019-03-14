@@ -10,7 +10,7 @@ import { MealTitle, MealDescription } from '../components/MealCard';
 
 import './orderOptions.scss';
 
-const OrderOptions = ({ title, description }) => (
+const OrderOptions = ({ title, description, price, slug, quantity }) => (
   <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 order-options-section">
     <div
       data-dismiss="modal"
@@ -23,7 +23,7 @@ const OrderOptions = ({ title, description }) => (
       <MealDescription description={description} />
       <SpecialInstructions />
     </div>
-    <ActionSection price={13} handleClick={() => {}} />
+    <ActionSection price={price} slug={slug} quantity={quantity} />
   </Column>
 );
 
@@ -35,5 +35,8 @@ OrderOptions.defaultProps = {
 
 OrderOptions.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string
+  description: PropTypes.string,
+  price: PropTypes.number.isRequired,
+  slug: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
 };

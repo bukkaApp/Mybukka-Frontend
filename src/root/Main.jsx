@@ -22,7 +22,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/bukka" component={Bukka} />
+      <Route exact path="/bukka/:slug" component={Bukka} />
       <Route exact path="/signup" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/feed" food component={Foods} />

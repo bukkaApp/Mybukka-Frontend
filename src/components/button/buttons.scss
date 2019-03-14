@@ -27,6 +27,11 @@ $white: rgb(217, 219, 224);
   border: 1px solid $primaryColor;
 }
 
+.primary-block-btn {
+  @include button(100%, 48px, $primaryColor, #ffffff, 12px);
+  border: 1px solid $primaryColor;
+}
+
 .facebk-btn {
   @include button(165px, 48px, #3b5998, #fff, 12px);
   border: 1px solid #3b5998;
@@ -135,4 +140,8 @@ $white: rgb(217, 219, 224);
     border-image: initial;
     border-radius: 160px;
   }
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

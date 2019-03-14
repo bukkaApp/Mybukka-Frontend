@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Modal from 'Components/modal';
@@ -9,31 +11,29 @@ import MealImage from './MealImage';
 
 import './addToCart.scss';
 
-const props = {
-  name: 'sample meal',
-  category: 'Breakfast',
-  title: 'Amala',
-  description: 'A very great plate of Amala that will make you beg for more',
-  imageUrl:
-    'https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg',
-  price: 30
-};
-
-const AddToCart = () => (
-  <Modal classNames="order-meals-section">
+const AddToCart = ({ mealToDisplay }) => (
+  <Modal classNames="order-meals-section" dataTarget="mealModal">
     <Row classNames="order-meals-section">
-      <MealImage imageUrl={props.imageUrl} />
-      <OrderOptions {...props} />
+      <MealImage imageUrl={mealToDisplay.imageUrl} />
+      <OrderOptions {...mealToDisplay} />
     </Row>
   </Modal>
 );
 
-export default AddToCart;
+const mapStateToProps = ({ fetchBukkaMenuReducer: { mealToDisplay } }) => ({
+  mealToDisplay
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(AddToCart);
 
 AddToCart.defaultProps = {
   imageUrl: ''
 };
 
 AddToCart.propTypes = {
-  imageUrl: PropTypes.string
+  imageUrl: PropTypes.string,
+  mealToDisplay: PropTypes.shape({}).isRequired,
 };
