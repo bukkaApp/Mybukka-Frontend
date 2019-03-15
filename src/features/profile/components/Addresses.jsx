@@ -6,26 +6,29 @@ import shortId from 'shortid';
 import { RoundedPlus } from 'Icons/Plus';
 
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
-import InputAccountDetails from '../common/InputAccountDetails';
+import PlainAccountDetails from '../common/PlainAccountDetails';
 import AddMoreSection from '../common/AddMoreSection';
 
+import AddAddressForm from '../forms/AddAddressForm';
 import './addresses.scss';
 
 const AddAnAddress = () => (
-  <div className="add-address" data-toggle="modal" data-target="#modal">
-    <AddMoreSection text="add new address"><RoundedPlus /></AddMoreSection>
+  <div className="add-address" data-toggle="modal">
+    <AddMoreSection dataTarget="#modal" text="add new address">
+      <RoundedPlus />
+    </AddMoreSection>
   </div>
 );
 
-const Addresses = ({ addresses }) => (
+const Addresses = ({ addresses, ...props }) => (
   <div className="addresses-section">
+    <AddAddressForm {...props} type="address" />
     <AccountDetailsGroupHeader text="Addresses" />
-    {addresses.map(address => (
-      <InputAccountDetails
-        placeHolder="address"
-        name="address"
-        type="text"
-        defaultValue={address}
+    {addresses.map && addresses.map(address => (
+      <PlainAccountDetails
+        handleEdit={() => props.handleDelete(address)}
+        btnText="DELETE"
+        text={address.address}
         key={shortId.generate()}
       />
     ))}
@@ -36,9 +39,33 @@ const Addresses = ({ addresses }) => (
 export default Addresses;
 
 Addresses.defaultProps = {
-  addresses: []
+  addresses: null
 };
 
+const proptypes = PropTypes.objectOf(
+  PropTypes.oneOfType([
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.number),
+        PropTypes.string
+      ])
+    ),
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number
+  ])
+);
+
 Addresses.propTypes = {
-  addresses: PropTypes.arrayOf(PropTypes.string)
+  handleDelete: PropTypes.func.isRequired,
+  addresses: PropTypes.oneOfType([
+    PropTypes.arrayOf(proptypes),
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.bool,
+        PropTypes.arrayOf(proptypes)
+      ])
+    )
+  ])
 };

@@ -11,10 +11,14 @@ const InputField = ({
   handleChange,
   handleFocus,
   defaultValue,
+  inputRef,
+  accept,
 }) => (
   <input
     type={type}
     name={name}
+    ref={inputRef}
+    accept={accept}
     className={classNames}
     placeholder={placeholderText}
     onChange={handleChange}
@@ -31,6 +35,8 @@ InputField.defaultProps = {
   placeholderText: '',
   handleFocus: () => {},
   defaultValue: '',
+  inputRef: () => {},
+  accept: '',
 };
 
 InputField.propTypes = {
@@ -41,4 +47,9 @@ InputField.propTypes = {
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired,
+  accept: PropTypes.string,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
 };

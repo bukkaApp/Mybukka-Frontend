@@ -1,4 +1,6 @@
 import React from 'react';
+
+import shortId from 'shortid';
 import PropTypes from 'prop-types';
 
 import './buttons.scss';
@@ -11,7 +13,8 @@ const Button = ({
   children,
   disabled,
   dataTarget,
-  dataToggle
+  dataToggle,
+  id,
 }) => (
   <button
     type={type}
@@ -20,6 +23,8 @@ const Button = ({
     disabled={disabled}
     data-target={dataTarget}
     data-toggle={dataToggle}
+    data-testid="button"
+    id={id}
   >
     {text || children}
   </button>
@@ -31,6 +36,7 @@ Button.defaultProps = {
   text: '',
   dataTarget: '',
   dataToggle: '',
+  id: shortId.generate(),
   children: <div />,
   disabled: false
 };
@@ -47,4 +53,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   dataTarget: PropTypes.string.isRequired,
   dataToggle: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };

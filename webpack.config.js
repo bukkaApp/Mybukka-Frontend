@@ -12,7 +12,17 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 const defineVariablesPlugin = new webpack.DefinePlugin({
-  'process.env.GOOGLE_API_KEY': JSON.stringify(process.env.GOOGLE_API_KEY)
+  'process.env.GOOGLE_API_KEY': JSON.stringify(process.env.GOOGLE_API_KEY),
+  'process.env.SECRET': JSON.stringify(process.env.SECRET),
+  'process.env.API_SECRET': JSON.stringify(process.env.API_SECRET),
+  'process.env.CLOUD_NAME': JSON.stringify(process.env.CLOUD_NAME),
+  'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+  'process.env.CLOUDINARY_UPLOAD_URL': JSON.stringify(
+    process.env.CLOUDINARY_UPLOAD_URL
+  ),
+  'process.env.CLOUDINARY_UPLOAD_PRESET': JSON.stringify(
+    process.env.CLOUDINARY_UPLOAD_PRESET
+  )
 });
 
 module.exports = {
@@ -22,11 +32,11 @@ module.exports = {
     contentBase: './build',
     port: 7700,
     hot: true,
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js',
+    filename: 'js/bundle.js'
   },
   plugins: [
     HtmlWebpackPluginConfig,
@@ -71,8 +81,8 @@ module.exports = {
       {
         test: /\.(mp3)$/,
         loader: 'file-loader?name=sounds/[name].[ext]'
-      },
-    ],
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -80,7 +90,7 @@ module.exports = {
       Components: path.resolve(__dirname, 'src/components'),
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
-      Utils: path.resolve(__dirname, 'src/utils'),
+      Utilities: path.resolve(__dirname, 'src/utils'),
     },
   },
 };

@@ -55,6 +55,7 @@ Object {
               Address
             </label>
             <input
+              accept=""
               class="form-control border-input-style p-0"
               name="streetAddress1"
               placeholder="Address"
@@ -75,6 +76,7 @@ Object {
               Apt no or company name
             </label>
             <input
+              accept=""
               class="form-control border-input-style p-0"
               name="streetAddress2"
               placeholder="Apt no or company name"
@@ -95,6 +97,7 @@ Object {
               Contact name
             </label>
             <input
+              accept=""
               class="form-control border-input-style p-0"
               name="contactName"
               placeholder="Contact name"
@@ -115,6 +118,7 @@ Object {
               Phone number
             </label>
             <input
+              accept=""
               class="form-control border-input-style p-0"
               name="phoneNumber"
               placeholder="Phone number"
@@ -139,7 +143,9 @@ Object {
             <button
               class="small-button-save"
               data-target=""
+              data-testid="button"
               data-toggle=""
+              id="hJ1b9IPHv"
               type="button"
             >
               Save
@@ -200,6 +206,7 @@ Object {
             Address
           </label>
           <input
+            accept=""
             class="form-control border-input-style p-0"
             name="streetAddress1"
             placeholder="Address"
@@ -220,6 +227,7 @@ Object {
             Apt no or company name
           </label>
           <input
+            accept=""
             class="form-control border-input-style p-0"
             name="streetAddress2"
             placeholder="Apt no or company name"
@@ -240,6 +248,7 @@ Object {
             Contact name
           </label>
           <input
+            accept=""
             class="form-control border-input-style p-0"
             name="contactName"
             placeholder="Contact name"
@@ -260,6 +269,7 @@ Object {
             Phone number
           </label>
           <input
+            accept=""
             class="form-control border-input-style p-0"
             name="phoneNumber"
             placeholder="Phone number"
@@ -284,7 +294,9 @@ Object {
           <button
             class="small-button-save"
             data-target=""
+            data-testid="button"
             data-toggle=""
+            id="hJ1b9IPHv"
             type="button"
           >
             Save

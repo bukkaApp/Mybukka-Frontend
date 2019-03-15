@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Map from 'Components/map';
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import Navbar from 'Components/navbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
 import DeliveryAddress from './DeliveryAddress';
@@ -15,7 +15,7 @@ import './checkout.scss';
 
 const Checkout = ({ push }) => (
   <>
-    <PrimaryNavbar push={push} />
+    <Navbar push={push} />
     <Container classNames="relative modal-open">
       <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
         <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">

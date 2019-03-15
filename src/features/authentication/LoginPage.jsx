@@ -1,23 +1,29 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import PrimaryNavbar from 'Components/navbar';
 
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
 
+import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
+import './auth.scss';
 
 export const LoginPage = ({
-  status,
+  authModal,
   errorMessage,
+  classNames,
   authenticateUser,
   history: { push }
 }) => {
+  const [isRequested, setIsRequested] = useState(false);
+  const [nextSlide, setNextSlide] = useState(false);
+
   const [validationErrors, setValidationErrors] = useState({
     email: '',
     password: ''
@@ -27,6 +33,9 @@ export const LoginPage = ({
     email: '',
     password: ''
   });
+
+  // fix error message coincedence for both signup and signin
+  const errorMsg = isRequested ? errorMessage : '';
 
   const validateOnClick = (newValidationError) => {
     setValidationErrors({
@@ -54,30 +63,67 @@ export const LoginPage = ({
 
     const { errors, passes } = validation;
     validateOnClick(errors);
+    // if No AutoSuggestion
+    if (!errors.email && errors.password && !nextSlide) {
+      setNextSlide(true);
+      setValidationErrors({
+        ...validationErrors,
+        password: ''
+      });
+    }
     if (passes) {
-      return authenticateUser('/user/signin', inputData);
+      setNextSlide(true);
+      if (nextSlide) {
+        setIsRequested(true);
+        return authenticateUser('/user/signin', inputData);
+      }
     }
   };
 
-  useEffect(() => {
-    const { authenticated } = status;
-    if (authenticated) {
-      push('/');
+  const goToPrev = () => {
+    setNextSlide(false);
+  };
+
+  const BukkaLogo = () => {
+    if (!authModal) {
+      return (
+        <div className="pb-3">
+          <Logo />
+        </div>
+      );
     }
-  });
+    return null;
+  };
+
+  const ToolBar = () => {
+    if (!authModal) {
+      return (
+        <PrimaryNavbar push={push} />
+      );
+    }
+    return null;
+  };
 
   return (
     <Fragment>
-      <PrimaryNavbar push={push} />
-      <Authentication
-        title="Log In"
-        errorMessage={errorMessage}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        domStructure={signInDomStructure}
-        validationErrors={validationErrors}
-        isFormCompleted
-      />
+      <ToolBar />
+      <div className="bg-color auth-page">
+        <Authentication
+          title="Log In"
+          errorMessage={errorMsg}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          domStructure={signInDomStructure}
+          validationErrors={validationErrors}
+          isFormCompleted
+          authModal={authModal}
+          classNames={classNames}
+          userEmail={inputData.email}
+          slideToNextInput={nextSlide}
+          handleBackClick={goToPrev}
+        />
+        <BukkaLogo />
+      </div>
     </Fragment>
   );
 };
@@ -96,14 +142,17 @@ export default connect(
 )(LoginPage);
 
 LoginPage.defaultProps = {
-  errorMessage: ''
+  errorMessage: '',
+  authModal: false,
+  classNames: ''
 };
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func,
+    push: PropTypes.func
   }).isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  authModal: PropTypes.bool,
+  classNames: PropTypes.string,
   errorMessage: PropTypes.string,
-  authenticateUser: PropTypes.func.isRequired,
+  authenticateUser: PropTypes.func.isRequired
 };

@@ -95,7 +95,7 @@ $white: rgb(217, 219, 224);
 
 .cart-action-button-default {
   @include cart-action-button();
-  color: gray;
+  color:gray;
 }
 
 .cart-action-button-primary {
@@ -110,6 +110,7 @@ $white: rgb(217, 219, 224);
   .cart-action-button-primary {
     background-color: #fff;
   }
+
   .button-upload {
     font-family: PostmatesStd, 'Helvetica Neue', Helvetica;
     font-size: 12px;

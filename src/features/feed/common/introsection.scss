@@ -11,6 +11,13 @@ $bgColor: #f9fbe7;
   background-attachment: fixed;
   nav {
     position: sticky;
+    z-index: 120;
+  }
+}
+
+.intro-navbar-area {
+  .navbar {
+    z-index: 120
   }
 }
 

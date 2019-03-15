@@ -82,7 +82,7 @@ const Carousel = ({
             {slideItems.map(bukka => (
               <FoodCard
                 key={shortId.generate()}
-                image={bukka.image}
+                imageUrl={bukka.imageUrl}
                 deliveryCost={bukka.deliveryCost}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
@@ -119,7 +119,10 @@ Carousel.propTypes = {
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,
-  noOfImagesShown: PropTypes.number.isRequired,
+  noOfImagesShown: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   imageHeight: PropTypes.string.isRequired,
   textOverlay: PropTypes.bool
 };

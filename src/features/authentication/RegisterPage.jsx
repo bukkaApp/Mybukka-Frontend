@@ -1,22 +1,26 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar/PrimaryNavbar';
+import PrimaryNavbar from 'Components/navbar';
 import Authentication from './components/Authentication';
 
+import Logo from './common/Logo';
 import authenticate from './actionCreators/authenticate';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signUpDomStructure from './signUpDomStructure.json';
+import './auth.scss';
 
 export const RegisterPage = ({
+  authModal,
   authenticateUser,
-  status,
   errorMessage,
+  classNames,
   history: { push },
 }) => {
+  const [isRequested, setIsRequested] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
     lastName: '',
@@ -32,6 +36,9 @@ export const RegisterPage = ({
     password: '',
     confirmPassword: '',
   });
+
+  // fix error message coincedence for both signup and signin
+  const errorMsg = isRequested ? errorMessage : '';
 
   const validateOnClick = (newValidationErrors) => {
     setValidationErrors({
@@ -60,30 +67,48 @@ export const RegisterPage = ({
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
+      setIsRequested(true);
       return authenticateUser('/user/signup', inputData);
     }
   };
 
-  useEffect(() => {
-    const { authenticated } = status;
-    if (authenticated) {
-      push('/');
+  const BukkaLogo = () => {
+    if (!authModal) {
+      return (
+        <div className="pb-3">
+          <Logo />
+        </div>
+      );
     }
-  });
+    return null;
+  };
+
+  const ToolBar = () => {
+    if (!authModal) {
+      return (
+        <PrimaryNavbar push={push} />
+      );
+    }
+    return null;
+  };
 
   return (
     <Fragment>
-      <PrimaryNavbar push={push} />
-      <Authentication
-        title="Sign Up"
-        type="SignUp"
-        errorMessage={errorMessage}
-        handleChange={handleChange}
-        validationErrors={validationErrors}
-        handleSubmit={handleSubmit}
-        domStructure={signUpDomStructure}
-        isFormCompleted
-      />
+      <ToolBar />
+      <div className="bg-color auth-page">
+        <Authentication
+          title="Sign Up"
+          errorMessage={errorMsg}
+          handleChange={handleChange}
+          validationErrors={validationErrors}
+          handleSubmit={handleSubmit}
+          domStructure={signUpDomStructure}
+          isFormCompleted
+          authModal={authModal}
+          classNames={classNames}
+        />
+        <BukkaLogo />
+      </div>
     </Fragment>
   );
 };
@@ -103,13 +128,17 @@ export default connect(
 
 RegisterPage.defaultProps = {
   errorMessage: '',
+  authModal: false,
+  classNames: '',
+  user: { message: '' },
 };
 
 RegisterPage.propTypes = {
+  authModal: PropTypes.bool,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  classNames: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   errorMessage: PropTypes.string
 };

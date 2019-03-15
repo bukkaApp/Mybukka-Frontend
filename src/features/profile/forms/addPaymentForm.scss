@@ -1,8 +1,12 @@
 .card-form-header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   padding-top: 20px;
+}
+
+.text-end {
+  text-align: end
 }
 
 @media (max-width: 991.98px) {

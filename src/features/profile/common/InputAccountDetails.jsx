@@ -14,6 +14,9 @@ const InputAccountDetails = ({
   type,
   defaultValue,
   children,
+  handleChange,
+  handleSave,
+  inputRef
 }) => (
   <div className="input-acc-details-section">
     <form className="form-acc-details">
@@ -24,12 +27,13 @@ const InputAccountDetails = ({
             placeholderText={placeHolder}
             classNames="input-acc-details"
             name={name}
-            handleChange={() => {}}
+            inputRef={inputRef}
+            handleChange={handleChange}
             defaultValue={defaultValue}
           />
         )}
       </div>
-      <EditTogglerButton text="EDIT" />
+      <EditTogglerButton handleClick={handleSave} text="SAVE" />
     </form>
   </div>
 );
@@ -40,6 +44,9 @@ InputAccountDetails.defaultProps = {
   type: 'text',
   defaultValue: '',
   children: '',
+  handleChange: () => {},
+  handleSave: () => {},
+  inputRef: () => {},
 };
 
 InputAccountDetails.propTypes = {
@@ -48,4 +55,10 @@ InputAccountDetails.propTypes = {
   type: PropTypes.string,
   defaultValue: PropTypes.string,
   children: PropTypes.node,
+  handleChange: PropTypes.func,
+  handleSave: PropTypes.func,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ]),
 };

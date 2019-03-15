@@ -4,7 +4,7 @@ import { BasicPlus } from 'Icons/Plus';
 
 import AddMoreSection from '../common/AddMoreSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
-import AddPaymentForm from '../forms/AddPaymentForm';
+import AddPaymentForm from '../forms/AddAddressForm';
 
 import './payment.scss';
 
@@ -18,8 +18,8 @@ const AddPayment = () => (
 
 const Payment = () => (
   <div className="payment-details-section">
-    <AddPaymentForm />
-    <AccountDetailsGroupHeader text="Payment" />
+    <AddPaymentForm type="payment" />
+    <AccountDetailsGroupHeader text="payment" />
     <AddPayment />
   </div>
 );

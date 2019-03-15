@@ -1,57 +1,38 @@
-.magnifier {
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-right: 10px;
+.location-marker {
+  background-color: #fff;
+  border: none;
 }
 
-.search-container {
-    background-color: rgb(255, 255, 255);
-    filter: drop-shadow(rgba(16, 25, 30, 0.08) 0px 1px 4px);
-    position: absolute;
-    z-index: 300;
-    width: 340px;
-    max-height: 550px;
-    top: 64px;
-    box-shadow: rgba(34, 34, 34, 0.08) 0px 2px 8px 0px;
-    opacity: 1;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(242, 243, 243);
-    border-image: initial;
-    transition: opacity 100ms ease-in-out 0s;
+.text-field {
+  font-size: 15px;
+  width: 100%;
+  height: 58px;
+  border: none;
+  outline: none;
+  display: block;
+  transition: none;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.50px;
+  padding-left: 0px;
 }
 
-@media screen and (min-width: 768px) {
-    .search-container {
-        bottom: 0px;
-        left: calc((-50% + 58px) + 0px);
-        transform: translate(calc((-50% + 58px) + 0px), 100%);
-    }
+.text-field:focus {
+  box-shadow: none;
 }
 
-.search-container
-.search-wrapper {
-    display: inline-block;
-    position: relative;
-    width: 100%;
+.button-search {
+  color: #fff;
+  border: none;
+  background: #9c1c26;
+  margin-left: 15px;
 }
 
-.search-location {
-    background-color: rgb(255, 255, 255);
-    position: relative;
-    display: flex;
-    width: 100%;
+.input-group-append {
+  background-color: #9c1c26;
+  width: 60px;
 }
 
-.search-location span:first-child {
-    -webkit-box-flex: 0;
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-left: 20px;
-    margin-right: 5px;
-    color: rgb(45, 49, 56);
+.address-input-section {
+  border-top: 1px solid #ece1fc;
 }
-
