@@ -1,0 +1,44 @@
+.py-8 {
+    padding: 80px 0;
+}
+
+// TODO: animate feedback rather than bootstrap d-none
+.slideIn {
+    opacity: 1;
+    visibility: visible;
+    animation: slideIn 430ms ease-in forwards;
+}
+
+.slideOut {
+    opacity: 0;
+    visibility: hidden;
+    animation: slideOut 430ms ease-in forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+        animation-fill-mode: forwards;
+        display: block
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        animation-fill-mode: forwards;
+        display: none
+    }
+}

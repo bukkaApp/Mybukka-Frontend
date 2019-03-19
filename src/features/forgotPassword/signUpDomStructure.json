@@ -1,0 +1,14 @@
+[
+  {
+    "name": "password",
+    "type": "password",
+    "placeholder": "Password",
+    "id": "password"
+  },
+  {
+    "name": "confirmPassword",
+    "type": "password",
+    "placeholder": "Retype Password",
+    "id": "cpassword"
+  }
+]
