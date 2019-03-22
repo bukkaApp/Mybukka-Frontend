@@ -1,0 +1,12 @@
+$fontSize: 12px;
+
+.padding {
+  padding: 0 25px;
+  @media screen and (max-width: 761px) {
+    padding: 0 15px;
+  }
+}
+
+.help-block {
+  font-size: $fontSize;
+}

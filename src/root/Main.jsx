@@ -7,6 +7,8 @@ import Login from '../features/authentication/LoginPage';
 import FeedPage from '../features/feed';
 import Checkout from '../features/checkout/index';
 import Profile from '../features/profile';
+import ResetPassword from '../features/forgotPassword/ResetPassword';
+import PerformResetPass from '../features/forgotPassword/PerformResetPass';
 
 const Main = () => (
   <main>
@@ -18,6 +20,8 @@ const Main = () => (
       <Route exact path="/feed" component={FeedPage} />
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/reset-password" component={ResetPassword} />
+      <Route exact path="/reset" component={PerformResetPass} />
     </Switch>
   </main>
 );

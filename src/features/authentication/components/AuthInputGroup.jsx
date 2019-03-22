@@ -10,7 +10,7 @@ const ForgotPassword = ({ slideToNextInput }) => {
   if (slideToNextInput) {
     return (
       <div className="col-lg-12 padding terms text-center">
-        <p><NavLink classNames="link" href="/" text="Forgot Password?" /></p>
+        <p><NavLink classNames="link" href="/reset-password" text="Forgot Password?" /></p>
       </div>
     );
   }
