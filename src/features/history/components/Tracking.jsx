@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import shortId from 'shortid';
 import TrackingHeader from './TrackingHeader';
 import Timeline from '../common/Timeline';
 import trackingDisplayClose from '../actionCreators/trackingDisplayClose';
@@ -63,6 +64,7 @@ const Tracking = ({ show, status, closeTrackingDropdown }) => {
               {
                 Object.keys(trackingStatus).map(dom => (
                   <Timeline
+                    key={shortId.generate()}
                     icon={trackingStatus[dom].icon}
                     time={trackingStatus[dom].time}
                     status={trackingStatus[dom].text}
@@ -95,5 +97,5 @@ export default connect(
 Tracking.propTypes = {
   closeTrackingDropdown: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
-  status: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
 };
