@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Headline.scss';
 
-const maxWidth = 74.6;
+const runnerWidth = 32;
+const maxWidth = 100 - runnerWidth;
 
 const Headline = ({ title, numberOfViews, slidesLength, activeIndex }) => {
   const translate = activeIndex >= 1 ? maxWidth / (slidesLength - 2) : 0;
@@ -11,7 +12,7 @@ const Headline = ({ title, numberOfViews, slidesLength, activeIndex }) => {
     <div className="headline ml-3 mr-3">
       <div
         className="runner"
-        style={{ transform: `translateX(${activeIndex * translate}vw)` }}
+        style={{ transform: `translateX(${activeIndex * translate}%)` }}
       />
       <h2 className="headline-h2">{title}</h2>
       {numberOfViews && (

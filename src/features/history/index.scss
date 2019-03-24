@@ -1,0 +1,22 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.history {
+    min-height: 90vh
+}
+
+.d-bg-white-none {
+    background: #fff;
+ @media (max-width: 992px) {
+     background: transparent
+ }
+}
+
+.border-line {
+    color: #dee2e6
+}
+
+.border-box {
+    box-sizing: border-box
+}
