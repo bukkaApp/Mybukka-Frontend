@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const DropOff = ({ deliveryName, deliveryAddress, deliveryContactMobile }) => (
   <div className="dropoff">
-    <h6 className="font-size-16">{deliveryName}</h6>
-    <h6 className="font-size-14">{deliveryAddress}</h6>
-    <h6 className="font-size-14">{deliveryContactMobile}</h6>
+    <h6 className="font-size-14 capitalize">{deliveryName}</h6>
+    <h6 className="light font-size-13">{deliveryAddress}</h6>
+    <h6 className="light font-size-13">{deliveryContactMobile}</h6>
   </div>
 );
 

@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 const PickUp = ({ title, pickupAddress, pickupContactMobile }) => (
   <div>
     <h5 className="text-uppercase font-size-14">{title}</h5>
-    <h5 className="text-capitalize font-size-14">
-      {pickupAddress}
-    </h5>
-    <h5 className="font-size-14">{pickupContactMobile}</h5>
+    <h5 className="light text-capitalize font-size-13">{pickupAddress}</h5>
+    <h5 className="light font-size-13">{pickupContactMobile}</h5>
   </div>
 );
 

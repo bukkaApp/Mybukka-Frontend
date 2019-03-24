@@ -41,6 +41,10 @@
     margin-right: 10%;
     padding-left: 20px;
     padding-right: 10px;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
     @media (min-width: 992px) {
         margin: 0 10%;
     }
