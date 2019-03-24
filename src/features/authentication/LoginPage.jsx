@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -15,6 +15,7 @@ import signInDomStructure from './signInDomStructure.json';
 import './auth.scss';
 
 export const LoginPage = ({
+  status: { authenticated },
   authModal,
   errorMessage,
   classNames,
@@ -84,6 +85,12 @@ export const LoginPage = ({
     setNextSlide(false);
   };
 
+  useEffect(() => {
+    if (!authModal && authenticated) {
+      return push('/');
+    }
+  });
+
   const BukkaLogo = () => {
     if (!authModal) {
       return (
@@ -148,6 +155,7 @@ LoginPage.defaultProps = {
 };
 
 LoginPage.propTypes = {
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,

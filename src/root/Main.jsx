@@ -7,7 +7,12 @@ import Login from '../features/authentication/LoginPage';
 import FeedPage from '../features/feed';
 import Checkout from '../features/checkout/index';
 import Profile from '../features/profile';
+<<<<<<< HEAD
 import TransactionHistory from '../features/history';
+=======
+import ResetPassword from '../features/forgotPassword/ResetPassword';
+import PerformResetPass from '../features/forgotPassword/PerformResetPass';
+>>>>>>> 260ec0ddc769d55cd09b6ad67ca7eef72e03eb91
 
 const Main = () => (
   <main>
@@ -19,7 +24,12 @@ const Main = () => (
       <Route exact path="/feed" component={FeedPage} />
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />
+<<<<<<< HEAD
       <Route exact path="/history" component={TransactionHistory} />
+=======
+      <Route exact path="/reset-password" component={ResetPassword} />
+      <Route exact path="/reset" component={PerformResetPass} />
+>>>>>>> 260ec0ddc769d55cd09b6ad67ca7eef72e03eb91
     </Switch>
   </main>
 );

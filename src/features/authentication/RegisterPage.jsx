@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -14,6 +14,7 @@ import signUpDomStructure from './signUpDomStructure.json';
 import './auth.scss';
 
 export const RegisterPage = ({
+  status: { authenticated },
   authModal,
   authenticateUser,
   errorMessage,
@@ -71,6 +72,16 @@ export const RegisterPage = ({
       return authenticateUser('/user/signup', inputData);
     }
   };
+
+  const handleRedirection = () => {
+    if (!authModal && authenticated) {
+      return push('/');
+    }
+  };
+
+  useEffect(() => {
+    handleRedirection();
+  });
 
   const BukkaLogo = () => {
     if (!authModal) {
@@ -134,9 +145,10 @@ RegisterPage.defaultProps = {
 };
 
 RegisterPage.propTypes = {
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   authModal: PropTypes.bool,
   history: PropTypes.shape({
-    push: PropTypes.func,
+    push: PropTypes.func
   }).isRequired,
   classNames: PropTypes.string,
   authenticateUser: PropTypes.func.isRequired,

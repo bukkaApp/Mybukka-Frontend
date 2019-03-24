@@ -27,6 +27,7 @@
     "google-maps-react": "^2.0.2",
     "jsonwebtoken": "^8.5.0",
     "prop-types": "^15.6.2",
+    "query-string": "^6.4.0",
     "react": "16.8.0-alpha.1",
     "react-dom": "16.8.0-alpha.1",
     "react-google-maps": "^9.4.5",
