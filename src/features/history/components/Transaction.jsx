@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import shortId from 'shortid';
 import Container from 'Components/container';
 import { connect } from 'react-redux';
+import ProfileHeaderTitle from '../../profile/common/ProfileHeaderTitle';
 import trackingDisplayOpen from '../actionCreators/trackingDisplayOpen';
 import Table from './Table';
 import Card from './Card';
@@ -19,6 +20,9 @@ const BgColor = ({ children }) => (
 const Transaction = ({ data, openTrackingDropdown }) => (
   <Fragment>
     <BgColor>
+      <div className="profile-header-section mb-4">
+        <ProfileHeaderTitle firstName="Order" lastName="history" />
+      </div>
       <Container classNames="relative d-bg-white-none">
         <div className="d-flex flex-column flex-xl-column
         flex-lg-column flex-md-column justify-content-between"
