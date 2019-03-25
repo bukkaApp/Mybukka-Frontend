@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Price = ({ price }) => (
   <div className="history-price">
-    <h5 className="text-muted">₦{price}</h5>
+    <h5 className="text-color font-size-14">₦{price}</h5>
   </div>
 );
 

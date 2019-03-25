@@ -8,7 +8,7 @@ import Status from '../common/Status';
 import DropOff from '../common/DropOff';
 
 const Col = ({ children }) => (<div
-  className="col-xl-2 col-lg-2 col-md-10 pt-3 border"
+  className="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
 >
   {children}
 </div>);
@@ -20,7 +20,7 @@ const Row = ({ children, handleClick }) => (
     aria-pressed="false"
     tabIndex="0"
     className="row flex flex-xl-row flex-lg-row d-xl-flex d-lg-flex d-md-none
-    d-none cursor-pointer"
+    d-none cursor-pointer custom-border-px"
   >
     {children}
   </div>
@@ -77,7 +77,7 @@ const TableBody = ({
 export default TableBody;
 
 TableBody.propTypes = {
-  handleClick: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
   time: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
   quantity: PropTypes.string.isRequired,

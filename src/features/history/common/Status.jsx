@@ -11,7 +11,7 @@ const Status = ({ status, time }) => {
   return (
     <div className="text-uppercase">
       <h5 className={`font-size-14 text-${colorObj[status]}`}>{status}</h5>
-      <h5 className="font-size-14 suggested-item-price">{time}</h5>
+      <h5 className="light font-size-14 suggested-item-price">{time}</h5>
     </div>
   );
 };

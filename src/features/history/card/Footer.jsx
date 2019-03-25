@@ -12,7 +12,7 @@ const Footer = ({ status, price }) => {
   return (
     <Row classNames="justify-content-between text-capitalize">
       <h5 className="font-size-14">Status: <span className={`text-${colorObj[status]}`}> {status}</span></h5>
-      <h5 className="text-success font-size-14"> ₦{price}.00</h5>
+      <h5 className="text-color font-size-14"> ₦{price}.00</h5>
     </Row>
   );
 };
