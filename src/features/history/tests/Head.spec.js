@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from '../card/Head';
 
-describe('Profile Scene component', () => {
+describe('Card Head component', () => {
   const props = {
     orderId: '83746',
     time: '2/3/2019 10:56 pm'

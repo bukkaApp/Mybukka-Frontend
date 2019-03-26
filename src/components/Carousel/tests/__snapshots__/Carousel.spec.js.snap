@@ -16,7 +16,7 @@ Object {
         >
           <div
             class="runner"
-            style="transform: translateX(0vw);"
+            style="transform: translateX(0%);"
           />
           <h2
             class="headline-h2"
@@ -247,7 +247,7 @@ Object {
       >
         <div
           class="runner"
-          style="transform: translateX(0vw);"
+          style="transform: translateX(0%);"
         />
         <h2
           class="headline-h2"

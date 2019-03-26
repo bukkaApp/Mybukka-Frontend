@@ -50,7 +50,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   EDIT
@@ -60,7 +60,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   REMOVE
@@ -99,7 +99,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   EDIT
@@ -109,7 +109,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   REMOVE
@@ -134,7 +134,8 @@ Object {
         class="container suggested-items-section bg-gutter"
       >
         <div
-          class="d-flex justify-content-between align-items-center text-center"
+          class="d-flex
+ justify-content-between align-items-center text-center"
         >
           <h4
             class="font-size-14"
@@ -149,7 +150,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="MwViggeqw"
+              id="L1BjxhAsW"
               type="button"
             >
               <svg
@@ -176,7 +177,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="MwViggeqw"
+              id="L1BjxhAsW"
               type="button"
             >
               <svg
@@ -232,7 +233,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   <svg
@@ -280,7 +281,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   <svg
@@ -328,7 +329,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   <svg
@@ -376,7 +377,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="MwViggeqw"
+                  id="L1BjxhAsW"
                   type="button"
                 >
                   <svg
@@ -518,7 +519,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 EDIT
@@ -528,7 +529,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 REMOVE
@@ -567,7 +568,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 EDIT
@@ -577,7 +578,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 REMOVE
@@ -602,7 +603,8 @@ Object {
       class="container suggested-items-section bg-gutter"
     >
       <div
-        class="d-flex justify-content-between align-items-center text-center"
+        class="d-flex
+ justify-content-between align-items-center text-center"
       >
         <h4
           class="font-size-14"
@@ -617,7 +619,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="MwViggeqw"
+            id="L1BjxhAsW"
             type="button"
           >
             <svg
@@ -644,7 +646,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="MwViggeqw"
+            id="L1BjxhAsW"
             type="button"
           >
             <svg
@@ -700,7 +702,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 <svg
@@ -748,7 +750,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 <svg
@@ -796,7 +798,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 <svg
@@ -844,7 +846,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="MwViggeqw"
+                id="L1BjxhAsW"
                 type="button"
               >
                 <svg

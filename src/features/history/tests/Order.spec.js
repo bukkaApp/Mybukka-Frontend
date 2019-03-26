@@ -1,13 +1,13 @@
 import React from 'react';
-import Body from '../card/Body';
+import Order from '../common/Order';
 
-describe('Card Body component', () => {
+describe('Order component', () => {
   const props = {
     quantity: '2',
-    title: 'salad and bbq'
+    orderId: '144523',
   };
 
-  const wrapper = mount(<Body {...props} />);
+  const wrapper = mount(<Order {...props} />);
 
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
