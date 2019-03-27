@@ -31,7 +31,7 @@ export default InputField;
 
 InputField.defaultProps = {
   type: 'text',
-  classNames: 'default-btn',
+  classNames: 'default-input',
   placeholderText: '',
   handleFocus: () => {},
   defaultValue: '',

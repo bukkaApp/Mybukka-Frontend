@@ -27,6 +27,11 @@ $white: rgb(217, 219, 224);
   border: 1px solid $primaryColor;
 }
 
+.btn-go {
+  @include button(100px, 48px, $primaryColor, #ffffff, 12px);
+  border: 1px solid $primaryColor;
+}
+
 .primary-block-btn {
   @include button(100%, 48px, $primaryColor, #ffffff, 12px);
   border: 1px solid $primaryColor;

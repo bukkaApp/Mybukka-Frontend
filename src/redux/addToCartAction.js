@@ -1,7 +1,8 @@
 import { ADD_TO_CART } from 'Redux/actionTypes';
 
-const addToCartAction = () => dispatch => dispatch({
+const addToCartAction = slug => dispatch => dispatch({
   type: ADD_TO_CART,
+  slug,
 });
 
 export default addToCartAction;

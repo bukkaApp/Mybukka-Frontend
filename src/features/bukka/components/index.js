@@ -22,7 +22,7 @@ const BukkaMenuScene = ({ push }) => (
     <Navbar push={push} />
     <BukkaImageSection />
     <div className="d-none sticky-nav-bar d-md-flex">
-      <LocationNavLargeScreen bukka />
+      <LocationNavLargeScreen />
     </div>
     <BukkaNavSmallScreen currentCategory="breakfast" />
     <BukkaDetailsSection />

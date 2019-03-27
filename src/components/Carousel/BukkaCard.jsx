@@ -33,7 +33,7 @@ const TextOverlay = ({ top, bottom, heading, subHeading }) => (
 );
 
 const NormalText = ({
-  remark, mealName, deliveryCost, deliveryTime, rating, delivery
+  remark, mealName, deliveryCost, deliveryTime, rating, delivery, tags
 }) => (
   <div className="details">
     <h3>
@@ -47,15 +47,13 @@ const NormalText = ({
         </span>
         }
       </span>
-      <span className="rating">{tags[0]}</span>
+      <span className="rating">{tags ? tags[0] : 'POPULAR'}</span>
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
-      {delivery && deliveryCost &&
+      {deliveryCost &&
       <span className="custom-delivery-badge">Delivery</span>
       }
-      {deliveryCost && deliveryTime && <i className="dot-spacing">.</i>}
-      {deliveryTime && <div className="delivery-time-text">{deliveryTime}</div>}
     </div>
   </div>
 );
@@ -136,7 +134,6 @@ NormalText.propTypes = {
   mealName: PropTypes.string,
   deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
-  tags: PropTypes.arrayOf(PropTypes.string)
 };
 
 TextOverlay.propTypes = {

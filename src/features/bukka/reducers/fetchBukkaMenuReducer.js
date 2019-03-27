@@ -6,7 +6,8 @@ const initialState = {
   },
   mealToDisplay: {},
   errorMessage: '',
-  cart: []
+  cart: [],
+  totalPriceInCart: 0
 };
 
 const manipulateMeal = ({ manipulateType }, meal, basePrice) => {
@@ -26,6 +27,25 @@ const manipulateMeal = ({ manipulateType }, meal, basePrice) => {
     };
   }
   return meal;
+};
+
+const calculatePrice = (cartItems) => {
+  const add = (accumulator, digit) => accumulator + digit;
+  const totalPrice = cartItems.map(item => item.price).reduce(add);
+  return totalPrice;
+};
+
+const itemIsInCart = (slug, cart) =>
+  cart.filter(menu => menu.slug === slug).length !== 0;
+
+const addSpecifiedItemToCart = (slug, items) =>
+  items.filter(item => item.slug === slug)[0];
+
+const updateCart = (slug, bukkaMenu, cart, mealToDisplay) => {
+  const updatedCart = slug
+    ? [...cart, addSpecifiedItemToCart(slug, bukkaMenu, cart)]
+    : [...cart, mealToDisplay];
+  return updatedCart;
 };
 
 const fetchBukkaMenuReducer = (state = initialState, action) => {
@@ -54,22 +74,27 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
       };
 
     case 'ADD_TO_CART': {
-      const { cart, mealToDisplay } = state;
-      const menuIsAlreadyIncart =
-        cart.filter(menu => menu.slug === mealToDisplay.slug).length !== 0;
-      if (menuIsAlreadyIncart) return state;
+      const { cart, mealToDisplay, bukkaMenu } = state;
+      const { slug } = action;
+      if (!slug && itemIsInCart(mealToDisplay.slug, cart)) return state;
+      if (slug && itemIsInCart(slug, cart)) return state;
+      const newCart = updateCart(slug, bukkaMenu, cart, mealToDisplay);
       return {
         ...state,
-        cart: [...cart, mealToDisplay]
+        cart: newCart,
+        totalPriceInCart: calculatePrice(newCart)
       };
     }
 
     case 'REMOVE_FROM_CART': {
       const { slug } = action;
       const { cart } = state;
+      const newCart =
+        cart.length > 0 ? cart.filter(item => item.slug !== slug) : cart;
       return {
         ...state,
-        cart: cart.length > 0 ? cart.filter(item => item.slug !== slug) : cart,
+        cart: newCart,
+        totalPriceInCart: calculatePrice(newCart)
       };
     }
 

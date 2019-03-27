@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 
 import Column from 'Components/grid/Column';
 import Row from 'Components/grid/Row';
+import addToCartAction from 'Redux/addToCartAction';
 
 import SelectQuantityButtons from './SelectQuantityButtons';
 import AddToCartButton from './AddToCartButton';
-import addToCartAction from '../actionCreators/addToCartAction';
 import manipulateMealAction from '../actionCreators/manipulateMealAction';
 
 import './actionSection.scss';
@@ -21,7 +21,7 @@ const ActionSection = ({ price, addToCart, quantity, manipulateMeal }) => (
         manipulateMeal={manipulateMeal}
       />
     </Column>
-    <AddToCartButton price={price} handleClick={addToCart} />
+    <AddToCartButton price={price} handleClick={() => addToCart()} />
   </Row>
 );
 
