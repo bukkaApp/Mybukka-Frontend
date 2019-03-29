@@ -19,6 +19,6 @@ describe('Title component', () => {
       slideToNextInput: true
     };
     rerender(<Title {...newProps} />);
-    expect(container).toEquals(props.userEmail);
+    expect(container).toMatchSnapshot();
   });
 });
