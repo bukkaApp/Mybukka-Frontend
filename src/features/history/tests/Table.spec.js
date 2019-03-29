@@ -35,6 +35,6 @@ describe('Table component', () => {
 
   it('renders properly', () => {
     wrapper.simulate('click');
-    expect(wrapper.props().handleclick).toHaveBeenCalled();
+    expect(props.handleClick).toHaveBeenCalled();
   });
 });

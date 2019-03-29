@@ -51,6 +51,6 @@ describe('Transaction component', () => {
 
   it('renders properly', () => {
     wrapper.simulate('click');
-    expect(props.handleclick).toHaveBeenCalled();
+    expect(props.handleClick).toHaveBeenCalled();
   });
 });
