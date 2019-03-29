@@ -27,14 +27,15 @@ describe('Table component', () => {
     handleClick: jest.fn(),
   };
 
-  const wrapper = mount(<Table {...props} />);
+  const { container, getByTestId } = render(<Table {...props} />);
 
   it('renders properly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
   it('renders properly', () => {
-    wrapper.simulate('click');
+    const tableBtn = getByTestId('table-btn');
+    fireEvent.click(tableBtn);
     expect(props.handleClick).toHaveBeenCalled();
   });
 });

@@ -19,6 +19,7 @@ const Row = ({ children, handleClick }) => (
     role="button"
     aria-pressed="false"
     tabIndex="0"
+    data-testid="table-btn"
     className="row flex flex-xl-row flex-lg-row d-xl-flex d-lg-flex d-md-none
     d-none cursor-pointer custom-border-px"
   >

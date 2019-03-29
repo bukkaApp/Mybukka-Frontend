@@ -12,14 +12,14 @@ describe('Card component', () => {
     status: 'pending',
   };
 
-  const { container, getByRole } = render(<Card {...props} />);
+  const { container, getByTestId } = render(<Card {...props} />);
 
   it('should renders properly', () => {
     expect(container).toMatchSnapshot();
   });
 
   it('should triggers the handleclick function when clicked', () => {
-    const button = getByRole('button');
+    const button = getByTestId('card-button');
     fireEvent.click(button);
 
     expect(props.handleClick).toBeCalled();

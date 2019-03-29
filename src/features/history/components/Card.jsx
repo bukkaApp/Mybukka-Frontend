@@ -22,6 +22,7 @@ const Card = ({
     cursor-pointer"
     onClick={handleClick}
     role="button"
+    data-testid="card-button"
     tabIndex="0"
     aria-pressed
   >

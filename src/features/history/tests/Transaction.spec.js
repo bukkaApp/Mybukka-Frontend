@@ -39,18 +39,26 @@ describe('Transaction component', () => {
     handleClick: jest.fn(),
   };
 
-  const wrapper = mount(
+  const { container, getByTestId } = render(
     <Provider store={store}>
       <Transaction {...props} />
     </Provider>
   );
 
   it('renders properly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 
-  it('renders properly', () => {
-    wrapper.simulate('click');
+  it('should triggers the handleclick function when clicked on table element', () => {
+    const tableBtn = getByTestId('table-btn');
+    fireEvent.click(tableBtn);
     expect(props.handleClick).toHaveBeenCalled();
+  });
+
+  it('should triggers the handleclick function when clicked on card', () => {
+    const button = getByTestId('card-button');
+    fireEvent.click(button);
+
+    expect(props.handleClick).toBeCalled();
   });
 });
