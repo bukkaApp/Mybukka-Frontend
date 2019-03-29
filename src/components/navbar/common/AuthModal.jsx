@@ -11,9 +11,15 @@ import AuthenticateRegister from
 const AuthModal = ({ type, push, status }) => {
   const { authenticated } = status;
   let AuthForm = AuthenticateLogin;
+
   if (type === '/signup') {
     AuthForm = AuthenticateRegister;
   }
+
+  const handleForgotPassword = () => {
+    $('.close').click();
+    push('/reset-password');
+  };
 
   useEffect(() => {
     if (authenticated) {
@@ -25,7 +31,12 @@ const AuthModal = ({ type, push, status }) => {
     <div className="container">
       <Modal classNames="auth-modal">
         <DismissModal classNames="close" />
-        <AuthForm authModal history={{ push }} classNames="pt-5" />
+        <AuthForm
+          handleForgotPassword={handleForgotPassword}
+          authModal
+          history={{ push }}
+          classNames="pt-5"
+        />
       </Modal>
     </div>
   );
