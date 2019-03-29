@@ -16,6 +16,7 @@ import './auth.scss';
 
 export const LoginPage = ({
   status: { authenticated },
+  handleForgotPassword,
   authModal,
   errorMessage,
   classNames,
@@ -117,6 +118,7 @@ export const LoginPage = ({
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
+          handleForgotPassword={() => handleForgotPassword(push)}
           errorMessage={errorMsg}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -151,10 +153,12 @@ export default connect(
 LoginPage.defaultProps = {
   errorMessage: '',
   authModal: false,
-  classNames: ''
+  classNames: '',
+  handleForgotPassword: push => push('/reset-password')
 };
 
 LoginPage.propTypes = {
+  handleForgotPassword: PropTypes.func,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func

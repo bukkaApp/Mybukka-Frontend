@@ -12,7 +12,7 @@ const Wrapper = ({ children, classNames }) => (
   </div>
 );
 
-const GoToPrev = ({ handleBackClick, slideToNextInput }) => {
+const GoToPrev = ({ handleBackClick, slideToNextInput, classNames }) => {
   if (slideToNextInput) {
     return (
       <div
@@ -20,7 +20,7 @@ const GoToPrev = ({ handleBackClick, slideToNextInput }) => {
         role="button"
         aria-pressed="false"
         onClick={handleBackClick}
-        className="chevron-left"
+        className={`chevron-left ${classNames ? '' : 'mt-20'}`}
       >
         <Chevron />
       </div>
@@ -42,7 +42,7 @@ const Authentication = ({ ...props }) => {
     </Wrapper>
   );
 };
-const AuthContainer = ({ ...props }) => {
+const Container = ({ ...props }) => {
   const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-8';
   const authClass = props.authModal ? '' : className;
   return (
@@ -52,7 +52,7 @@ const AuthContainer = ({ ...props }) => {
   );
 };
 
-export default AuthContainer;
+export default Container;
 
 Wrapper.defaultProps = {
   children: PropTypes.node.isRequired,
@@ -72,10 +72,12 @@ Authentication.defaultProps = {
 
 GoToPrev.defaultProps = {
   slideToNextInput: false,
+  classNames: '',
   handleBackClick: () => {}
 };
 
 GoToPrev.propTypes = {
+  classNames: PropTypes.string,
   handleBackClick: PropTypes.func,
   slideToNextInput: PropTypes.bool
 };
@@ -86,10 +88,10 @@ Authentication.propTypes = {
   slideToNextInput: PropTypes.bool
 };
 
-AuthContainer.defaultProps = {
+Container.defaultProps = {
   authModal: false
 };
 
-AuthContainer.propTypes = {
+Container.propTypes = {
   authModal: PropTypes.bool
 };
