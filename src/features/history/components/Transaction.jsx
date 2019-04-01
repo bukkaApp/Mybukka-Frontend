@@ -28,7 +28,7 @@ const Transaction = ({
   const [refreshed, refresh] = useState(false);
 
   useEffect(() => {
-    if (!refreshed || !fetched) {
+    if (!refreshed && !fetched) {
       refresh(true);
       fetchedOrderHistory('/order');
     }
