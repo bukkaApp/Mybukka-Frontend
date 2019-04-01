@@ -2,51 +2,24 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
-import NavLink from 'Components/navlink/Navlink';
+import ForgotPassword from '../common/ForgotPassword';
 import TextField from '../common/TextField';
+import Title from './Title';
 import './authinputgroup.scss';
 
-const ForgotPassword = ({ slideToNextInput }) => {
-  if (slideToNextInput) {
-    return (
-      <div className="col-lg-12 padding terms text-center">
-        <p><NavLink classNames="link" href="/reset-password" text="Forgot Password?" /></p>
-      </div>
-    );
-  }
-  return null;
-};
+const SignUpGroup = props => (
+  <div className="mt-1">
+    <TextField {...props} />
+  </div>
+);
 
-const AuthFormTitle = ({ slideToNextInput, userEmail }) => {
-  if (slideToNextInput) {
-    return (
-      <div className="form-title mb-4">
-        <span>Welcome back,<br /></span>
-        <span className="auth-form-title">{userEmail}</span>
-      </div>
-    );
-  }
-  return (
-    <div className="form-title mb-4">
-      <span>Type your email</span>
-    </div>
-  );
-};
-
-const AuthInputGroup = (props) => {
+const SignInGroup = (props) => {
   const slideToNextInput =
     props.slideToNextInput ? 'slide-next-input' : '';
 
-  if (props.title === 'Sign Up') {
-    return (
-      <div className="mt-1">
-        <TextField {...props} />
-      </div>
-    );
-  }
   return (
     <Fragment>
-      <AuthFormTitle {...props} />
+      <Title {...props} />
       <div className="input-group-wrapper mt-9">
         <div className={`input-slide text-center ${slideToNextInput}`}>
           <TextField {...props} />
@@ -57,33 +30,30 @@ const AuthInputGroup = (props) => {
   );
 };
 
+const AuthInputGroup = props => (
+  <Fragment>
+    {props.title === 'Sign Up' ?
+      <SignUpGroup {...props} />
+      : <SignInGroup {...props} />
+    }
+  </Fragment>
+);
+
 export default AuthInputGroup;
+
+SignInGroup.defaultProps = {
+  slideToNextInput: false
+};
+
+SignInGroup.propTypes = {
+  slideToNextInput: PropTypes.bool
+};
 
 AuthInputGroup.defaultProps = {
   title: 'Sign Up',
-  slideToNextInput: false
-};
-
-ForgotPassword.defaultProps = {
-  slideToNextInput: false
-};
-
-ForgotPassword.propTypes = {
-  slideToNextInput: PropTypes.bool
-};
-
-AuthFormTitle.defaultProps = {
-  slideToNextInput: false,
-  userEmail: ''
-};
-
-AuthFormTitle.propTypes = {
-  userEmail: PropTypes.string,
-  slideToNextInput: PropTypes.bool
 };
 
 AuthInputGroup.propTypes = {
   title: PropTypes.string,
-  slideToNextInput: PropTypes.bool
 };
 
