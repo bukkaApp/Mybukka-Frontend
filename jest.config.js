@@ -10,7 +10,9 @@ module.exports = {
     'Redux(.*)$': '<rootDir>/src/redux/$1',
     'Utilities(.*)$': '<rootDir>/src/utils/$1'
   },
-  setupTestFrameworkScriptFile: '<rootDir>/tests/setup.js',
+  setupFilesAfterEnv: [
+    '<rootDir>/tests/setup.js',
+  ],
   testMatch: ['<rootDir>/src/**/**/tests/*.js'],
   testPathIgnorePatterns: [
     '<rootDir>/src/index.js',

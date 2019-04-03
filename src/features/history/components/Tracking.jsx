@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import shortId from 'shortid';
@@ -51,6 +51,19 @@ const Tracking = ({ show, status, closeTrackingDropdown }) => {
       status: colorObj.cancelled || ''
     },
   };
+
+  const handleDomBody = () => {
+    const bodyElement = document.querySelector('body');
+    if (show) {
+      bodyElement.classList.add('modal-open');
+    } else {
+      bodyElement.classList.remove('modal-open');
+    }
+  };
+
+  useEffect(() => {
+    handleDomBody();
+  });
 
   return (
     <Fragment>

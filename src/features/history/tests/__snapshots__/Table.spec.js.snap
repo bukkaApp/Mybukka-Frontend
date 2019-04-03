@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table component renders properly 1`] = `
+<div>
+  <div
+    class="d-flex flex-column flex-xl-column flex-lg-column flex-md-column
+ justify-content-between"
+  >
+    <div
+      class="row flex custom-border d-xl-flex d-lg-flex d-md-none d-none"
+    >
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        Status
+      </div>
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        PickUp
+      </div>
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        DropOff
+      </div>
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        Order
+      </div>
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        Price
+      </div>
+      <div
+        class="col-2 pt-1 pb-1 custom-border bold"
+      >
+        Courier
+      </div>
+    </div>
+    <div
+      aria-pressed="false"
+      class="row flex flex-xl-row flex-lg-row d-xl-flex d-lg-flex d-md-none
+ d-none cursor-pointer custom-border-px"
+      data-testid="table-btn"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div
+          class="text-uppercase"
+        >
+          <h5
+            class="font-size-14 text-warning"
+          >
+            pending
+          </h5>
+          <h5
+            class="light font-size-13 suggested-item-price"
+          >
+            27/3/2019 12:43 pm
+          </h5>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div>
+          <h5
+            class="text-uppercase font-size-14"
+          >
+            salad and bbq
+          </h5>
+          <h5
+            class="light text-capitalize font-size-13"
+          >
+            pickup address street
+          </h5>
+          <h5
+            class="light font-size-13"
+          >
+            03847858
+          </h5>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div
+          class="dropoff"
+        >
+          <h6
+            class="font-size-14 capitalize"
+          >
+            mr delivery name
+          </h6>
+          <h6
+            class="light font-size-13"
+          >
+            delivery address street
+          </h6>
+          <h6
+            class="light font-size-13"
+          >
+            94574783930
+          </h6>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div
+          class="history-order"
+        >
+          <h5
+            class="font-size-14"
+          >
+            Order 
+            03d77
+          </h5>
+          <h5
+            class="light font-size-13"
+          >
+            2
+             Items
+          </h5>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div
+          class="history-price"
+        >
+          <h5
+            class="text-color font-size-14"
+          >
+            ₦
+            3000
+          </h5>
+        </div>
+      </div>
+      <div
+        class="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+      >
+        <div
+          class="courier-history"
+        >
+          <img
+            alt="courier"
+            class="courier-img"
+            src="https;//www.google.com/img"
+          />
+          <h6
+            class="light"
+          >
+            curier name
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

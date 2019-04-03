@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Status component re renders properly when delivered status 1`] = `
+<div>
+  <div
+    class="text-uppercase"
+  >
+    <h5
+      class="font-size-14 text-success"
+    >
+      delivered
+    </h5>
+    <h5
+      class="light font-size-13 suggested-item-price"
+    >
+      27/3/2019 12:50 am
+    </h5>
+  </div>
+</div>
+`;
+
+exports[`Status component re renders properly when rejected status 1`] = `
+<div>
+  <div
+    class="text-uppercase"
+  >
+    <h5
+      class="font-size-14 text-danger"
+    >
+      cancelled
+    </h5>
+    <h5
+      class="light font-size-13 suggested-item-price"
+    >
+      27/3/2019 12:50 am
+    </h5>
+  </div>
+</div>
+`;
+
+exports[`Status component renders properly 1`] = `
+<div>
+  <div
+    class="text-uppercase"
+  >
+    <h5
+      class="font-size-14 text-warning"
+    >
+      pending
+    </h5>
+    <h5
+      class="light font-size-13 suggested-item-price"
+    >
+      27/3/2019 12:50 am
+    </h5>
+  </div>
+</div>
+`;

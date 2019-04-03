@@ -23,10 +23,16 @@ import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
 import fetchUserData from '../features/profile/reducers/fetchUserData';
 import postUserAddress from '../features/profile/reducers/postUserAddress';
 import postUserData from '../features/profile/reducers/postUserData';
-import displayTrackingReducer from '../features/history/reducers/displayTrackingReducer';
-import validateTokenReducer from '../features/forgotPassword/reducers/validateTokenReducer';
-import requestPasswordChangesReducer from '../features/forgotPassword/reducers/requestPasswordChangesReducer';
-import changePasswordReducer from '../features/forgotPassword/reducers/changePasswordReducer';
+import displayTrackingReducer from
+  '../features/history/reducers/displayTrackingReducer';
+import getOrderHistoryReducer from
+  '../features/history/reducers/getOrderHistoryReducer';
+import validateTokenReducer from
+  '../features/forgotPassword/reducers/validateTokenReducer';
+import requestPasswordChangesReducer from
+  '../features/forgotPassword/reducers/requestPasswordChangesReducer';
+import changePasswordReducer from
+  '../features/forgotPassword/reducers/changePasswordReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -41,6 +47,7 @@ const reducer = combineReducers({
   postUserAddress,
   postUserData,
   displayTrackingReducer,
+  getOrderHistoryReducer,
   validateTokenReducer,
   requestPasswordChangesReducer,
   changePasswordReducer,

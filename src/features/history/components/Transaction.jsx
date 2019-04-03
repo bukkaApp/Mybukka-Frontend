@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -10,6 +10,7 @@ import trackingDisplayOpen from '../actionCreators/trackingDisplayOpen';
 import Table from './Table';
 import Card from './Card';
 import Tracking from './Tracking';
+import getOrderHistory from '../actionCreators/getOrderHistory';
 
 const BgColor = ({ children }) => (
   <div className="bg-color history pt-2 pb-5">
@@ -17,38 +18,69 @@ const BgColor = ({ children }) => (
   </div>
 );
 
-const Transaction = ({ data, openTrackingDropdown }) => (
-  <Fragment>
-    <BgColor>
-      <div className="profile-header-section mb-4">
-        <ProfileHeaderTitle firstName="Order" lastName="history" />
-      </div>
-      <Container classNames="relative d-bg-white-none">
-        <div className="d-flex flex-column flex-xl-column
-        flex-lg-column flex-md-column justify-content-between"
-        >
-          <Table data={data} handleClick={openTrackingDropdown} />
-          {data.map(dom => (
-            <Card
-              handleClick={() => openTrackingDropdown(dom.status)}
-              time={dom.time}
-              orderId={dom.orderId}
-              mealTitle={dom.title}
-              price={dom.price}
-              key={shortId.generate() + dom.title}
-              status={dom.status}
-              quantity={dom.quantity}
-            />
-          ))}
-        </div>
-      </Container>
-    </BgColor>
-    <Tracking />
-  </Fragment>
-);
+const Transaction = ({
+  data,
+  fetched,
+  error,
+  openTrackingDropdown,
+  fetchedOrderHistory
+}) => {
+  const [refreshed, refresh] = useState(false);
 
-export default connect(null,
-  { openTrackingDropdown: trackingDisplayOpen }
+  useEffect(() => {
+    if (!refreshed && !fetched) {
+      refresh(true);
+      fetchedOrderHistory('/order');
+    }
+  });
+
+  return (
+    <Fragment>
+      <BgColor>
+        <div className="profile-header-section mb-4">
+          <ProfileHeaderTitle firstName="Order" lastName="history" />
+        </div>
+        {refreshed && !error &&
+        <Container classNames="relative d-bg-white-none">
+          <div
+            className="d-flex flex-column flex-xl-column
+        flex-lg-column flex-md-column justify-content-between"
+          >
+            <Table data={data} handleClick={openTrackingDropdown} />
+            {data.map(dom => (
+              <Card
+                handleClick={() => openTrackingDropdown(dom.status)}
+                time={dom.time}
+                orderId={dom.orderId}
+                mealTitle={dom.title}
+                price={dom.price}
+                key={shortId.generate() + dom.title}
+                status={dom.status}
+                quantity={dom.quantity}
+              />
+            ))}
+          </div>
+        </Container>
+        }
+      </BgColor>
+      <Tracking />
+    </Fragment>
+  );
+};
+
+const mapStateToProps = ({
+  getOrderHistoryReducer: { status: { fetched, error } },
+}) => ({
+  fetched,
+  error
+});
+
+export default connect(
+  mapStateToProps,
+  {
+    openTrackingDropdown: trackingDisplayOpen,
+    fetchedOrderHistory: getOrderHistory
+  }
 )(Transaction);
 
 Transaction.defaultProps = {
@@ -56,13 +88,18 @@ Transaction.defaultProps = {
 };
 
 Transaction.propTypes = {
+  fetched: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  fetchedOrderHistory: PropTypes.func.isRequired,
   openTrackingDropdown: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.objectOf(PropTypes.string)
-    ])
-  ))
+  data: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.objectOf(PropTypes.string)
+      ])
+    )
+  )
 };
 
 BgColor.propTypes = {
