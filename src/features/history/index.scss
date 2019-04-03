@@ -1,0 +1,48 @@
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.custom-border {
+    border: .5px solid #dee2e6!important;
+}
+
+.custom-border-px {
+    border-left: .5px solid #dee2e6!important;
+    border-right: .5px solid #dee2e6!important;
+}
+
+.font-size-13 {
+    font-size: 13px;
+}
+
+.custom-border-py {
+    border-top: .5px solid #dee2e6!important;
+    border-bottom: .5px solid #dee2e6!important;
+}
+
+.text-color {
+    color: #9c1c26
+}
+
+.light {
+    font-weight: 400
+}
+
+.history {
+    min-height: 90vh
+}
+
+.d-bg-white-none {
+    background: #fff;
+ @media (max-width: 992px) {
+     background: transparent
+ }
+}
+
+.border-line {
+    color: #dee2e6
+}
+
+.border-box {
+    box-sizing: border-box
+}
