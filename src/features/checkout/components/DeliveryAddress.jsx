@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
 import TextArea from 'Components/input/TextArea';
+import { connect } from 'react-redux';
 import PropTypes, { any } from 'prop-types';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import Button from 'Components/button/Button';
@@ -49,7 +50,7 @@ const DeliveryForm = ({
 );
 
 const Pickup = ({ title, name }) => (
-  <section className="container mb-2 mt-4">
+  <section className="px-3 px-md-3 px-lg-0 mb-2 mt-4">
     <h2 className="font-size-16">{title}</h2>
     <ul className="list-group mt-4 time">
       <li className="list-group-item">{name}</li>
@@ -57,9 +58,8 @@ const Pickup = ({ title, name }) => (
   </section>
 );
 
-const Delivery = () => {
+const Delivery = ({ mode }) => {
   let wrapperRef;
-  const [isPickup, setIsPickup] = useState(false);
   const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     streetAddress1: '',
@@ -118,19 +118,23 @@ const Delivery = () => {
     <div className="mb-2 mt-4">
       <h1 className="font-size-36 px-3 px-md-3 px-lg-0">Checkout</h1>
       <div className="col-md-12 col-lg-6 p-0 mb-4 mt-4 height-50">
-        <DeliveryOrPickupNav handleClick={() => setIsPickup(!isPickup)} />
+        <DeliveryOrPickupNav />
       </div>
       <Demarcation />
-      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Delivery Address</h2>
-      <DeliveryForm
-        inputData={inputData}
-        handleChange={handleChange}
-        validationErrors={validationErrors}
-        autoComplete={autoComplete}
-        setWrapperRef={setWrapperRef}
-        handleSaveButton={handleSaveButton}
-      />
-      {isPickup && (
+      {mode === 'delivery' && (
+        <Fragment>
+          <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Delivery Address</h2>
+          <DeliveryForm
+            inputData={inputData}
+            handleChange={handleChange}
+            validationErrors={validationErrors}
+            autoComplete={autoComplete}
+            setWrapperRef={setWrapperRef}
+            handleSaveButton={handleSaveButton}
+          />
+        </Fragment>
+      )}
+      {mode === 'pickup' && (
         <Fragment>
           <Pickup
             title="Pickup Address"
@@ -143,7 +147,19 @@ const Delivery = () => {
   );
 };
 
-export default Delivery;
+const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
+  mode
+});
+
+export default connect(mapStateToProps)(Delivery);
+
+Delivery.defaultProps = {
+  mode: 'delivery',
+};
+
+Delivery.propTypes = {
+  mode: PropTypes.string,
+};
 
 DeliveryForm.propTypes = {
   inputData: PropTypes.objectOf(any).isRequired,
@@ -156,5 +172,5 @@ DeliveryForm.propTypes = {
 
 Pickup.propTypes = {
   title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
 };
