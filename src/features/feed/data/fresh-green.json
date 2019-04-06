@@ -1,0 +1,40 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-greeen-Organic_Girl_Organic_Lemon_Agave_Salad_Dressing.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Dino_Kale.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_50_50_Blend.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spinach.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spring_Mix.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Super_Greens.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  }
+]

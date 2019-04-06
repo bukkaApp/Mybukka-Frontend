@@ -1,0 +1,81 @@
+[
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-2.webp",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-3.webp",
+    "rating": "popular",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-1.webp",
+    "heading": "Get Drinks",
+    "subHeading": "ALCOHOL DELIVERED",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-4.webp",
+    "rating": "popular",
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-5.webp",
+    "rating": "popular",
+    "heading": "Get All Orders Delivered Free",
+    "subHeading": "TRY UNLIMITED",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-6.webp",
+    "rating": "popular",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-7.webp",
+    "rating": "popular",
+    "heading": "Get Drinks",
+    "subHeading": "ALCOHOL DELIVERED",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-8.webp",
+    "rating": "popular",
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-9.webp",
+    "rating": "popular",
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "position": { "top": true }
+  }
+]

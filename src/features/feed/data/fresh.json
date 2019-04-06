@@ -1,0 +1,26 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-Clover_Organic_Large_Brown_Eggs.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-Fresh_Atlantic_Salmon_Fillet_Skin-On.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-Mary_s_Free_Range_Chicken_Boneless_Skinless_Chicken_Breasts.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-Organic_Crimini_Mushrooms.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  }
+]

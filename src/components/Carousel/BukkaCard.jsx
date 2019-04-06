@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -8,11 +8,27 @@ import Price from 'Components/badge/Price';
 
 import './BukkaCard.scss';
 
-const TextOverlay = () => (
-  <div className="overlay">
-    <h4>Chipotle</h4>
-    <h5>Order Now</h5>
+const TopOverlayText = ({ heading, subHeading }) => (
+  <div className="overlay-top">
+    <h4>{heading}</h4>
+    <h5>{subHeading}</h5>
   </div>
+);
+
+const BottomOverlayText = ({ heading, subHeading }) => (
+  <div className="overlay-bottom">
+    <h4 className={
+      `${subHeading ? 'overlay-h4' : 'overlay-h4s'}`}
+    >{heading}</h4>
+    {subHeading && <h5>{subHeading}</h5>}
+  </div>
+);
+
+const TextOverlay = ({ top, bottom, heading, subHeading }) => (
+  <Fragment>
+    {top && <TopOverlayText heading={heading} subHeading={subHeading} />}
+    {bottom && <BottomOverlayText heading={heading} subHeading={subHeading} />}
+  </Fragment>
 );
 
 const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
@@ -31,7 +47,7 @@ const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
-      {deliveryCost ? <i className="dot-spacing">.</i> : null}
+      {deliveryCost && deliveryTime ? <i className="dot-spacing">.</i> : null}
       <div className="delivery-time-text">{deliveryTime}</div>
     </div>
   </div>
@@ -43,11 +59,26 @@ const BukkaCard = ({
   deliveryTime,
   rating,
   imageHeight,
-  textOverlay
+  textOverlay,
+  top,
+  bottom,
+  heading,
+  subHeading
 }) => (
-  <div className={['mt-4 bukka-card'].join(' ')}>
-    <img className={`bukka-img ${imageHeight}`} src={imageUrl} alt="alt_image" />
-    {textOverlay && <TextOverlay />}
+  <div className="mt-4 bukka-card">
+    <img
+      className={`bukka-img ${imageHeight}`}
+      src={imageUrl}
+      alt="alt_image"
+    />
+    {textOverlay && (
+      <TextOverlay
+        top={top}
+        bottom={bottom}
+        heading={heading}
+        subHeading={subHeading}
+      />
+    )}
     {!textOverlay && (
       <NormalText
         deliveryCost={deliveryCost}
@@ -58,10 +89,10 @@ const BukkaCard = ({
   </div>
 );
 
-const GetBukka = ({ classNames, ...props }) => (
+const GetBukka = ({ classNames, href, ...props }) => (
   <div className={`card-container ${classNames}`}>
     <div className="card-wrap">
-      <Navlink classNames="link" href="/">
+      <Navlink classNames="link" href={href}>
         <BukkaCard {...props} />
       </Navlink>
     </div>
@@ -71,7 +102,7 @@ const GetBukka = ({ classNames, ...props }) => (
 export default GetBukka;
 
 NormalText.defaultProps = {
-  deliveryTime: '20 - 40',
+  deliveryTime: '',
   rating: '',
   deliveryCost: 0
 };
@@ -82,12 +113,37 @@ NormalText.propTypes = {
   rating: PropTypes.string
 };
 
+TextOverlay.propTypes = {
+  top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+  bottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
+  heading: PropTypes.string.isRequired,
+  subHeading: PropTypes.string.isRequired
+};
+
+TopOverlayText.propTypes = {
+  heading: PropTypes.string.isRequired,
+  subHeading: PropTypes.string.isRequired
+};
+
+BottomOverlayText.defaultProps = {
+  subHeading: ''
+};
+
+BottomOverlayText.propTypes = {
+  heading: PropTypes.string.isRequired,
+  subHeading: PropTypes.string,
+};
+
 BukkaCard.defaultProps = {
-  deliveryTime: '20 - 40',
+  deliveryTime: '',
   rating: '',
   imageHeight: '',
   textOverlay: false,
   deliveryCost: 0,
+  top: false,
+  bottom: false,
+  heading: 'Free Delivery',
+  subHeading: ''
 };
 
 BukkaCard.propTypes = {
@@ -96,13 +152,19 @@ BukkaCard.propTypes = {
   deliveryTime: PropTypes.string,
   rating: PropTypes.string,
   imageHeight: PropTypes.string,
-  textOverlay: PropTypes.bool
+  textOverlay: PropTypes.bool,
+  top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  bottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  heading: PropTypes.string,
+  subHeading: PropTypes.string
 };
 
 GetBukka.defaultProps = {
-  classNames: ''
+  classNames: '',
+  href: '/feed'
 };
 
 GetBukka.propTypes = {
-  classNames: PropTypes.string
+  classNames: PropTypes.string,
+  href: PropTypes.string
 };

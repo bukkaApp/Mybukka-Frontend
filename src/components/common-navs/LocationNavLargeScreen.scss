@@ -1,59 +1,47 @@
 $fontFamily: 'Roboto', sans-serif;
 
-a:hover,
-div:focus {
-  text-decoration: none;
-  outline: none;
+.pr-17 {
+  padding-right: 17px
 }
 
-.options-content {
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  padding-right: 17px;
+.pr-15 {
+  padding-right: 15px
 }
 
-.options-container {
+.location-navbar {
   position: sticky;
-  top: 72px;
-  width: 100vw;
-  height: 80px;
+  top: 65px;
+  width: 100%;
+  height: 70px;
   background-color: rgb(255, 255, 255);
   z-index: 300;
   border-bottom: 1px solid rgba(217, 219, 224, 0.5);
 }
 
-.delivery-pickup-nav-feed {
-  padding: 0px;
+.location-navbar-content {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.options-center {
-  padding-left: 0px;
-  letter-spacing: 0.14px;
-  font-weight: 400;
-  line-height: normal;
-  color: rgb(143, 149, 163);
-}
-
-.options-center-small {
-  padding: 0px 8px;
-  letter-spacing: 0.14px;
-  font-weight: 400;
-  line-height: normal;
-  color: rgb(143, 149, 163);
-}
-
-.options-wrapper {
+.location-navbar-delivery-pickup-section {
   position: relative;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex: 1 1 0%;
+  @media (max-width: 992px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media (max-width: 767.98px){
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
-.options {
-  padding-top: 5px;
+.navbar-delivery-pickup {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -61,19 +49,33 @@ div:focus {
   transition: all 150ms ease-in-out 0s;
 }
 
-.options-h2 {
-  font-family: $fontFamily;
+.delivery-or-pickup {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.delivery-or-pickup-mode {
   font-size: 16px;
   letter-spacing: -0.28px;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: 500;
   cursor: pointer;
   color: rgb(45, 49, 56);
   margin: 0px;
   padding: 0px;
 }
 
-.border-bottom {
+.delivery-or-pickup-divider {
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+  color: rgb(143, 149, 163);
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.delivery-or-pickup-active {
   position: absolute;
   bottom: -8px;
   left: 20px;
@@ -83,30 +85,27 @@ div:focus {
   background-color: #9c1c26;
   transform: translateX(0px);
   transition: max-width 150ms cubic-bezier(0.86, 0, 0.07, 1) 0s,
-    transform 150ms linear 0s;
+  transform 150ms linear 0s;
   border-bottom: none !important;
 }
 
-.display-right {
-  position: relative;
-  right: -48vw;
-}
-
-.btn-location {
-  position: relative;
-}
-
-.divide {
+.delivery-or-pickup-vertical-divider {
   height: 30px;
-  width: 1.5px;
-  margin-right: 5px;
+  width: 1px;
+  margin-right: 17px;
   background: rgba(217, 219, 224, 0.5);
 }
 
-.btn {
+.current-location-button {
+  @media screen and (min-width: 768px) {
+    width: initial;
+    padding: 0px;
+  };
+  &:focus {
+    outline: none;
+  };
   cursor: pointer;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   letter-spacing: -0.28px;
   font-weight: 500;
@@ -116,21 +115,16 @@ div:focus {
   color: rgb(45, 49, 56);
   height: 56px;
   text-transform: none;
+  width: 100%;
   margin: 0px;
   outline: none;
   transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
   border-radius: 0px;
-  border: none;
-  box-shadow: none;
+  padding: 0px 16px;
+  border: 0;
 }
 
-.btn:hover,
-.btn:visited {
-  outline: none;
-  box-shadow: none;
-}
-.btn-location-h2 {
-  font-family: PostmatesStd, 'Helvetica Neue', Helvetica;
+.current-location-button-text {
   letter-spacing: -0.28px;
   font-weight: 500;
   line-height: normal;
@@ -138,15 +132,39 @@ div:focus {
   margin: 0px;
 }
 
-.btn span {
+.current-location-button-icon {
   margin-right: 8px;
   color: rgb(230, 223, 223);
   overflow: visible !important;
 }
 
-@media (max-width: 768.98px) {
-  .options-center {
-    padding-left: 15px;
-    padding-right: 15px;
+.location-navbar-view-map {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  .view-map {
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(45, 49, 56);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    letter-spacing: 0.72px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 40px;
+    opacity: 1;
+    padding: 0px 28px;
+    margin: 0px;
+    border: 0;
+    outline: none;
+    border-radius: 28px;
+    transition: opacity 150ms ease-in-out 0s;
   }
+}
+
+a:hover,
+div:focus {
+  text-decoration: none;
+  outline: none;
 }

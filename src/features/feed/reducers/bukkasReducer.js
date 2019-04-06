@@ -5,7 +5,7 @@ const initialState = {
   },
   errorMessage: '',
   status: {
-    fectchedBukkas: false,
+    fetchedBukkas: false,
     error: false,
   }
 };
@@ -21,7 +21,7 @@ const bukkasReducer = (state = initialState, action) => {
           nearbyBukkas: action.data.nearByBukkas,
         },
         status: {
-          fectchedBukkas: true,
+          fetchedBukkas: true,
           error: false
         },
         errorMessage: '',
@@ -35,7 +35,7 @@ const bukkasReducer = (state = initialState, action) => {
           nearbyBukkas: []
         },
         status: {
-          fectchedBukkas: false,
+          fetchedBukkas: false,
           error: true,
         },
         errorMessage: action.data.message,

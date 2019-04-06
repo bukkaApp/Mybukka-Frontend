@@ -11,7 +11,9 @@ import navAuthentication from './actionCreators/navAuthentication';
 import './bukka-authenticated-nav.scss';
 import './navbar.scss';
 
-const buttonProps = [{ name: 'Food' }, { name: 'Fresh' }, { name: 'Drinks' }];
+const buttonProps = [
+  { name: 'Food', href: '/feed' }, { name: 'Fresh', href: '/fresh' }, { name: 'Drinks', href: '/drinks' }
+];
 
 const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   const { authenticated } = status;
@@ -44,7 +46,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
       <Button
         type="button"
         text="sign up"
-        classNames="small-button"
+        classNames="small-button mr-0"
         id="/signup"
         {...btnAttribute}
       />
@@ -68,7 +70,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
                   text={propData.name}
                   key={propData.name}
                   classNames="bukka-btn"
-                  href="/feed"
+                  href={propData.href}
                 />
               ))}
             </div>

@@ -1,0 +1,40 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Bananas.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Bananas.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Lemon.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Fuji_Apples.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Hass_Avocado.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-fruit-Organic_Lime.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  }
+]

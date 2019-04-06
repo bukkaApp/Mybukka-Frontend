@@ -2,10 +2,10 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Feed from './components/feed';
+import Feed from './components';
 
-const FeedPage = ({ history: { push } }) => (
-  <Feed push={push} />
+const FeedPage = ({ history: { push }, ...props }) => (
+  <Feed push={push} {...props} />
 );
 
 export default FeedPage;

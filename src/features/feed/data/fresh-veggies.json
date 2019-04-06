@@ -1,0 +1,28 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Basil.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Crimini_Mushrooms.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Rainbow_Chard.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Yellow_Onions.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  }
+]

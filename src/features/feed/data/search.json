@@ -1,0 +1,40 @@
+[
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F18f6361e159ca7b4ef8d61934f3d7739.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "textOverlay": "textOverlay",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F87cfad57a89795702ca2696f4e09b488.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "textOverlay": "textOverlay",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F81b96df2f6ca3370c5f03aa70b9e156d.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "heading": "Get Drinks",
+    "subHeading": "ALCOHOL DELIVERED",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F58450b5f7b8960944b40381db8380446.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "heading": "Get All Orders Delivered Free",
+    "subHeading": "TRY UNLIMITED",
+    "position": { "bottom": true }
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_California_Chardonnay.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_California_Riesling.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_Pinot_Grigio.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Leese-Fitch_California_Sauvignon_Blanc.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Chardonnay.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/white-wine-Yellow_Tail_Pinot_Grigio.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Riesling.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Sauvignon_Blanc.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  }
+]
