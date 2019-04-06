@@ -108,23 +108,46 @@ $fontFamily: 'Roboto', sans-serif;
   justify-content: center;
 }
 
-.overlay {
-  top: -110px;
-  position: relative;
+.overlay-bottom, .overlay-top {
   margin: 24px 24px 0;
   max-width: 164px;
 }
 
-.overlay h4 {
-  color: black;
+.overlay-bottom {
+  position: absolute;
+  bottom: 24px;
 }
 
-.overlay h5 {
+.overlay-top {
+  position: absolute;
+  top: 0;
+}
+
+.overlay-h4s {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.overlay-h4, .overlay-top h4 {
+  color: black;
+  font-size: 24px;
+}
+
+.overlay-top h5 {
+  color: black;
+  font-size: 13px
+}
+
+.overlay-bottom h5 {
   color: gray;
+  font-size: 13px
 }
 
 @media screen and (min-width: 768px) {
-  .overlay {
+  .overlay-bottom, .overlay-top {
     max-width: 190px;
   }
 }

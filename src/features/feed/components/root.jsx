@@ -46,28 +46,33 @@ const FeedPage = ({
 
   return (
     <div className="container-fluid p-0">
-      {nearbyBukkas.length !== 0 && (
+      {nearbyBukkas.length === 0 && (
         <div>
-          <IntroSection push={push} />
-          <div
+          <div>
+            <IntroSection push={push} />
+          </div>
+          <div className="feed-main-section">
+            <LocationNavLargeScreen />
+          </div>
+          {/* <div
             className="d-none sticky-nav-bar d-md-flex"
-            style={{ zIndex: '200' }}
+            style={{ zIndex: "200" }}
           >
             <LocationNavLargeScreen />
           </div>
           <div
             className="d-sm-block sticky-nav-bar d-md-none d-lg-none d-xl-none"
-            style={{ zIndex: '200' }}
+            style={{ zIndex: "200" }}
           >
             <LocationNavSmallScreen />
-          </div>
+          </div> */}
 
           <div
             className="bg-white col-lg-12 col-md-12 col-sm-12"
-            style={{ zIndex: '150' }}
+            style={{ zIndex: "150" }}
           >
-            <main className="main-container pr-0 pl-0 mx-auto col-lg-10 col-md-12 col-sm-12">
-              {mode === 'delivery' && (
+            <section className="container">
+              {mode === "delivery" && (
                 <Fragment>
                   <Carousel
                     noOfImagesShown={2}
@@ -113,9 +118,10 @@ const FeedPage = ({
 
               <Fragment>
                 <div className="carousel-divider" />
-                <NearByBukka bukkaData={nearbyBukkas} />
+                <NearByBukka bukkaData={bukkaData} />
+                {/* <NearByBukka bukkaData={nearbyBukkas} /> */}
               </Fragment>
-            </main>
+            </section>
           </div>
         </div>
       )}

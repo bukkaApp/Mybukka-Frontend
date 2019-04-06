@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import shortId from 'shortid';
 
+import Container from 'Components/container/Container';
 import ChevronRight from 'Icons/ChevronRight';
 import PropTypes, { any } from 'prop-types';
 import FoodCard from './BukkaCard';
@@ -9,25 +10,25 @@ import Headline from './Headline';
 
 import './Carousel.scss';
 
-const ControlLeft = ({ handleClick }) => (
+const ControlLeft = ({ handleClick, classNames }) => (
   <div
     aria-pressed="false"
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="d-sm-none d-md-block control-left"
+    className={`d-sm-none d-md-block control-left ${classNames}`}
   >
     <ChevronRight />
   </div>
 );
 
-const ControlRight = ({ handleClick }) => (
+const ControlRight = ({ handleClick, classNames }) => (
   <div
     aria-pressed="false"
     tabIndex="0"
     role="button"
     onClick={handleClick}
-    className="d-sm-none d-md-block control-right"
+    className={`d-sm-none d-md-block control-right ${classNames}`}
   >
     <ChevronRight />
   </div>
@@ -40,6 +41,7 @@ const Carousel = ({
   title,
   slideItems,
   imageHeight,
+  controlClassNames,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -64,58 +66,88 @@ const Carousel = ({
   };
 
   return (
-    <div className="carousel">
-      <div className="carousel-divider" />
-      <Headline
-        activeIndex={activeIndex}
-        title={title}
-        slidesLenght={slidesLenght}
-        NumberOfViews={slidesLenght}
-      />
-      <div className="carousel-container pr-1 pl-1">
-        {activeIndex >= 1 && <ControlLeft handleClick={goToPrevSlide} />}
-        <div className="overflow-hidden">
-          <div
-            style={{ transform: `translateX(${activeIndex * -translate}%)` }}
-            className="d-flex flex-nowrap"
-          >
-            {slideItems.map(bukka => (
-              <FoodCard
-                key={shortId.generate()}
-                imageUrl={bukka.imageUrl}
-                deliveryCost={bukka.deliveryCost}
-                deliveryTime={bukka.deliveryTime}
-                rating={bukka.rating}
-                classNames={`${classNames}`}
-                textOverlay={textOverlay}
-                imageHeight={imageHeight}
+    <Container classNames="pt-29 px-15">
+      <div className="carousel">
+        {/* <div className="carousel-divider" /> */}
+        <Headline
+          activeIndex={activeIndex}
+          title={title}
+          slidesLenght={slidesLenght}
+          NumberOfViews={slidesLenght}
+        />
+        <div className="carousel-container">
+          {activeIndex >= 1 && (
+            <ControlLeft
+              classNames={controlClassNames}
+              handleClick={goToPrevSlide}
+            />
+          )}
+          <div className="overflow-hidden">
+            <div
+              style={{
+                transform: `translateX(${activeIndex * -translate}%)`
+              }}
+              className="d-flex custom-flex-nowrap"
+            >
+              {slideItems.map(bukka => (
+                <FoodCard
+                  key={shortId.generate()}
+                  imageUrl={bukka.imageUrl}
+                  deliveryCost={bukka.deliveryCost}
+                  deliveryTime={bukka.deliveryTime}
+                  rating={bukka.rating}
+                  classNames={classNames}
+                  textOverlay={textOverlay}
+                  imageHeight={imageHeight}
+                  heading={bukka.heading}
+                  subHeading={bukka.subHeading}
+                  top={bukka.position.top}
+                  bottom={bukka.position.bottom}
+                />
+              ))}
+            </div>
+          </div>
+          {slidesLenght <= noOfImagesShown ||
+            (activeIndex + Number(noOfImagesShown) !== slidesLenght && (
+              <ControlRight
+                classNames={controlClassNames}
+                handleClick={goToNextSlide}
               />
             ))}
-          </div>
         </div>
-        {activeIndex + Number(noOfImagesShown) !== slidesLenght && (
-          <ControlRight handleClick={goToNextSlide} />
-        )}
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Carousel;
 
+
+const defaultProps = {
+  classNames: ''
+};
+
+ControlRight.defaultProps = defaultProps;
+
+ControlLeft.defaultProps = defaultProps;
+
 ControlLeft.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  classNames: PropTypes.string,
 };
 
 ControlRight.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  classNames: PropTypes.string,
 };
 
 Carousel.defaultProps = {
-  textOverlay: false
+  textOverlay: false,
+  controlClassNames: '',
 };
 
 Carousel.propTypes = {
+  controlClassNames: PropTypes.string,
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string.isRequired,

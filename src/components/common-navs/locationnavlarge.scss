@@ -1,0 +1,51 @@
+.custom-mt-minus1 {
+    margin-top: -1px;
+}
+
+.custom-mt-minus19 {
+    margin-top: -19px;
+}
+
+.cart-button {
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    font-size: 12px;
+    letter-spacing: 0.72px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 40px;
+    opacity: 1;
+    padding: 10px 20px;
+    margin: 0px;
+    border: 0;
+    outline: none;
+    border-radius: 28px;
+    transition: opacity 150ms ease-in-out 0s;
+}
+
+.cart-divider {
+    padding-right: 12px;
+    margin-right: 9px;
+    position: relative;
+    flex: initial;
+    border-right: 1px solid rgb(217, 219, 224);
+}
+
+.duration-text {
+    text-overflow: ellipsis;
+    opacity: 1;
+    will-change: max-width;
+    height: 0px;
+    visibility: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 150ms linear 0s, opacity 150ms linear 0s;
+}
+
+.duration:hover + .duration-text {
+    max-width: auto!important;
+    height: auto!important;
+    visibility: visible
+}

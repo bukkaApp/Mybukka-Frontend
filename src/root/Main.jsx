@@ -11,6 +11,12 @@ import TransactionHistory from '../features/history';
 import ResetPassword from '../features/forgotPassword/ResetPassword';
 import PerformResetPass from '../features/forgotPassword/PerformResetPass';
 
+const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
+const Foods = ({ ...props }) => <FeedPage {...props} food />;
+const Fresh = ({ ...props }) => <FeedPage {...props} fresh />;
+const Search = ({ ...props }) => <FeedPage {...props} search />;
+const Category = ({ ...props }) => <FeedPage {...props} category />;
+
 const Main = () => (
   <main>
     <Switch>
@@ -18,7 +24,11 @@ const Main = () => (
       <Route exact path="/bukka" component={Bukka} />
       <Route exact path="/signup" component={Register} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/feed" component={FeedPage} />
+      <Route exact path="/feed" food component={Foods} />
+      <Route exact path="/drinks" component={Drinks} />
+      <Route exact path="/fresh" component={Fresh} />
+      <Route exact path="/search" component={Search} />
+      <Route exact path="/categories/:id" component={Category} />
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/history" component={TransactionHistory} />

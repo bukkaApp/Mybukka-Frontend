@@ -1,0 +1,42 @@
+[
+  {
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fd2aghp34at2hcd.cloudfront.net%2Fuploads%2Fmedia%2F0db9ac8f-febe-4b07-b1b4-1cd6a4f1f2fe%2Foriginal.jpg%3Fv%3D63708913826&quality=85&w=640&h=0&mode=auto&format=webp&v=4",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fd2aghp34at2hcd.cloudfront.net%2Fuploads%2Fmedia%2Ff448e36d-e6ff-4cd0-953a-52b5da2ad072%2Foriginal.jpg%3Fv%3D63709444485&quality=85&w=640&h=0&mode=auto&format=webp&v=4",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fd2aghp34at2hcd.cloudfront.net%2Fuploads%2Fmedia%2Fad947cd4-4347-44f8-8712-bf12bc176e3a%2Foriginal.jpg%3Fv%3D63708913647&quality=85&w=640&h=0&mode=auto&format=webp&v=4",
+    "heading": "Get Drinks",
+    "subHeading": "ALCOHOL DELIVERED",
+    "position": { "top": true }
+  },
+  {
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fd2aghp34at2hcd.cloudfront.net%2Fuploads%2Fmedia%2Fd179c5da-9f1e-40f0-ae2e-04c4e5c5d8ba%2Foriginal.jpg%3Fv%3D63709445403&quality=85&w=640&h=0&mode=auto&format=webp&v=4",
+    "heading": "Get All Orders Delivered Free",
+    "subHeading": "TRY UNLIMITED",
+    "position": { "bottom": true }
+  },
+  {
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fd2aghp34at2hcd.cloudfront.net%2Fuploads%2Fmedia%2F162f1fcb-de35-447a-a978-76f82215b44f%2Foriginal.jpg%3Fv%3D63708914126&quality=85&w=640&h=0&mode=auto&format=webp&v=4",
+    "heading": "Get All Orders Delivered Free",
+    "subHeading": "TRY UNLIMITED",
+    "position": { "bottom": true }
+  }
+]

@@ -1,5 +1,47 @@
 $fontFamily: 'Roboto', sans-serif;
 
+.pt-100 {
+  padding-top: 100px;
+}
+
+.custom-mt-minus22 {
+  margin-top: -27px;
+  @media (max-width: 992px) {
+    margin-top: -55px
+  }
+  @media (max-width: 767px) {
+    margin-top: -30px
+  }
+}
+
+.custom-mt-touchdown {
+  margin-top: -27px;
+  @media (max-width: 992px) {
+    margin-top: -30px
+  }
+  @media (max-width: 767px) {
+    margin-top: -30px
+  }
+}
+
+.responsive-px-15 {
+  @media (max-width: 992px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.feed-main-content {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  z-index: 200;
+  margin-top: 248px;
+  transition: transform 100ms ease-in-out 0s;
+  @media (min-width: 1060px) {
+    margin-top: 308px;
+  }
+}
+
 .sticky-nav-bar {
   position: sticky;
   top: 0px;
@@ -14,7 +56,10 @@ img {
 }
 
 .img-big-height {
-  height: 290px;
+  height: 315px;
+  @media (max-width: 1200px) {
+    height: 290px;
+  }
   @media screen and (min-width: 768px) and (max-width: 992px) {
     height: 217px;
   }
@@ -38,14 +83,21 @@ img {
 
 .small-img-height {
   height: 150px;
-  @media screen and (max-width: 768px) {
+  @media (max-width: 768px) {
+    height: 250px;
+  }
+  @media (min-width: 1500px) {
+    height: 250px;
+  }
+}
+
+.drinks-img-height {
+  height: 242px;
+  @media (max-width: 768px) {
     height: 290px;
   }
   @media (min-width: 1500px) {
-    height: 217px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 150px;
+    height: 250px;
   }
 }
 

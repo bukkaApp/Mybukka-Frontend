@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -12,34 +12,30 @@ import MapMarker from '../icons/MapMarker';
 import './LocationNavLargeScreen.scss';
 
 const DeliveryOrPickupNav = ({ mode, handleClick }) => (
-  <div className="options-content">
-    <div
-      aria-pressed="false"
-      tabIndex="0"
-      role="button"
-      onClick={() => handleClick('delivery')}
-    >
-      <h2 className="options-h2">
-        {' '}
-        <span>Delivery</span>{' '}
-      </h2>
+  <div className="pr-17">
+    <div className="position-relative">
+      <div className="delivery-or-pickup">
+        <div
+          className="delivery-or-pickup-mode"
+          aria-pressed="false"
+          tabIndex="0"
+          role="button"
+          onClick={() => handleClick('delivery')}
+        >Delivery</div>
+        <div className="delivery-or-pickup-divider">or</div>
+        <div
+          className="delivery-or-pickup-mode"
+          aria-pressed="false"
+          tabIndex="0"
+          role="button"
+          onClick={() => handleClick('pickup')}
+        >Pickup</div>
+      </div>
+      <div
+        style={{ left: mode === 'pickup' ? '85px' : '2px' }}
+        className="delivery-or-pickup-active"
+      />
     </div>
-    <span className="options-center-small">or</span>
-    <div
-      aria-pressed="false"
-      tabIndex="0"
-      role="button"
-      onClick={() => handleClick('pickup')}
-    >
-      <h2 className="options-h2">
-        {' '}<span>Pickup</span>{' '}
-      </h2>
-    </div>
-
-    <div
-      style={{ left: mode === 'pickup' ? '80px' : '0px' }}
-      className="border-bottom"
-    />
   </div>
 );
 
@@ -52,21 +48,32 @@ const SuggestionsDropdown = () => (
   </div>
 );
 
-const LocationButton = () => (
-  <Fragment>
-    <span>
-      <MapMarker />
-    </span>
-    <div>
-      <h2 className="btn-location-h2">MarryLand</h2>
+const CurrentLocation = ({ handleClick, focus }) => (
+  <div className="pr-17">
+    <div className="position-relative">
+      <div>
+        <Button
+          type="button"
+          classNames="current-location-button"
+          handleClick={handleClick}
+        >
+          <span className="current-location-button-icon">
+            <MapMarker />
+          </span>
+          <div>
+            <h2 className="current-location-button-text">MarryLand</h2>
+          </div>
+        </Button>
+      </div>
+      {focus && (
+        <div className="search-container">
+          <div className="search-wrapper">
+            <SuggestionsDropdown handleClick={() => { }} />
+          </div>
+        </div>
+      )}
     </div>
-  </Fragment>
-);
-
-const CurrentLocation = ({ handleClick }) => (
-  <Button type="button" classNames="btn outline-none" handleClick={handleClick}>
-    <LocationButton />
-  </Button>
+  </div>
 );
 
 const LocationNavLargeScreen = ({ mode, setDeliveryModeAction }) => {
@@ -95,42 +102,32 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction }) => {
   return (
     <div
       ref={setWrapperRef}
-      className="options-container d-sm-none d-md-block"
+      className="location-navbar d-none d-sm-none d-md-block
+      d-lg-block d-xl-block"
     >
-      <Container classNames="delivery-pickup-nav-feed">
-        <div className="whole-center options-center col-lg-10">
-          <div className="options-wrapper">
-            <div className="options">
-              <DeliveryOrPickupNav
-                handleClick={setDeliveryModeAction}
-                mode={mode}
-              />
-
-              <div title="vertical" className="divide" />
-              <div className="btn-location">
-                <CurrentLocation handleClick={handleClick} />
-
-                {isFocused && (
-                  <div className="search-container">
-                    <div className="search-wrapper">
-                      <SuggestionsDropdown handleClick={() => {}} />
-                    </div>
-                  </div>
-                )}
-              </div>
-              {mode === 'pickup' && (
-                <div className="display-right">
-                  <Button
-                    type="button"
-                    text="view Map"
-                    classNames="small-button"
-                    handleClick={() => {}}
-                  />
-                </div>
-              )}
-            </div>
+      <Container classNames="location-navbar-content">
+        <Container classNames="location-navbar-delivery-pickup-section">
+          <div className="navbar-delivery-pickup">
+            <DeliveryOrPickupNav
+              handleClick={setDeliveryModeAction}
+              mode={mode}
+            />
+            <div
+              className="delivery-or-pickup-vertical-divider"
+            />
+            <CurrentLocation handleClick={handleClick} focus={isFocused} />
           </div>
-        </div>
+        </Container>
+        {mode === 'pickup' && (
+          <div className="pr-15 location-navbar-view-map">
+            <Button
+              type="button"
+              text="view Map"
+              classNames="view-map"
+              handleClick={() => {}}
+            />
+          </div>
+        )}
       </Container>
     </div>
   );
@@ -152,7 +149,8 @@ LocationNavLargeScreen.propTypes = {
 
 
 CurrentLocation.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  focus: PropTypes.bool.isRequired
 };
 
 DeliveryOrPickupNav.propTypes = {
