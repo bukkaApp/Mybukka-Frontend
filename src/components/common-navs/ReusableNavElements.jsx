@@ -55,7 +55,12 @@ ReusableButton.propTypes = {
   ]).isRequired
 };
 
+ReusableDropdown.defaultProps = {
+  classNames: ''
+};
+
 ReusableDropdown.propTypes = {
+  classNames: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

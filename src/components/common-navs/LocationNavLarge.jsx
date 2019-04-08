@@ -218,7 +218,11 @@ LocationNavLarge.propTypes = {
   setDeliveryModeAction: PropTypes.bool.isRequired
 };
 
+CurrentLocation.propTypes = {
+  focus: PropTypes.bool.isRequired
+};
+
 Delivery.propTypes = {
   mode: PropTypes.string.isRequired,
-  handleClick: PropTypes.bool.isRequired
+  handleClick: PropTypes.func.isRequired
 };
