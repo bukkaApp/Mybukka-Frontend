@@ -27,6 +27,12 @@ import lessWine from '../data/less-wine.json';
 import whiteWine from '../data/white-wine.json';
 import redWine from '../data/red-wine.json';
 
+const NearByBukkaContainer = ({ ...props }) => (
+  <Container>
+    <NearByBukka {...props} />
+  </Container>
+);
+
 const DrinkSection = ({
   // mode,
   push,
@@ -59,50 +65,55 @@ const DrinkSection = ({
               <LocationNavLargeScreen />
               <LocationNavSmallScreen />
               <div>
-                <Container>
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="Beer Under $15"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="Wine Under $20"
-                    imageHeight="drinks-img-height"
-                    bukkaData={lessWine}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="Beer"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="IMPORTED BEER"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="CIDER"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="Wine"
-                    imageHeight="drinks-img-height"
-                    bukkaData={redWine}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-3 col-sm-2 col-12"
-                    title="White Wine"
-                    imageHeight="drinks-img-height"
-                    bukkaData={whiteWine}
-                  />
-                </Container>
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Beer Under $15"
+                  imageHeight="drinks-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Wine Under $20"
+                  imageHeight="drinks-img-height"
+                  bukkaData={lessWine}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Beer"
+                  imageHeight="drinks-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="IMPORTED BEER"
+                  imageHeight="drinks-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="CIDER"
+                  imageHeight="drinks-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Wine"
+                  imageHeight="drinks-img-height"
+                  bukkaData={redWine}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="White Wine"
+                  imageHeight="drinks-img-height"
+                  bukkaData={whiteWine}
+                />
               </div>
             </div>
           </ExploreSection>

@@ -69,10 +69,10 @@ const FeedPage = ({
 
           <div
             className="bg-white col-lg-12 col-md-12 col-sm-12"
-            style={{ zIndex: "150" }}
+            style={{ zIndex: '150' }}
           >
             <section className="container">
-              {mode === "delivery" && (
+              {mode === 'delivery' && (
                 <Fragment>
                   <Carousel
                     noOfImagesShown={2}

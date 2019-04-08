@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
+import generateSmImageUrl from 'Utilities/generateSmallScreenImageUrl';
 import MarkIcon from 'Icons/Remark';
 import Navlink from 'Components/navlink/Navlink';
 import Price from 'Components/badge/Price';
@@ -64,30 +65,39 @@ const BukkaCard = ({
   bottom,
   heading,
   subHeading
-}) => (
-  <div className="mt-4 bukka-card">
-    <img
-      className={`bukka-img ${imageHeight}`}
-      src={imageUrl}
-      alt="alt_image"
-    />
-    {textOverlay && (
-      <TextOverlay
-        top={top}
-        bottom={bottom}
-        heading={heading}
-        subHeading={subHeading}
+}) => {
+  const smImgUrl = generateSmImageUrl(imageUrl);
+
+  return (
+    <div className="mt-4 bukka-card">
+      <img
+        className={`img-small-screen bukka-img ${imageHeight}`}
+        src={smImgUrl}
+        alt="alt_image"
       />
-    )}
-    {!textOverlay && (
-      <NormalText
-        deliveryCost={deliveryCost}
-        deliveryTime={deliveryTime}
-        rating={rating}
+      <img
+        className={`img-large-screen bukka-img ${imageHeight}`}
+        src={imageUrl}
+        alt="alt_image"
       />
-    )}
-  </div>
-);
+      {textOverlay && (
+        <TextOverlay
+          top={top}
+          bottom={bottom}
+          heading={heading}
+          subHeading={subHeading}
+        />
+      )}
+      {!textOverlay && (
+        <NormalText
+          deliveryCost={deliveryCost}
+          deliveryTime={deliveryTime}
+          rating={rating}
+        />
+      )}
+    </div>
+  );
+};
 
 const GetBukka = ({ classNames, href, ...props }) => (
   <div className={`card-container ${classNames}`}>

@@ -62,6 +62,9 @@ img {
   @media screen and (min-width: 768px) and (max-width: 992px) {
     height: 217px;
   }
+  @media (max-width: 444px) {
+    height: 200px;
+  }
   @media (min-width: 1500px) {
     height: 390px;
   }
@@ -75,6 +78,9 @@ img {
   @media screen and (max-width: 768px) {
     height: 250px;
   }
+  @media (max-width: 444px) {
+    height: 200px;
+  }
   @media screen and (min-width: 768px) and (max-width: 992px) {
     height: 150px;
   }
@@ -85,6 +91,9 @@ img {
   @media (max-width: 768px) {
     height: 250px;
   }
+  @media (max-width: 444px) {
+    height: 200px;
+  }
   @media (min-width: 1500px) {
     height: 250px;
   }
@@ -92,8 +101,36 @@ img {
 
 .drinks-img-height {
   height: 242px;
+  @media (max-width: 1200px) {
+    height: 210px;
+  }
   @media (max-width: 768px) {
+    height: 255px;
+  }
+  @media (max-width: 558px) {
     height: 290px;
+  }
+  @media (min-width: 1500px) {
+    height: 250px;
+  }
+}
+
+.fresh-img-height {
+  height: 242px;
+  @media (max-width: 1200px) {
+    height: 210px;
+  }
+  @media (max-width: 768px) {
+    height: 255px;
+  }
+  @media (max-width: 576px) {
+    height: 350px;
+  }
+  @media (max-width: 444px) {
+    height: 300px;
+  }
+  @media (max-width: 326px) {
+    height: 250px;
   }
   @media (min-width: 1500px) {
     height: 250px;
