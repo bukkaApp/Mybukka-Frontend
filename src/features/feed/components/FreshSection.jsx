@@ -29,6 +29,12 @@ import freshVeggies from '../data/fresh-veggies.json';
 import freshYogurt from '../data/fresh-yogurt.json';
 import freshFruit from '../data/fresh-fruit.json';
 
+const NearByBukkaContainer = ({ ...props }) => (
+  <Container>
+    <NearByBukka {...props} />
+  </Container>
+);
+
 const FreshSection = ({
   // mode,
   push,
@@ -61,56 +67,61 @@ const FreshSection = ({
               <LocationNavLargeScreen />
               <LocationNavSmallScreen />
               <div>
-                <Container>
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="Customers Love"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    // title="Dairy & Eggs"
-                    title="MILK" // subTitle
-                    imageHeight="drinks-img-height"
-                    bukkaData={freshMilk}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="EGGS"
-                    subTitle="EGGS"
-                    imageHeight="drinks-img-height"
-                    bukkaData={bukkaData}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="Fresh Veggies"
-                    subTitle="Fresh Veggies"
-                    imageHeight="drinks-img-height"
-                    bukkaData={freshVeggies}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="YOGURT"
-                    subTitle="YOGURT"
-                    imageHeight="drinks-img-height"
-                    bukkaData={freshYogurt}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="Fresh Greens"
-                    subTitle="Fresh Greens"
-                    imageHeight="drinks-img-height"
-                    bukkaData={freshGreen}
-                  />
-                  <NearByBukka
-                    classNames="col-lg-3 col-md-4 col-sm-6 col-12"
-                    title="Fresh Fruit"
-                    subTitle="Fresh Fruit"
-                    imageHeight="drinks-img-height"
-                    bukkaData={freshFruit}
-                  />
-                </Container>
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Customers Love"
+                  imageHeight="fresh-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  // title="Dairy & Eggs"
+                  title="MILK" // subTitle
+                  imageHeight="fresh-img-height"
+                  bukkaData={freshMilk}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="EGGS"
+                  subTitle="EGGS"
+                  imageHeight="fresh-img-height"
+                  bukkaData={bukkaData}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Fresh Veggies"
+                  subTitle="Fresh Veggies"
+                  imageHeight="fresh-img-height"
+                  bukkaData={freshVeggies}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="YOGURT"
+                  subTitle="YOGURT"
+                  imageHeight="fresh-img-height"
+                  bukkaData={freshYogurt}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Fresh Greens"
+                  subTitle="Fresh Greens"
+                  imageHeight="fresh-img-height"
+                  bukkaData={freshGreen}
+                />
+                <div className="carousel-divider" />
+                <NearByBukkaContainer
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  title="Fresh Fruit"
+                  subTitle="Fresh Fruit"
+                  imageHeight="fresh-img-height"
+                  bukkaData={freshFruit}
+                />
               </div>
             </div>
           </ExploreSection>
