@@ -15,10 +15,7 @@ import NearByBukka from './NearByBukka';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
-import freeDelivery from '../data/free-delivery.json';
-import bukkaData from '../data/search.json';
-
-const FoodSection = ({
+const Category = ({
   // mode,
   push,
   coordinates,
@@ -53,7 +50,7 @@ const FoodSection = ({
               <NearByBukka
                 classNames="col-lg-4 col-md-4 col-sm-12"
                 heading={false}
-                bukkaData={[...freeDelivery, ...bukkaData]}
+                bukkaData={nearbyBukkas}
                 imageHeight="img-height"
               />
             </Container>
@@ -78,9 +75,9 @@ const mapStateToProps = ({
 export default connect(
   mapStateToProps,
   { fetchNearbyBukkas: fetchBukkas }
-)(FoodSection);
+)(Category);
 
-FoodSection.propTypes = {
+Category.propTypes = {
   // mode: PropTypes.string.isRequired,
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,

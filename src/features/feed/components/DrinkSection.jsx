@@ -22,7 +22,7 @@ import NearByBukka from './NearByBukka';
 
 import { drinkBannerImage } from '../img/imgLinks';
 
-import bukkaData from '../data/drinks.json';
+import drinkData from '../data/drinks.json';
 import lessWine from '../data/less-wine.json';
 import whiteWine from '../data/white-wine.json';
 import redWine from '../data/red-wine.json';
@@ -70,7 +70,7 @@ const DrinkSection = ({
                   classNames="col-lg-3 col-md-4 col-sm-6 col-12"
                   title="Beer Under $15"
                   imageHeight="drinks-img-height"
-                  bukkaData={bukkaData}
+                  bukkaData={drinkData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -84,21 +84,21 @@ const DrinkSection = ({
                   classNames="col-lg-3 col-md-4 col-sm-6 col-12"
                   title="Beer"
                   imageHeight="drinks-img-height"
-                  bukkaData={bukkaData}
+                  bukkaData={drinkData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
                   classNames="col-lg-3 col-md-4 col-sm-6 col-12"
                   title="IMPORTED BEER"
                   imageHeight="drinks-img-height"
-                  bukkaData={bukkaData}
+                  bukkaData={drinkData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
                   classNames="col-lg-3 col-md-4 col-sm-6 col-12"
                   title="CIDER"
                   imageHeight="drinks-img-height"
-                  bukkaData={bukkaData}
+                  bukkaData={drinkData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer

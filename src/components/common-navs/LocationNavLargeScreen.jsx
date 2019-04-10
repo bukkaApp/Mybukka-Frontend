@@ -144,7 +144,7 @@ export default connect(
 
 LocationNavLargeScreen.propTypes = {
   mode: PropTypes.string.isRequired,
-  setDeliveryModeAction: PropTypes.bool.isRequired
+  setDeliveryModeAction: PropTypes.func.isRequired
 };
 
 

@@ -30,7 +30,7 @@ module.exports = {
   devtool: 'eval',
   devServer: {
     contentBase: './build',
-    port: 7701,
+    port: 7700,
     hot: true,
     historyApiFallback: true
   },
