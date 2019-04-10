@@ -78,7 +78,7 @@ const Schedule = ({ placeholder, handleClick, lists, name }) => {
 
 const Asap = ({ handleClick }) =>
   asapTime.map(text => (
-    <div className="border-bottom">
+    <div className="border-bottom" key={text}>
       <div className="position-relative">
         <div>
           <div className="font-size-16">

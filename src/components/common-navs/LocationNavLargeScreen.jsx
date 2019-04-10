@@ -76,14 +76,27 @@ const CurrentLocation = ({ handleClick, focus }) => (
   </div>
 );
 
-const LocationNavLargeScreen = ({ mode, setDeliveryModeAction }) => {
+const LocationNavLargeScreen = ({ mode, setDeliveryModeAction, handleMapClick }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
+  const [showMap, setMapDisplay] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
     setFocus(!isFocused);
   };
+
+  const handleMap = () => {
+    setMapDisplay(!showMap);
+    handleMapClick();
+  }
+
+  const handleDeliveryorPickup = status => {
+    if (showMap) {
+      handleMap();
+    }
+    setDeliveryModeAction(status);
+  }
 
   const setWrapperRef = (node) => {
     wrapperRef = node;
@@ -109,7 +122,7 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction }) => {
         <Container classNames="location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
             <DeliveryOrPickupNav
-              handleClick={setDeliveryModeAction}
+              handleClick={handleDeliveryorPickup}
               mode={mode}
             />
             <div
@@ -122,9 +135,9 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction }) => {
           <div className="pr-15 location-navbar-view-map">
             <Button
               type="button"
-              text="view Map"
+              text={showMap ? "view List" : "view Map"}
               classNames="view-map"
-              handleClick={() => {}}
+              handleClick={handleMap}
             />
           </div>
         )}
@@ -142,9 +155,14 @@ export default connect(
   { setDeliveryModeAction: setDeliveryMode }
 )(LocationNavLargeScreen);
 
+LocationNavLargeScreen.defaultProps = {
+  handleMapClick: () => {}
+};
+
 LocationNavLargeScreen.propTypes = {
+  handleMapClick: PropTypes.func,
   mode: PropTypes.string.isRequired,
-  setDeliveryModeAction: PropTypes.bool.isRequired
+  setDeliveryModeAction: PropTypes.func.isRequired
 };
 
 
@@ -155,5 +173,5 @@ CurrentLocation.propTypes = {
 
 DeliveryOrPickupNav.propTypes = {
   mode: PropTypes.string.isRequired,
-  handleClick: PropTypes.bool.isRequired
+  handleClick: PropTypes.func.isRequired
 };

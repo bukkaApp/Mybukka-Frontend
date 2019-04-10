@@ -1,0 +1,1648 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult component renders properly 1`] = `
+<div>
+  <div>
+    <div
+      class="container"
+    >
+      <div
+        aria-hidden="true"
+        aria-labelledby="exampleModalLabel"
+        class="modal fade"
+        id="modal"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered auth-modal"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header"
+            />
+            <div
+              class="modal-body"
+            >
+              <div
+                class="dismiss-modal close"
+                data-dismiss="modal"
+              >
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <defs>
+                    <path
+                      d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                      id="icon-close_svg__a"
+                    />
+                  </defs>
+                  <use
+                    transform="translate(4 4)"
+                    xlink:href="#icon-close_svg__a"
+                  />
+                </svg>
+              </div>
+              <div
+                class="bg-color auth-page"
+              >
+                <div
+                  class=""
+                >
+                  <div
+                    class="auth-wrapper pt-5"
+                  >
+                    <h2
+                      class="text-center pt-4 mb-0 auth-title"
+                    >
+                      Log In
+                    </h2>
+                    <form
+                      class="pb-3 form-auth"
+                      name="form"
+                    >
+                      <div
+                        class="form-title mb-4"
+                      >
+                        <span>
+                          Type your email
+                        </span>
+                      </div>
+                      <div
+                        class="input-group-wrapper mt-9"
+                      >
+                        <div
+                          class="input-slide text-center "
+                        >
+                          <div
+                            class="form-group padding"
+                          >
+                            <input
+                              accept=""
+                              class="default-input"
+                              name="email"
+                              placeholder="Email"
+                              type="email"
+                              value=""
+                            />
+                            <div
+                              class="text-danger help-block"
+                            />
+                          </div>
+                          <div
+                            class="form-group padding"
+                          >
+                            <input
+                              accept=""
+                              class="default-input"
+                              name="password"
+                              placeholder="Password"
+                              type="password"
+                              value=""
+                            />
+                            <div
+                              class="text-danger help-block"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          aria-pressed="false"
+                          class="col-lg-12 padding terms text-center"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link text-muted"
+                          >
+                            Forgot Password?
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="padding"
+                      >
+                        <button
+                          class="button col-md-12 primary-button mt-5"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="submit"
+                          type="submit"
+                        >
+                          Log In
+                        </button>
+                      </div>
+                      <div
+                        class="divider-box mt-2 mb-2"
+                      >
+                        <div
+                          class="divider"
+                        >
+                          <span>
+                            or
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="padding"
+                      >
+                        <button
+                          class="facebk-btn col-md-12"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="5JrEj0zCS"
+                          type="button"
+                        >
+                          Facebook
+                        </button>
+                      </div>
+                      <div
+                        class="form-options padding"
+                      >
+                        <p>
+                          New to Bukka?
+                        </p>
+                        <button
+                          class="btn-link auth-footer-btn"
+                          data-target=""
+                          data-testid="button"
+                          data-toggle=""
+                          id="/signup"
+                          type="button"
+                        >
+                          SIGN UP
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <nav
+        class="navbar navbar-light"
+      >
+        <div>
+          <a
+            class="bukka-brand"
+            href="/"
+          >
+            Mybukka
+          </a>
+        </div>
+        <div
+          class="form-inline"
+        >
+          <button
+            class="small-outline-button"
+            data-target="#modal"
+            data-testid="button"
+            data-toggle="modal"
+            id="/login"
+            type="button"
+          >
+            sign in
+          </button>
+          <button
+            class="small-button"
+            data-target="#modal"
+            data-testid="button"
+            data-toggle="modal"
+            id="/signup"
+            type="button"
+          >
+            sign up
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div
+      class="bg-color not-available-page"
+    >
+      <div
+        class="container "
+      >
+        <h1
+          class="text-title-unavailable"
+        >
+          Mybuka Not
+          <br />
+          Available In Your
+          <br />
+          Location
+          <br />
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult component renders properly 2`] = `
+<div>
+  <div
+    class="container-fluid p-0"
+  >
+    <div>
+      <div
+        class="intro-navbar-area"
+      >
+        <div
+          class="container"
+        >
+          <div
+            aria-hidden="true"
+            aria-labelledby="exampleModalLabel"
+            class="modal fade"
+            id="modal"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="modal-dialog modal-dialog-centered auth-modal"
+              role="document"
+            >
+              <div
+                class="modal-content"
+              >
+                <div
+                  class="modal-header"
+                />
+                <div
+                  class="modal-body"
+                >
+                  <div
+                    class="dismiss-modal close"
+                    data-dismiss="modal"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <defs>
+                        <path
+                          d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                          id="icon-close_svg__a"
+                        />
+                      </defs>
+                      <use
+                        transform="translate(4 4)"
+                        xlink:href="#icon-close_svg__a"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="bg-color auth-page"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="auth-wrapper pt-5"
+                      >
+                        <h2
+                          class="text-center pt-4 mb-0 auth-title"
+                        >
+                          Log In
+                        </h2>
+                        <form
+                          class="pb-3 form-auth"
+                          name="form"
+                        >
+                          <div
+                            class="form-title mb-4"
+                          >
+                            <span>
+                              Type your email
+                            </span>
+                          </div>
+                          <div
+                            class="input-group-wrapper mt-9"
+                          >
+                            <div
+                              class="input-slide text-center "
+                            >
+                              <div
+                                class="form-group padding"
+                              >
+                                <input
+                                  accept=""
+                                  class="default-input"
+                                  name="email"
+                                  placeholder="Email"
+                                  type="email"
+                                  value=""
+                                />
+                                <div
+                                  class="text-danger help-block"
+                                />
+                              </div>
+                              <div
+                                class="form-group padding"
+                              >
+                                <input
+                                  accept=""
+                                  class="default-input"
+                                  name="password"
+                                  placeholder="Password"
+                                  type="password"
+                                  value=""
+                                />
+                                <div
+                                  class="text-danger help-block"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              aria-pressed="false"
+                              class="col-lg-12 padding terms text-center"
+                              role="button"
+                              tabindex="0"
+                            >
+                              <p
+                                class="link text-muted"
+                              >
+                                Forgot Password?
+                              </p>
+                            </div>
+                          </div>
+                          <div
+                            class="padding"
+                          >
+                            <button
+                              class="button col-md-12 primary-button mt-5"
+                              data-target=""
+                              data-testid="button"
+                              data-toggle=""
+                              id="submit"
+                              type="submit"
+                            >
+                              Log In
+                            </button>
+                          </div>
+                          <div
+                            class="divider-box mt-2 mb-2"
+                          >
+                            <div
+                              class="divider"
+                            >
+                              <span>
+                                or
+                              </span>
+                            </div>
+                          </div>
+                          <div
+                            class="padding"
+                          >
+                            <button
+                              class="facebk-btn col-md-12"
+                              data-target=""
+                              data-testid="button"
+                              data-toggle=""
+                              id="5JrEj0zCS"
+                              type="button"
+                            >
+                              Facebook
+                            </button>
+                          </div>
+                          <div
+                            class="form-options padding"
+                          >
+                            <p>
+                              New to Bukka?
+                            </p>
+                            <button
+                              class="btn-link auth-footer-btn"
+                              data-target=""
+                              data-testid="button"
+                              data-toggle=""
+                              id="/signup"
+                              type="button"
+                            >
+                              SIGN UP
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="container"
+        >
+          <nav
+            class="navbar navbar-light"
+          >
+            <div>
+              <a
+                class="bukka-brand"
+                href="/"
+              >
+                Mybukka
+              </a>
+            </div>
+            <div
+              class="form-inline"
+            >
+              <div
+                class="d-none bukka-md-inline-flex"
+              >
+                <a
+                  class="bukka-btn"
+                  href="/feed"
+                >
+                  Food
+                </a>
+                <a
+                  class="bukka-btn"
+                  href="/fresh"
+                >
+                  Fresh
+                </a>
+                <a
+                  class="bukka-btn"
+                  href="/drinks"
+                >
+                  Drinks
+                </a>
+              </div>
+              <button
+                class="small-outline-button bg-transparent"
+                data-target="#modal"
+                data-testid="button"
+                data-toggle="modal"
+                id="/login"
+                type="button"
+              >
+                sign in
+              </button>
+              <button
+                class="small-button mr-0"
+                data-target="#modal"
+                data-testid="button"
+                data-toggle="modal"
+                id="/signup"
+                type="button"
+              >
+                sign up
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <section
+        class="feed-main-section pt-5"
+      >
+        <div
+          class="carousel-divider"
+        />
+        <div
+          class="container "
+        >
+          <div
+            class="mt-4 mb-4 responsive-px-15"
+          >
+            <div
+              class="headline ml-3 mr-3"
+            >
+              <div
+                class="runner"
+                style="transform: translateX(100% - 32px);"
+              />
+              <h2
+                class="headline-h2"
+              >
+                “ American ”
+              </h2>
+            </div>
+            <div
+              class="col-md-3 col-lg-2"
+            >
+              <div
+                class="btn-group"
+                role="group"
+              >
+                <button
+                  class="btn-delivery delivery-mode-active"
+                  type="button"
+                >
+                  delivery
+                </button>
+                <button
+                  class="btn-pickup "
+                  type="button"
+                >
+                  pickup
+                </button>
+              </div>
+            </div>
+            <div
+              class="row pb-4 ml-1"
+            >
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595380/bukka-favorite-7.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-7.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595379/bukka-favorite-5.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-5.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595379/bukka-favorite-6.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-6.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595380/bukka-favorite-8.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-8.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595379/bukka-favorite-1.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-1.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595379/bukka-favorite-2.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-2.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595380/bukka-favorite-3.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-3.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554595380/bukka-favorite-4.webp"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-4.webp"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          <span
+                            class="rating"
+                          >
+                            popular
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://c_scale,w_320,h_320/raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F18f6361e159ca7b4ef8d61934f3d7739.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F18f6361e159ca7b4ef8d61934f3d7739.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://c_scale,w_320,h_320/raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F87cfad57a89795702ca2696f4e09b488.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F87cfad57a89795702ca2696f4e09b488.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://c_scale,w_320,h_320/raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F81b96df2f6ca3370c5f03aa70b9e156d.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F81b96df2f6ca3370c5f03aa70b9e156d.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                class="card-container col-lg-4 col-md-4 col-sm-12"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  <a
+                    class="link"
+                    href="/feed"
+                  >
+                    <div
+                      class="mt-4 bukka-card"
+                    >
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://c_scale,w_320,h_320/raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F58450b5f7b8960944b40381db8380446.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F58450b5f7b8960944b40381db8380446.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4"
+                      />
+                      <div
+                        class="details"
+                      >
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            San francisco
+                            <span>
+                              kitchen
+                              <span
+                                class="icon"
+                              >
+                                <svg
+                                  height="14"
+                                  viewBox="0 0 14 14"
+                                  width="14"
+                                >
+                                  <g
+                                    fill="none"
+                                    fill-rule="evenodd"
+                                  >
+                                    <rect
+                                      fill="#9c1c26"
+                                      height="14"
+                                      rx="7"
+                                      width="14"
+                                    />
+                                    <path
+                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
+                                      fill="#FFF"
+                                    />
+                                  </g>
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                          
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          <h4
+                            class="price-badge"
+                          >
+                            ₦
+                            300
+                            .00
+                          </h4>
+                          <i
+                            class="dot-spacing"
+                          >
+                            .
+                          </i>
+                          <div
+                            class="delivery-time-text"
+                          >
+                            40-50 min
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

@@ -81,7 +81,7 @@ const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
 });
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps
 )(LocationNavSmallScreen);
 
 LocationNavSmallScreen.propTypes = {

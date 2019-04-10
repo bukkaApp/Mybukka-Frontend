@@ -17,17 +17,24 @@ describe('Carousel component', () => {
         deliveryCost: 300,
         imageUrl:
           'https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg',
-        rating: 'popular'
+        rating: 'popular',
+        position: { top: true },
+        heading: 'it\'s heading',
+        subHeading: 'sub heading here',
       },
       {
         deliveryTime: '1 hour',
         author: "Ra's Al Ghul",
         deliveryCost: 400,
         imageUrl:
-          'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg'
+          'https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg',
+        position: { bottom: true },
+        heading: 'it\'s heading',
+        subHeading: 'sub heading here',
       }
     ],
-    imageHeight: '4'
+    imageHeight: 'img-height',
+    controlClassNames: 'control-class'
   };
 
   const wrapper = render(

@@ -136,6 +136,9 @@ const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
   };
 
   useEffect(() => {
+    if (mode !== 'delivery') {
+      setDeliveryModeAction('delivery');
+    }
     document.addEventListener('mousedown', handleClickOutside);
   });
 
@@ -215,7 +218,7 @@ export default connect(
 
 LocationNavLarge.propTypes = {
   mode: PropTypes.string.isRequired,
-  setDeliveryModeAction: PropTypes.bool.isRequired
+  setDeliveryModeAction: PropTypes.func.isRequired
 };
 
 CurrentLocation.propTypes = {

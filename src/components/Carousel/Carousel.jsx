@@ -68,13 +68,14 @@ const Carousel = ({
   return (
     <Container classNames="pt-29 px-15">
       <div className="carousel">
-        {/* <div className="carousel-divider" /> */}
+        {title &&
         <Headline
           activeIndex={activeIndex}
           title={title}
           slidesLenght={slidesLenght}
           NumberOfViews={slidesLenght}
         />
+        }
         <div className="carousel-container">
           {activeIndex >= 1 && (
             <ControlLeft
@@ -144,13 +145,14 @@ ControlRight.propTypes = {
 Carousel.defaultProps = {
   textOverlay: false,
   controlClassNames: '',
+  title: ''
 };
 
 Carousel.propTypes = {
   controlClassNames: PropTypes.string,
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   noOfImagesShown: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,

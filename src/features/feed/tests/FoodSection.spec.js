@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import freeDelivery from '../data/free-delivery.json';
 import bukkaData from '../data/search.json';
-import FoodSection from '..';
+import FoodSection from '../components/FoodSection';
 
 const initialState = {
   homeReducer: { type: 'Sign In', },
@@ -34,13 +34,8 @@ const store = mockStore(initialState);
 
 describe('FoodSection component', () => {
   const props = {
-    food: true,
-    drink: true,
-    category: true,
-    search: true,
-    fresh: true,
     setDeliveryModeAction: jest.fn(),
-    history: { push: jest.fn() },
+    push: jest.fn(),
     coordinates: [3.7474, 3.4848],
     fetchedBukkas: { nearbyBukkas: [] },
     fetchNearbyBukkas: jest.fn(),

@@ -113,6 +113,18 @@ Object {
                               />
                             </div>
                           </div>
+                          <div
+                            aria-pressed="false"
+                            class="col-lg-12 padding terms text-center"
+                            role="button"
+                            tabindex="0"
+                          >
+                            <p
+                              class="link text-muted"
+                            >
+                              Forgot Password?
+                            </p>
+                          </div>
                         </div>
                         <div
                           class="padding"
@@ -147,7 +159,7 @@ Object {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="u45I3lvsg"
+                            id="lcViG2Aea"
                             type="button"
                           >
                             Facebook
@@ -260,121 +272,42 @@ Object {
               <div
                 class="demarcation"
               />
-              <h2
-                class="font-size-16 px-3 px-md-3 px-lg-0"
+              <section
+                class="px-3 px-md-3 px-lg-0 mb-2 mt-4"
               >
-                Delivery Address
-              </h2>
-              <form
-                class="border padding-20 mt-4"
+                <h2
+                  class="font-size-16"
+                >
+                  Pickup Address
+                </h2>
+                <ul
+                  class="list-group mt-4 time"
+                >
+                  <li
+                    class="list-group-item"
+                  >
+                    801 Mission St., San Francisco (1.0 mi)
+                  </li>
+                </ul>
+              </section>
+              <section
+                class="px-3 px-md-3 px-lg-0 mb-2 mt-4"
               >
-                <div
-                  class="form-group font-size-14 mb-4"
+                <h2
+                  class="font-size-16"
                 >
-                  <label
-                    class="no-label"
-                    for="address"
-                  >
-                    Address
-                  </label>
-                  <input
-                    accept=""
-                    class="form-control border-input-style p-0"
-                    name="streetAddress1"
-                    placeholder="Address"
-                    type="text"
-                    value=""
-                  />
-                  <span
-                    class="text-danger font-size-11"
-                  />
-                </div>
-                <div
-                  class="form-group font-size-14 mb-4"
+                  Pickup time
+                </h2>
+                <ul
+                  class="list-group mt-4 time"
                 >
-                  <label
-                    class="no-label"
-                    for="streetAddress2"
+                  <li
+                    class="list-group-item"
                   >
-                    Apt no or company name
-                  </label>
-                  <input
-                    accept=""
-                    class="form-control border-input-style p-0"
-                    name="streetAddress2"
-                    placeholder="Apt no or company name"
-                    type="text"
-                    value=""
-                  />
-                  <span
-                    class="text-danger font-size-11"
-                  />
-                </div>
-                <div
-                  class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
-                >
-                  <label
-                    class="no-label"
-                    for="contactName"
-                  >
-                    Contact name
-                  </label>
-                  <input
-                    accept=""
-                    class="form-control border-input-style p-0"
-                    name="contactName"
-                    placeholder="Contact name"
-                    type="text"
-                    value=""
-                  />
-                  <span
-                    class="text-danger font-size-11"
-                  />
-                </div>
-                <div
-                  class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
-                >
-                  <label
-                    class="no-label"
-                    for="phoneNumber"
-                  >
-                    Phone number
-                  </label>
-                  <input
-                    accept=""
-                    class="form-control border-input-style p-0"
-                    name="phoneNumber"
-                    placeholder="Phone number"
-                    type="text"
-                    value=""
-                  />
-                  <span
-                    class="text-danger font-size-11"
-                  />
-                </div>
-                <div
-                  class="form-group mb-4"
-                >
-                  <textarea
-                    class="text-area instruction"
-                    maxlength="200"
-                    name="deliveryInstruction"
-                    placeholder="Add delivery instructuctions..."
-                  />
-                </div>
-                <div>
-                  <button
-                    class="small-button-save"
-                    data-target=""
-                    data-testid="button"
-                    data-toggle=""
-                    id="u45I3lvsg"
-                    type="button"
-                  >
-                    Save
-                  </button>
-                </div>
-              </form>
+                    Ready in 20 min
+                  </li>
+                </ul>
+              </section>
             </div>
             <section
               class="mb-2 mt-4 mb-2"
@@ -808,7 +741,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="u45I3lvsg"
+                    id="lcViG2Aea"
                     type="button"
                   >
                     Save
@@ -827,7 +760,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="u45I3lvsg"
+                id="lcViG2Aea"
                 type="submit"
               >
                 CONTINUE
@@ -893,7 +826,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           EDIT
@@ -903,7 +836,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           REMOVE
@@ -942,7 +875,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           EDIT
@@ -952,7 +885,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           REMOVE
@@ -993,7 +926,7 @@ Object {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="u45I3lvsg"
+                      id="lcViG2Aea"
                       type="button"
                     >
                       <svg
@@ -1020,7 +953,7 @@ Object {
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="u45I3lvsg"
+                      id="lcViG2Aea"
                       type="button"
                     >
                       <svg
@@ -1076,7 +1009,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           <svg
@@ -1124,7 +1057,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           <svg
@@ -1172,7 +1105,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           <svg
@@ -1220,7 +1153,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           <svg
@@ -1323,7 +1256,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="u45I3lvsg"
+                id="lcViG2Aea"
                 type="submit"
               >
                 CONTINUE
@@ -1334,7 +1267,7 @@ Object {
       </div>
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01554114304652&libraries=places&v=3&language=en"
+      src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01555025343117&libraries=places&v=3&language=en"
       type="text/javascript"
     />
   </body>,
@@ -1447,6 +1380,18 @@ Object {
                             />
                           </div>
                         </div>
+                        <div
+                          aria-pressed="false"
+                          class="col-lg-12 padding terms text-center"
+                          role="button"
+                          tabindex="0"
+                        >
+                          <p
+                            class="link text-muted"
+                          >
+                            Forgot Password?
+                          </p>
+                        </div>
                       </div>
                       <div
                         class="padding"
@@ -1481,7 +1426,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="u45I3lvsg"
+                          id="lcViG2Aea"
                           type="button"
                         >
                           Facebook
@@ -1594,121 +1539,42 @@ Object {
             <div
               class="demarcation"
             />
-            <h2
-              class="font-size-16 px-3 px-md-3 px-lg-0"
+            <section
+              class="px-3 px-md-3 px-lg-0 mb-2 mt-4"
             >
-              Delivery Address
-            </h2>
-            <form
-              class="border padding-20 mt-4"
+              <h2
+                class="font-size-16"
+              >
+                Pickup Address
+              </h2>
+              <ul
+                class="list-group mt-4 time"
+              >
+                <li
+                  class="list-group-item"
+                >
+                  801 Mission St., San Francisco (1.0 mi)
+                </li>
+              </ul>
+            </section>
+            <section
+              class="px-3 px-md-3 px-lg-0 mb-2 mt-4"
             >
-              <div
-                class="form-group font-size-14 mb-4"
+              <h2
+                class="font-size-16"
               >
-                <label
-                  class="no-label"
-                  for="address"
-                >
-                  Address
-                </label>
-                <input
-                  accept=""
-                  class="form-control border-input-style p-0"
-                  name="streetAddress1"
-                  placeholder="Address"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="text-danger font-size-11"
-                />
-              </div>
-              <div
-                class="form-group font-size-14 mb-4"
+                Pickup time
+              </h2>
+              <ul
+                class="list-group mt-4 time"
               >
-                <label
-                  class="no-label"
-                  for="streetAddress2"
+                <li
+                  class="list-group-item"
                 >
-                  Apt no or company name
-                </label>
-                <input
-                  accept=""
-                  class="form-control border-input-style p-0"
-                  name="streetAddress2"
-                  placeholder="Apt no or company name"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="text-danger font-size-11"
-                />
-              </div>
-              <div
-                class="d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
-              >
-                <label
-                  class="no-label"
-                  for="contactName"
-                >
-                  Contact name
-                </label>
-                <input
-                  accept=""
-                  class="form-control border-input-style p-0"
-                  name="contactName"
-                  placeholder="Contact name"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="text-danger font-size-11"
-                />
-              </div>
-              <div
-                class="d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
-              >
-                <label
-                  class="no-label"
-                  for="phoneNumber"
-                >
-                  Phone number
-                </label>
-                <input
-                  accept=""
-                  class="form-control border-input-style p-0"
-                  name="phoneNumber"
-                  placeholder="Phone number"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="text-danger font-size-11"
-                />
-              </div>
-              <div
-                class="form-group mb-4"
-              >
-                <textarea
-                  class="text-area instruction"
-                  maxlength="200"
-                  name="deliveryInstruction"
-                  placeholder="Add delivery instructuctions..."
-                />
-              </div>
-              <div>
-                <button
-                  class="small-button-save"
-                  data-target=""
-                  data-testid="button"
-                  data-toggle=""
-                  id="u45I3lvsg"
-                  type="button"
-                >
-                  Save
-                </button>
-              </div>
-            </form>
+                  Ready in 20 min
+                </li>
+              </ul>
+            </section>
           </div>
           <section
             class="mb-2 mt-4 mb-2"
@@ -2142,7 +2008,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="u45I3lvsg"
+                  id="lcViG2Aea"
                   type="button"
                 >
                   Save
@@ -2161,7 +2027,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="u45I3lvsg"
+              id="lcViG2Aea"
               type="submit"
             >
               CONTINUE
@@ -2227,7 +2093,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         EDIT
@@ -2237,7 +2103,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         REMOVE
@@ -2276,7 +2142,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         EDIT
@@ -2286,7 +2152,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         REMOVE
@@ -2327,7 +2193,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="u45I3lvsg"
+                    id="lcViG2Aea"
                     type="button"
                   >
                     <svg
@@ -2354,7 +2220,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="u45I3lvsg"
+                    id="lcViG2Aea"
                     type="button"
                   >
                     <svg
@@ -2410,7 +2276,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         <svg
@@ -2458,7 +2324,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         <svg
@@ -2506,7 +2372,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         <svg
@@ -2554,7 +2420,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="u45I3lvsg"
+                        id="lcViG2Aea"
                         type="button"
                       >
                         <svg
@@ -2657,7 +2523,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="u45I3lvsg"
+              id="lcViG2Aea"
               type="submit"
             >
               CONTINUE

@@ -13,10 +13,9 @@ const NearByBukka = ({
   classNames,
   imageHeight,
   children,
-  heading
 }) => (
   <div className="mt-4 mb-4 responsive-px-15">
-    {heading && <Headline title={title} activeIndex={1} />}
+    {title && <Headline title={title} activeIndex={1} />}
     {children}
     <div className="row pb-4 ml-1">
       {bukkaData.map(bukka => (

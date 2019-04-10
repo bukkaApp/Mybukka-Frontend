@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -20,20 +20,27 @@ import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
 import NearByBukka from './NearByBukka';
-
+import Map from '../common/Map';
+import Carousel from 'Components/Carousel/Carousel';
 import { foodBannerImage } from '../img/imgLinks';
 
 import freeDelivery from '../data/free-delivery.json';
 import favorites from '../data/favorites.json';
 
 const FoodSection = ({
-  // mode,
+  mode,
   push,
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   status: { error }
 }) => {
+  const [displayMap, setDisplayMap] = useState(false);
+
+  const handleClick = () => {
+    setDisplayMap(!displayMap);
+  };
+
   useEffect(() => {
     fetchNearbyBukkas(coordinates);
   }, [coordinates]);
@@ -53,20 +60,37 @@ const FoodSection = ({
         <div>
           <IntroSection push={push} />
           <ExploreSection>
-            <AreasToExplore bgImage={foodBannerImage} />
-            <div className="feed-main-content">
-              <LocationNavLargeScreen />
+            <div className={displayMap ? "d-none" : ''}>
+              <AreasToExplore bgImage={foodBannerImage} />
+            </div>
+            <div className={displayMap ? "feed-main-content-map" : "feed-main-content"}>
+              <LocationNavLargeScreen handleMapClick={handleClick} />
               <LocationNavSmallScreen />
               <div>
+                {mode === 'delivery' &&
                 <BukkasToExploreSection />
+                }
                 <div className="carousel-divider" />
-                <Container classNames="pr-15">
-                  <NearByBukka
-                    classNames="col-lg-4 col-md-4 col-sm-12"
-                    title="Nearby"
-                    bukkaData={[...favorites, ...freeDelivery]}
-                    imageHeight="img-height"
-                  />
+                <Container classNames={displayMap ? "px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column": 'px-0'}>
+                  <Container classNames={displayMap ? "nearby-bukka col-xl-4 d-lg-flex d-md-none d-none" : "pr-15"}>
+                    <NearByBukka
+                      classNames={displayMap ? "col-12": "col-lg-4 col-md-4 col-sm-12"}
+                      title={displayMap ? "" : "Nearby"}
+                      bukkaData={[...favorites, ...freeDelivery]}
+                      imageHeight={displayMap ? "map-img-height" : "img-height"}
+                    />
+                  </Container>
+                  <div className={displayMap ? 'container map-wrapper col-xl-8 col-lg-8 col-md-12 col-12 order-first order-lg-0' : "d-none"}>
+                    <Map />
+                  </div>
+                  <div className="d-flex d-md-flex d-lg-none d-xl-none px-0 col-12">
+                  <Carousel
+                      noOfImagesShown={3}
+                      slideItems={[...favorites, ...freeDelivery]}
+                      imageHeight="map-img-height"
+                      classNames="col-lg-6 col-md-6 col-sm-12 col-12"
+                    />
+                  </div>
                 </Container>
               </div>
             </div>
