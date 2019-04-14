@@ -7,9 +7,16 @@ import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import PropTypes from 'prop-types';
 
-const NearByBukka = ({ bukkaData }) => (
-  <div className="mt-4 mb-4">
-    <Headline title="Nearby" activeIndex={1} />
+const NearByBukka = ({
+  bukkaData,
+  title,
+  classNames,
+  imageHeight,
+  children,
+}) => (
+  <div className="mt-4 mb-4 responsive-px-15">
+    {title && <Headline title={title} activeIndex={1} />}
+    {children}
     <div className="row pb-4 ml-1">
       {bukkaData.map(bukka => (
         <BukkaCard
@@ -18,8 +25,8 @@ const NearByBukka = ({ bukkaData }) => (
           deliveryCost={bukka.deliveryCost}
           deliveryTime={bukka.deliveryTime}
           rating={bukka.rating}
-          imageHeight="img-height"
-          classNames="col-lg-4 col-md-4 col-sm-12"
+          imageHeight={imageHeight}
+          classNames={classNames}
         />
       ))}
     </div>
@@ -28,7 +35,17 @@ const NearByBukka = ({ bukkaData }) => (
 
 export default NearByBukka;
 
+NearByBukka.defaultProps = {
+  children: '',
+  heading: true,
+  title: '',
+};
+
 NearByBukka.propTypes = {
+  heading: PropTypes.bool,
+  title: PropTypes.string,
+  classNames: PropTypes.string.isRequired,
+  imageHeight: PropTypes.string.isRequired,
   bukkaData: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
@@ -36,5 +53,10 @@ NearByBukka.propTypes = {
       deliveryTime: PropTypes.string,
       rating: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+    PropTypes.string
+  ])
 };

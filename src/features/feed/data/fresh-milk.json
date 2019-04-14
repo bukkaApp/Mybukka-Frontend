@@ -1,0 +1,52 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/milk-Clover_2_Reduced_Fat_Milk.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/milk-Clover_Organic_2_Reduced_Fat_Milk.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Fat_Free_Milk.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Lowfat_1_Milk.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Whole_Milk.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Nonfat_Milk.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Reduced_Fat_2_Milk.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Whole_Milk.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  }
+]

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title component re renders properly 1`] = `
+<div>
+  <div
+    class="form-title mb-4"
+  >
+    <span>
+      Welcome back,
+      <br />
+    </span>
+    <span
+      class="auth-form-title"
+    >
+      myemail@email.com
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Title component renders properly 1`] = `
+<div>
+  <div
+    class="form-title mb-4"
+  >
+    <span>
+      Type your email
+    </span>
+  </div>
+</div>
+`;

@@ -15,7 +15,7 @@ exports[`TrackingHeader component re renders properly when rejected status 1`] =
         data-target=""
         data-testid="button"
         data-toggle=""
-        id="wCvwduEae"
+        id="JIWP0G2rF"
         type="button"
       >
         <svg
@@ -62,7 +62,7 @@ exports[`TrackingHeader component renders properly 1`] = `
         data-target=""
         data-testid="button"
         data-toggle=""
-        id="wCvwduEae"
+        id="JIWP0G2rF"
         type="button"
       >
         <svg

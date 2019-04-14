@@ -1,0 +1,74 @@
+[
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/wine-Apothic_Red.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/wine-Barefoot-Cabernet-Sauvignon.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/wine-Bogle_Essential_Red.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/wine-Cellars-of-Fairbanks-California-Port.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605107/wine-Dancing-Bull-California-Cabernet-Sauvignon.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/wine-Leese-Fitch-California-Cabernet-Sauvignon.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605107/wine-Yellow-Tail-Cabernet_Sauvignon.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605107/wine-Yellow-Tail-Shiraz.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  }
+]

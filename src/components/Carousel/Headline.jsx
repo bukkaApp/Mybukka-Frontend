@@ -7,13 +7,14 @@ const runnerWidth = 32;
 const maxWidth = 100 - runnerWidth;
 
 const Headline = ({ title, numberOfViews, slidesLength, activeIndex }) => {
-  const translate = activeIndex >= 1 ? maxWidth / (slidesLength - 2) : 0;
+  // const translate = activeIndex >= 1 ? maxWidth / (slidesLength - 2) : 0;
+  const calc = (100 / slidesLength) * activeIndex;
+  // (96.8 * activeIndex) / slidesLength;
+  // const left = (activeIndex / slidesLength) * maxWwidth;
+  // const left = activeIndex / slidesLength * maxWwidth;
   return (
     <div className="headline ml-3 mr-3">
-      <div
-        className="runner"
-        style={{ transform: `translateX(${activeIndex * translate}%)` }}
-      />
+      <div className="runner" style={{ transform: `translateX(${calc}% - 32px)` }} />
       <h2 className="headline-h2">{title}</h2>
       {numberOfViews && (
         <a className="headline-link" href="/" rel="nofollow">

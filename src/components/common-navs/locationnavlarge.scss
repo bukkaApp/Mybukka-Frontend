@@ -1,0 +1,65 @@
+.custom-mt-minus1 {
+    margin-top: -1px;
+}
+
+.custom-mt-minus19 {
+    margin-top: -19px;
+}
+
+.cart-button {
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    font-size: 12px;
+    letter-spacing: 0.72px;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 40px;
+    opacity: 1;
+    padding: 10px 20px;
+    margin: 0px;
+    border: 0;
+    outline: none;
+    border-radius: 28px;
+    transition: opacity 150ms ease-in-out 0s;
+}
+
+.cart-divider {
+    padding-right: 12px;
+    margin-right: 9px;
+    position: relative;
+    flex: initial;
+    border-right: 1px solid rgb(217, 219, 224);
+}
+
+// animation
+
+// current location
+
+.custom-current-loc {
+  vertical-align: bottom;
+}
+
+.current-loc-h2-text {
+  display: inline-block;
+  max-width: 0;
+  padding-bottom: 2px;
+  transition: all 1s;
+  vertical-align: bottom;
+  overflow: hidden;
+//   text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.current-loc-h2-text-active {
+  display: inline-block;
+  max-width: 120px;
+  transition: all 1s;
+}
+
+.custom-current-loc {
+    &:hover .current-loc-h2-text {
+        max-width: 120px;
+        transition: all 1s;
+    }
+}

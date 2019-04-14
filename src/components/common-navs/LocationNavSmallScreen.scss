@@ -33,8 +33,7 @@ $fontFamily: 'Roboto', sans-serif;
   padding: 10px 0 0px;
 }
 
-.small-nav-btn:visited,
-.small-nav-btn:focus-visible {
+.small-nav-btn:focus {
   outline: none;
   box-shadow: none;
   border: none;
@@ -71,7 +70,7 @@ $fontFamily: 'Roboto', sans-serif;
   z-index: 300;
   width: 100vw;
   min-height: 100vh;
-  top: 0;
+  top: 65px;
   left: 0;
   right: 0;
   box-shadow: rgba(34, 34, 34, 0.08) 0px 2px 8px 0px;

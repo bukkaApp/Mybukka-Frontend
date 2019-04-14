@@ -1,0 +1,72 @@
+[
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Greek_Whole_Milk_Yogurt.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Nonfat_Yogurt.webp",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Lemon_3-pack.webp",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Raspberry_3-pack.webp",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Vanilla_3-pack.webp",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-chinese-thumbnail.webp",
+    "rating": "popular",
+    "heading": "chinese",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-american-thumbnail.webp",
+    "rating": "popular",
+    "heading": "american",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-fastfood-thumbnail.webp",
+    "rating": "popular",
+    "heading": "Fast food",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-coffee-thumbnail.webp",
+    "rating": "popular",
+    "heading": "coffee",
+    "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-pizza-thumbnail.webp",
+    "rating": "popular",
+    "heading": "pizza",
+    "position": {
+        "bottom": true
+    }
+},
+{
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-mexican-thumbnail.webp",
+    "rating": "popular",
+    "heading": "mexican",
+    "position": { "bottom": true }
+},
+{
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-burger-thumbnail.webp",
+    "rating": "popular",
+    "heading": "burger",
+    "position": { "bottom": true }
+},
+{
+    "deliveryTime": "40-50 min",
+    "author": "habit",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/cuisine-italian-thumbnail.webp",
+    "rating": "popular",
+    "heading": "Italian",
+    "position": { "bottom": true }
+}
+]
