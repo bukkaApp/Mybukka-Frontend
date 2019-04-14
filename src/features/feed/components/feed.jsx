@@ -24,6 +24,7 @@ import bukkaData from './bukkaData.json';
 import './feed.scss';
 
 const FeedPage = ({
+  mode,
   push,
   coordinates,
   fetchedBukkas: { nearbyBukkas },
@@ -66,45 +67,49 @@ const FeedPage = ({
             style={{ zIndex: '150' }}
           >
             <main className="main-container pr-0 pl-0 mx-auto col-lg-10 col-md-12 col-sm-12">
-              <Carousel
-                noOfImagesShown={2}
-                title="New on Bukka"
-                textOverlay
-                slideItems={bukkaData}
-                imageHeight="img-big-height"
-                classNames="col-lg-6 col-md-6 col-sm-12 col-12"
-              />
-
-              <Carousel
-                noOfImagesShown={3}
-                title="$1.99 Delivery"
-                slideItems={bukkaData}
-                imageHeight="img-height"
-                classNames="col-lg-4 col-md-4 col-sm-12 col-12"
-              />
-
-              <Fragment>
-                <div className="carousel-divider" />
-                <Headline title="Salty & Sweet" activeIndex={1} />
-                <Row classNames="pb-4 ml-1">
-                  <BukkaCard
-                    imageUrl={bukkaData[0].imageUrl}
-                    deliveryCost={bukkaData[0].deliveryCost}
-                    deliveryTime={bukkaData[0].deliveryTime}
-                    rating={bukkaData[0].rating}
-                    imageHeight="img-height"
-                    classNames="col-lg-4 col-md-6 col-sm-12"
+              {mode === 'delivery' && (
+                <Fragment>
+                  <Carousel
+                    noOfImagesShown={2}
+                    title="New on Bukka"
+                    textOverlay
+                    slideItems={bukkaData}
+                    imageHeight="img-big-height"
+                    classNames="col-lg-6 col-md-6 col-sm-12 col-12"
                   />
-                </Row>
-              </Fragment>
 
-              <Carousel
-                noOfImagesShown={4}
-                title="Touchdown"
-                imageHeight="small-img-height"
-                slideItems={bukkaData}
-                classNames="col-lg-3 col-md-4 col-sm-12 col-12 touchdown"
-              />
+                  <Carousel
+                    noOfImagesShown={3}
+                    title="$1.99 Delivery"
+                    slideItems={bukkaData}
+                    imageHeight="img-height"
+                    classNames="col-lg-4 col-md-4 col-sm-12 col-12"
+                  />
+
+                  <Fragment>
+                    <div className="carousel-divider" />
+                    <Headline title="Salty & Sweet" activeIndex={1} />
+                    <Row classNames="pb-4 ml-1">
+                      <BukkaCard
+                        imageUrl={bukkaData[0].imageUrl}
+                        deliveryCost={bukkaData[0].deliveryCost}
+                        deliveryTime={bukkaData[0].deliveryTime}
+                        rating={bukkaData[0].rating}
+                        imageHeight="img-height"
+                        classNames="col-lg-4 col-md-6 col-sm-12"
+                      />
+                    </Row>
+                  </Fragment>
+
+                  <Carousel
+                    noOfImagesShown={4}
+                    title="Touchdown"
+                    imageHeight="small-img-height"
+                    slideItems={bukkaData}
+                    classNames="col-lg-3 col-md-4 col-sm-12 col-12 touchdown"
+                  />
+                </Fragment>
+              )}
 
               <Fragment>
                 <div className="carousel-divider" />
@@ -119,12 +124,14 @@ const FeedPage = ({
 };
 
 const mapStateToProps = ({
+  deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
-  coordinates
+  coordinates,
+  mode,
 });
 
 export default connect(
@@ -133,6 +140,7 @@ export default connect(
 )(FeedPage);
 
 FeedPage.propTypes = {
+  mode: PropTypes.string.isRequired,
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
