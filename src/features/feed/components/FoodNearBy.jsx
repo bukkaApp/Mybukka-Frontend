@@ -7,7 +7,8 @@ import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import PropTypes from 'prop-types';
 
-const NearByBukka = ({
+const FoodNearBy = ({
+  delivery,
   bukkaData,
   title,
   classNames,
@@ -26,6 +27,7 @@ const NearByBukka = ({
           key={shortId.generate()}
           imageUrl={bukka.imageUrl}
           mealName={bukka.title}
+          delivery={delivery}
           deliveryCost={bukka.deliveryCost}
           deliveryTime={bukka.deliveryTime}
           rating={bukka.rating}
@@ -37,16 +39,18 @@ const NearByBukka = ({
   </div>
 );
 
-export default NearByBukka;
+export default FoodNearBy;
 
-NearByBukka.defaultProps = {
+FoodNearBy.defaultProps = {
   children: '',
   heading: true,
   title: '',
+  delivery: false,
   handleRefFocus: () => {}
 };
 
-NearByBukka.propTypes = {
+FoodNearBy.propTypes = {
+  delivery: PropTypes.bool,
   handleRefFocus: PropTypes.func,
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,

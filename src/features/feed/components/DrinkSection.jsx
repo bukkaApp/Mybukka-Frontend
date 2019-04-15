@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
@@ -13,12 +12,12 @@ import LocationNavSmallScreen
 
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
-
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
 import NearByBukka from './NearByBukka';
+
 
 import { drinkBannerImage } from '../img/imgLinks';
 
@@ -39,8 +38,12 @@ const DrinkSection = ({
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
-  status: { error }
+  status: { error },
 }) => {
+  const handleRefFocus = () => {
+    // e.scrollIntoView(false);
+  };
+
   useEffect(() => {
     fetchNearbyBukkas(coordinates);
   }, [coordinates]);
@@ -64,13 +67,14 @@ const DrinkSection = ({
             <div className="feed-main-content">
               <LocationNavLargeScreen />
               <LocationNavSmallScreen />
-              <div>
+              <div id="flyout-left-container">
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
                   classNames="col-lg-3 col-md-4 col-sm-6 col-12"
                   title="Beer Under $15"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -78,6 +82,7 @@ const DrinkSection = ({
                   title="Wine Under $20"
                   imageHeight="drinks-img-height"
                   bukkaData={lessWine}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -85,6 +90,7 @@ const DrinkSection = ({
                   title="Beer"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -92,6 +98,7 @@ const DrinkSection = ({
                   title="IMPORTED BEER"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -99,6 +106,7 @@ const DrinkSection = ({
                   title="CIDER"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -106,6 +114,7 @@ const DrinkSection = ({
                   title="Wine"
                   imageHeight="drinks-img-height"
                   bukkaData={redWine}
+                  handleRefFocus={handleRefFocus}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -113,6 +122,7 @@ const DrinkSection = ({
                   title="White Wine"
                   imageHeight="drinks-img-height"
                   bukkaData={whiteWine}
+                  handleRefFocus={handleRefFocus}
                 />
               </div>
             </div>

@@ -1,52 +1,50 @@
 [
   {
     "deliveryCost": 300,
+    "title": "Clover 2 Reduced Fat Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/milk-Clover_2_Reduced_Fat_Milk.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
     "deliveryCost": 300,
+    "title": "Clover Organic 2 Reduced Fat Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/milk-Clover_Organic_2_Reduced_Fat_Milk.webp",
-    "heading": "american",
-    "position": { "bottom": true }
+    "heading": "american"
   },
   {
     "deliveryCost": 300,
+    "title": "Clover Organic Fat Free Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Fat_Free_Milk.webp",
-    "heading": "Fast food",
-    "position": { "bottom": true }
+    "heading": "Fast food"
   },
   {
     "deliveryCost": 300,
+    "title": "Clover Organic Lowfat 1 Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Lowfat_1_Milk.webp",
-    "heading": "coffee",
-    "position": { "bottom": true }
+    "heading": "coffee"
   },
   {
     "deliveryCost": 300,
+    "title": "Clover Organic Whole Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Clover_Organic_Whole_Milk.webp",
-    "heading": "pizza",
-    "position": {
-        "bottom": true
-    }
+    "heading": "pizza"
   },
   {
     "deliveryCost": 300,
+    "title": "Straus Creamery Organic Nonfat Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Nonfat_Milk.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
     "deliveryCost": 300,
+    "title": "Straus Creamery Organic Reduced Fat 2 Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Reduced_Fat_2_Milk.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
     "deliveryCost": 300,
+    "title": "Straus Creamery Organic Whole Milk",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/milk-Straus_Creamery_Organic_Whole_Milk.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   }
 ]

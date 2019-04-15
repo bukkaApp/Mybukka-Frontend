@@ -1,68 +1,50 @@
 [
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Barefoot California Chardonnay",
+    "deliveryCost": 9300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_California_Chardonnay.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Barefoot California Riesling",
+    "deliveryCost": 10300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_California_Riesling.webp",
-    "heading": "american",
-    "position": { "bottom": true }
+    "heading": "american"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Barefoot Pinot Grigio",
+    "deliveryCost": 11300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Barefoot_Pinot_Grigio.webp",
-    "heading": "Fast food",
-    "position": { "bottom": true }
+    "heading": "Fast food"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Leese Fitch California Sauvignon Blanc",
+    "deliveryCost": 8300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Leese-Fitch_California_Sauvignon_Blanc.webp",
-    "heading": "coffee",
-    "position": { "bottom": true }
+    "heading": "coffee"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Yellow Tail Chardonnay",
+    "deliveryCost": 9300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Chardonnay.webp",
-    "heading": "pizza",
-    "position": {
-        "bottom": true
-    }
+    "heading": "pizza"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Yellow Tail Pinot Grigio",
+    "deliveryCost": 10500,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/white-wine-Yellow_Tail_Pinot_Grigio.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Yellow Tail Riesling",
+    "deliveryCost": 7900,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Riesling.webp",
-    "heading": "american",
-    "position": { "bottom": true }
+    "heading": "american"
   },
   {
-    "deliveryTime": "40-50 min",
-    "author": "habit",
-    "deliveryCost": 300,
+    "title": "Yellow Tail Sauvignon Blanc",
+    "deliveryCost": 8990,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605106/white-wine-Yellow_Tail_Sauvignon_Blanc.webp",
-    "heading": "Fast food",
-    "position": { "bottom": true }
+    "heading": "Fast food"
   }
 ]
