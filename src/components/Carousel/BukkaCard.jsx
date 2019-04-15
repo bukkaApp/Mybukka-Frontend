@@ -32,29 +32,37 @@ const TextOverlay = ({ top, bottom, heading, subHeading }) => (
   </Fragment>
 );
 
-const NormalText = ({ deliveryCost, deliveryTime, rating }) => (
+const NormalText = ({
+  remark, mealName, deliveryCost, deliveryTime, rating, delivery
+}) => (
   <div className="details">
     <h3>
       <span className="details-location">
-        San francisco
+        {mealName}
+        {remark &&
         <span>
-          kitchen
           <span className="icon">
             <MarkIcon />
           </span>
         </span>
+        }
       </span>
       {rating && <span className="rating">{rating}</span>}
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
-      {deliveryCost && deliveryTime ? <i className="dot-spacing">.</i> : null}
-      <div className="delivery-time-text">{deliveryTime}</div>
+      {delivery && deliveryCost &&
+      <span className="custom-delivery-badge">Delivery</span>
+      }
+      {deliveryCost && deliveryTime && <i className="dot-spacing">.</i>}
+      {deliveryTime && <div className="delivery-time-text">{deliveryTime}</div>}
     </div>
   </div>
 );
 
 const BukkaCard = ({
+  mealName,
+  remark,
   imageUrl,
   deliveryCost,
   deliveryTime,
@@ -64,7 +72,8 @@ const BukkaCard = ({
   top,
   bottom,
   heading,
-  subHeading
+  subHeading,
+  delivery,
 }) => {
   const smImgUrl = generateSmImageUrl(imageUrl);
 
@@ -93,6 +102,9 @@ const BukkaCard = ({
           deliveryCost={deliveryCost}
           deliveryTime={deliveryTime}
           rating={rating}
+          mealName={mealName}
+          remark={remark}
+          delivery={delivery}
         />
       )}
     </div>
@@ -114,10 +126,16 @@ export default GetBukka;
 NormalText.defaultProps = {
   deliveryTime: '',
   rating: '',
-  deliveryCost: 0
+  delivery: false,
+  deliveryCost: 0,
+  mealName: '',
+  remark: false,
 };
 
 NormalText.propTypes = {
+  remark: PropTypes.bool,
+  delivery: PropTypes.bool,
+  mealName: PropTypes.string,
   deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
   rating: PropTypes.string
@@ -145,6 +163,9 @@ BottomOverlayText.propTypes = {
 };
 
 BukkaCard.defaultProps = {
+  delivery: false,
+  mealName: '',
+  remark: false,
   deliveryTime: '',
   rating: '',
   imageHeight: '',
@@ -157,6 +178,9 @@ BukkaCard.defaultProps = {
 };
 
 BukkaCard.propTypes = {
+  delivery: PropTypes.bool,
+  remark: PropTypes.bool,
+  mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
   deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,

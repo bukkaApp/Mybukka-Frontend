@@ -41,6 +41,7 @@ const Carousel = ({
   title,
   slideItems,
   imageHeight,
+  delivery,
   controlClassNames,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -93,9 +94,12 @@ const Carousel = ({
               {slideItems.map(bukka => (
                 <FoodCard
                   key={shortId.generate()}
+                  remark={bukka.remark}
+                  mealName={bukka.title}
                   imageUrl={bukka.imageUrl}
                   deliveryCost={bukka.deliveryCost}
                   deliveryTime={bukka.deliveryTime}
+                  delivery={delivery}
                   rating={bukka.rating}
                   classNames={classNames}
                   textOverlay={textOverlay}
@@ -145,11 +149,14 @@ ControlRight.propTypes = {
 Carousel.defaultProps = {
   textOverlay: false,
   controlClassNames: '',
-  title: ''
+  title: '',
+  handleRefFocus: () => {},
+  delivery: false,
 };
 
 Carousel.propTypes = {
   controlClassNames: PropTypes.string,
+  delivery: PropTypes.bool,
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string,

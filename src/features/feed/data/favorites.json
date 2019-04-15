@@ -1,6 +1,8 @@
 [
   {
     "deliveryTime": "40-50 min",
+    "title": "miss saigon",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-7.webp",
     "position": {
@@ -9,6 +11,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "popsons",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-5.webp",
     "rating": "popular",
@@ -18,6 +22,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "the new spot on pork",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-6.webp",
     "heading": "Get Drinks",
@@ -26,6 +32,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "chaat corner",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-8.webp",
     "rating": "popular",
@@ -35,6 +43,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "fresh roll",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-1.webp",
     "rating": "popular",
@@ -44,6 +54,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "jack in the box",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-2.webp",
     "rating": "popular",
@@ -53,15 +65,17 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "ike's love and sandwishes",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-3.webp",
     "rating": "popular",
-    "heading": "Get Drinks",
-    "subHeading": "ALCOHOL DELIVERED",
     "position": { "top": true }
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "Urban pizza kitchen",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-4.webp",
     "rating": "popular",

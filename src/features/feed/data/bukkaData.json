@@ -1,7 +1,7 @@
 [
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "burger",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-burger-img.webp",
     "rating": "popular",
@@ -12,7 +12,7 @@
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "ice dougnut",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-ice-dougnut.webp",
     "rating": "popular",
@@ -23,7 +23,7 @@
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "alcholic drinks",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-alcholic-drinks.webp",
     "rating": "popular",
@@ -33,7 +33,7 @@
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "fruits",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/carousel-fruits.webp",
     "rating": "popular",
@@ -43,7 +43,7 @@
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "free burger",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-free-burger.webp",
     "rating": "popular",

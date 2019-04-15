@@ -30,10 +30,13 @@ const BukkasToExploreSection = () => (
       <Headline title="Salty & Sweet" activeIndex={1} />
       <Row classNames="pb-4 ml-1">
         <BukkaCard
+          delivery
+          mealName={favorites[4].title}
           imageUrl={favorites[4].imageUrl}
           deliveryCost={favorites[4].deliveryCost}
           deliveryTime={favorites[4].deliveryTime}
           rating={favorites[4].rating}
+          remark={favorites[4].remark}
           imageHeight="img-height"
           classNames="col-lg-4 col-md-6 col-sm-12"
         />
@@ -41,6 +44,7 @@ const BukkasToExploreSection = () => (
     </Container>
     <div className="carousel-divider" />
     <Carousel
+      delivery
       noOfImagesShown={3}
       title="$1.99 Delivery"
       slideItems={freeDelivery}
@@ -50,6 +54,7 @@ const BukkasToExploreSection = () => (
     />
     <div className="carousel-divider" />
     <Carousel
+      delivery
       noOfImagesShown={3}
       title="Bukkas favorites"
       controlClassNames="custom-mt-minus22"
@@ -59,6 +64,7 @@ const BukkasToExploreSection = () => (
     />
     <div className="carousel-divider" />
     <Carousel
+      delivery
       noOfImagesShown={3}
       title="Free Delivery from The Habit 🍔"
       slideItems={freeDelivery}
@@ -68,6 +74,7 @@ const BukkasToExploreSection = () => (
     />
     <div className="carousel-divider" />
     <Carousel
+      delivery
       noOfImagesShown={4}
       title="Touchdown"
       controlClassNames="custom-mt-touchdown"

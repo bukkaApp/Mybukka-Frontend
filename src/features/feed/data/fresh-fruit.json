@@ -1,40 +1,38 @@
 [
   {
     "deliveryCost": 300,
+    "title": "Bananas",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Bananas.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   },
   {
     "deliveryCost": 300,
+    "title": "Organic Bananas",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Bananas.webp",
-    "heading": "american",
-    "position": { "bottom": true }
+    "heading": "american"
   },
   {
     "deliveryCost": 300,
+    "title": "Organic Lemon",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Lemon.webp",
-    "heading": "Fast food",
-    "position": { "bottom": true }
+    "heading": "Fast food"
   },
   {
     "deliveryCost": 300,
+    "title": "Organic Fuji Apples",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Fuji_Apples.webp",
-    "heading": "coffee",
-    "position": { "bottom": true }
+    "heading": "coffee"
   },
   {
     "deliveryCost": 300,
+    "title": "Organic Hass Avocado",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Hass_Avocado.webp",
-    "heading": "pizza",
-    "position": {
-        "bottom": true
-    }
+    "heading": "pizza"
   },
   {
     "deliveryCost": 300,
+    "title": "Organic Lime",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-fruit-Organic_Lime.webp",
-    "heading": "chinese",
-    "position": { "bottom": true }
+    "heading": "chinese"
   }
 ]

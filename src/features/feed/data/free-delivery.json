@@ -1,6 +1,8 @@
 [
   {
     "deliveryTime": "40-50 min",
+    "title": "the burrito co.",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-2.webp",
     "position": {
@@ -9,6 +11,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "the mexican taqueria",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-3.webp",
     "rating": "popular",
@@ -18,6 +22,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "little szechuan",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-1.webp",
     "heading": "Get Drinks",
@@ -26,15 +32,18 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "cheers market",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-4.webp",
     "rating": "popular",
+    "remark": true,
     "heading": "Get Fresh",
     "subHeading": "Groceries Delivered",
     "position": { "top": true }
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "salt & straw",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-5.webp",
     "rating": "popular",
@@ -44,6 +53,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "fine wine",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-6.webp",
     "rating": "popular",
@@ -53,6 +64,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "sf hala indian spot",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-7.webp",
     "rating": "popular",
@@ -62,6 +75,7 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "urban remedy",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-8.webp",
     "rating": "popular",
@@ -71,6 +85,8 @@
   },
   {
     "deliveryTime": "40-50 min",
+    "title": "halal chinese indian fusion",
+    "remark": true,
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-9.webp",
     "rating": "popular",
