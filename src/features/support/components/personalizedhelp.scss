@@ -1,0 +1,45 @@
+.personalized-text {
+    font-family: "Roboto", sans-serif;
+    color: rgb(45, 49, 56);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.7px;
+    margin: 32px 16px;
+}
+
+.personalized-btn-wrapper {
+    margin: 0px;
+    @media screen and (min-width: 768px) {
+        max-width: 300px;
+        margin: 32px 16px;
+    }
+}
+
+.personalized-login-btn {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 56px;
+    background-color: #9c1c26;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.1s cubic-bezier(0, 0, 0.4, 1) 0s;
+    padding: 0px 32px;
+    @media screen and (min-width: 768px) {
+        max-width: 414px;
+        border-radius: 28px;
+        margin: auto;
+    }
+}
+
+.personalized-btn-text {
+    -webkit-font-smoothing: antialiased;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
