@@ -11,6 +11,7 @@ import Profile from '../features/profile';
 import TransactionHistory from '../features/history';
 import ResetPassword from '../features/forgotPassword/ResetPassword';
 import PerformResetPass from '../features/forgotPassword/PerformResetPass';
+import SupportBuyer from '../features/support/components/SupportBuyer';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -35,6 +36,7 @@ const Main = () => (
       <Route exact path="/history" component={TransactionHistory} />
       <Route exact path="/reset-password" component={ResetPassword} />
       <Route exact path="/reset" component={PerformResetPass} />
+      <Route exact path="/support/buyer" component={SupportBuyer} />
       <Route component={NotFound} />
     </Switch>
   </main>
