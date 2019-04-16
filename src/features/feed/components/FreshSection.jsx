@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
+
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen
@@ -64,7 +67,7 @@ const FreshSection = ({
           <ExploreSection>
             <AreasToExplore text="Groceries" bgImage={freshBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen />
+              <LocationNavLargeScreen scheduleTime />
               <LocationNavSmallScreen />
               <div>
                 <div className="carousel-divider" />
@@ -127,6 +130,7 @@ const FreshSection = ({
           </ExploreSection>
         </div>
       )}
+      <UnAuthenticatedCheckout push={push} />
     </div>
   );
 };

@@ -1,14 +1,20 @@
-import React from 'react';
-import NavLink from '../navlink/Navlink';
+import React, { useState } from 'react';
+import Circle from '../icons/Circle';
+import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
-const UserDefaultImage = () => (
-  <NavLink classNames="no-classname" href="/profile">
+const UserDefaultImage = () => {
+  const [dropdown, toggleDropdown] = useState(false);
+  return (
     <div className="user-default-img">
-      <img src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png" alt="authenticated-img" />
+      <div className="position-relative">
+        <button className="auth-btn-drop" onClick={() => toggleDropdown(!dropdown)}>
+          <Circle />
+        </button>
+        {dropdown && <UserDropdown />}
+        {/* <img src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png" alt="authenticated-img" /> */}
+      </div>
     </div>
-  </NavLink>
-
-);
-
+  );
+};
 export default UserDefaultImage;
