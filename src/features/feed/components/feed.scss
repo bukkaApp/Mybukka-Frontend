@@ -93,25 +93,26 @@ img {
 
 .img-big-height {
   height: 315px;
-  @media (max-width: 444px) {
-    height: 200px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 217px;
+  object-fit: fill;
+  @media (min-width: 1500px) {
+    height: 390px;
   }
   @media (max-width: 1200px) {
     height: 290px;
   }
-  @media (min-width: 1500px) {
-    height: 390px;
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    height: 217px;
+  }
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
 .img-height {
   object-fit: fill;
   height: 217px;
-  @media (max-width: 444px) {
-    height: 200px;
+  @media (min-width: 1500px) {
+    height: 290px;
   }
   @media screen and (max-width: 768px) {
     height: 250px;
@@ -119,21 +120,22 @@ img {
   @media screen and (min-width: 768px) and (max-width: 992px) {
     height: 150px;
   }
-  @media (min-width: 1500px) {
-    height: 290px;
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
 .small-img-height {
   height: 150px;
-  @media (max-width: 444px) {
-    height: 200px;
+  object-fit: fill;
+  @media (min-width: 1500px) {
+    height: 250px;
   }
   @media (max-width: 768px) {
     height: 250px;
   }
-  @media (min-width: 1500px) {
-    height: 250px;
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
