@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 import ChevronRight from '../../../components/icons/ChevronRight';
 
-import './personalizedbody.scss';
 
-const PersonalizedBody = ({ text, link }) => (
+const ListCategory = ({ text, link }) => (
   <div>
     <Navlink classNames="personalized-body-section" href={link}>
       <div className="personalized-body-content">
@@ -17,18 +16,17 @@ const PersonalizedBody = ({ text, link }) => (
         <ChevronRight />
       </div>
     </Navlink>
-    <div className="personalized-header-divider" />
   </div>
 
 );
 
-export default PersonalizedBody;
+export default ListCategory;
 
-PersonalizedBody.defaultProps = {
+ListCategory.defaultProps = {
   link: '/'
 };
 
-PersonalizedBody.propTypes = {
+ListCategory.propTypes = {
   text: PropTypes.string.isRequired,
   link: PropTypes.string,
 };

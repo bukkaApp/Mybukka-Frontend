@@ -12,6 +12,8 @@ import TransactionHistory from '../features/history';
 import ResetPassword from '../features/forgotPassword/ResetPassword';
 import PerformResetPass from '../features/forgotPassword/PerformResetPass';
 import SupportBuyer from '../features/support/components/SupportBuyer';
+import Articles from '../features/support/articles';
+import CategoryLists from '../features/support/Lists';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -37,6 +39,8 @@ const Main = () => (
       <Route exact path="/reset-password" component={ResetPassword} />
       <Route exact path="/reset" component={PerformResetPass} />
       <Route exact path="/support/buyer" component={SupportBuyer} />
+      <Route exact path="/buyer/articles/:id" component={Articles} />
+      <Route exact path="/buyer/lists/:id" component={CategoryLists} />
       <Route component={NotFound} />
     </Switch>
   </main>

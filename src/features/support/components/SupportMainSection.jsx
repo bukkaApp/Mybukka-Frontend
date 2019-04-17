@@ -19,7 +19,7 @@ const SupportMainSection = ({ authenticated }) => (
         <div className="col-md-6">
           <PersonalizedHeader title={topic} />
           {postData[topic].map(content => (
-            <PersonalizedBody text={content.text} />
+            <PersonalizedBody text={content.text} link={content.link} />
           ))}
         </div>
       ))}
