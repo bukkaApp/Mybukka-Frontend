@@ -1,0 +1,34 @@
+.personalized-header {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 21px;
+    margin: 39px 16px 20.5px;
+}
+
+.personalized-header-text {
+    font-family: "Roboto", sans-serif;
+    color: rgb(45, 49, 56);
+    -webkit-font-smoothing: antialiased;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+}
+
+.personalized-header-link {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: rgb(143, 149, 163);
+    font-size: 14px;
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.personalized-header-divider {
+    height: 1px;
+    background-color: rgb(217, 219, 224);
+    margin: 0px 16px;
+}

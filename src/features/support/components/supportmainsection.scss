@@ -1,0 +1,13 @@
+.support-main-section-container {
+    max-width: 900px;
+    display: flex;
+    z-index: 0;
+    flex-flow: row wrap;
+    margin: 0px auto;
+    @media screen and (min-width: 768px) {
+        margin: 32px auto;
+    }
+    @media screen and (min-width: 1024px) {
+        margin: 48px auto;
+    }
+}
