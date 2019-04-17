@@ -1,0 +1,74 @@
+.voting-container {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-top: 32px;
+    @media screen and (min-width: 1024px) {
+        margin-top: 48px;
+    }
+}
+
+.voting-buttons {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgb(45, 49, 56);
+    -webkit-font-smoothing: antialiased;
+}
+
+.voting-text {
+    color: rgb(143, 149, 163);
+    text-align: center;
+}
+
+.voting-button-group {
+    display: flex;
+    justify-content: space-around;
+    margin: 16px 0px;
+}
+
+.voting-single-button {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    color: #9c1c26;
+    height: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9c1c26;
+    border-image: initial;
+    transition: all 0.2s ease-in-out 0s;
+    border-radius: 20px;
+    padding: 0px 16px;
+    margin: 0px 8px;
+}
+
+.voting-single-active {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    background-color: #9c1c26;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9c1c26;
+    border-image: initial;
+    transition: all 0.2s ease-in-out 0s;
+    border-radius: 20px;
+    padding: 0px 16px;
+    margin: 0px 8px;
+}
+
+.voting-single-button-text {
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 12px;
+    text-transform: capitalize;
+}

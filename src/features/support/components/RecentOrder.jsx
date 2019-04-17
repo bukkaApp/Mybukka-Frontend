@@ -11,7 +11,7 @@ const RecentOrder = ({ order, authenticated }) => {
     <div className="col-md-6">
       <PersonalizedHeader title="Recent Order" />
       {order.length > 0 &&
-      <PersonalizedBody text={order.text} />
+      <PersonalizedBody text={order.text} link={order.link} />
       }
     </div>
   );
