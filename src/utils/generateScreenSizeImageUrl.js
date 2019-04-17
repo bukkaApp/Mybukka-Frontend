@@ -1,5 +1,5 @@
-
-const generateSmallScreenImageUrl = (imgUrl) => {
+// 320
+const generateScreenSizeImageUrl = (imgUrl, size) => {
   const convertImageUrlToArray = imgUrl.split('/');
   const imageUrlLength = convertImageUrlToArray.length;
   const imageName = convertImageUrlToArray[imageUrlLength - 1];
@@ -7,8 +7,8 @@ const generateSmallScreenImageUrl = (imgUrl) => {
   const endUrlStr = `${imageId}/${imageName}`;
   const getBaseUrl = imgUrl.replace(endUrlStr, '');
   // getBaseUrl - http://www.url.com/
-  const generateUrl = `${getBaseUrl}c_scale,w_320,h_320/${endUrlStr}`;
-  return generateUrl;
+  const generatedUrl = `${getBaseUrl}c_scale,w_${size},h_${size}/${endUrlStr}`;
+  return generatedUrl;
 };
 
-export default generateSmallScreenImageUrl;
+export default generateScreenSizeImageUrl;

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
-import generateSmImageUrl from 'Utilities/generateSmallScreenImageUrl';
+import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
 import Navlink from 'Components/navlink/Navlink';
 import Price from 'Components/badge/Price';
@@ -75,7 +75,9 @@ const BukkaCard = ({
   subHeading,
   delivery,
 }) => {
-  const smImgUrl = generateSmImageUrl(imageUrl);
+  const smImgUrl = generateImageSize(imageUrl, '320');
+
+  const lgImgUrl = generateImageSize(imageUrl, '640');
 
   return (
     <div className="mt-4 bukka-card">
@@ -86,7 +88,7 @@ const BukkaCard = ({
       />
       <img
         className={`img-large-screen bukka-img ${imageHeight}`}
-        src={imageUrl}
+        src={lgImgUrl}
         alt="alt_image"
       />
       {textOverlay && (

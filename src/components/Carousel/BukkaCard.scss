@@ -1,5 +1,5 @@
 $fontFamily: 'Roboto', sans-serif;
-
+// .details-location
 .card-container {
   position: relative;
   padding-bottom: 20px;
@@ -92,6 +92,12 @@ $fontFamily: 'Roboto', sans-serif;
 .details-location {
   flex: 1;
   color: #111;
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
+  @media (max-width: 576px) {
+    font-size: 11px;
+  }
 }
 
 .rating {
