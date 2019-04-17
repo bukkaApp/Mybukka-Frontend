@@ -27,7 +27,14 @@ const BannerSection = () => (
           <div data-cy="search-button" className="css-4g6ai3">
             <Iconic />
           </div>
-          <input type="text" data-cy="search-input" placeholder="Search..." className="support-search-input" value="" />
+          <input
+            type="text"
+            data-cy="search-input"
+            placeholder="Search..."
+            className="support-search-input"
+            onChange={() => {}}
+            defaultValue=""
+          />
         </div>
       </div>
     </div>

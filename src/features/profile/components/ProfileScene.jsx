@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import request from 'superagent';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
+import InternalError from 'Components/not-found/InternalError';
 import AuthenticaticatedNavbar from 'Components/navbar/AuthenticaticatedNavbar';
 import ProfileHeader from './ProfileHeader';
 import ProfileImageSection from './ProfileImageSection';
@@ -18,6 +19,7 @@ import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import './profileScene.scss';
 
 const ProfileScene = ({
+  history,
   requestUserData,
   deleteUserAddress,
   requestUserAddress,
@@ -60,46 +62,48 @@ const ProfileScene = ({
     });
   };
 
+  if (!authenticated) {
+    return (<InternalError history={history} />);
+  }
+
   return (
-    authenticated && (
-      <Fragment>
-        <AuthenticaticatedNavbar />
-        {finishedRequest ? (
-          <Fragment>
-            <ProfileHeader
-              firstName={userData.firstName}
-              lastName={userData.lastName}
-            />
-            <Container classNames="account-profile-details">
-              <Row>
-                <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 profile-img-column">
-                  <ProfileImageSection
-                    firstName={userData.firstName}
-                    lastName={userData.lastName}
-                    handleChange={uploadImageToCloudinary}
-                    imageUrl={userData.imageUrl || undefined}
-                  />
-                </Column>
-                <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
-                  <AccountDetails
-                    errorMessage={errorMessage}
-                    editUserData={editUserData}
-                    requestUserData={requestUserData}
-                    deleteUserAddress={deleteUserAddress}
-                    requestUserAddress={requestUserAddress}
-                    userInfo={userData}
-                    loading={loading}
-                    userAddress={userAddress}
-                  />
-                </Column>
-              </Row>
-            </Container>
-          </Fragment>
-        ) : (
-          <div />
-        )}
-      </Fragment>
-    )
+    <Fragment>
+      <AuthenticaticatedNavbar />
+      {finishedRequest ? (
+        <Fragment>
+          <ProfileHeader
+            firstName={userData.firstName}
+            lastName={userData.lastName}
+          />
+          <Container classNames="account-profile-details">
+            <Row>
+              <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 profile-img-column">
+                <ProfileImageSection
+                  firstName={userData.firstName}
+                  lastName={userData.lastName}
+                  handleChange={uploadImageToCloudinary}
+                  imageUrl={userData.imageUrl || undefined}
+                />
+              </Column>
+              <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
+                <AccountDetails
+                  errorMessage={errorMessage}
+                  editUserData={editUserData}
+                  requestUserData={requestUserData}
+                  deleteUserAddress={deleteUserAddress}
+                  requestUserAddress={requestUserAddress}
+                  userInfo={userData}
+                  loading={loading}
+                  userAddress={userAddress}
+                />
+              </Column>
+            </Row>
+          </Container>
+        </Fragment>
+      ) : (
+        <div />
+      )}
+    </Fragment>
   );
 };
 
@@ -150,6 +154,7 @@ const proptypes = PropTypes.objectOf(
 );
 
 ProfileScene.propTypes = {
+  errorMessage: PropTypes.string,
   loading: PropTypes.bool,
   requestUserData: PropTypes.func.isRequired,
   requestUserAddress: PropTypes.func.isRequired,
@@ -157,6 +162,16 @@ ProfileScene.propTypes = {
   finishedRequest: PropTypes.bool.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   editUserData: PropTypes.func.isRequired,
+  history: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.number,
+    PropTypes.objectOf(PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.func,
+      PropTypes.number
+    ]))
+  ])).isRequired,
   user: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.objectOf(PropTypes.string),

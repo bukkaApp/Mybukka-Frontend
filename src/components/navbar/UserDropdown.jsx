@@ -5,7 +5,7 @@ const UserDropdown = () => (
   <div className="user-dropdown-container">
     <div role="menu" tabIndex="0" className="user-dropdown-content">
       <div className="custom-user-dropdown">
-        <a className="custom-user-dropdown-item" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Orders" href="/orders">
+        <a className="custom-user-dropdown-item" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Orders" href="/history">
           <div className="user-dropdown-item-content">
             <span className="custom-user-dropdown-text">
               <span>Order History</span>
@@ -26,7 +26,7 @@ const UserDropdown = () => (
         </a>
       </div>
       <div className="custom-user-dropdown">
-        <a className="custom-user-dropdown-item" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Account" href="/account">
+        <a className="custom-user-dropdown-item" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Account" href="/profile">
           <div className="user-dropdown-item-content">
             <span className="custom-user-dropdown-text">
               <span>Account Settings</span>
@@ -35,7 +35,7 @@ const UserDropdown = () => (
         </a>
       </div>
       <div className="custom-user-dropdown">
-        <a className="custom-user-dropdown-item" href="https://support.postmates.com/buyer" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Help Center">
+        <a className="custom-user-dropdown-item" href="/support/buyer" data-event-category="Navigation" data-event-action="User Dropdown" data-event-label="Help Center">
           <div className="user-dropdown-item-content">
             <span className="custom-user-dropdown-text">
               <span>Help Center</span>
