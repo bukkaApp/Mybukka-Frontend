@@ -39,6 +39,9 @@ $fontFamily: 'Roboto', sans-serif;
   font-family: $fontFamily;
   font-size: 16px;
   text-transform: capitalize;
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
 }
 
 .custom-delivery-badge {
@@ -92,9 +95,6 @@ $fontFamily: 'Roboto', sans-serif;
 .details-location {
   flex: 1;
   color: #111;
-  @media (max-width: 767px) {
-    font-size: 13px;
-  }
 }
 
 .rating {
