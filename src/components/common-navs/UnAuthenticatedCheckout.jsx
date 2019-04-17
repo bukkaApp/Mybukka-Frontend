@@ -16,6 +16,7 @@ const UnAuthenticatedCheckout = ({
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
+    handleCheckoutMode(false);
     push('/checkout');
   };
 
@@ -36,7 +37,7 @@ const UnAuthenticatedCheckout = ({
             <p className="unaunthenticated-main-content">
               <span>To receive your order,
                 {'you’ll'} need to show a valid photo ID showing
-        that you’re at least 21 years old.
+                that you’re at least 21 years old.
               </span>
             </p>
           </div>

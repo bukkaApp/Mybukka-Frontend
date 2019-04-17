@@ -19,7 +19,7 @@ import AddToCart from '../addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
 import BukkaMeals from './BukkaMeals';
-
+// import ClosedNotification from '../notification/ClosedNotification';
 import { bukkaMeals } from './mealData.json';
 
 import './bukkaScene.scss';
@@ -41,6 +41,7 @@ const BukkaMenuScene = ({ push }) => (
     <BukkaMeals mealsData={bukkaMeals} />
     <Footer />
     <UnAuthenticatedCheckout push={push} />
+    {/* <ClosedNotification /> */}
   </div>
 );
 
