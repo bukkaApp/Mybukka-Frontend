@@ -12,13 +12,21 @@ import SearchLocation from './SearchLocation';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import ChevronVertical from '../icons/ChevronVertical';
-import Duration from './Duration';
+import Duration, { TimeLists as CategoryLists } from './Duration';
+import CartDropdown from './CartDropdown';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
 
+import setCheckoutMode from './actionCreators/setCheckoutMode';
+
+import inputData from './inputData/duration.json';
+
 import './locationnavlarge.scss';
 
-const Delivery = ({ mode, handleClick }) => (
+
+const { categoryItems } = inputData;
+
+const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
     <div className="position-relative">
       <div className="delivery-or-pickup">
@@ -29,6 +37,18 @@ const Delivery = ({ mode, handleClick }) => (
           role="button"
           onClick={() => handleClick('delivery')}
         >Delivery</div>
+        {deliveryorpickup &&
+        <Fragment>
+          <div className="delivery-or-pickup-divider">or</div>
+          <div
+            className="delivery-or-pickup-mode"
+            aria-pressed="false"
+            tabIndex="0"
+            role="button"
+            onClick={() => handleClick('pickup')}
+          >Pickup</div>
+        </Fragment>
+        }
       </div>
       <div
         style={{ left: mode === 'pickup' ? '85px' : '2px' }}
@@ -81,6 +101,14 @@ const Categories = props => (
         <ChevronVertical />
       </span>
     </ReusableButton>
+    <ReusableDropdown classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}>
+      <CategoryLists
+        handleClick={() => {}}
+        lists={categoryItems}
+        classNames="category-dropdown-section"
+        maxHeight="category-dropdown-height"
+      />
+    </ReusableDropdown>
   </ReusableWrapper>
 );
 
@@ -99,25 +127,34 @@ const Search = props => (
   </ReusableWrapper>
 );
 
-const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
+const LocationNavLarge = ({
+  mode,
+  handleCheckoutMode,
+  setDeliveryModeAction,
+  classNames,
+  deliveryorpickup,
+  scheduleTime,
+}) => {
   let wrapperRef;
   const unFocus = {
     location: false,
     duration: false,
     categories: false,
-    search: false
+    search: false,
+    cart: false,
   };
 
   const [isFocused, setFocus] = useState({
     location: false,
     duration: false,
     categories: false,
-    search: false
+    search: false,
+    cart: false,
   });
 
   const handleClick = (name) => {
     setFocus({
-      ...isFocused,
+      ...unFocus,
       [name]: true
     });
   };
@@ -136,7 +173,7 @@ const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
   };
 
   useEffect(() => {
-    if (mode !== 'delivery') {
+    if (!deliveryorpickup && mode !== 'delivery') {
       setDeliveryModeAction('delivery');
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -145,17 +182,18 @@ const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
   return (
     <div
       ref={setWrapperRef}
-      className="location-navbar d-none d-sm-none d-md-block
-      d-lg-block d-xl-block"
+      className={`location-navbar d-none d-sm-none d-md-block
+      d-lg-block d-xl-block ${classNames}`}
     >
       <Container classNames="location-navbar-content">
         <Container classNames="location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
             {!isFocused.search &&
             <Fragment>
-              <Delivery
+              <DeliveryOrPickUp
                 handleClick={setDeliveryModeAction}
                 mode={mode}
+                deliveryorpickup={deliveryorpickup}
               />
               <div
                 className="delivery-or-pickup-vertical-divider"
@@ -167,13 +205,17 @@ const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
               <div
                 className="delivery-or-pickup-vertical-divider"
               />
-              <Duration
-                handleClick={() => handleClick('duration')}
-                focus={isFocused.duration}
-              />
-              <div
-                className="delivery-or-pickup-vertical-divider"
-              />
+              {scheduleTime &&
+              <Fragment>
+                <Duration
+                  handleClick={() => handleClick('duration')}
+                  focus={isFocused.duration}
+                />
+                <div
+                  className="delivery-or-pickup-vertical-divider"
+                />
+              </Fragment>
+              }
               <Categories
                 handleClick={() => handleClick('categories')}
                 focus={isFocused.categories}
@@ -190,17 +232,23 @@ const LocationNavLarge = ({ mode, setDeliveryModeAction }) => {
           </div>
         </Container>
         <div className="pr-15 location-navbar-view-map">
-          <Button
-            type="button"
-            classNames="cart-button border"
-            handleClick={() => {}}
-          >
-            <span className="cart-icon"><Cart /></span>
-            <span
-              className="cart-divider"
+          <div className="position-relative">
+            <Button
+              type="button"
+              classNames="cart-button border"
+              handleClick={() => handleClick('cart')}
+            >
+              <span className="cart-icon"><Cart /></span>
+              <span
+                className="cart-divider"
+              />
+            4 cart
+            </Button>
+            <CartDropdown
+              handleClick={handleCheckoutMode}
+              focus={isFocused.cart}
             />
-            0 cart
-          </Button>
+          </div>
         </div>
       </Container>
     </div>
@@ -213,11 +261,22 @@ const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
 
 export default connect(
   mapStateToProps,
-  { setDeliveryModeAction: setDeliveryMode }
+  { setDeliveryModeAction: setDeliveryMode,
+    handleCheckoutMode: setCheckoutMode }
 )(LocationNavLarge);
 
+LocationNavLarge.defaultProps = {
+  classNames: '',
+  deliveryorpickup: false,
+  scheduleTime: false,
+};
+
 LocationNavLarge.propTypes = {
+  scheduleTime: PropTypes.bool,
+  classNames: PropTypes.string,
+  deliveryorpickup: PropTypes.bool,
   mode: PropTypes.string.isRequired,
+  handleCheckoutMode: PropTypes.func.isRequired,
   setDeliveryModeAction: PropTypes.func.isRequired
 };
 
@@ -225,7 +284,12 @@ CurrentLocation.propTypes = {
   focus: PropTypes.bool.isRequired
 };
 
-Delivery.propTypes = {
+Categories.propTypes = {
+  focus: PropTypes.bool.isRequired
+};
+
+DeliveryOrPickUp.propTypes = {
+  deliveryorpickup: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired
 };

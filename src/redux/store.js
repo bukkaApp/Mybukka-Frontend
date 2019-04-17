@@ -7,6 +7,9 @@ import homeReducer from 'Components/navbar/reducers';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import checkoutModeReducer from
+  'Components/common-navs/reducers/checkoutModeReducer';
+
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 
@@ -51,6 +54,7 @@ const reducer = combineReducers({
   validateTokenReducer,
   requestPasswordChangesReducer,
   changePasswordReducer,
+  checkoutModeReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

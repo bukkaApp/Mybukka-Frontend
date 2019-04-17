@@ -5,10 +5,13 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
+
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
-import LocationNavSmallScreen
-  from 'Components/common-navs/LocationNavSmallScreen';
+import BukkaNavSmallScreen
+  from 'Components/navbar/BukkaNavSmallScreen';
 
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
@@ -65,8 +68,12 @@ const DrinkSection = ({
           <ExploreSection>
             <AreasToExplore text="Drinks" bgImage={drinkBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen />
-              <LocationNavSmallScreen />
+              <LocationNavLargeScreen scheduleTime />
+              <div className="d-block d-sm-block d-md-none
+                d-lg-none d-xl-none"
+              >
+                <BukkaNavSmallScreen currentCategory="Wine Under $20" />
+              </div>
               <div id="flyout-left-container">
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
@@ -129,6 +136,7 @@ const DrinkSection = ({
           </ExploreSection>
         </div>
       )}
+      <UnAuthenticatedCheckout push={push} />
     </div>
   );
 };

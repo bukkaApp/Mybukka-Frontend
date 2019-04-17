@@ -51,7 +51,7 @@ Button.propTypes = {
     PropTypes.node
   ]).isRequired,
   disabled: PropTypes.bool,
-  dataTarget: PropTypes.string.isRequired,
-  dataToggle: PropTypes.string.isRequired,
+  dataTarget: PropTypes.string,
+  dataToggle: PropTypes.string,
   id: PropTypes.string,
 };

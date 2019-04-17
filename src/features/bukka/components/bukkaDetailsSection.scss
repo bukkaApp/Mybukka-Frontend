@@ -1,5 +1,5 @@
 $primaryColor: #9c1c26;
-
+.bukka-details-section
 .action-button-text {
   font-weight: 300;
   margin-left: 10px;
@@ -47,7 +47,10 @@ $primaryColor: #9c1c26;
 }
 
 .bukka-details-section {
-  padding-bottom: 60px;
+  padding-bottom: 15px;
+  @media (min-width: 767px) {
+    padding-bottom: 60px;
+  }
 }
 
 @mixin bukka-description-text {

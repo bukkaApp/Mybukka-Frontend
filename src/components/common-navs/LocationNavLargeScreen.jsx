@@ -89,14 +89,14 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction, handleMapClick })
   const handleMap = () => {
     setMapDisplay(!showMap);
     handleMapClick();
-  }
+  };
 
-  const handleDeliveryorPickup = status => {
+  const handleDeliveryorPickup = (status) => {
     if (showMap) {
       handleMap();
     }
     setDeliveryModeAction(status);
-  }
+  };
 
   const setWrapperRef = (node) => {
     wrapperRef = node;
@@ -135,7 +135,7 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction, handleMapClick })
           <div className="pr-15 location-navbar-view-map">
             <Button
               type="button"
-              text={showMap ? "view List" : "view Map"}
+              text={showMap ? 'view List' : 'view Map'}
               classNames="view-map"
               handleClick={handleMap}
             />
