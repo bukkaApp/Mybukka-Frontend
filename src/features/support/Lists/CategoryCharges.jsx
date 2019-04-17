@@ -17,7 +17,11 @@ const MainSection = () => (
         <div className="personalized-header-divider" />
         {
           data.map(topicList => (
-            <ListCategory text={topicList.text} link={topicList.link} />
+            <ListCategory
+              key={topicList.text + topicList.link}
+              text={topicList.text}
+              link={topicList.link}
+            />
           ))
         }
         <Voting />
