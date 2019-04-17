@@ -4,6 +4,7 @@ import NearbyBukka from '../components/NearByBukka';
 
 describe('IntroSection FeedPage component', () => {
   const props = {
+    classNames: 'class-component',
     imageHeight: 'img-height',
     bukkaData: [
       {

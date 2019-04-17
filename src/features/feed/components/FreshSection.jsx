@@ -68,7 +68,7 @@ const FreshSection = ({
             <AreasToExplore text="Groceries" bgImage={freshBannerImage} />
             <div className="feed-main-content">
               <LocationNavLargeScreen scheduleTime />
-              <LocationNavSmallScreen />
+              <LocationNavSmallScreen currentCategory="Customers Love" />
               <div>
                 <div className="carousel-divider" />
                 <NearByBukkaContainer

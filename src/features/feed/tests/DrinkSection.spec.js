@@ -10,6 +10,7 @@ import DrinkSection from '../components/DrinkSection';
 const initialState = {
   homeReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
+  checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   authenticationReducer: {
     status: {

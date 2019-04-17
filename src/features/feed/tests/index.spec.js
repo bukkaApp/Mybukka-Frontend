@@ -11,6 +11,7 @@ const initialState = {
   homeReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
+  checkoutModeReducer: { mode: true },
   authenticationReducer: {
     status: {
       authenticated: false,
@@ -40,7 +41,8 @@ describe('FeedPage component', () => {
     coordinates: [3.7474, 3.4848],
     fetchedBukkas: { nearbyBukkas: [] },
     fetchNearbyBukkas: jest.fn(),
-    status: { error: false }
+    status: { error: false },
+    currentCategory: 'Chipottle',
   };
   const { container, rerender } = render(
     <Provider store={store}>

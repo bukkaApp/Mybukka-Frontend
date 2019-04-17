@@ -72,7 +72,7 @@ const DrinkSection = ({
               <div className="d-block d-sm-block d-md-none
                 d-lg-none d-xl-none"
               >
-                <BukkaNavSmallScreen />
+                <BukkaNavSmallScreen currentCategory="Wine Under $20" />
               </div>
               <div id="flyout-left-container">
                 <div className="carousel-divider" />

@@ -44,6 +44,7 @@ const UnAuthenticatedCheckout = ({
           <div direction="row" className="unaunthenticated-footer">
             <Button
               color="#00CC99"
+              type="button"
               handleClick={handleClick}
               classNames="unaunthenticated-continuation"
             >
