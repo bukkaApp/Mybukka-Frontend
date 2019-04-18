@@ -72,14 +72,14 @@ const FreshSection = ({
               <div>
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Customers Love"
                   imageHeight="fresh-img-height"
                   bukkaData={bukkaData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   // title="Dairy & Eggs"
                   title="MILK" // subTitle
                   imageHeight="fresh-img-height"
@@ -87,7 +87,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="EGGS"
                   subTitle="EGGS"
                   imageHeight="fresh-img-height"
@@ -95,7 +95,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Veggies"
                   subTitle="Fresh Veggies"
                   imageHeight="fresh-img-height"
@@ -103,7 +103,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="YOGURT"
                   subTitle="YOGURT"
                   imageHeight="fresh-img-height"
@@ -111,7 +111,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Greens"
                   subTitle="Fresh Greens"
                   imageHeight="fresh-img-height"
@@ -119,7 +119,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Fruit"
                   subTitle="Fresh Fruit"
                   imageHeight="fresh-img-height"

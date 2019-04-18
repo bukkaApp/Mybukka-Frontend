@@ -75,6 +75,7 @@ $fontFamily: 'Roboto', sans-serif;
 
 .map-img-height {
   height: 200px;
+  object-fit: fill;
 }
 
 .sticky-nav-bar {
@@ -91,25 +92,29 @@ img {
 }
 
 .img-big-height {
+  background-color: rgba(231, 226, 226, 0.7);
   height: 315px;
-  @media (max-width: 444px) {
-    height: 200px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 217px;
+  object-fit: fill;
+  @media (min-width: 1500px) {
+    height: 390px;
   }
   @media (max-width: 1200px) {
     height: 290px;
   }
-  @media (min-width: 1500px) {
-    height: 390px;
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    height: 217px;
+  }
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
 .img-height {
+  object-fit: fill;
+  background-color: rgba(231, 226, 226, 0.7);
   height: 217px;
-  @media (max-width: 444px) {
-    height: 200px;
+  @media (min-width: 1500px) {
+    height: 290px;
   }
   @media screen and (max-width: 768px) {
     height: 250px;
@@ -117,54 +122,43 @@ img {
   @media screen and (min-width: 768px) and (max-width: 992px) {
     height: 150px;
   }
-  @media (min-width: 1500px) {
-    height: 290px;
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
 .small-img-height {
   height: 150px;
-  @media (max-width: 444px) {
-    height: 200px;
+  background-color: rgba(231, 226, 226, 0.7);
+  object-fit: fill;
+  @media (min-width: 1500px) {
+    height: 250px;
   }
   @media (max-width: 768px) {
     height: 250px;
   }
-  @media (min-width: 1500px) {
-    height: 250px;
+  @media (max-width: 444px) {
+    height: 200px;
   }
 }
 
 .drinks-img-height {
-  height: 242px;
-  @media (max-width: 558px) {
-    height: 290px;
+  object-fit: scale-down;
+  min-height: 120px;
+  background-color: rgba(231, 226, 226, 0.7);
+  @media (min-width: 767px) {
+    max-height: 270px;
+    min-height: 200px
   }
-  @media (max-width: 768px) {
-    height: 255px;
-  }
-    height: 210px;
-  }
+}
 
 .fresh-img-height {
-  height: 242px;
-  @media (max-width: 326px) {
-    height: 250px;
-  }
-  @media (max-width: 444px) {
-    height: 300px;
-  }
-  @media (max-width: 576px) {
-    height: 350px;
-  }
-  @media (max-width: 768px) {
-    height: 255px;
-  }
-  @media (max-width: 1200px) {
-    height: 210px;
-  }
-  @media (min-width: 1500px) {
-    height: 250px;
+  object-fit: scale-down;
+  min-height: 120px;
+  background-color: rgba(231, 226, 226, 0.7);
+  @media (min-width: 767px) {
+    max-height: 270px;
+    min-height: 200px
   }
 }
 
