@@ -42,9 +42,7 @@ describe('Authentication Reducer', () => {
       })
     ).toEqual({
       ...initialState,
-      user: {
-        message: 'invalid'
-      },
+      user: {},
       status: {
         authenticated: false,
         error: true

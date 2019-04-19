@@ -28,10 +28,13 @@ const store = mockStore({
 });
 
 describe('Profile Scene component', () => {
+  const props = {
+    history: { push: jest.fn() }
+  };
   const wrapper = mount(
     <Provider store={store}>
       <MemoryRouter>
-        <ProfileScene />
+        <ProfileScene {...props} />
       </MemoryRouter>
     </Provider>
   );
