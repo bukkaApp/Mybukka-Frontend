@@ -15,6 +15,8 @@ import BukkaNavSmallScreen
 
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
+
+import AddToCart from './AddToCart';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -62,6 +64,7 @@ const DrinkSection = ({
 
   return (
     <div className="container-fluid p-0">
+      <AddToCart />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />

@@ -31,6 +31,8 @@ const NearByBukka = ({
           rating={bukka.rating}
           imageHeight={imageHeight}
           classNames={classNames}
+          dataTarget="#bukkaAddToCart"
+          dataToggle="modal"
         />
       ))}
     </div>
@@ -43,7 +45,8 @@ NearByBukka.defaultProps = {
   children: '',
   heading: true,
   title: '',
-  handleRefFocus: () => {}
+  handleRefFocus: () => {},
+  props: ''
 };
 
 NearByBukka.propTypes = {
