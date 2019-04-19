@@ -16,8 +16,8 @@ const buttonProps = [
 ];
 
 const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
-  // const { authenticated } = status;
-  const authenticated = true;
+  const { authenticated } = status;
+  // const authenticated = true;
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };

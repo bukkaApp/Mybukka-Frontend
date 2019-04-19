@@ -43,7 +43,7 @@ const AuthModal = ({ type, push, status }) => {
 };
 
 const mapStateToProps = ({
-  homeReducer: { type },
+  navbarAuthReducer: { type },
   authenticationReducer: { status }
 }) => ({
   type,
