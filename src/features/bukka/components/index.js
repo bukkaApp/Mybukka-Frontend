@@ -2,6 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
 import Navbar from 'Components/navbar';
 
@@ -13,14 +14,10 @@ import UnAuthenticatedCheckout
 import LocationNavSmallScreen
   from 'Components/common-navs/LocationNavSmallScreen';
 
-import BukkaNavSmallScreen
-  from 'Components/navbar/BukkaNavSmallScreen';
 import AddToCart from '../addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
 import BukkaMeals from './BukkaMeals';
-// import ClosedNotification from '../notification/ClosedNotification';
-import { bukkaMeals } from './mealData.json';
 
 import './bukkaScene.scss';
 
@@ -28,17 +25,18 @@ const BukkaMenuScene = ({ push }) => (
   <div className="bukka-menu">
     <AddToCart />
     <Navbar push={push} bukka />
-    <BukkaImageSection imageUrl="https://res.cloudinary.com/dn93xk5ni/image/upload/v1549932720/bake-baked-basil-236798_vvo5pq.jpg" />
+    <BukkaImageSection />
     <LocationNavLargeScreen deliveryorpickup classNames="bukka-location-nav" />
     <LocationNavSmallScreen />
     <div className="carousel-divider mb-0" />
-    <BukkaDetailsSection bukkaName="Chipottle Fresh Bukka" />
     <div className="pb-1 d-block d-sm-block d-md-none location-navbar
-     bukka-location-nav d-lg-none d-xl-none"
+     bukka-location-nav border-none d-lg-none d-xl-none"
     >
-      <BukkaNavSmallScreen currentCategory="Chippottle" />
+      <BukkaNavSmallScreen currentCategory="breakfast" />
     </div>
-    <BukkaMeals mealsData={bukkaMeals} />
+    <BukkaDetailsSection />
+
+    <BukkaMeals />
     <Footer />
     <UnAuthenticatedCheckout push={push} />
     {/* <ClosedNotification /> */}
@@ -48,9 +46,9 @@ const BukkaMenuScene = ({ push }) => (
 export default BukkaMenuScene;
 
 BukkaMenuScene.defaultProps = {
-  push: () => {},
+  push: () => {}
 };
 
 BukkaMenuScene.propTypes = {
-  push: PropTypes.func,
+  push: PropTypes.func
 };

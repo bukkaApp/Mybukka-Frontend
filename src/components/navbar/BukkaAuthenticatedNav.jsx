@@ -2,12 +2,14 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
 import NavLink from '../navlink/Navlink';
 import UserDefaultImage from './UserDefaultImage';
-import navAuthentication from './actionCreators/navAuthentication';
+import navAuthentication from './actionCreators/navAuthentication'
+
 import './bukka-authenticated-nav.scss';
 import './navbar.scss';
 
@@ -83,13 +85,15 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   );
 };
 
-export default connect(null, {
-  navigateToNextRoute: navAuthentication
-})(BukkaAuthenticatedNav);
+export default connect(
+  null,
+  {
+    navigateToNextRoute: navAuthentication
+  }
+)(BukkaAuthenticatedNav);
 
 BukkaAuthenticatedNav.propTypes = {
   push: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
-  navigateToNextRoute: PropTypes.func.isRequired,
+  navigateToNextRoute: PropTypes.func.isRequired
 };
-

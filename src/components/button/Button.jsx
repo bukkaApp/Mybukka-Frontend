@@ -14,6 +14,7 @@ const Button = ({
   disabled,
   dataTarget,
   dataToggle,
+  dataDismiss,
   id,
 }) => (
   <button
@@ -25,6 +26,7 @@ const Button = ({
     data-toggle={dataToggle}
     data-testid="button"
     id={id}
+    data-dismiss={dataDismiss}
   >
     {text || children}
   </button>
@@ -36,6 +38,7 @@ Button.defaultProps = {
   text: '',
   dataTarget: '',
   dataToggle: '',
+  dataDismiss: '',
   id: shortId.generate(),
   children: <div />,
   disabled: false
@@ -54,4 +57,5 @@ Button.propTypes = {
   dataTarget: PropTypes.string,
   dataToggle: PropTypes.string,
   id: PropTypes.string,
+  dataDismiss: PropTypes.string,
 };

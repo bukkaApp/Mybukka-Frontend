@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from 'Components/button/Button';
 import ButtonGroup from 'Components/button/ButtonGroup';
 
-const ToggleQuantity = ({ handleClick, text }) => (
+const ToggleQuantity = ({ text, id, handleClick }) => (
   <Button
     text={text}
     classNames="default-btn toggle-quantity d-block"
     type="button"
     handleClick={handleClick}
+    id={id}
   />
 );
 
@@ -22,25 +23,27 @@ const Quantity = ({ currentQuantity }) => (
   />
 );
 
-const SelectQuantityButtons = () => {
-  const [quantity, setQuantity] = useState(1);
-
-  return (
-    <ButtonGroup classNames="merge-group d-flex justify-content-center">
-      <ToggleQuantity text="-" handleClick={() => setQuantity(quantity - 1)} />
-      <Quantity handleClick={() => {}} currentQuantity={quantity} />
-      <ToggleQuantity text="+" handleClick={() => setQuantity(quantity + 1)} />
-    </ButtonGroup>
-  );
-};
+const SelectQuantityButtons = ({ manipulateMeal, quantity }) => (
+  <ButtonGroup classNames="merge-group d-flex justify-content-center">
+    <ToggleQuantity text="-" handleClick={() => manipulateMeal('reduce')} />
+    <Quantity currentQuantity={quantity} />
+    <ToggleQuantity text="+" handleClick={() => manipulateMeal('increase')} />
+  </ButtonGroup>
+);
 
 export default SelectQuantityButtons;
 
 ToggleQuantity.propTypes = {
+  text: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
 };
 
 Quantity.propTypes = {
-  currentQuantity: PropTypes.number.isRequired,
+  currentQuantity: PropTypes.number.isRequired
+};
+
+SelectQuantityButtons.propTypes = {
+  manipulateMeal: PropTypes.func.isRequired,
+  quantity: PropTypes.number.isRequired,
 };

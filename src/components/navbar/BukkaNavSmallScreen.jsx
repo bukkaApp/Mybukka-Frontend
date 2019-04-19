@@ -7,7 +7,7 @@ import SearchPlusMenu from '../icons/SearchPlusMenu';
 import './bukkaNavSmallScreen.scss';
 
 const BukkaNavSmallScreen = ({ currentCategory }) => (
-  <div className="bukka-nav-small">
+  <div className="bukka-nav-small d-lg-none">
     <Container>
       <nav className="navbar navbar-light bukka-nav-small-content">
         <div className="current-category">

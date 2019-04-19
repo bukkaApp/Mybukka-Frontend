@@ -33,7 +33,7 @@ const TextOverlay = ({ top, bottom, heading, subHeading }) => (
 );
 
 const NormalText = ({
-  remark, mealName, deliveryCost, deliveryTime, rating, delivery
+  remark, mealName, deliveryCost, deliveryTime, rating, delivery, tags
 }) => (
   <div className="details">
     <h3>
@@ -47,15 +47,13 @@ const NormalText = ({
         </span>
         }
       </span>
-      {rating && <span className="rating">{rating}</span>}
+      <span className="rating">{tags ? tags[0] : 'POPULAR'}</span>
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
-      {delivery && deliveryCost &&
+      {deliveryCost &&
       <span className="custom-delivery-badge">Delivery</span>
       }
-      {deliveryCost && deliveryTime && <i className="dot-spacing">.</i>}
-      {deliveryTime && <div className="delivery-time-text">{deliveryTime}</div>}
     </div>
   </div>
 );
@@ -64,9 +62,8 @@ const BukkaCard = ({
   mealName,
   remark,
   imageUrl,
-  deliveryCost,
+  deliveryPrice,
   deliveryTime,
-  rating,
   imageHeight,
   textOverlay,
   top,
@@ -103,9 +100,8 @@ const BukkaCard = ({
       )}
       {!textOverlay && (
         <NormalText
-          deliveryCost={deliveryCost}
+          deliveryCost={deliveryPrice}
           deliveryTime={deliveryTime}
-          rating={rating}
           mealName={mealName}
           remark={remark}
           delivery={delivery}
@@ -140,7 +136,6 @@ NormalText.propTypes = {
   mealName: PropTypes.string,
   deliveryCost: PropTypes.number,
   deliveryTime: PropTypes.string,
-  rating: PropTypes.string
 };
 
 TextOverlay.propTypes = {
@@ -174,11 +169,12 @@ BukkaCard.defaultProps = {
   rating: '',
   imageHeight: '',
   textOverlay: false,
-  deliveryCost: 0,
+  deliveryPrice: 0,
   top: false,
   bottom: false,
   heading: 'Free Delivery',
-  subHeading: ''
+  subHeading: '',
+  tags: ['nearby'],
 };
 
 BukkaCard.propTypes = {
@@ -188,9 +184,8 @@ BukkaCard.propTypes = {
   remark: PropTypes.bool,
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
-  deliveryCost: PropTypes.number,
+  deliveryPrice: PropTypes.number.isRequired,
   deliveryTime: PropTypes.string,
-  rating: PropTypes.string,
   imageHeight: PropTypes.string,
   textOverlay: PropTypes.bool,
   top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
@@ -206,5 +201,6 @@ GetBukka.defaultProps = {
 
 GetBukka.propTypes = {
   classNames: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  slug: PropTypes.string.isRequired,
 };

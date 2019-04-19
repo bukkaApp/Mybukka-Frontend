@@ -96,18 +96,21 @@ const Carousel = ({
                   key={shortId.generate()}
                   remark={bukka.remark}
                   mealName={bukka.title}
-                  imageUrl={bukka.imageUrl}
                   deliveryCost={bukka.deliveryCost}
                   deliveryTime={bukka.deliveryTime}
                   delivery={delivery}
                   rating={bukka.rating}
-                  classNames={classNames}
                   textOverlay={textOverlay}
                   imageHeight={imageHeight}
                   heading={bukka.heading}
                   subHeading={bukka.subHeading}
                   top={bukka.position.top}
                   bottom={bukka.position.bottom}
+                  imageUrl={bukka.imageUrl}
+                  deliveryPrice={bukka.deliveryPrice}
+                  tags={bukka.tags}
+                  slug={bukka.slug}
+                  classNames={`${classNames}`}
                 />
               ))}
             </div>

@@ -31,7 +31,7 @@ const SearchLocationSection = ({ push }) => (
 
 const IntroSection = ({ push }) => (
   <div className="intro-section">
-    <PrimaryNavbar push={push} bukka />
+    <PrimaryNavbar push={push} />
     <LargeTextSection />
     <SmallTextSection />
     <SearchLocationSection push={push} />

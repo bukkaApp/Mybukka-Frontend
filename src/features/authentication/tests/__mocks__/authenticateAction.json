@@ -8,7 +8,7 @@
   "error": {
     "response": {
       "data": {
-        "message": "this user already eists"
+        "message": "this user already exists"
       }
     }
   }

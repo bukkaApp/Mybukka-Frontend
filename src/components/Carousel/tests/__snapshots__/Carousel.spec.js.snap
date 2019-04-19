@@ -314,24 +314,12 @@ Object {
                           <span
                             class="rating"
                           >
-                            popular
+                            nearby
                           </span>
                         </h3>
                         <div
                           class="delivery"
                         >
-                          <h4
-                            class="price-badge"
-                          >
-                            ₦
-                            300
-                            .00
-                          </h4>
-                          <i
-                            class="dot-spacing"
-                          >
-                            .
-                          </i>
                           <div
                             class="delivery-time-text"
                           >
@@ -403,23 +391,15 @@ Object {
                               </span>
                             </span>
                           </span>
-                          
+                          <span
+                            class="rating"
+                          >
+                            nearby
+                          </span>
                         </h3>
                         <div
                           class="delivery"
                         >
-                          <h4
-                            class="price-badge"
-                          >
-                            ₦
-                            400
-                            .00
-                          </h4>
-                          <i
-                            class="dot-spacing"
-                          >
-                            .
-                          </i>
                           <div
                             class="delivery-time-text"
                           >

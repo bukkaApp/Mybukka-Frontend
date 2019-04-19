@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+import removeFromCartAction from 'Redux/removeFromCartAction';
 import Price from 'Components/badge/Price';
 import Button from 'Components/button/Button';
-import itemDetails from '../InputAttribute/inputData.json';
 
 import './addedItem.scss';
 
@@ -41,48 +43,38 @@ const OrderTray = ({ handleRemove, handleEdit, name, price }) => (
   </div>
 );
 
-const AddedItem = () => {
-  const [suggestedItemsInTray, setTray] = useState(itemDetails.suggestedTray);
-
-  const removeItemHandler = (index) => {
-    // get the state
-    const trayItem = [...suggestedItemsInTray];
-    trayItem.splice(index, 1);
-    // set the suggestedItemsInTray state
-    setTray(trayItem);
-    // replace in json but no need if redux state
-    itemDetails.suggestedTray = trayItem;
-  };
-
-  useEffect(() => {
-    setTray(itemDetails.suggestedTray);
-  });
-
-  return (
-    <div className="cart-menu">
-      <div className="cart-bukka-details">
-        <h5 className="cart-bukka-name">{"Mel's Drive-In"}</h5>
-        <h5 className="cart-bukka-view-menu">
-          <Link className="text-success view-menu-text" to="/feed">
-            VIEW MENU
-          </Link>
-        </h5>
-      </div>
-
-      {suggestedItemsInTray.map((item, index) => (
-        <OrderTray
-          name={item.name}
-          price={item.price}
-          key={item.name}
-          handleRemove={() => removeItemHandler(index)}
-          handleEdit={() => {}}
-        />
-      ))}
+const AddedItem = ({ cart, bukka, removeFromCart }) => (
+  <div className="cart-menu">
+    <div className="cart-bukka-details">
+      <h5 className="cart-bukka-name">{bukka.name}</h5>
+      <h5 className="cart-bukka-view-menu">
+        <Link className="text-success view-menu-text" to={`/bukka/${bukka.slug}`}>
+          VIEW MENU
+        </Link>
+      </h5>
     </div>
-  );
-};
 
-export default AddedItem;
+    {cart.map(item => (
+      <OrderTray
+        name={item.title}
+        price={item.price}
+        key={item.slug}
+        handleRemove={() => removeFromCart(item.slug)}
+        handleEdit={() => {}}
+      />
+    ))}
+  </div>
+);
+
+const mapStateToProps = ({
+  fetchBukkaMenuReducer: { cart },
+  fetchBukkaReducer: { fetchedBukka }
+}) => ({ cart, bukka: fetchedBukka });
+
+export default connect(
+  mapStateToProps,
+  { removeFromCart: removeFromCartAction }
+)(AddedItem);
 
 OrderTray.propTypes = {
   handleRemove: PropTypes.func.isRequired,

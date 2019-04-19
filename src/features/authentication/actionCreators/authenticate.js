@@ -17,8 +17,8 @@ const authenticateUser = (url, data) => async (dispatch) => {
     dispatch(authenticateUserAction('SUCCESS', request.data));
     dispatch(loading(AUTHENTICATE_USER, false));
   } catch (error) {
-    dispatch(authenticateUserAction('ERROR', error.response.data));
     dispatch(loading(AUTHENTICATE_USER, false));
+    dispatch(authenticateUserAction('ERROR', error.response.data));
   }
 };
 

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import './bukkaImage.scss';
@@ -10,8 +12,19 @@ const BukkaImage = ({ imageUrl }) => (
   />
 );
 
-export default BukkaImage;
+const mapStateToProps = ({
+  fetchBukkaReducer: {
+    fetchedBukka: { imageUrl }
+  }
+}) => ({
+  imageUrl
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(BukkaImage);
 
 BukkaImage.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired
 };

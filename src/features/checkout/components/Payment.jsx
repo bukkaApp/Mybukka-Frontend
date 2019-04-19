@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { connect } from 'react-redux';
 
 import InputField from 'Components/input/InputField';
 import Button from 'Components/button/Button';
+import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
 
 import { validateAField, validateAllFields } from '../validation/validateField';
 import inputFeild from '../InputAttribute/inputData.json';
-import './payment.scss';
 import AuthForm from '../common/AuthForm';
 import Demarcation from '../common/SmallScreenDivider';
 
-const Payment = () => {
+import './payment.scss';
+
+const Payment = ({ manipulateCardDetails }) => {
   const [validationErrors, setValidationErrors] = useState({
     number: '',
     expDate: '',
@@ -45,6 +49,11 @@ const Payment = () => {
       ...validation
     });
   };
+
+  useEffect(() => {
+    manipulateCardDetails(inputData);
+    return () => ({});
+  });
 
   return (
     <section className="mb-2 mt-4">
@@ -85,4 +94,7 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default connect(
+  () => ({}),
+  { manipulateCardDetails: manipulateCardDetailsAction }
+)(Payment);

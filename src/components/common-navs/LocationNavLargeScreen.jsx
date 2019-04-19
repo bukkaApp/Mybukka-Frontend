@@ -21,7 +21,9 @@ const DeliveryOrPickupNav = ({ mode, handleClick }) => (
           tabIndex="0"
           role="button"
           onClick={() => handleClick('delivery')}
-        >Delivery</div>
+        >
+          Delivery
+        </div>
         <div className="delivery-or-pickup-divider">or</div>
         <div
           className="delivery-or-pickup-mode"
@@ -29,7 +31,9 @@ const DeliveryOrPickupNav = ({ mode, handleClick }) => (
           tabIndex="0"
           role="button"
           onClick={() => handleClick('pickup')}
-        >Pickup</div>
+        >
+          Pickup
+        </div>
       </div>
       <div
         style={{ left: mode === 'pickup' ? '85px' : '2px' }}
@@ -68,7 +72,7 @@ const CurrentLocation = ({ handleClick, focus }) => (
       {focus && (
         <div className="search-container">
           <div className="search-wrapper">
-            <SuggestionsDropdown handleClick={() => { }} />
+            <SuggestionsDropdown handleClick={() => {}} />
           </div>
         </div>
       )}
@@ -76,7 +80,11 @@ const CurrentLocation = ({ handleClick, focus }) => (
   </div>
 );
 
-const LocationNavLargeScreen = ({ mode, setDeliveryModeAction, handleMapClick }) => {
+const LocationNavLargeScreen = ({
+  mode,
+  setDeliveryModeAction,
+  handleMapClick,
+}) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
   const [showMap, setMapDisplay] = useState(false);
@@ -125,9 +133,7 @@ const LocationNavLargeScreen = ({ mode, setDeliveryModeAction, handleMapClick })
               handleClick={handleDeliveryorPickup}
               mode={mode}
             />
-            <div
-              className="delivery-or-pickup-vertical-divider"
-            />
+            <div className="delivery-or-pickup-vertical-divider" />
             <CurrentLocation handleClick={handleClick} focus={isFocused} />
           </div>
         </Container>
@@ -164,7 +170,6 @@ LocationNavLargeScreen.propTypes = {
   mode: PropTypes.string.isRequired,
   setDeliveryModeAction: PropTypes.func.isRequired
 };
-
 
 CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired,

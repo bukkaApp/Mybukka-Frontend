@@ -14,27 +14,32 @@ const FoodNearBy = ({
   classNames,
   imageHeight,
   children,
-  handleRefFocus,
+  handleRefFocus
 }) => (
   <div className="mt-4 mb-4 responsive-px-15">
-    {title &&
-    <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
-    }
+    {title && (
+      <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
+    )}
     {children}
-    <div className="row pb-4 ml-1">
-      {bukkaData.map(bukka => (
-        <BukkaCard
-          key={shortId.generate()}
-          imageUrl={bukka.imageUrl}
-          mealName={bukka.title}
-          delivery={delivery}
-          deliveryCost={bukka.deliveryCost}
-          deliveryTime={bukka.deliveryTime}
-          rating={bukka.rating}
-          imageHeight={imageHeight}
-          classNames={classNames}
-        />
-      ))}
+    <div>
+      {bukkaData.length > 0 && (
+        <div className="row pb-4 ml-1">
+          {bukkaData.map(bukka => (
+            <BukkaCard
+              key={shortId.generate()}
+              imageUrl={bukka.imageUrl}
+              mealName={bukka.name}
+              delivery={delivery}
+              deliveryPrice={bukka.deliveryPrice}
+              deliveryTime={bukka.deliveryPrice}
+              rating={bukka.rating}
+              imageHeight={imageHeight}
+              classNames={classNames}
+              href={`/bukka/${bukka.slug}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   </div>
 );

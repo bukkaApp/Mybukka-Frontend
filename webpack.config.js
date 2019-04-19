@@ -29,14 +29,15 @@ module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
   devtool: 'eval',
   devServer: {
-    contentBase: './build',
+    contentBase: './client',
     port: 7700,
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js'
+    filename: 'js/bundle.js',
+    publicPath: '/',
   },
   plugins: [
     HtmlWebpackPluginConfig,

@@ -44,6 +44,7 @@ Object {
             >
               <button
                 class="cart-action-button-primary"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -54,6 +55,7 @@ Object {
               </button>
               <button
                 class="cart-action-button-default"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -93,6 +95,7 @@ Object {
             >
               <button
                 class="cart-action-button-primary"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -103,6 +106,7 @@ Object {
               </button>
               <button
                 class="cart-action-button-default"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -168,6 +172,7 @@ Object {
           >
             <button
               class="cart-action-button-primary"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
@@ -178,6 +183,7 @@ Object {
             </button>
             <button
               class="cart-action-button-default"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
@@ -217,6 +223,7 @@ Object {
           >
             <button
               class="cart-action-button-primary"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
@@ -227,6 +234,7 @@ Object {
             </button>
             <button
               class="cart-action-button-default"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""

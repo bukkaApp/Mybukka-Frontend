@@ -131,6 +131,7 @@ Object {
                         >
                           <button
                             class="button col-md-12 primary-button mt-5"
+                            data-dismiss=""
                             data-target=""
                             data-testid="button"
                             data-toggle=""
@@ -156,6 +157,7 @@ Object {
                         >
                           <button
                             class="facebk-btn col-md-12"
+                            data-dismiss=""
                             data-target=""
                             data-testid="button"
                             data-toggle=""
@@ -173,6 +175,7 @@ Object {
                           </p>
                           <button
                             class="btn-link auth-footer-btn"
+                            data-dismiss=""
                             data-target=""
                             data-testid="button"
                             data-toggle=""
@@ -210,6 +213,7 @@ Object {
           >
             <button
               class="small-outline-button"
+              data-dismiss=""
               data-target="#modal"
               data-testid="button"
               data-toggle="modal"
@@ -220,6 +224,7 @@ Object {
             </button>
             <button
               class="small-button"
+              data-dismiss=""
               data-target="#modal"
               data-testid="button"
               data-toggle="modal"
@@ -738,6 +743,7 @@ Object {
                 <div>
                   <button
                     class="small-button-save"
+                    data-dismiss=""
                     data-target=""
                     data-testid="button"
                     data-toggle=""
@@ -757,6 +763,7 @@ Object {
             >
               <button
                 class="big-button"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -823,6 +830,7 @@ Object {
                       >
                         <button
                           class="cart-action-button-primary"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -833,6 +841,7 @@ Object {
                         </button>
                         <button
                           class="cart-action-button-default"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -872,6 +881,7 @@ Object {
                       >
                         <button
                           class="cart-action-button-primary"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -882,6 +892,7 @@ Object {
                         </button>
                         <button
                           class="cart-action-button-default"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -923,6 +934,7 @@ Object {
                   >
                     <button
                       class="left btn-chevron"
+                      data-dismiss=""
                       data-target=""
                       data-testid="button"
                       data-toggle=""
@@ -950,6 +962,7 @@ Object {
                     </button>
                     <button
                       class="right btn-chevron"
+                      data-dismiss=""
                       data-target=""
                       data-testid="button"
                       data-toggle=""
@@ -1006,6 +1019,7 @@ Object {
                         </div>
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1054,6 +1068,7 @@ Object {
                         </div>
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1102,6 +1117,7 @@ Object {
                         </div>
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1150,6 +1166,7 @@ Object {
                         </div>
                         <button
                           class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1253,6 +1270,7 @@ Object {
             >
               <button
                 class="big-button"
+                data-dismiss=""
                 data-target=""
                 data-testid="button"
                 data-toggle=""
@@ -1398,6 +1416,7 @@ Object {
                       >
                         <button
                           class="button col-md-12 primary-button mt-5"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1423,6 +1442,7 @@ Object {
                       >
                         <button
                           class="facebk-btn col-md-12"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1440,6 +1460,7 @@ Object {
                         </p>
                         <button
                           class="btn-link auth-footer-btn"
+                          data-dismiss=""
                           data-target=""
                           data-testid="button"
                           data-toggle=""
@@ -1477,6 +1498,7 @@ Object {
         >
           <button
             class="small-outline-button"
+            data-dismiss=""
             data-target="#modal"
             data-testid="button"
             data-toggle="modal"
@@ -1487,6 +1509,7 @@ Object {
           </button>
           <button
             class="small-button"
+            data-dismiss=""
             data-target="#modal"
             data-testid="button"
             data-toggle="modal"
@@ -2005,6 +2028,7 @@ Object {
               <div>
                 <button
                   class="small-button-save"
+                  data-dismiss=""
                   data-target=""
                   data-testid="button"
                   data-toggle=""
@@ -2024,6 +2048,7 @@ Object {
           >
             <button
               class="big-button"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
@@ -2090,6 +2115,7 @@ Object {
                     >
                       <button
                         class="cart-action-button-primary"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2100,6 +2126,7 @@ Object {
                       </button>
                       <button
                         class="cart-action-button-default"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2139,6 +2166,7 @@ Object {
                     >
                       <button
                         class="cart-action-button-primary"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2149,6 +2177,7 @@ Object {
                       </button>
                       <button
                         class="cart-action-button-default"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2190,6 +2219,7 @@ Object {
                 >
                   <button
                     class="left btn-chevron"
+                    data-dismiss=""
                     data-target=""
                     data-testid="button"
                     data-toggle=""
@@ -2217,6 +2247,7 @@ Object {
                   </button>
                   <button
                     class="right btn-chevron"
+                    data-dismiss=""
                     data-target=""
                     data-testid="button"
                     data-toggle=""
@@ -2273,6 +2304,7 @@ Object {
                       </div>
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2321,6 +2353,7 @@ Object {
                       </div>
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2369,6 +2402,7 @@ Object {
                       </div>
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2417,6 +2451,7 @@ Object {
                       </div>
                       <button
                         class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
+                        data-dismiss=""
                         data-target=""
                         data-testid="button"
                         data-toggle=""
@@ -2520,6 +2555,7 @@ Object {
           >
             <button
               class="big-button"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""

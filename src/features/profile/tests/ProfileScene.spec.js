@@ -24,7 +24,8 @@ const store = mockStore({
   ] },
   postUserData: { errorMessage: '' },
   postUserAddress: { errorMessage: '', posted: false },
-  selectedLocationReducer: { coordinates: [3.361476, 6.5560715] }
+  selectedLocationReducer: { coordinates: [3.361476, 6.5560715] },
+  fetchBukkaMenuReducer: { cart: [], totalPriceInCart: 0 }
 });
 
 describe('Profile Scene component', () => {

@@ -12,7 +12,7 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
 const Home = ({ history: { push }, coordinates }) => {
-  // useEffect(() => () => push('/feed'), [coordinates]);
+  useEffect(() => () => push('/feed'), [coordinates]);
 
   return (
     <div className="home">
