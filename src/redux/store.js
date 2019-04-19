@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger'; // eslint-disable-line
 import thunk from 'redux-thunk';
 
-import homeReducer from 'Components/navbar/reducers';
+import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -36,11 +36,13 @@ import requestPasswordChangesReducer from
   '../features/forgotPassword/reducers/requestPasswordChangesReducer';
 import changePasswordReducer from
   '../features/forgotPassword/reducers/changePasswordReducer';
+import signOutReducer from '../components/navbar/reducers/signOutReducer';
 
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
-  homeReducer,
+  signOutReducer,
+  navbarAuthReducer,
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,

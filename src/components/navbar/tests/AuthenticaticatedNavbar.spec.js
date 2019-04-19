@@ -7,7 +7,7 @@ import AuthenticaticatedNavbar from '../BukkaAuthenticatedNav';
 
 describe('Primary Navbar', () => {
   const store = mockStore({
-    homeReducer: { type: 'Sign Up' },
+    navbarAuthReducer: { type: 'Sign Up' },
     authenticationReducer: {
       user: {},
       status: {
