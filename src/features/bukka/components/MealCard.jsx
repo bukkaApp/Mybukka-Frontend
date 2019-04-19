@@ -44,7 +44,7 @@ const MealPicture = ({ imageUrl }) => (
 );
 
 const MealCard = ({ title, imageUrl, description, price }) => (
-  <div className="meal-card" data-target="#modal" data-toggle="modal" >
+  <div className="meal-card" data-target="#bukkaAddToCart" data-toggle="modal" >
     <Row classNames="meals">
       <MealDetails title={title} price={price} description={description} />
       <MealPicture imageUrl={imageUrl} />

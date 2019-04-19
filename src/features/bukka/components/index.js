@@ -33,8 +33,8 @@ const BukkaMenuScene = ({ push }) => (
     <LocationNavSmallScreen />
     <div className="carousel-divider mb-0" />
     <BukkaDetailsSection bukkaName="Chipottle Fresh Bukka" />
-    <div className="pb-1 d-block d-sm-block d-md-none
-      d-lg-none d-xl-none"
+    <div className="pb-1 d-block d-sm-block d-md-none location-navbar
+     bukka-location-nav d-lg-none d-xl-none"
     >
       <BukkaNavSmallScreen currentCategory="Chippottle" />
     </div>

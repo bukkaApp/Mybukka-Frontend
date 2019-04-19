@@ -20,7 +20,7 @@ const props = {
 };
 
 const AddToCart = () => (
-  <Modal classNames="order-meals-section">
+  <Modal dataTarget="bukkaAddToCart" classNames="order-meals-section">
     <Row classNames="order-meals-section">
       <MealImage imageUrl={props.imageUrl} />
       <OrderOptions {...props} />
