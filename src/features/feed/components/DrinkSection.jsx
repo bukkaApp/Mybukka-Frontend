@@ -5,13 +5,18 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
+
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
-import LocationNavSmallScreen
-  from 'Components/common-navs/LocationNavSmallScreen';
+import BukkaNavSmallScreen
+  from 'Components/navbar/BukkaNavSmallScreen';
 
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
+
+import AddToCart from './AddToCart';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -59,18 +64,23 @@ const DrinkSection = ({
 
   return (
     <div className="container-fluid p-0">
+      <AddToCart />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>
             <AreasToExplore text="Drinks" bgImage={drinkBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen />
-              <LocationNavSmallScreen />
+              <LocationNavLargeScreen scheduleTime />
+              <div className="d-block d-sm-block d-md-none
+                d-lg-none d-xl-none"
+              >
+                <BukkaNavSmallScreen currentCategory="Wine Under $20" />
+              </div>
               <div id="flyout-left-container">
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Beer Under $15"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
@@ -78,7 +88,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Wine Under $20"
                   imageHeight="drinks-img-height"
                   bukkaData={lessWine}
@@ -86,7 +96,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Beer"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
@@ -94,7 +104,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="IMPORTED BEER"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
@@ -102,7 +112,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="CIDER"
                   imageHeight="drinks-img-height"
                   bukkaData={drinkData}
@@ -110,7 +120,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Wine"
                   imageHeight="drinks-img-height"
                   bukkaData={redWine}
@@ -118,7 +128,7 @@ const DrinkSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="White Wine"
                   imageHeight="drinks-img-height"
                   bukkaData={whiteWine}
@@ -129,6 +139,7 @@ const DrinkSection = ({
           </ExploreSection>
         </div>
       )}
+      <UnAuthenticatedCheckout push={push} />
     </div>
   );
 };

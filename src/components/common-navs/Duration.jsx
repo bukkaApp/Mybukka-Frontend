@@ -26,9 +26,9 @@ const scheduleData = [
   }
 ];
 
-const TimeLists = ({ lists, handleClick }) => (
-  <div className="custom-duration-dropdown">
-    <div className="custom-duration-dropdown-content">
+export const TimeLists = ({ lists, handleClick, classNames, maxHeight }) => (
+  <div className={`custom-duration-dropdown ${classNames}`}>
+    <div className={`custom-duration-dropdown-content ${maxHeight}`}>
       {lists.map(time => (
         <div
           key={time}
@@ -186,9 +186,19 @@ Duration.propTypes = {
   focus: PropTypes.bool.isRequired
 };
 
+TimeLists.defaultProps = {
+  classNames: '',
+  maxHeight: '',
+};
+
 TimeLists.propTypes = {
-  lists: PropTypes.arrayOf([PropTypes.string]).isRequired,
-  handleClick: PropTypes.func.isRequired
+  lists: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])).isRequired,
+  handleClick: PropTypes.func.isRequired,
+  classNames: PropTypes.string,
+  maxHeight: PropTypes.string,
 };
 
 Schedule.propTypes = {

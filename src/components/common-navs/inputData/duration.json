@@ -1,4 +1,24 @@
 {
+    "categoryItems": [
+        "*Price May Vary By Location*",
+        "Brewed Coffee",
+        "Cold Brew and Iced Coffee",
+        "Chocolate Beverages",
+        "Espresso Drinks",
+        "Iced Tea",
+        "Frappuccino",
+        "Starbucks Refreshers",
+        "Bottled Drinks",
+        "Kids' Drinks & Others",
+        "Smoothies",
+        "Fizzio™ Handcrafted Sodas",
+        "Bakery",
+        "Mercato",
+        "Starbucks Petities",
+        "Hot Breakfast",
+        "Sandwiches, Paninis, & Salads",
+        "Yogurt, Fruit, & Spreads"
+    ],
     "asapTime": [
         "Tomorrow",
         "As soon as possible (10-25 mins)"

@@ -32,7 +32,7 @@ const MapContainer = (props) => {
         initialCenter={{
           lat: 6.5419476,
           lng: 3.356072
-         }}
+        }}
         google={props.google}
         zoom={14}
       >

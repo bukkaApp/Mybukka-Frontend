@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
-import generateSmImageUrl from 'Utilities/generateSmallScreenImageUrl';
+import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
-import Navlink from 'Components/navlink/Navlink';
+// import Navlink from 'Components/navlink/Navlink';
 import Price from 'Components/badge/Price';
 
 import './BukkaCard.scss';
@@ -71,11 +71,15 @@ const BukkaCard = ({
   heading,
   subHeading,
   delivery,
+  dataTarget,
+  dataToggle,
 }) => {
-  const smImgUrl = generateSmImageUrl(imageUrl);
+  const smImgUrl = generateImageSize(imageUrl, '320');
+
+  const lgImgUrl = generateImageSize(imageUrl, '640');
 
   return (
-    <div className="mt-4 bukka-card">
+    <div className="mt-4 bukka-card" data-target={dataTarget} data-toggle={dataToggle}>
       <img
         className={`img-small-screen bukka-img ${imageHeight}`}
         src={smImgUrl}
@@ -83,7 +87,7 @@ const BukkaCard = ({
       />
       <img
         className={`img-large-screen bukka-img ${imageHeight}`}
-        src={imageUrl}
+        src={lgImgUrl}
         alt="alt_image"
       />
       {textOverlay && (
@@ -110,9 +114,7 @@ const BukkaCard = ({
 const GetBukka = ({ classNames, href, ...props }) => (
   <div className={`card-container ${classNames}`}>
     <div className="card-wrap">
-      <Navlink classNames="link" href={href}>
-        <BukkaCard {...props} />
-      </Navlink>
+      <BukkaCard {...props} />
     </div>
   </div>
 );
@@ -158,6 +160,8 @@ BottomOverlayText.propTypes = {
 };
 
 BukkaCard.defaultProps = {
+  dataTarget: '',
+  dataToggle: '',
   delivery: false,
   mealName: '',
   remark: false,
@@ -174,6 +178,8 @@ BukkaCard.defaultProps = {
 };
 
 BukkaCard.propTypes = {
+  dataTarget: PropTypes.string,
+  dataToggle: PropTypes.string,
   delivery: PropTypes.bool,
   remark: PropTypes.bool,
   mealName: PropTypes.string,

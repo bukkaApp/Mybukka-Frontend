@@ -52,12 +52,12 @@ describe('authenticate action creator test suite', () => {
         status: true,
       },
       {
-        type: 'AUTHENTICATE_USER_ERROR',
-        data: authenticateAction.error,
-      },
-      {
         type: 'AUTHENTICATE_USER_LOADING',
         status: false,
+      },
+      {
+        type: 'AUTHENTICATE_USER_ERROR',
+        data: authenticateAction.error,
       },
     ];
 

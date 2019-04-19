@@ -2,10 +2,13 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger'; // eslint-disable-line
 import thunk from 'redux-thunk';
 
-import homeReducer from 'Components/navbar/reducers';
+import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
+import checkoutModeReducer from
+  'Components/common-navs/reducers/checkoutModeReducer';
 
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
@@ -35,11 +38,13 @@ import manipulateCardDetailsReducer from '../features/checkout/reducers/manipula
 import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
 
 import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
+import signOutReducer from '../components/navbar/reducers/signOutReducer';
 
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
-  homeReducer,
+  signOutReducer,
+  navbarAuthReducer,
   deliveryModeReducer,
   locationsPredictionReducer,
   selectedLocationReducer,
@@ -57,7 +62,8 @@ const reducer = combineReducers({
   fetchBukkaReducer,
   manipulateCardDetailsReducer,
   chargeUserReducer,
-  finishTransactionReducer
+  finishTransactionReducer,
+  checkoutModeReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

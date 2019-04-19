@@ -8,6 +8,7 @@ const store = mockStore({
     show: true,
     status: 'pending',
   },
+  fetchBukkaMenuReducer: { cart: [], totalPriceInCart: 0 },
   getOrderHistoryReducer: { status: { fetched: true, error: false } },
 });
 

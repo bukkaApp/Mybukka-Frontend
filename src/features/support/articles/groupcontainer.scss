@@ -1,0 +1,66 @@
+.article-group-container {
+    width: 100%;
+    margin: 0px;
+    @media screen and (min-width: 768px) {
+        flex: 1 0 35%;
+    }
+}
+
+.article-group-title {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 21px;
+    margin: 39px 16px 20.5px;
+}
+
+.article-group-title-text {
+    font-family: "Roboto", sans-serif;
+    color: rgb(45, 49, 56);
+    -webkit-font-smoothing: antialiased;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.7px;
+}
+
+.article-group-message {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    color: rgb(143, 149, 163);
+    margin: 16px;
+}
+
+.article-group-card-container {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    color: rgb(143, 149, 163);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.article-group-card-content {
+    margin: 8px 0px 8px 16px;
+}
+
+.article-group-card-item {
+    margin: 8px 0px
+}
+
+.article-group-card-inline-item {
+    width: 75px;
+    display: inline-block;
+}
+
+.article-group-item-right {
+    text-align: center;
+    margin: 8px 16px 8px 0px;
+}

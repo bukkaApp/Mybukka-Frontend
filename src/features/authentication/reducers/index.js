@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
     case `${AUTHENTICATE_USER}_ERROR`:
       return {
         ...state,
-        user: action.data,
+        user: {},
         status: {
           authenticated: false,
           error: true,
