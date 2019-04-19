@@ -33,7 +33,7 @@ const BukkasToExploreSection = () => (
           delivery
           mealName={favorites[4].title}
           imageUrl={favorites[4].imageUrl}
-          deliveryCost={favorites[4].deliveryCost}
+          deliveryPrice={favorites[4].deliveryCost}
           deliveryTime={favorites[4].deliveryTime}
           rating={favorites[4].rating}
           remark={favorites[4].remark}

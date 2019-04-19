@@ -169,7 +169,7 @@ BukkaCard.defaultProps = {
   rating: '',
   imageHeight: '',
   textOverlay: false,
-  deliveryCost: 0,
+  deliveryPrice: 0,
   top: false,
   bottom: false,
   heading: 'Free Delivery',
