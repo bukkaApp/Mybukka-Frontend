@@ -8,7 +8,7 @@ import AuthModal from './common/AuthModal';
 import navAuthentication from './actionCreators/navAuthentication';
 import './navbar.scss';
 
-const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
+const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };
@@ -33,6 +33,7 @@ const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
       <div className="container">
         <nav className="navbar navbar-light">
           <Brand />
+          {authButton &&
           <div className="form-inline">
             <Button
               type="button"
@@ -49,6 +50,7 @@ const PrimaryNavbar = ({ push, navigateToNextRoute }) => {
               id="/signup"
             />
           </div>
+          }
         </nav>
       </div>
     </Fragment>
@@ -62,7 +64,12 @@ export default connect(
   }
 )(PrimaryNavbar);
 
+PrimaryNavbar.defaultProps = {
+  authButton: true
+};
+
 PrimaryNavbar.propTypes = {
+  authButton: PropTypes.bool,
   push: PropTypes.func.isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };

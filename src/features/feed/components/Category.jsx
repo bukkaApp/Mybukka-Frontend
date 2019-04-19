@@ -12,6 +12,7 @@ import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
 import NearByBukka from './NearByBukka';
+import favorites from '../data/favorites.json';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
@@ -50,7 +51,7 @@ const Category = ({
               <NearByBukka
                 classNames="col-lg-4 col-md-4 col-sm-12"
                 heading={false}
-                bukkaData={nearbyBukkas}
+                bukkaData={favorites}
                 imageHeight="img-height"
               />
             </Container>

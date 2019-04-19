@@ -6,8 +6,13 @@ import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
 import Navbar from 'Components/navbar';
 
-import LocationNavLargeScreen from
-  'Components/common-navs/LocationNavLargeScreen';
+import LocationNavLargeScreen
+  from 'Components/common-navs/LocationNavLarge';
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
+
+import LocationNavSmallScreen
+  from 'Components/common-navs/LocationNavSmallScreen';
 
 import AddToCart from '../addToCart';
 import BukkaImageSection from './BukkaImageSection';
@@ -19,15 +24,22 @@ import './bukkaScene.scss';
 const BukkaMenuScene = ({ push }) => (
   <div className="bukka-menu">
     <AddToCart />
-    <Navbar push={push} />
+    <Navbar push={push} bukka />
     <BukkaImageSection />
-    <div className="d-none sticky-nav-bar d-md-flex">
-      <LocationNavLargeScreen />
+    <LocationNavLargeScreen deliveryorpickup classNames="bukka-location-nav" />
+    <LocationNavSmallScreen />
+    <div className="carousel-divider mb-0" />
+    <div className="pb-1 d-block d-sm-block d-md-none location-navbar
+     bukka-location-nav border-none d-lg-none d-xl-none"
+    >
+      <BukkaNavSmallScreen currentCategory="breakfast" />
     </div>
-    <BukkaNavSmallScreen currentCategory="breakfast" />
     <BukkaDetailsSection />
+
     <BukkaMeals />
     <Footer />
+    <UnAuthenticatedCheckout push={push} />
+    {/* <ClosedNotification /> */}
   </div>
 );
 

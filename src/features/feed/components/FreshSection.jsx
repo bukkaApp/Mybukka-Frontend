@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
+
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen
@@ -14,6 +17,7 @@ import LocationNavSmallScreen
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
+import AddToCart from './AddToCart';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -58,25 +62,26 @@ const FreshSection = ({
 
   return (
     <div className="container-fluid p-0">
+      <AddToCart />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>
             <AreasToExplore text="Groceries" bgImage={freshBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen />
-              <LocationNavSmallScreen />
+              <LocationNavLargeScreen scheduleTime />
+              <LocationNavSmallScreen currentCategory="Customers Love" />
               <div>
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Customers Love"
                   imageHeight="fresh-img-height"
                   bukkaData={bukkaData}
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   // title="Dairy & Eggs"
                   title="MILK" // subTitle
                   imageHeight="fresh-img-height"
@@ -84,7 +89,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="EGGS"
                   subTitle="EGGS"
                   imageHeight="fresh-img-height"
@@ -92,7 +97,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Veggies"
                   subTitle="Fresh Veggies"
                   imageHeight="fresh-img-height"
@@ -100,7 +105,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="YOGURT"
                   subTitle="YOGURT"
                   imageHeight="fresh-img-height"
@@ -108,7 +113,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Greens"
                   subTitle="Fresh Greens"
                   imageHeight="fresh-img-height"
@@ -116,7 +121,7 @@ const FreshSection = ({
                 />
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-12"
+                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                   title="Fresh Fruit"
                   subTitle="Fresh Fruit"
                   imageHeight="fresh-img-height"
@@ -127,6 +132,7 @@ const FreshSection = ({
           </ExploreSection>
         </div>
       )}
+      <UnAuthenticatedCheckout push={push} />
     </div>
   );
 };

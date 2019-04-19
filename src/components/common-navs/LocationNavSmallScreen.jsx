@@ -50,30 +50,32 @@ const ButtonText = ({ mode }) => (
 );
 
 const CurrentLocation = ({ handleClick, mode }) => (
-  <Button type="button" classNames="small-nav-btn" handleClick={handleClick}>
+  <Button type="button" classNames="small-nav-btn container" handleClick={handleClick}>
     <ButtonText mode={mode} />
   </Button>
 );
 
 const LocationNavSmallScreen = ({ mode }) => (
-  <div className="d-block d-sm-block d-md-none
+  <Fragment>
+    <SelectLocationModal />
+    <div className="d-block d-sm-block d-md-none
       d-lg-none d-xl-none"
-  >
-    <div className="location-navbar-content">
-      <div className="options-center col-lg-10">
-        <div className="options-wrapper">
-          <div className="options">
-            <div className="btn-location">
-              <div data-target="#small-location-nav" data-toggle="modal">
-                <CurrentLocation mode={mode} handleClick={() => { }} />
+    >
+      <div className="location-navbar-content container">
+        <div className="options-center col-lg-10">
+          <div className="options-wrapper">
+            <div className="options">
+              <div className="btn-location">
+                <div data-target="#small-location-nav" data-toggle="modal">
+                  <CurrentLocation mode={mode} handleClick={() => { }} />
+                </div>
               </div>
-              <SelectLocationModal />
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </Fragment>
 );
 
 const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({

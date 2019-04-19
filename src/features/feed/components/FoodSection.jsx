@@ -85,6 +85,8 @@ const FoodSection = ({
                   >
                     <Map />
                   </div>
+                  {/* display carousel for map on small & medium screen */}
+                  {displayMap &&
                   <div className="d-flex d-md-flex d-lg-none
                   d-xl-none px-0 col-12"
                   >
@@ -96,6 +98,7 @@ const FoodSection = ({
                       classNames="col-lg-6 col-md-6 col-sm-12 col-12"
                     />
                   </div>
+                  }
                 </Container>
               </div>
             </div>

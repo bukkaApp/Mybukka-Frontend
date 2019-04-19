@@ -39,6 +39,9 @@ $fontFamily: 'Roboto', sans-serif;
   font-family: $fontFamily;
   font-size: 16px;
   text-transform: capitalize;
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
 }
 
 .custom-delivery-badge {
@@ -154,7 +157,13 @@ $fontFamily: 'Roboto', sans-serif;
 
 .overlay-top h5 {
   color: black;
-  font-size: 13px
+  font-size: 16px;
+  @media (max-width: 992px) {
+    font-size: 14px
+  }
+  @media (max-width: 767px) {
+    font-size: 14px
+  }
 }
 
 .overlay-bottom h5 {
