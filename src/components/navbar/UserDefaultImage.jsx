@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
-const UserDefaultImage = () => {
+const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
   const [dropdown, toggleDropdown] = useState(false);
   return (
     <div className="user-default-img">
@@ -12,7 +14,7 @@ const UserDefaultImage = () => {
           onClick={() => toggleDropdown(!dropdown)}
         >
           <img
-            src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png" // eslint-disable-line
+            src={`${imageUrl}`}
             alt="authenticated-img"
           />
         </button>
@@ -21,4 +23,25 @@ const UserDefaultImage = () => {
     </div>
   );
 };
-export default UserDefaultImage;
+
+const mapStateToProps = ({
+  fetchUserData: { userInfo: { userInfo }, }
+}) => ({
+  userInfo
+});
+
+export default connect(
+  mapStateToProps,
+  {})(UserDefaultImage);
+
+UserDefaultImage.defaultProps = {
+  userInfo: {
+    imageUrl: 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'
+  }
+};
+
+UserDefaultImage.propTypes = {
+  userInfo: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string
+  ]))
+};
