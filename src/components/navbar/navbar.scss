@@ -10,6 +10,14 @@
   }
 }
 
+.user-uploaded-img {
+  height: 52px;
+  width: 52px;
+  img {
+    border-radius: 50%;
+  }
+}
+
 .auth-btn-drop {
   background: transparent;
   border: 0;

@@ -3,7 +3,6 @@ import React, { Fragment, useEffect } from 'react';
 import Container from 'Components/container';
 import Row from 'Components/grid/Row';
 import PropTypes from 'prop-types';
-import request from 'superagent';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
 import InternalError from 'Components/not-found/InternalError';
@@ -15,6 +14,7 @@ import postUserData from '../actionCreators/sendUserData';
 import fetchUserData from '../actionCreators/fetchUserData';
 import deleteAddress from '../actionCreators/deleteAddress';
 import fetchUserAddress from '../actionCreators/fetchUserAddress';
+import uploadProfilePicture from '../actionCreators/uploadProfilePicture';
 
 import './profileScene.scss';
 
@@ -23,6 +23,7 @@ const ProfileScene = ({
   requestUserData,
   deleteUserAddress,
   requestUserAddress,
+  addProfilePicture,
   user,
   status,
   errorMessage,
@@ -45,20 +46,9 @@ const ProfileScene = ({
 
   const uploadImageToCloudinary = (event) => {
     const file = event.target.files[0];
-    const upload = request
-      .post(process.env.CLOUDINARY_UPLOAD_URL)
-      .field('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET)
-      .field('file', file);
-
-    upload.end(async (err, response) => {
-      if (!err) {
-        const data = {
-          ...userData,
-          imageUrl: response.body.secure_url
-        };
-        await editUserData('/user/profile', data);
-        await requestUserData('/user/profile');
-      }
+    addProfilePicture(file, userData, async (data) => {
+      await editUserData('/user/profile', data);
+      await requestUserData('/user/profile');
     });
   };
 
@@ -128,7 +118,8 @@ export default connect(
     requestUserData: fetchUserData,
     editUserData: postUserData,
     requestUserAddress: fetchUserAddress,
-    deleteUserAddress: deleteAddress
+    deleteUserAddress: deleteAddress,
+    addProfilePicture: uploadProfilePicture
   }
 )(ProfileScene);
 
@@ -154,6 +145,7 @@ const proptypes = PropTypes.objectOf(
 );
 
 ProfileScene.propTypes = {
+  addProfilePicture: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
   loading: PropTypes.bool,
   requestUserData: PropTypes.func.isRequired,
