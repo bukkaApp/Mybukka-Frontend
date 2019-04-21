@@ -11,7 +11,7 @@ import LocationNavLargeScreen
 import UnAuthenticatedCheckout
   from 'Components/common-navs/UnAuthenticatedCheckout';
 
-import LocationNavSmallScreen
+import LocationNavSmallScreen, { SelectLocationModal }
   from 'Components/common-navs/LocationNavSmallScreen';
 
 import AddToCart from '../addToCart';
@@ -24,16 +24,13 @@ import './bukkaScene.scss';
 const BukkaMenuScene = ({ push }) => (
   <div className="bukka-menu">
     <AddToCart />
+    <SelectLocationModal />
     <Navbar push={push} bukka />
     <BukkaImageSection />
     <LocationNavLargeScreen deliveryorpickup classNames="bukka-location-nav" />
     <LocationNavSmallScreen />
     <div className="carousel-divider mb-0" />
-    <div className="pb-1 d-block d-sm-block d-md-none location-navbar
-     bukka-location-nav border-none d-lg-none d-xl-none"
-    >
-      <BukkaNavSmallScreen currentCategory="breakfast" />
-    </div>
+    <BukkaNavSmallScreen classNames="top-0" currentCategory="breakfast" />
     <BukkaDetailsSection />
 
     <BukkaMeals />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
@@ -30,18 +30,41 @@ export const ReusableDropdown = ({ children, classNames }) => (
   </div>
 );
 
-export const ReusableButton = ({ handleClick, children, classNames }) => (
-  <div>
-    <Button
-      type="button"
-      classNames={`current-location-button ${classNames}`}
-      handleClick={handleClick}
-    >
-      {children}
-    </Button>
-  </div>
-);
+export const ReusableButton = ({ handleClick, children, classNames }) => {
+  let wrapperRef;
+  const [isFocused, setFocus] = useState(false);
 
+  const handleBtnClick = () => {
+    setFocus(!isFocused);
+    handleClick();
+  };
+
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      setFocus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
+
+  return (
+    <div ref={setWrapperRef}>
+      <Button
+        type="button"
+        classNames={`current-location-button ${classNames}`}
+        handleClick={handleBtnClick}
+      >
+        {children}
+      </Button>
+    </div>
+  );
+};
 ReusableButton.defaultProps = {
   classNames: ''
 };

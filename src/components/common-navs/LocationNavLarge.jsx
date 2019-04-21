@@ -14,6 +14,7 @@ import Magnifier from '../icons/Magnifier';
 import ChevronVertical from '../icons/ChevronVertical';
 import Duration, { TimeLists as CategoryLists } from './Duration';
 import CartDropdown from './CartDropdown';
+// import CartIconSection from './CartIconSection';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
 
@@ -134,6 +135,7 @@ const LocationNavLarge = ({
   classNames,
   deliveryorpickup,
   scheduleTime,
+  cartItemsQuantity,
 }) => {
   let wrapperRef;
   const unFocus = {
@@ -242,7 +244,7 @@ const LocationNavLarge = ({
               <span
                 className="cart-divider"
               />
-            4 cart
+              {cartItemsQuantity} cart
             </Button>
             <CartDropdown
               handleClick={handleCheckoutMode}
@@ -255,8 +257,12 @@ const LocationNavLarge = ({
   );
 };
 
-const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
-  mode
+const mapStateToProps = ({
+  deliveryModeReducer: { mode },
+  fetchBukkaMenuReducer: { cart }
+}) => ({
+  mode,
+  cartItemsQuantity: cart.length,
 });
 
 export default connect(
@@ -272,6 +278,7 @@ LocationNavLarge.defaultProps = {
 };
 
 LocationNavLarge.propTypes = {
+  cartItemsQuantity: PropTypes.number.isRequired,
   scheduleTime: PropTypes.bool,
   classNames: PropTypes.string,
   deliveryorpickup: PropTypes.bool,

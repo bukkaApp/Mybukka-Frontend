@@ -1,5 +1,7 @@
 import React from 'react';
 
+import removeFromCartAction from 'Redux/removeFromCartAction';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import shortId from 'shortid';
 import Price from '../badge/Price';
@@ -8,38 +10,16 @@ import Button from '../button/Button';
 
 import './cartdropdown.scss';
 
-const cart = [
-  {
-    title: 'Freshly Brewed Coffee',
-    category: 'Tall',
-    price: 2000
-  },
-  {
-    title: 'Freshly Brewed Coffee',
-    category: 'Tall',
-    price: 2000
-  },
-  {
-    title: 'Freshly Brewed Coffee',
-    category: 'Tall',
-    price: 2000
-  }
-];
-
-const SubTotal = ({ orderItems }) => {
-  const total = orderItems.reduce((a, b) => b.price + a, 0);
-
-  return (
-    <div className="custom-cart-subtotal">
-      <p className="m-0">
-        <span>Subtotal</span>
-      </p>
-      <p className="m-0 text-color">
-        <span>₦{total}.00</span>
-      </p>
-    </div>
-  );
-};
+const SubTotal = ({ totalPriceInCart }) => (
+  <div className="custom-cart-subtotal">
+    <p className="m-0">
+      <span>Subtotal</span>
+    </p>
+    <p className="m-0 text-color">
+      <span>₦{totalPriceInCart}.00</span>
+    </p>
+  </div>
+);
 
 const CheckoutBtn = ({ handleClick }) => (
   <Button
@@ -61,7 +41,7 @@ const CartHeader = () => (
   </div>
 );
 
-const CartItems = ({ title, category, price, number }) => (
+const CartItems = ({ title, category, price, number, removeFromCart }) => (
   <div className="cart-body-content">
     <div className="custom-cart-section">
       <div className="custom-cart-item">
@@ -76,60 +56,86 @@ const CartItems = ({ title, category, price, number }) => (
         </div>
         <Price price={price} />
       </div>
-      <span className="cart-cancel-icon">
+      <span
+        onClick={removeFromCart}
+        tabIndex={0}
+        role="button"
+        className="cart-cancel-icon"
+      >
         <Times />
       </span>
     </div>
   </div>
 );
 
-const CartDropdown = ({ focus, handleClick }) => {
+const CartDropdown = ({
+  orderItems,
+  orderQuantity,
+  focus,
+  handleClick,
+  removeFromCart,
+  totalPriceInCart,
+}) => {
   const handleCheckoutMode = () => {
     handleClick(true);
   };
 
-  if (!focus || (focus && cart.length <= 0)) {
+  if (!focus || (focus && orderQuantity <= 0)) {
     return null;
   }
   return (
-    <div className={`cart-container ${cart.length <= 0 ? 'd-none' : ''}`}>
+    <div className={`cart-container ${orderQuantity <= 0 ? 'd-none' : ''}`}>
       <div>
         <CartHeader />
         <div className={`custom-cart-body ${
-          cart.length > 2 ? 'cart-body-height' : ''
+          orderQuantity > 2 ? 'cart-body-height' : ''
         }`}
         >
-          {cart.map((el, idx) => (<CartItems
+          {orderItems.map((item, idx) => (<CartItems
             key={shortId.generate()}
-            title={el.title}
-            category={el.category}
-            price={el.price}
+            title={item.title}
+            removeFromCart={() => removeFromCart(item.slug)}
+            category={item.category}
+            price={item.price}
             number={idx + 1}
           />))}
         </div>
-        <SubTotal orderItems={cart} />
+        <SubTotal totalPriceInCart={totalPriceInCart} />
         <CheckoutBtn handleClick={handleCheckoutMode} />
       </div>
     </div>
   );
 };
 
-export default CartDropdown;
+const mapStateToProps = ({ fetchBukkaMenuReducer: { cart, totalPriceInCart } }) => ({
+  orderQuantity: cart.length,
+  orderItems: cart,
+  totalPriceInCart
+});
+
+export default connect(
+  mapStateToProps,
+  { removeFromCart: removeFromCartAction }
+)(CartDropdown);
 
 CheckoutBtn.propTypes = {
   handleClick: PropTypes.func.isRequired
 };
 
 CartDropdown.propTypes = {
+  removeFromCart: PropTypes.func.isRequired,
+  totalPriceInCart: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
-  focus: PropTypes.bool.isRequired
-};
-
-SubTotal.propTypes = {
+  focus: PropTypes.bool.isRequired,
   orderItems: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.number
-  ])).isRequired
+  ])).isRequired,
+  orderQuantity: PropTypes.number.isRequired
+};
+
+SubTotal.propTypes = {
+  totalPriceInCart: PropTypes.number.isRequired
 };
 
 CartItems.defaultProps = {
@@ -139,6 +145,7 @@ CartItems.defaultProps = {
 };
 
 CartItems.propTypes = {
+  removeFromCart: PropTypes.func.isRequired,
   title: PropTypes.string,
   category: PropTypes.string,
   price: PropTypes.oneOfType([

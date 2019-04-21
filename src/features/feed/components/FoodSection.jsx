@@ -8,7 +8,7 @@ import Container from 'Components/container/Container';
 
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLargeScreen';
-import LocationNavSmallScreen
+import LocationNavSmallScreen, { SelectLocationModal }
   from 'Components/common-navs/LocationNavSmallScreen';
 
 import Carousel from 'Components/Carousel/Carousel';
@@ -44,6 +44,7 @@ const FoodSection = ({
 
   return (
     <div className="container-fluid p-0">
+      <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />

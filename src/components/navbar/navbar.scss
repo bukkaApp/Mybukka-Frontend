@@ -3,8 +3,8 @@
 }
 
 .user-default-img {
-  height: 32px;
-  width: 32px;
+  height: 36px;
+  width: 36px;
   img {
     border-radius: 50%;
   }
@@ -30,25 +30,6 @@
 
 .bg-transparent {
   background: transparent;
-}
-
-.bukka-btn {
-  display: flex;
-  min-width: 80px;
-  height: 32px;
-  cursor: pointer;
-  border-radius: 28px;
-  color: #222;
-  letter-spacing: 0.72px;
-  text-transform: uppercase;
-  line-height: normal;
-  outline: none !important;
-  font-size: 12px;
-  margin-right: 10px;
-  background-color: inherit;
-  font-family: 'Roboto', sans-serif;
-  border: none;
-  align-items: center;
 }
 
 @media (min-width: 767px) {

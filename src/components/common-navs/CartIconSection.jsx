@@ -11,7 +11,14 @@ import './cartIconSection.scss';
 
 const CartIconSection = ({ cartItemsQuantity }) => (
   <div className="cart-icon-section d-flex justify-content-end">
-    <Button classNames="cart-icon-indicator-button dropdown-toggle " type="button" handleClick={() => ({})} dataToggle="dropdown" aria-haspopup="true" id="dropdownMenuButton">
+    <Button
+      classNames="cart-icon-indicator-button dropdown-toggle cart-button border"
+      type="button"
+      handleClick={() => ({})}
+      dataToggle="dropdown"
+      aria-haspopup="true"
+      id="dropdownMenuButton"
+    >
       <span className="cart-icon-column">
         <Cart />
       </span>

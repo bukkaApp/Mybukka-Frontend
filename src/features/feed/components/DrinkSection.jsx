@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
 import UnAuthenticatedCheckout
@@ -10,6 +9,9 @@ import UnAuthenticatedCheckout
 
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
+import LocationNavSmallScreen, { SelectLocationModal }
+  from 'Components/common-navs/LocationNavSmallScreen';
+
 import BukkaNavSmallScreen
   from 'Components/navbar/BukkaNavSmallScreen';
 
@@ -65,6 +67,7 @@ const DrinkSection = ({
   return (
     <div className="container-fluid p-0">
       <AddToCart />
+      <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
@@ -77,6 +80,7 @@ const DrinkSection = ({
               >
                 <BukkaNavSmallScreen currentCategory="Wine Under $20" />
               </div>
+              <LocationNavSmallScreen />
               <div id="flyout-left-container">
                 <div className="carousel-divider" />
                 <NearByBukkaContainer
