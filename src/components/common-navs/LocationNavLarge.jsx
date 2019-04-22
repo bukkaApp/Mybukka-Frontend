@@ -13,7 +13,7 @@ import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import ChevronVertical from '../icons/ChevronVertical';
 import Duration, { TimeLists as CategoryLists } from './Duration';
-import CartDropdown from './CartDropdown';
+import CartDropdown from './CartIconSection';
 // import CartIconSection from './CartIconSection';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
