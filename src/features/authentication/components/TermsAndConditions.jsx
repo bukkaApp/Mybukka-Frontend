@@ -2,17 +2,33 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import NavLink from 'Components/navlink/Navlink';
 import './termsandconditions.scss';
 
-const TermsAndConditions = ({ title }) => {
+const TermsAndConditions = ({ title, handleLinkOptions }) => {
   if (title === 'Sign Up') {
     return (
       <div className="col-lg-12 padding terms">
         <p>
             By clicking the Sign Up or Facebook button, you agree to our{' '}
-          <NavLink classNames="link" href="/" text="Terms of Service " />
-            and <NavLink classNames="link" href="/" text="Privacy Policy" />.
+          <span
+            onClick={() => handleLinkOptions('/support/buyer')}
+            aria-pressed="false"
+            role="button"
+            tabIndex="0"
+            className="link"
+          >
+          Terms of Service
+          </span>
+          {' '}and{' '}
+          <span
+            onClick={() => handleLinkOptions('/')}
+            aria-pressed="false"
+            role="button"
+            tabIndex="0"
+            className="link"
+          >
+          Privacy Policy
+          </span>.
         </p>
       </div>
     );
@@ -23,9 +39,11 @@ const TermsAndConditions = ({ title }) => {
 export default TermsAndConditions;
 
 TermsAndConditions.defaultProps = {
-  title: 'Sign Up'
+  title: 'Sign Up',
+  handleLinkOptions: () => {}
 };
 
 TermsAndConditions.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  handleLinkOptions: PropTypes.func,
 };

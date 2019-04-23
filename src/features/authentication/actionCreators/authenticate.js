@@ -13,6 +13,7 @@ const authenticateUser = (url, data) => async (dispatch) => {
   try {
     dispatch(loading(AUTHENTICATE_USER, true));
     const request = await axios.post(url, data);
+    $('#authModal').modal('hide');
     localStorage.setItem('x-access-token', request.data.token);
     dispatch(authenticateUserAction('SUCCESS', request.data));
     dispatch(loading(AUTHENTICATE_USER, false));

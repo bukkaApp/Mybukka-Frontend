@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from '../../modal/Modal';
@@ -8,31 +8,18 @@ import AuthenticateLogin from '../../../features/authentication/LoginPage';
 import AuthenticateRegister from
   '../../../features/authentication/RegisterPage';
 
-const AuthModal = ({ type, push, status }) => {
-  const { authenticated } = status;
+const AuthModal = ({ type, push }) => {
   let AuthForm = AuthenticateLogin;
 
   if (type === '/signup') {
     AuthForm = AuthenticateRegister;
   }
 
-  const handleForgotPassword = () => {
-    $('.close').click();
-    push('/reset-password');
-  };
-
-  useEffect(() => {
-    if (authenticated) {
-      $('.close').click();
-    }
-  });
-
   return (
     <div className="container">
-      <Modal classNames="auth-modal">
+      <Modal dataTarget="authModal" classNames="auth-modal">
         <DismissModal classNames="close" />
         <AuthForm
-          handleForgotPassword={handleForgotPassword}
           authModal
           history={{ push }}
           classNames="pt-5"
@@ -59,5 +46,4 @@ AuthModal.defaultProps = {
 AuthModal.propTypes = {
   type: PropTypes.string,
   push: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
 };
