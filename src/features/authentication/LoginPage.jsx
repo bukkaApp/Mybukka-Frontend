@@ -16,7 +16,6 @@ import './auth.scss';
 
 export const LoginPage = ({
   status: { authenticated },
-  handleForgotPassword,
   authModal,
   errorMessage,
   classNames,
@@ -35,6 +34,11 @@ export const LoginPage = ({
     email: '',
     password: ''
   });
+
+  const handleLinkOptions = (link) => {
+    $('#authModal').modal('hide');
+    push(link);
+  };
 
   // fix error message coincedence for both signup and signin
   const errorMsg = isRequested ? errorMessage : '';
@@ -118,7 +122,7 @@ export const LoginPage = ({
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
-          handleForgotPassword={() => handleForgotPassword(push)}
+          handleLinkOptions={handleLinkOptions}
           errorMessage={errorMsg}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
@@ -154,11 +158,9 @@ LoginPage.defaultProps = {
   errorMessage: '',
   authModal: false,
   classNames: '',
-  handleForgotPassword: push => push('/reset-password')
 };
 
 LoginPage.propTypes = {
-  handleForgotPassword: PropTypes.func,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func

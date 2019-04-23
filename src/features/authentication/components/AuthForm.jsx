@@ -21,7 +21,7 @@ const ErrorMessage = ({ message }) => {
 const preventDefault = event => event.preventDefault();
 
 const AuthForm = ({
-  handleForgotPassword,
+  handleLinkOptions,
   handleChange,
   handleSubmit,
   domStructure,
@@ -43,11 +43,14 @@ const AuthForm = ({
       userEmail={userEmail}
       handleChange={handleChange}
       domStructure={domStructure}
-      handleForgotPassword={handleForgotPassword}
+      handleLinkOptions={handleLinkOptions}
       validationErrors={validationErrors}
     />
     <ErrorMessage message={errorMessage} />
-    <TermsAndConditions title={title} />
+    <TermsAndConditions
+      handleLinkOptions={handleLinkOptions}
+      title={title}
+    />
     <AuthButtonGroup
       isFormCompleted={isFormCompleted}
       title={title}
@@ -66,11 +69,11 @@ AuthForm.defaultProps = {
   errorMessage: '',
   slideToNextInput: false,
   userEmail: '',
-  handleForgotPassword: () => {}
+  handleLinkOptions: () => {}
 };
 
 AuthForm.propTypes = {
-  handleForgotPassword: PropTypes.func,
+  handleLinkOptions: PropTypes.func,
   slideToNextInput: PropTypes.bool,
   userEmail: PropTypes.string,
   handleChange: PropTypes.func.isRequired,

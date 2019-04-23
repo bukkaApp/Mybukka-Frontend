@@ -2,9 +2,9 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const ForgotPassword = ({ handleForgotPassword }) => (
+const ForgotPassword = ({ handleLinkOptions }) => (
   <div
-    onClick={handleForgotPassword}
+    onClick={() => handleLinkOptions('/reset-password')}
     aria-pressed="false"
     role="button"
     tabIndex="0"
@@ -19,6 +19,10 @@ const ForgotPassword = ({ handleForgotPassword }) => (
 
 export default ForgotPassword;
 
+ForgotPassword.defaultProps = {
+  handleLinkOptions: () => {}
+};
+
 ForgotPassword.propTypes = {
-  handleForgotPassword: PropTypes.func.isRequired
+  handleLinkOptions: PropTypes.func
 };

@@ -57,7 +57,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   if (windowWidth > 767) {
     btnAttribute = {
       dataToggle: 'modal',
-      dataTarget: '#modal',
+      dataTarget: '#authModal',
       handleClick: goToAuthRoute
     };
   }

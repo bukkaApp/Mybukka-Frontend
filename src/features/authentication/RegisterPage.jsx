@@ -38,6 +38,11 @@ export const RegisterPage = ({
     confirmPassword: '',
   });
 
+  const handleLinkOptions = (link) => {
+    $('#authModal').modal('hide');
+    push(link);
+  };
+
   // fix error message coincedence for both signup and signin
   const errorMsg = isRequested ? errorMessage : '';
 
@@ -111,6 +116,7 @@ export const RegisterPage = ({
           title="Sign Up"
           errorMessage={errorMsg}
           handleChange={handleChange}
+          handleLinkOptions={handleLinkOptions}
           validationErrors={validationErrors}
           handleSubmit={handleSubmit}
           domStructure={signUpDomStructure}

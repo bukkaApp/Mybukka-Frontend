@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from '../../modal/Modal';
@@ -16,23 +16,22 @@ const AuthModal = ({ type, push, status }) => {
     AuthForm = AuthenticateRegister;
   }
 
-  const handleForgotPassword = () => {
-    $('.close').click();
-    push('/reset-password');
-  };
-
-  useEffect(() => {
-    if (authenticated) {
-      $('.close').click();
+  if (authenticated) {
+    $('#authModal').modal('hide');
+    const body = document.body;
+    const backdrop = document.querySelector('.modal-backdrop');
+    if (body.className === 'modal-open' && backdrop) {
+      body.style.padding = 0;
+      body.className = '';
+      backdrop.remove();
     }
-  });
+  }
 
   return (
     <div className="container">
-      <Modal classNames="auth-modal">
+      <Modal dataTarget="authModal" classNames="auth-modal">
         <DismissModal classNames="close" />
         <AuthForm
-          handleForgotPassword={handleForgotPassword}
           authModal
           history={{ push }}
           classNames="pt-5"
@@ -53,11 +52,14 @@ const mapStateToProps = ({
 export default connect(mapStateToProps, null)(AuthModal);
 
 AuthModal.defaultProps = {
-  type: PropTypes.string,
+  type: '/login',
+  status: {
+    authenticated: false,
+  }
 };
 
 AuthModal.propTypes = {
   type: PropTypes.string,
   push: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  status: PropTypes.objectOf(PropTypes.bool),
 };
