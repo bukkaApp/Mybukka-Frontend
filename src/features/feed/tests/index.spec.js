@@ -28,6 +28,25 @@ const initialState = {
       error: true,
     }
   },
+  fetchBukkaMenuReducer: {
+    bukkaMenu: [
+      {
+        title: 'title',
+        imageUrl: 'www.imageUrl.com',
+        description: 'your description',
+        price: 4454,
+        category: 'african',
+        slug: 'any-way-slug'
+      }
+    ],
+    cart: [
+      {
+        name: 'name',
+        price: 90,
+        slug: 'jdj-dfj'
+      }
+    ]
+  },
   selectedLocationReducer: { coordinates: [3.7474, 3.4848] }
 };
 

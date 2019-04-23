@@ -11,8 +11,10 @@ import UnAuthenticatedCheckout
 
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
-import LocationNavSmallScreen
+import LocationNavSmallScreen, { SelectLocationModal }
   from 'Components/common-navs/LocationNavSmallScreen';
+import BukkaNavSmallScreen
+  from 'Components/navbar/BukkaNavSmallScreen';
 
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
@@ -63,6 +65,7 @@ const FreshSection = ({
   return (
     <div className="container-fluid p-0">
       <AddToCart />
+      <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
@@ -70,7 +73,8 @@ const FreshSection = ({
             <AreasToExplore text="Groceries" bgImage={freshBannerImage} />
             <div className="feed-main-content">
               <LocationNavLargeScreen scheduleTime />
-              <LocationNavSmallScreen currentCategory="Customers Love" />
+              <BukkaNavSmallScreen currentCategory="Customers Love" />
+              <LocationNavSmallScreen bukka />
               <div>
                 <div className="carousel-divider" />
                 <NearByBukkaContainer

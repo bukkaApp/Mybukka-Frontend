@@ -22,7 +22,7 @@ const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
   if (minWidth > 767) {
     btnAttribute = {
       dataToggle: 'modal',
-      dataTarget: '#modal',
+      dataTarget: '#authModal',
       handleClick: goToAuthRoute
     };
   }

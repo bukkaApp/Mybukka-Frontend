@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,18 +8,42 @@ import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
 import NavLink from '../navlink/Navlink';
 import UserDefaultImage from './UserDefaultImage';
-import navAuthentication from './actionCreators/navAuthentication'
+import navAuthentication from './actionCreators/navAuthentication';
+import CartSection from './CartSection';
+import EmptyCart, { CartDropdown } from './EmptyCart';
+import CartIconSection from '../common-navs/CartIconSection';
 
 import './bukka-authenticated-nav.scss';
-import './navbar.scss';
 
 const buttonProps = [
-  { name: 'Food', href: '/feed' }, { name: 'Fresh', href: '/fresh' }, { name: 'Drinks', href: '/drinks' }
+  { name: 'Food', href: '/feed' },
+  { name: 'Fresh', href: '/fresh' },
+  { name: 'Drinks', href: '/drinks' }
 ];
 
 const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   const { authenticated } = status;
-  // const authenticated = true;
+  let wrapperRef;
+  const [isFocused, setFocus] = useState(false);
+
+  const handleClick = () => {
+    setFocus(!isFocused);
+  };
+
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      setFocus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
+
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };
@@ -33,7 +57,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   if (windowWidth > 767) {
     btnAttribute = {
       dataToggle: 'modal',
-      dataTarget: '#modal',
+      dataTarget: '#authModal',
       handleClick: goToAuthRoute
     };
   }
@@ -57,7 +81,20 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   );
 
   if (authenticated) {
-    DefaultAuthenticatedImgOrButton = UserDefaultImage;
+    DefaultAuthenticatedImgOrButton = () => (
+      <Fragment>
+        <UserDefaultImage />
+        <div className="position-relative">
+          <div>
+            <CartSection handleClick={handleClick} />
+          </div>
+          <CartDropdown display={isFocused}>
+            <EmptyCart />
+            <CartIconSection />
+          </CartDropdown>
+        </div>
+      </Fragment>
+    );
   }
 
   return (
@@ -66,7 +103,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
       <div className="container">
         <nav className="navbar navbar-light">
           <Brand />
-          <div className="form-inline">
+          <div ref={setWrapperRef} className="form-inline">
             <div className="d-none bukka-md-inline-flex">
               {buttonProps.map(propData => (
                 <NavLink

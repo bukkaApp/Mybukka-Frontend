@@ -6,8 +6,16 @@
 .bukka-nav-small {
   border-bottom: 1px solid #eceff1;
   height: 60px;
+  position: sticky;
+  top: 65px;
+  background: white;
+  z-index: 900;
 }
 
 .bukka-nav-small-content {
   padding-top: 15px;
+}
+
+.top-0 {
+  top: 0px!important;
 }

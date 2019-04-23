@@ -16,7 +16,9 @@ const props = {
   description: 'A very great plate of Amala that will make you beg for more',
   imageUrl:
     'https://res.cloudinary.com/dn93xk5ni/image/upload/v1549933392/burrito-chicken-close-up-461198_g9llka.jpg',
-  price: 30
+  price: 30,
+  slug: 'slug-like-thisss',
+  quantity: 1
 };
 
 const AddToCart = () => (

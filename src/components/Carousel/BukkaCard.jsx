@@ -185,7 +185,10 @@ BukkaCard.propTypes = {
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
   deliveryPrice: PropTypes.number.isRequired,
-  deliveryTime: PropTypes.string,
+  deliveryTime: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
   imageHeight: PropTypes.string,
   textOverlay: PropTypes.bool,
   top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),

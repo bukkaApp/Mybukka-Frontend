@@ -1,5 +1,14 @@
 $fontFamily: 'Roboto', sans-serif;
 
+.gutter-bg-clor {
+  background-color: #e7e6e6;
+  padding-top: 16px
+}
+
+.pl-10 {
+  padding-left: 10px !important
+}
+
 .close-modal {
   margin-left: 20px;
   margin-top: 20px;
@@ -47,29 +56,41 @@ $fontFamily: 'Roboto', sans-serif;
   font-size: 24px;
   span:first-child {
     font-size: 12px !important;
+    margin-top: 10px;
     margin-bottom: 10px;
     align-self: flex-start;
     color: #9c1c26;
   }
   .text {
     font-size: 18px;
+    .chevron-down {
+      margin-right: 4px;
+      margin-left: 7px;
+      transform: rotate(180deg);
+      .chevron-right-icon {
+        transform: rotate(90deg);
+      }
+    }
   }
-  .chevron-down {
-    margin-right: 4px;
-    margin-left: 7px;
-    transform: rotate(180deg);
-    .chevron-right-icon {
-      transform: rotate(90deg);
+  .bukka-inline-text {
+    font-size: 18px;
+    color: rgb(45, 49, 56) !important;
+    vertical-align: middle;
+    .chevron-down {
+      margin-right: 4px;
+      margin-left: 7px;
+      transform: rotate(180deg);
+      .chevron-right-icon {
+        transform: rotate(90deg);
+      }
     }
   }
 }
 
 .small-search-container {
   background-color: rgb(255, 255, 255);
-  // z-index: 300;
   width: 100vw;
   min-height: 100vh;
-  top: 65px;
   left: 0;
   right: 0;
   box-shadow: rgba(34, 34, 34, 0.08) 0px 2px 8px 0px;
