@@ -19,6 +19,8 @@ import NearByBukka from './NearByBukka';
 import favorites from '../data/favorites.json';
 import bukkaData from '../data/search.json';
 
+import './searchresult.scss';
+
 const FoodSection = ({
   // mode,
   push,
@@ -41,7 +43,7 @@ const FoodSection = ({
   }
 
   return (
-    <div className="container-fluid p-0">
+    <div className="search-result-scene container-fluid p-0">
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />

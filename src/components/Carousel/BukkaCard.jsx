@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
 
+import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
 // import Navlink from 'Components/navlink/Navlink';
@@ -118,7 +119,12 @@ const BukkaCard = ({
 const GetBukka = ({ classNames, href, ...props }) => (
   <div className={`card-container ${classNames}`}>
     <div className="card-wrap">
-      <BukkaCard {...props} />
+      {href &&
+      <Navlink classNames="link" href={href}>
+        <BukkaCard {...props} />
+      </Navlink>
+      }
+      {!href && <BukkaCard {...props} />}
     </div>
   </div>
 );
@@ -205,7 +211,7 @@ BukkaCard.propTypes = {
 
 GetBukka.defaultProps = {
   classNames: '',
-  href: '/feed'
+  href: ''
 };
 
 GetBukka.propTypes = {
