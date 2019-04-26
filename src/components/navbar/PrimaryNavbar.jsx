@@ -30,8 +30,8 @@ const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
   return (
     <Fragment>
       <AuthModal push={push} />
-      <div className="container">
-        <nav className="navbar navbar-light">
+      <div className="">
+        <nav className="container navbar navbar-light">
           <Brand />
           {authButton &&
           <div className="form-inline">

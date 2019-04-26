@@ -1,0 +1,118 @@
+.inherit-bg {
+    background-color: inherit!important
+}
+
+.searchanything-text-field {
+    font-size: 15px;
+    width: 100%;
+    height: auto;
+    border: none;
+    outline: none;
+    display: block;
+    transition: none;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.50px;
+    padding-left: 0px;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    color: white;
+    border-radius: .25rem;
+}
+
+.searchanything-text-field:focus {
+    color: white;
+    border: 0
+}
+
+.searchanything-text-field::placeholder {
+    color: white
+}
+
+.search-result-section {
+    @media (min-width: 768px) {
+        bottom: 0px;
+        top: 0!important;
+        left: calc((9% + 58px) + 0px)!important;
+        transform: translate(calc((-52% + 58px) + 0px), 100%);
+        width: 285px!important;
+        border: 0!important;
+    }
+
+    @media (max-width: 992px) {
+        top: -380%!important;
+        left: calc((100% + 58px) + 0px)!important;
+        transform: translate(calc((-52% + 58px) + 0px), 100%);
+        width: 80vw!important;
+    }
+
+    @media (max-width: 450px) {
+        top: -600%!important;
+    }
+
+    @media (max-width: 767px) {
+        left: calc((60% + 58px) + 0px)!important;
+    }
+
+    @media (max-width: 490px) {
+        left: calc((15vw + 58px) + 0px)!important;
+    }
+
+    @media (max-width: 767px) and (min-width: 500px) {
+        top: -620%!important;
+    }
+
+    @media (max-width: 549px) {
+        min-width: 300px;
+    }
+}
+
+.search-padding {
+    padding: 10px 10px 10px 20px;
+}
+
+.search-result-section .search-wrapper {
+    background: white;
+    max-height: 410px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @media (max-height: 441px) {
+        max-height: 250px;
+    }
+}
+
+.search-result-head {
+    font-size: 12px;
+    font-weight: 700;
+    color: #92959a;
+    padding: 10px 0;
+    text-transform: uppercase;
+}
+
+.defualt-search-category {
+    font-size: 15px;
+    text-transform: capitalize;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.search-category {
+    text-transform: capitalize;
+}
+
+.search-category, .search-text {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    cursor: pointer;
+    background: rgb(248, 245, 245)
+}

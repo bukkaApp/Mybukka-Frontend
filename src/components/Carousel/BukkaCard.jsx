@@ -33,7 +33,7 @@ const TextOverlay = ({ top, bottom, heading, subHeading }) => (
 );
 
 const NormalText = ({
-  remark, mealName, deliveryCost, deliveryTime, rating, delivery, tags
+  remark, mealName, deliveryCost, deliveryTime, delivery, tags
 }) => (
   <div className="details">
     <h3>
@@ -47,7 +47,9 @@ const NormalText = ({
         </span>
         }
       </span>
+      {tags.length > 0 &&
       <span className="rating">{tags ? tags[0] : 'POPULAR'}</span>
+      }
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
@@ -62,6 +64,7 @@ const BukkaCard = ({
   mealName,
   remark,
   imageUrl,
+  tags,
   deliveryPrice,
   deliveryTime,
   imageHeight,
@@ -104,6 +107,7 @@ const BukkaCard = ({
           deliveryTime={deliveryTime}
           mealName={mealName}
           remark={remark}
+          tags={tags}
           delivery={delivery}
         />
       )}
@@ -128,9 +132,11 @@ NormalText.defaultProps = {
   deliveryCost: 0,
   mealName: '',
   remark: false,
+  tags: []
 };
 
 NormalText.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string),
   remark: PropTypes.bool,
   delivery: PropTypes.bool,
   mealName: PropTypes.string,
@@ -174,7 +180,7 @@ BukkaCard.defaultProps = {
   bottom: false,
   heading: 'Free Delivery',
   subHeading: '',
-  tags: ['nearby'],
+  tags: [],
 };
 
 BukkaCard.propTypes = {

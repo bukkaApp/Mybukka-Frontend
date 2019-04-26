@@ -1,0 +1,48 @@
+{
+    "defaultSearch": [
+        "american",
+        "italian",
+        "bakery",
+        "juice bars",
+        "breakfast",
+        "korean",
+        "burger",
+        "mediterranian",
+        "chinese",
+        "mexican",
+        "coffee",
+        "pizza",
+        "desert",
+        "sea food",
+        "fast food",
+        "thai",
+        "indian",
+        "vegetarian"
+    ],
+    "searchData": [
+        {
+            "type": "pickup",
+            "title": "pizza king",
+            "location": "12, coker road",
+            "items": ["pizza", "chicken pizza", "meaty pizza"]
+        },
+        {
+            "type": "pickup",
+            "title": "shawamma",
+            "location": "14, wilmer str",
+            "items": ["shawamma", "orange juice", "pineapple juice"]
+        },
+        {
+            "type": "delivery",
+            "title": "chicken republic",
+            "location": "55, coker road",
+            "items": ["salad", "beef","sauce","chicken", "jollof rice", "fried rice"]
+        },
+        {
+            "type": "items",
+            "title": "pizza",
+            "location": "14, wilmer str",
+            "items": ["candy", "orange"]
+        }
+    ]
+}

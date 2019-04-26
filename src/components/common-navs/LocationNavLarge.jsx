@@ -188,7 +188,7 @@ const LocationNavLarge = ({
       d-lg-block d-xl-block ${classNames}`}
     >
       <Container classNames="location-navbar-content">
-        <Container classNames="location-navbar-delivery-pickup-section">
+        <Container classNames="pl-0 location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
             {!isFocused.search &&
             <Fragment>
@@ -233,7 +233,7 @@ const LocationNavLarge = ({
             />
           </div>
         </Container>
-        <div className="pr-15 location-navbar-view-map">
+        <div className="location-navbar-view-map">
           <div className="position-relative">
             <Button
               type="button"

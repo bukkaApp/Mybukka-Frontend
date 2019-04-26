@@ -34,7 +34,7 @@ import whiteWine from '../data/white-wine.json';
 import redWine from '../data/red-wine.json';
 
 const NearByBukkaContainer = ({ ...props }) => (
-  <Container>
+  <Container classNames="px-0">
     <NearByBukka {...props} />
   </Container>
 );
@@ -75,11 +75,7 @@ const DrinkSection = ({
             <AreasToExplore text="Drinks" bgImage={drinkBannerImage} />
             <div className="feed-main-content">
               <LocationNavLargeScreen scheduleTime />
-              <div className="d-block d-sm-block d-md-none
-                d-lg-none d-xl-none"
-              >
-                <BukkaNavSmallScreen currentCategory="Wine Under $20" />
-              </div>
+              <BukkaNavSmallScreen currentCategory="Wine Under $20" />
               <LocationNavSmallScreen />
               <div id="flyout-left-container">
                 <div className="carousel-divider" />

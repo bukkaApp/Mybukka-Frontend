@@ -127,7 +127,7 @@ const LocationNavLargeScreen = ({
       d-lg-block d-xl-block"
     >
       <Container classNames="location-navbar-content">
-        <Container classNames="location-navbar-delivery-pickup-section">
+        <div classNames="location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
             <DeliveryOrPickupNav
               handleClick={handleDeliveryorPickup}
@@ -136,9 +136,9 @@ const LocationNavLargeScreen = ({
             <div className="delivery-or-pickup-vertical-divider" />
             <CurrentLocation handleClick={handleClick} focus={isFocused} />
           </div>
-        </Container>
+        </div>
         {mode === 'pickup' && (
-          <div className="pr-15 location-navbar-view-map">
+          <div className="location-navbar-view-map">
             <Button
               type="button"
               text={showMap ? 'view List' : 'view Map'}

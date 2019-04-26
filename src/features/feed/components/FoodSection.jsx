@@ -67,9 +67,9 @@ const FoodSection = ({
                   flex-md-column`
                   : 'px-0'}
                 >
-                  <Container classNames={displayMap ?
-                    'nearby-bukka col-xl-4 d-lg-flex d-md-none d-none'
-                    : 'pr-15'}
+                  <div className={displayMap ?
+                    'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
+                    : ''}
                   >
                     <FoodNearBy
                       delivery
@@ -79,7 +79,7 @@ const FoodSection = ({
                       bukkaData={[...nearbyBukkas]}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                     />
-                  </Container>
+                  </div>
                   <div className={displayMap ? `container map-wrapper
                   col-xl-8 col-lg-8 col-md-12col-12 order-first order-lg-0`
                     : 'd-none'}

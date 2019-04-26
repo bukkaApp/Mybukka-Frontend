@@ -3,6 +3,7 @@ import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Magnifier from 'Icons/Magnifier';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import AuthModal from './common/AuthModal';
@@ -14,6 +15,7 @@ import EmptyCart, { CartDropdown } from './EmptyCart';
 import CartIconSection from '../common-navs/CartIconSection';
 
 import './bukka-authenticated-nav.scss';
+import SearchAnything from '../common/SearchAnything';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },
@@ -24,10 +26,24 @@ const buttonProps = [
 const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   const { authenticated } = status;
   let wrapperRef;
-  const [isFocused, setFocus] = useState(false);
 
-  const handleClick = () => {
-    setFocus(!isFocused);
+  const defaultProps = {
+    cart: false,
+    search: false,
+    searchBtn: false
+  };
+
+  const [isFocused, setFocus] = useState({
+    cart: false,
+    search: false,
+    searchBtn: false
+  });
+
+  const handleClick = (name) => {
+    setFocus({
+      ...defaultProps,
+      [name]: true
+    });
   };
 
   const setWrapperRef = (node) => {
@@ -36,7 +52,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
 
   const handleClickOutside = (event) => {
     if (wrapperRef && !wrapperRef.contains(event.target)) {
-      setFocus(false);
+      setFocus({ ...defaultProps });
     }
   };
 
@@ -83,12 +99,24 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   if (authenticated) {
     DefaultAuthenticatedImgOrButton = () => (
       <Fragment>
+        <div
+          className="pb-3 mx-3 icon d-lg-none"
+        >
+          <span
+            tabIndex="0"
+            aria-pressed="false"
+            role="button"
+            onClick={() => handleClick('searchBtn')}
+          >
+            <Magnifier />
+          </span>
+        </div>
         <UserDefaultImage />
         <div className="position-relative">
           <div>
-            <CartSection handleClick={handleClick} />
+            <CartSection handleClick={() => handleClick('cart')} />
           </div>
-          <CartDropdown display={isFocused}>
+          <CartDropdown display={isFocused.cart}>
             <EmptyCart />
             <CartIconSection />
           </CartDropdown>
@@ -100,9 +128,29 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   return (
     <Fragment>
       <AuthModal push={push} />
-      <div className="container">
-        <nav className="navbar navbar-light">
-          <Brand />
+      <nav ref={setWrapperRef} className="container navbar navbar-light">
+        <div className="row mx-0">
+          {!isFocused.searchBtn &&
+            <Brand />
+          }
+          <div className={`pl-lg-5
+            ${isFocused.searchBtn ? '' : 'd-none d-md-none d-lg-inline-flex'}`}
+          >
+            <SearchAnything
+              handleClick={
+                isFocused.searchBtn ?
+                  () => {}
+                  : () => handleClick('search')
+              }
+              focus={
+                isFocused.searchBtn ?
+                  isFocused.searchBtn
+                  : isFocused.search
+              }
+            />
+          </div>
+        </div>
+        {!isFocused.searchBtn &&
           <div ref={setWrapperRef} className="form-inline">
             <div className="d-none bukka-md-inline-flex">
               {buttonProps.map(propData => (
@@ -116,8 +164,8 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
             </div>
             <DefaultAuthenticatedImgOrButton />
           </div>
-        </nav>
-      </div>
+        }
+      </nav>
     </Fragment>
   );
 };

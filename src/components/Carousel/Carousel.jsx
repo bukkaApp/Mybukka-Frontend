@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import shortId from 'shortid';
 
@@ -67,64 +67,66 @@ const Carousel = ({
   };
 
   return (
-    <Container classNames="pt-29 px-15">
-      <div className="carousel">
-        {title &&
+    <Fragment>
+      {title &&
         <Headline
           activeIndex={activeIndex}
           title={title}
           slidesLenght={slidesLenght}
           NumberOfViews={slidesLenght}
         />
-        }
-        <div className="carousel-container">
-          {activeIndex >= 1 && (
-            <ControlLeft
-              classNames={controlClassNames}
-              handleClick={goToPrevSlide}
-            />
-          )}
-          <div className="overflow-hidden">
-            <div
-              style={{
-                transform: `translateX(${activeIndex * -translate}%)`
-              }}
-              className="d-flex custom-flex-nowrap"
-            >
-              {slideItems.map(bukka => (
-                <FoodCard
-                  key={shortId.generate()}
-                  remark={bukka.remark}
-                  mealName={bukka.title}
-                  deliveryCost={bukka.deliveryCost}
-                  deliveryTime={bukka.deliveryTime}
-                  delivery={delivery}
-                  rating={bukka.rating}
-                  textOverlay={textOverlay}
-                  imageHeight={imageHeight}
-                  heading={bukka.heading}
-                  subHeading={bukka.subHeading}
-                  top={bukka.position.top}
-                  bottom={bukka.position.bottom}
-                  imageUrl={bukka.imageUrl}
-                  deliveryPrice={bukka.deliveryPrice}
-                  tags={bukka.tags}
-                  slug={bukka.slug}
-                  classNames={`${classNames}`}
-                />
-              ))}
+      }
+      <Container classNames="pt-29">
+        <div className="carousel">
+          <div className="carousel-container">
+            {activeIndex >= 1 && (
+              <ControlLeft
+                classNames={controlClassNames}
+                handleClick={goToPrevSlide}
+              />
+            )}
+            <div className="overflow-hidden">
+              <div
+                style={{
+                  transform: `translateX(${activeIndex * -translate}%)`
+                }}
+                className="row custom-flex-nowrap"
+              >
+                {slideItems.map(bukka => (
+                  <FoodCard
+                    key={shortId.generate()}
+                    remark={bukka.remark}
+                    mealName={bukka.title}
+                    deliveryCost={bukka.deliveryCost}
+                    deliveryTime={bukka.deliveryTime}
+                    delivery={delivery}
+                    rating={bukka.rating}
+                    textOverlay={textOverlay}
+                    imageHeight={imageHeight}
+                    heading={bukka.heading}
+                    subHeading={bukka.subHeading}
+                    top={bukka.position.top}
+                    bottom={bukka.position.bottom}
+                    imageUrl={bukka.imageUrl}
+                    deliveryPrice={bukka.deliveryPrice}
+                    tags={bukka.tags}
+                    slug={bukka.slug}
+                    classNames={`${classNames}`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-          {slidesLenght <= noOfImagesShown ||
+            {slidesLenght <= noOfImagesShown ||
             (activeIndex + Number(noOfImagesShown) !== slidesLenght && (
               <ControlRight
                 classNames={controlClassNames}
                 handleClick={goToNextSlide}
               />
             ))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </Fragment>
   );
 };
 
