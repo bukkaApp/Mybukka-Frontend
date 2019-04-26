@@ -30,6 +30,7 @@
 }
 
 .search-result-section {
+    z-index: 1000 !important;
     @media (min-width: 768px) {
         bottom: 0px;
         top: 0!important;

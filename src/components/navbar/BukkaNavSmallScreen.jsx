@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from '../container/Container';
 
 import SearchPlusMenu from '../icons/SearchPlusMenu';
 

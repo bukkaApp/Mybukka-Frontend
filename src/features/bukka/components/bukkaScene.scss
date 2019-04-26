@@ -1,5 +1,12 @@
 .bukka-menu {
   font-family: 'Roboto', sans-serif;
+  .searchanything-text-field:focus {
+      color: black!important;
+      border: 0
+  }
+  .searchanything-text-field::placeholder {
+      color: black!important
+  }
 }
 
 .bukka-location-nav {
