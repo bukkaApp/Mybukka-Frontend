@@ -1,40 +1,126 @@
 [
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "miss saigon",
+    "remark": true,
+    "tags": ["popular"],
     "deliveryCost": 300,
-    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F18f6361e159ca7b4ef8d61934f3d7739.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
-    "textOverlay": "textOverlay",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-7.webp",
     "position": {
       "top": true
     }
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "popsons",
+    "remark": true,
+    "tags": ["popular"],
     "deliveryCost": 300,
-    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F87cfad57a89795702ca2696f4e09b488.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
-    "textOverlay": "textOverlay",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-5.webp",
+    "rating": "popular",
     "position": {
       "top": true
     }
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "the new spot on pork",
+    "remark": true,
+    "tags": ["popular"],
     "deliveryCost": 300,
-    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F81b96df2f6ca3370c5f03aa70b9e156d.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-6.webp",
     "heading": "Get Drinks",
     "subHeading": "ALCOHOL DELIVERED",
     "position": { "top": true }
   },
   {
     "deliveryTime": "40-50 min",
-    "author": "habit",
+    "title": "chaat corner",
+    "remark": true,
+    "tags": ["popular"],
     "deliveryCost": 300,
-    "imageUrl": "https://raster-static.postmates.com/?url=https%3A%2F%2Fs3.us-west-1.amazonaws.com%2Fbuyer-static.postmates.com%2Fprod%2Fadmin%2Fdata%2Fpromo%2F58450b5f7b8960944b40381db8380446.png&quality=85&w=680&h=0&mode=auto&format=webp&v=4",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-8.webp",
+    "rating": "popular",
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "fresh roll",
+    "remark": true,
+    "tags": ["new"],
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-1.webp",
+    "rating": "popular",
     "heading": "Get All Orders Delivered Free",
     "subHeading": "TRY UNLIMITED",
     "position": { "bottom": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "jack in the box",
+    "remark": true,
+    "tags": ["popular"],
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-2.webp",
+    "rating": "popular",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "ike's love and sandwishes",
+    "remark": true,
+    "tags": ["popular"],
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-3.webp",
+    "rating": "popular",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "Urban pizza kitchen",
+    "remark": true,
+    "tags": ["popular"],
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-4.webp",
+    "rating": "popular",
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "position": { "top": true }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "burger",
+    "deliveryCost": 300,
+    "tags": ["popular"],
+    "heading": "Get Fresh",
+    "subHeading": "Groceries Delivered",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-burger-img.webp",
+    "textOverlay": "textOverlay",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "ice dougnut",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-ice-dougnut.webp",
+    "textOverlay": "textOverlay",
+    "position": {
+      "top": true
+    }
+  },
+  {
+    "deliveryTime": "40-50 min",
+    "title": "alcholic drinks",
+    "deliveryCost": 300,
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-alcholic-drinks.webp",
+    "heading": "Get Drinks",
+    "subHeading": "ALCOHOL DELIVERED",
+    "position": { "top": true }
   }
 ]

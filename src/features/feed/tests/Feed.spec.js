@@ -10,6 +10,7 @@ import FoodSection from '..';
 const initialState = {
   navbarAuthReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
+  searchAnythingReducer: { search: '' },
   checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   authenticationReducer: {
@@ -81,6 +82,7 @@ describe('FoodSection component', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,
+      searchAnythingReducer: { search: 'a' },
       bukkasReducer: {
         ...initialState.bukkasReducer,
         fetchedBukkas: {

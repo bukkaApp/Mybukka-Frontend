@@ -9,6 +9,7 @@ import Feed from '../components';
 
 const initialState = {
   navbarAuthReducer: { type: 'Sign In', },
+  searchAnythingReducer: { search: '' },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   checkoutModeReducer: { mode: true },
@@ -78,6 +79,7 @@ describe('FeedPage component', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,
+      searchAnythingReducer: { search: 'a' },
       bukkasReducer: {
         ...initialState.bukkasReducer,
         fetchedBukkas: {
@@ -144,6 +146,7 @@ describe('FeedPage component', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,
+      searchAnythingReducer: { search: 'jack' },
       bukkasReducer: {
         ...initialState.bukkasReducer,
         fetchedBukkas: {

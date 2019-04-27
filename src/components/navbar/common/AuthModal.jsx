@@ -17,7 +17,7 @@ const AuthModal = ({ type, push, status }) => {
   }
 
   if (authenticated) {
-    $('#authModal').modal('hide');
+    // $('#authModal').modal('hide');
     const body = document.body;
     const backdrop = document.querySelector('.modal-backdrop');
     if (body.className === 'modal-open' && backdrop) {

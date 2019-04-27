@@ -26,22 +26,25 @@ const BukkasToExploreSection = () => (
       classNames="col-lg-6 col-md-6 col-sm-12 col-12"
     />
     <div className="carousel-divider" />
-    <Container classNames="px-15">
+    <div>
       <Headline title="Salty & Sweet" activeIndex={1} />
-      <Row classNames="pb-4 ml-1">
-        <BukkaCard
-          delivery
-          mealName={favorites[4].title}
-          imageUrl={favorites[4].imageUrl}
-          deliveryPrice={favorites[4].deliveryPrice}
-          deliveryTime={favorites[4].deliveryTime}
-          rating={favorites[4].rating}
-          remark={favorites[4].remark}
-          imageHeight="img-height"
-          classNames="col-lg-4 col-md-6 col-sm-12"
-        />
-      </Row>
-    </Container>
+      <Container>
+        <Row classNames="pb-4">
+          <BukkaCard
+            delivery
+            tags={['popular']}
+            mealName={favorites[4].title}
+            imageUrl={favorites[4].imageUrl}
+            deliveryPrice={favorites[4].deliveryPrice}
+            deliveryTime={favorites[4].deliveryTime}
+            rating={favorites[4].rating}
+            remark={favorites[4].remark}
+            imageHeight="img-height"
+            classNames="col-lg-4 col-md-6 col-sm-12"
+          />
+        </Row>
+      </Container>
+    </div>
     <div className="carousel-divider" />
     <Carousel
       delivery

@@ -36,7 +36,7 @@ import freshYogurt from '../data/fresh-yogurt.json';
 import freshFruit from '../data/fresh-fruit.json';
 
 const NearByBukkaContainer = ({ ...props }) => (
-  <Container>
+  <Container classNames="px-0">
     <NearByBukka {...props} />
   </Container>
 );

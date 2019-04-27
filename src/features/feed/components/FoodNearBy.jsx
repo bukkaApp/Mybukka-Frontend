@@ -2,6 +2,8 @@ import React from 'react';
 
 import shortId from 'shortid';
 
+import Row from 'Components/grid/Row';
+import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
@@ -16,14 +18,14 @@ const FoodNearBy = ({
   children,
   handleRefFocus
 }) => (
-  <div className="mt-4 mb-4 responsive-px-15">
+  <div className="mt-4 mb-4">
     {title && (
       <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
     )}
     {children}
-    <div>
+    <Container>
       {bukkaData.length > 0 && (
-        <div className="row pb-4 ml-1">
+        <Row classNames="pb-4">
           {bukkaData.map(bukka => (
             <BukkaCard
               key={shortId.generate()}
@@ -31,16 +33,16 @@ const FoodNearBy = ({
               mealName={bukka.name}
               delivery={delivery}
               deliveryPrice={bukka.deliveryPrice}
-              deliveryTime={bukka.deliveryPrice}
+              deliveryTime={bukka.deliveryTime}
               rating={bukka.rating}
               imageHeight={imageHeight}
               classNames={classNames}
               href={`/bukka/${bukka.slug}`}
             />
           ))}
-        </div>
+        </Row>
       )}
-    </div>
+    </Container>
   </div>
 );
 

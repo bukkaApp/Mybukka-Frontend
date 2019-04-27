@@ -6,12 +6,12 @@ import Container from 'Components/container';
 import './areastoexplore.scss';
 
 const LargeTextSection = ({ text }) => (
-  <Container classNames="intro-text-section">
+  <div className="intro-text-section">
     <h1 className="large-custom-text-container">
       <span className="large-custom-text">{text}.</span>
       <span className="large-custom-text">We get it.</span>
     </h1>
-  </Container>
+  </div>
 );
 
 const HeaderImageSection = ({ bgImage }) => (

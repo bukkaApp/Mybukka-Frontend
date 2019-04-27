@@ -2,6 +2,8 @@ import React from 'react';
 
 import shortId from 'shortid';
 
+import Row from 'Components/grid/Row';
+import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
@@ -15,27 +17,31 @@ const NearByBukka = ({
   children,
   handleRefFocus,
 }) => (
-  <div className="mt-4 mb-4 responsive-px-15">
+  <div className="mt-4 mb-4">
     {title &&
     <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
     }
     {children}
-    <div className="row pb-4 ml-1">
-      {bukkaData.map(bukka => (
-        <BukkaCard
-          key={shortId.generate()}
-          imageUrl={bukka.imageUrl}
-          mealName={bukka.title}
-          deliveryPrice={bukka.deliveryCost}
-          deliveryTime={bukka.deliveryTime}
-          rating={bukka.rating}
-          imageHeight={imageHeight}
-          classNames={classNames}
-          dataTarget="#bukkaAddToCart"
-          dataToggle="modal"
-        />
-      ))}
-    </div>
+    <Container>
+      {bukkaData.length > 0 && (
+        <Row classNames="pb-4">
+          {bukkaData.map(bukka => (
+            <BukkaCard
+              key={shortId.generate()}
+              imageUrl={bukka.imageUrl}
+              mealName={bukka.title}
+              deliveryPrice={bukka.deliveryCost}
+              deliveryTime={bukka.deliveryTime}
+              rating={bukka.rating}
+              imageHeight={imageHeight}
+              classNames={classNames}
+              dataTarget="#bukkaAddToCart"
+              dataToggle="modal"
+            />
+          ))}
+        </Row>
+      )}
+    </Container>
   </div>
 );
 

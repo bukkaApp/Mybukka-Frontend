@@ -10,7 +10,7 @@ import Button from '../button/Button';
 
 import './cartdropdown.scss';
 
-const SubTotal = ({ totalPriceInCart }) => (
+export const SubTotal = ({ totalPriceInCart }) => (
   <div className="custom-cart-subtotal">
     <p className="m-0">
       <span>Subtotal</span>
@@ -21,7 +21,7 @@ const SubTotal = ({ totalPriceInCart }) => (
   </div>
 );
 
-const CheckoutBtn = ({ handleClick }) => (
+export const CheckoutBtn = ({ handleClick }) => (
   <Button
     handleClick={handleClick}
     type="button"
@@ -41,7 +41,8 @@ const CartHeader = () => (
   </div>
 );
 
-const CartItems = ({ title, category, price, number, removeFromCart }) => (
+export const CartItems =
+({ title, category, price, number, removeFromCart }) => (
   <div className="cart-body-content">
     <div className="custom-cart-section">
       <div className="custom-cart-item">

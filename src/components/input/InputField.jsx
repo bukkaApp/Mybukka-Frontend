@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
+// Note: add random strings for autocomplete;autocomplete="dontauthocomplete"
+
 const InputField = ({
   type,
   name,
@@ -13,6 +15,7 @@ const InputField = ({
   defaultValue,
   inputRef,
   accept,
+  autoComplete
 }) => (
   <input
     type={type}
@@ -24,6 +27,7 @@ const InputField = ({
     onChange={handleChange}
     onFocus={handleFocus}
     defaultValue={defaultValue}
+    autoComplete={autoComplete}
   />
 );
 
@@ -37,9 +41,11 @@ InputField.defaultProps = {
   defaultValue: '',
   inputRef: () => {},
   accept: '',
+  autoComplete: '',
 };
 
 InputField.propTypes = {
+  autoComplete: PropTypes.string,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
