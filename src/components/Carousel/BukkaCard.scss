@@ -150,6 +150,10 @@ $fontFamily: 'Roboto', sans-serif;
   font-family: 'Roboto', sans-serif;
 }
 
+.overlay-top h4 {
+  text-transform: capitalize
+}
+
 .overlay-h4, .overlay-top h4 {
   color: black;
   font-size: 24px;

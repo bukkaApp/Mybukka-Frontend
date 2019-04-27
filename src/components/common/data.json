@@ -34,15 +34,33 @@
         },
         {
             "type": "delivery",
+            "title": "The Mexican Taqueria",
+            "location": "55, coker road",
+            "items": ["salad", "The Mexican Taqueria","sauce","chicken", "jollof rice", "fried rice"]
+        },
+        {
+            "type": "delivery",
             "title": "chicken republic",
             "location": "55, coker road",
-            "items": ["salad", "beef","sauce","chicken", "jollof rice", "fried rice"]
+            "items": ["salad","sauce","chicken", "jollof rice", "fried rice"]
+        },
+        {
+            "type": "items",
+            "title": "popson",
+            "location": "14, wilmer str",
+            "items": ["candy", "orange"]
         },
         {
             "type": "items",
             "title": "pizza",
             "location": "14, wilmer str",
             "items": ["candy", "orange"]
+        },
+        {
+            "type": "delivery",
+            "title": "bakery",
+            "location": "12, coker road",
+            "items": ["jack in the box", "bread"]
         }
     ]
 }

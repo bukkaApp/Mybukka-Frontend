@@ -39,6 +39,7 @@ import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
 
 import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
 import signOutReducer from '../components/navbar/reducers/signOutReducer';
+import searchAnythingReducer from './searchAnythingReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -64,6 +65,7 @@ const reducer = combineReducers({
   chargeUserReducer,
   finishTransactionReducer,
   checkoutModeReducer,
+  searchAnythingReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

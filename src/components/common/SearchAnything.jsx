@@ -1,8 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import MarkIcon from 'Icons/Remark';
-// import { connect } from 'react-redux';
-
+import { connect } from 'react-redux';
+import shortId from 'shortid';
+import Navlink from 'Components/navlink/Navlink';
+import searchAnything from 'Redux/searchAnything';
 import InputField from 'Components/input/InputField';
 import Magnifier from '../icons/Magnifier';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
@@ -30,9 +32,14 @@ const DefaultSearchCategories = () => (
       cuisines
     </div>
     <div className="row">
-      {defaultSearch.map(searchList =>
-        <div className="col-6 defualt-search-category">{searchList}</div>
-      )}
+      {defaultSearch.map(searchList => (
+        <div
+          key={shortId.generate()}
+          className="col-6 defualt-search-category"
+        >
+          {searchList}
+        </div>
+      ))}
     </div>
   </div>
 );
@@ -44,15 +51,20 @@ const SearchHead = ({ title }) => (
 );
 
 const SearchItem = ({ searchObj }) => (
-  <div className="row px-3 py-1 pointer">
-    <div className="col-12 search-category">
-      {searchObj.title}
-      <span className="icon">
-        <MarkIcon />
-      </span>
+  <Navlink
+    href={`/search?q=${searchObj.title.split(' ').join('-')}`}
+    classNames="search-link pointer"
+  >
+    <div className="row px-3 py-1 pointer">
+      <div className="col-12 text-dark search-category">
+        {searchObj.title}
+        <span className="icon">
+          <MarkIcon />
+        </span>
+      </div>
+      <div className="col-12 text-muted font-size14">{searchObj.location}</div>
     </div>
-    <div className="col-12 text-muted font-size14">{searchObj.location}</div>
-  </div>
+  </Navlink>
 );
 
 const ViewAllSearch = ({ searchText }) => (
@@ -87,7 +99,15 @@ const SearchLists = ({ item }) => (
     {searchData.map(search => (
       search.items.map((itm) => {
         if (itm.includes(item)) {
-          return <SearchTextMatch matchText={itm} />;
+          return (
+            <Navlink
+              classNames="link"
+              key={shortId.generate()}
+              href={`/search?q=${item.split(' ').join('-')}`}
+            >
+              <SearchTextMatch matchText={itm} />
+            </Navlink>
+          );
         }
         return null;
       })
@@ -110,10 +130,11 @@ const SearchLists = ({ item }) => (
 );
 
 const SearchAnything = (props) => {
+  const { handleSearch } = props;
   const [search, setSearch] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
-    console.log(name, value);
+  const handleChange = ({ target: { value } }) => {
+    handleSearch(value);
     setSearch(value);
   };
 
@@ -145,7 +166,9 @@ const SearchAnything = (props) => {
   );
 };
 
-export default SearchAnything;
+export default connect(null,
+  { handleSearch: searchAnything }
+)(SearchAnything);
 
 SearchLists.defaultProps = {
   searchText: ''
@@ -155,7 +178,12 @@ ViewAllSearch.propTypes = {
   searchText: PropTypes.string.isRequired
 };
 
+SearchAnything.defaultProps = {
+  handleSearch: () => {},
+};
+
 SearchAnything.propTypes = {
+  handleSearch: PropTypes.func,
   focus: PropTypes.bool.isRequired
 };
 
