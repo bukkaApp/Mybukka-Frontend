@@ -1,4 +1,7 @@
 .search-result-scene {
+    .headline-h2 {
+        font-size: 37px!important
+    }
     .btn-delivery, .btn-pickup {
         font-family: 'Roboto', sans-serif;
         font-size: 12px;
@@ -23,4 +26,8 @@
         color: #9c1c26;
         border-bottom: 2px solid #9c1c26!important;
     }
+}
+
+.mt-130 {
+    margin-top: 130px
 }

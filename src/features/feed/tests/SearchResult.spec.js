@@ -10,6 +10,7 @@ import SearchResult from '../components/SearchResult';
 const initialState = {
   navbarAuthReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
+  searchAnythingReducer: { search: '' },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   authenticationReducer: {
     status: {
@@ -56,6 +57,7 @@ describe('SearchResult component', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,
+      searchAnythingReducer: { search: 'a' },
       bukkasReducer: {
         ...initialState.bukkasReducer,
         fetchedBukkas: {

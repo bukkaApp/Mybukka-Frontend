@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
-// import Navlink from 'Components/navlink/Navlink';
 import Price from 'Components/badge/Price';
 
 import './BukkaCard.scss';
