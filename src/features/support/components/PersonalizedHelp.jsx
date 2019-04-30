@@ -15,7 +15,7 @@ const PersonalizedHelp = ({ authenticated }) => {
         </div>
         <div className="personalized-btn-wrapper">
           <a
-          href="https://postmates.com/login?next=/support?cs_web_redirect=/buyer" // eslint-disable-line
+          href="/login?next=/support?cs_web_redirect=/buyer" // eslint-disable-line
           >
             <div className="personalized-login-btn" data-cy="page-button">
               <div className="personalized-btn-text">

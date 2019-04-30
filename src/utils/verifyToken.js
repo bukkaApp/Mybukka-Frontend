@@ -1,10 +1,15 @@
 import jwt from 'jsonwebtoken';
 
-// const { SECRET } = process.env;
-const SECRET = process.env.SECRET || 'secret';
+const SECRET = process.env.SECRET;
 
-const decodeToken = token => (
-  jwt.verify(token, SECRET).data
-);
+const verifyToken = (cb) => {
+  const clientPass = localStorage.getItem('x-access-token');
+  try {
+    const verify = jwt.verify(clientPass, SECRET).data;
+    if (verify) return true;
+  } catch (error) {
+    if (cb) return cb;
+  }
+};
 
-export default decodeToken;
+export default verifyToken;
