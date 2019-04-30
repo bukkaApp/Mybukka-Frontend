@@ -1,11 +1,12 @@
 import { FETCH_USER_ORDER_HISTORY, } from 'Redux/actionTypes';
+// import historyData from '../inputData.json';
 
 const initialState = {
   status: {
     fetched: false,
     error: false,
   },
-  orderHistory: '',
+  orderHistory: {}, // historyData,
   errorMessage: ''
 };
 
@@ -31,7 +32,7 @@ export default (state = initialState, action) => {
           fetched: true,
           error: true
         },
-        orderHistory: {},
+        orderHistory: [],
         errorMessage: action.data
       };
 

@@ -8,7 +8,7 @@ import Status from '../common/Status';
 import DropOff from '../common/DropOff';
 
 const Col = ({ children }) => (<div
-  className="col-xl-2 col-lg-2 col-md-10 pt-3 custom-border"
+  className="col-xl-2 col-lg-2 col-md-10 pt-3"
 >
   {children}
 </div>);
@@ -21,7 +21,7 @@ const Row = ({ children, handleClick }) => (
     tabIndex="0"
     data-testid="table-btn"
     className="row flex flex-xl-row flex-lg-row d-xl-flex d-lg-flex d-md-none
-    d-none cursor-pointer custom-border-px"
+    d-none cursor-pointer hover-table-row"
   >
     {children}
   </div>
