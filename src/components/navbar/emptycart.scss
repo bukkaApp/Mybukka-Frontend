@@ -77,14 +77,9 @@
     }
     @media screen and (max-width: 767px) {
       bottom: -26px;
-      left: calc((-50% + 8px) + -9px);
-      transform: translate(calc(-100% + 325px), 100%);
-      width: 100vw;
-      height: calc(100vh - 0px);
-      border-width: 0px;
-      border-style: initial;
-      border-color: initial;
-      border-image: initial;
+      left: calc((-70vw) + -9px);
+      transform: translate(calc(12% + 0px), 100%);
+      width: 68vw;
     }
     &::before {
       @media screen and (min-width: 768px) {
@@ -102,21 +97,6 @@
         border-bottom-color: rgb(242, 243, 243) !important;
         border-width: 9px !important;
       }
-      // @media screen and (max-width: 767px) {
-      //   position: absolute;
-      //   width: 0px;
-      //   height: 0px;
-      //   content: "";
-      //   bottom: 100%;
-      //   border-width: initial;
-      //   border-style: solid;
-      //   border-color: transparent;
-      //   border-image: initial;
-      //   margin-right: -9px;
-      //   border-bottom-color: rgb(242, 243, 243) !important;
-      //   border-width: 9px !important;
-      //   right: 325px;
-      // }
     }
     &::after {
       @media screen and (min-width: 768px) {
@@ -134,20 +114,5 @@
         border-bottom-color: rgb(255, 255, 255) !important;
         border-width: 8px !important;
       }
-      // @media screen and (max-width: 767px) {
-      //   right: 325px;
-      //   position: absolute;
-      //   width: 0px;
-      //   height: 0px;
-      //   content: "";
-      //   bottom: 100%;
-      //   border-width: initial;
-      //   border-style: solid;
-      //   border-color: transparent;
-      //   border-image: initial;
-      //   margin-right: -8px;
-      //   border-bottom-color: rgb(255, 255, 255) !important;
-      //   border-width: 8px !important;
-      // }
     }
   }
