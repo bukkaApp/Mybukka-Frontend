@@ -12,7 +12,7 @@ Object {
           aria-hidden="true"
           aria-labelledby="exampleModalLabel"
           class="modal fade"
-          id="modal"
+          id="authModal"
           role="dialog"
           tabindex="-1"
         >
@@ -87,6 +87,7 @@ Object {
                             >
                               <input
                                 accept=""
+                                autocomplete=""
                                 class="default-input"
                                 name="email"
                                 placeholder="Email"
@@ -102,6 +103,7 @@ Object {
                             >
                               <input
                                 accept=""
+                                autocomplete=""
                                 class="default-input"
                                 name="password"
                                 placeholder="Password"
@@ -161,7 +163,7 @@ Object {
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lcViG2Aea"
+                            id="Z5UyyRhJc"
                             type="button"
                           >
                             Facebook
@@ -195,17 +197,24 @@ Object {
         </div>
       </div>
       <div
-        class="container"
+        class=""
       >
         <nav
-          class="navbar navbar-light"
+          class="container navbar navbar-light"
         >
           <div>
             <a
               class="bukka-brand"
               href="/"
             >
-              Mybukka
+              <div
+                class="bukka-logo"
+              >
+                <img
+                  alt=""
+                  src="https://res.cloudinary.com/digitzs/image/upload/v1550480450/Bukka%20App/bukka-logo.svg"
+                />
+              </div>
             </a>
           </div>
           <div
@@ -214,7 +223,7 @@ Object {
             <button
               class="small-outline-button"
               data-dismiss=""
-              data-target="#modal"
+              data-target="#authModal"
               data-testid="button"
               data-toggle="modal"
               id="/login"
@@ -225,7 +234,7 @@ Object {
             <button
               class="small-button"
               data-dismiss=""
-              data-target="#modal"
+              data-target="#authModal"
               data-testid="button"
               data-toggle="modal"
               id="/signup"
@@ -235,6 +244,102 @@ Object {
             </button>
           </div>
         </nav>
+      </div>
+      <div
+        aria-hidden="true"
+        aria-labelledby="exampleModalLabel"
+        class="modal fade"
+        id="inputSecurityKey"
+        role="dialog"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered "
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header"
+            />
+            <div
+              class="modal-body"
+            >
+              <div
+                class="dismiss-modal "
+                data-dismiss="modal"
+              >
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <defs>
+                    <path
+                      d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                      id="icon-close_svg__a"
+                    />
+                  </defs>
+                  <use
+                    transform="translate(4 4)"
+                    xlink:href="#icon-close_svg__a"
+                  />
+                </svg>
+              </div>
+              <div
+                class="send-security-section animated"
+              >
+                <h5
+                  class="text-center"
+                >
+                  Submit OTP
+                </h5>
+                <br />
+                <div
+                  class="send-security-form-inline"
+                >
+                  <input
+                    accept=""
+                    autocomplete=""
+                    class="default-input"
+                    placeholder="SUBMIT OTP"
+                    type="text"
+                    value=""
+                  />
+                  <button
+                    class="btn-go"
+                    data-dismiss=""
+                    data-target=""
+                    data-testid="button"
+                    data-toggle=""
+                    id="Z5UyyRhJc"
+                  >
+                    <svg
+                      class="chevron-right-icon"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <defs>
+                        <path
+                          d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                          id="icon-chevron_svg__a"
+                        />
+                      </defs>
+                      <use
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        xlink:href="#icon-chevron_svg__a"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="container relative modal-open"
@@ -649,6 +754,7 @@ Object {
                     </label>
                     <input
                       accept=""
+                      autocomplete=""
                       class="form-control border-input-style p-0"
                       name="number"
                       placeholder="Card number"
@@ -670,6 +776,7 @@ Object {
                     </label>
                     <input
                       accept=""
+                      autocomplete=""
                       class="form-control border-input-style p-0"
                       name="expDate"
                       placeholder="MM/YY"
@@ -691,6 +798,7 @@ Object {
                     </label>
                     <input
                       accept=""
+                      autocomplete=""
                       class="form-control border-input-style p-0"
                       name="cvv"
                       placeholder="CVV"
@@ -712,6 +820,7 @@ Object {
                     </label>
                     <input
                       accept=""
+                      autocomplete=""
                       class="form-control border-input-style p-0"
                       name="zipCode"
                       placeholder="Zip code"
@@ -728,6 +837,7 @@ Object {
                 >
                   <input
                     accept=""
+                    autocomplete=""
                     class="checkbox"
                     name="makeDefaultPaymentOption"
                     placeholder=""
@@ -747,7 +857,7 @@ Object {
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lcViG2Aea"
+                    id="Z5UyyRhJc"
                     type="button"
                   >
                     Save
@@ -767,7 +877,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="lcViG2Aea"
+                id="Z5UyyRhJc"
                 type="submit"
               >
                 CONTINUE
@@ -799,15 +909,13 @@ Object {
                   >
                     <h5
                       class="cart-bukka-name"
-                    >
-                      Mel's Drive-In
-                    </h5>
+                    />
                     <h5
                       class="cart-bukka-view-menu"
                     >
                       <a
                         class="text-success view-menu-text"
-                        href="/feed"
+                        href="/bukka/kssk-jhddj"
                       >
                         VIEW MENU
                       </a>
@@ -823,7 +931,7 @@ Object {
                         class="item-name"
                       >
                         1 × 
-                        Chicken Tenders and Fries
+                        name
                       </h5>
                       <div
                         class="action-item-section"
@@ -834,7 +942,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lcViG2Aea"
+                          id="Z5UyyRhJc"
                           type="button"
                         >
                           EDIT
@@ -845,7 +953,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lcViG2Aea"
+                          id="Z5UyyRhJc"
                           type="button"
                         >
                           REMOVE
@@ -859,58 +967,7 @@ Object {
                         class="price-badge-black"
                       >
                         ₦
-                        15.73
-                        .00
-                      </h4>
-                    </div>
-                  </div>
-                  <div
-                    class="d-flex order-tray"
-                  >
-                    <div
-                      class="col p-0"
-                    >
-                      <h5
-                        class="item-name"
-                      >
-                        1 × 
-                        Side of beacon
-                      </h5>
-                      <div
-                        class="action-item-section"
-                      >
-                        <button
-                          class="cart-action-button-primary"
-                          data-dismiss=""
-                          data-target=""
-                          data-testid="button"
-                          data-toggle=""
-                          id="lcViG2Aea"
-                          type="button"
-                        >
-                          EDIT
-                        </button>
-                        <button
-                          class="cart-action-button-default"
-                          data-dismiss=""
-                          data-target=""
-                          data-testid="button"
-                          data-toggle=""
-                          id="lcViG2Aea"
-                          type="button"
-                        >
-                          REMOVE
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="p-0"
-                    >
-                      <h4
-                        class="price-badge-black"
-                      >
-                        ₦
-                        15.73
+                        90
                         .00
                       </h4>
                     </div>
@@ -929,66 +986,6 @@ Object {
                   >
                     Suggested Items
                   </h4>
-                  <div
-                    class="suggested-items-tray"
-                  >
-                    <button
-                      class="left btn-chevron"
-                      data-dismiss=""
-                      data-target=""
-                      data-testid="button"
-                      data-toggle=""
-                      id="lcViG2Aea"
-                      type="button"
-                    >
-                      <svg
-                        class="chevron-right-icon"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                      >
-                        <defs>
-                          <path
-                            d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
-                            id="icon-chevron_svg__a"
-                          />
-                        </defs>
-                        <use
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          xlink:href="#icon-chevron_svg__a"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      class="right btn-chevron"
-                      data-dismiss=""
-                      data-target=""
-                      data-testid="button"
-                      data-toggle=""
-                      id="lcViG2Aea"
-                      type="button"
-                    >
-                      <svg
-                        class="chevron-right-icon"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        width="24"
-                      >
-                        <defs>
-                          <path
-                            d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
-                            id="icon-chevron_svg__a"
-                          />
-                        </defs>
-                        <use
-                          fill="currentColor"
-                          fill-rule="evenodd"
-                          xlink:href="#icon-chevron_svg__a"
-                        />
-                      </svg>
-                    </button>
-                  </div>
                 </div>
                 <div
                   class="overflow-hidden"
@@ -1009,12 +1006,12 @@ Object {
                           <h5
                             class="font-size-14"
                           >
-                            whole milk
+                            title
                           </h5>
                           <h5
                             class="font-size-14 suggested-item-price"
                           >
-                            3.54
+                            4454
                           </h5>
                         </div>
                         <button
@@ -1023,154 +1020,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lcViG2Aea"
-                          type="button"
-                        >
-                          <svg
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
-                          >
-                            <g
-                              fill="#9c1c26"
-                              fill-rule="evenodd"
-                            >
-                              <path
-                                d="M0 7h16v2H0z"
-                              />
-                              <path
-                                d="M7 16V0h2v16z"
-                              />
-                            </g>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                    >
-                      <div
-                        class="d-flex justify-content-between"
-                      >
-                        <div
-                          class="border-right col-md-10 capitalize"
-                        >
-                          <h5
-                            class="font-size-14"
-                          >
-                            cheese
-                          </h5>
-                          <h5
-                            class="font-size-14 suggested-item-price"
-                          >
-                            12.54
-                          </h5>
-                        </div>
-                        <button
-                          class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                          data-dismiss=""
-                          data-target=""
-                          data-testid="button"
-                          data-toggle=""
-                          id="lcViG2Aea"
-                          type="button"
-                        >
-                          <svg
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
-                          >
-                            <g
-                              fill="#9c1c26"
-                              fill-rule="evenodd"
-                            >
-                              <path
-                                d="M0 7h16v2H0z"
-                              />
-                              <path
-                                d="M7 16V0h2v16z"
-                              />
-                            </g>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                    >
-                      <div
-                        class="d-flex justify-content-between"
-                      >
-                        <div
-                          class="border-right col-md-10 capitalize"
-                        >
-                          <h5
-                            class="font-size-14"
-                          >
-                            vegetables
-                          </h5>
-                          <h5
-                            class="font-size-14 suggested-item-price"
-                          >
-                            24.54
-                          </h5>
-                        </div>
-                        <button
-                          class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                          data-dismiss=""
-                          data-target=""
-                          data-testid="button"
-                          data-toggle=""
-                          id="lcViG2Aea"
-                          type="button"
-                        >
-                          <svg
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
-                          >
-                            <g
-                              fill="#9c1c26"
-                              fill-rule="evenodd"
-                            >
-                              <path
-                                d="M0 7h16v2H0z"
-                              />
-                              <path
-                                d="M7 16V0h2v16z"
-                              />
-                            </g>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div
-                      class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                    >
-                      <div
-                        class="d-flex justify-content-between"
-                      >
-                        <div
-                          class="border-right col-md-10 capitalize"
-                        >
-                          <h5
-                            class="font-size-14"
-                          >
-                            Ham and cheese mellet
-                          </h5>
-                          <h5
-                            class="font-size-14 suggested-item-price"
-                          >
-                            14.54
-                          </h5>
-                        </div>
-                        <button
-                          class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                          data-dismiss=""
-                          data-target=""
-                          data-testid="button"
-                          data-toggle=""
-                          id="lcViG2Aea"
+                          id="Z5UyyRhJc"
                           type="button"
                         >
                           <svg
@@ -1274,7 +1124,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="lcViG2Aea"
+                id="charge-user-small"
                 type="submit"
               >
                 CONTINUE
@@ -1285,7 +1135,7 @@ Object {
       </div>
     </div>
     <script
-      src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01555025343117&libraries=places&v=3&language=en"
+      src="https://maps.googleapis.com/maps/api/js?callback=loaderCB01556664570582&libraries=places&v=3&language=en"
       type="text/javascript"
     />
   </body>,
@@ -1297,7 +1147,7 @@ Object {
         aria-hidden="true"
         aria-labelledby="exampleModalLabel"
         class="modal fade"
-        id="modal"
+        id="authModal"
         role="dialog"
         tabindex="-1"
       >
@@ -1372,6 +1222,7 @@ Object {
                           >
                             <input
                               accept=""
+                              autocomplete=""
                               class="default-input"
                               name="email"
                               placeholder="Email"
@@ -1387,6 +1238,7 @@ Object {
                           >
                             <input
                               accept=""
+                              autocomplete=""
                               class="default-input"
                               name="password"
                               placeholder="Password"
@@ -1446,7 +1298,7 @@ Object {
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lcViG2Aea"
+                          id="Z5UyyRhJc"
                           type="button"
                         >
                           Facebook
@@ -1480,17 +1332,24 @@ Object {
       </div>
     </div>
     <div
-      class="container"
+      class=""
     >
       <nav
-        class="navbar navbar-light"
+        class="container navbar navbar-light"
       >
         <div>
           <a
             class="bukka-brand"
             href="/"
           >
-            Mybukka
+            <div
+              class="bukka-logo"
+            >
+              <img
+                alt=""
+                src="https://res.cloudinary.com/digitzs/image/upload/v1550480450/Bukka%20App/bukka-logo.svg"
+              />
+            </div>
           </a>
         </div>
         <div
@@ -1499,7 +1358,7 @@ Object {
           <button
             class="small-outline-button"
             data-dismiss=""
-            data-target="#modal"
+            data-target="#authModal"
             data-testid="button"
             data-toggle="modal"
             id="/login"
@@ -1510,7 +1369,7 @@ Object {
           <button
             class="small-button"
             data-dismiss=""
-            data-target="#modal"
+            data-target="#authModal"
             data-testid="button"
             data-toggle="modal"
             id="/signup"
@@ -1520,6 +1379,102 @@ Object {
           </button>
         </div>
       </nav>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="exampleModalLabel"
+      class="modal fade"
+      id="inputSecurityKey"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered "
+        role="document"
+      >
+        <div
+          class="modal-content"
+        >
+          <div
+            class="modal-header"
+          />
+          <div
+            class="modal-body"
+          >
+            <div
+              class="dismiss-modal "
+              data-dismiss="modal"
+            >
+              <svg
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <defs>
+                  <path
+                    d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                    id="icon-close_svg__a"
+                  />
+                </defs>
+                <use
+                  transform="translate(4 4)"
+                  xlink:href="#icon-close_svg__a"
+                />
+              </svg>
+            </div>
+            <div
+              class="send-security-section animated"
+            >
+              <h5
+                class="text-center"
+              >
+                Submit OTP
+              </h5>
+              <br />
+              <div
+                class="send-security-form-inline"
+              >
+                <input
+                  accept=""
+                  autocomplete=""
+                  class="default-input"
+                  placeholder="SUBMIT OTP"
+                  type="text"
+                  value=""
+                />
+                <button
+                  class="btn-go"
+                  data-dismiss=""
+                  data-target=""
+                  data-testid="button"
+                  data-toggle=""
+                  id="Z5UyyRhJc"
+                >
+                  <svg
+                    class="chevron-right-icon"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <defs>
+                      <path
+                        d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
+                        id="icon-chevron_svg__a"
+                      />
+                    </defs>
+                    <use
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      xlink:href="#icon-chevron_svg__a"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       class="container relative modal-open"
@@ -1934,6 +1889,7 @@ Object {
                   </label>
                   <input
                     accept=""
+                    autocomplete=""
                     class="form-control border-input-style p-0"
                     name="number"
                     placeholder="Card number"
@@ -1955,6 +1911,7 @@ Object {
                   </label>
                   <input
                     accept=""
+                    autocomplete=""
                     class="form-control border-input-style p-0"
                     name="expDate"
                     placeholder="MM/YY"
@@ -1976,6 +1933,7 @@ Object {
                   </label>
                   <input
                     accept=""
+                    autocomplete=""
                     class="form-control border-input-style p-0"
                     name="cvv"
                     placeholder="CVV"
@@ -1997,6 +1955,7 @@ Object {
                   </label>
                   <input
                     accept=""
+                    autocomplete=""
                     class="form-control border-input-style p-0"
                     name="zipCode"
                     placeholder="Zip code"
@@ -2013,6 +1972,7 @@ Object {
               >
                 <input
                   accept=""
+                  autocomplete=""
                   class="checkbox"
                   name="makeDefaultPaymentOption"
                   placeholder=""
@@ -2032,7 +1992,7 @@ Object {
                   data-target=""
                   data-testid="button"
                   data-toggle=""
-                  id="lcViG2Aea"
+                  id="Z5UyyRhJc"
                   type="button"
                 >
                   Save
@@ -2052,7 +2012,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lcViG2Aea"
+              id="Z5UyyRhJc"
               type="submit"
             >
               CONTINUE
@@ -2084,15 +2044,13 @@ Object {
                 >
                   <h5
                     class="cart-bukka-name"
-                  >
-                    Mel's Drive-In
-                  </h5>
+                  />
                   <h5
                     class="cart-bukka-view-menu"
                   >
                     <a
                       class="text-success view-menu-text"
-                      href="/feed"
+                      href="/bukka/kssk-jhddj"
                     >
                       VIEW MENU
                     </a>
@@ -2108,7 +2066,7 @@ Object {
                       class="item-name"
                     >
                       1 × 
-                      Chicken Tenders and Fries
+                      name
                     </h5>
                     <div
                       class="action-item-section"
@@ -2119,7 +2077,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="lcViG2Aea"
+                        id="Z5UyyRhJc"
                         type="button"
                       >
                         EDIT
@@ -2130,7 +2088,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="lcViG2Aea"
+                        id="Z5UyyRhJc"
                         type="button"
                       >
                         REMOVE
@@ -2144,58 +2102,7 @@ Object {
                       class="price-badge-black"
                     >
                       ₦
-                      15.73
-                      .00
-                    </h4>
-                  </div>
-                </div>
-                <div
-                  class="d-flex order-tray"
-                >
-                  <div
-                    class="col p-0"
-                  >
-                    <h5
-                      class="item-name"
-                    >
-                      1 × 
-                      Side of beacon
-                    </h5>
-                    <div
-                      class="action-item-section"
-                    >
-                      <button
-                        class="cart-action-button-primary"
-                        data-dismiss=""
-                        data-target=""
-                        data-testid="button"
-                        data-toggle=""
-                        id="lcViG2Aea"
-                        type="button"
-                      >
-                        EDIT
-                      </button>
-                      <button
-                        class="cart-action-button-default"
-                        data-dismiss=""
-                        data-target=""
-                        data-testid="button"
-                        data-toggle=""
-                        id="lcViG2Aea"
-                        type="button"
-                      >
-                        REMOVE
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="p-0"
-                  >
-                    <h4
-                      class="price-badge-black"
-                    >
-                      ₦
-                      15.73
+                      90
                       .00
                     </h4>
                   </div>
@@ -2214,66 +2121,6 @@ Object {
                 >
                   Suggested Items
                 </h4>
-                <div
-                  class="suggested-items-tray"
-                >
-                  <button
-                    class="left btn-chevron"
-                    data-dismiss=""
-                    data-target=""
-                    data-testid="button"
-                    data-toggle=""
-                    id="lcViG2Aea"
-                    type="button"
-                  >
-                    <svg
-                      class="chevron-right-icon"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <defs>
-                        <path
-                          d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
-                          id="icon-chevron_svg__a"
-                        />
-                      </defs>
-                      <use
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        xlink:href="#icon-chevron_svg__a"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    class="right btn-chevron"
-                    data-dismiss=""
-                    data-target=""
-                    data-testid="button"
-                    data-toggle=""
-                    id="lcViG2Aea"
-                    type="button"
-                  >
-                    <svg
-                      class="chevron-right-icon"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      width="24"
-                    >
-                      <defs>
-                        <path
-                          d="M8.5 7.5L13 12l-4.5 4.5L10 18l6-6-6-6z"
-                          id="icon-chevron_svg__a"
-                        />
-                      </defs>
-                      <use
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                        xlink:href="#icon-chevron_svg__a"
-                      />
-                    </svg>
-                  </button>
-                </div>
               </div>
               <div
                 class="overflow-hidden"
@@ -2294,12 +2141,12 @@ Object {
                         <h5
                           class="font-size-14"
                         >
-                          whole milk
+                          title
                         </h5>
                         <h5
                           class="font-size-14 suggested-item-price"
                         >
-                          3.54
+                          4454
                         </h5>
                       </div>
                       <button
@@ -2308,154 +2155,7 @@ Object {
                         data-target=""
                         data-testid="button"
                         data-toggle=""
-                        id="lcViG2Aea"
-                        type="button"
-                      >
-                        <svg
-                          height="16"
-                          viewBox="0 0 16 16"
-                          width="16"
-                        >
-                          <g
-                            fill="#9c1c26"
-                            fill-rule="evenodd"
-                          >
-                            <path
-                              d="M0 7h16v2H0z"
-                            />
-                            <path
-                              d="M7 16V0h2v16z"
-                            />
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                  >
-                    <div
-                      class="d-flex justify-content-between"
-                    >
-                      <div
-                        class="border-right col-md-10 capitalize"
-                      >
-                        <h5
-                          class="font-size-14"
-                        >
-                          cheese
-                        </h5>
-                        <h5
-                          class="font-size-14 suggested-item-price"
-                        >
-                          12.54
-                        </h5>
-                      </div>
-                      <button
-                        class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                        data-dismiss=""
-                        data-target=""
-                        data-testid="button"
-                        data-toggle=""
-                        id="lcViG2Aea"
-                        type="button"
-                      >
-                        <svg
-                          height="16"
-                          viewBox="0 0 16 16"
-                          width="16"
-                        >
-                          <g
-                            fill="#9c1c26"
-                            fill-rule="evenodd"
-                          >
-                            <path
-                              d="M0 7h16v2H0z"
-                            />
-                            <path
-                              d="M7 16V0h2v16z"
-                            />
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                  >
-                    <div
-                      class="d-flex justify-content-between"
-                    >
-                      <div
-                        class="border-right col-md-10 capitalize"
-                      >
-                        <h5
-                          class="font-size-14"
-                        >
-                          vegetables
-                        </h5>
-                        <h5
-                          class="font-size-14 suggested-item-price"
-                        >
-                          24.54
-                        </h5>
-                      </div>
-                      <button
-                        class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                        data-dismiss=""
-                        data-target=""
-                        data-testid="button"
-                        data-toggle=""
-                        id="lcViG2Aea"
-                        type="button"
-                      >
-                        <svg
-                          height="16"
-                          viewBox="0 0 16 16"
-                          width="16"
-                        >
-                          <g
-                            fill="#9c1c26"
-                            fill-rule="evenodd"
-                          >
-                            <path
-                              d="M0 7h16v2H0z"
-                            />
-                            <path
-                              d="M7 16V0h2v16z"
-                            />
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                  <div
-                    class="bg-white col-sm-8 col-md-8 col-8 suggested-item-card"
-                  >
-                    <div
-                      class="d-flex justify-content-between"
-                    >
-                      <div
-                        class="border-right col-md-10 capitalize"
-                      >
-                        <h5
-                          class="font-size-14"
-                        >
-                          Ham and cheese mellet
-                        </h5>
-                        <h5
-                          class="font-size-14 suggested-item-price"
-                        >
-                          14.54
-                        </h5>
-                      </div>
-                      <button
-                        class="btn-add-item-suggested uppercase btn btn-link p-0 text-success font-size-light-36"
-                        data-dismiss=""
-                        data-target=""
-                        data-testid="button"
-                        data-toggle=""
-                        id="lcViG2Aea"
+                        id="Z5UyyRhJc"
                         type="button"
                       >
                         <svg
@@ -2559,7 +2259,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lcViG2Aea"
+              id="charge-user-small"
               type="submit"
             >
               CONTINUE
@@ -2570,6 +2270,22 @@ Object {
     </div>
   </div>,
   "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
   "getAllByAltText": [Function],
   "getAllByDisplayValue": [Function],
   "getAllByLabelText": [Function],

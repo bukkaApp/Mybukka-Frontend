@@ -30,6 +30,7 @@ Object {
             </label>
             <input
               accept=""
+              autocomplete=""
               class="form-control border-input-style p-0"
               name="streetAddress1"
               placeholder="Address"
@@ -51,6 +52,7 @@ Object {
             </label>
             <input
               accept=""
+              autocomplete=""
               class="form-control border-input-style p-0"
               name="streetAddress2"
               placeholder="Apt no or company name"
@@ -72,6 +74,7 @@ Object {
             </label>
             <input
               accept=""
+              autocomplete=""
               class="form-control border-input-style p-0"
               name="name"
               placeholder="Contact name"
@@ -93,6 +96,7 @@ Object {
             </label>
             <input
               accept=""
+              autocomplete=""
               class="form-control border-input-style p-0"
               name="mobileNumber"
               placeholder="Phone number"
@@ -120,7 +124,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="iAspjkIT3"
+              id="qoorLlnEe"
               type="button"
             >
               Save
@@ -156,6 +160,7 @@ Object {
           </label>
           <input
             accept=""
+            autocomplete=""
             class="form-control border-input-style p-0"
             name="streetAddress1"
             placeholder="Address"
@@ -177,6 +182,7 @@ Object {
           </label>
           <input
             accept=""
+            autocomplete=""
             class="form-control border-input-style p-0"
             name="streetAddress2"
             placeholder="Apt no or company name"
@@ -198,6 +204,7 @@ Object {
           </label>
           <input
             accept=""
+            autocomplete=""
             class="form-control border-input-style p-0"
             name="name"
             placeholder="Contact name"
@@ -219,6 +226,7 @@ Object {
           </label>
           <input
             accept=""
+            autocomplete=""
             class="form-control border-input-style p-0"
             name="mobileNumber"
             placeholder="Phone number"
@@ -246,7 +254,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="iAspjkIT3"
+            id="qoorLlnEe"
             type="button"
           >
             Save
@@ -256,6 +264,22 @@ Object {
     </div>
   </div>,
   "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
   "getAllByAltText": [Function],
   "getAllByDisplayValue": [Function],
   "getAllByLabelText": [Function],

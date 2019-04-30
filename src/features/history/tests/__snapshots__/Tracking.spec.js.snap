@@ -21,10 +21,11 @@ exports[`Tracking component re renders properly when accepted status 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="t-6C3Bg28"
+              id="mGsnbK3w3"
               type="button"
             >
               <svg
@@ -235,10 +236,11 @@ exports[`Tracking component re renders properly when cancelled status 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="t-6C3Bg28"
+              id="mGsnbK3w3"
               type="button"
             >
               <svg
@@ -449,10 +451,11 @@ exports[`Tracking component re renders properly when pending status 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="t-6C3Bg28"
+              id="mGsnbK3w3"
               type="button"
             >
               <svg
@@ -663,10 +666,11 @@ exports[`Tracking component re renders properly when rejected status 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="t-6C3Bg28"
+              id="mGsnbK3w3"
               type="button"
             >
               <svg
@@ -877,10 +881,11 @@ exports[`Tracking component renders properly 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="t-6C3Bg28"
+              id="mGsnbK3w3"
               type="button"
             >
               <svg

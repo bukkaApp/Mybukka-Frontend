@@ -6,230 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="container pt-29 px-15"
+        class="container "
       >
         <div
-          class="carousel"
-        >
-          <div
-            class="headline ml-3 mr-3"
-          >
-            <div
-              class="runner"
-              style="transform: translateX(0% - 32px);"
-            />
-            <h2
-              class="headline-h2"
-            >
-              A carousel
-            </h2>
-          </div>
-          <div
-            class="carousel-container"
-          >
-            <div
-              class="overflow-hidden"
-            >
-              <div
-                class="d-flex custom-flex-nowrap"
-                style="transform: translateX(0%);"
-              >
-                <div
-                  class="card-container some-classnames"
-                >
-                  <div
-                    class="card-wrap"
-                  >
-                    <a
-                      class="link"
-                      href="/feed"
-                    >
-                      <div
-                        class="mt-4 bukka-card"
-                      >
-                        <img
-                          alt="alt_image"
-                          class="img-small-screen bukka-img img-height"
-                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
-                        />
-                        <img
-                          alt="alt_image"
-                          class="img-large-screen bukka-img img-height"
-                          src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
-                        />
-                        <div
-                          class="details"
-                        >
-                          <h3>
-                            <span
-                              class="details-location"
-                            >
-                              San francisco
-                              <span>
-                                kitchen
-                                <span
-                                  class="icon"
-                                >
-                                  <svg
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    width="14"
-                                  >
-                                    <g
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <rect
-                                        fill="#9c1c26"
-                                        height="14"
-                                        rx="7"
-                                        width="14"
-                                      />
-                                      <path
-                                        d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
-                                        fill="#FFF"
-                                      />
-                                    </g>
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                            <span
-                              class="rating"
-                            >
-                              popular
-                            </span>
-                          </h3>
-                          <div
-                            class="delivery"
-                          >
-                            <h4
-                              class="price-badge"
-                            >
-                              ₦
-                              300
-                              .00
-                            </h4>
-                            <i
-                              class="dot-spacing"
-                            >
-                              .
-                            </i>
-                            <div
-                              class="delivery-time-text"
-                            >
-                              30-50 min
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div
-                  class="card-container some-classnames"
-                >
-                  <div
-                    class="card-wrap"
-                  >
-                    <a
-                      class="link"
-                      href="/feed"
-                    >
-                      <div
-                        class="mt-4 bukka-card"
-                      >
-                        <img
-                          alt="alt_image"
-                          class="img-small-screen bukka-img img-height"
-                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
-                        />
-                        <img
-                          alt="alt_image"
-                          class="img-large-screen bukka-img img-height"
-                          src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg"
-                        />
-                        <div
-                          class="details"
-                        >
-                          <h3>
-                            <span
-                              class="details-location"
-                            >
-                              San francisco
-                              <span>
-                                kitchen
-                                <span
-                                  class="icon"
-                                >
-                                  <svg
-                                    height="14"
-                                    viewBox="0 0 14 14"
-                                    width="14"
-                                  >
-                                    <g
-                                      fill="none"
-                                      fill-rule="evenodd"
-                                    >
-                                      <rect
-                                        fill="#9c1c26"
-                                        height="14"
-                                        rx="7"
-                                        width="14"
-                                      />
-                                      <path
-                                        d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
-                                        fill="#FFF"
-                                      />
-                                    </g>
-                                  </svg>
-                                </span>
-                              </span>
-                            </span>
-                            
-                          </h3>
-                          <div
-                            class="delivery"
-                          >
-                            <h4
-                              class="price-badge"
-                            >
-                              ₦
-                              400
-                              .00
-                            </h4>
-                            <i
-                              class="dot-spacing"
-                            >
-                              .
-                            </i>
-                            <div
-                              class="delivery-time-text"
-                            >
-                              1 hour
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="container pt-29 px-15"
-    >
-      <div
-        class="carousel"
-      >
-        <div
-          class="headline ml-3 mr-3"
+          class="headline"
         >
           <div
             class="runner"
@@ -241,28 +21,34 @@ Object {
             A carousel
           </h2>
         </div>
+      </div>
+      <div
+        class="container pt-29"
+      >
         <div
-          class="carousel-container"
+          class="carousel"
         >
           <div
-            class="overflow-hidden"
+            class="carousel-container"
           >
             <div
-              class="d-flex custom-flex-nowrap"
-              style="transform: translateX(0%);"
+              class="overflow-hidden"
             >
               <div
-                class="card-container some-classnames"
+                class="row custom-flex-nowrap"
+                style="transform: translateX(0%);"
               >
                 <div
-                  class="card-wrap"
+                  class="card-container some-classnames"
                 >
-                  <a
-                    class="link"
-                    href="/feed"
+                  <div
+                    class="card-wrap"
                   >
+                    
                     <div
                       class="mt-4 bukka-card"
+                      data-target=""
+                      data-toggle=""
                     >
                       <img
                         alt="alt_image"
@@ -272,7 +58,7 @@ Object {
                       <img
                         alt="alt_image"
                         class="img-large-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300439/banner-img-3.jpg"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
                       />
                       <div
                         class="details"
@@ -281,68 +67,29 @@ Object {
                           <span
                             class="details-location"
                           >
-                            San francisco
-                            <span>
-                              kitchen
-                              <span
-                                class="icon"
-                              >
-                                <svg
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                  width="14"
-                                >
-                                  <g
-                                    fill="none"
-                                    fill-rule="evenodd"
-                                  >
-                                    <rect
-                                      fill="#9c1c26"
-                                      height="14"
-                                      rx="7"
-                                      width="14"
-                                    />
-                                    <path
-                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
-                                      fill="#FFF"
-                                    />
-                                  </g>
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                          <span
-                            class="rating"
-                          >
-                            nearby
+                            
                           </span>
                         </h3>
                         <div
                           class="delivery"
                         >
-                          <div
-                            class="delivery-time-text"
-                          >
-                            30-50 min
-                          </div>
+                          0
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="card-container some-classnames"
-              >
                 <div
-                  class="card-wrap"
+                  class="card-container some-classnames"
                 >
-                  <a
-                    class="link"
-                    href="/feed"
+                  <div
+                    class="card-wrap"
                   >
+                    
                     <div
                       class="mt-4 bukka-card"
+                      data-target=""
+                      data-toggle=""
                     >
                       <img
                         alt="alt_image"
@@ -352,7 +99,7 @@ Object {
                       <img
                         alt="alt_image"
                         class="img-large-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/v1549300440/banner-img-2.jpg"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
                       />
                       <div
                         class="details"
@@ -361,54 +108,139 @@ Object {
                           <span
                             class="details-location"
                           >
-                            San francisco
-                            <span>
-                              kitchen
-                              <span
-                                class="icon"
-                              >
-                                <svg
-                                  height="14"
-                                  viewBox="0 0 14 14"
-                                  width="14"
-                                >
-                                  <g
-                                    fill="none"
-                                    fill-rule="evenodd"
-                                  >
-                                    <rect
-                                      fill="#9c1c26"
-                                      height="14"
-                                      rx="7"
-                                      width="14"
-                                    />
-                                    <path
-                                      d="M3 7l3 3 4.5-4.5-1-1L6 8 4 6"
-                                      fill="#FFF"
-                                    />
-                                  </g>
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                          <span
-                            class="rating"
-                          >
-                            nearby
+                            
                           </span>
                         </h3>
                         <div
                           class="delivery"
                         >
-                          <div
-                            class="delivery-time-text"
-                          >
-                            1 hour
-                          </div>
+                          0
                         </div>
                       </div>
                     </div>
-                  </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container "
+    >
+      <div
+        class="headline"
+      >
+        <div
+          class="runner"
+          style="transform: translateX(0% - 32px);"
+        />
+        <h2
+          class="headline-h2"
+        >
+          A carousel
+        </h2>
+      </div>
+    </div>
+    <div
+      class="container pt-29"
+    >
+      <div
+        class="carousel"
+      >
+        <div
+          class="carousel-container"
+        >
+          <div
+            class="overflow-hidden"
+          >
+            <div
+              class="row custom-flex-nowrap"
+              style="transform: translateX(0%);"
+            >
+              <div
+                class="card-container some-classnames"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  
+                  <div
+                    class="mt-4 bukka-card"
+                    data-target=""
+                    data-toggle=""
+                  >
+                    <img
+                      alt="alt_image"
+                      class="img-small-screen bukka-img img-height"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
+                    />
+                    <img
+                      alt="alt_image"
+                      class="img-large-screen bukka-img img-height"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
+                    />
+                    <div
+                      class="details"
+                    >
+                      <h3>
+                        <span
+                          class="details-location"
+                        >
+                          
+                        </span>
+                      </h3>
+                      <div
+                        class="delivery"
+                      >
+                        0
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="card-container some-classnames"
+              >
+                <div
+                  class="card-wrap"
+                >
+                  
+                  <div
+                    class="mt-4 bukka-card"
+                    data-target=""
+                    data-toggle=""
+                  >
+                    <img
+                      alt="alt_image"
+                      class="img-small-screen bukka-img img-height"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
+                    />
+                    <img
+                      alt="alt_image"
+                      class="img-large-screen bukka-img img-height"
+                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
+                    />
+                    <div
+                      class="details"
+                    >
+                      <h3>
+                        <span
+                          class="details-location"
+                        >
+                          
+                        </span>
+                      </h3>
+                      <div
+                        class="delivery"
+                      >
+                        0
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -418,6 +250,22 @@ Object {
     </div>
   </div>,
   "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
   "getAllByAltText": [Function],
   "getAllByDisplayValue": [Function],
   "getAllByLabelText": [Function],

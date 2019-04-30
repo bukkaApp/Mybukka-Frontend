@@ -40,10 +40,11 @@ exports[`Transaction component renders properly 1`] = `
           >
             <button
               class="tracking-cancel-btn"
+              data-dismiss=""
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="aCivSn181"
+              id="WedRggo0l"
               type="button"
             >
               <svg
