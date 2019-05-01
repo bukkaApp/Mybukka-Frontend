@@ -49,7 +49,7 @@ describe('Login Page component', () => {
       error: false
     },
     errorMessage: '',
-    history: { push: jest.fn() }
+    history: { push: jest.fn(), location: { search: '?next=/profile' } }
   };
   const { rerender, getByTestId, container, getByPlaceholderText } = render(
     <CustomProvider>

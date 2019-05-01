@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
 import InternalError from 'Components/not-found/InternalError';
+import signout from 'Components/navbar/actionCreators/logOut';
 import AuthenticaticatedNavbar from 'Components/navbar/AuthenticaticatedNavbar';
 import ProfileHeader from './ProfileHeader';
 import ProfileImageSection from './ProfileImageSection';
@@ -15,6 +16,7 @@ import fetchUserData from '../actionCreators/fetchUserData';
 import deleteAddress from '../actionCreators/deleteAddress';
 import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import uploadProfilePicture from '../actionCreators/uploadProfilePicture';
+import tokenVerification from '../../../utils/verifyToken';
 
 import './profileScene.scss';
 
@@ -31,16 +33,26 @@ const ProfileScene = ({
   loading,
   editUserData,
   userAddress,
+  signOut,
 }) => {
+  const { push } = history;
   const { userInfo } = user;
   const userData = userInfo;
   const { authenticated } = status;
+
   useEffect(() => {
-    if (authenticated) {
-      if (!finishedRequest) {
-        requestUserData('/user/profile');
-        requestUserAddress('/user/address');
-      }
+    if (!localStorage.getItem('x-access-token')) {
+      signOut();
+    }
+  });
+
+  useEffect(() => {
+    if (!authenticated) {
+      push('/login?next=/profile');
+    }
+    if (tokenVerification() && authenticated && !finishedRequest) {
+      requestUserData('/user/profile');
+      requestUserAddress('/user/address');
     }
   });
 
@@ -59,7 +71,7 @@ const ProfileScene = ({
   return (
     <Fragment>
       <AuthenticaticatedNavbar />
-      {finishedRequest ? (
+      {userData ? (
         <Fragment>
           <ProfileHeader
             firstName={userData.firstName}
@@ -119,7 +131,8 @@ export default connect(
     editUserData: postUserData,
     requestUserAddress: fetchUserAddress,
     deleteUserAddress: deleteAddress,
-    addProfilePicture: uploadProfilePicture
+    addProfilePicture: uploadProfilePicture,
+    signOut: signout
   }
 )(ProfileScene);
 
@@ -145,6 +158,7 @@ const proptypes = PropTypes.objectOf(
 );
 
 ProfileScene.propTypes = {
+  signOut: PropTypes.func.isRequired,
   addProfilePicture: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
   loading: PropTypes.bool,

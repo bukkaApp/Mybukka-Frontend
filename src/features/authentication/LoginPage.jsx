@@ -20,10 +20,11 @@ export const LoginPage = ({
   errorMessage,
   classNames,
   authenticateUser,
-  history: { push }
+  history: { push, location }
 }) => {
   const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
+  const [redirect, setRedirection] = useState('');
 
   const [validationErrors, setValidationErrors] = useState({
     email: '',
@@ -90,8 +91,28 @@ export const LoginPage = ({
     setNextSlide(false);
   };
 
+  const urlFilter = (url) => {
+    // filter "/login?next=/support?cs_web_redirect=/buyer" or /login?next=/profile
+    const urlStringToArr = url.split('=');
+    if (urlStringToArr.length === 2) {
+      setRedirection(urlStringToArr[1]);
+    } else {
+      urlStringToArr.shift();
+      urlStringToArr[0] = urlStringToArr[0]
+        .replace('?cs_web_redirect', '');
+      const confirmedUrl = urlStringToArr.join('');
+      setRedirection(confirmedUrl);
+    }
+  };
+
   useEffect(() => {
-    if (!authModal && authenticated) {
+    if (location && location.search) {
+      urlFilter(location.search);
+      if (authenticated) {
+        push(redirect);
+      }
+    }
+    if (!authModal && !location.search && authenticated) {
       return push('/');
     }
   });

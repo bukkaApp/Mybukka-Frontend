@@ -11,7 +11,7 @@ const PersonalizedHeader = ({ title }) => (
       </div>
       <a
         className="personalized-header-link"
-        href="https://postmates.com/login?next=/support?cs_web_redirect=/buyer"
+        href="/support/buyer"
       >
         <span>View all</span>
       </a>

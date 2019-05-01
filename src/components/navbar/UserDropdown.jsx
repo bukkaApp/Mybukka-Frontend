@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import unAuthenticateUser from './actionCreators/unAuthenticateUser';
+
+import signOut from './actionCreators/logOut';
+
 import './userdropdown.scss';
 
 const UserDropdown = ({ logoutUser }) => {
@@ -113,7 +115,7 @@ const UserDropdown = ({ logoutUser }) => {
 };
 
 export default connect(null, {
-  logoutUser: unAuthenticateUser
+  logoutUser: signOut
 })(UserDropdown);
 
 UserDropdown.propTypes = {

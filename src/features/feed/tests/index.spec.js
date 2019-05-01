@@ -56,6 +56,7 @@ const store = mockStore(initialState);
 describe('FeedPage component', () => {
   const props = {
     food: true,
+    signOut: jest.fn(),
     setDeliveryModeAction: jest.fn(),
     push: jest.fn(),
     coordinates: [3.7474, 3.4848],

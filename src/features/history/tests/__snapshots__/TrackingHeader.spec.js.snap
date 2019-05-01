@@ -12,10 +12,11 @@ exports[`TrackingHeader component re renders properly when rejected status 1`] =
     >
       <button
         class="tracking-cancel-btn"
+        data-dismiss=""
         data-target=""
         data-testid="button"
         data-toggle=""
-        id="JIWP0G2rF"
+        id="2sKlf3r7Z"
         type="button"
       >
         <svg
@@ -59,10 +60,11 @@ exports[`TrackingHeader component renders properly 1`] = `
     >
       <button
         class="tracking-cancel-btn"
+        data-dismiss=""
         data-target=""
         data-testid="button"
         data-toggle=""
-        id="JIWP0G2rF"
+        id="2sKlf3r7Z"
         type="button"
       >
         <svg

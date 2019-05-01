@@ -13,15 +13,13 @@ Object {
         >
           <h5
             class="cart-bukka-name"
-          >
-            Mel's Drive-In
-          </h5>
+          />
           <h5
             class="cart-bukka-view-menu"
           >
             <a
               class="text-success view-menu-text"
-              href="/feed"
+              href="/bukka/undefined"
             >
               VIEW MENU
             </a>
@@ -37,7 +35,7 @@ Object {
               class="item-name"
             >
               1 × 
-              Chicken Tenders and Fries
+              name
             </h5>
             <div
               class="action-item-section"
@@ -48,7 +46,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="dgoPJkjMw"
+                id="YL7GSPx6b"
                 type="button"
               >
                 EDIT
@@ -59,7 +57,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="dgoPJkjMw"
+                id="YL7GSPx6b"
                 type="button"
               >
                 REMOVE
@@ -73,58 +71,7 @@ Object {
               class="price-badge-black"
             >
               ₦
-              15.73
-              .00
-            </h4>
-          </div>
-        </div>
-        <div
-          class="d-flex order-tray"
-        >
-          <div
-            class="col p-0"
-          >
-            <h5
-              class="item-name"
-            >
-              1 × 
-              Side of beacon
-            </h5>
-            <div
-              class="action-item-section"
-            >
-              <button
-                class="cart-action-button-primary"
-                data-dismiss=""
-                data-target=""
-                data-testid="button"
-                data-toggle=""
-                id="dgoPJkjMw"
-                type="button"
-              >
-                EDIT
-              </button>
-              <button
-                class="cart-action-button-default"
-                data-dismiss=""
-                data-target=""
-                data-testid="button"
-                data-toggle=""
-                id="dgoPJkjMw"
-                type="button"
-              >
-                REMOVE
-              </button>
-            </div>
-          </div>
-          <div
-            class="p-0"
-          >
-            <h4
-              class="price-badge-black"
-            >
-              ₦
-              15.73
+              90
               .00
             </h4>
           </div>
@@ -141,15 +88,13 @@ Object {
       >
         <h5
           class="cart-bukka-name"
-        >
-          Mel's Drive-In
-        </h5>
+        />
         <h5
           class="cart-bukka-view-menu"
         >
           <a
             class="text-success view-menu-text"
-            href="/feed"
+            href="/bukka/undefined"
           >
             VIEW MENU
           </a>
@@ -165,7 +110,7 @@ Object {
             class="item-name"
           >
             1 × 
-            Chicken Tenders and Fries
+            name
           </h5>
           <div
             class="action-item-section"
@@ -176,7 +121,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="dgoPJkjMw"
+              id="YL7GSPx6b"
               type="button"
             >
               EDIT
@@ -187,7 +132,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="dgoPJkjMw"
+              id="YL7GSPx6b"
               type="button"
             >
               REMOVE
@@ -201,58 +146,7 @@ Object {
             class="price-badge-black"
           >
             ₦
-            15.73
-            .00
-          </h4>
-        </div>
-      </div>
-      <div
-        class="d-flex order-tray"
-      >
-        <div
-          class="col p-0"
-        >
-          <h5
-            class="item-name"
-          >
-            1 × 
-            Side of beacon
-          </h5>
-          <div
-            class="action-item-section"
-          >
-            <button
-              class="cart-action-button-primary"
-              data-dismiss=""
-              data-target=""
-              data-testid="button"
-              data-toggle=""
-              id="dgoPJkjMw"
-              type="button"
-            >
-              EDIT
-            </button>
-            <button
-              class="cart-action-button-default"
-              data-dismiss=""
-              data-target=""
-              data-testid="button"
-              data-toggle=""
-              id="dgoPJkjMw"
-              type="button"
-            >
-              REMOVE
-            </button>
-          </div>
-        </div>
-        <div
-          class="p-0"
-        >
-          <h4
-            class="price-badge-black"
-          >
-            ₦
-            15.73
+            90
             .00
           </h4>
         </div>
@@ -260,6 +154,22 @@ Object {
     </div>
   </div>,
   "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
   "getAllByAltText": [Function],
   "getAllByDisplayValue": [Function],
   "getAllByLabelText": [Function],

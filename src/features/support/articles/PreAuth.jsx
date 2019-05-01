@@ -42,7 +42,7 @@ const MainSection = () => (
             </p>
             <p className="p1">
               <img
-                src="https://postmates.zendesk.com/hc/article_attachments/360020983752/IMG_5634.jpg" // eslint-disable-line
+                src="https://res.cloudinary.com/deqt3envc/image/upload/v1556630037/Receipt.jpg" // eslint-disable-line
                 alt="IMG_5634.jpg"
                 width="423"
                 height="267"

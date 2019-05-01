@@ -19,9 +19,8 @@ const BgColor = ({ children }) => (
 );
 
 const Transaction = ({
-  data,
+  orderHistory,
   fetched,
-  error,
   openTrackingDropdown,
   fetchedOrderHistory
 }) => {
@@ -40,14 +39,14 @@ const Transaction = ({
         <div className="profile-header-section mb-4">
           <ProfileHeaderTitle firstName="Order" lastName="history" />
         </div>
-        {refreshed && !error &&
-        <Container classNames="relative d-bg-white-none">
+        {orderHistory.length >= 1 &&
+        <Container classNames="relative">
           <div
             className="d-flex flex-column flex-xl-column
         flex-lg-column flex-md-column justify-content-between"
           >
-            <Table data={data} handleClick={openTrackingDropdown} />
-            {data.map(dom => (
+            <Table data={orderHistory} handleClick={openTrackingDropdown} />
+            {orderHistory.map(dom => (
               <Card
                 handleClick={() => openTrackingDropdown(dom.status)}
                 time={dom.time}
@@ -69,10 +68,11 @@ const Transaction = ({
 };
 
 const mapStateToProps = ({
-  getOrderHistoryReducer: { status: { fetched, error } },
+  getOrderHistoryReducer: { orderHistory, status: { fetched, error } },
 }) => ({
   fetched,
-  error
+  error,
+  orderHistory
 });
 
 export default connect(
@@ -84,15 +84,14 @@ export default connect(
 )(Transaction);
 
 Transaction.defaultProps = {
-  data: {}
+  orderHistory: []
 };
 
 Transaction.propTypes = {
   fetched: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
   fetchedOrderHistory: PropTypes.func.isRequired,
   openTrackingDropdown: PropTypes.func.isRequired,
-  data: PropTypes.arrayOf(
+  orderHistory: PropTypes.arrayOf(
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,

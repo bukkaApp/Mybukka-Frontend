@@ -54,6 +54,7 @@ const store = mockStore(initialState);
 
 describe('DrinkSection component', () => {
   const props = {
+    signOut: jest.fn(),
     setDeliveryModeAction: jest.fn(),
     push: jest.fn(),
     coordinates: [3.7474, 3.4848],

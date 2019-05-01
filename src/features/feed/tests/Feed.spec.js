@@ -60,6 +60,7 @@ describe('FoodSection component', () => {
     category: true,
     search: true,
     fresh: true,
+    signOut: jest.fn(),
     setDeliveryModeAction: jest.fn(),
     history: { push: jest.fn() },
     coordinates: [3.7474, 3.4848],
