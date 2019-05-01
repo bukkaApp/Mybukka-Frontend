@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
 import InternalError from 'Components/not-found/InternalError';
-import signout from 'Components/navbar/actionCreators/signOut';
+import signout from 'Components/navbar/actionCreators/logOut';
 import AuthenticaticatedNavbar from 'Components/navbar/AuthenticaticatedNavbar';
 import ProfileHeader from './ProfileHeader';
 import ProfileImageSection from './ProfileImageSection';
