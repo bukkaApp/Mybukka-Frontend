@@ -151,7 +151,7 @@ const SearchAnything = (props) => {
         </div>
       </ReusableButton>
       {props.focus &&
-      <ReusableDropdown classNames="search-result-section">
+      <ReusableDropdown classNames="search-anything-scene">
         <div className="search-result-content">
           <div>
             {search === '' ?

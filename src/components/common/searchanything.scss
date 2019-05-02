@@ -33,7 +33,7 @@
     color: #212529
 }
 
-.search-result-section {
+.search-anything-scene {
     z-index: 1000 !important;
     @media (min-width: 768px) {
         bottom: 0px;
@@ -45,26 +45,18 @@
     }
 
     @media (max-width: 992px) {
-        top: -380%!important;
         left: calc((100% + 58px) + 0px)!important;
         transform: translate(calc((-52% + 58px) + 0px), 100%);
         width: 80vw!important;
     }
 
-    @media (max-width: 450px) {
-        top: -600%!important;
-    }
-
     @media (max-width: 767px) {
         left: calc((60% + 58px) + 0px)!important;
+        transform: translate(calc((-52% + 58px) + 0px), 0%);
     }
 
     @media (max-width: 490px) {
         left: calc((15vw + 58px) + 0px)!important;
-    }
-
-    @media (max-width: 767px) and (min-width: 500px) {
-        top: -620%!important;
     }
 
     @media (max-width: 549px) {
@@ -76,7 +68,7 @@
     padding: 10px 10px 10px 20px;
 }
 
-.search-result-section .search-wrapper {
+.search-anything-scene .search-wrapper {
     background: white;
     max-height: 410px;
     overflow-y: auto;

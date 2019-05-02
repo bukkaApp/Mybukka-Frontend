@@ -17,6 +17,7 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   'process.env.API_SECRET': JSON.stringify(process.env.API_SECRET),
   'process.env.CLOUD_NAME': JSON.stringify(process.env.CLOUD_NAME),
   'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+  'process.env.PORT': JSON.stringify(process.env.PORT),
   'process.env.CLOUDINARY_UPLOAD_URL': JSON.stringify(
     process.env.CLOUDINARY_UPLOAD_URL
   ),
