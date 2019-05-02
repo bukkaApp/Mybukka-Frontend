@@ -17,7 +17,7 @@ const LargeTextSection = () => (
 
 const SmallTextSection = () => (
   <div className="container small-text-section">
-    <h5 className="text-center small-text">
+    <h5 className="text-center sub-text">
       Food, drinks and groceries available for delivery or pickup.
     </h5>
   </div>
