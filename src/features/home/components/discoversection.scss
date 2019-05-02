@@ -1,7 +1,3 @@
-.large-text-discover {
-  padding-right: 170px;
-}
-
 .small-text {
   font-size: 15px;
   font-weight: 300;
@@ -9,7 +5,6 @@
 }
 
 .small-text-discover {
-  padding-right: 100px;
   padding-top: 20px;
 }
 
@@ -41,17 +36,24 @@
 .smaller-text {
   font-weight: 400;
   font-size: 18px;
+  color: #8f95a3;
+  line-height: 26px;
+}
+
+.discover-section-text {
+  padding-right: 70px;
 }
 
 @media (max-width: 767.98px) {
-  .large-text-discover, .small-text-discover {
+  .large-text-discover,
+  .small-text-discover {
     padding: 0px;
     text-align: center;
     padding-bottom: 20px;
   }
 
   .smaller-text {
-    font-size: 15px
+    font-size: 15px;
   }
 
   .large-text {
@@ -91,12 +93,17 @@
   .discover-section {
     border-bottom: 20px solid #f7f7f8;
   }
+
+  .discover-section-text {
+    padding-right: 0;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .large-text-discover, .small-text-discover {
+  .large-text-discover,
+  .small-text-discover {
     padding: 0px;
-    text-align: center;
+    // text-align: center;
   }
 
   .large-text {
@@ -108,7 +115,7 @@
   }
 
   .action-button-section {
-    text-align: center;
+    // text-align: center;
   }
 
   .search-location-section {
@@ -117,7 +124,7 @@
   }
 
   .side-image-section {
-    padding-top: 20px;
+    padding-top: 65px;
   }
 
   .side-image {
@@ -127,9 +134,10 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .large-text-discover, .small-text-discover {
+  .large-text-discover,
+  .small-text-discover {
     padding: 0px;
-    text-align: center;
+    // text-align: center;
   }
 
   .large-text {
@@ -141,14 +149,13 @@
   }
 
   .action-button-section {
-    text-align: center;
+    // text-align: center;
   }
 
   .search-location-section {
     padding-left: 10px;
     padding-right: 10px;
   }
-
 
   .side-image {
     height: 230px;

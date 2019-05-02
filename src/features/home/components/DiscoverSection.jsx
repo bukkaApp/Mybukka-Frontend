@@ -12,7 +12,7 @@ const LargeText = () => (
 
 const SmallText = () => (
   <div className="small-text-discover">
-    <h5 className="smaller-text">
+    <h5 className="smaller-text ">
       With the largest on-demand network in the industry, you can explore your
       city, find its hidden hotspots, and watch as we bring your new favorites
       right to your door. Download the app for iOS or Android for free.
@@ -44,7 +44,7 @@ const SideImage = () => (
 const DiscoverSection = () => (
   <div className="container discover-section">
     <div className="row">
-      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div className="discover-section-text col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <LargeText />
         <div className="d-none d-md-block">
           <SmallText />
