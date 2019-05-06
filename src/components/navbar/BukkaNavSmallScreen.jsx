@@ -1,9 +1,50 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import SearchPlusMenu from '../icons/SearchPlusMenu';
+import inputData from 'Components/common-navs/inputData/duration.json';
+
+import SearchPlusMenu from 'Components/icons/SearchPlusMenu';
+import DismissModal from '../modal/DismissModal';
+import Modal from '../modal';
+import InputField from '../input/InputField';
 
 import './bukkaNavSmallScreen.scss';
+
+const { categoryItems } = inputData;
+
+
+export const ResponsiveCategories = ({ placeholderText }) => (
+  <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">
+    <div className="small-search-container">
+      <div className="bukka-nav-small-category-border pb-2">
+        <div className="mx-4 row">
+          <div className="col-2 px-0">
+            <DismissModal classNames="pl-0" />
+          </div>
+          <div className="col-10">
+            <InputField
+              placeholderText={placeholderText}
+              classNames="bukka-nav-search-input"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="small-search-wrapper">
+        <div className="dropdown-suggestion">
+          <Fragment>
+            <div className="mx-4">
+              {categoryItems.map(category =>
+                (<div className="bukka-nav-small-category">
+                  {category}
+                </div>
+                ))}
+            </div>
+          </Fragment>
+        </div>
+      </div>
+    </div>
+  </Modal>
+);
 
 const BukkaNavSmallScreen = ({ currentCategory, classNames }) => (
   <div className={`bukka-nav-small d-lg-none ${classNames}`}>
@@ -11,7 +52,9 @@ const BukkaNavSmallScreen = ({ currentCategory, classNames }) => (
       <div className="current-category">
         <h5 className="current-category-text">{currentCategory}</h5>
       </div>
-      <SearchPlusMenu />
+      <div data-target="#category-small-modal" data-toggle="modal">
+        <SearchPlusMenu />
+      </div>
     </nav>
   </div>
 );
@@ -20,6 +63,10 @@ export default BukkaNavSmallScreen;
 
 BukkaNavSmallScreen.defaultProps = {
   classNames: ''
+};
+
+ResponsiveCategories.propTypes = {
+  placeholderText: PropTypes.string.isRequired,
 };
 
 BukkaNavSmallScreen.propTypes = {

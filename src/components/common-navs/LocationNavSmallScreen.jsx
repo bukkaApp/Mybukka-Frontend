@@ -74,7 +74,7 @@ const LocationNavSmallScreen = ({ mode, bukka }) => (
       d-lg-none d-xl-none gutter-bg-clor"
     >
       <div className="location-navbar-content container">
-        <div className="options-center col-lg-10">
+        <div className="options-center col-lg-12 px-0">
           <div className="options-wrapper">
             <div className="options">
               <div className="btn-location">

@@ -2,7 +2,8 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
+import BukkaNavSmallScreen, { ResponsiveCategories }
+  from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
 import Navbar from 'Components/navbar';
 
@@ -25,6 +26,7 @@ const BukkaMenuScene = ({ push }) => (
   <div className="bukka-menu">
     <AddToCart />
     <SelectLocationModal />
+    <ResponsiveCategories placeholderText="Search Bukka" />
     <Navbar push={push} bukka />
     <BukkaImageSection />
     <LocationNavLargeScreen deliveryorpickup classNames="bukka-location-nav" />

@@ -11,21 +11,16 @@ import MapMarker from '../icons/MapMarker';
 import SearchLocation from './SearchLocation';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
-import ChevronVertical from '../icons/ChevronVertical';
-import Duration, { TimeLists as CategoryLists } from './Duration';
+import Duration from './Duration';
 import CartDropdown from './CartIconSection';
 // import CartIconSection from './CartIconSection';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
+import Categories from './Categories';
 
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
-import inputData from './inputData/duration.json';
-
 import './locationnavlarge.scss';
-
-
-const { categoryItems } = inputData;
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -87,27 +82,6 @@ const CurrentLocation = props => (
       <SearchLocation
         chevronButtonVisible={false}
         showDeliveryOrPickupNav={false}
-      />
-    </ReusableDropdown>
-  </ReusableWrapper>
-);
-
-const Categories = props => (
-  <ReusableWrapper>
-    <ReusableButton {...props}>
-      <div>
-        <h2 className="current-location-button-text">Categories</h2>
-      </div>
-      <span className="current-location-button-icon custom-mt-minus1 pl-4">
-        <ChevronVertical />
-      </span>
-    </ReusableButton>
-    <ReusableDropdown classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}>
-      <CategoryLists
-        handleClick={() => {}}
-        lists={categoryItems}
-        classNames="category-dropdown-section"
-        maxHeight="category-dropdown-height"
       />
     </ReusableDropdown>
   </ReusableWrapper>
