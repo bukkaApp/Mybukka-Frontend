@@ -19,3 +19,26 @@
 .top-0 {
   top: 0px!important;
 }
+
+.bukka-nav-small-category-border {
+  border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+}
+
+.bukka-nav-search-input {
+  border-radius: 50px;
+  border: 1px solid #eceff1;
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 10px 10px 10px;
+  outline: none;
+  font-size: 15px;
+  letter-spacing: 0.50px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.bukka-nav-small-category {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+}

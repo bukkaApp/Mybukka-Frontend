@@ -12,7 +12,7 @@ import LocationNavLargeScreen
 import LocationNavSmallScreen, { SelectLocationModal }
   from 'Components/common-navs/LocationNavSmallScreen';
 
-import BukkaNavSmallScreen
+import BukkaNavSmallScreen, { ResponsiveCategories }
   from 'Components/navbar/BukkaNavSmallScreen';
 
 import Navbar from 'Components/navbar';
@@ -67,6 +67,7 @@ const DrinkSection = ({
   return (
     <div className="container-fluid p-0">
       <AddToCart />
+      <ResponsiveCategories placeholderText="Search Drink" />
       <SelectLocationModal />
       {nearbyBukkas.length >= 0 && (
         <div>
