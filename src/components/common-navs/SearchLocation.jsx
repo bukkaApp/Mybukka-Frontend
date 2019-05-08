@@ -22,7 +22,8 @@ const SearchLocation = ({
   selectedLocation,
   selectLocation,
   showDeliveryOrPickupNav,
-  chevronButtonVisible
+  chevronButtonVisible,
+  showDropdown,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -108,8 +109,9 @@ const SearchLocation = ({
         />
         {showChevronButton()}
       </div>
+      {showDropdown && (<div className="carousel-divider mb-0" />)}
       <div className="dropdown-suggestion">
-        {isFocused && (
+        {(isFocused || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
             <SuggestionsDropdown setLocation={selectAndGeocodeLocation} />
@@ -144,9 +146,11 @@ export default connect(
 SearchLocation.defaultProps = {
   chevronButtonVisible: true,
   showDeliveryOrPickupNav: true,
+  showDropdown: false,
 };
 
 SearchLocation.propTypes = {
+  showDropdown: PropTypes.bool,
   google: PropTypes.shape({}).isRequired,
   updatePredictions: PropTypes.func.isRequired,
   selectedLocation: PropTypes.shape({}).isRequired,

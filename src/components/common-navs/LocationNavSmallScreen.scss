@@ -107,3 +107,27 @@ $fontFamily: 'Roboto', sans-serif;
     transform: translate(calc((-50% + 58px) + 0px), 100%);
   }
 }
+
+.schedule-later-btn {
+  display: flex;
+  min-width: 100%;
+  height: 48px;
+  vertical-align: bottom;
+  cursor: pointer;
+  border-radius: 0;
+  letter-spacing: 0.72px;
+  text-transform: uppercase;
+  line-height: normal;
+  outline: none !important;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 10px;
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  border: 0;
+}
+
+.top--1 {
+  position: relative;
+  top: -1px;
+}

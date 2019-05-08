@@ -76,7 +76,7 @@ const Carousel = ({
           NumberOfViews={slidesLenght}
         />
       }
-      <Container classNames="pt-29">
+      <Container>
         <div className="carousel">
           <div className="carousel-container">
             {activeIndex >= 1 && (

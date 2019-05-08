@@ -5,7 +5,12 @@ import Container from 'Components/container/Container';
 import './Headline.scss';
 
 
-const Headline = ({ title, numberOfViews, slidesLength, activeIndex }) => {
+const Headline = ({
+  title,
+  numberOfViews,
+  slidesLength,
+  activeIndex,
+}) => {
   const calc = (100 / slidesLength) * activeIndex;
   return (
     <Container>
@@ -39,5 +44,5 @@ Headline.propTypes = {
   numberOfViews: PropTypes.number,
   title: PropTypes.string.isRequired,
   slidesLength: PropTypes.number,
-  activeIndex: PropTypes.number.isRequired
+  activeIndex: PropTypes.number.isRequired,
 };

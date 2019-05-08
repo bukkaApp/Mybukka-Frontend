@@ -145,6 +145,7 @@ img {
 .drinks-img-height {
   object-fit: scale-down;
   min-height: 120px;
+  height: auto;
   background-color: rgba(231, 226, 226, 0.7);
   @media (min-width: 767px) {
     max-height: 270px;
@@ -155,6 +156,7 @@ img {
 .fresh-img-height {
   object-fit: scale-down;
   min-height: 120px;
+  height: auto;
   background-color: rgba(231, 226, 226, 0.7);
   @media (min-width: 767px) {
     max-height: 270px;
