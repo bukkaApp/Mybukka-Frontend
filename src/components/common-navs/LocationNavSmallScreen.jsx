@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import Clock from 'Icons/Clock';
+import ChevronVertical from '../icons/ChevronVertical';
 import DismissModal from '../modal/DismissModal';
 import Modal from '../modal';
 import Button from '../button/Button';
@@ -9,30 +10,66 @@ import SearchLocation from './SearchLocation';
 import DeliveryOrPickupNav from './DeliveryOrPickupNav';
 import ChevronRight from '../icons/ChevronRight';
 import MapMarker from '../icons/MapMarker';
+import { DurationContent } from './Duration';
 
 import './LocationNavSmallScreen.scss';
 
-export const SelectLocationModal = () => (
-  <Modal classNames="select-delivery-pickup" dataTarget="small-location-nav">
-    <div className="small-search-container">
-      <DismissModal classNames="dismiss-modal-right" />
-      <div className="small-search-wrapper">
-        <div className="dropdown-suggestion">
-          <Fragment>
-            <DeliveryOrPickupNav />
-            <SuggestionsDropdown handleClick={() => {}} />
-          </Fragment>
+import Cancel from '../icons/Cancel';
+
+const CancelScheduleBtn = ({ handleClick }) => (
+  <div
+    className="dismiss-modal"
+    tabIndex="0"
+    role="button"
+    aria-pressed="false"
+    onClick={handleClick}
+  >
+    <Cancel />
+  </div>
+);
+
+export const SelectLocationModal = ({ delivery }) => {
+  const [schedule, setSchedule] = useState(false);
+  return (
+    <Modal classNames="select-delivery-pickup" dataTarget="small-location-nav">
+      <div className="small-search-container">
+        {!schedule && <DismissModal />}
+        {schedule &&
+        <CancelScheduleBtn handleClick={() => setSchedule(false)} />}
+        <div className="small-search-wrapper">
+          <div className="dropdown-suggestion">
+            {!schedule &&
+            <Fragment>
+              <DeliveryOrPickupNav delivery={delivery} />
+              <SuggestionsDropdown handleClick={() => {}} />
+              <div className="carousel-divider mb-0" />
+              <Button classNames="schedule-later-btn" handleClick={() => setSchedule(true)}>
+                <span className="col-10 text-left">
+                  <span className="top--1">
+                    <Clock />
+                  </span>
+                  <span className="pl-3 align-bottom">Schedule for Later</span>
+                </span>
+                <span className="col-2">
+                  <ChevronVertical />
+                </span>
+              </Button>
+            </Fragment>
+            }
+            {schedule && <DurationContent />}
+          </div>
         </div>
       </div>
-    </div>
-  </Modal>
-);
+    </Modal>
+  );
+};
 
 const SuggestionsDropdown = () => (
   <div className="suggestion-dropdown">
     <SearchLocation
       chevronButtonVisible={false}
       showDeliveryOrPickupNav={false}
+      showDropdown
     />
   </div>
 );
@@ -74,7 +111,7 @@ const LocationNavSmallScreen = ({ mode, bukka }) => (
       d-lg-none d-xl-none gutter-bg-clor"
     >
       <div className="location-navbar-content container">
-        <div className="options-center col-lg-10">
+        <div className="options-center col-lg-12 px-0">
           <div className="options-wrapper">
             <div className="options">
               <div className="btn-location">
@@ -111,4 +148,16 @@ CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
   bukka: PropTypes.bool.isRequired,
+};
+
+SelectLocationModal.defaultProps = {
+  delivery: false
+};
+
+SelectLocationModal.propTypes = {
+  delivery: PropTypes.bool
+};
+
+CancelScheduleBtn.propTypes = {
+  handleClick: PropTypes.func.isRequired
 };

@@ -7,7 +7,7 @@ import setDeliveryMode from './actionCreators/setDeliveryMode';
 
 import './deliveryorpickupnav.scss';
 
-const DeliveryOrPickupNav = ({ mode, setDeliveryModeAction }) => (
+const DeliveryOrPickupNav = ({ mode, setDeliveryModeAction, delivery }) => (
   <div className="btn-group" role="group">
     <button
       type="button"
@@ -18,6 +18,7 @@ const DeliveryOrPickupNav = ({ mode, setDeliveryModeAction }) => (
     >
       delivery
     </button>
+    {!delivery &&
     <button
       type="button"
       className={`btn-pickup ${
@@ -27,6 +28,7 @@ const DeliveryOrPickupNav = ({ mode, setDeliveryModeAction }) => (
     >
       pickup
     </button>
+    }
   </div>
 );
 
@@ -40,10 +42,12 @@ export default connect(
 )(DeliveryOrPickupNav);
 
 DeliveryOrPickupNav.defaultProps = {
-  mode: 'delivery'
+  mode: 'delivery',
+  delivery: false
 };
 
 DeliveryOrPickupNav.propTypes = {
   mode: PropTypes.string,
+  delivery: PropTypes.bool,
   setDeliveryModeAction: PropTypes.func.isRequired
 };

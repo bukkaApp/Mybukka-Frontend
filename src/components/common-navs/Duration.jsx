@@ -97,7 +97,7 @@ const Asap = ({ handleClick }) =>
     </div>
   ));
 
-const DurationContent = () => {
+export const DurationContent = () => {
   const [activeOption, setOption] = useState(false);
   const [scheduled, reSchedule] = useState({
     day: 'Today',

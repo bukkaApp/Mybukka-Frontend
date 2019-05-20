@@ -13,9 +13,10 @@ import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen, { SelectLocationModal }
   from 'Components/common-navs/LocationNavSmallScreen';
-import BukkaNavSmallScreen
+import BukkaNavSmallScreen, { ResponsiveCategories }
   from 'Components/navbar/BukkaNavSmallScreen';
 
+import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
@@ -65,7 +66,8 @@ const FreshSection = ({
   return (
     <div className="container-fluid p-0">
       <AddToCart />
-      <SelectLocationModal />
+      <ResponsiveCategories placeholderText="Search Fresh" />
+      <SelectLocationModal delivery />
       {nearbyBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
@@ -136,6 +138,7 @@ const FreshSection = ({
           </ExploreSection>
         </div>
       )}
+      <CheckoutButton />
       <UnAuthenticatedCheckout push={push} />
     </div>
   );
