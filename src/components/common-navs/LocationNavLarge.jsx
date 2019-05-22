@@ -54,18 +54,6 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   </div>
 );
 
-const SearchInputField = () => (
-  <InputField
-    type="text"
-    name="searchLocation"
-    placeholderText="Enter your address..."
-    classNames="text-field form-control searchlocation"
-    // handleFocus={() => setFocus(true)}
-    handleChange={() => {}}
-    defaultValue={''}
-  />
-);
-
 const CurrentLocation = props => (
   <ReusableWrapper>
     <ReusableButton classNames="custom-current-loc" {...props}>
@@ -87,6 +75,18 @@ const CurrentLocation = props => (
   </ReusableWrapper>
 );
 
+const SearchInputField = ({ handleChange }) => (
+  <InputField
+    type="text"
+    name="searchLocation"
+    placeholderText="Enter your address..."
+    classNames="text-field form-control searchlocation"
+    // handleFocus={() => setFocus(true)}
+    handleChange={handleChange}
+    defaultValue={''}
+  />
+);
+
 const Search = props => (
   <ReusableWrapper>
     <ReusableButton {...props}>
@@ -95,7 +95,7 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField handleClick={() => { }} />
+          <SearchInputField handleChange={props.handleChange} />
         </div>
       </div>
     </ReusableButton>
@@ -110,6 +110,7 @@ const LocationNavLarge = ({
   deliveryorpickup,
   scheduleTime,
   cartItemsQuantity,
+  handleSearch,
 }) => {
   let wrapperRef;
   const unFocus = {
@@ -204,6 +205,7 @@ const LocationNavLarge = ({
             <Search
               handleClick={() => handleClick('search')}
               focus={isFocused.search}
+              handleChange={handleSearch}
             />
           </div>
         </Container>
@@ -249,6 +251,7 @@ LocationNavLarge.defaultProps = {
   classNames: '',
   deliveryorpickup: false,
   scheduleTime: false,
+  handleSearch: () => {}
 };
 
 LocationNavLarge.propTypes = {
@@ -258,7 +261,8 @@ LocationNavLarge.propTypes = {
   deliveryorpickup: PropTypes.bool,
   mode: PropTypes.string.isRequired,
   handleCheckoutMode: PropTypes.func.isRequired,
-  setDeliveryModeAction: PropTypes.func.isRequired
+  setDeliveryModeAction: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func,
 };
 
 CurrentLocation.propTypes = {
@@ -273,4 +277,12 @@ DeliveryOrPickUp.propTypes = {
   deliveryorpickup: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired
+};
+
+Search.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+};
+
+SearchInputField.propTypes = {
+  handleChange: PropTypes.func.isRequired,
 };

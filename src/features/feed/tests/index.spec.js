@@ -13,6 +13,8 @@ const initialState = {
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   checkoutModeReducer: { mode: true },
+  drinkReducer: { fetchedBukkas: { nearbyBukkas: [] } },
+  freshReducer: { fetchedBukkas: { nearbyBukkas: [] } },
   authenticationReducer: {
     status: {
       authenticated: false,

@@ -1,6 +1,22 @@
+import bukkaData from '../data/fresh.json';
+import freshMilk from '../data/fresh-milk.json';
+import freshGreen from '../data/fresh-green.json';
+import freshVeggies from '../data/fresh-veggies.json';
+import freshYogurt from '../data/fresh-yogurt.json';
+import freshFruit from '../data/fresh-fruit.json';
+import freshEggs from '../data/fresh-eggs.json';
+
 const initialState = {
   fetchedBukkas: {
-    nearbyBukkas: [],
+    nearbyBukkas: [
+      ...bukkaData,
+      ...freshMilk,
+      ...freshGreen,
+      ...freshEggs,
+      ...freshVeggies,
+      ...freshYogurt,
+      ...freshFruit
+    ],
     message: ''
   },
   errorMessage: '',
@@ -10,15 +26,15 @@ const initialState = {
   }
 };
 
-const bukkasReducer = (state = initialState, action) => {
+const freshReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_BUKKAS_SUCCESS':
+    case 'FRESH_BUKKA_SUCCESS':
       return {
         ...state,
         fetchedBukkas: {
           ...state.fetchedBukkas,
           message: action.data.message,
-          nearbyBukkas: action.data.nearByBukkas,
+          nearbyBukkas: [...action.data.nearByBukkas],
         },
         status: {
           fetchedBukkas: true,
@@ -27,7 +43,7 @@ const bukkasReducer = (state = initialState, action) => {
         errorMessage: '',
       };
 
-    case 'FETCH_BUKKAS_ERROR':
+    case 'FRESH_BUKKA_ERROR':
       return {
         ...state,
         fetchedBukkas: {
@@ -47,4 +63,5 @@ const bukkasReducer = (state = initialState, action) => {
   }
 };
 
-export default bukkasReducer;
+export default freshReducer;
+

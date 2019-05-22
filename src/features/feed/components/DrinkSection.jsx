@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'Components/container/Container';
+
+import shortId from 'shortid';
+
+import Row from 'Components/grid/Row';
+import Headline from 'Components/Carousel/Headline';
+import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import UnAuthenticatedCheckout
   from 'Components/common-navs/UnAuthenticatedCheckout';
@@ -24,21 +30,9 @@ import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
-import NearByBukka from './NearByBukka';
 
 
 import { drinkBannerImage } from '../img/imgLinks';
-
-import drinkData from '../data/drinks.json';
-import lessWine from '../data/less-wine.json';
-import whiteWine from '../data/white-wine.json';
-import redWine from '../data/red-wine.json';
-
-const NearByBukkaContainer = ({ ...props }) => (
-  <Container classNames="px-0">
-    <NearByBukka {...props} />
-  </Container>
-);
 
 const DrinkSection = ({
   // mode,
@@ -47,14 +41,31 @@ const DrinkSection = ({
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   status: { error },
+  drinkBukkas, // eslint-disable-line
 }) => {
-  const handleRefFocus = () => {
-    // e.scrollIntoView(false);
+  const [searchResultCategories, setCategories] = useState([]);
+  const [searches, setSearch] = useState('');
+  const bukkaCategories = [
+    ...new Set(drinkBukkas.map(mealData => mealData.bukka))
+  ];
+
+  const handleSearch = async ({ target: { value } }) => {
+    setSearch(value.toLowerCase());
   };
 
   useEffect(() => {
     fetchNearbyBukkas(coordinates);
   }, [coordinates]);
+
+  useEffect(() => {
+    const searchResult = [
+      ...new Set(drinkBukkas
+        .filter(mealData => mealData.title.toLowerCase().includes(searches))
+        .map(mealData => mealData.bukka)
+      )
+    ];
+    setCategories([...searchResult]);
+  }, [searches]);
 
   if (nearbyBukkas.length === 0 && error) {
     return (
@@ -76,66 +87,81 @@ const DrinkSection = ({
           <ExploreSection>
             <AreasToExplore text="Drinks" bgImage={drinkBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen scheduleTime />
+              <LocationNavLargeScreen scheduleTime handleSearch={handleSearch} />
               <BukkaNavSmallScreen currentCategory="Wine Under $20" />
               <LocationNavSmallScreen />
               <div id="flyout-left-container">
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="Beer Under $15"
-                  imageHeight="drinks-img-height"
-                  bukkaData={drinkData}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="Wine Under $20"
-                  imageHeight="drinks-img-height"
-                  bukkaData={lessWine}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="Beer"
-                  imageHeight="drinks-img-height"
-                  bukkaData={drinkData}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="IMPORTED BEER"
-                  imageHeight="drinks-img-height"
-                  bukkaData={drinkData}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="CIDER"
-                  imageHeight="drinks-img-height"
-                  bukkaData={drinkData}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="Wine"
-                  imageHeight="drinks-img-height"
-                  bukkaData={redWine}
-                  handleRefFocus={handleRefFocus}
-                />
-                <div className="carousel-divider" />
-                <NearByBukkaContainer
-                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                  title="White Wine"
-                  imageHeight="drinks-img-height"
-                  bukkaData={whiteWine}
-                  handleRefFocus={handleRefFocus}
-                />
+                {!searches && bukkaCategories.map(eachBukka => (
+                  <Fragment key={shortId.generate()}>
+                    <div className="carousel-divider" />
+                    <Container classNames="px-0">
+                      <div className="mt-4 mb-4">
+
+                        <Headline title={eachBukka} activeIndex={1} />
+                        <Container>
+                          <Row classNames="pb-4">
+                            {drinkBukkas.map((mealData) => {
+                              if (mealData.bukka !== eachBukka) {
+                                return null;
+                              }
+                              return (
+                                <BukkaCard
+                                  key={shortId.generate()}
+                                  imageUrl={mealData.imageUrl}
+                                  mealName={mealData.title}
+                                  deliveryPrice={mealData.deliveryCost}
+                                  deliveryTime={mealData.deliveryTime}
+                                  rating={mealData.rating}
+                                  imageHeight="fresh-img-height"
+                                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
+                                  dataTarget="#bukkaAddToCart"
+                                  dataToggle="modal"
+                                />
+                              );
+                            }
+                            )}
+                          </Row>
+                        </Container>
+                      </div>
+                    </Container>
+                  </Fragment>
+                ))}
+                {searches && searchResultCategories.length > 0
+                && searchResultCategories.map(eachBukka => (
+                  <Fragment key={shortId.generate()}>
+                    <div className="carousel-divider" />
+                    <Container classNames="px-0">
+                      <div className="mt-4 mb-4">
+                        <Headline title={eachBukka} activeIndex={1} />
+                        <Container>
+                          <Row classNames="pb-4">
+                            {drinkBukkas.map((mealData) => {
+                              if (mealData.bukka === eachBukka
+                                && mealData.title.toLowerCase().includes(searches)) {
+                                return (
+                                  <BukkaCard
+                                    key={shortId.generate()}
+                                    imageUrl={mealData.imageUrl}
+                                    mealName={mealData.title}
+                                    deliveryPrice={mealData.deliveryCost}
+                                    deliveryTime={mealData.deliveryTime}
+                                    rating={mealData.rating}
+                                    imageHeight="fresh-img-height"
+                                    classNames="col-lg-3 col-md-4 col-sm-6 col-6"
+                                    dataTarget="#bukkaAddToCart"
+                                    dataToggle="modal"
+                                  />
+                                );
+                              }
+                              return null;
+                            }
+                            )}
+                          </Row>
+                        </Container>
+                      </div>
+                    </Container>
+                  </Fragment>
+                ))}
               </div>
             </div>
           </ExploreSection>
@@ -150,12 +176,14 @@ const DrinkSection = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
+  drinkReducer: { fetchedBukkas: { nearbyBukkas: drinkBukkas } },
   selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
   coordinates,
   mode,
+  drinkBukkas,
 });
 
 export default connect(

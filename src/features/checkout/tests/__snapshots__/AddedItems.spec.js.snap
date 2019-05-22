@@ -46,7 +46,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="YL7GSPx6b"
+                id="E7eTSpSHQ"
                 type="button"
               >
                 EDIT
@@ -57,7 +57,7 @@ Object {
                 data-target=""
                 data-testid="button"
                 data-toggle=""
-                id="YL7GSPx6b"
+                id="E7eTSpSHQ"
                 type="button"
               >
                 REMOVE
@@ -121,7 +121,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="YL7GSPx6b"
+              id="E7eTSpSHQ"
               type="button"
             >
               EDIT
@@ -132,7 +132,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="YL7GSPx6b"
+              id="E7eTSpSHQ"
               type="button"
             >
               REMOVE

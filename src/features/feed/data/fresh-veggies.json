@@ -1,5 +1,7 @@
 [
   {
+    "category": "fresh",
+    "bukka": "fresh veggies",
     "deliveryCost": 300,
     "title": "Organic Basil",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Basil.webp",
@@ -7,6 +9,8 @@
     "position": { "bottom": true }
   },
   {
+    "category": "fresh",
+    "bukka": "fresh veggies",
     "deliveryCost": 300,
     "title": "Organic Crimini Mushrooms",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Crimini_Mushrooms.webp",
@@ -14,6 +18,8 @@
     "position": { "bottom": true }
   },
   {
+    "category": "fresh",
+    "bukka": "fresh veggies",
     "deliveryCost": 300,
     "title": "Organic Rainbow Chard",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Rainbow_Chard.webp",
@@ -21,6 +27,8 @@
     "position": { "bottom": true }
   },
   {
+    "category": "fresh",
+    "bukka": "fresh veggies",
     "deliveryCost": 300,
     "title": "Organic Yellow Onions",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641018/fresh-veggies-Organic_Yellow_Onions.webp",

@@ -161,7 +161,7 @@ exports[`FreshSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           Facebook
@@ -418,7 +418,7 @@ exports[`FreshSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="eYDWxolua"
+                            id="IxoY3rRPj"
                             type="button"
                           >
                             -
@@ -429,7 +429,7 @@ exports[`FreshSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="eYDWxolua"
+                            id="IxoY3rRPj"
                             type="button"
                           >
                             undefined
@@ -440,7 +440,7 @@ exports[`FreshSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="eYDWxolua"
+                            id="IxoY3rRPj"
                             type="button"
                           >
                             +
@@ -472,7 +472,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           -
@@ -483,7 +483,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           1
@@ -494,7 +494,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           +
@@ -511,7 +511,7 @@ exports[`FreshSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="eYDWxolua"
+                      id="IxoY3rRPj"
                       type="button"
                     >
                       <div
@@ -551,6 +551,183 @@ exports[`FreshSection component renders properly 2`] = `
       aria-hidden="true"
       aria-labelledby="exampleModalLabel"
       class="modal fade"
+      id="category-small-modal"
+      role="dialog"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered select-delivery-pickup"
+        role="document"
+      >
+        <div
+          class="modal-content"
+        >
+          <div
+            class="modal-header"
+          />
+          <div
+            class="modal-body"
+          >
+            <div
+              class="small-search-container"
+            >
+              <div
+                class="bukka-nav-small-category-border pb-2"
+              >
+                <div
+                  class="mx-4 row"
+                >
+                  <div
+                    class="col-2 px-0"
+                  >
+                    <div
+                      class="dismiss-modal pl-0"
+                      data-dismiss="modal"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        width="24"
+                      >
+                        <defs>
+                          <path
+                            d="M0 1.5L1.5 0 8 6.5 14.5 0 16 1.5 9.5 8l6.5 6.5-1.5 1.5L8 9.5 1.5 16 0 14.5 6.5 8z"
+                            id="icon-close_svg__a"
+                          />
+                        </defs>
+                        <use
+                          transform="translate(4 4)"
+                          xlink:href="#icon-close_svg__a"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    class="col-10"
+                  >
+                    <input
+                      accept=""
+                      autocomplete=""
+                      class="bukka-nav-search-input"
+                      placeholder="Search Fresh"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="small-search-wrapper"
+              >
+                <div
+                  class="dropdown-suggestion"
+                >
+                  <div
+                    class="mx-4"
+                  >
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      *Price May Vary By Location*
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Brewed Coffee
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Cold Brew and Iced Coffee
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Chocolate Beverages
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Espresso Drinks
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Iced Tea
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Frappuccino
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Starbucks Refreshers
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Bottled Drinks
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Kids' Drinks & Others
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Smoothies
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Fizzio™ Handcrafted Sodas
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Bakery
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Mercato
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Starbucks Petities
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Hot Breakfast
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Sandwiches, Paninis, & Salads
+                    </div>
+                    <div
+                      class="bukka-nav-small-category"
+                    >
+                      Yogurt, Fruit, & Spreads
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      aria-labelledby="exampleModalLabel"
+      class="modal fade"
       id="small-location-nav"
       role="dialog"
       tabindex="-1"
@@ -572,7 +749,7 @@ exports[`FreshSection component renders properly 2`] = `
               class="small-search-container"
             >
               <div
-                class="dismiss-modal dismiss-modal-right"
+                class="dismiss-modal "
                 data-dismiss="modal"
               >
                 <svg
@@ -609,12 +786,6 @@ exports[`FreshSection component renders properly 2`] = `
                     >
                       delivery
                     </button>
-                    <button
-                      class="btn-pickup "
-                      type="button"
-                    >
-                      pickup
-                    </button>
                   </div>
                   <div
                     class="suggestion-dropdown"
@@ -623,6 +794,58 @@ exports[`FreshSection component renders properly 2`] = `
                       Loading...
                     </div>
                   </div>
+                  <div
+                    class="carousel-divider mb-0"
+                  />
+                  <button
+                    class="schedule-later-btn"
+                    data-dismiss=""
+                    data-target=""
+                    data-testid="button"
+                    data-toggle=""
+                    id="IxoY3rRPj"
+                  >
+                    <span
+                      class="col-10 text-left"
+                    >
+                      <span
+                        class="top--1"
+                      >
+                        <svg
+                          class="css-12z0wuy e1ed7a5h0"
+                          height="12"
+                          width="12"
+                        >
+                          <path
+                            d="M6 6V2H5v5h4V6H6zm0-6a6 6 0 1 1 0 12A6 6 0 0 1 6 0z"
+                            fill="#8F95A3"
+                            fill-opacity=".592"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="pl-3 align-bottom"
+                      >
+                        Schedule for Later
+                      </span>
+                    </span>
+                    <span
+                      class="col-2"
+                    >
+                      <svg
+                        class="css-1azoaje esxwro20"
+                        height="5"
+                        width="7"
+                      >
+                        <path
+                          d="M0 .71L.7 0l2.8 2.839L6.3 0l.7.71-3.5 3.548z"
+                          fill="#191919"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -792,7 +1015,7 @@ exports[`FreshSection component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="eYDWxolua"
+                              id="IxoY3rRPj"
                               type="button"
                             >
                               Facebook
@@ -863,7 +1086,7 @@ exports[`FreshSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="eYDWxolua"
+                      id="IxoY3rRPj"
                       type="button"
                     >
                       <span
@@ -1060,7 +1283,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           <span
@@ -1127,7 +1350,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           <span
@@ -1274,7 +1497,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           <div>
@@ -1519,7 +1742,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           <span
@@ -1578,7 +1801,7 @@ exports[`FreshSection component renders properly 2`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="eYDWxolua"
+                    id="IxoY3rRPj"
                     type="button"
                   >
                     <span
@@ -1615,7 +1838,8 @@ exports[`FreshSection component renders properly 2`] = `
             </div>
           </div>
           <div
-            class="bukka-nav-small d-lg-none "
+            class="bukka-nav-small d-block d-sm-block d-md-none
+    d-lg-none d-xl-none "
           >
             <nav
               class="container navbar navbar-light bukka-nav-small-content"
@@ -1629,28 +1853,33 @@ exports[`FreshSection component renders properly 2`] = `
                   Customers Love
                 </h5>
               </div>
-              <svg
-                height="13"
-                viewBox="0 0 30 13"
-                width="30"
+              <div
+                data-target="#category-small-modal"
+                data-toggle="modal"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
+                <svg
+                  height="13"
+                  viewBox="0 0 30 13"
+                  width="30"
                 >
-                  <path
-                    d="M13.5 1.5h15m-13 5h13m-11 5h11"
-                    stroke="currentColor"
-                    stroke-linecap="square"
-                    stroke-width="1.5"
-                  />
-                  <path
-                    d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
-                    fill="currentColor"
-                    fill-rule="nonzero"
-                  />
-                </g>
-              </svg>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M13.5 1.5h15m-13 5h13m-11 5h11"
+                      stroke="currentColor"
+                      stroke-linecap="square"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M9.857 8.577L13 11.72 11.72 13 8.577 9.857a5.43 5.43 0 1 1 1.28-1.28zM5.43 1.81a3.62 3.62 0 1 0 0 7.24 3.62 3.62 0 0 0 0-7.24z"
+                      fill="currentColor"
+                      fill-rule="nonzero"
+                    />
+                  </g>
+                </svg>
+              </div>
             </nav>
           </div>
           <div
@@ -1661,7 +1890,7 @@ exports[`FreshSection component renders properly 2`] = `
               class="location-navbar-content container"
             >
               <div
-                class="options-center col-lg-10"
+                class="options-center col-lg-12 px-0"
               >
                 <div
                   class="options-wrapper"
@@ -1682,7 +1911,7 @@ exports[`FreshSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="eYDWxolua"
+                          id="IxoY3rRPj"
                           type="button"
                         >
                           <h2
@@ -1725,2504 +1954,47 @@ exports[`FreshSection component renders properly 2`] = `
             </div>
           </div>
           <div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      Customers Love
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-Clover_Organic_Large_Brown_Eggs.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-Clover_Organic_Large_Brown_Eggs.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic Large Brown Eggs
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-Fresh_Atlantic_Salmon_Fillet_Skin-On.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-Fresh_Atlantic_Salmon_Fillet_Skin-On.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Fresh Atlantic Salmon Fillet Skin-On
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-Mary_s_Free_Range_Chicken_Boneless_Skinless_Chicken_Breasts.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-Mary_s_Free_Range_Chicken_Boneless_Skinless_Chicken_Breasts.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Mary's Free Range Chicken Boneless Skinless Chicken Breasts
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Crimini Mushrooms
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      MILK
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/milk-Clover_2_Reduced_Fat_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/milk-Clover_2_Reduced_Fat_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover 2 Reduced Fat Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/milk-Clover_Organic_2_Reduced_Fat_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/milk-Clover_Organic_2_Reduced_Fat_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic 2 Reduced Fat Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Clover_Organic_Fat_Free_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Clover_Organic_Fat_Free_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic Fat Free Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Clover_Organic_Lowfat_1_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Clover_Organic_Lowfat_1_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic Lowfat 1 Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Clover_Organic_Whole_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Clover_Organic_Whole_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic Whole Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Straus_Creamery_Organic_Nonfat_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Straus_Creamery_Organic_Nonfat_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Nonfat Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Straus_Creamery_Organic_Reduced_Fat_2_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Straus_Creamery_Organic_Reduced_Fat_2_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Reduced Fat 2 Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/milk-Straus_Creamery_Organic_Whole_Milk.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/milk-Straus_Creamery_Organic_Whole_Milk.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Whole Milk
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      EGGS
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-Clover_Organic_Large_Brown_Eggs.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-Clover_Organic_Large_Brown_Eggs.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Clover Organic Large Brown Eggs
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-Fresh_Atlantic_Salmon_Fillet_Skin-On.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-Fresh_Atlantic_Salmon_Fillet_Skin-On.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Fresh Atlantic Salmon Fillet Skin-On
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-Mary_s_Free_Range_Chicken_Boneless_Skinless_Chicken_Breasts.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-Mary_s_Free_Range_Chicken_Boneless_Skinless_Chicken_Breasts.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Mary's Free Range Chicken Boneless Skinless Chicken Breasts
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Crimini Mushrooms
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      Fresh Veggies
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/fresh-veggies-Organic_Basil.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/fresh-veggies-Organic_Basil.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Basil
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/fresh-veggies-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/fresh-veggies-Organic_Crimini_Mushrooms.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Crimini Mushrooms
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/fresh-veggies-Organic_Rainbow_Chard.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/fresh-veggies-Organic_Rainbow_Chard.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Rainbow Chard
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641018/fresh-veggies-Organic_Yellow_Onions.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641018/fresh-veggies-Organic_Yellow_Onions.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Yellow Onions
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      YOGURT
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Greek_Whole_Milk_Yogurt.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Greek_Whole_Milk_Yogurt.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Plain Greek Whole Milk Yogurt
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Nonfat_Yogurt.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Nonfat_Yogurt.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Plain Nonfat Yogurt
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Plain Whole Milk Yogurt
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Banana Vanilla 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Key Lime 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Straus Creamery Organic Plain Whole Milk Yogurt
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Banana Vanilla 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Key Lime 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Lemon_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Lemon_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Lemon 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Raspberry_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Raspberry_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Raspberry 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Vanilla_3-pack.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Vanilla_3-pack.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Wallaby Organic Lowfat Yogurt Vanilla 3-pack
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      Fresh Greens
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-greeen-Organic_Girl_Organic_Lemon_Agave_Salad_Dressing.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-greeen-Organic_Girl_Organic_Lemon_Agave_Salad_Dressing.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Girl Organic Lemon Agave Salad Dressing
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-green-Organic_Dino_Kale.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-green-Organic_Dino_Kale.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Dino Kale
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-green-Organic_Girl_Organic_50_50_Blend.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-green-Organic_Girl_Organic_50_50_Blend.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Girl Organic 50/50 Blend
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spinach.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spinach.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Girl Organic Baby Spinach
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spring_Mix.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spring_Mix.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Girl Organic Baby Spring Mix
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-green-Organic_Girl_Organic_Super_Greens.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-green-Organic_Girl_Organic_Super_Greens.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Girl Organic Super Greens
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="carousel-divider"
-            />
-            <div
-              class="container px-0"
-            >
-              <div
-                class="mt-4 mb-4"
-              >
-                <div
-                  class="container "
-                >
-                  <div
-                    class="headline"
-                  >
-                    <div
-                      class="runner"
-                      style="transform: translateX(100% - 32px);"
-                    />
-                    <h2
-                      class="headline-h2"
-                    >
-                      Fresh Fruit
-                    </h2>
-                  </div>
-                </div>
-                
-                <div
-                  class="container "
-                >
-                  <div
-                    class="row pb-4"
-                  >
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-fruit-Bananas.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-fruit-Bananas.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Bananas
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-fruit-Organic_Bananas.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-fruit-Organic_Bananas.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Bananas
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-fruit-Organic_Lemon.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-fruit-Organic_Lemon.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Lemon
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-fruit-Organic_Fuji_Apples.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-fruit-Organic_Fuji_Apples.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Fuji Apples
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641016/fresh-fruit-Organic_Hass_Avocado.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641016/fresh-fruit-Organic_Hass_Avocado.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Hass Avocado
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="card-container col-lg-3 col-md-4 col-sm-6 col-6"
-                    >
-                      <div
-                        class="card-wrap"
-                      >
-                        
-                        <div
-                          class="mt-4 bukka-card"
-                          data-target="#bukkaAddToCart"
-                          data-toggle="modal"
-                        >
-                          <img
-                            alt="alt_image"
-                            class="img-small-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1554641017/fresh-fruit-Organic_Lime.webp"
-                          />
-                          <img
-                            alt="alt_image"
-                            class="img-large-screen bukka-img fresh-img-height"
-                            src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1554641017/fresh-fruit-Organic_Lime.webp"
-                          />
-                          <div
-                            class="details"
-                          >
-                            <h3>
-                              <span
-                                class="details-location"
-                              >
-                                Organic Lime
-                              </span>
-                            </h3>
-                            <div
-                              class="delivery"
-                            >
-                              <h4
-                                class="price-badge"
-                              >
-                                ₦
-                                300
-                                .00
-                              </h4>
-                              <span
-                                class="custom-delivery-badge"
-                              >
-                                Delivery
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
+    </div>
+    <div
+      class="position-fixed d-md-none"
+      style="top: 85%; z-index: 500; width: 100%;"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="checkout-button-section"
+        >
+          <a
+            href="/checkout"
+          >
+            <button
+              class="primary-block-btn d-flex"
+              data-dismiss=""
+              data-target=""
+              data-testid="button"
+              data-toggle=""
+              id="IxoY3rRPj"
+              type="button"
+            >
+              <span
+                class="col-2"
+              >
+                1
+              </span>
+              <span
+                class="col-8"
+              >
+                CHECKOUT
+              </span>
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
     <div
       class="modal-root"
@@ -4263,7 +2035,7 @@ exports[`FreshSection component renders properly 2`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="eYDWxolua"
+              id="IxoY3rRPj"
               type="button"
             >
               <span>
@@ -4276,7 +2048,7 @@ exports[`FreshSection component renders properly 2`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="eYDWxolua"
+              id="IxoY3rRPj"
               type="button"
             >
               <span>
