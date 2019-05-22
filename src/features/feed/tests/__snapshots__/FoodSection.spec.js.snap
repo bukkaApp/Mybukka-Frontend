@@ -30,7 +30,7 @@ exports[`FoodSection component renders properly 1`] = `
               class="small-search-container"
             >
               <div
-                class="dismiss-modal dismiss-modal-right"
+                class="dismiss-modal "
                 data-dismiss="modal"
               >
                 <svg
@@ -81,6 +81,58 @@ exports[`FoodSection component renders properly 1`] = `
                       Loading...
                     </div>
                   </div>
+                  <div
+                    class="carousel-divider mb-0"
+                  />
+                  <button
+                    class="schedule-later-btn"
+                    data-dismiss=""
+                    data-target=""
+                    data-testid="button"
+                    data-toggle=""
+                    id="baFOG7AaW"
+                  >
+                    <span
+                      class="col-10 text-left"
+                    >
+                      <span
+                        class="top--1"
+                      >
+                        <svg
+                          class="css-12z0wuy e1ed7a5h0"
+                          height="12"
+                          width="12"
+                        >
+                          <path
+                            d="M6 6V2H5v5h4V6H6zm0-6a6 6 0 1 1 0 12A6 6 0 0 1 6 0z"
+                            fill="#8F95A3"
+                            fill-opacity=".592"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="pl-3 align-bottom"
+                      >
+                        Schedule for Later
+                      </span>
+                    </span>
+                    <span
+                      class="col-2"
+                    >
+                      <svg
+                        class="css-1azoaje esxwro20"
+                        height="5"
+                        width="7"
+                      >
+                        <path
+                          d="M0 .71L.7 0l2.8 2.839L6.3 0l.7.71-3.5 3.548z"
+                          fill="#191919"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -250,7 +302,7 @@ exports[`FoodSection component renders properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="NZZMo3D1K"
+                              id="baFOG7AaW"
                               type="button"
                             >
                               Facebook
@@ -321,7 +373,7 @@ exports[`FoodSection component renders properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="NZZMo3D1K"
+                      id="baFOG7AaW"
                       type="button"
                     >
                       <span
@@ -535,7 +587,7 @@ exports[`FoodSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="NZZMo3D1K"
+                          id="baFOG7AaW"
                           type="button"
                         >
                           <span
@@ -583,7 +635,7 @@ exports[`FoodSection component renders properly 1`] = `
               class="location-navbar-content container"
             >
               <div
-                class="options-center col-lg-10"
+                class="options-center col-lg-12 px-0"
               >
                 <div
                   class="options-wrapper"
@@ -604,7 +656,7 @@ exports[`FoodSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="NZZMo3D1K"
+                          id="baFOG7AaW"
                           type="button"
                         >
                           <h2
@@ -654,6 +706,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -671,7 +726,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -896,6 +951,9 @@ exports[`FoodSection component renders properly 1`] = `
             <div
               class="carousel-divider"
             />
+            <div
+              class="pt-29"
+            />
             <div>
               <div
                 class="container "
@@ -1011,6 +1069,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -1028,7 +1089,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -1779,6 +1840,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -1796,7 +1860,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -2517,6 +2581,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -2534,7 +2601,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -3285,6 +3352,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -3302,7 +3372,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -4023,6 +4093,9 @@ exports[`FoodSection component renders properly 1`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -4040,7 +4113,7 @@ exports[`FoodSection component renders properly 1`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -4446,7 +4519,7 @@ exports[`FoodSection component renders properly 2`] = `
               class="small-search-container"
             >
               <div
-                class="dismiss-modal dismiss-modal-right"
+                class="dismiss-modal "
                 data-dismiss="modal"
               >
                 <svg
@@ -4497,6 +4570,58 @@ exports[`FoodSection component renders properly 2`] = `
                       Loading...
                     </div>
                   </div>
+                  <div
+                    class="carousel-divider mb-0"
+                  />
+                  <button
+                    class="schedule-later-btn"
+                    data-dismiss=""
+                    data-target=""
+                    data-testid="button"
+                    data-toggle=""
+                    id="baFOG7AaW"
+                  >
+                    <span
+                      class="col-10 text-left"
+                    >
+                      <span
+                        class="top--1"
+                      >
+                        <svg
+                          class="css-12z0wuy e1ed7a5h0"
+                          height="12"
+                          width="12"
+                        >
+                          <path
+                            d="M6 6V2H5v5h4V6H6zm0-6a6 6 0 1 1 0 12A6 6 0 0 1 6 0z"
+                            fill="#8F95A3"
+                            fill-opacity=".592"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="pl-3 align-bottom"
+                      >
+                        Schedule for Later
+                      </span>
+                    </span>
+                    <span
+                      class="col-2"
+                    >
+                      <svg
+                        class="css-1azoaje esxwro20"
+                        height="5"
+                        width="7"
+                      >
+                        <path
+                          d="M0 .71L.7 0l2.8 2.839L6.3 0l.7.71-3.5 3.548z"
+                          fill="#191919"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -4666,7 +4791,7 @@ exports[`FoodSection component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="NZZMo3D1K"
+                              id="baFOG7AaW"
                               type="button"
                             >
                               Facebook
@@ -4737,7 +4862,7 @@ exports[`FoodSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="NZZMo3D1K"
+                      id="baFOG7AaW"
                       type="button"
                     >
                       <span
@@ -4951,7 +5076,7 @@ exports[`FoodSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="NZZMo3D1K"
+                          id="baFOG7AaW"
                           type="button"
                         >
                           <span
@@ -4999,7 +5124,7 @@ exports[`FoodSection component renders properly 2`] = `
               class="location-navbar-content container"
             >
               <div
-                class="options-center col-lg-10"
+                class="options-center col-lg-12 px-0"
               >
                 <div
                   class="options-wrapper"
@@ -5020,7 +5145,7 @@ exports[`FoodSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="NZZMo3D1K"
+                          id="baFOG7AaW"
                           type="button"
                         >
                           <h2
@@ -5070,6 +5195,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -5087,7 +5215,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -5312,6 +5440,9 @@ exports[`FoodSection component renders properly 2`] = `
             <div
               class="carousel-divider"
             />
+            <div
+              class="pt-29"
+            />
             <div>
               <div
                 class="container "
@@ -5427,6 +5558,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -5444,7 +5578,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -6195,6 +6329,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -6212,7 +6349,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -6933,6 +7070,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -6950,7 +7090,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -7701,6 +7841,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -7718,7 +7861,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"
@@ -8439,6 +8582,9 @@ exports[`FoodSection component renders properly 2`] = `
               class="carousel-divider"
             />
             <div
+              class="pt-29"
+            />
+            <div
               class="container "
             >
               <div
@@ -8456,7 +8602,7 @@ exports[`FoodSection component renders properly 2`] = `
               </div>
             </div>
             <div
-              class="container pt-29"
+              class="container "
             >
               <div
                 class="carousel"

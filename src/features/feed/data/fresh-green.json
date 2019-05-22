@@ -1,35 +1,47 @@
 [
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Girl Organic Lemon Agave Salad Dressing",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-greeen-Organic_Girl_Organic_Lemon_Agave_Salad_Dressing.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Dino Kale",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Dino_Kale.webp",
     "heading": "american"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Girl Organic 50/50 Blend",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_50_50_Blend.webp",
     "heading": "Fast food"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Girl Organic Baby Spinach",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spinach.webp",
     "heading": "coffee"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Girl Organic Baby Spring Mix",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Baby_Spring_Mix.webp",
     "heading": "pizza"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh greens",
     "deliveryCost": 300,
     "title": "Organic Girl Organic Super Greens",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-green-Organic_Girl_Organic_Super_Greens.webp",

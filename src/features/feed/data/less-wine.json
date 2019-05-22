@@ -1,37 +1,42 @@
 [
   {
+    "category": "drink",
+    "bukka": "Wine",
     "title": "wine Barefoot California Pink Moscato",
     "deliveryCost": 4500,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/less-wine-Barefoot_California-Pink-Moscato.webp",
-    "heading": "chinese",
     "position": { "bottom": true }
   },
   {
+    "category": "drink",
+    "bukka": "Wine",
     "title": "wine Barefoot California Riesling",
     "deliveryCost": 3000,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/less-wine-Barefoot-California-Riesling.webp",
-    "heading": "american",
     "position": { "bottom": true }
   },
   {
+    "category": "drink",
+    "bukka": "Wine",
     "title": "wine Gekkeikan Sake",
     "deliveryCost": 2500,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/less-wine-Gekkeikan-Sake.webp",
-    "heading": "Fast food",
     "position": { "bottom": true }
   },
   {
+    "category": "drink",
+    "bukka": "Wine",
     "title": "wine Mumm Napa Brut Prestige",
     "deliveryCost": 1500,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/less-wine-Mumm-Napa-Brut-Prestige.webp",
-    "heading": "coffee",
     "position": { "bottom": true }
   },
   {
+    "category": "drink",
+    "bukka": "Wine",
     "title": "wine Yellow Tail Pinot Grigio",
     "deliveryCost": 5250,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554605105/less-wine-Yellow-Tail-Pinot-Grigio.webp",
-    "heading": "pizza",
     "position": {
         "bottom": true
     }

@@ -1,65 +1,87 @@
 [
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Straus Creamery Organic Plain Greek Whole Milk Yogurt",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Greek_Whole_Milk_Yogurt.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Straus Creamery Organic Plain Nonfat Yogurt",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Straus_Creamery_Organic_Plain_Nonfat_Yogurt.webp",
     "heading": "american"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Straus Creamery Organic Plain Whole Milk Yogurt",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp",
     "heading": "Fast food"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Banana Vanilla 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp",
     "heading": "coffee"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Key Lime 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp",
     "heading": "pizza"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Straus Creamery Organic Plain Whole Milk Yogurt",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Straus_Creamery_Organic_Plain_Whole_Milk_Yogurt.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Banana Vanilla 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641019/yogurt-Wallaby_Organic_Lowfat_Yogurt_Banana_Vanilla_3-pack.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Key Lime 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Key_Lime_3-pack.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Lemon 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Lemon_3-pack.webp",
     "heading": "Fast food"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Raspberry 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Raspberry_3-pack.webp",
     "heading": "coffee"
   },
   {
+    "category": "fresh",
+    "bukka": "yogurt",
     "deliveryCost": 300,
     "title": "Wallaby Organic Lowfat Yogurt Vanilla 3-pack",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641020/yogurt-Wallaby_Organic_Lowfat_Yogurt_Vanilla_3-pack.webp",

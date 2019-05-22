@@ -23,7 +23,7 @@ Object {
         </div>
       </div>
       <div
-        class="container pt-29"
+        class="container "
       >
         <div
           class="carousel"
@@ -146,7 +146,7 @@ Object {
       </div>
     </div>
     <div
-      class="container pt-29"
+      class="container "
     >
       <div
         class="carousel"

@@ -19,7 +19,8 @@ import selectedLocationReducer from './selectedLocationReducer';
 import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
 
 import bukkasReducer from '../features/feed/reducers/bukkasReducer';
-
+import freshReducer from '../features/feed/reducers/freshReducer';
+import drinkReducer from '../features/feed/reducers/drinkReducer';
 import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
 import fetchUserData from '../features/profile/reducers/fetchUserData';
 import postUserAddress from '../features/profile/reducers/postUserAddress';
@@ -66,6 +67,8 @@ const reducer = combineReducers({
   finishTransactionReducer,
   checkoutModeReducer,
   searchAnythingReducer,
+  freshReducer,
+  drinkReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

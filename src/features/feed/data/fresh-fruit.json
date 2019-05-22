@@ -1,35 +1,47 @@
 [
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Bananas",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Bananas.webp",
     "heading": "chinese"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Organic Bananas",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Bananas.webp",
     "heading": "american"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Organic Lemon",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Lemon.webp",
     "heading": "Fast food"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Organic Fuji Apples",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Fuji_Apples.webp",
     "heading": "coffee"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Organic Hass Avocado",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641016/fresh-fruit-Organic_Hass_Avocado.webp",
     "heading": "pizza"
   },
   {
+    "category": "fresh",
+    "bukka": "fresh fruit",
     "deliveryCost": 300,
     "title": "Organic Lime",
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554641017/fresh-fruit-Organic_Lime.webp",
