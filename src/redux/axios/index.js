@@ -6,6 +6,9 @@ const baseURL = NODE_ENV === 'production' ? 'https://mybukka-backend.herokuapp.c
 
 const instance = axios.create({
   baseURL,
+  headers: {
+    accept: 'application/json',
+  }
 });
 
 export default instance;
