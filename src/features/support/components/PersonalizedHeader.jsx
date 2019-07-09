@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 import './personalizedheader.scss';
 
-const PersonalizedHeader = ({ title }) => (
+const PersonalizedHeader = ({ title, className }) => (
   <div>
     <div className="personalized-header">
-      <div className="personalized-header-text">
+      <div className={`personalized-header-text ${className}`}>
         {title}
       </div>
       <a
@@ -23,6 +23,11 @@ const PersonalizedHeader = ({ title }) => (
 
 export default PersonalizedHeader;
 
+PersonalizedHeader.defaultProps = {
+  className: ''
+};
+
 PersonalizedHeader.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };

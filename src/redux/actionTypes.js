@@ -31,3 +31,4 @@ export const SET_CHECKOUT_MODE = 'SET_CHECKOUT_MODE';
 export const SEARCH_ANYTHING = 'SEARCH_ANYTHING';
 export const FRESH_BUKKA = 'FRESH_BUKKA';
 export const DRINK_BUKKA = 'DRINK_BUKKA';
+export const REPORT_ISSUE = 'REPORT_ISSUE';

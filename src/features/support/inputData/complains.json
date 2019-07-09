@@ -1,0 +1,127 @@
+{
+    "category": [
+        {
+            "link": "/support/buyer/contact-us/account",
+            "text": "Account"
+        },
+        {
+            "link": "/support/buyer/contact-us/orders",
+            "text": "Order"
+        },
+        {
+            "link": "/support/buyer/contact-us/charges",
+            "text": "Charges"
+        },
+        {
+            "link": "/support/buyer/contact-us/mybukka-services",
+            "text": "MyBukka Services"
+        },
+        {
+            "link": "/support/buyer/contact-us/safety",
+            "text": "Report a safety issue"
+        }
+    ],
+    "subCategory": {
+        "account": [
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/cancel-bukka-unlimited",
+                "text": "cancel bukka unlimited subscription"
+            },
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/change-email",
+                "text": "change email address"
+            },
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/delete-account",
+                "text": "delete account"
+            },
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/security-and-privacy",
+                "text": "security/privacy concern"
+            },
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/suspended-account",
+                "text": "suspended account"
+            },
+            {
+                "category": "account",
+                "link": "/buyer/contact-us/account-order",
+                "text": "other"
+            }
+        ],
+        "order": [],
+        "charges": [
+            {
+                "category": "charges",
+                "link": "/buyer/contact-us/multiple-charges",
+                "text": "multiple charges"
+            },
+            {
+                "link": "/buyer/contact-us/overcharged",
+                "text": "overcharges"
+            },
+            {
+                "link": "/buyer/contact-us/canceled-charges",
+                "text": "i canceled my order but am still showing charges"
+            },
+            {
+                "link": "/buyer/contact-us/unauthorized-charge",
+                "text": "i have an unauthorized charge of $9.99/$83.88"
+            },
+            {
+                "link": "/buyer/contact-us/charged-without-account",
+                "text": "i'm being charged and i don't have an account with bukka"
+            },
+            {
+                "link": "/buyer/contact-us/charges-other",
+                "text": "other"
+            }
+        ],
+        "bukka services": [
+            {
+                "category": "bukka services",
+                "link": "/buyer/contact-us/my-city",
+                "text": "i want bukka in my city!"
+            },
+            {
+                "link": "/buyer/contact-us/app-review",
+                "text": "app review follow-up"
+            }
+        ],
+        "Report a safety issue": [
+            {
+                "category": "Report a safety issue",
+                "link": "/buyer/contact-us/harassment",
+                "text": "harassment"
+            },
+            {
+                "link": "/buyer/contact-us/unwanted-contact",
+                "text": "unwanted contact"
+            },
+            {
+                "link": "/buyer/contact-us/theft-or-damage",
+                "text": "theft or property damage"
+            },
+            {
+                "link": "/buyer/contact-us/not-postmate-pictured",
+                "text": "My bukka didn't match their picture"
+            },
+            {
+                "link": "/buyer/contact-us/not-postmate-pictured/other-safety-issue",
+                "text": "other"
+            }
+        ]
+    },
+    "categoryLocation": {
+        "account": "/support/buyer/contact-us/account",
+        "order": "/support/buyer/contact-us/orders",
+        "charges": "/support/buyer/contact-us/charges",
+        "bukka services": "/support/buyer/contact-us/mybukka-services",
+        "Report a safety issue": "/support/buyer/contact-us/safety"
+    }
+}
