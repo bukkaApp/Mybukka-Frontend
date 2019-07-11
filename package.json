@@ -33,6 +33,7 @@
     "react": "16.8.0-alpha.1",
     "react-dom": "16.8.0-alpha.1",
     "react-google-maps": "^9.4.5",
+    "react-infinite-scroller": "^1.2.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-toastify": "^5.1.0",
@@ -42,6 +43,7 @@
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.14",
     "superagent": "^4.1.0",
+    "sweetalert": "^2.1.2",
     "toastr": "^2.1.4",
     "validatorjs": "^3.15.1",
     "winston": "^3.2.1"

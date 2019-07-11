@@ -19,12 +19,14 @@ const ActionSection = ({
   quantity,
   manipulateMeal,
   mealToDisplay,
+  itemIsInCart,
 }) => (
   <Row classNames="action-section">
     <Column classNames="col-lg-4 d-none d-lg-block quantity-toggler-buttons">
       <SelectQuantityButtons
         quantity={quantity}
         manipulateMeal={manipulateMeal}
+        itemIsInCart={itemIsInCart}
       />
     </Column>
     <AddToCartButton
@@ -34,10 +36,19 @@ const ActionSection = ({
   </Row>
 );
 
-export default connect(
-  ({ fetchBukkaMenuReducer: { mealToDisplay } }) => ({ mealToDisplay }),
-  { addToCart: updateCartAction, manipulateMeal: manipulateMealAction }
-)(ActionSection);
+const mapStateToProps = ({
+  fetchBukkaMenuReducer: { mealToDisplay },
+  cartReducer: { items }
+}) => ({
+  mealToDisplay,
+  itemIsInCart:
+    items.filter(item => item.slug === mealToDisplay.slug).length > 0
+});
+
+export default connect(mapStateToProps, {
+  addToCart: updateCartAction,
+  manipulateMeal: manipulateMealAction
+})(ActionSection);
 
 ActionSection.propTypes = {
   price: PropTypes.number.isRequired,

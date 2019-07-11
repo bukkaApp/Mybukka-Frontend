@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import ChevronVertical from '../icons/ChevronVertical';
@@ -7,16 +8,18 @@ import { TimeLists as CategoryList } from './Duration';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
 
-import inputData from './inputData/duration.json';
+import inputData from './inputData/duration';
 
 const { categoryItems } = inputData;
 
-export const CategoryLists = () => (
+export const CategoryLists = ({ lists, handleClick, section }) => (
   <CategoryList
-    handleClick={() => {}}
-    lists={categoryItems}
+    handleClick={handleClick}
+    lists={lists || categoryItems}
     classNames="category-dropdown-section"
     maxHeight="category-dropdown-height"
+    pathname={section}
+    link
   />
 );
 
@@ -31,15 +34,13 @@ const Categories = props => (
       </span>
     </ReusableButton>
     <ReusableDropdown classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}>
-      <CategoryLists />
+      <CategoryLists lists={props.lists} section={props.section} />
     </ReusableDropdown>
   </ReusableWrapper>
 );
 
 export default Categories;
 
-
 Categories.propTypes = {
   focus: PropTypes.bool.isRequired
 };
-

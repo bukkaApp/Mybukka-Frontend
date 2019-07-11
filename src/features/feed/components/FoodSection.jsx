@@ -31,6 +31,8 @@ const FoodSection = ({
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
+  currentPage,
+  errorMessage
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -78,6 +80,8 @@ const FoodSection = ({
                       title={displayMap ? '' : 'Nearby'}
                       bukkaData={[...nearbyBukkas]}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
+                      currentPage={currentPage}
+                      errorMessage={errorMessage}
                     />
                   </div>
                   <div className={displayMap ? `container map-wrapper
@@ -112,13 +116,15 @@ const FoodSection = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  bukkasReducer: { fetchedBukkas, status },
+  bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
   selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
+  currentPage,
   coordinates,
   mode,
+  errorMessage,
 });
 
 export default connect(

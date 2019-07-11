@@ -23,11 +23,20 @@ const Quantity = ({ currentQuantity }) => (
   />
 );
 
-const SelectQuantityButtons = ({ manipulateMeal, quantity }) => (
-  <ButtonGroup classNames="merge-group d-flex justify-content-center">
-    <ToggleQuantity text="-" handleClick={() => manipulateMeal('reduce')} />
-    <Quantity currentQuantity={quantity} />
-    <ToggleQuantity text="+" handleClick={() => manipulateMeal('increase')} />
+const SelectQuantityButtons = ({ manipulateMeal, quantity, itemIsInCart }) => (
+  <ButtonGroup classNames="merge-group d-flex justify-content-center select-quantity-btns">
+    {itemIsInCart ? (
+      <p className="added-text">ADDED</p>
+    ) : (
+      <>
+        <ToggleQuantity text="-" handleClick={() => manipulateMeal('reduce')} />
+        <Quantity currentQuantity={quantity} />
+        <ToggleQuantity
+          text="+"
+          handleClick={() => manipulateMeal('increase')}
+        />
+      </>
+    )}
   </ButtonGroup>
 );
 
@@ -36,7 +45,7 @@ export default SelectQuantityButtons;
 ToggleQuantity.propTypes = {
   text: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 Quantity.propTypes = {
@@ -45,5 +54,5 @@ Quantity.propTypes = {
 
 SelectQuantityButtons.propTypes = {
   manipulateMeal: PropTypes.func.isRequired,
-  quantity: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired
 };

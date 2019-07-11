@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import InputField from 'Components/input/InputField';
+import ChevronVertical from 'Icons/ChevronVertical';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
 import Button from '../button/Button';
@@ -19,13 +20,13 @@ import {
   ReusableWrapper
 } from './ReusableNavElements';
 
+import { CategoryLists } from './Categories';
+
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
 import inputData from './inputData/duration';
 
 import './locationnavlarge.scss';
-
-const { categoryItems } = inputData;
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -63,14 +64,14 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   </div>
 );
 
-const SearchInputField = () => (
+const SearchInputField = ({ handleChange }) => (
   <InputField
     type="text"
     name="searchLocation"
     placeholderText="Search items..."
     classNames="text-field form-control searchlocation"
     // handleFocus={() => setFocus(true)}
-    handleChange={() => {}}
+    handleChange={handleChange}
     defaultValue={''}
   />
 );
@@ -121,9 +122,10 @@ const Categories = props => (
     >
       <CategoryLists
         handleClick={() => {}}
-        lists={categoryItems}
+        lists={props.categoryItems}
         classNames="category-dropdown-section"
         maxHeight="category-dropdown-height"
+        section={props.section}
       />
     </ReusableDropdown>
   </ReusableWrapper>
@@ -137,7 +139,7 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField handleClick={() => {}} />
+          <SearchInputField handleChange={props.handleChange} />
         </div>
       </div>
     </ReusableButton>
@@ -152,7 +154,10 @@ const LocationNavLarge = ({
   deliveryorpickup,
   scheduleTime,
   cartItemsQuantity,
-  selectedLocation
+  selectedLocation,
+  categoryItems,
+  handleSearch,
+  section
 }) => {
   let wrapperRef;
   const unFocus = {
@@ -232,6 +237,8 @@ const LocationNavLarge = ({
                 <Categories
                   handleClick={() => handleClick('categories')}
                   focus={isFocused.categories}
+                  categoryItems={categoryItems}
+                  section={section}
                 />
                 <div className="delivery-or-pickup-vertical-divider" />
               </Fragment>

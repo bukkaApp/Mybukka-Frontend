@@ -60,7 +60,7 @@
   ],
   "deliveryAddress": [
     {
-      "name": "streetAddress1",
+      "name": "address",
       "changed": false,
       "value": "",
       "classNames": "form-control border-input-style p-0",
@@ -72,7 +72,7 @@
       "containerClassNames": "form-group font-size-14 mb-4"
     },
     {
-      "name": "contactName",
+      "name": "name",
       "changed": false,
       "classNames": "form-control border-input-style p-0",
       "type": "text",
@@ -82,7 +82,7 @@
       "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
     },
     {
-      "name": "phoneNumber",
+      "name": "mobileNumber",
       "classNames": "form-control border-input-style p-0",
       "type": "text",
       "placeholderText": "Phone number",

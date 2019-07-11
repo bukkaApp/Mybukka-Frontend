@@ -1,11 +1,23 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
+import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
+
 import PropTypes from 'prop-types';
 import Checkout from './components/Checkout';
 
 const checkoutPage = ({ history: { push, location } }) => <Checkout push={push} />;
 
-export default checkoutPage;
+const mapStateToProps = ({
+  authenticationReducer: {
+    status: { authenticated }
+  }
+}) => ({
+  authenticated
+});
+
+export default connect(mapStateToProps, null)(AuthenticatedPages(checkoutPage));
 
 checkoutPage.propTypes = {
   history: PropTypes.shape({

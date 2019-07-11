@@ -7,11 +7,12 @@ import Cancel from 'Components/icons/Cancel';
 import { MealTitle, MealDescription } from 'Components/card/MealCard';
 
 import SpecialInstructions from './SpecialInstructions';
+import SubMenus from './SubMenus';
 import ActionSection from './ActionSection';
 
 import './orderOptions.scss';
 
-const OrderOptions = ({ title, description, price, slug, quantity }) => (
+const OrderOptions = ({ title, description, price, slug, quantity, options }) => (
   <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 order-options-section">
     <div
       data-dismiss="modal"
@@ -23,6 +24,7 @@ const OrderOptions = ({ title, description, price, slug, quantity }) => (
       <MealTitle title={title} />
       <MealDescription description={description} />
       <SpecialInstructions />
+      <SubMenus menus={options} />
     </div>
     <ActionSection price={price} slug={slug} quantity={quantity} />
   </Column>

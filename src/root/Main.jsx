@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
+import Map from 'Components/map';
+
 import Home from '../features/home';
 import Bukka from '../features/bukka';
 import Register from '../features/authentication/RegisterPage';
@@ -43,6 +45,7 @@ const Main = () => (
       <Route exact path="/support/buyer" component={SupportBuyer} />
       <Route exact path="/buyer/articles/:id" component={Articles} />
       <Route exact path="/buyer/lists/:id" component={CategoryLists} />
+      <Route exact path="/map" component={Map} />
       <Route component={NotFound} />
     </Switch>
   </main>

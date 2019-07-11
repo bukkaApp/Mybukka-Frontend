@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import setDeliverySchedule from 'Redux/setDeliverySchedule';
 
@@ -12,6 +13,7 @@ import {
   ReusableWrapper
 } from './ReusableNavElements';
 import inputData from './inputData/duration';
+
 import './duration.scss';
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
@@ -29,20 +31,44 @@ const scheduleData = [
   }
 ];
 
-export const TimeLists = ({ lists, handleClick, classNames, maxHeight }) => (
+export const TimeLists = ({
+  lists,
+  handleClick,
+  classNames,
+  maxHeight,
+  push,
+  pathname,
+  link
+}) => (
   <div className={`custom-duration-dropdown ${classNames}`}>
     <div className={`custom-duration-dropdown-content ${maxHeight}`}>
-      {lists.map(time => (
-        <div
-          key={time}
-          tabIndex="0"
-          role="button"
-          aria-pressed="false"
-          onClick={() => handleClick(time)}
-          className="custom-duration-dropdown-item"
-        >
-          <span>{time}</span>
-        </div>
+      {lists.map(list => (
+        <>
+          {link ? (
+            <a href={`${pathname}#${list}`}>
+              <div
+                key={list}
+                tabIndex="0"
+                role="button"
+                aria-pressed="false"
+                className="custom-duration-dropdown-item"
+              >
+                <span>{list}</span>
+              </div>
+            </a>
+          ) : (
+            <div
+              key={list}
+              tabIndex="0"
+              role="button"
+              aria-pressed="false"
+              onClick={() => handleClick(list)}
+              className="custom-duration-dropdown-item"
+            >
+              <span>{list}</span>
+            </div>
+          )}
+        </>
       ))}
     </div>
   </div>
@@ -104,7 +130,7 @@ const DurationContent = ({ mode, setDeliverySchedule, currentSchedule }) => {
   const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({
     day,
-    time,
+    time
   });
 
   const handleDeliveryTime = (name, value) => {

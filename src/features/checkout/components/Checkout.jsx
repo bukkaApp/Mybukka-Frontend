@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,6 +11,8 @@ import AddToCart from 'Components/common/addToCart';
 import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+
+import { validateAField, validateAllFields } from '../validation/validateField';
 
 import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
@@ -28,15 +30,64 @@ const Checkout = ({
   amount,
   message,
   data,
+  cart,
   bukkaMenu,
   fetchBukkaMenu,
   menuIsFetched,
-  bukkaOfMenu
+  bukkaOfMenu,
+  day,
+  time,
+  success,
 }) => {
+  const [validationErrors, setValidationErrors] = useState({
+    address: '',
+    deliveryInstructions: '',
+    name: '',
+    mobileNumber: ''
+  });
+
+  const [deliveryAddressData, setDeliveryAddressData] = useState({
+    address: '',
+    deliveryInstructions: '',
+    name: '',
+    mobileNumber: ''
+  });
+
+  const handleDeliveryAddress = ({ target: { name, value } }) => {
+    const newFieldData = { [name]: value };
+    const validation = validateAField(newFieldData, name);
+    setDeliveryAddressData({
+      ...deliveryAddressData,
+      ...newFieldData
+    });
+    setValidationErrors({
+      ...validationErrors,
+      [name]: validation.message
+    });
+  };
+
+  const handleDeliveryAddressSave = (e) => {
+    e.preventDefault();
+    const validation = validateAllFields(deliveryAddressData);
+    setValidationErrors({
+      ...validationErrors,
+      ...validation
+    });
+  };
+
   useEffect(() => {
     const bukkaMenuToFetch = location.pathname.split('/')[2];
     if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
+      window.scrollTo(0, 0);
       fetchBukkaMenu(bukkaMenuToFetch);
+    }
+    if (success) {
+      setDeliveryAddressData({
+        address: '',
+        deliveryInstructions: '',
+        name: '',
+        mobileNumber: ''
+      });
     }
     if (message === 'Charge attempted') {
       $('#inputSecurityKey').modal('show');
@@ -47,13 +98,28 @@ const Checkout = ({
     <>
       <Navbar push={push} />
       <AddToCart />
-      <SendSecurityKeyForm />
+      <SendSecurityKeyForm cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
       <Container classNames="relative modal-open">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
-            <DeliveryAddress />
-            <ScheduleSelector type="day" title="Day" list={duration.durationList} />
-            <ScheduleSelector type="time" title="Time" list={duration.sheduleTimeLists} />
+            <DeliveryAddress
+              validationErrors={validationErrors}
+              setValidationErrors={setValidationErrors}
+              inputData={deliveryAddressData}
+              setInputData={setDeliveryAddressData}
+              handleDeliveryAddressSave={handleDeliveryAddressSave}
+              handleChange={handleDeliveryAddress}
+            />
+            <ScheduleSelector
+              type="time"
+              title="Day"
+              list={duration.durationList}
+            />
+            <ScheduleSelector
+              type="time"
+              title="Time"
+              list={duration.sheduleTimeLists}
+            />
             <Payment />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
@@ -94,7 +160,14 @@ const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data },
   cartReducer: { totalCost, items },
-  fetchBukkaMenuReducer: { bukkaMenu, status: { fetched } }
+  fetchBukkaMenuReducer: {
+    bukkaMenu,
+    status: { fetched }
+  },
+  finishTransactionReducer: {
+    status: { success },
+  },
+  deliveryScheduleReducer: { schedule: { day, time } },
 }) => ({
   card: manipulateCardDetailsReducer,
   amount: totalCost,
@@ -102,7 +175,11 @@ const mapStateToProps = ({
   data,
   bukkaMenu,
   menuIsFetched: fetched,
-  bukkaOfMenu: bukkaMenu[0].bukka
+  bukkaOfMenu: bukkaMenu[0].bukka,
+  cart: items,
+  day,
+  time,
+  success,
 });
 
 export default connect(

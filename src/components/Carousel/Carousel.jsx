@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
 import shortId from 'shortid';
+import { Link } from 'react-router-dom';
 
 import Container from 'Components/container/Container';
 import ChevronRight from 'Icons/ChevronRight';
@@ -43,6 +44,7 @@ const Carousel = ({
   imageHeight,
   delivery,
   controlClassNames,
+  type
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -68,14 +70,14 @@ const Carousel = ({
 
   return (
     <Fragment>
-      {title &&
+      {title && (
         <Headline
           activeIndex={activeIndex}
           title={title}
           slidesLenght={slidesLenght}
           NumberOfViews={slidesLenght}
         />
-      }
+      )}
       <Container>
         <div className="carousel">
           <div className="carousel-container">
@@ -112,17 +114,18 @@ const Carousel = ({
                     tags={bukka.tags}
                     slug={bukka.slug}
                     classNames={`${classNames}`}
+                    href={type === 'majorCuisine' ? `/search?by=${type}&value=${bukka.id}` : '#'}
                   />
                 ))}
               </div>
             </div>
             {slidesLenght <= noOfImagesShown ||
-            (activeIndex + Number(noOfImagesShown) !== slidesLenght && (
-              <ControlRight
-                classNames={controlClassNames}
-                handleClick={goToNextSlide}
-              />
-            ))}
+              (activeIndex + Number(noOfImagesShown) !== slidesLenght && (
+                <ControlRight
+                  classNames={controlClassNames}
+                  handleClick={goToNextSlide}
+                />
+              ))}
           </div>
         </div>
       </Container>
@@ -131,7 +134,6 @@ const Carousel = ({
 };
 
 export default Carousel;
-
 
 const defaultProps = {
   classNames: ''
@@ -143,12 +145,12 @@ ControlLeft.defaultProps = defaultProps;
 
 ControlLeft.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  classNames: PropTypes.string,
+  classNames: PropTypes.string
 };
 
 ControlRight.propTypes = {
   handleClick: PropTypes.func.isRequired,
-  classNames: PropTypes.string,
+  classNames: PropTypes.string
 };
 
 Carousel.defaultProps = {
@@ -156,7 +158,7 @@ Carousel.defaultProps = {
   controlClassNames: '',
   title: '',
   handleRefFocus: () => {},
-  delivery: false,
+  delivery: false
 };
 
 Carousel.propTypes = {
@@ -165,10 +167,8 @@ Carousel.propTypes = {
   classNames: PropTypes.string.isRequired,
   slideItems: PropTypes.arrayOf(any).isRequired,
   title: PropTypes.string,
-  noOfImagesShown: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  noOfImagesShown: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
   imageHeight: PropTypes.string.isRequired,
   textOverlay: PropTypes.bool
 };

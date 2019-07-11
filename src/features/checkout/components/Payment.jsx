@@ -78,14 +78,6 @@ const Payment = ({ manipulateCardDetails }) => {
           <span className="make-default-text">Make default payment method</span>
         </div>
 
-        <div>
-          <Button
-            type="button"
-            text="Save"
-            classNames="small-button-save"
-            handleClick={handleSaveButton}
-          />
-        </div>
       </form>
       <Demarcation />
     </section>

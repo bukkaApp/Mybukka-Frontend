@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -23,8 +23,10 @@ import BukkaMeals from './BukkaMeals';
 
 import './bukkaScene.scss';
 
-const BukkaMenuScene = ({ push, errorMessage }) => {
+const BukkaMenuScene = ({ push, errorMessage, categories, bukka }) => {
+  const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
+    window.scrollTo(0, 0);
     if (errorMessage !== '') return toastr.error(errorMessage);
   });
 
@@ -37,21 +39,29 @@ const BukkaMenuScene = ({ push, errorMessage }) => {
       <LocationNavLargeScreen
         deliveryorpickup
         classNames="bukka-location-nav"
+        categoryItems={categories}
+        section={`bukka/${bukka}`}
+        handleSearch={event => setSearchQuery(event.target.value)}
       />
       <LocationNavSmallScreen />
       <div className="carousel-divider mb-0" />
       <BukkaNavSmallScreen classNames="top-0" currentCategory="breakfast" />
       <BukkaDetailsSection />
 
-      <BukkaMeals />
+      <BukkaMeals searchQuery={searchQuery} />
       <Footer />
       <UnAuthenticatedCheckout push={push} />
     </div>
   );
 };
 
-const mapStateToProps = ({ cartReducer: { errorMessage } }) => ({
-  errorMessage
+const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
+  categories,
+  bukkaMenu,
+}, }) => ({
+  errorMessage,
+  categories,
+  bukka: bukkaMenu[0].bukka
 });
 
 export default connect(

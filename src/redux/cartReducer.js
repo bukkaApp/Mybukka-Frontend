@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 const initialState = {
   items: [],
   totalCost: 0,
@@ -58,6 +60,7 @@ const cartReducer = (state = initialState, action) => {
 
     case 'UPDATE_CART_LOCAL': {
       if (state.items.length > 0 && action.data.bukka !== state.items[0].bukka) {
+        swal('your cart can only contain items of a single bukka at any given time');
         return {
           ...state,
           errorMessage: 'your cart can only contain items of a single bukka at any given time',
@@ -84,6 +87,13 @@ const cartReducer = (state = initialState, action) => {
     case 'UPDATE_CART_ERROR': {
       const { message } = action.data;
       return cartUpdateError(state, message);
+    }
+
+    case 'FINISH_CHARGE_TRANSACTION_SUCCESS': {
+      return {
+        ...state,
+        items: [],
+      };
     }
 
     default: {

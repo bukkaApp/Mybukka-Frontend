@@ -22,22 +22,22 @@ export const CartDropdown = ({ children, display }) =>
 
 const EmptyCart = ({
   orderQuantity,
-  bukka,
   orderItems,
   totalPriceInCart,
   removeFromCartAction,
   focus,
+  bukka
 }) => {
   if (orderQuantity > 0) {
     return (
       <div className="empty-cart-container">
         <div className="px-4 pt-2">
           <div className="cart-bukka-details">
-            <h5 className="cart-bukka-name font-size-15">{orderItems[0].bukka.split('-').slice(0, -1).join(' ')}</h5>
+            <h5 className="cart-bukka-name font-size-15">{bukka.split('-').slice(0, -1).join(' ')}</h5>
             <h5 className="cart-bukka-view-menu">
               <Link
                 className="text-success view-menu-text"
-                to={`/bukka/${orderItems[0].bukka}`}
+                to={`/bukka/${bukka}`}
               >
                 VIEW MENU
               </Link>
@@ -61,9 +61,7 @@ const EmptyCart = ({
           ))}
         </div>
         <SubTotal totalPriceInCart={totalPriceInCart} />
-        <Link to={`/merchant/${orderItems[0].bukka}/checkout`}>
-          <CheckoutBtn handleClick={() => {}} />
-        </Link>
+        <CheckoutBtn handleClick={() => {}} bukka={bukka} />
       </div>
     );
   }
@@ -94,12 +92,11 @@ const EmptyCart = ({
 
 const mapStateToProps = ({
   cartReducer: { items, totalCost },
-  fetchBukkaReducer: { fetchedBukka }
 }) => ({
   orderItems: items,
   orderQuantity: items.length,
   totalPriceInCart: totalCost,
-  bukka: fetchedBukka
+  bukka: items.length > 0 ? items[0].bukka : items,
 });
 
 export default connect(
