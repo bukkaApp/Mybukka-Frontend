@@ -107,13 +107,13 @@ export default {
     {
       helpYourself: { ...reportSafetyRules },
       category: 'Report a safety issue',
-      link: '/buyer/contact-us/not-postmate-pictured',
+      link: '/buyer/contact-us/not-bukka-pictured',
       text: "My bukka didn't match their picture"
     },
     {
       helpYourself: { ...reportSafetyRules },
       category: 'Report a safety issue',
-      link: '/buyer/contact-us/not-postmate-pictured/other-safety-issue',
+      link: '/buyer/contact-us/not-bukka-pictured/other-safety-issue',
       text: 'other'
     }
   ]

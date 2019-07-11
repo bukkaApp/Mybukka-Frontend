@@ -6,6 +6,7 @@ export default {
     'cancel my bukka unlimited membership': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `If you signed up for a free trial and cancel before your free trial ends,
         you will not be charged.`,
@@ -24,6 +25,7 @@ export default {
     'how do i change my email': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `Create a new bukka account with the correct email address or one of
           which you are the administrator.  At this time we are unable to make
@@ -33,13 +35,13 @@ export default {
     ],
   },
   securityConcern: {
-    'please tell us why you want to delete your account so we can improve our experience.': [
+    inputBox: [
       {
         dropdown: true,
-        heading: '',
+        heading: 'please tell us why you want to delete your account so we can improve our experience.',
         default: '-',
-        select: [
-          'Bad experience on an other',
+        items: [
+          'Bad experience on an order',
           'Bad experience with a bukka',
           'negative support experience',
           'issues with my account',
@@ -52,6 +54,7 @@ export default {
     ...reportSafety,
     'Anti-Descrimination Policy': [
       {
+        paragraph: true,
         heading: '',
         paragraphs: [
           `At bukka we prohibit any and all discrimination based on race, ethnicity,
@@ -70,6 +73,7 @@ export default {
     'why is there a hold placed on my account?': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `A hold can be placed on your account for a number of reasons.
           When a hold is placed on your account you can still browse and
@@ -84,7 +88,7 @@ export default {
         items: [
           {
             strong: 'Failed charge',
-            light: `Your payment method was declined when bukka
+            light: `- Your payment method was declined when bukka
             attempted to charge for your delivery or tip amount.`
           },
           {
@@ -93,12 +97,13 @@ export default {
           },
           {
             strong: 'Unusual account activity',
-            light: 'Our system detected an unusual order made using your bukka account.'
+            light: '- Our system detected an unusual order made using your bukka account.'
           }
         ],
       },
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `When a hold is placed, you will receive an email indicating
            the reason for the hold and instructions on how to resolve.
@@ -109,6 +114,7 @@ export default {
     'A hold was placed on my account to a disputed payment what do i do?': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `When bukka receives word of a payment dispute (or “chargeback”) from your bank,
           we assume the payment was made without your permission and
@@ -130,6 +136,7 @@ export default {
     'how can i pay a past due balance on my bukka account?': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `If your payment method failed for an order, you will need to resolve the balance before
            you can place a new order on bukka. To change payment methods or resolve
@@ -147,6 +154,7 @@ export default {
     'how can i apply a promo code': [
       {
         heading: '',
+        paragraph: true,
         paragraphs: [
           `Bukka will periodically offer promotions or discounts off of delivery fees or
            items on the app which can sometimes be redeemed via a promotional code. `,
@@ -171,6 +179,7 @@ export default {
       {
         heading: '',
         link: true,
+        paragraph: true,
         paragraphs: [
           `Bukka gift cards are a simple way to send a friend a code that treats
            them to anything in their city. The gift cards are sent via
@@ -223,6 +232,7 @@ export default {
       },
       {
         heading: 'How do I purchase and send a Bukka gift card?',
+        paragraph: true,
         paragraphs: [
           'You can purchase and send a gift card to anyone with an email address, here\'s how:'
         ]
@@ -250,6 +260,7 @@ export default {
       {
         heading: '',
         link: true,
+        paragraph: true,
         paragraphs: [
           `For information please see our
           &lt;a href=&quot;/legal/gift-cards&quot; target=&quot;_blank&quot;&gt; Gift Card Terms. &lt;/a&gt;`

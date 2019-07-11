@@ -3,6 +3,7 @@ export default {
   'Trust and safety overview': [
     {
       heading: 'Working to make our community safer',
+      paragraph: true,
       paragraphs: [
         `With more than 100,000 bukka, 250,000 restaurants and
         merchants, and tens of millions of deliveries made, on-demand
@@ -19,6 +20,7 @@ export default {
     },
     {
       heading: 'We\'re here if you need us',
+      paragraph: true,
       paragraphs: [
         `Our Trust & Safety team is here to look out for our community members.
         We work around the clock to provide you with support.
@@ -29,6 +31,7 @@ export default {
   'Community standard': [
     {
       heading: '',
+      paragraph: true,
       paragraphs: [
         `At bukka, we get it. We’re here to make your life easier,
         happier, and better. With more than 160,000 bukka, 250,000 restaurants
@@ -54,8 +57,9 @@ export default {
   'Zero-Tolerance Policy': [
     {
       heading: 'Working to make our community safer',
+      paragraph: true,
       paragraphs: [
-        `Postmates immediately denies access to anyone who abuses drugs or alcohol
+        `Bukka immediately denies access to anyone who abuses drugs or alcohol
         while performing services on the platform. If you ever feel unsafe dial 9-1-1
         and notify law enforcement. After doing that, get in touch with us through
         the Contact Support tab in the app by selecting

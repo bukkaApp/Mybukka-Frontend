@@ -8,17 +8,13 @@ import './category.scss';
 import '../components/supportmainsection.scss';
 import './relatedcomlainarticle.scss';
 
-const ListItemGroup = ({ heading, items, listType }) => {
-  if (heading) {
-    return (
-      <div>
-        <h6 className="dropdown_article_heading">{heading}</h6>
-        <ListItem listType={listType} items={items} />
-      </div>
-    );
-  }
-  return <ListItem items={items} />;
-};
+const ListItemGroup = ({ heading, items, listType }) => (
+  <div>
+    {heading &&
+      <h6 className="dropdown_article_heading">{heading}</h6>}
+    <ListItem listType={listType} items={items} />
+  </div>
+);
 
 const Paragraph = ({ heading, paragraphs }) => (
   <div className="dropdown_article_item ml-4">
@@ -33,6 +29,7 @@ const ArticleDropdown = ({ heading, children }) => {
   const [active, setActive] = useState(false);
   return (
     <div className="ml-3">
+      {!heading.includes('inputBox') &&
       <div
         onClick={() => setActive(!active)}
         aria-pressed="false"
@@ -44,7 +41,9 @@ const ArticleDropdown = ({ heading, children }) => {
         {active && <i className="dropdown_article_icon">-</i>}
         {!active && <i className="dropdown_article_icon">+</i>}
       </div>
-      {active && children}
+      }
+      {heading.includes('inputBox') && <br />}
+      {(active || heading.includes('inputBox')) && children}
     </div>
   );
 };
@@ -74,19 +73,13 @@ export const RelatedComplainArticle = ({ data = {}, /* heading */ }) => (
       (<Fragment>
         <ArticleDropdown heading={eachData}>
           {
-            data[eachData].map((el) => {
-              let listData = '';
-              if (el.list) {
-                listData = <ListItemGroup {...el} />;
-              }
-              return (
-                <Fragment>
-                  {listData}
-                  {el.dropdown && <InputDropdown {...el} />}
-                  {!el.list && el.paragraphs.length > 0 && <Paragraph {...el} />}
-                </Fragment>
-              );
-            })
+            data[eachData].map(el => (
+              <Fragment>
+                {el.list && <ListItemGroup {...el} />}
+                {el.dropdown && <InputDropdown {...el} />}
+                {(!el.list && el.paragraph) && <Paragraph {...el} />}
+              </Fragment>
+            ))
           }
         </ArticleDropdown>
       </Fragment>)
@@ -123,14 +116,12 @@ Paragraph.propTypes = {
 };
 
 ArticleDropdown.defaultProps = {
-  active: false,
   handleClick: () => {},
   children: '',
-  heading: ''
+  heading: '',
 };
 
 ArticleDropdown.propTypes = {
-//   active: PropTypes.bool,
   heading: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
