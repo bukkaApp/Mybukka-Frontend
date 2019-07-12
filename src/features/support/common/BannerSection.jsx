@@ -12,13 +12,21 @@ const BannerSection = () => (
     </div>
     <div>
       <div className="pen-down">
-        <img src="https://res.cloudinary.com/deqt3envc/image/upload/v1555436392/pen.jpg" alt="dd" className="pen-down-img" />
+        <img
+          src="https://res.cloudinary.com/deqt3envc/image/upload/v1555436392/pen.jpg" // eslint-disable-line
+          alt="dd"
+          className="pen-down-img"
+        />
       </div>
       <div className="monitoring-section">
-        <img src="https://res.cloudinary.com/deqt3envc/image/upload/v1555436393/work-desk.jpg" alt="dd" className="monitoring-section-img" />
+        <img
+          src="https://res.cloudinary.com/deqt3envc/image/upload/v1555436393/work-desk.jpg" // eslint-disable-line
+          alt="dd"
+          className="monitoring-section-img"
+        />
       </div>
       <div className="custom-help-section">
-        <a className="custom-help-section-text" href="/buyer">
+        <a className="custom-help-section-text unselectable" href="/buyer">
           <span>Help</span>
         </a>
       </div>
