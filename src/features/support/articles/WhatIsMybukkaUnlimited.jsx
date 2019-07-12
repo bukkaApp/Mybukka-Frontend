@@ -69,7 +69,7 @@ const MainSection = () => (
 );
 
 const WhatIsMybukkaUnlimited = ({ id }) => {
-  if (id !== '220089047-article-What-is-Postmates-Unlimited-') {
+  if (id !== '220089047-article-What-is-bukka-Unlimited-') {
     return null;
   }
   return (

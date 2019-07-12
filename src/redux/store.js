@@ -9,7 +9,7 @@ import storage from 'redux-persist/lib/storage';
 
 import checkoutModeReducer from
   'Components/common-navs/reducers/checkoutModeReducer';
-
+import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 
@@ -73,6 +73,7 @@ const reducer = combineReducers({
   drinkReducer,
   deliveryScheduleReducer,
   cartReducer,
+  reportIssueReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

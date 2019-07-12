@@ -125,7 +125,9 @@ const Asap = () =>
     </div>
   ));
 
-const DurationContent = ({ mode, setDeliverySchedule, currentSchedule }) => {
+export const DurationContent = ({
+  mode, setDeliverySchedule, currentSchedule
+}) => {
   const { time, day } = currentSchedule;
   const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({

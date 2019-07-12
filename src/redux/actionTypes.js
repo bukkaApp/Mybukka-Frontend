@@ -34,3 +34,4 @@ export const DRINK_BUKKA = 'DRINK_BUKKA';
 export const SET_DELIVERY_SCHEDULE = 'SET_DELIVERY_SCHEDULE';
 export const UPDATE_CART = 'UPDATE_CART';
 export const FETCH_CART = 'FETCH_CART';
+export const REPORT_ISSUE = 'REPORT_ISSUE';

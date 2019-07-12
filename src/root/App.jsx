@@ -10,8 +10,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import reduxStore from '../redux/store';
 import Main from './Main';
-import IndeterminateProgressbar from '../components/progress-bar/IndeterminateProgressbar';
+import IndeterminateProgressbar from
+  '../components/progress-bar/IndeterminateProgressbar';
 
+import './index.scss';
 import './animate.scss';
 
 toast.configure();
