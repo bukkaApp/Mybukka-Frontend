@@ -6,15 +6,15 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
-import UnAuthenticatedCheckout
-  from 'Components/common-navs/UnAuthenticatedCheckout';
+import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
 
-import LocationNavLargeScreen
-  from 'Components/common-navs/LocationNavLarge';
-import LocationNavSmallScreen, { SelectLocationModal }
-  from 'Components/common-navs/LocationNavSmallScreen';
-import BukkaNavSmallScreen, { ResponsiveCategories }
-  from 'Components/navbar/BukkaNavSmallScreen';
+import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
+import LocationNavSmallScreen, {
+  SelectLocationModal,
+} from 'Components/common-navs/LocationNavSmallScreen';
+import BukkaNavSmallScreen, {
+  ResponsiveCategories,
+} from 'Components/navbar/BukkaNavSmallScreen';
 
 import shortId from 'shortid';
 
@@ -41,12 +41,12 @@ const FreshSection = ({
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   freshBukkas, // eslint-disable-line
-  status: { error }
+  status: { error },
 }) => {
   const [searchResultCategories, setCategories] = useState([]);
   const [searches, setSearch] = useState('');
   const bukkaCategories = [
-    ...new Set(freshBukkas.map(mealData => mealData.bukka))
+    ...new Set(freshBukkas.map(mealData => mealData.bukka)),
   ];
 
   const handleSearch = async ({ target: { value } }) => {
@@ -59,15 +59,16 @@ const FreshSection = ({
 
   useEffect(() => {
     const searchResult = [
-      ...new Set(freshBukkas
-        .filter(mealData => mealData.title.toLowerCase().includes(searches))
-        .map(mealData => mealData.bukka)
-      )
+      ...new Set(
+        freshBukkas
+          .filter(mealData => mealData.title.toLowerCase().includes(searches))
+          .map(mealData => mealData.bukka),
+      ),
     ];
     setCategories([...searchResult]);
   }, [searches]);
 
-  if (nearbyBukkas.length === 0 && error) {
+  if (nearbyBukkas.length > 0 && error) {
     return (
       <div>
         <Navbar push={push} />
@@ -87,57 +88,26 @@ const FreshSection = ({
           <ExploreSection>
             <AreasToExplore text="Groceries" bgImage={freshBannerImage} />
             <div className="feed-main-content">
-              <LocationNavLargeScreen scheduleTime handleSearch={handleSearch} />
+              <LocationNavLargeScreen
+                scheduleTime
+                handleSearch={handleSearch}
+              />
               <BukkaNavSmallScreen currentCategory="Customers Love" />
               <LocationNavSmallScreen bukka />
               <div>
-                {!searches && bukkaCategories.map(eachBukka => (
-                  <Fragment key={shortId.generate()}>
-                    <div className="carousel-divider" />
-                    <Container classNames="px-0">
-                      <div className="mt-4 mb-4">
-
-                        <Headline title={eachBukka} activeIndex={1} />
-                        <Container>
-                          <Row classNames="pb-4">
-                            {freshBukkas.map((mealData) => {
-                              if (mealData.bukka !== eachBukka) {
-                                return null;
-                              }
-                              return (
-                                <BukkaCard
-                                  key={shortId.generate()}
-                                  imageUrl={mealData.imageUrl}
-                                  mealName={mealData.title}
-                                  deliveryPrice={mealData.deliveryCost}
-                                  deliveryTime={mealData.deliveryTime}
-                                  rating={mealData.rating}
-                                  imageHeight="fresh-img-height"
-                                  classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                                  dataTarget="#bukkaAddToCart"
-                                  dataToggle="modal"
-                                />
-                              );
-                            }
-                            )}
-                          </Row>
-                        </Container>
-                      </div>
-                    </Container>
-                  </Fragment>
-                ))}
-                {searches && searchResultCategories.length > 0
-                && searchResultCategories.map(eachBukka => (
-                  <Fragment key={shortId.generate()}>
-                    <div className="carousel-divider" />
-                    <Container classNames="px-0">
-                      <div className="mt-4 mb-4">
-                        <Headline title={eachBukka} activeIndex={1} />
-                        <Container>
-                          <Row classNames="pb-4">
-                            {freshBukkas.map((mealData) => {
-                              if (mealData.bukka === eachBukka
-                                && mealData.title.toLowerCase().includes(searches)) {
+                {!searches &&
+                  bukkaCategories.map(eachBukka => (
+                    <Fragment key={shortId.generate()}>
+                      <div className="carousel-divider" />
+                      <Container classNames="px-0">
+                        <div className="mt-4 mb-4">
+                          <Headline title={eachBukka} activeIndex={1} />
+                          <Container>
+                            <Row classNames="pb-4">
+                              {freshBukkas.map(mealData => {
+                                if (mealData.bukka !== eachBukka) {
+                                  return null;
+                                }
                                 return (
                                   <BukkaCard
                                     key={shortId.generate()}
@@ -152,16 +122,53 @@ const FreshSection = ({
                                     dataToggle="modal"
                                   />
                                 );
-                              }
-                              return null;
-                            }
-                            )}
-                          </Row>
-                        </Container>
-                      </div>
-                    </Container>
-                  </Fragment>
-                ))}
+                              })}
+                            </Row>
+                          </Container>
+                        </div>
+                      </Container>
+                    </Fragment>
+                  ))}
+                {searches &&
+                  searchResultCategories.length > 0 &&
+                  searchResultCategories.map(eachBukka => (
+                    <Fragment key={shortId.generate()}>
+                      <div className="carousel-divider" />
+                      <Container classNames="px-0">
+                        <div className="mt-4 mb-4">
+                          <Headline title={eachBukka} activeIndex={1} />
+                          <Container>
+                            <Row classNames="pb-4">
+                              {freshBukkas.map(mealData => {
+                                if (
+                                  mealData.bukka === eachBukka &&
+                                  mealData.title
+                                    .toLowerCase()
+                                    .includes(searches)
+                                ) {
+                                  return (
+                                    <BukkaCard
+                                      key={shortId.generate()}
+                                      imageUrl={mealData.imageUrl}
+                                      mealName={mealData.title}
+                                      deliveryPrice={mealData.deliveryCost}
+                                      deliveryTime={mealData.deliveryTime}
+                                      rating={mealData.rating}
+                                      imageHeight="fresh-img-height"
+                                      classNames="col-lg-3 col-md-4 col-sm-6 col-6"
+                                      dataTarget="#bukkaAddToCart"
+                                      dataToggle="modal"
+                                    />
+                                  );
+                                }
+                                return null;
+                              })}
+                            </Row>
+                          </Container>
+                        </div>
+                      </Container>
+                    </Fragment>
+                  ))}
               </div>
             </div>
           </ExploreSection>
@@ -176,19 +183,21 @@ const FreshSection = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
-  freshReducer: { fetchedBukkas: { nearbyBukkas: freshBukkas } },
+  freshReducer: {
+    fetchedBukkas: { nearbyBukkas: freshBukkas },
+  },
   selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
   coordinates,
   mode,
-  freshBukkas
+  freshBukkas,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas }
+  { fetchNearbyBukkas: fetchBukkas },
 )(FreshSection);
 
 FreshSection.propTypes = {
@@ -196,8 +205,8 @@ FreshSection.propTypes = {
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
+    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
 };
