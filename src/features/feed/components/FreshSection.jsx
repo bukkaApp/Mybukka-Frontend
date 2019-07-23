@@ -24,7 +24,7 @@ import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
-import NotAvailable from 'Components/not-found/NotAvailable';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 import AddToCart from './AddToCart';
 import fetchBukkas from '../actionCreators/fetchBukkas';
@@ -68,11 +68,12 @@ const FreshSection = ({
     setCategories([...searchResult]);
   }, [searches]);
 
-  if (nearbyBukkas.length > 0 && error) {
+  // if (nearbyBukkas.length === 0 && error) {
+    if (true) {
     return (
       <div>
         <Navbar push={push} />
-        <NotAvailable />
+        <NoNearByBukkaLocation />
       </div>
     );
   }

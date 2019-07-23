@@ -2,7 +2,7 @@ import React from 'react';
 
 import shortId from 'shortid';
 import PropTypes from 'prop-types';
-
+import Android, { Apple } from './StoreSvg';
 import './buttons.scss';
 
 const Button = ({
@@ -28,6 +28,8 @@ const Button = ({
     id={id}
     data-dismiss={dataDismiss}
   >
+    {classNames.includes('apple') && <Apple />}
+    {classNames.includes('android') && <Android />}
     {text || children}
   </button>
 );
@@ -41,7 +43,7 @@ Button.defaultProps = {
   dataDismiss: '',
   id: shortId.generate(),
   children: <div />,
-  disabled: false
+  disabled: false,
 };
 
 Button.propTypes = {
@@ -51,7 +53,7 @@ Button.propTypes = {
   text: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
+    PropTypes.node,
   ]).isRequired,
   disabled: PropTypes.bool,
   dataTarget: PropTypes.string,

@@ -60,6 +60,22 @@ $white: rgb(217, 219, 224);
   border: 1px solid #222;
 }
 
+.apple-button {
+  @include button(150px, 45px, #222, #f5e7d8, 12px);
+  border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.android-button {
+  @include button(150px, 45px, #222, #f5e7d8, 12px);
+  border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .small-outline-button {
   @include button(80px, 32px, #fff, #222, 12px);
   border: 1px solid rgba(32, 47, 50, 0.15);
@@ -105,7 +121,7 @@ $white: rgb(217, 219, 224);
 
 .cart-action-button-default {
   @include cart-action-button();
-  color:gray;
+  color: gray;
 }
 
 .cart-action-button-primary {
