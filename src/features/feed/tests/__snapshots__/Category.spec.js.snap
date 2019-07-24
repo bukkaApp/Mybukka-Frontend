@@ -161,7 +161,7 @@ exports[`Category component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="1QwcRG014"
+                          id="_nLAfIH2n"
                           type="button"
                         >
                           Facebook
@@ -432,7 +432,7 @@ exports[`Category component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="1QwcRG014"
+                              id="_nLAfIH2n"
                               type="button"
                             >
                               Facebook
@@ -503,7 +503,7 @@ exports[`Category component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="1QwcRG014"
+                      id="_nLAfIH2n"
                       type="button"
                     >
                       <span
