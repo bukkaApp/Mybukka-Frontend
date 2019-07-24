@@ -9,7 +9,7 @@ const PersonalizedHelp = ({ authenticated }) => {
   }
   return (
     <div className="col-md-6 pl-0">
-      <div className="css-10izwvm">
+      <div>
         <div className="personalized-text" data-cy="login-prompt-title">
         Log in for personalized help
         </div>

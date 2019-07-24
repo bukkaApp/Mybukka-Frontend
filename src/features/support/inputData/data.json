@@ -1,7 +1,7 @@
 {
     "Popular answers": [
         {
-            "link": "/buyer/articles/220089047-article-What-is-Postmates-Unlimited-",
+            "link": "/buyer/articles/220089047-article-What-is-bukka-Unlimited-",
             "text": "what is bukka unlimited"
         },
         {
@@ -10,7 +10,7 @@
         },
         {
             "link": "/buyer/articles/cancel-subscription",
-            "text": "Cancel my Postmates Unlimited subscription"
+            "text": "Cancel my Mybukka Unlimited subscription"
         },
         {
             "link": "/buyer/articles/credits-and-promotions",
@@ -41,7 +41,7 @@
     ],
     "Contact us": [
         {
-            "link": "/",
+            "link": "/buyer/contact-us/help",
             "text": "Email"
         }
     ]

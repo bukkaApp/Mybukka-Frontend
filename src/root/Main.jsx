@@ -15,6 +15,9 @@ import SupportBuyer from '../features/support/components/SupportBuyer';
 import Articles from '../features/support/articles';
 import CategoryLists from '../features/support/Lists';
 import Merchant from '../features/merchant';
+import ComplainCategory from '../features/support/complain/Category';
+import SubCategory from '../features/support/complain/SubCategory';
+import ComplainScene from '../features/support/complain/ComplainScene';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -45,6 +48,9 @@ const Main = () => (
       <Route exact path="/buyer/articles/:id" component={Articles} />
       <Route exact path="/buyer/lists/:id" component={CategoryLists} />
       <Route exact path="/merchant" component={Merchant} />
+      <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
+      <Route exact path="/support/buyer/contact-us/:id" component={SubCategory} />
+      <Route exact path="/buyer/contact-us/:id" component={ComplainScene} />
       <Route component={NotFound} />
     </Switch>
   </main>
