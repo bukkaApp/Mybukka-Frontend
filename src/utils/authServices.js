@@ -29,23 +29,32 @@ class AuthService {
   }
 
   getTokenData() {
-    return this.decode(this.getToken()).data;
+    return this.getToken() ? this.decode(this.getToken()).data : null;
   }
 
   getFullName() {
-    return `${this.getTokenData().firstName} ${this.getTokenData().lastName}`;
+    const tokenData = this.getTokenData();
+    return tokenData ? `${tokenData.firstName} ${tokenData.lastName}` : null;
+  }
+
+  getEmail() {
+    const tokenData = this.getTokenData();
+    return tokenData ? tokenData.email : null;
   }
 
   getUserSlug() {
-    return this.getTokenData().slug;
+    const tokenData = this.getTokenData();
+    return tokenData ? tokenData.slug : null;
   }
 
   getUserRole() {
-    return this.getTokenData().role;
+    const tokenData = this.getTokenData();
+    return tokenData ? tokenData.role : null;
   }
 
   getRestaurants() {
-    return this.getTokenData().restaurants;
+    const tokenData = this.getTokenData();
+    return tokenData ? tokenData.restaurants : null;
   }
 
   isValid(token) {

@@ -9,10 +9,13 @@ import FreshSection from './FreshSection';
 import Category from './Category';
 import Favorites from './Favorites';
 
+import VerifyPhone from '../../verifyPhone';
+
 import './feed.scss';
 
 const Feed = ({ push, food, drink, search, category, fresh, favorites }) => (
   <Fragment>
+    <VerifyPhone />
     {food && <FoodSection push={push} />}
     {drink && <DrinkSection push={push} />}
     {search && <SearchResult push={push} />}
@@ -40,5 +43,5 @@ Feed.propTypes = {
   search: PropTypes.bool,
   food: PropTypes.bool,
   drink: PropTypes.bool,
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
 };

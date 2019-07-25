@@ -1,0 +1,43 @@
+.verify-phone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 45px;
+
+  .sub-text {
+    text-align: center;
+  }
+
+  .input-section {
+    .space {
+      padding: 50px;
+    }
+  }
+
+  .error-margin-left {
+    margin-left: 43px;
+  }
+
+  .prefix {
+    border-bottom: 2px solid #eceff1;
+  }
+
+  .default-input:active {
+    .prefix {
+      border-bottom: 2px solid red;
+    }
+  }
+
+  button {
+    width: 100%;
+    border-radius: 100px;
+    background-color: #a7acba !important;
+    border-color: #a7acba !important;
+    cursor: pointer;
+    font-weight: 900;
+    outline: none;
+  }
+}
