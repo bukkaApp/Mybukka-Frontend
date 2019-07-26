@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
-import InputField from 'Components/input/InputField';
-import Button from 'Components/button/Button';
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
+import getUserCard from '../actionCreators/getUserCard';
 
-import { validateAField, validateAllFields } from '../validation/validateField';
-import inputFeild from '../InputAttribute/inputData.json';
-import AuthForm from '../common/AuthForm';
+import { validateAFieldPayment, validateAllFieldsPayment } from '../validation/validateField';
 import Demarcation from '../common/SmallScreenDivider';
+import Card, { AddCard } from './Card';
 
 import './payment.scss';
 
-const Payment = ({ manipulateCardDetails }) => {
+const Payment = ({ manipulateCardDetails, handleClick, message, fetchUserCard, cards }) => {
+  const [active, setActive] = useState(false);
+  const [addCard, showCardForm] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     number: '',
     expDate: '',
@@ -28,7 +28,7 @@ const Payment = ({ manipulateCardDetails }) => {
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
+    const validation = validateAFieldPayment(newFieldData, name);
     setInputData({
       ...inputData,
       ...newFieldData
@@ -39,52 +39,85 @@ const Payment = ({ manipulateCardDetails }) => {
     });
   };
 
+  const manipulateCard = () => {
+    const { expDate, cvv, number } = inputData;
+    const cardValidityDates = expDate ? expDate.split('/') : ['', ''];
+    return {
+      cvv,
+      number: number.split(' ').join(''),
+      expiry_month: cardValidityDates[0],
+      expiry_year: cardValidityDates[1],
+    };
+  };
+
   const handleSaveButton = (event) => {
     event.preventDefault();
-    const validation = validateAllFields(inputData);
+    const { passes, errors } = validateAllFieldsPayment(inputData);
+
     setValidationErrors({
       ...validationErrors,
-      ...validation
+      ...errors
     });
+    if (passes && !active) {
+      manipulateCardDetails(inputData);
+      handleClick({ card: { ...manipulateCard() }, amount: 100 });
+      setActive(true);
+    }
   };
 
   useEffect(() => {
-    manipulateCardDetails(inputData);
-    return () => ({});
-  });
+    fetchUserCard();
+  }, []);
 
   return (
     <section className="mb-2 mt-4">
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
       <form className="border padding-20 mt-4" action="">
-        <div className="row flex-row flex-nowrap-sm font-size-14">
-          <AuthForm
-            inputData={inputData}
-            inputField={inputFeild.payment}
+        {!addCard && cards.length > 0 ?
+          <div>
+            <p>Your credits card</p>
+            { cards.map(card => (
+              <Card
+                last4={card.last4}
+                expiredYear={card.exp_year}
+                expiredMonth={card.exp_month}
+                cardType={card.card_type}
+              />))}
+            <div
+              onKeyDown={() => {}}
+              role="button"
+              aria-pressed="false"
+              tabIndex="0"
+              onClick={() => showCardForm(true)}
+              className="text-muted cursor-pointer"
+            >+ add card</div>
+          </div>
+          : <AddCard
             handleChange={handleChange}
-            errors={validationErrors}
+            cards={cards}
+            inputData={inputData}
+            active={active}
+            handleSaveButton={handleSaveButton}
+            handleClick={() => showCardForm(false)}
+            validationErrors={validationErrors}
           />
-        </div>
-
-        <div className="form-group checkbox-form-group">
-          <InputField
-            type="checkbox"
-            classNames="checkbox"
-            placeholder=""
-            name="makeDefaultPaymentOption"
-            handleChange={() => {}}
-            handleFocus={() => {}}
-          />
-          <span className="make-default-text">Make default payment method</span>
-        </div>
-
+        }
+        {/* {message === 'Charge attempted' &&
+        <p className="text-success">Your card is now saved for any other transactions</p>} */}
       </form>
       <Demarcation />
     </section>
   );
 };
 
+const mapStateToProps = ({ getUserCardReducer: { cards } }) => ({
+  cards
+});
+
 export default connect(
-  () => ({}),
-  { manipulateCardDetails: manipulateCardDetailsAction }
+  mapStateToProps,
+  { manipulateCardDetails: manipulateCardDetailsAction,
+    fetchUserCard: getUserCard,
+  }
 )(Payment);
+

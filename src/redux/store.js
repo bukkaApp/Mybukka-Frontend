@@ -44,6 +44,10 @@ import searchAnythingReducer from './searchAnythingReducer';
 import deliveryScheduleReducer from './deliveryScheduleReducer';
 import cartReducer from './cartReducer';
 
+import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
+import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
+import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer';
+
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
@@ -74,6 +78,9 @@ const reducer = combineReducers({
   deliveryScheduleReducer,
   cartReducer,
   reportIssueReducer,
+  saveUserCardReducer,
+  verifyCardReducer,
+  getUserCardReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

@@ -38,6 +38,7 @@ const Checkout = ({
   day,
   time,
   success,
+  cards,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -120,7 +121,7 @@ const Checkout = ({
               title="Time"
               list={duration.sheduleTimeLists}
             />
-            <Payment />
+            <Payment handleClick={checkoutUser} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
                 type="submit"
@@ -164,6 +165,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
+  getUserCardReducer: { cards },
   finishTransactionReducer: {
     status: { success },
   },
@@ -180,6 +182,7 @@ const mapStateToProps = ({
   day,
   time,
   success,
+  cards,
 });
 
 export default connect(

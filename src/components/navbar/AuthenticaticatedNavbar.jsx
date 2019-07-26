@@ -30,6 +30,9 @@ const AuthenticaticatedNavbar = () => {
             <CartDropdown display={isFocused}>
               <EmptyCart />
               <CartIconSection />
+              <Button>
+                <i></i>
+              </Button>
             </CartDropdown>
           </div>
         </div>
