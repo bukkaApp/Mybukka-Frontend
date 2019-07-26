@@ -90,7 +90,7 @@ exports[`FeedPage component renders properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                   >
                     <span
                       class="col-10 text-left"
@@ -302,7 +302,7 @@ exports[`FeedPage component renders properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="lZzq4xSrd"
+                              id="GcAouRC20"
                               type="button"
                             >
                               Facebook
@@ -373,7 +373,7 @@ exports[`FeedPage component renders properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <span
@@ -587,7 +587,7 @@ exports[`FeedPage component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -656,7 +656,7 @@ exports[`FeedPage component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <h2
@@ -4656,7 +4656,7 @@ exports[`FeedPage component rerenders category component properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="lZzq4xSrd"
+                              id="GcAouRC20"
                               type="button"
                             >
                               Facebook
@@ -4727,7 +4727,7 @@ exports[`FeedPage component rerenders category component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <span
@@ -5344,7 +5344,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             -
@@ -5355,7 +5355,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             undefined
@@ -5366,7 +5366,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             +
@@ -5398,7 +5398,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           -
@@ -5409,7 +5409,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           1
@@ -5420,7 +5420,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           +
@@ -5437,7 +5437,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <div
@@ -5729,7 +5729,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                   >
                     <span
                       class="col-10 text-left"
@@ -5941,7 +5941,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="lZzq4xSrd"
+                              id="GcAouRC20"
                               type="button"
                             >
                               Facebook
@@ -6012,7 +6012,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <span
@@ -6209,7 +6209,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -6276,7 +6276,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -6423,7 +6423,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <div>
@@ -6668,7 +6668,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -6727,7 +6727,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                     type="button"
                   >
                     <span
@@ -6837,7 +6837,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <h2
@@ -6909,7 +6909,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span
@@ -6966,7 +6966,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span>
@@ -6979,7 +6979,7 @@ exports[`FeedPage component rerenders drinks component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span>
@@ -7084,7 +7084,7 @@ exports[`FeedPage component rerenders food component properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                   >
                     <span
                       class="col-10 text-left"
@@ -7296,7 +7296,7 @@ exports[`FeedPage component rerenders food component properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="lZzq4xSrd"
+                              id="GcAouRC20"
                               type="button"
                             >
                               Facebook
@@ -7367,7 +7367,7 @@ exports[`FeedPage component rerenders food component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <span
@@ -7581,7 +7581,7 @@ exports[`FeedPage component rerenders food component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -7650,7 +7650,7 @@ exports[`FeedPage component rerenders food component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <h2
@@ -12640,7 +12640,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             -
@@ -12651,7 +12651,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             undefined
@@ -12662,7 +12662,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="lZzq4xSrd"
+                            id="GcAouRC20"
                             type="button"
                           >
                             +
@@ -12694,7 +12694,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           -
@@ -12705,7 +12705,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           1
@@ -12716,7 +12716,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           +
@@ -12733,7 +12733,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <div
@@ -13025,7 +13025,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                   >
                     <span
                       class="col-10 text-left"
@@ -13237,7 +13237,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="lZzq4xSrd"
+                              id="GcAouRC20"
                               type="button"
                             >
                               Facebook
@@ -13308,7 +13308,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="lZzq4xSrd"
+                      id="GcAouRC20"
                       type="button"
                     >
                       <span
@@ -13505,7 +13505,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -13572,7 +13572,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -13719,7 +13719,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <div>
@@ -13964,7 +13964,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <span
@@ -14023,7 +14023,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="lZzq4xSrd"
+                    id="GcAouRC20"
                     type="button"
                   >
                     <span
@@ -14133,7 +14133,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="lZzq4xSrd"
+                          id="GcAouRC20"
                           type="button"
                         >
                           <h2
@@ -14200,7 +14200,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span
@@ -14257,7 +14257,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span>
@@ -14270,7 +14270,7 @@ exports[`FeedPage component rerenders fresh component properly 1`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="lZzq4xSrd"
+              id="GcAouRC20"
               type="button"
             >
               <span>

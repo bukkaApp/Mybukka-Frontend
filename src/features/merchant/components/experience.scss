@@ -1,0 +1,34 @@
+.experience-btn {
+  font-weight: 700;
+  height: 60px;
+  line-height: 60px;
+  background-color: #9c1c26;
+  border-width: 0;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 1.25px;
+  display: inline-block;
+  padding: 0 30px;
+}
+
+#experience {
+  background-color: #e9f1f3;
+  padding: 70px 10px;
+  h3 {
+    font-family: myriad-pro, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 48px;
+    margin-top: 40px;
+  }
+  p {
+    font-size: 26px;
+    margin: 15px auto 70px;
+    font-weight: 200;
+    max-width: 650px;
+    letter-spacing: 0.33px;
+  }
+
+  img{
+    width: 100px;
+  }
+}
