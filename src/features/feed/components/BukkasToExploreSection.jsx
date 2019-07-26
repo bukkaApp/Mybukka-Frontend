@@ -94,9 +94,10 @@ const BukkasToExploreSection = () => (
     <div className="carousel-divider" />
     <div className="pt-29" />
     <Carousel
+      type="majorCuisine"
       noOfImagesShown={6}
       textOverlay
-      title="Top Categories"
+      title="Top Cuisines"
       imageHeight="img-height"
       slideItems={topCategories}
       classNames="col-lg-2 col-md-2 col-sm-4 col-6 touchdown"

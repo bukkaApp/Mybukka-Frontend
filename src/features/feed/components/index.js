@@ -1,26 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
+import AddToCart from 'Components/common/addToCart';
+
 import FoodSection from './FoodSection';
-import DrinkSection from './DrinkSection';
+import OtherSection from './OtherSection';
 import SearchResult from './SearchResult';
-import FreshSection from './FreshSection';
 import Category from './Category';
 import Favorites from './Favorites';
 
 import './feed.scss';
 
 const Feed = ({ push, food, drink, search, category, fresh, favorites }) => (
-  <Fragment>
-    {food && <FoodSection push={push} />}
-    {drink && <DrinkSection push={push} />}
-    {search && <SearchResult push={push} />}
-    {fresh && <FreshSection push={push} />}
-    {category && <Category push={push} />}
-    {favorites && <Favorites push={push} />}
-  </Fragment>
-);
+    <>
+      <AddToCart />
+      {food && <FoodSection push={push} />}
+      {drink && <OtherSection push={push} type="drinks" />}
+      {search && <SearchResult push={push} />}
+      {fresh && <OtherSection push={push} type="fresh" />}
+      {category && <Category push={push} />}
+      {favorites && <Favorites push={push} />}
+    </>
+  );
 
 export default Feed;
 

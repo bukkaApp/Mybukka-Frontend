@@ -74,12 +74,14 @@ const SuggestionsDropdown = () => (
   </div>
 );
 
-const ButtonText = ({ mode }) => (
+const ButtonText = ({ mode, selectedLocation }) => (
   <h2 className="inline-text">
     {mode === 'delivery' && <span>Delivery to</span>}
     {mode === 'pickup' && <span>PICKUP NEAR</span>}
     <span className="text">
-      MaryLand
+    {Object.keys(selectedLocation).length > 0
+        ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
+        : 'Current Location'}
       <span className="chevron-down">
         <ChevronRight />
       </span>
@@ -93,21 +95,25 @@ const BukkaButtonText = () => (
       <span className="chevron-down pr-1">
         <MapMarker />
       </span>
-      MaryLand
     </span>
   </h2>
 );
 
-const CurrentLocation = ({ handleClick, mode, bukka }) => (
-  <Button type="button" classNames="small-nav-btn container pl-10" handleClick={handleClick}>
-    {!bukka && <ButtonText mode={mode} />}
+const CurrentLocation = ({ handleClick, mode, bukka, selectedLocation }) => (
+  <Button
+    type="button"
+    classNames="small-nav-btn container pl-10"
+    handleClick={handleClick}
+  >
+    {!bukka && <ButtonText mode={mode} selectedLocation={selectedLocation} />}
     {bukka && <BukkaButtonText />}
   </Button>
 );
 
-const LocationNavSmallScreen = ({ mode, bukka }) => (
+const LocationNavSmallScreen = ({ mode, bukka, selectedLocation }) => (
   <Fragment>
-    <div className="d-block d-sm-block d-md-none
+    <div
+      className="d-block d-sm-block d-md-none
       d-lg-none d-xl-none gutter-bg-clor"
     >
       <div className="location-navbar-content container">
@@ -116,7 +122,12 @@ const LocationNavSmallScreen = ({ mode, bukka }) => (
             <div className="options">
               <div className="btn-location">
                 <div data-target="#small-location-nav" data-toggle="modal">
-                  <CurrentLocation mode={mode} bukka={bukka} handleClick={() => { }} />
+                  <CurrentLocation
+                    mode={mode}
+                    bukka={bukka}
+                    handleClick={() => {}}
+                    selectedLocation={selectedLocation}
+                  />
                 </div>
               </div>
             </div>
@@ -127,17 +138,19 @@ const LocationNavSmallScreen = ({ mode, bukka }) => (
   </Fragment>
 );
 
-const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
-  mode
+const mapStateToProps = ({
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { selectedLocation }
+}) => ({
+  mode,
+  selectedLocation
 });
 
-export default connect(
-  mapStateToProps
-)(LocationNavSmallScreen);
+export default connect(mapStateToProps)(LocationNavSmallScreen);
 
 LocationNavSmallScreen.propTypes = {
   mode: PropTypes.string.isRequired,
-  bukka: PropTypes.bool.isRequired,
+  bukka: PropTypes.bool.isRequired
 };
 
 ButtonText.propTypes = {
@@ -147,7 +160,7 @@ ButtonText.propTypes = {
 CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired,
   mode: PropTypes.string.isRequired,
-  bukka: PropTypes.bool.isRequired,
+  bukka: PropTypes.bool.isRequired
 };
 
 SelectLocationModal.defaultProps = {

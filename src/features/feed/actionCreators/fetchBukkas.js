@@ -7,11 +7,19 @@ const fetchBukkasAction = (type, data) => ({
   data
 });
 
-const fetchBukkas = coordinates => async (dispatch) => {
+const fetchBukkas = (
+  coordinates,
+  page = 1,
+  limit = 12,
+  by = 'majorCusine',
+  value = ''
+) => async (dispatch) => {
   try {
     dispatch(loading(FETCH_BUKKAS, true));
     const request = await axiosInstance.get(
-      `/bukka/nearby?longitude=${coordinates[0]}&lattitude=${coordinates[1]}`
+      `/bukka/nearby?longitude=${coordinates[0]}&lattitude=${
+        coordinates[1]
+      }&page=${page}&limit=${limit}&by=${by}&value=${value}`
     );
     dispatch(loading(FETCH_BUKKAS, false));
     dispatch(fetchBukkasAction('SUCCESS', request.data));

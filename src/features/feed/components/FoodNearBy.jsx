@@ -1,13 +1,17 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
 import shortId from 'shortid';
+import InfiniteScroll from 'react-infinite-scroller';
+import PropTypes from 'prop-types';
 
+import SmallSpinner from 'Components/spinners/SmallSpinner';
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
-import PropTypes from 'prop-types';
+import fetchBukkas from '../actionCreators/fetchBukkas';
 
 const FoodNearBy = ({
   delivery,
@@ -16,7 +20,12 @@ const FoodNearBy = ({
   classNames,
   imageHeight,
   children,
-  handleRefFocus
+  handleRefFocus,
+  coordinates,
+  fetchMoreBukkas,
+  currentPage,
+  errorMessage,
+  loading
 }) => (
   <div className="mt-4 mb-4">
     {title && (
@@ -25,28 +34,53 @@ const FoodNearBy = ({
     {children}
     <Container>
       {bukkaData.length > 0 && (
-        <Row classNames="pb-4">
-          {bukkaData.map(bukka => (
-            <BukkaCard
-              key={shortId.generate()}
-              imageUrl={bukka.imageUrl}
-              mealName={bukka.name}
-              delivery={delivery}
-              deliveryPrice={bukka.deliveryPrice}
-              deliveryTime={bukka.deliveryTime}
-              rating={bukka.rating}
-              imageHeight={imageHeight}
-              classNames={classNames}
-              href={`/bukka/${bukka.slug}`}
-            />
-          ))}
-        </Row>
+        <InfiniteScroll
+          loadMore={() => fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
+          hasMore={
+            errorMessage !== 'There are currently no bukkas in your location'
+          }
+          loader={
+            <div className="loader" key={0}>
+              <SmallSpinner />
+            </div>
+          }
+          useWindow
+          initialLoad={false}
+        >
+          <Row classNames="pb-4">
+            {bukkaData.map(bukka => (
+              <BukkaCard
+                key={shortId.generate()}
+                imageUrl={bukka.imageUrl}
+                mealName={bukka.name}
+                delivery={delivery}
+                deliveryPrice={bukka.deliveryPrice}
+                deliveryTime={bukka.deliveryTime}
+                rating={bukka.rating}
+                imageHeight={imageHeight}
+                classNames={classNames}
+                href={`/bukka/${bukka.slug}`}
+              />
+            ))}
+          </Row>
+        </InfiniteScroll>
       )}
     </Container>
   </div>
 );
 
-export default FoodNearBy;
+const mapStateToProps = ({
+  selectedLocationReducer: { coordinates },
+  loadingReducer: { status }
+}) => ({
+  coordinates,
+  loading: status
+});
+
+export default connect(
+  mapStateToProps,
+  { fetchMoreBukkas: fetchBukkas }
+)(FoodNearBy);
 
 FoodNearBy.defaultProps = {
   children: '',

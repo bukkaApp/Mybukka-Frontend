@@ -90,7 +90,7 @@ exports[`FoodSection component renders properly 1`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="baFOG7AaW"
+                    id="uUjc844cG"
                   >
                     <span
                       class="col-10 text-left"
@@ -302,7 +302,7 @@ exports[`FoodSection component renders properly 1`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="baFOG7AaW"
+                              id="uUjc844cG"
                               type="button"
                             >
                               Facebook
@@ -373,7 +373,7 @@ exports[`FoodSection component renders properly 1`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="baFOG7AaW"
+                      id="uUjc844cG"
                       type="button"
                     >
                       <span
@@ -587,7 +587,7 @@ exports[`FoodSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="baFOG7AaW"
+                          id="uUjc844cG"
                           type="button"
                         >
                           <span
@@ -656,7 +656,7 @@ exports[`FoodSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="baFOG7AaW"
+                          id="uUjc844cG"
                           type="button"
                         >
                           <h2
@@ -4579,7 +4579,7 @@ exports[`FoodSection component renders properly 2`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="baFOG7AaW"
+                    id="uUjc844cG"
                   >
                     <span
                       class="col-10 text-left"
@@ -4791,7 +4791,7 @@ exports[`FoodSection component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="baFOG7AaW"
+                              id="uUjc844cG"
                               type="button"
                             >
                               Facebook
@@ -4862,7 +4862,7 @@ exports[`FoodSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="baFOG7AaW"
+                      id="uUjc844cG"
                       type="button"
                     >
                       <span
@@ -5076,7 +5076,7 @@ exports[`FoodSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="baFOG7AaW"
+                          id="uUjc844cG"
                           type="button"
                         >
                           <span
@@ -5145,7 +5145,7 @@ exports[`FoodSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="baFOG7AaW"
+                          id="uUjc844cG"
                           type="button"
                         >
                           <h2

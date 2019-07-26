@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -27,7 +27,13 @@ const InputKeyForm = ({
   pin,
   receiver,
   amount,
-  finishTransaction
+  finishTransaction,
+  mode,
+  cart,
+  deliveryAddress,
+  day,
+  time,
+  coordinates,
 }) => (
   <div className="send-security-section animated">
     <h5 className="text-center">Submit OTP</h5>
@@ -41,7 +47,7 @@ const InputKeyForm = ({
       <Button
         classNames="btn-go"
         handleClick={() =>
-          finishTransaction({ reference, pin, receiver, amount })
+          finishTransaction({ reference, pin, receiver, amount, mode, order: { deliveryAddress, cart, day, time, coordinates } })
         }
       >
         <ChevronRight />
@@ -56,9 +62,22 @@ const SendSecurityKeyForm = ({
   message,
   receiver,
   amount,
-  finishTransaction
+  finishTransaction,
+  cart,
+  mode,
+  deliveryAddress,
+  day,
+  time,
+  coordinates,
+  push
 }) => {
   const [key, setKey] = useState('');
+
+  useEffect(() => {
+    if (success) {
+      push('/map');
+    }
+  });
 
   return (
     <Modal dataTarget="inputSecurityKey">
@@ -73,6 +92,12 @@ const SendSecurityKeyForm = ({
           receiver={receiver}
           amount={amount}
           finishTransaction={finishTransaction}
+          cart={cart}
+          mode={mode}
+          deliveryAddress={deliveryAddress}
+          coordinates={coordinates}
+          day={day}
+          time={time}
         />
       )}
     </Modal>
@@ -87,16 +112,21 @@ const mapStateToProps = ({
   chargeUserReducer: {
     data: { reference }
   },
-  fetchBukkaMenuReducer: { totalPriceInCart },
+  cartReducer: { totalCost },
   fetchBukkaReducer: {
     fetchedBukka: { slug }
-  }
+  },
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { coordinates }
+
 }) => ({
   success,
   message,
   reference,
   receiver: slug,
-  amount: totalPriceInCart
+  amount: totalCost,
+  mode,
+  coordinates,
 });
 
 export default connect(

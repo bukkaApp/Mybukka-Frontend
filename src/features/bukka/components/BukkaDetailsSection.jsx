@@ -15,15 +15,16 @@ import './bukkaDetailsSection.scss';
 
 const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   <div className="delivery-price-tag">
-    <div className={`row ${deliveryMode === 'pickup' ?
-      'justify-content-end' : ''}`}
+    <div
+      className={`row ${
+        deliveryMode === 'pickup' ? 'justify-content-end' : ''
+      }`}
     >
-      {deliveryMode === 'pickup' ?
-        null :
+      {deliveryMode === 'pickup' ? null : (
         <div className="col col-9">
           <p className="delivery-price">${deliveryPrice} DELIVERY</p>
         </div>
-      }
+      )}
       <div className="col col-3">
         <div className="tag-bukka">
           <Button
@@ -84,10 +85,15 @@ const TitleAndDescription = ({ name, description }) => (
   </div>
 );
 
-const BukkaDetailsSection = ({ bukkaName, description, address, deliveryMode }) => (
+const BukkaDetailsSection = ({
+  name,
+  description,
+  address,
+  deliveryMode
+}) => (
   <Container classNames="bukka-details-section">
     <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
-    <TitleAndDescription bukkaName={bukkaName} description={description} />
+    <TitleAndDescription name={name} description={description} />
     <ActionButtons deliveryTime={'15'} address={address} />
   </Container>
 );
@@ -96,11 +102,11 @@ const mapStateToProps = ({
   fetchBukkaReducer: {
     fetchedBukka: { name, description }
   },
-  deliveryModeReducer: { mode: deliveryMode },
+  deliveryModeReducer: { mode: deliveryMode }
 }) => ({
   name,
   description,
-  deliveryMode,
+  deliveryMode
 });
 
 export default connect(
@@ -113,15 +119,15 @@ BukkaDetailsSection.defaultProps = {
 };
 
 BukkaDetailsSection.propTypes = {
-  bukkaName: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   description: PropTypes.string,
   address: PropTypes.string.isRequired,
-  deliveryMode: PropTypes.string.isRequired,
+  deliveryMode: PropTypes.string.isRequired
 };
 
 DeliveryPriceAndtag.propTypes = {
   deliveryPrice: PropTypes.number.isRequired,
-  deliveryMode: PropTypes.string.isRequired,
+  deliveryMode: PropTypes.string.isRequired
 };
 
 ActionButtons.propTypes = {

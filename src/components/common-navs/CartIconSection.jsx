@@ -1,8 +1,9 @@
 import React from 'react';
 
-import removeFromCartAction from 'Redux/removeFromCartAction';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import removeFromCart from 'Redux/removeFromCart';
 import shortId from 'shortid';
 import Price from '../badge/Price';
 import Times from '../icons/Times';
@@ -21,44 +22,49 @@ export const SubTotal = ({ totalPriceInCart }) => (
   </div>
 );
 
-export const CheckoutBtn = ({ handleClick }) => (
-  <Button
-    handleClick={handleClick}
-    type="button"
-    classNames="cart-checkout-btn"
-  >
-    <span className="cart-checkout-btn-text">
-      <span>Checkout</span>
-    </span>
-  </Button>
+export const CheckoutBtn = ({ handleClick, bukka }) => (
+  <Link to={`/merchant/${bukka}/checkout`}>
+    <Button
+      handleClick={handleClick}
+      type="button"
+      classNames="cart-checkout-btn"
+    >
+      <span className="cart-checkout-btn-text">
+        <span>Checkout</span>
+      </span>
+    </Button>
+  </Link>
 );
 
 const CartHeader = () => (
   <div className="custom-cart-header">
     <div className="cart-header-content">
-      <h2 className="cart-header-h2"><span>Order</span></h2>
+      <h2 className="cart-header-h2">
+        <span>Items</span>
+      </h2>
     </div>
   </div>
 );
 
-export const CartItems =
-({ title, category, price, number, removeFromCart }) => (
+export const CartItems = ({
+  title,
+  category,
+  price,
+  quantity,
+  removeFromCartAction
+}) => (
   <div className="cart-body-content">
     <div className="custom-cart-section">
       <div className="custom-cart-item">
-        <div className="custom-item-number">{number}</div>
+        <div className="custom-item-number">{quantity}x</div>
         <div className="custom-cart-list">
-          <div className="custom-cart-item-name">
-            {title}
-          </div>
-          <div className="custom-cart-item-category">
-            {category}
-          </div>
+          <div className="custom-cart-item-name">{title}</div>
+          <div className="custom-cart-item-category">{category}</div>
         </div>
         <Price price={price} />
       </div>
       <span
-        onClick={removeFromCart}
+        onClick={removeFromCartAction}
         tabIndex={0}
         role="button"
         className="cart-cancel-icon"
@@ -74,8 +80,8 @@ const CartIconSection = ({
   orderQuantity,
   focus,
   handleClick,
-  removeFromCart,
-  totalPriceInCart,
+  removeFromCartAction,
+  totalCost
 }) => {
   const handleCheckoutMode = () => {
     handleClick(true);
@@ -88,35 +94,41 @@ const CartIconSection = ({
     <div className={`cart-container ${orderQuantity <= 0 ? 'd-none' : ''}`}>
       <div>
         <CartHeader />
-        <div className={`custom-cart-body ${
-          orderQuantity > 2 ? 'cart-body-height' : ''
-        }`}
+        <div
+          className={`custom-cart-body ${
+            orderQuantity > 2 ? 'cart-body-height' : ''
+          }`}
         >
-          {orderItems.map((item, idx) => (<CartItems
-            key={shortId.generate()}
-            title={item.title}
-            removeFromCart={() => removeFromCart(item.slug)}
-            category={item.category}
-            price={item.price}
-            number={idx + 1}
-          />))}
+          {orderItems.map(item => (
+            <CartItems
+              key={shortId.generate()}
+              title={item.title}
+              removeFromCartAction={() => removeFromCartAction(item.slug)}
+              category={item.category}
+              price={item.price}
+              quantity={item.quantity}
+            />
+          ))}
         </div>
-        <SubTotal totalPriceInCart={totalPriceInCart} />
-        <CheckoutBtn handleClick={handleCheckoutMode} />
+        <SubTotal totalPriceInCart={totalCost} />
+        <CheckoutBtn
+          handleClick={handleCheckoutMode}
+          bukka={orderItems[0].bukka}
+        />
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { cart, totalPriceInCart } }) => ({
-  orderQuantity: cart.length,
-  orderItems: cart,
-  totalPriceInCart
+const mapStateToProps = ({ cartReducer: { items, totalCost } }) => ({
+  orderQuantity: items.length,
+  orderItems: items,
+  totalCost
 });
 
 export default connect(
   mapStateToProps,
-  { removeFromCart: removeFromCartAction }
+  { removeFromCartAction: removeFromCart }
 )(CartIconSection);
 
 CheckoutBtn.propTypes = {
@@ -124,14 +136,13 @@ CheckoutBtn.propTypes = {
 };
 
 CartIconSection.propTypes = {
-  removeFromCart: PropTypes.func.isRequired,
-  totalPriceInCart: PropTypes.number.isRequired,
+  removeFromCartAction: PropTypes.func.isRequired,
+  totalCost: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
   focus: PropTypes.bool.isRequired,
-  orderItems: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.number
-  ])).isRequired,
+  orderItems: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
+  ).isRequired,
   orderQuantity: PropTypes.number.isRequired
 };
 
@@ -146,11 +157,9 @@ CartItems.defaultProps = {
 };
 
 CartItems.propTypes = {
-  removeFromCart: PropTypes.func.isRequired,
+  removeFromCartAction: PropTypes.func.isRequired,
   title: PropTypes.string,
   category: PropTypes.string,
-  price: PropTypes.oneOfType([
-    PropTypes.string, PropTypes.number
-  ]),
-  number: PropTypes.number.isRequired,
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  quantity: PropTypes.number.isRequired
 };

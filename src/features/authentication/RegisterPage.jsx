@@ -85,6 +85,9 @@ export const RegisterPage = ({
   };
 
   useEffect(() => {
+    if (authenticated) {
+      $('#authModal').modal('hide');
+    }
     handleRedirection();
   });
 

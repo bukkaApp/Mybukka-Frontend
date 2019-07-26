@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 export default ChildComponent => {
   class ComposedComponent extends Component {
@@ -15,8 +16,11 @@ export default ChildComponent => {
     }
 
     shouldNavigateAway() {
+      // next=/profile
+      const currentPage = this.props.location.pathname;
       if (!this.props.auth) {
-        this.props.history.push('/');
+        swal('You need to login first');
+        this.props.history.push(`/login?name=${currentPage}`);
       }
     }
 
