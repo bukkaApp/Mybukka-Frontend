@@ -8,10 +8,10 @@ const fetchBukkaMenu = (type, data) => ({
   data,
 });
 
-const fetchBukkaMenuAction = bukka => async (dispatch) => {
+const fetchBukkaMenuAction = (bukka, type = 'food') => async (dispatch) => {
   try {
     dispatch(loading(FETCH_BUKKA_MENU, true));
-    const request = await axios.get(`/menu/${bukka}`);
+    const request = await axios.get(`/menu/${bukka}?type=${type}`);
     dispatch(loading(FETCH_BUKKA_MENU, false));
     dispatch(fetchBukkaMenu('SUCCESS', request.data));
   } catch (error) {

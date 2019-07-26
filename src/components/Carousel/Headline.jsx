@@ -14,7 +14,7 @@ const Headline = ({
   const calc = (100 / slidesLength) * activeIndex;
   return (
     <Container>
-      <div className="headline">
+      <div className="headline" id={title}>
         <div
           className="runner"
           style={{ transform: `translateX(${calc}% - 32px)` }}

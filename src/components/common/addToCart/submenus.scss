@@ -1,0 +1,19 @@
+.sub-menus {
+  padding-left: 25px;
+
+  .sub-menu {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header {
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .menu-text {
+    margin-left: 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+};

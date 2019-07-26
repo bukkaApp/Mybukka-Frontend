@@ -3,6 +3,7 @@ const initialState = {
     nearbyBukkas: [],
     message: ''
   },
+  currentPage: 1,
   errorMessage: '',
   status: {
     fetchedBukkas: false,
@@ -12,27 +13,30 @@ const initialState = {
 
 const bukkasReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_BUKKAS_SUCCESS':
+    case 'FETCH_BUKKAS_SUCCESS': {
+      const { nearbyBukkas } = state.fetchedBukkas;
+
       return {
         ...state,
         fetchedBukkas: {
           ...state.fetchedBukkas,
           message: action.data.message,
-          nearbyBukkas: action.data.nearByBukkas,
+          nearbyBukkas: [...nearbyBukkas, ...action.data.nearByBukkas],
         },
+        currentPage: action.data.currentPage,
         status: {
           fetchedBukkas: true,
           error: false
         },
         errorMessage: '',
       };
+    }
 
     case 'FETCH_BUKKAS_ERROR':
       return {
         ...state,
         fetchedBukkas: {
           ...state.fetchedBukkas,
-          nearbyBukkas: []
         },
         status: {
           fetchedBukkas: false,

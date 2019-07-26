@@ -29,7 +29,8 @@ class AuthService {
   }
 
   getTokenData() {
-    return this.decode(this.getToken()).data;
+    const token = this.getToken();
+    return token ? this.decode(token).data : {};
   }
 
   getFullName() {

@@ -1,4 +1,4 @@
-import populateAndFilterAmount from 'Utilities/populateAndFilterAmount';
+import populateAndFilterAmount from '../../../utils/populateAndFilterAmount';
 import bukkaData from '../data/drinks.json';
 import lessWine from '../data/less-wine.json';
 import whiteWine from '../data/white-wine.json';
@@ -63,4 +63,3 @@ const freshReducer = (state = initialState, action) => {
 };
 
 export default freshReducer;
-

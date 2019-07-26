@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Column from 'Components/grid/Column';
@@ -7,13 +9,23 @@ import Button from 'Components/button/Button';
 
 import './addToCartButton.scss';
 
-const AddToCartButton = ({ price, handleClick }) => (
+const AddToCartButton = ({
+  price,
+  handleClick,
+  items,
+  mealToDisplay,
+  itemIsInCart
+}) => (
   <Column classNames="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-8">
     <Button
-      handleClick={handleClick}
-      classNames="primary-button add-to-cart-button"
+      handleClick={itemIsInCart ? () => ({}) : handleClick}
+      classNames={
+        itemIsInCart
+          ? 'disabled-primary-button add-to-cart-button'
+          : 'primary-button add-to-cart-button'
+      }
       type="button"
-      dataDismiss="modal"
+      dataDismiss={itemIsInCart ? '' : 'modal'}
     >
       <Row>
         <Column classNames="col-6">
@@ -27,7 +39,20 @@ const AddToCartButton = ({ price, handleClick }) => (
   </Column>
 );
 
-export default AddToCartButton;
+const mapStateToProps = ({
+  fetchBukkaMenuReducer: { mealToDisplay },
+  cartReducer: { items }
+}) => ({
+  mealToDisplay,
+  items,
+  itemIsInCart:
+    items.filter(item => item.slug === mealToDisplay.slug).length > 0
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(AddToCartButton);
 
 AddToCartButton.propTypes = {
   price: PropTypes.number.isRequired,

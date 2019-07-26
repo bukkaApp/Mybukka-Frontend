@@ -7,7 +7,7 @@ import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 import Price from 'Components/badge/Price';
 
-import setMealToDisplayAction from '../actionCreators/setMealToDisplayAction';
+import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
 
 import './mealCard.scss';
 

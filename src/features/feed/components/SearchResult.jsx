@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
@@ -51,109 +52,118 @@ const FoodSection = ({
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
-  status: { error }
+  status: { error },
 }) => {
-  const [resultFound, setResultFound] = useState(0);
-  const parsed = queryString.parse(location.search);
-  useEffect(() => {
-    const value = searchData.reduce((initVal, bukka) => {
-      if (search && bukka.title.includes(search)) {
-        initVal += 1;
-      }
-      return initVal;
-    }, 0);
-    setResultFound(value);
-    push(`/search?q=${search.split(' ').join('-')}`);
-  }, [search, parsed.q]);
+  const [searchQuery, setSearchQuery] = useState({
+    by: '',
+    value: ''
+  });
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    fetchNearbyBukkas(coordinates);
+    fetchNearbyBukkas(coordinates, 1, 100, searchQuery.by, searchQuery.value);
   }, [coordinates]);
 
-  const handleChange = () => {
+  useEffect(() => {
+    if (nearbyBukkas.length > 0 && searchQuery.value.length > 0) {
+      const newSearchResult = nearbyBukkas.filter(bukka =>
+        bukka[searchQuery.by].includes(searchQuery.value)
+      );
+      setSearchResults(newSearchResult);
+    }
+  }, [searchQuery]);
 
-  };
+  useEffect(() => {
+    setSearchQuery({ by: 'name', value: search });
+    push(`/search?by=name&value=${search}`);
+  }, [search]);
 
-  if (nearbyBukkas.length === 0 && error) {
-    return (
-      <div>
-        <Navbar push={push} />
-        <NotAvailable />
-      </div>
-    );
-  }
+  const handleChange = () => {};
 
   return (
     <div className="search-result-scene container-fluid p-0">
-      {nearbyBukkas.length >= 0 && (
-        <div>
-          <IntroSection handleChange={handleChange} push={push} />
-          <ExploreSection classNames="pt-5">
-            <div className="mt-130 mb-4">
-              {!search && <Headline title="Search" />}
-              {search &&
+      <div>
+        <IntroSection handleChange={handleChange} push={push} />
+        <ExploreSection classNames="pt-5">
+          <div className="mt-130 mb-4">
+            {searchResults.length === 0 && <Headline title={searchQuery.value || '"Search"'} />}
+            {searchResults.length > 0 && (
               <Headline
-                title={`“ ${search} ”`}
-                views={resultFound}
-              />}
-              <Container classNames="px-0">
-                {search ?
-                  <div className="col-md-3 col-lg-2">
-                    <DeliveryOrPickupNav />
-                  </div>
-                  : <h6 className="pl-3">EXPLORE TOP CUISINES</h6>
-                }
-              </Container>
-              <Container>
-                {searchData.length > 0 && (
+                title={`“ ${searchQuery.value} ”`}
+                views={searchResults}
+              />
+            )}
+            <Container classNames="px-0">
+              {searchResults.length > 0 ? (
+                <div className="col-md-3 col-lg-2">
+                  <DeliveryOrPickupNav />
+                </div>
+              ) : (
+                <h6 className="pl-3">EXPLORE TOP CUISINES</h6>
+              )}
+            </Container>
+            <>
+              {searchResults.length === 0 && searchQuery.value.length > 0 && (
+                <h2 className="text-center" style={{ marginTop: '50px' }}>
+                  Your search returned no results
+                </h2>
+              )}
+            </>
+            <Container>
+              {searchResults.length > 0 && (
+                <Row classNames="pb-4">
+                  {searchResults.map(bukka => (
+                    <BukkaCard
+                      key={shortId.generate()}
+                      imageUrl={bukka.imageUrl}
+                      mealName={bukka.name}
+                      deliveryPrice={bukka.deliveryPrice}
+                      deliveryTime={bukka.deliveryTime}
+                      rating={bukka.rating}
+                      imageHeight="img-height"
+                      classNames="col-lg-4 col-md-4 col-sm-12"
+                      dataTarget="#bukkaAddToCart"
+                      dataToggle="modal"
+                    />
+                  ))}
+                </Row>
+              )}
+              {/* show categories if there is no search */}
+              <>
+                {(searchQuery.value.length === 0 ||
+                  searchResults.length === 0) && (
                   <Row classNames="pb-4">
-                    {searchData.map((bukka) => {
-                      if (search && bukka.title.includes(search)) {
-                        return (
-                          <BukkaCard
-                            key={shortId.generate()}
-                            imageUrl={bukka.imageUrl}
-                            mealName={bukka.title}
-                            deliveryPrice={bukka.deliveryCost}
-                            deliveryTime={bukka.deliveryTime}
-                            rating={bukka.rating}
-                            imageHeight="img-height"
-                            classNames="col-lg-4 col-md-4 col-sm-12"
-                            dataTarget="#bukkaAddToCart"
-                            dataToggle="modal"
-                          />
-                        );
-                      }
-                      return null;
-                    })}
-                  </Row>
-                )}
-                {/* show categories if there is no search */}
-                {!search && (
-                  <Row classNames="pb-4">
+                  {console.log(searchQuery)}
                     {categories.map(category => (
                       <BukkaCard
                         top
                         textOverlay
                         key={shortId.generate()}
                         imageUrl={category.imageUrl}
-                        heading={category.heading}
-                        deliveryPrice={category.deliveryCost}
+                        mealName={category.id}
+                        deliveryPrice={category.deliveryPrice}
                         deliveryTime={category.deliveryTime}
                         rating={category.rating}
                         imageHeight="img-height"
                         classNames="col-lg-3 col-md-4 col-sm-6 col-6"
                         dataTarget="#bukkaAddToCart"
                         dataToggle="modal"
+                        href={`/search?by=majorCuisine&value=${category.id}`}
+                        handleClick={() =>
+                          setSearchQuery({
+                            by: 'majorCuisine',
+                            value: category.id
+                          })
+                        }
                       />
                     ))}
                   </Row>
                 )}
-              </Container>
-            </div>
-          </ExploreSection>
-        </div>
-      )}
+              </>
+            </Container>
+          </div>
+        </ExploreSection>
+      </div>
     </div>
   );
 };
@@ -162,19 +172,19 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   searchAnythingReducer: { search },
   bukkasReducer: { fetchedBukkas, status },
-  selectedLocationReducer: { coordinates },
+  selectedLocationReducer: { coordinates }
 }) => ({
   search,
   fetchedBukkas,
   status,
   coordinates,
-  mode,
+  mode
 });
 
 export default connect(
   mapStateToProps,
   { fetchNearbyBukkas: fetchBukkas }
-)(FoodSection);
+)(withRouter(FoodSection));
 
 FoodSection.propTypes = {
   search: PropTypes.string.isRequired,
@@ -188,10 +198,10 @@ FoodSection.propTypes = {
 };
 
 Headline.defaultProps = {
-  views: 0,
+  views: 0
 };
 
 Headline.propTypes = {
   views: PropTypes.number,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };

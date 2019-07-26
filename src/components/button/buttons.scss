@@ -22,9 +22,27 @@ $white: rgb(217, 219, 224);
   font-family: $fontFamily;
 }
 
+.swal-button {
+  background-color: $primaryColor;
+}
+
+.swal-text {
+  text-align: center;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: $primaryColor;
+}
+
 .primary-button {
   @include button(165px, 48px, $primaryColor, #ffffff, 12px);
   border: 1px solid $primaryColor;
+}
+
+.disabled-primary-button {
+  @include button(165px, 48px,#e0e0e0, #ffffff, 12px);
+  border: 1px solid #e0e0e0;
+  cursor: default;
 }
 
 .btn-go {
