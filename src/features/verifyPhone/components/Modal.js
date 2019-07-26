@@ -9,7 +9,7 @@ const Modal = ({ open, handleClose, children }) => {
     ? 'modal modal-section__custom modal-display__block'
     : 'modal modal-section__custom modal-display__none';
 
-  const backdrop = open ? <Backdrop click={handleClose} /> : null;
+  const backdrop = open ? <Backdrop click={() => {}} /> : null;
 
   return (
     <div className={showHideClassName}>

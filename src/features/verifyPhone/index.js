@@ -30,7 +30,7 @@ const Index = ({
   const [validationErrors, setValidationErrors] = useState(inputInterface);
   const [requestSent, setRequestSent] = useState({ phone: false, code: false });
 
-  const validateOnClick = (newValidationError) => {
+  const validateOnClick = newValidationError => {
     setValidationErrors({
       ...validationErrors,
       ...newValidationError,
@@ -94,10 +94,12 @@ const Index = ({
   }, []);
 
   useEffect(() => {
-    if (status.authenticated && user.verified) {
+    if (user.verified) {
+      setModalOpen(false);
+    } else {
       setModalOpen(true);
     }
-  }, []);
+  }, [user]);
 
   return (
     <div className="container">
