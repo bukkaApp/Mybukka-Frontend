@@ -14,6 +14,7 @@ import DeliveryAddress from './DeliveryAddress';
 import Time from './Time';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
+import VerifyPhone from '../../verifyPhone';
 
 import './checkout.scss';
 
@@ -26,6 +27,7 @@ const Checkout = ({ push, checkoutUser, card, amount, message, data }) => {
 
   return (
     <>
+      <VerifyPhone />
       <Navbar push={push} />
       <SendSecurityKeyForm />
       <Container classNames="relative modal-open">
@@ -72,7 +74,7 @@ const Checkout = ({ push, checkoutUser, card, amount, message, data }) => {
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data },
-  fetchBukkaMenuReducer: { totalPriceInCart }
+  fetchBukkaMenuReducer: { totalPriceInCart },
 }) => ({
   card: manipulateCardDetailsReducer,
   amount: totalPriceInCart,
@@ -82,9 +84,9 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { checkoutUser: chargeUser }
+  { checkoutUser: chargeUser },
 )(Checkout);
 
 Checkout.propTypes = {
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
 };

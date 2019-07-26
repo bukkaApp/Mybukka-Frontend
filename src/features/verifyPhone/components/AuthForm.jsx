@@ -1,10 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
+import Button from 'Components/button/Button';
 import InputField from 'Components/input/InputField';
 import AuthService from 'Utilities/authServices';
+import swal from 'sweetalert';
 
-const AuthForm = ({ handleSubmit, handleChange, errors }) => {
+const AuthForm = ({
+  handleSubmit,
+  handleChange,
+  sent,
+  errors,
+  errorMessage,
+}) => {
+  if (errorMessage !== '') swal(errorMessage);
+
   return (
     <>
       <h3>Add your phone number</h3>
@@ -33,15 +43,23 @@ const AuthForm = ({ handleSubmit, handleChange, errors }) => {
             </small>
           </div>
         </div>
-        <Button variant="primary" onClick={handleSubmit}>
-          <Spinner
-            as="span"
-            animation="grow"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Submit
+        <Button
+          type="button"
+          handleClick={handleSubmit}
+          classNames="primary-button w-100"
+        >
+          <>
+            {sent ? (
+              <Spinner
+                as="span"
+                aria-hidden="true"
+                animation="border"
+                variant="light"
+              />
+            ) : (
+              'Submit'
+            )}
+          </>
         </Button>
       </div>
     </>
@@ -55,7 +73,9 @@ AuthForm.defaultProps = {
 AuthForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  sent: PropTypes.bool.isRequired,
   errors: PropTypes.objectOf(PropTypes.string),
+  errorMessage: PropTypes.string.isRequired,
 };
 
 export default AuthForm;

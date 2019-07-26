@@ -11,32 +11,37 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
+import VerifyPhone from '../verifyPhone';
+
 const Home = ({ history: { push }, coordinates }) => {
   useEffect(() => () => push('/feed'), [coordinates]);
 
   return (
-    <div className="home">
-      <IntroSection push={push} />
-      <DiscoverSection />
-      <ChooseAreaToExploreSection />
-      <ReadyToOrderSection />
-      <Footer />
-    </div>
+    <>
+      <VerifyPhone />
+      <div className="home">
+        <IntroSection push={push} />
+        <DiscoverSection />
+        <ChooseAreaToExploreSection />
+        <ReadyToOrderSection />
+        <Footer />
+      </div>
+    </>
   );
 };
 
 const mapStateToProps = ({ selectedLocationReducer: { coordinates } }) => ({
-  coordinates
+  coordinates,
 });
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(Home);
 
 Home.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
   }).isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

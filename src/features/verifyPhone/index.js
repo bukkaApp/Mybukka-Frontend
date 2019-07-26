@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Modal from 'Components/modal/Modal';
-import DismissModal from 'Components/modal/DismissModal';
 
+import Modal from './components/Modal';
 import sendContactAction from './actionCreators/sendContactAction';
 // eslint-disable-next-line max-len
 import sendVerifationCodeAction from './actionCreators/sendVerifationCodeAction';
@@ -11,6 +10,7 @@ import getUserAction from './actionCreators/getUserDataAction';
 import AuthForm from './components/AuthForm';
 import CodeForm from './components/CodeForm';
 import { validateAField, validateAllFields } from './helper/validateFields';
+import inputInterface from './common/inputInterface.json';
 
 import './index.scss';
 
@@ -20,19 +20,15 @@ const Index = ({
   handleGetUser,
   handleSendContact,
   handleVerifyCode,
+  sendContactError,
+  verifyCodeError,
 }) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [isCodeSent, setIsCodeSent] = useState(false);
   const [isContactSent, setIsContactSent] = useState(false);
-
-  const [validationErrors, setValidationErrors] = useState({
-    contactMobile: '',
-    code: '',
-  });
-
-  const [inputData, setInputData] = useState({
-    contactMobile: '',
-    code: '',
-  });
+  const [inputData, setInputData] = useState(inputInterface);
+  const [validationErrors, setValidationErrors] = useState(inputInterface);
+  const [requestSent, setRequestSent] = useState({ phone: false, code: false });
 
   const validateOnClick = (newValidationError) => {
     setValidationErrors({
@@ -63,9 +59,13 @@ const Index = ({
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
-      handleSendContact({ contactMobile: inputData.contactMobile }, () =>
-        setIsContactSent(true),
-      );
+      setRequestSent({
+        phone: true,
+        code: false,
+      });
+      handleSendContact({ contactMobile: inputData.contactMobile }, () => {
+        setIsContactSent(true);
+      });
     }
   };
 
@@ -75,61 +75,51 @@ const Index = ({
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
-      return handleVerifyCode({ code: inputData.code }, () =>
-        setIsCodeSent(true),
-      );
+      setRequestSent({
+        phone: false,
+        code: true,
+      });
+      handleVerifyCode({ code: inputData.code }, () => {
+        setIsCodeSent(true);
+      });
     }
   };
 
-  useEffect(() => {
-    // fix bootstrap padding error on body
-    document.body.style.padding = 0;
+  const closeModal = () => setModalOpen(false);
 
+  useEffect(() => {
     if (status.authenticated) {
       handleGetUser();
-      $('#verifymodal').modal('show');
     }
   }, []);
 
   useEffect(() => {
-    if (status.authenticated) {
-      if (!user.verified) {
-        document.getElementById('verifymodal').style.display = 'block !important';
-
-        // $('#verifymodal').modal('show');
-        // const body = document.body;
-        // const backdrop = document.querySelector('.modal-backdrop');
-        // if (body.className.includes('modal-open') && backdrop) {
-        //   body.style.padding = 0;
-        //   body.className = '';
-        //   backdrop.remove();
-        // }
-      } else {
-        // document.body.padding = 0;
-        // document.body.className = '';
-        document.getElementById('verifymodal').style.display = 'none !important';
-      }
+    if (status.authenticated && user.verified) {
+      setModalOpen(true);
     }
-  });
+  }, []);
 
   return (
     <div className="container">
-      <Modal dataTarget="verifymodal" id="verifymodal" classNames="auth-modal">
-        <DismissModal classNames="close" />
+      <Modal open={modalOpen} handleClose={closeModal}>
         <div className="verify-phone">
           {!isContactSent && (
             <AuthForm
               handleChange={handleChange}
               handleSubmit={handleSubmit}
+              sent={requestSent.phone}
               errors={validationErrors}
+              errorMessage={sendContactError}
             />
           )}
           {isContactSent && !isCodeSent ? (
             <CodeForm
               handleChange={handleChange}
               handleSubmit={submitCode}
+              sent={requestSent.code}
               errors={validationErrors}
               inputData={inputData}
+              errorMessage={verifyCodeError}
             />
           ) : null}
           {isCodeSent && (
@@ -152,9 +142,13 @@ const Index = ({
 const mapStateToProps = ({
   authenticationReducer: { status },
   getUserDataReducer: { user },
+  sendContactReducer: { errorMessage: sendContactError },
+  sendVerificationCodeReducer: { errorMessage: verifyCodeError },
 }) => ({
   status,
   user,
+  sendContactError,
+  verifyCodeError,
 });
 
 export default connect(
@@ -171,6 +165,8 @@ Index.defaultProps = {
     authenticated: false,
   },
   user: {},
+  sendContactError: '',
+  verifyCodeError: '',
 };
 
 Index.propTypes = {
@@ -181,4 +177,6 @@ Index.propTypes = {
   handleSendContact: PropTypes.func.isRequired,
   handleVerifyCode: PropTypes.func.isRequired,
   handleGetUser: PropTypes.func.isRequired,
+  sendContactError: PropTypes.string,
+  verifyCodeError: PropTypes.string,
 };
