@@ -55,7 +55,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('FeedPage component', () => {
+describe.skip('FeedPage component', () => {
   const props = {
     food: true,
     signOut: jest.fn(),
