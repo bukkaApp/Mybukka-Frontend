@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,9 +11,11 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
+
 const Home = ({ history: { push }, coordinates }) => {
   useEffect(() => () => push('/feed'), [coordinates]);
 
+  // coordinates.length > 0 && fetchNearByBukkas(coordinates);
   return (
     <div className="home">
       <IntroSection push={push} />
@@ -26,17 +28,17 @@ const Home = ({ history: { push }, coordinates }) => {
 };
 
 const mapStateToProps = ({ selectedLocationReducer: { coordinates } }) => ({
-  coordinates
+  coordinates,
 });
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(Home);
 
 Home.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
   }).isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

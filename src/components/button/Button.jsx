@@ -2,7 +2,6 @@ import React from 'react';
 
 import shortId from 'shortid';
 import PropTypes from 'prop-types';
-import Android, { Apple } from './StoreSvg';
 import './buttons.scss';
 
 const Button = ({
@@ -16,23 +15,23 @@ const Button = ({
   dataToggle,
   dataDismiss,
   id,
-}) => (
-  <button
-    type={type}
-    className={classNames}
-    onClick={handleClick}
-    disabled={disabled}
-    data-target={dataTarget}
-    data-toggle={dataToggle}
-    data-testid="button"
-    id={id}
-    data-dismiss={dataDismiss}
-  >
-    {classNames.includes('apple') && <Apple />}
-    {classNames.includes('android') && <Android />}
-    {text || children}
-  </button>
-);
+}) => {
+  return (
+    <button
+      type={type}
+      className={classNames}
+      onClick={handleClick}
+      disabled={disabled}
+      data-target={dataTarget}
+      data-toggle={dataToggle}
+      data-testid="button"
+      id={id}
+      data-dismiss={dataDismiss}
+    >
+      {text || children}
+    </button>
+  );
+};
 
 export default Button;
 
