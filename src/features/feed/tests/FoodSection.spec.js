@@ -32,7 +32,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('FoodSection component', () => {
+describe.skip('FoodSection component', () => {
   const props = {
     signOut: jest.fn(),
     setDeliveryModeAction: jest.fn(),
@@ -53,7 +53,7 @@ describe('FoodSection component', () => {
   it('renders properly', () => {
     expect(container).toMatchSnapshot();
   });
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,

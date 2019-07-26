@@ -1,0 +1,24 @@
+li {
+    list-style: none;
+}
+
+strong {
+    font-size: 34px;
+    color: #36454F;
+}
+
+.wrap-stats {
+    background-color: #f4f8f9;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+    position: relative;
+    top: -72px;
+    border-radius: 6px;
+    @media only screen and (max-width: 920px) {
+        border-radius: 0;
+    }
+}
+
+.p-stats {
+    padding: 25px 15px;
+}

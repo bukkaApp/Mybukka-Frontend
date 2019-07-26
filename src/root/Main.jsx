@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
+import Map from 'Components/map';
+
 import Home from '../features/home';
 import Bukka from '../features/bukka';
 import Register from '../features/authentication/RegisterPage';
@@ -14,6 +16,7 @@ import PerformResetPass from '../features/forgotPassword/PerformResetPass';
 import SupportBuyer from '../features/support/components/SupportBuyer';
 import Articles from '../features/support/articles';
 import CategoryLists from '../features/support/Lists';
+import Merchant from '../features/merchant';
 import ComplainCategory from '../features/support/complain/Category';
 import SubCategory from '../features/support/complain/SubCategory';
 import ComplainScene from '../features/support/complain/ComplainScene';
@@ -38,7 +41,7 @@ const Main = () => (
       <Route exact path="/search" component={Search} />
       <Route exact path="/favorites" component={Favorites} />
       <Route exact path="/categories/:id" component={Category} />
-      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/merchant/:slug/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/history" component={TransactionHistory} />
       <Route exact path="/reset-password" component={ResetPassword} />
@@ -46,6 +49,8 @@ const Main = () => (
       <Route exact path="/support/buyer" component={SupportBuyer} />
       <Route exact path="/buyer/articles/:id" component={Articles} />
       <Route exact path="/buyer/lists/:id" component={CategoryLists} />
+      <Route exact path="/map" component={Map} />
+      <Route exact path="/merchant" component={Merchant} />
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
       <Route exact path="/support/buyer/contact-us/:id" component={SubCategory} />
       <Route exact path="/buyer/contact-us/:id" component={ComplainScene} />

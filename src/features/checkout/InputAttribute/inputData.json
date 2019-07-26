@@ -1,11 +1,4 @@
 {
-  "deliveryTime": [
-    "As soon as possible (35-50 mins)",
-    "In the next (4-5 hours)",
-    "In two weeks time",
-    "Dapibus ac facilisis in",
-    "Porta ac consectetur ac"
-  ],
   "suggestedTray": [
     {
       "name": "Chicken Tenders and Fries",
@@ -44,7 +37,7 @@
       "id": "number",
       "emptyFieldError": "Required",
       "validityError": "Card number is invalid",
-      "containerClassNames": "d-flex flex-column col-5 col-md-5"
+      "containerClassNames": "d-flex flex-column col-8 col-md-8"
     },
     {
       "name": "expDate",
@@ -63,19 +56,11 @@
       "id": "cvv",
       "emptyFieldError": "Required",
       "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2"
-    },
-    {
-      "name": "zipCode",
-      "classNames": "form-control border-input-style p-0",
-      "type": "text",
-      "placeholderText": "Zip code",
-      "id": "zipCode",
-      "containerClassNames": "d-flex flex-column px-1  px-md-3  col-2 col-md-3"
     }
   ],
   "deliveryAddress": [
     {
-      "name": "streetAddress1",
+      "name": "address",
       "changed": false,
       "value": "",
       "classNames": "form-control border-input-style p-0",
@@ -87,18 +72,7 @@
       "containerClassNames": "form-group font-size-14 mb-4"
     },
     {
-      "name": "streetAddress2",
-      "changed": false,
-      "classNames": "form-control border-input-style p-0",
-      "type": "text",
-      "placeholderText": "Apt no or company name",
-      "id": "streetAddress2",
-      "emptyFieldError": "Required",
-      "validityError": "Address is invalid",
-      "containerClassNames": "form-group font-size-14 mb-4"
-    },
-    {
-      "name": "contactName",
+      "name": "name",
       "changed": false,
       "classNames": "form-control border-input-style p-0",
       "type": "text",
@@ -108,7 +82,7 @@
       "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
     },
     {
-      "name": "phoneNumber",
+      "name": "mobileNumber",
       "classNames": "form-control border-input-style p-0",
       "type": "text",
       "placeholderText": "Phone number",

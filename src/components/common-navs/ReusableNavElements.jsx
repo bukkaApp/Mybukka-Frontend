@@ -3,15 +3,6 @@ import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
 
-// const SuggestionsDropdown = () => (
-//   <div className="suggestion-dropdown">
-//     <SearchLocation
-//       chevronButtonVisible={false}
-//       showDeliveryOrPickupNav={false}
-//     />
-//   </div>
-// );
-
 export const ReusableWrapper = ({ children }) => (
   <div className="pr-17">
     <div className="position-relative">

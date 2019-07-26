@@ -10,10 +10,17 @@ import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheck
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen, {
+<<<<<<< HEAD
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaNavSmallScreen, {
   ResponsiveCategories,
+=======
+  SelectLocationModal
+} from 'Components/common-navs/LocationNavSmallScreen';
+import BukkaNavSmallScreen, {
+  ResponsiveCategories
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
 } from 'Components/navbar/BukkaNavSmallScreen';
 
 import shortId from 'shortid';
@@ -26,8 +33,8 @@ import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
-import AddToCart from './AddToCart';
-import fetchBukkas from '../actionCreators/fetchBukkas';
+import fetchCartAction from 'Redux/fetchCartAction';
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
@@ -38,25 +45,32 @@ const FreshSection = ({
   // mode,
   push,
   coordinates,
+<<<<<<< HEAD
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   freshBukkas, // eslint-disable-line
   status: { error },
+=======
+  fetchedBukkas: { bukkaMenu },
+  fetchBukkaMenu,
+  status: { error },
+  cartIsUpdated,
+  fetchCart,
+  authenticated,
+  freshBukkas
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
 }) => {
-  const [searchResultCategories, setCategories] = useState([]);
-  const [searches, setSearch] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+
   const bukkaCategories = [
     ...new Set(freshBukkas.map(mealData => mealData.bukka)),
   ];
 
-  const handleSearch = async ({ target: { value } }) => {
-    setSearch(value.toLowerCase());
-  };
-
   useEffect(() => {
-    fetchNearbyBukkas(coordinates);
+    fetchBukkaMenu('sample_bukka_fresh_drinks', 'fresh');
   }, [coordinates]);
 
+<<<<<<< HEAD
   useEffect(() => {
     const searchResult = [
       ...new Set(
@@ -70,6 +84,19 @@ const FreshSection = ({
 
   // if (nearbyBukkas.length === 0 && error) {
     if (true) {
+=======
+  // useEffect(() => {
+  //   const searchResult = [
+  //     ...new Set(freshBukkas
+  //       .filter(mealData => mealData.title.toLowerCase().includes(searches))
+  //       .map(mealData => mealData.bukka)
+  //     )
+  //   ];
+  //   setCategories([...searchResult]);
+  // }, [searches]);
+
+  if (bukkaMenu.length === 1 && error) {
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
     return (
       <div>
         <Navbar push={push} />
@@ -80,10 +107,8 @@ const FreshSection = ({
 
   return (
     <div className="container-fluid p-0">
-      <AddToCart />
-      <ResponsiveCategories placeholderText="Search Fresh" />
-      <SelectLocationModal delivery />
-      {nearbyBukkas.length >= 0 && (
+      <SelectLocationModal />
+      {bukkaMenu.length >= 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>
@@ -91,11 +116,17 @@ const FreshSection = ({
             <div className="feed-main-content">
               <LocationNavLargeScreen
                 scheduleTime
+<<<<<<< HEAD
                 handleSearch={handleSearch}
+=======
+                handleSearch={event => setSearchQuery(event.target.value)}
+                categoryItems={categories}
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
               />
               <BukkaNavSmallScreen currentCategory="Customers Love" />
               <LocationNavSmallScreen bukka />
               <div>
+<<<<<<< HEAD
                 {!searches &&
                   bukkaCategories.map(eachBukka => (
                     <Fragment key={shortId.generate()}>
@@ -110,6 +141,19 @@ const FreshSection = ({
                                   return null;
                                 }
                                 return (
+=======
+                {bukkaCategories.map(eachBukka => (
+                  <Fragment key={shortId.generate()}>
+                    <div className="carousel-divider" />
+                    <Container classNames="px-0">
+                      <div className="mt-4 mb-4">
+                        <Headline title={eachBukka} activeIndex={1} />
+                        <Container>
+                          <Row classNames="pb-4">
+                            {freshBukkas.map(mealData => (
+                              <>
+                                {mealData.category === category && (
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
                                   <BukkaCard
                                     key={shortId.generate()}
                                     imageUrl={mealData.imageUrl}
@@ -122,6 +166,7 @@ const FreshSection = ({
                                     dataTarget="#bukkaAddToCart"
                                     dataToggle="modal"
                                   />
+<<<<<<< HEAD
                                 );
                               })}
                             </Row>
@@ -170,6 +215,17 @@ const FreshSection = ({
                       </Container>
                     </Fragment>
                   ))}
+=======
+                                )}
+                              </>
+                            ))}
+                          </Row>
+                        </Container>
+                      </div>
+                    </Container>
+                  </Fragment>
+                ))}
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
               </div>
             </div>
           </ExploreSection>
@@ -185,20 +241,41 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   freshReducer: {
+<<<<<<< HEAD
     fetchedBukkas: { nearbyBukkas: freshBukkas },
+=======
+    fetchedBukkas: { nearbyBukkas: freshBukkas }
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
   },
   selectedLocationReducer: { coordinates },
+  cartReducer: {
+    status: { updated, error }
+  },
+  authenticationReducer: {
+    status: { authenticated }
+  }
 }) => ({
   fetchedBukkas,
   status,
   coordinates,
   mode,
+<<<<<<< HEAD
   freshBukkas,
+=======
+  cartIsUpdated: updated,
+  errorUpdatingCart: error,
+  authenticated,
+  freshBukkas
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
 });
 
 export default connect(
   mapStateToProps,
+<<<<<<< HEAD
   { fetchNearbyBukkas: fetchBukkas },
+=======
+  { fetchBukkaMenu: fetchBukkaMenuAction, fetchCart: fetchCartAction }
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
 )(FreshSection);
 
 FreshSection.propTypes = {
@@ -208,6 +285,14 @@ FreshSection.propTypes = {
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
+<<<<<<< HEAD
   fetchNearbyBukkas: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
+=======
+  fetchBukkaMenu: PropTypes.func.isRequired,
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
+  cartIsUpdated: PropTypes.bool.isRequired,
+  fetchCart: PropTypes.func.isRequired,
+  authenticated: PropTypes.bool.isRequired
+>>>>>>> 5606f3dce4d504434e1c5ab4bdf1de22f0cf1b2b
 };

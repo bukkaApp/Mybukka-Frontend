@@ -51,10 +51,10 @@ describe('SearchResult component', () => {
     </Provider>
   );
 
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     expect(container).toMatchSnapshot();
   });
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,

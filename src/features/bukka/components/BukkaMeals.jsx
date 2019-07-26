@@ -8,17 +8,17 @@ import Container from 'Components/container';
 import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 
-import MealCard from './MealCard';
+import MealCard from 'Components/card/MealCard';
 
 import './bukkaMeals.scss';
 
 const BukkaMealsHeader = ({ category }) => (
-  <div className="bukka-meals-header">
+  <div className="bukka-meals-header" id={category}>
     <h4 className="header-text">{category}</h4>
   </div>
 );
 
-const BukkaMeals = ({ bukkaMenu }) => {
+const BukkaMeals = ({ bukkaMenu, searchQuery }) => {
   const bukkaCategories = [
     ...new Set(bukkaMenu.map(mealData => mealData.category))
   ];
@@ -29,19 +29,18 @@ const BukkaMeals = ({ bukkaMenu }) => {
         <Fragment key={shortId.generate()}>
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
-            {bukkaMenu.map((mealData) => {
-              if (mealData.category !== eachCategory) {
-                return null;
-              }
-              return (
-                <Column
-                  classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
-                  key={`${shortId.generate()}`}
-                >
-                  <MealCard {...mealData} />
-                </Column>
-              );
-            })}
+            {bukkaMenu.map(mealData => (
+              <>
+                {mealData.category === eachCategory && mealData.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
+                  <Column
+                    classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
+                    key={`${shortId.generate()}`}
+                  >
+                    <MealCard {...mealData} />
+                  </Column>
+                )}
+              </>
+            ))}
           </Row>
         </Fragment>
       ))}
@@ -53,7 +52,10 @@ const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
   bukkaMenu
 });
 
-export default connect(mapStateToProps, null)(BukkaMeals);
+export default connect(
+  mapStateToProps,
+  null
+)(BukkaMeals);
 
 BukkaMealsHeader.propTypes = {
   category: PropTypes.string.isRequired

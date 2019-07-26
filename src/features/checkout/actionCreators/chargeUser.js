@@ -22,8 +22,10 @@ const chargeUser = data => async (dispatch) => {
     dispatch(chargeUserAction('SUCCESS', request.data));
     dispatch(loading(CHARGE_USER, false));
   } catch (error) {
+    if (error.response) {
+      dispatch(chargeUserAction('ERROR', error.response.data));
+    }
     dispatch(loading(CHARGE_USER, false));
-    dispatch(chargeUserAction('ERROR', error.response.data));
   }
 };
 

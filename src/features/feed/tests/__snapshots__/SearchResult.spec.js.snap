@@ -161,7 +161,7 @@ exports[`SearchResult component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="MUrzHyU3F"
+                          id="2jjaYY3qn"
                           type="button"
                         >
                           Facebook
@@ -432,7 +432,7 @@ exports[`SearchResult component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="MUrzHyU3F"
+                              id="2jjaYY3qn"
                               type="button"
                             >
                               Facebook
@@ -503,7 +503,7 @@ exports[`SearchResult component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="MUrzHyU3F"
+                      id="2jjaYY3qn"
                       type="button"
                     >
                       <span

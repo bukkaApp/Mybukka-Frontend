@@ -3,6 +3,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GoogleApiWrapper } from 'google-maps-react';
+import { Link } from 'react-router-dom';
 
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import MapMarker from 'Icons/MapMarker';
@@ -11,8 +12,7 @@ import InputField from 'Components/input/InputField';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 
-import updateLocationsPrediction from
-  '../../features/home/actionCreators/updateLocationsPrediction';
+import updateLocationsPrediction from '../../features/home/actionCreators/updateLocationsPrediction';
 
 import './searchlocation.scss';
 
@@ -55,29 +55,27 @@ const SearchLocation = ({
     }
   };
 
-  const geoCodeLocation = (placeId) => {
+  const geoCodeLocation = (suggestion) => {
+    const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
     GeoCoder.geocode({ placeId }, (response) => {
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
-      selectLocation(coordinates, true);
+      selectLocation({ coordinates, suggestion });
     });
-  };
-
-  const selectAndGeocodeLocation = (suggestion) => {
-    selectLocation(suggestion);
-    geoCodeLocation(suggestion.place_id);
   };
 
   const showChevronButton = () => {
     if (chevronButtonVisible) {
       return (
-        <div className="input-group-append">
-          <span className="input-group-text button-search">
-            <ChevronRight />
-          </span>
-        </div>
+        <Link to="/feed">
+          <div className="input-group-append button-go-feed">
+            <span className="input-group-text button-search">
+              <ChevronRight />
+            </span>
+          </div>
+        </Link>
       );
     }
     return null;
@@ -98,15 +96,15 @@ const SearchLocation = ({
             <MapMarker />
           </span>
         </div>
-        <InputField
-          type="text"
-          name="searchLocation"
-          placeholderText="Enter your address..."
-          classNames="text-field form-control searchlocation"
-          handleFocus={() => setFocus(true)}
-          handleChange={handleChange}
-          defaultValue={selectedLocation.description}
-        />
+          <InputField
+            type="text"
+            name="searchLocation"
+            placeholderText="Enter your address..."
+            classNames="text-field form-control searchlocation"
+            handleFocus={() => setFocus(true)}
+            handleChange={handleChange}
+            defaultValue={selectedLocation ? selectedLocation.description : ''}
+          />
         {showChevronButton()}
       </div>
       {showDropdown && (<div className="carousel-divider mb-0" />)}
@@ -114,7 +112,7 @@ const SearchLocation = ({
         {(isFocused || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
-            <SuggestionsDropdown setLocation={selectAndGeocodeLocation} />
+            <SuggestionsDropdown setLocation={geoCodeLocation} />
           </Fragment>
         )}
       </div>
@@ -145,8 +143,7 @@ export default connect(
 
 SearchLocation.defaultProps = {
   chevronButtonVisible: true,
-  showDeliveryOrPickupNav: true,
-  showDropdown: false,
+  showDeliveryOrPickupNav: true
 };
 
 SearchLocation.propTypes = {
@@ -156,5 +153,5 @@ SearchLocation.propTypes = {
   selectedLocation: PropTypes.shape({}).isRequired,
   selectLocation: PropTypes.func.isRequired,
   chevronButtonVisible: PropTypes.bool,
-  showDeliveryOrPickupNav: PropTypes.bool,
+  showDeliveryOrPickupNav: PropTypes.bool
 };

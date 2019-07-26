@@ -10,16 +10,20 @@ const initialState = {
 
 const selectedLocationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_SELECTED_LOCATION:
+    case SET_SELECTED_LOCATION: {
+      const { suggestion, coordinates } = action.location;
       return {
         ...state,
-        selectedLocation: action.location
+        selectedLocation: suggestion,
+        coordinates,
       };
+    }
 
     case SET_SELECTED_COORDINATES:
       return {
         ...state,
-        coordinates: action.location
+        coordinates: action.location,
+        selectedLocation: {},
       };
 
     default: {
