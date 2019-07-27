@@ -4,9 +4,7 @@ const rules = {
   address: 'required',
   name: 'required',
   mobileNumber: 'required|min:8',
-  number: 'required',
-  expDate: 'required',
-  cvv: 'required',
+  deliveryInstructions: 'string',
 };
 
 const paymentRules = {

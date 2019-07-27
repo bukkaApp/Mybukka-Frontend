@@ -1,7 +1,8 @@
+import { SET_DEFAULT_CARD } from 'Redux/actionTypes';
+
 const initialState = {
   message: '',
-  hasDefaultCard: false,
-  cards: [],
+  defaultCard: {},
   errorMessage: '',
   status: {
     success: false,
@@ -9,22 +10,13 @@ const initialState = {
   }
 };
 
-const checkDefaultCard = (data) => {
-  if (Array.isArray(data)) {
-    return data.filter(card => card.selected === true).length === 1;
-  }
-  return data.selected;
-};
-
-const saveUserCardReducer = (state = initialState, action) => {
+const setDefaultCardReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_USER_CARD_SUCCESS': {
-      const data = action.data.cards;
+    case `${SET_DEFAULT_CARD}_SUCCESS`: {
       return {
         ...state,
-        cards: Array.isArray(data) ? data : [data],
+        defaultCard: action.data.defaultCard,
         message: action.data.message,
-        hasDefaultCard: checkDefaultCard(data),
         errorMessage: '',
         status: {
           success: true,
@@ -33,11 +25,10 @@ const saveUserCardReducer = (state = initialState, action) => {
       };
     }
 
-    case 'FETCH_USER_CARD_ERROR': {
+    case `${SET_DEFAULT_CARD}_ERROR`: {
       return {
         ...state,
         errorMessage: action.data.message,
-        hasDefaultCard: false,
         status: {
           success: false,
           error: true,
@@ -51,5 +42,5 @@ const saveUserCardReducer = (state = initialState, action) => {
   }
 };
 
-export default saveUserCardReducer;
+export default setDefaultCardReducer;
 

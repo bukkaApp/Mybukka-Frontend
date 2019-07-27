@@ -28,17 +28,24 @@ const CardIcon = ({ cardType }) => (
     <i className="fas fa-credit-card text-primary bg-light" />
 );
 
-const Card = ({ last4, cardType, expiredMonth, expiredYear }) => {
+const Card = ({
+  last4, cardType, expiredMonth, expiredYear, handleClick, selected
+}) => {
   const userCardType = cardType.split(' ')[0];
   return (
     <div
       className="d-flex text-uppercase
       justify-content-around align-items-center bg-light py-1 cursor-pointer"
+      onClick={handleClick}
+      aria-pressed="false"
+      tabIndex="0"
+      role="button"
     >
       <InputField
         type="radio"
         classNames="radio"
         placeholder=""
+        checked={selected}
         name="makeDefaultPaymentOption"
         handleChange={() => {}}
         handleFocus={() => {}}

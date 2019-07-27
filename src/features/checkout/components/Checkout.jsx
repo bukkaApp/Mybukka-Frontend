@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 
+import authServices from 'Utilities/authServices';
 import Map from 'Components/map';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
@@ -20,11 +22,13 @@ import DeliveryAddress from './DeliveryAddress';
 import ScheduleSelector from './ScheduleSelector';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
+import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
 
 const Checkout = ({
   push,
+  chargeUserToSaveCard,
   checkoutUser,
   card,
   amount,
@@ -39,6 +43,9 @@ const Checkout = ({
   time,
   success,
   cards,
+  hasDefaultCard,
+  coordinates,
+  mode,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -50,7 +57,7 @@ const Checkout = ({
   const [deliveryAddressData, setDeliveryAddressData] = useState({
     address: '',
     deliveryInstructions: '',
-    name: '',
+    name: authServices.getFullName(),
     mobileNumber: ''
   });
 
@@ -76,6 +83,15 @@ const Checkout = ({
     });
   };
 
+  const validateAddress = () => {
+    const { errors, passes } = validateAllFields(deliveryAddressData);
+    setValidationErrors({
+      ...validationErrors,
+      ...errors
+    });
+    return passes;
+  };
+
   useEffect(() => {
     const bukkaMenuToFetch = location.pathname.split('/')[2];
     if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
@@ -94,6 +110,24 @@ const Checkout = ({
       $('#inputSecurityKey').modal('show');
     }
   });
+
+  const handleUserCheckout = () => {
+    const user = authServices.getUserSlug();
+    const deliveryAddress = { ...deliveryAddressData, user, location: { type: 'Point', coordinates, } };
+    checkoutUser({ deliveryAddress, cart: { items: cart, user }, day, user, time, deliveryMode: mode });
+  };
+
+  const handleCheckout = () => {
+    if (cards.length <= 0) {
+      swal('Please save your card before proceed to checkout');
+    } else if (!hasDefaultCard) {
+      swal('Please select your card');
+    } else if (!validateAddress()) {
+      scrollTo(0, 0);
+    } else {
+      handleUserCheckout();
+    }
+  };
 
   return (
     <>
@@ -121,13 +155,13 @@ const Checkout = ({
               title="Time"
               list={duration.sheduleTimeLists}
             />
-            <Payment handleClick={checkoutUser} cards={cards} message={message} />
+            <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
                 type="submit"
                 text="CONTINUE"
                 classNames="big-button"
-                handleClick={() => checkoutUser({ card, amount })}
+                handleClick={() => handleCheckout()}
               />
             </div>
           </div>
@@ -147,7 +181,7 @@ const Checkout = ({
                 text="CONTINUE"
                 classNames="big-button"
                 id="charge-user-small"
-                handleClick={() => checkoutUser({ card, amount })}
+                handleClick={() => { /* checkoutUser({ card, amount }) */ }}
               />
             </div>
           </div>
@@ -165,10 +199,12 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
-  getUserCardReducer: { cards },
+  getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
   },
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { coordinates },
   deliveryScheduleReducer: { schedule: { day, time } },
 }) => ({
   card: manipulateCardDetailsReducer,
@@ -183,11 +219,17 @@ const mapStateToProps = ({
   time,
   success,
   cards,
+  hasDefaultCard,
+  coordinates,
+  mode,
 });
 
 export default connect(
   mapStateToProps,
-  { checkoutUser: chargeUser, fetchBukkaMenu: fetchBukkaMenuAction }
+  { chargeUserToSaveCard: chargeUser,
+    checkoutUser: postUserOrder,
+    fetchBukkaMenu: fetchBukkaMenuAction
+  }
 )(Checkout);
 
 Checkout.propTypes = {

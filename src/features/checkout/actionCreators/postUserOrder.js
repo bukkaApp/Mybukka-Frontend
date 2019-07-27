@@ -1,19 +1,20 @@
 import axios from 'Redux/axios';
 import loading from 'Redux/loading';
+import alertMessage from 'Redux/alertMessage';
 
-import { SAVE_USER_CARD } from 'Redux/actionTypes';
+import { POST_USER_ORDER } from 'Redux/actionTypes';
 
 const saveUserCardAction = (status, data) => ({
-  type: `${SAVE_USER_CARD}_${status}`,
+  type: `${POST_USER_ORDER}_${status}`,
   data
 });
 
 const saveUserCard = data => async (dispatch) => {
   try {
-    dispatch(loading(SAVE_USER_CARD, true));
+    dispatch(loading(POST_USER_ORDER, true));
     const request = await axios({
       method: 'POST',
-      url: '/card',
+      url: '/order',
       data,
       headers: {
         authorization: localStorage.getItem('x-access-token'),
@@ -21,9 +22,11 @@ const saveUserCard = data => async (dispatch) => {
       }
     });
     dispatch(saveUserCardAction('SUCCESS', request.data));
-    dispatch(loading(SAVE_USER_CARD, false));
+    dispatch(alertMessage(POST_USER_ORDER, true, 'Your Order is now placed'));
+    dispatch(loading(POST_USER_ORDER, false));
   } catch (error) {
-    dispatch(loading(SAVE_USER_CARD, false));
+    dispatch(loading(POST_USER_ORDER, false));
+    dispatch(alertMessage(POST_USER_ORDER, true, error.response.data.message));
     dispatch(saveUserCardAction('ERROR', error.response.data));
   }
 };

@@ -4,14 +4,24 @@ import { connect } from 'react-redux';
 
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
 import getUserCard from '../actionCreators/getUserCard';
+import swal from 'sweetalert';
+import fetchUserData from '../../profile/actionCreators/fetchUserData';
 
 import { validateAFieldPayment, validateAllFieldsPayment } from '../validation/validateField';
 import Demarcation from '../common/SmallScreenDivider';
 import Card, { AddCard } from './Card';
+import setDefaultCard from '../actionCreators/setDefaultCard';
 
 import './payment.scss';
 
-const Payment = ({ manipulateCardDetails, handleClick, message, fetchUserCard, cards }) => {
+const Payment = ({
+  manipulateCardDetails,
+  handleClick,
+  message,
+  fetchUserCard,
+  cards,
+  setCardAsDefault
+}) => {
   const [active, setActive] = useState(false);
   const [addCard, showCardForm] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
@@ -65,6 +75,11 @@ const Payment = ({ manipulateCardDetails, handleClick, message, fetchUserCard, c
     }
   };
 
+  const handleDefaultSelection = async (id) => {
+    await setCardAsDefault(id);
+    await fetchUserCard();
+  };
+
   useEffect(() => {
     fetchUserCard();
   }, []);
@@ -78,6 +93,8 @@ const Payment = ({ manipulateCardDetails, handleClick, message, fetchUserCard, c
             <p>Your credits card</p>
             { cards.map(card => (
               <Card
+                handleClick={() => handleDefaultSelection(card._id)} // eslint-disable-line
+                selected={card.selected}
                 last4={card.last4}
                 expiredYear={card.exp_year}
                 expiredMonth={card.exp_month}
@@ -118,6 +135,7 @@ export default connect(
   mapStateToProps,
   { manipulateCardDetails: manipulateCardDetailsAction,
     fetchUserCard: getUserCard,
+    setCardAsDefault: setDefaultCard,
   }
 )(Payment);
 
