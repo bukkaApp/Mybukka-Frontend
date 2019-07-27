@@ -50,8 +50,6 @@ const ProfileScene = ({
     if (!authenticated) {
       push('/login?next=/profile');
     }
-    console.log(AuthService.isAuthenticated(), authenticated, !finishedRequest);
-
     if (AuthService.isAuthenticated() && authenticated && !finishedRequest) {
       requestUserData('/user/profile');
       requestUserAddress('/user/address');
@@ -70,7 +68,6 @@ const ProfileScene = ({
     return <InternalError history={history} />;
   }
 
-  console.log('user: ', user);
   return (
     <Fragment>
       <AuthenticaticatedNavbar />
