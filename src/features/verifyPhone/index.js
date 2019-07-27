@@ -30,7 +30,10 @@ const Index = ({
   const [validationErrors, setValidationErrors] = useState(inputInterface);
   const [requestSent, setRequestSent] = useState({ phone: false, code: false });
 
-  const validateOnClick = newValidationError => {
+  const stopCodeSpinner = () => setRequestSent({ code: false, phone: false });
+  const stopPhoneSpinner = () => setRequestSent({ phone: false, code: false });
+
+  const validateOnClick = (newValidationError) => {
     setValidationErrors({
       ...validationErrors,
       ...newValidationError,
@@ -94,10 +97,12 @@ const Index = ({
   }, []);
 
   useEffect(() => {
-    if (user.verified) {
-      setModalOpen(false);
-    } else {
-      setModalOpen(true);
+    if (status.authenticated) {
+      if (user.verified) {
+        setModalOpen(false);
+      } else {
+        setModalOpen(true);
+      }
     }
   }, [user]);
 
@@ -112,6 +117,7 @@ const Index = ({
               sent={requestSent.phone}
               errors={validationErrors}
               errorMessage={sendContactError}
+              stopPhoneSpinner={stopPhoneSpinner}
             />
           )}
           {isContactSent && !isCodeSent ? (
@@ -122,11 +128,13 @@ const Index = ({
               errors={validationErrors}
               inputData={inputData}
               errorMessage={verifyCodeError}
+              handleSendContact={handleSendContact}
+              stopCodeSpinner={stopCodeSpinner}
             />
           ) : null}
           {isCodeSent && (
             <div className="sub-text">
-              <div className="p">Congratulation!</div>
+              <div className="p text-success size-22-px">Congratulation!</div>
               <div className="p">
                 Your number has been verified successfully
               </div>

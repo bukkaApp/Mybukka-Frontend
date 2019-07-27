@@ -30,13 +30,18 @@
     }
   }
 
-  // button {
-  //   width: 100%;
-  //   border-radius: 100px;
-  //   background-color: #a7acba !important;
-  //   border-color: #a7acba !important;
-  //   cursor: pointer;
-  //   font-weight: 900;
-  //   outline: none;
-  // }
+  .codeform-resend-btn {
+    color: #9c1c26;
+    text-decoration: underline;
+    font-size: 18px;
+
+    &:disabled {
+      color: grey;
+      font-size: 16px;
+    }
+  }
+
+  .size-22-px {
+    font-size: 22px;
+  }
 }

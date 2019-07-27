@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 import Button from 'Components/button/Button';
@@ -12,8 +12,13 @@ const AuthForm = ({
   sent,
   errors,
   errorMessage,
+  stopPhoneSpinner,
 }) => {
-  if (errorMessage !== '') swal(errorMessage);
+  useEffect(() => {
+    if (errorMessage !== '') {
+      stopPhoneSpinner();
+    }
+  }, [errorMessage]);
 
   return (
     <>
@@ -76,6 +81,7 @@ AuthForm.propTypes = {
   sent: PropTypes.bool.isRequired,
   errors: PropTypes.objectOf(PropTypes.string),
   errorMessage: PropTypes.string.isRequired,
+  stopPhoneSpinner: PropTypes.func.isRequired,
 };
 
 export default AuthForm;
