@@ -19,16 +19,7 @@ const InputField = ({
   checked,
   value,
 }) => {
-  // const [inputValue, setValue] = useState('');
-
-  const props = value !== undefined ? { value: '' } : {};
-
-  // const handeInput = (event) => {
-  //   event.preventDefault();
-  //   setValue(event.target.value);
-  //   handleChange(event);
-  // };
-
+  const props = value !== undefined ? { value } : {};
   return (
     <input
       type={type}

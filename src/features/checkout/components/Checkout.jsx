@@ -114,7 +114,7 @@ const Checkout = ({
   const handleUserCheckout = () => {
     const user = authServices.getUserSlug();
     const deliveryAddress = { ...deliveryAddressData, user, location: { type: 'Point', coordinates, } };
-    checkoutUser({ deliveryAddress, cart: { items: cart, user }, day, user, time, deliveryMode: mode });
+    checkoutUser({ deliveryAddress, cart: { items: [...cart], user }, day, user, time, deliveryMode: mode });
   };
 
   const handleCheckout = () => {

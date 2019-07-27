@@ -18,7 +18,7 @@ const SuccessMessage = () => (
   <div className="success-message-prompt animated slideInLeft">
     <div className="text-center">
       <h5>SUCCESS</h5>
-      <p>ORDER SUCCESSFULLY COMPLETED</p>
+      <p>YOU CAN NOW PROCEED TO ORDER</p>
     </div>
   </div>
 );
@@ -114,33 +114,44 @@ const SendSecurityKeyForm = ({
   transactionDetails,
   paymentStatus,
   displayText,
-  errorMessage,
+  isCardSaved,
 }) => {
   const [key, setKey] = useState('');
   const [sent, setState] = useState(false);
-  const [connectionNumb, setConnectionNumb] = useState(0);
+  const [visibleCount, setVisibility] = useState(0);
+  const [tried, setTrial] = useState(1);
 
-  useEffect(() => {
+  const timeoutMessageDisplay = () => {
+    if (isCardSaved) {
+      setVisibility(0);
+    }
+  };
+
+  const reauthorizePayment = () => {
     let clear;
-    console.log('ddfjkjsdk', transactionDetails);
-    if (paymentStatus === 'pending' && !sent && connectionNumb < 3) {
+    if (paymentStatus === 'pending' && !sent && tried < 3) {
       verifyCard(reference);
       clear = setInterval(() => {
         verifyCard(reference);
-        setConnectionNumb(connectionNumb + 1);
+        setTrial(tried + 1);
       }, 50000);
     }
-    if (connectionNumb >= 3) {
+    if (tried >= 3) {
       clearInterval(clear);
       setState(true);
     }
+  };
+
+  useEffect(() => {
+    timeoutMessageDisplay();
+    reauthorizePayment();
   });
 
   return (
     <Modal dataTarget="inputSecurityKey">
       <DismissModal />
-      {(transactionSuccess && !paymentStatus) && <SuccessMessage />}
-      {(!transactionSuccess && !paymentStatus) && <InputKeyForm
+      {visibleCount > 0 && isCardSaved && <SuccessMessage />}
+      {(!transactionSuccess && !paymentStatus && !isCardSaved) && <InputKeyForm
         setKey={setKey}
         reference={reference}
         pin={key}
@@ -156,7 +167,7 @@ const SendSecurityKeyForm = ({
         status={chargeStatus}
         saveUserCard={saveCard}
       />}
-      {paymentStatus && <InputKeyForm
+      {(paymentStatus && displayText && !isCardSaved) && <InputKeyForm
         setKey={setKey}
         reference={reference}
         pin={key}
@@ -181,7 +192,7 @@ const mapStateToProps = ({
   saveUserCardReducer: {
     status: { success },
     errorMessage,
-    newPayment: { status: paymentStatus, display_text: displayText },
+    newPayment: { status: paymentStatus, display_text: displayText, card },
     message
   },
   chargeUserReducer: {
@@ -210,12 +221,13 @@ const mapStateToProps = ({
   transactionDetails,
   paymentStatus,
   displayText,
+  isCardSaved: card,
 });
 
 export default connect(
   mapStateToProps,
   { finishTransaction: finishChargeTransaction,
     saveCard: saveUserCard,
-    verifyCard: verifyCardTransaction
+    verifyCard: verifyCardTransaction,
   }
 )(SendSecurityKeyForm);

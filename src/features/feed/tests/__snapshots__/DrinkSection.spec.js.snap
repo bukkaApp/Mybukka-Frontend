@@ -161,7 +161,7 @@ exports[`DrinkSection component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           Facebook
@@ -418,7 +418,7 @@ exports[`DrinkSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="b7RPDhPxn"
+                            id="WFrKeoZfg"
                             type="button"
                           >
                             -
@@ -429,7 +429,7 @@ exports[`DrinkSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="b7RPDhPxn"
+                            id="WFrKeoZfg"
                             type="button"
                           >
                             undefined
@@ -440,7 +440,7 @@ exports[`DrinkSection component renders properly 2`] = `
                             data-target=""
                             data-testid="button"
                             data-toggle=""
-                            id="b7RPDhPxn"
+                            id="WFrKeoZfg"
                             type="button"
                           >
                             +
@@ -472,7 +472,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           -
@@ -483,7 +483,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           1
@@ -494,7 +494,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           +
@@ -511,7 +511,7 @@ exports[`DrinkSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="b7RPDhPxn"
+                      id="WFrKeoZfg"
                       type="button"
                     >
                       <div
@@ -803,7 +803,7 @@ exports[`DrinkSection component renders properly 2`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="b7RPDhPxn"
+                    id="WFrKeoZfg"
                   >
                     <span
                       class="col-10 text-left"
@@ -1015,7 +1015,7 @@ exports[`DrinkSection component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="b7RPDhPxn"
+                              id="WFrKeoZfg"
                               type="button"
                             >
                               Facebook
@@ -1086,7 +1086,7 @@ exports[`DrinkSection component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="b7RPDhPxn"
+                      id="WFrKeoZfg"
                       type="button"
                     >
                       <span
@@ -1283,7 +1283,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           <span
@@ -1350,7 +1350,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           <span
@@ -1497,7 +1497,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           <div>
@@ -1742,7 +1742,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           <span
@@ -1801,7 +1801,7 @@ exports[`DrinkSection component renders properly 2`] = `
                     data-target=""
                     data-testid="button"
                     data-toggle=""
-                    id="b7RPDhPxn"
+                    id="WFrKeoZfg"
                     type="button"
                   >
                     <span
@@ -1911,7 +1911,7 @@ exports[`DrinkSection component renders properly 2`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="b7RPDhPxn"
+                          id="WFrKeoZfg"
                           type="button"
                         >
                           <h2
@@ -1983,7 +1983,7 @@ exports[`DrinkSection component renders properly 2`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="b7RPDhPxn"
+              id="WFrKeoZfg"
               type="button"
             >
               <span
@@ -2040,7 +2040,7 @@ exports[`DrinkSection component renders properly 2`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="b7RPDhPxn"
+              id="WFrKeoZfg"
               type="button"
             >
               <span>
@@ -2053,7 +2053,7 @@ exports[`DrinkSection component renders properly 2`] = `
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="b7RPDhPxn"
+              id="WFrKeoZfg"
               type="button"
             >
               <span>

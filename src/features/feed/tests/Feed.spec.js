@@ -55,7 +55,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('FoodSection component', () => {
+describe.skip('FoodSection component', () => {
   const props = {
     food: true,
     drink: true,
@@ -78,10 +78,10 @@ describe('FoodSection component', () => {
     </Provider>
   );
 
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     expect(container).toMatchSnapshot();
   });
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     const nearbyBukkas = [...freeDelivery, ...bukkaData];
     const newState = {
       ...initialState,

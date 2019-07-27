@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
 
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
 import getUserCard from '../actionCreators/getUserCard';
-import swal from 'sweetalert';
-import fetchUserData from '../../profile/actionCreators/fetchUserData';
 
 import { validateAFieldPayment, validateAllFieldsPayment } from '../validation/validateField';
 import Demarcation from '../common/SmallScreenDivider';
@@ -20,7 +19,9 @@ const Payment = ({
   message,
   fetchUserCard,
   cards,
-  setCardAsDefault
+  setCardAsDefault,
+  status,
+  isCardSaved,
 }) => {
   const [active, setActive] = useState(false);
   const [addCard, showCardForm] = useState(false);
@@ -81,8 +82,17 @@ const Payment = ({
   };
 
   useEffect(() => {
+    showCardForm(false);
+    fetchUserCard();
+  }, [isCardSaved]);
+
+  useEffect(() => {
     fetchUserCard();
   }, []);
+
+  useEffect(() => {
+    setActive(false);
+  }, [status]);
 
   return (
     <section className="mb-2 mt-4">
@@ -127,8 +137,19 @@ const Payment = ({
   );
 };
 
-const mapStateToProps = ({ getUserCardReducer: { cards } }) => ({
-  cards
+const mapStateToProps = ({
+  getUserCardReducer: { cards },
+  chargeUserReducer: {
+    data: { status }
+  },
+  saveUserCardReducer: {
+    newPayment: { card: isCardSaved },
+
+  },
+}) => ({
+  cards,
+  status,
+  isCardSaved,
 });
 
 export default connect(
