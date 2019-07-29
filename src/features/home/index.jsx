@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -26,17 +26,17 @@ const Home = ({ history: { push }, coordinates }) => {
 };
 
 const mapStateToProps = ({ selectedLocationReducer: { coordinates } }) => ({
-  coordinates
+  coordinates,
 });
 
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(Home);
 
 Home.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
   }).isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

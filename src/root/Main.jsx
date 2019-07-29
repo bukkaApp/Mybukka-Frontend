@@ -52,8 +52,29 @@ const Main = () => (
       <Route exact path="/map" component={Map} />
       <Route exact path="/merchant" component={Merchant} />
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
-      <Route exact path="/support/buyer/contact-us/:id" component={SubCategory} />
+      <Route
+        exact
+        path="/support/buyer/contact-us/:id"
+        component={SubCategory}
+      />
       <Route exact path="/buyer/contact-us/:id" component={ComplainScene} />
+      <Route
+        exact
+        path="/store/apple"
+        component={() => {
+          window.location.href = 'https://www.apple.com/';
+          return null;
+        }}
+      />
+      <Route
+        exact
+        path="/store/android"
+        component={() => {
+          window.location.href = 'https://play.google.com/store?hl=en';
+
+          return null;
+        }}
+      />
       <Route component={NotFound} />
     </Switch>
   </main>

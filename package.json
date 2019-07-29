@@ -1,5 +1,5 @@
 {
-  "name": "Mybukka-Frontend",
+  "name": "mybukka-frontend",
   "version": "1.0.0",
   "description": "Frontend of mybukka app built by the internal engineering team",
   "main": "index.js",
