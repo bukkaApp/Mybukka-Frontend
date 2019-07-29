@@ -66,8 +66,7 @@ const FreshSection = ({
   //   setCategories([...searchResult]);
   // }, [searches]);
 
-  // if (bukkaMenu.length === 1 && error) {
-  if (true) {
+  if (bukkaMenu.length === 1 && error) {
     return (
       <div>
         <Navbar push={push} />

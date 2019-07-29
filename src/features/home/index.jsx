@@ -11,11 +11,9 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-
 const Home = ({ history: { push }, coordinates }) => {
   useEffect(() => () => push('/feed'), [coordinates]);
 
-  // coordinates.length > 0 && fetchNearByBukkas(coordinates);
   return (
     <div className="home">
       <IntroSection push={push} />
