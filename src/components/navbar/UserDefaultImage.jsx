@@ -15,7 +15,6 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
           onClick={() => toggleDropdown(!dropdown)}
         >
           <img
-            // src={`${imageUrl}`}
             src={
               imageUrl === undefined
                 ? 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'

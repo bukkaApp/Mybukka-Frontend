@@ -6,7 +6,6 @@ import './NoNearByBukkaLocation.css';
 import Android, { Apple } from '../button/StoreSvg';
 
 export default function NoNearByBukkaLocation({ push }) {
-  console.log('push object:', push);
   return (
     <Fragment>
       <div className="bg-color">
