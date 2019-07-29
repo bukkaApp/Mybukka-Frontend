@@ -20,9 +20,7 @@ const Home = ({
 }) => {
   useEffect(
     () => () => {
-      console.log('about to fetch bukkas ...');
       fetchNearbyBukkas(coordinates);
-      // push('/feed');
     },
     [coordinates],
   );
