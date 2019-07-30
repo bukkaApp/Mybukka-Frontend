@@ -26,7 +26,9 @@ const Home = ({
     [coordinates],
   );
 
-  useEffect(() => () => push('/feed'), [nearbyBukkas]);
+  useEffect(() => () => {
+    push('/feed');
+  }, [nearbyBukkas]);
 
   return (
     <div className="home">
