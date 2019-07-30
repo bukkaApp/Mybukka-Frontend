@@ -20,6 +20,7 @@ import Merchant from '../features/merchant';
 import ComplainCategory from '../features/support/complain/Category';
 import SubCategory from '../features/support/complain/SubCategory';
 import ComplainScene from '../features/support/complain/ComplainScene';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -56,6 +57,11 @@ const Main = () => (
         exact
         path="/support/buyer/contact-us/:id"
         component={SubCategory}
+      />
+      <Route
+        exact
+        path="/not-found/bukkas"
+        render={props => <NoNearByBukkaLocation {...props} />}
       />
       <Route exact path="/buyer/contact-us/:id" component={ComplainScene} />
       <Route

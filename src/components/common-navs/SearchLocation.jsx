@@ -11,6 +11,7 @@ import ChevronRight from 'Icons/ChevronRight';
 import InputField from 'Components/input/InputField';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
+import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
 
 import updateLocationsPrediction from '../../features/home/actionCreators/updateLocationsPrediction';
 
@@ -24,15 +25,17 @@ const SearchLocation = ({
   showDeliveryOrPickupNav,
   chevronButtonVisible,
   showDropdown,
+  coordinates,
+  fetchNearbyBukkas,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
 
-  const setWrapperRef = (node) => {
+  const setWrapperRef = node => {
     wrapperRef = node;
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = event => {
     if (wrapperRef && !wrapperRef.contains(event.target)) {
       setFocus(false);
     }
@@ -50,15 +53,15 @@ const SearchLocation = ({
       const autoCompleteService = new google.maps.places.AutocompleteService();
       autoCompleteService.getPlacePredictions(
         { input: value },
-        displaySuggestions
+        displaySuggestions,
       );
     }
   };
 
-  const geoCodeLocation = (suggestion) => {
+  const geoCodeLocation = suggestion => {
     const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
-    GeoCoder.geocode({ placeId }, (response) => {
+    GeoCoder.geocode({ placeId }, response => {
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
@@ -69,7 +72,7 @@ const SearchLocation = ({
   const showChevronButton = () => {
     if (chevronButtonVisible) {
       return (
-        <Link to="/feed">
+        <Link to="" onClick={() => fetchNearbyBukkas(coordinates)}>
           <div className="input-group-append button-go-feed">
             <span className="input-group-text button-search">
               <ChevronRight />
@@ -96,18 +99,18 @@ const SearchLocation = ({
             <MapMarker />
           </span>
         </div>
-          <InputField
-            type="text"
-            name="searchLocation"
-            placeholderText="Enter your address..."
-            classNames="text-field form-control searchlocation"
-            handleFocus={() => setFocus(true)}
-            handleChange={handleChange}
-            defaultValue={selectedLocation ? selectedLocation.description : ''}
-          />
+        <InputField
+          type="text"
+          name="searchLocation"
+          placeholderText="Enter your address..."
+          classNames="text-field form-control searchlocation"
+          handleFocus={() => setFocus(true)}
+          handleChange={handleChange}
+          defaultValue={selectedLocation ? selectedLocation.description : ''}
+        />
         {showChevronButton()}
       </div>
-      {showDropdown && (<div className="carousel-divider mb-0" />)}
+      {showDropdown && <div className="carousel-divider mb-0" />}
       <div className="dropdown-suggestion">
         {(isFocused || showDropdown) && (
           <Fragment>
@@ -122,28 +125,30 @@ const SearchLocation = ({
 
 const mapStateToProps = ({
   locationsPredictionReducer: { predictions },
-  selectedLocationReducer: { selectedLocation }
+  selectedLocationReducer: { selectedLocation, coordinates },
 }) => ({
   predictions,
-  selectedLocation
+  selectedLocation,
+  coordinates,
 });
 
 export default connect(
   mapStateToProps,
   {
     updatePredictions: updateLocationsPrediction,
-    selectLocation: setSelectedLocation
-  }
+    selectLocation: setSelectedLocation,
+    fetchNearbyBukkas: fetchBukkas,
+  },
 )(
   GoogleApiWrapper({
     apiKey: process.env.GOOGLE_API_KEY,
-    v: '3'
-  })(SearchLocation)
+    v: '3',
+  })(SearchLocation),
 );
 
 SearchLocation.defaultProps = {
   chevronButtonVisible: true,
-  showDeliveryOrPickupNav: true
+  showDeliveryOrPickupNav: true,
 };
 
 SearchLocation.propTypes = {
@@ -153,5 +158,5 @@ SearchLocation.propTypes = {
   selectedLocation: PropTypes.shape({}).isRequired,
   selectLocation: PropTypes.func.isRequired,
   chevronButtonVisible: PropTypes.bool,
-  showDeliveryOrPickupNav: PropTypes.bool
+  showDeliveryOrPickupNav: PropTypes.bool,
 };

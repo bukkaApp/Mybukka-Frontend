@@ -5,7 +5,6 @@ import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
 const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
-  console.log('image  ulr: ', typeof imageUrl, imageUrl);
   const [dropdown, toggleDropdown] = useState(false);
   return (
     <div className="user-default-img">

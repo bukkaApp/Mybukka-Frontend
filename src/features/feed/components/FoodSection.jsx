@@ -46,14 +46,11 @@ const FoodSection = ({
     nearbyBukkas.length === 0 && fetchNearbyBukkas(coordinates);
   }, [coordinates]);
 
-  console.log(nearbyBukkas.length === 0, errorMessage, nearbyBukkas);
-
   if (nearbyBukkas.length === 0 && errorMessage.length > 0) {
-    // if (true) {
     return (
       <div>
         <Navbar push={push} />
-        <NoNearByBukkaLocation push={push} />
+        {push('/not-found/bukkas')}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -17,15 +17,39 @@ const Home = ({
   coordinates,
   fetchNearbyBukkas,
   fetchedBukkas: { nearbyBukkas },
+  errorMessage,
+  message,
+  status,
 }) => {
+  const [error, setError] = useState(false);
+  console.log('coordinates: ', coordinates, 'status.error: ', status.error);
   useEffect(
     () => () => {
-      fetchNearbyBukkas(coordinates);
+      fetchNearbyBukkas(coordinates); // Call to redux action creator  after coordinates changes
     },
-    [coordinates],
+    [coordinates], // cordinates state from redux reducer
   );
 
-  useEffect(() => () => push('/feed'), [nearbyBukkas]);
+  useEffect(() => {
+    console.log('status.error: ', status.error);
+    if (
+      (errorMessage.length > 0 ||
+        message === 'An error occurred' ||
+        status.error) &&
+      nearbyBukkas.length === 0
+    ) {
+      console.log('here about to not-found');
+      push('/not-found/bukkas');
+    }
+  }, [status.error]);
+
+  useEffect(
+    () => () => {
+      console.log('here: ', nearbyBukkas.length);
+      nearbyBukkas.length > 0 ? push('/feed') : setError(!error);
+    },
+    [nearbyBukkas, error],
+  );
 
   return (
     <div className="home">
@@ -40,10 +64,13 @@ const Home = ({
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
-  bukkasReducer: { fetchedBukkas },
+  bukkasReducer: { fetchedBukkas, errorMessage, message, status },
 }) => ({
   coordinates,
   fetchedBukkas,
+  errorMessage,
+  message,
+  status,
 });
 
 export default connect(

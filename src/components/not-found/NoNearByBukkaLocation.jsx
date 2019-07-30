@@ -2,12 +2,14 @@ import React, { Fragment } from 'react';
 import Container from '../container';
 import Button from 'Components/button/Button.jsx';
 import Footer from 'Components/footer/Footer';
+import Navbar from 'Components/navbar';
 import './NoNearByBukkaLocation.css';
 import Android, { Apple } from '../button/StoreSvg';
 
-export default function NoNearByBukkaLocation({ push }) {
+export default function NoNearByBukkaLocation({ history: { push } }) {
   return (
     <Fragment>
+      <Navbar push={push} />
       <div className="bg-color">
         <Container>
           <div className="row">

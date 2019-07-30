@@ -1,14 +1,14 @@
 const initialState = {
   fetchedBukkas: {
     nearbyBukkas: [],
-    message: ''
+    message: '',
   },
   currentPage: 1,
   errorMessage: '',
   status: {
     fetchedBukkas: false,
     error: false,
-  }
+  },
 };
 
 const bukkasReducer = (state = initialState, action) => {
@@ -26,7 +26,7 @@ const bukkasReducer = (state = initialState, action) => {
         currentPage: action.data.currentPage,
         status: {
           fetchedBukkas: true,
-          error: false
+          error: false,
         },
         errorMessage: '',
       };
@@ -42,7 +42,7 @@ const bukkasReducer = (state = initialState, action) => {
           fetchedBukkas: false,
           error: true,
         },
-        errorMessage: action.data.message,
+        errorMessage: action.data.message || 'an error occured',
       };
 
     default: {
