@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 
 import Container from 'Components/container';
 import Row from 'Components/grid/Row';
+import Credict from 'Components/credict';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
@@ -98,6 +99,7 @@ const ProfileScene = ({
                   loading={loading}
                   userAddress={userAddress}
                 />
+                <Credict />
               </Column>
             </Row>
           </Container>
