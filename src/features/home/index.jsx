@@ -22,30 +22,27 @@ const Home = ({
   status,
 }) => {
   const [error, setError] = useState(false);
-  console.log('coordinates: ', coordinates, 'status.error: ', status.error);
+
   useEffect(
     () => () => {
-      fetchNearbyBukkas(coordinates); // Call to redux action creator  after coordinates changes
+      fetchNearbyBukkas(coordinates);
     },
-    [coordinates], // cordinates state from redux reducer
+    [coordinates],
   );
 
   useEffect(() => {
-    console.log('status.error: ', status.error);
     if (
       (errorMessage.length > 0 ||
         message === 'An error occurred' ||
         status.error) &&
       nearbyBukkas.length === 0
     ) {
-      console.log('here about to not-found');
       push('/not-found/bukkas');
     }
   }, [status.error]);
 
   useEffect(
     () => () => {
-      console.log('here: ', nearbyBukkas.length);
       nearbyBukkas.length > 0 ? push('/feed') : setError(!error);
     },
     [nearbyBukkas, error],
