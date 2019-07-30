@@ -11,8 +11,23 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-const Home = ({ history: { push }, coordinates }) => {
-  useEffect(() => () => push('/feed'), [coordinates]);
+const Home = ({
+  history: { push },
+  coordinates,
+  fetchNearbyBukkas,
+  fetchedBukkas: { nearbyBukkas },
+}) => {
+  useEffect(
+    () => () => {
+      console.log('about to fetch bukkas ...');
+      fetchNearbyBukkas(coordinates);
+    },
+    [coordinates],
+  );
+
+  useEffect(() => () => {
+    push('/feed');
+  }, [nearbyBukkas]);
 
   return (
     <div className="home">
