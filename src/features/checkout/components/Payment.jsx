@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import swal from 'sweetalert';
 
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
 import getUserCard from '../actionCreators/getUserCard';
@@ -16,7 +15,6 @@ import './payment.scss';
 const Payment = ({
   manipulateCardDetails,
   handleClick,
-  message,
   fetchUserCard,
   cards,
   setCardAsDefault,
@@ -129,8 +127,6 @@ const Payment = ({
             validationErrors={validationErrors}
           />
         }
-        {/* {message === 'Charge attempted' &&
-        <p className="text-success">Your card is now saved for any other transactions</p>} */}
       </form>
       <Demarcation />
     </section>
@@ -160,3 +156,21 @@ export default connect(
   }
 )(Payment);
 
+Payment.defaultProps = {
+  isCardSaved: {},
+  cards: [{}],
+  status: '',
+};
+
+Payment.propTypes = {
+  manipulateCardDetails: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  fetchUserCard: PropTypes.func.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.object),
+  setCardAsDefault: PropTypes.func.isRequired,
+  status: PropTypes.string,
+  isCardSaved: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])),
+};

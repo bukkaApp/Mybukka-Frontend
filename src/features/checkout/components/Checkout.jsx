@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 
+import logOut from 'Components/navbar/actionCreators/logOut';
 import authServices from 'Utilities/authServices';
 import Map from 'Components/map';
 import Navbar from 'Components/navbar';
@@ -30,12 +31,8 @@ const Checkout = ({
   push,
   chargeUserToSaveCard,
   checkoutUser,
-  card,
-  amount,
   message,
-  data,
   cart,
-  bukkaMenu,
   fetchBukkaMenu,
   menuIsFetched,
   bukkaOfMenu,
@@ -46,6 +43,7 @@ const Checkout = ({
   hasDefaultCard,
   coordinates,
   mode,
+  signOut,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -93,6 +91,15 @@ const Checkout = ({
   };
 
   useEffect(() => {
+    const currentPage = location.pathname;
+    if (!authServices.getToken() || !authServices.isValid(authServices.getToken())) {
+      signOut();
+      setTimeout(() => {
+        swal('You need to login first');
+        return push(`/login?next=${currentPage}`);
+      }, 2000);
+    }
+
     const bukkaMenuToFetch = location.pathname.split('/')[2];
     if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
       window.scrollTo(0, 0);
@@ -228,10 +235,45 @@ export default connect(
   mapStateToProps,
   { chargeUserToSaveCard: chargeUser,
     checkoutUser: postUserOrder,
-    fetchBukkaMenu: fetchBukkaMenuAction
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    signOut: logOut,
   }
 )(Checkout);
 
 Checkout.propTypes = {
   push: PropTypes.func.isRequired
+};
+
+Checkout.defaultProps = {
+  message: '',
+  cart: [{}],
+  menuIsFetched: false,
+  bukkaOfMenu: '',
+  day: '',
+  time: '',
+  success: false,
+  cards: [{}],
+  hasDefaultCard: false,
+};
+
+Checkout.propTypes = {
+  push: PropTypes.func.isRequired,
+  chargeUserToSaveCard: PropTypes.func.isRequired,
+  checkoutUser: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  cart: PropTypes.arrayOf([PropTypes.object]).isRequired,
+  fetchBukkaMenu: PropTypes.func.isRequired,
+  menuIsFetched: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])).isRequired,
+  bukkaOfMenu: PropTypes.string,
+  day: PropTypes.string,
+  time: PropTypes.string,
+  success: PropTypes.bool,
+  cards: PropTypes.arrayOf(PropTypes.object),
+  hasDefaultCard: PropTypes.bool,
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  mode: PropTypes.bool.isRequired,
+  signOut: PropTypes.func.isRequired,
 };
