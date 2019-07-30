@@ -6,19 +6,20 @@ import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import './InviteFriends.css';
 
 export default function InviteFriends() {
-  const [emails, setEmails] = useState({
+  const [form, setForm] = useState({
     emails: '',
+    link: 'https://bitly.com',
   });
 
   const handleChange = event => {
-    setEmails({
-      ...emails,
+    setForm({
+      ...form,
       [event.target.name]: event.target.value,
     });
   };
   return (
     <Modal>
-      <div className="padding">
+      <div className="padding m-4">
         <section id="header">
           <figure class="figure">
             <img
@@ -30,7 +31,7 @@ export default function InviteFriends() {
         </section>
         <section id="main">
           <div className="coupon-header text-center text-dark">
-            <h3>Get N1000 off your orders from selected Resturants</h3>
+            <h3>Get N1000 off all your</h3>
           </div>
           <div className="content text-center">
             <p>
@@ -38,17 +39,23 @@ export default function InviteFriends() {
               praesentium nam fuga fugiat quos quasi consequatur voluptatum
               possimus inventore? Cumque.
             </p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+              molestiae itaque quae rem assumenda quasi eaque! Voluptas dolores
+              quod dolore aperiam accusamus commodi minus fuga dolorum nihil.
+              Perferendis, cum vero!
+            </p>
           </div>
           <div className="recipient-form">
             <form>
               <InputField
                 type="text"
-                name="share-modal-input"
-                placeholderText="Enter the email address separated by commas"
+                name="emails"
+                placeholderText="Enter email address(es) separated by commas"
                 classNames="text-field form-control p-2"
                 handleFocus={() => setFocus(true)}
                 handleChange={handleChange}
-                value={emails}
+                value={form.emails}
               />
               <button>
                 <span>SEND</span>
@@ -59,8 +66,15 @@ export default function InviteFriends() {
         </section>
         <section id="footer">
           <div className="d-flex flex-column">
-            <div className="link" />
-            <div className="social d-flex flex-row justify-content-around">
+            <div className="link padding d-flex justify-content-around align-items-center mx-4">
+              <div>
+                <span>{form.link}</span>
+              </div>
+              <div>
+                <span class="text-success">COPY</span>
+              </div>
+            </div>
+            <div className="social padding d-flex flex-row justify-content-end mx-4">
               <Button
                 classNames="facebook-btn mb-4 w-50 mr-4 d-flex justify-content-around"
                 type="button"

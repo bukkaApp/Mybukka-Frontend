@@ -2,6 +2,20 @@
   padding: 40px;
 }
 
+.content p {
+  color: rgb(143, 149, 163);
+}
+
+.overflow {
+  overflow-y: scroll;
+}
+
+.link {
+  border: 1px dotted rgb(143, 149, 163);
+  border-radius: 20px;
+  height: 50px;
+}
+
 .recipient-form {
   font-size: 16px;
   letter-spacing: 0.14px;
