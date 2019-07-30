@@ -5,6 +5,7 @@
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-chinese-thumbnail.webp",
     "rating": "popular",
+    "id": "chinese",
     "heading": "chinese",
     "position": { "bottom": true }
   },
@@ -14,6 +15,7 @@
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-american-thumbnail.webp",
     "rating": "popular",
+    "id": "american",
     "heading": "american",
     "position": { "bottom": true }
   },
@@ -23,6 +25,7 @@
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-fastfood-thumbnail.webp",
     "rating": "popular",
+    "id": "fast-food",
     "heading": "Fast food",
     "position": { "bottom": true }
   },
@@ -32,6 +35,7 @@
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-coffee-thumbnail.webp",
     "rating": "popular",
+    "id": "coffee",
     "heading": "coffee",
     "position": { "bottom": true }
   },
@@ -41,36 +45,40 @@
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-pizza-thumbnail.webp",
     "rating": "popular",
+    "id": "pizza",
     "heading": "pizza",
     "position": {
-        "bottom": true
+      "bottom": true
     }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-mexican-thumbnail.webp",
     "rating": "popular",
+    "id": "mexican",
     "heading": "mexican",
     "position": { "bottom": true }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-burger-thumbnail.webp",
     "rating": "popular",
+    "id": "burger",
     "heading": "burger",
     "position": { "bottom": true }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
     "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/cuisine-italian-thumbnail.webp",
     "rating": "popular",
+    "id": "italian",
     "heading": "Italian",
     "position": { "bottom": true }
-}
+  }
 ]

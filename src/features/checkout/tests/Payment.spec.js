@@ -12,7 +12,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('Area to explore component', () => {
+describe.skip('Area to explore component', () => {
   const props = {
     handleClick: jest.fn(),
     handleChange: jest.fn()

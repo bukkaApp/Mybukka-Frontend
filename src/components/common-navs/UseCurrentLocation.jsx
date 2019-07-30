@@ -11,6 +11,7 @@ import './usecurrentlocation.scss';
 
 const UseCurrentLocation = ({ selectLocation }) => {
   const [isGettingLocation, setIsGettingLocation] = useState(false);
+
   const setLocation = () => {
     if (navigator.geolocation) {
       setIsGettingLocation(true);

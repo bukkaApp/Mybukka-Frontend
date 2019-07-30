@@ -18,6 +18,7 @@ const NearByBukka = ({
   handleRefFocus,
 }) => (
   <div className="mt-4 mb-4">
+  hehehee
     {title &&
     <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
     }
@@ -35,7 +36,7 @@ const NearByBukka = ({
               rating={bukka.rating}
               imageHeight={imageHeight}
               classNames={classNames}
-              dataTarget="#bukkaAddToCart"
+              dataTarget="#mealModal"
               dataToggle="modal"
             />
           ))}

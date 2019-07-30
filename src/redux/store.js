@@ -40,6 +40,14 @@ import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
 import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
 import signOutReducer from '../components/navbar/reducers/signOutReducer';
 import searchAnythingReducer from './searchAnythingReducer';
+import deliveryScheduleReducer from './deliveryScheduleReducer';
+import cartReducer from './cartReducer';
+
+import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
+import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
+import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer';
+import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
+import alertMessageReducer from './alertMessageReducer';
 
 import sendContactReducer from '../features/verifyPhone/reducers/sendContactReducer';
 import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVerificationCodeReducer';
@@ -73,10 +81,17 @@ const reducer = combineReducers({
   searchAnythingReducer,
   freshReducer,
   drinkReducer,
+  deliveryScheduleReducer,
+  cartReducer,
   reportIssueReducer,
   sendContactReducer,
   sendVerificationCodeReducer,
   getUserDataReducer,
+  saveUserCardReducer,
+  verifyCardReducer,
+  getUserCardReducer,
+  setDefaultCardReducer,
+  alertMessageReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);
@@ -88,7 +103,14 @@ const persistConfig = {
     'authenticationReducer',
     'fetchBukkaReducer',
     'fetchBukkaMenuReducer',
+<<<<<<< HEAD
   ],
+=======
+    'selectedLocationReducer',
+    'deliveryScheduleReducer',
+    'cartReducer',
+  ]
+>>>>>>> c9836ce77b54615cc5cef5d68d475b6f03aaaeee
 };
 const persistedReducer = persistReducer(persistConfig, reducer);
 

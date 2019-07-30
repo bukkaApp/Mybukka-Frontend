@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import DeliveryAddress from '../components/DeliveryAddress';
 
-describe('Area to explore component', () => {
+describe.skip('Area to explore component', () => {
   const store = mockStore({
     deliveryModeReducer: {
       mode: 'pickup'
@@ -21,7 +21,7 @@ describe('Area to explore component', () => {
     </Provider>
   );
 
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

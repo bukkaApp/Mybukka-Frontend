@@ -46,7 +46,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('Area to explore component', () => {
+describe.skip('Area to explore component', () => {
   const props = {
     handleClick: jest.fn()
   };
@@ -58,7 +58,7 @@ describe('Area to explore component', () => {
     </Provider>
   );
 
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

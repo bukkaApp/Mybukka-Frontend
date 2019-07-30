@@ -22,9 +22,27 @@ $white: rgb(217, 219, 224);
   font-family: $fontFamily;
 }
 
+.swal-button {
+  background-color: $primaryColor;
+}
+
+.swal-text {
+  text-align: center;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: $primaryColor;
+}
+
 .primary-button {
   @include button(165px, 48px, $primaryColor, #ffffff, 12px);
   border: 1px solid $primaryColor;
+}
+
+.disabled-primary-button {
+  @include button(165px, 48px, #e0e0e0, #ffffff, 12px);
+  border: 1px solid #e0e0e0;
+  cursor: default;
 }
 
 .btn-go {
@@ -58,6 +76,15 @@ $white: rgb(217, 219, 224);
 .small-button {
   @include button(80px, 32px, #222, #f5e7d8, 12px);
   border: 1px solid #222;
+}
+
+.store-button {
+  @include button(192px, 55px, #222, #f5e7d8, 12px);
+  border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 384px;
 }
 
 .small-outline-button {
@@ -105,7 +132,7 @@ $white: rgb(217, 219, 224);
 
 .cart-action-button-default {
   @include cart-action-button();
-  color:gray;
+  color: gray;
 }
 
 .cart-action-button-primary {

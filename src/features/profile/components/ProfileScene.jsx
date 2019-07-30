@@ -16,7 +16,7 @@ import fetchUserData from '../actionCreators/fetchUserData';
 import deleteAddress from '../actionCreators/deleteAddress';
 import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import uploadProfilePicture from '../actionCreators/uploadProfilePicture';
-import tokenVerification from '../../../utils/verifyToken';
+import AuthService from '../../../utils/authServices';
 
 import './profileScene.scss';
 
@@ -50,22 +50,22 @@ const ProfileScene = ({
     if (!authenticated) {
       push('/login?next=/profile');
     }
-    if (tokenVerification() && authenticated && !finishedRequest) {
+    if (AuthService.isAuthenticated() && authenticated && !finishedRequest) {
       requestUserData('/user/profile');
       requestUserAddress('/user/address');
     }
   });
 
-  const uploadImageToCloudinary = (event) => {
+  const uploadImageToCloudinary = event => {
     const file = event.target.files[0];
-    addProfilePicture(file, userData, async (data) => {
+    addProfilePicture(file, userData, async data => {
       await editUserData('/user/profile', data);
       await requestUserData('/user/profile');
     });
   };
 
   if (!authenticated) {
-    return (<InternalError history={history} />);
+    return <InternalError history={history} />;
   }
 
   return (
@@ -114,14 +114,14 @@ const mapStateToProps = ({
   authenticationReducer: { status },
   fetchUserData: { userInfo: user, finishedRequest },
   fetchUserAddress: { address: userAddress },
-  postUserData: { errorMessage }
+  postUserData: { errorMessage },
 }) => ({
   loading,
   status,
   user,
   errorMessage,
   userAddress: userAddress.userAddresses,
-  finishedRequest
+  finishedRequest,
 });
 
 export default connect(
@@ -132,29 +132,28 @@ export default connect(
     requestUserAddress: fetchUserAddress,
     deleteUserAddress: deleteAddress,
     addProfilePicture: uploadProfilePicture,
-    signOut: signout
-  }
+    signOut: signout,
+  },
 )(ProfileScene);
 
 ProfileScene.defaultProps = {
   loading: false,
   userAddress: {},
-  errorMessage: ''
+  errorMessage: '',
 };
-
 
 const proptypes = PropTypes.objectOf(
   PropTypes.oneOfType([
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.number),
-        PropTypes.string
-      ])
+        PropTypes.string,
+      ]),
     ),
     PropTypes.string,
     PropTypes.bool,
-    PropTypes.number
-  ])
+    PropTypes.number,
+  ]),
 );
 
 ProfileScene.propTypes = {
@@ -168,21 +167,25 @@ ProfileScene.propTypes = {
   finishedRequest: PropTypes.bool.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   editUserData: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.number,
-    PropTypes.objectOf(PropTypes.oneOfType([
+  history: PropTypes.objectOf(
+    PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.func,
-      PropTypes.number
-    ]))
-  ])).isRequired,
+      PropTypes.number,
+      PropTypes.objectOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.func,
+          PropTypes.number,
+        ]),
+      ),
+    ]),
+  ).isRequired,
   user: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.objectOf(PropTypes.string),
-      PropTypes.string
-    ])
+      PropTypes.string,
+    ]),
   ).isRequired,
   userAddress: PropTypes.oneOfType([
     PropTypes.arrayOf(proptypes),
@@ -190,8 +193,8 @@ ProfileScene.propTypes = {
       PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.bool,
-        PropTypes.arrayOf(proptypes)
-      ])
-    )
-  ])
+        PropTypes.arrayOf(proptypes),
+      ]),
+    ),
+  ]),
 };

@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import fetchBukkaAction from './actionCreators/fetchBukkaAction';
-import fetchBukkaMenuAction from './actionCreators/fetchBukkaMenuAction';
+import fetchBukkaAction from 'Redux/fetchBukkaAction';
+import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 
 import Bukka from './components';
 

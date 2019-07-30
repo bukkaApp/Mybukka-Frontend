@@ -6,10 +6,10 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
-import LocationNavLargeScreen
-  from 'Components/common-navs/LocationNavLargeScreen';
-import LocationNavSmallScreen, { SelectLocationModal }
-  from 'Components/common-navs/LocationNavSmallScreen';
+import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
+import LocationNavSmallScreen, {
+  SelectLocationModal,
+} from 'Components/common-navs/LocationNavSmallScreen';
 
 import Carousel from 'Components/Carousel/Carousel';
 import BukkasToExploreSection from './BukkasToExploreSection';
@@ -21,6 +21,8 @@ import ExploreSection from '../common/ExploreSection';
 import FoodNearBy from './FoodNearBy';
 import Map from '../common/Map';
 import { foodBannerImage } from '../img/imgLinks';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
+import Navbar from 'Components/navbar';
 
 import freeDelivery from '../data/free-delivery.json';
 import favorites from '../data/favorites.json';
@@ -31,6 +33,8 @@ const FoodSection = ({
   coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
+  currentPage,
+  errorMessage,
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -39,67 +43,92 @@ const FoodSection = ({
   };
 
   useEffect(() => {
-    fetchNearbyBukkas(coordinates);
+    nearbyBukkas.length === 0 && fetchNearbyBukkas(coordinates);
   }, [coordinates]);
 
+  console.log(nearbyBukkas.length === 0, errorMessage, nearbyBukkas);
+
+  if (nearbyBukkas.length === 0 && errorMessage.length > 0) {
+    // if (true) {
+    return (
+      <div>
+        <Navbar push={push} />
+        <NoNearByBukkaLocation push={push} />
+      </div>
+    );
+  }
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />
-      {nearbyBukkas.length >= 0 && (
+      {nearbyBukkas.length > 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>
             <div className={displayMap ? 'd-none' : ''}>
               <AreasToExplore bgImage={foodBannerImage} />
             </div>
-            <div className={displayMap ? 'feed-main-content-map'
-              : 'feed-main-content'}
+            <div
+              className={
+                displayMap ? 'feed-main-content-map' : 'feed-main-content'
+              }
             >
               <LocationNavLargeScreen handleMapClick={handleClick} />
               <LocationNavSmallScreen />
               <div>
-                {mode === 'delivery' &&
-                <BukkasToExploreSection />
-                }
+                {mode === 'delivery' && <BukkasToExploreSection />}
                 <div className="carousel-divider" />
-                <Container classNames={displayMap ?
-                  `px-0 d-flex flex-column flex-xl-row flex-lg-row
+                <Container
+                  classNames={
+                    displayMap
+                      ? `px-0 d-flex flex-column flex-xl-row flex-lg-row
                   flex-md-column`
-                  : 'px-0'}
+                      : 'px-0'
+                  }
                 >
-                  <div className={displayMap ?
-                    'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
-                    : ''}
+                  <div
+                    className={
+                      displayMap
+                        ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
+                        : ''
+                    }
                   >
                     <FoodNearBy
                       delivery
-                      classNames={displayMap ? 'col-12'
-                        : 'col-lg-4 col-md-4 col-sm-12'}
+                      classNames={
+                        displayMap ? 'col-12' : 'col-lg-4 col-md-4 col-sm-12'
+                      }
                       title={displayMap ? '' : 'Nearby'}
                       bukkaData={[...nearbyBukkas]}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
+                      currentPage={currentPage}
+                      errorMessage={errorMessage}
                     />
                   </div>
-                  <div className={displayMap ? `container map-wrapper
+                  <div
+                    className={
+                      displayMap
+                        ? `container map-wrapper
                   col-xl-8 col-lg-8 col-md-12col-12 order-first order-lg-0`
-                    : 'd-none'}
+                        : 'd-none'
+                    }
                   >
                     <Map />
                   </div>
                   {/* display carousel for map on small & medium screen */}
-                  {displayMap &&
-                  <div className="d-flex d-md-flex d-lg-none
+                  {displayMap && (
+                    <div
+                      className="d-flex d-md-flex d-lg-none
                   d-xl-none px-0 col-12"
-                  >
-                    <Carousel
-                      delivery
-                      noOfImagesShown={3}
-                      slideItems={[...favorites, ...freeDelivery]}
-                      imageHeight="map-img-height"
-                      classNames="col-lg-6 col-md-6 col-sm-12 col-12"
-                    />
-                  </div>
-                  }
+                    >
+                      <Carousel
+                        delivery
+                        noOfImagesShown={3}
+                        slideItems={[...favorites, ...freeDelivery]}
+                        imageHeight="map-img-height"
+                        classNames="col-lg-6 col-md-6 col-sm-12 col-12"
+                      />
+                    </div>
+                  )}
                 </Container>
               </div>
             </div>
@@ -112,18 +141,20 @@ const FoodSection = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  bukkasReducer: { fetchedBukkas, status },
+  bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
   selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
+  currentPage,
   coordinates,
   mode,
+  errorMessage,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas }
+  { fetchNearbyBukkas: fetchBukkas },
 )(FoodSection);
 
 FoodSection.propTypes = {
@@ -131,7 +162,7 @@ FoodSection.propTypes = {
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
+    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
 };
