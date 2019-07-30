@@ -49,7 +49,6 @@ const FoodSection = ({
   console.log(nearbyBukkas.length === 0, errorMessage, nearbyBukkas);
 
   if (nearbyBukkas.length === 0 && errorMessage.length > 0) {
-    // if (true) {
     return (
       <div>
         <Navbar push={push} />
