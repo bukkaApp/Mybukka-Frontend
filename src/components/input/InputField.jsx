@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './input.scss';
@@ -15,22 +15,28 @@ const InputField = ({
   defaultValue,
   inputRef,
   accept,
-  autoComplete
-}) => (
-  <input
-    type={type}
-    name={name}
-    ref={inputRef}
-    accept={accept}
-    className={classNames}
-    placeholder={placeholderText}
-    onChange={handleChange}
-    onFocus={handleFocus}
-    defaultValue={defaultValue}
-    autoComplete={autoComplete}
-  />
-);
-
+  autoComplete,
+  checked,
+  value,
+}) => {
+  const props = value !== undefined ? { value } : {};
+  return (
+    <input
+      type={type}
+      name={name}
+      ref={inputRef}
+      accept={accept}
+      className={classNames}
+      placeholder={placeholderText}
+      onChange={handleChange}
+      onFocus={handleFocus}
+      {...props}
+      defaultValue={defaultValue}
+      autoComplete={autoComplete}
+      checked={checked}
+    />
+  );
+};
 export default InputField;
 
 InputField.defaultProps = {
@@ -42,11 +48,14 @@ InputField.defaultProps = {
   inputRef: () => {},
   accept: '',
   autoComplete: 'off',
+  checked: false,
+  value: undefined
 };
 
 InputField.propTypes = {
   autoComplete: PropTypes.string,
   type: PropTypes.string,
+  value: PropTypes.string,
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   defaultValue: PropTypes.string,
@@ -54,6 +63,7 @@ InputField.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleFocus: PropTypes.func.isRequired,
   accept: PropTypes.string,
+  checked: PropTypes.bool,
   inputRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) })

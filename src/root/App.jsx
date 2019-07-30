@@ -12,6 +12,7 @@ import reduxStore from '../redux/store';
 import Main from './Main';
 import IndeterminateProgressbar from
   '../components/progress-bar/IndeterminateProgressbar';
+import AlertMessage from '../components/alert';
 
 import './index.scss';
 import './animate.scss';
@@ -24,6 +25,7 @@ const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <IndeterminateProgressbar />
+      <AlertMessage />
       <BrowserRouter>
         <Main />
       </BrowserRouter>

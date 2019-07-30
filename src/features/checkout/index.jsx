@@ -2,7 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
+import logOut from 'Components/navbar/actionCreators/logOut';
+import AuthenticatedPages from 'Components/hoc/AuthenticatedPages';
 
 import PropTypes from 'prop-types';
 import Checkout from './components/Checkout';
@@ -17,7 +18,7 @@ const mapStateToProps = ({
   authenticated
 });
 
-export default connect(mapStateToProps, null)(AuthenticatedPages(checkoutPage));
+export default connect(mapStateToProps, { signOut: logOut })(AuthenticatedPages(checkoutPage));
 
 checkoutPage.propTypes = {
   history: PropTypes.shape({

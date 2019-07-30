@@ -16,11 +16,16 @@
 
 .time-list-wrapper {
   max-height: 250px;
+  min-height: 200px;
   overflow-y: scroll;
 }
 
+.cursor-progress {
+  cursor: progress !important;
+}
+
 .time-display {
-  display: none;
+  // display: none;
 }
 
 .rotate-up {

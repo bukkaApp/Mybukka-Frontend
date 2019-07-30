@@ -33,7 +33,7 @@ const DeliveryForm = ({
         placeholderText="Add delivery instructuctions..."
         name="deliveryInstruction"
         classNames="instruction"
-        handleChange={() => {}}
+        handleChange={handleChange}
         handleFocus={() => {}}
       />
     </div>
