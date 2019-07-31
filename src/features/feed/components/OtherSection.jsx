@@ -14,16 +14,17 @@ import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheck
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen, {
-  SelectLocationModal
+  SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 
 import BukkaNavSmallScreen, {
-  ResponsiveCategories
+  ResponsiveCategories,
 } from 'Components/navbar/BukkaNavSmallScreen';
 
 import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
-import NotAvailable from 'Components/not-found/NotAvailable';
+
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
@@ -44,7 +45,7 @@ const OtherSection = ({
   errorMessage,
   fetched,
   setMealToDisplay,
-  type
+  type,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -54,10 +55,11 @@ const OtherSection = ({
   }, [coordinates, type]);
 
   if (bukkaMenu.length === 1 && error) {
+    // if (true) {
     return (
       <div>
         <Navbar push={push} />
-        <NotAvailable />
+        <NoNearByBukkaLocation push={push} />
       </div>
     );
   }
@@ -90,19 +92,24 @@ const OtherSection = ({
                           <Row classNames="pb-4">
                             {bukkaMenu.map(menu => (
                               <>
-                                {(menu.category === category && menu.title.toLowerCase().includes(searchQuery.toLowerCase())) && (
-                                  <BukkaCard
-                                    key={shortId.generate()}
-                                    imageUrl={menu.imageUrl}
-                                    mealName={menu.title}
-                                    deliveryPrice={menu.deliveryCost}
-                                    imageHeight="fresh-img-height"
-                                    classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                                    dataTarget="#mealModal"
-                                    dataToggle="modal"
-                                    handleClick={() => setMealToDisplay(menu.slug)}
-                                  />
-                                )}
+                                {menu.category === category &&
+                                  menu.title
+                                    .toLowerCase()
+                                    .includes(searchQuery.toLowerCase()) && (
+                                    <BukkaCard
+                                      key={shortId.generate()}
+                                      imageUrl={menu.imageUrl}
+                                      mealName={menu.title}
+                                      deliveryPrice={menu.deliveryCost}
+                                      imageHeight="fresh-img-height"
+                                      classNames="col-lg-3 col-md-4 col-sm-6 col-6"
+                                      dataTarget="#mealModal"
+                                      dataToggle="modal"
+                                      handleClick={() =>
+                                        setMealToDisplay(menu.slug)
+                                      }
+                                    />
+                                  )}
                               </>
                             ))}
                           </Row>
@@ -127,13 +134,13 @@ const mapStateToProps = ({
   fetchBukkaMenuReducer: {
     bukkaMenu,
     categories,
-    status: { error, fetched }
+    status: { error, fetched },
   },
   drinkReducer: {
-    fetchedBukkas: { nearbyBukkas: drinkBukkas }
+    fetchedBukkas: { nearbyBukkas: drinkBukkas },
   },
   selectedLocationReducer: { coordinates },
-  cartReducer: { errorMessage }
+  cartReducer: { errorMessage },
 }) => ({
   bukkaMenu,
   status,
@@ -148,7 +155,10 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { fetchBukkaMenu: fetchBukkaMenuAction, setMealToDisplay: setMealToDisplayAction }
+  {
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    setMealToDisplay: setMealToDisplayAction,
+  },
 )(OtherSection);
 
 OtherSection.propTypes = {
@@ -156,8 +166,8 @@ OtherSection.propTypes = {
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
+    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   fetchBukkaMenu: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired
+  status: PropTypes.objectOf(PropTypes.bool).isRequired,
 };

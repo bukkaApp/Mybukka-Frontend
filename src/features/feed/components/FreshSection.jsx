@@ -10,10 +10,10 @@ import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheck
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen, {
-  SelectLocationModal
+  SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaNavSmallScreen, {
-  ResponsiveCategories
+  ResponsiveCategories,
 } from 'Components/navbar/BukkaNavSmallScreen';
 
 import shortId from 'shortid';
@@ -24,7 +24,7 @@ import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import CheckoutButton from 'Components/common/CheckoutButton';
 import Navbar from 'Components/navbar';
-import NotAvailable from 'Components/not-found/NotAvailable';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 import fetchCartAction from 'Redux/fetchCartAction';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
@@ -44,12 +44,12 @@ const FreshSection = ({
   cartIsUpdated,
   fetchCart,
   authenticated,
-  freshBukkas
+  freshBukkas,
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const bukkaCategories = [
-    ...new Set(freshBukkas.map(mealData => mealData.bukka))
+    ...new Set(freshBukkas.map(mealData => mealData.bukka)),
   ];
 
   useEffect(() => {
@@ -67,10 +67,11 @@ const FreshSection = ({
   // }, [searches]);
 
   if (bukkaMenu.length === 1 && error) {
+    // if (true) {
     return (
       <div>
         <Navbar push={push} />
-        <NotAvailable />
+        <NoNearByBukkaLocation push={push} />
       </div>
     );
   }
@@ -139,15 +140,15 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   freshReducer: {
-    fetchedBukkas: { nearbyBukkas: freshBukkas }
+    fetchedBukkas: { nearbyBukkas: freshBukkas },
   },
   selectedLocationReducer: { coordinates },
   cartReducer: {
-    status: { updated, error }
+    status: { updated, error },
   },
   authenticationReducer: {
-    status: { authenticated }
-  }
+    status: { authenticated },
+  },
 }) => ({
   fetchedBukkas,
   status,
@@ -156,12 +157,12 @@ const mapStateToProps = ({
   cartIsUpdated: updated,
   errorUpdatingCart: error,
   authenticated,
-  freshBukkas
+  freshBukkas,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchBukkaMenu: fetchBukkaMenuAction, fetchCart: fetchCartAction }
+  { fetchBukkaMenu: fetchBukkaMenuAction, fetchCart: fetchCartAction },
 )(FreshSection);
 
 FreshSection.propTypes = {
@@ -169,11 +170,11 @@ FreshSection.propTypes = {
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
+    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   fetchBukkaMenu: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   cartIsUpdated: PropTypes.bool.isRequired,
   fetchCart: PropTypes.func.isRequired,
-  authenticated: PropTypes.bool.isRequired
+  authenticated: PropTypes.bool.isRequired,
 };
