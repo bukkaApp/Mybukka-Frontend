@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Modal from 'Components/modal';
 import InputField from 'Components/input/InputField';
 import Button from 'Components/button/Button';
 import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import DismissModal from 'Components/modal/DismissModal';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './InviteFriends.css';
 
 export default function InviteFriends() {
   const [form, setForm] = useState({
     emails: '',
+    copied: false,
     link: 'https://bitly.com',
   });
 
@@ -18,16 +20,24 @@ export default function InviteFriends() {
       [event.target.name]: event.target.value,
     });
   };
+
+  const copyLinkInvite = () => {
+    setForm({
+      ...form,
+      copied: true,
+    });
+  };
+
   return (
     <Modal>
       <DismissModal classNames="close" />
       <div className="invite-padding m-4">
         <section id="header">
-          <figure class="figure">
+          <figure className="figure">
             <img
               src="https://raster-static.postmates.com?url=https://buyer-static.postmates.com/dist/prod/web-referral-card@3x.c76dc79be5f0769e45a6f94db61b200b53ce3c70eea546fc2c08aba75640b50300402b98fd3f1a6bb6668fc427cc2d05163512756e34b909cb00a595ee2ca964.png&quality=85&w=0&h=0&mode=auto&format=webp&v=4"
-              class="figure-img img-fluid rounded"
-              alt=""
+              className="figure-img img-fluid rounded"
+              alt="invite-friends-fig"
             />
           </figure>
         </section>
@@ -63,12 +73,16 @@ export default function InviteFriends() {
         <section id="footer">
           <div className="d-flex flex-column">
             <div className="invite-link invite-padding d-flex justify-content-around align-items-center mx-4">
-              <div>
-                <span>{form.link}</span>
-              </div>
-              <div>
-                <span class="text-success">COPY</span>
-              </div>
+              <CopyToClipboard text={form.link} onCopy={() => copyLinkInvite()}>
+                <Fragment>
+                  <span>{form.link}</span>
+                  <span
+                    className={form.copied ? 'text-success' : 'text-warning'}
+                  >
+                    COPY
+                  </span>
+                </Fragment>
+              </CopyToClipboard>
             </div>
             <div className="social invite-padding d-flex flex-row justify-content-end mx-4">
               <Button
@@ -78,7 +92,7 @@ export default function InviteFriends() {
                 handleClick={() => push('/social/facebook')}
               >
                 <Facebook />
-                <span class="text-white">SHARE</span>
+                <span className="text-white">SHARE</span>
               </Button>
               <Button
                 classNames="twitter-btn mb-4 w-50 mr-4 d-flex justify-content-around"
@@ -87,7 +101,7 @@ export default function InviteFriends() {
                 handleClick={() => push('/social/twitter')}
               >
                 <Twitter />
-                <span class="text-white">SHARE</span>
+                <span className="text-white">SHARE</span>
               </Button>
             </div>
           </div>
