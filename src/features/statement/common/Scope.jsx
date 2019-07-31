@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Paragraph from './Paragraph';
 
 const Scope = ({ text, classNames }) => (
   <h3 className={classNames}>
