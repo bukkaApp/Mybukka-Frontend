@@ -12,6 +12,8 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
+import VerifyPhone from '../verifyPhone';
+
 const Home = ({
   history: { push },
   coordinates,
@@ -29,6 +31,7 @@ const Home = ({
 
   return (
     <div className="home">
+      <VerifyPhone />
       <IntroSection push={push} />
       <DiscoverSection />
       <ChooseAreaToExploreSection />

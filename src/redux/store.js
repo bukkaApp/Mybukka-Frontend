@@ -7,8 +7,7 @@ import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import checkoutModeReducer from
-  'Components/common-navs/reducers/checkoutModeReducer';
+import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
@@ -50,6 +49,11 @@ import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer
 import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
 import alertMessageReducer from './alertMessageReducer';
 
+import sendContactReducer from '../features/verifyPhone/reducers/sendContactReducer';
+import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVerificationCodeReducer';
+
+import getUserDataReducer from '../features/verifyPhone/reducers/getUserDataReducer';
+
 const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
@@ -80,6 +84,9 @@ const reducer = combineReducers({
   deliveryScheduleReducer,
   cartReducer,
   reportIssueReducer,
+  sendContactReducer,
+  sendVerificationCodeReducer,
+  getUserDataReducer,
   saveUserCardReducer,
   verifyCardReducer,
   getUserCardReducer,

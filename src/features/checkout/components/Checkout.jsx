@@ -23,6 +23,7 @@ import DeliveryAddress from './DeliveryAddress';
 import ScheduleSelector from './ScheduleSelector';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
+import VerifyPhone from '../../verifyPhone';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
@@ -138,6 +139,7 @@ const Checkout = ({
 
   return (
     <>
+      <VerifyPhone />
       <Navbar push={push} />
       <AddToCart />
       <SendSecurityKeyForm cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
@@ -201,6 +203,7 @@ const Checkout = ({
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data },
+  fetchBukkaMenuReducer: { totalPriceInCart },
   cartReducer: { totalCost, items },
   fetchBukkaMenuReducer: {
     bukkaMenu,
@@ -233,6 +236,7 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
+  { checkoutUser: chargeUser },
   { chargeUserToSaveCard: chargeUser,
     checkoutUser: postUserOrder,
     fetchBukkaMenu: fetchBukkaMenuAction,
@@ -241,7 +245,7 @@ export default connect(
 )(Checkout);
 
 Checkout.propTypes = {
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
 };
 
 Checkout.defaultProps = {
