@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import ChevronVertical from 'Icons/ChevronVertical';
 
 import { UnOrderList, ListItem } from '../common/List';
 
-const navArr = [{ text: 'Terms of Service' }, { text: 'Gift Cards' }, { text: 'Privacy Policy' }, { text: 'Shipping Policy' }];
+const navArr = [
+  { text: 'Terms of Service', href: '/legal/terms' },
+  { text: 'Gift Cards', href: '/legal/gift' },
+  { text: 'Privacy Policy', href: '/legal/privacy' },
+  { text: 'Shipping Policy', href: '/legal/policy' }
+];
 
-const SmallScreen = () => {
+const SmallScreen = ({ activePage }) => {
   const [active, setActive] = useState(false);
   return (
     <nav className="d-flex flex-column justify-content-between">
@@ -23,9 +29,16 @@ const SmallScreen = () => {
         classNames="secondary-custom-navbar-content p-0"
       >
         {navArr.map(navText => (
-          <ListItem classNames="secondary-content-list text-muted text-center">
-            {navText.text}
-          </ListItem>
+          <a
+            href={navText.href}
+            className={`${activePage === navText ? 'text-dark' : ''}`}
+          >
+            <ListItem
+              classNames="secondary-content-list text-muted text-center"
+            >
+              {navText.text}
+            </ListItem>
+          </a>
         ))}
       </UnOrderList>
       }
@@ -33,27 +46,59 @@ const SmallScreen = () => {
   );
 };
 
-const LargeScreen = () => (
+const LargeScreen = ({ activePage }) => (
   <nav className="navbar justify-content-between">
     <p className="custom-mark">Legal</p>
     <UnOrderList
       classNames="d-flex justify-content-between"
     >
       {navArr.map(navText => (
-        <ListItem classNames="px-2 text-muted">{navText.text}</ListItem>))}
+        <a
+          href={navText.href}
+          className={`${activePage === navText ? 'text-dark' : ''}`}
+        >
+          <ListItem classNames="px-2 text-muted">{navText.text}</ListItem>
+        </a>))}
     </UnOrderList>
   </nav>
 );
 
-const SeceondaryNavar = () => (
+const SeceondaryNavar = ({ activePage }) => (
   <section className="position-relative">
     <div className="d-block d-md-none">
-      <SmallScreen />
+      <SmallScreen activePage={activePage} />
     </div>
     <div className="container d-none d-sm-none d-md-block">
-      <LargeScreen />
+      <LargeScreen activePage={activePage} />
     </div>
   </section>
 );
 
 export default SeceondaryNavar;
+
+
+SeceondaryNavar.defaultProps = {
+  activePage: '',
+};
+
+SeceondaryNavar.propTypes = {
+  activePage: PropTypes.string,
+};
+
+
+LargeScreen.defaultProps = {
+  activePage: '',
+};
+
+LargeScreen.propTypes = {
+  activePage: PropTypes.string,
+};
+
+
+SmallScreen.defaultProps = {
+  activePage: '',
+};
+
+SmallScreen.propTypes = {
+  activePage: PropTypes.string,
+};
