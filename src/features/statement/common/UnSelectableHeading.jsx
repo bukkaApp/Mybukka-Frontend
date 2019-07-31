@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './underline.scss';
-
 const UnSelectableHeading = ({ children, text, classNames, font }) => (
   <div className={`unselectable ${classNames}`}>
     <div className={`personalized-header-text text-capitalize ${font}`}>

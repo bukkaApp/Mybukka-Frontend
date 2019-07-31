@@ -11,6 +11,8 @@ import Paragraph from '../common/Paragraph';
 import Content from './Content';
 import SeceondaryNavbar from '../common/SecondaryNavbar';
 
+import './statement.scss';
+
 const Statement = ({ data, activePage }) => (
   <Fragment>
     <section className="border-bottom">
