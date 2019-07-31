@@ -7,15 +7,15 @@ import Paragraph from '../common/Paragraph';
 
 const Content = ({ data }) => (
   <List classNames="p-0" type="number">
-    {data.privacyData.map((eachPrivacy, index) => (
+    {data.mainContent.map((eachContent, index) => (
       <>
         {/* main heading section */}
         <UnselectableHeading classNames="p-0 m-0 mt-5 mb-3">
-          {index + 1}. {eachPrivacy.section}
+          {index + 1}. {eachContent.section}
         </UnselectableHeading>
         {/* content of each main heading */}
         <OrderList classNames="p-0">
-          {eachPrivacy.article.map((eachArticle, indx) =>
+          {eachContent.article.map((eachArticle, indx) =>
             (<>
               {/* sub heading section */}
               {eachArticle.heading &&
@@ -63,7 +63,7 @@ export default Content;
 
 
 Content.defaultProps = {
-  data: { privacyData: [] },
+  data: { mainContent: [] },
 };
 
 Content.propTypes = {
