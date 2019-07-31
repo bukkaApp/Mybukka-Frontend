@@ -3,6 +3,7 @@ import Modal from 'Components/modal';
 import InputField from 'Components/input/InputField';
 import Button from 'Components/button/Button';
 import Twitter, { Facebook } from 'Components/button/SocialSvg';
+import DismissModal from 'Components/modal/DismissModal';
 import './InviteFriends.css';
 
 export default function InviteFriends() {
@@ -19,7 +20,8 @@ export default function InviteFriends() {
   };
   return (
     <Modal>
-      <div className="padding m-4">
+      <DismissModal classNames="close" />
+      <div className="invite-padding m-4">
         <section id="header">
           <figure class="figure">
             <img
@@ -31,19 +33,13 @@ export default function InviteFriends() {
         </section>
         <section id="main">
           <div className="coupon-header text-center text-dark">
-            <h3>Get N1000 off all your</h3>
+            <h3>Get N1000 off all your purchases</h3>
           </div>
           <div className="content text-center">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
               praesentium nam fuga fugiat quos quasi consequatur voluptatum
               possimus inventore? Cumque.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              molestiae itaque quae rem assumenda quasi eaque! Voluptas dolores
-              quod dolore aperiam accusamus commodi minus fuga dolorum nihil.
-              Perferendis, cum vero!
             </p>
           </div>
           <div className="recipient-form">
@@ -66,7 +62,7 @@ export default function InviteFriends() {
         </section>
         <section id="footer">
           <div className="d-flex flex-column">
-            <div className="link padding d-flex justify-content-around align-items-center mx-4">
+            <div className="invite-link invite-padding d-flex justify-content-around align-items-center mx-4">
               <div>
                 <span>{form.link}</span>
               </div>
@@ -74,7 +70,7 @@ export default function InviteFriends() {
                 <span class="text-success">COPY</span>
               </div>
             </div>
-            <div className="social padding d-flex flex-row justify-content-end mx-4">
+            <div className="social invite-padding d-flex flex-row justify-content-end mx-4">
               <Button
                 classNames="facebook-btn mb-4 w-50 mr-4 d-flex justify-content-around"
                 type="button"

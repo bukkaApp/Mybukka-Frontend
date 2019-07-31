@@ -1,5 +1,5 @@
-.padding {
-  padding: 40px;
+.invite-padding {
+  padding: 30px;
 }
 
 .content p {
@@ -10,10 +10,10 @@
   overflow-y: scroll;
 }
 
-.link {
+.invite-link {
   border: 1px dotted rgb(143, 149, 163);
   border-radius: 20px;
-  height: 50px;
+  height: 30px;
 }
 
 .recipient-form {
