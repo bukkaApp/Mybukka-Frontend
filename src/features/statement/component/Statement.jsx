@@ -11,12 +11,12 @@ import Paragraph from '../common/Paragraph';
 import Content from './Content';
 import SeceondaryNavbar from '../common/SecondaryNavbar';
 
-const Statement = ({ data }) => (
+const Statement = ({ data, activePage }) => (
   <Fragment>
     <section className="border-bottom">
       <PrimaryNavbar authButton />
     </section>
-    <SeceondaryNavbar />
+    <SeceondaryNavbar activePage={activePage} />
     <Container classNames="custom-container">
       <UnselectableHeading
         font="font-size96"
@@ -33,6 +33,7 @@ const Statement = ({ data }) => (
       </Foreword>
       {data.further && data.further.map(eachData =>
         (<Paragraph
+          key={eachData}
           classNames="short-text scope-definition mt-0"
           text={eachData}
         />))}
@@ -57,6 +58,11 @@ const Statement = ({ data }) => (
 
 export default Statement;
 
+Statement.defaultProps = {
+  activePage: ''
+};
+
 Statement.propTypes = {
-  data: PropTypes.objectOf(PropTypes.array).isRequired
+  data: PropTypes.objectOf(PropTypes.array).isRequired,
+  activePage: PropTypes.string,
 };

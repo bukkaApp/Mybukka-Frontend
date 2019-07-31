@@ -31,10 +31,11 @@ const SmallScreen = ({ activePage }) => {
         {navArr.map(navText => (
           <a
             href={navText.href}
-            className={`${activePage === navText ? 'text-dark' : ''}`}
+            className={`${activePage === navText.text ? 'text-dark'
+              : 'text-muted'}`}
           >
             <ListItem
-              classNames="secondary-content-list text-muted text-center"
+              classNames="secondary-content-list text-center"
             >
               {navText.text}
             </ListItem>
@@ -55,9 +56,9 @@ const LargeScreen = ({ activePage }) => (
       {navArr.map(navText => (
         <a
           href={navText.href}
-          className={`${activePage === navText ? 'text-dark' : ''}`}
+          className={`${activePage === navText.text ? 'text-dark' : 'text-muted'}`}
         >
-          <ListItem classNames="px-2 text-muted">{navText.text}</ListItem>
+          <ListItem classNames="px-2">{navText.text}</ListItem>
         </a>))}
     </UnOrderList>
   </nav>
