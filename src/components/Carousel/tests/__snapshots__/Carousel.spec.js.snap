@@ -10,6 +10,7 @@ Object {
       >
         <div
           class="headline"
+          id="A carousel"
         >
           <div
             class="runner"
@@ -44,39 +45,45 @@ Object {
                   <div
                     class="card-wrap"
                   >
-                    
-                    <div
-                      class="mt-4 bukka-card"
-                      data-target=""
-                      data-toggle=""
+                    <a
+                      class="link"
+                      href="/"
                     >
-                      <img
-                        alt="alt_image"
-                        class="img-small-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
-                      />
-                      <img
-                        alt="alt_image"
-                        class="img-large-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
-                      />
                       <div
-                        class="details"
+                        class="mt-4 bukka-card"
+                        data-target=""
+                        data-toggle=""
+                        role="button"
+                        tabindex="0"
                       >
-                        <h3>
-                          <span
-                            class="details-location"
-                          >
-                            
-                          </span>
-                        </h3>
+                        <img
+                          alt="alt_image"
+                          class="img-small-screen bukka-img img-height"
+                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
+                        />
+                        <img
+                          alt="alt_image"
+                          class="img-large-screen bukka-img img-height"
+                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
+                        />
                         <div
-                          class="delivery"
+                          class="details"
                         >
-                          0
+                          <h3>
+                            <span
+                              class="details-location"
+                            >
+                              
+                            </span>
+                          </h3>
+                          <div
+                            class="delivery"
+                          >
+                            0
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 <div
@@ -85,39 +92,45 @@ Object {
                   <div
                     class="card-wrap"
                   >
-                    
-                    <div
-                      class="mt-4 bukka-card"
-                      data-target=""
-                      data-toggle=""
+                    <a
+                      class="link"
+                      href="/"
                     >
-                      <img
-                        alt="alt_image"
-                        class="img-small-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
-                      />
-                      <img
-                        alt="alt_image"
-                        class="img-large-screen bukka-img img-height"
-                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
-                      />
                       <div
-                        class="details"
+                        class="mt-4 bukka-card"
+                        data-target=""
+                        data-toggle=""
+                        role="button"
+                        tabindex="0"
                       >
-                        <h3>
-                          <span
-                            class="details-location"
-                          >
-                            
-                          </span>
-                        </h3>
+                        <img
+                          alt="alt_image"
+                          class="img-small-screen bukka-img img-height"
+                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
+                        />
+                        <img
+                          alt="alt_image"
+                          class="img-large-screen bukka-img img-height"
+                          src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
+                        />
                         <div
-                          class="delivery"
+                          class="details"
                         >
-                          0
+                          <h3>
+                            <span
+                              class="details-location"
+                            >
+                              
+                            </span>
+                          </h3>
+                          <div
+                            class="delivery"
+                          >
+                            0
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -133,6 +146,7 @@ Object {
     >
       <div
         class="headline"
+        id="A carousel"
       >
         <div
           class="runner"
@@ -167,39 +181,45 @@ Object {
                 <div
                   class="card-wrap"
                 >
-                  
-                  <div
-                    class="mt-4 bukka-card"
-                    data-target=""
-                    data-toggle=""
+                  <a
+                    class="link"
+                    href="/"
                   >
-                    <img
-                      alt="alt_image"
-                      class="img-small-screen bukka-img img-height"
-                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
-                    />
-                    <img
-                      alt="alt_image"
-                      class="img-large-screen bukka-img img-height"
-                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
-                    />
                     <div
-                      class="details"
+                      class="mt-4 bukka-card"
+                      data-target=""
+                      data-toggle=""
+                      role="button"
+                      tabindex="0"
                     >
-                      <h3>
-                        <span
-                          class="details-location"
-                        >
-                          
-                        </span>
-                      </h3>
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300439/banner-img-3.jpg"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300439/banner-img-3.jpg"
+                      />
                       <div
-                        class="delivery"
+                        class="details"
                       >
-                        0
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          0
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
               <div
@@ -208,39 +228,45 @@ Object {
                 <div
                   class="card-wrap"
                 >
-                  
-                  <div
-                    class="mt-4 bukka-card"
-                    data-target=""
-                    data-toggle=""
+                  <a
+                    class="link"
+                    href="/"
                   >
-                    <img
-                      alt="alt_image"
-                      class="img-small-screen bukka-img img-height"
-                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
-                    />
-                    <img
-                      alt="alt_image"
-                      class="img-large-screen bukka-img img-height"
-                      src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
-                    />
                     <div
-                      class="details"
+                      class="mt-4 bukka-card"
+                      data-target=""
+                      data-toggle=""
+                      role="button"
+                      tabindex="0"
                     >
-                      <h3>
-                        <span
-                          class="details-location"
-                        >
-                          
-                        </span>
-                      </h3>
+                      <img
+                        alt="alt_image"
+                        class="img-small-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_320,h_320/v1549300440/banner-img-2.jpg"
+                      />
+                      <img
+                        alt="alt_image"
+                        class="img-large-screen bukka-img img-height"
+                        src="https://res.cloudinary.com/deqt3envc/image/upload/c_scale,w_640,h_640/v1549300440/banner-img-2.jpg"
+                      />
                       <div
-                        class="delivery"
+                        class="details"
                       >
-                        0
+                        <h3>
+                          <span
+                            class="details-location"
+                          >
+                            
+                          </span>
+                        </h3>
+                        <div
+                          class="delivery"
+                        >
+                          0
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

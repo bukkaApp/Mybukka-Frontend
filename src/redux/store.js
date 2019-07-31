@@ -103,14 +103,10 @@ const persistConfig = {
     'authenticationReducer',
     'fetchBukkaReducer',
     'fetchBukkaMenuReducer',
-<<<<<<< HEAD
-  ],
-=======
     'selectedLocationReducer',
     'deliveryScheduleReducer',
     'cartReducer',
   ]
->>>>>>> c9836ce77b54615cc5cef5d68d475b6f03aaaeee
 };
 const persistedReducer = persistReducer(persistConfig, reducer);
 

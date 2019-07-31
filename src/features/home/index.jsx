@@ -14,8 +14,6 @@ import ReadyToOrderSection from './components/ReadyToOrderSection';
 
 import VerifyPhone from '../verifyPhone';
 
-const Home = ({ history: { push }, coordinates }) => {
-  useEffect(() => () => push('/feed'), [coordinates]);
 const Home = ({
   history: { push },
   coordinates,
@@ -32,16 +30,14 @@ const Home = ({
   useEffect(() => () => push('/feed'), [nearbyBukkas]);
 
   return (
-    <>
+    <div className="home">
       <VerifyPhone />
-      <div className="home">
-        <IntroSection push={push} />
-        <DiscoverSection />
-        <ChooseAreaToExploreSection />
-        <ReadyToOrderSection />
-        <Footer />
-      </div>
-    </>
+      <IntroSection push={push} />
+      <DiscoverSection />
+      <ChooseAreaToExploreSection />
+      <ReadyToOrderSection />
+      <Footer />
+    </div>
   );
 };
 
