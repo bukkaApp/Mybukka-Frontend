@@ -27,7 +27,7 @@ const Home = ({
     () => () => {
       fetchNearbyBukkas(coordinates);
     },
-    [coordinates],
+    [coordinates],git
   );
 
   useEffect(() => {
