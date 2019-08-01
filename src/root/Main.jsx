@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
 import Map from 'Components/map';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 import Home from '../features/home';
 import Bukka from '../features/bukka';
@@ -56,6 +57,7 @@ const Main = () => (
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
       <Route exact path="/legal/privacy" component={Privacy} />
       <Route exact path="/legal/terms" component={Terms} />
+      <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
       <Route
         exact
         path="/support/buyer/contact-us/:id"

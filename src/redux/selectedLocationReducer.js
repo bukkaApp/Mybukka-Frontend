@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   selectedLocation: {},
-  coordinates: [3.361476, 6.5560715]
+  coordinates: [] // 3.361476, 6.5560715
 };
 
 const selectedLocationReducer = (state = initialState, action) => {

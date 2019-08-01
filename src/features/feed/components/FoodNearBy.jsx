@@ -25,8 +25,13 @@ const FoodNearBy = ({
   fetchMoreBukkas,
   currentPage,
   errorMessage,
-  loading
-}) => (
+}) => {
+
+  const handleClick = () => {
+
+  }
+
+  return (
   <div className="mt-4 mb-4">
     {title && (
       <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
@@ -35,7 +40,8 @@ const FoodNearBy = ({
     <Container>
       {bukkaData.length > 0 && (
         <InfiniteScroll
-          loadMore={() => fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
+          loadMore={() =>
+            fetchMoreBukkas({ coordinates, page: Number(currentPage) + 1 }, true)}
           hasMore={
             errorMessage !== 'There are currently no bukkas in your location'
           }
@@ -68,13 +74,12 @@ const FoodNearBy = ({
     </Container>
   </div>
 );
+            }
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
-  loadingReducer: { status }
 }) => ({
   coordinates,
-  loading: status
 });
 
 export default connect(
@@ -87,7 +92,10 @@ FoodNearBy.defaultProps = {
   heading: true,
   title: '',
   delivery: false,
-  handleRefFocus: () => {}
+  handleRefFocus: () => {},
+  coordinates: [],
+  currentPage: 1,
+  errorMessage: '',
 };
 
 FoodNearBy.propTypes = {
@@ -96,6 +104,10 @@ FoodNearBy.propTypes = {
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,
   imageHeight: PropTypes.string.isRequired,
+  coordinates: PropTypes.arrayOf(PropTypes.number),
+  fetchMoreBukkas: PropTypes.func.isRequired,
+  currentPage: PropTypes.number,
+  errorMessage: PropTypes.string,
   bukkaData: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.string,
