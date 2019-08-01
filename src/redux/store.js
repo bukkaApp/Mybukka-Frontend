@@ -7,8 +7,7 @@ import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import checkoutModeReducer from
-  'Components/common-navs/reducers/checkoutModeReducer';
+import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
@@ -19,8 +18,6 @@ import selectedLocationReducer from './selectedLocationReducer';
 import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
 
 import bukkasReducer from '../features/feed/reducers/bukkasReducer';
-import freshReducer from '../features/feed/reducers/freshReducer';
-import drinkReducer from '../features/feed/reducers/drinkReducer';
 import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
 import fetchUserData from '../features/profile/reducers/fetchUserData';
 import postUserAddress from '../features/profile/reducers/postUserAddress';
@@ -43,6 +40,17 @@ import signOutReducer from '../components/navbar/reducers/signOutReducer';
 import searchAnythingReducer from './searchAnythingReducer';
 import deliveryScheduleReducer from './deliveryScheduleReducer';
 import cartReducer from './cartReducer';
+
+import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
+import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
+import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer';
+import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
+import alertMessageReducer from './alertMessageReducer';
+
+import sendContactReducer from '../features/verifyPhone/reducers/sendContactReducer';
+import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVerificationCodeReducer';
+
+import getUserDataReducer from '../features/verifyPhone/reducers/getUserDataReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -69,11 +77,17 @@ const reducer = combineReducers({
   finishTransactionReducer,
   checkoutModeReducer,
   searchAnythingReducer,
-  freshReducer,
-  drinkReducer,
   deliveryScheduleReducer,
   cartReducer,
   reportIssueReducer,
+  sendContactReducer,
+  sendVerificationCodeReducer,
+  getUserDataReducer,
+  saveUserCardReducer,
+  verifyCardReducer,
+  getUserCardReducer,
+  setDefaultCardReducer,
+  alertMessageReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);

@@ -1,5 +1,6 @@
-import { FETCH_BUKKAS } from 'Redux/actionTypes';
+import { FETCH_BUKKAS, SET_DEFAULT_CARD } from 'Redux/actionTypes';
 import axiosInstance from 'Redux/axios';
+import alertMessage from 'Redux/alertMessage';
 import loading from 'Redux/loading';
 
 const fetchBukkasAction = (type, data) => ({
@@ -7,12 +8,14 @@ const fetchBukkasAction = (type, data) => ({
   data
 });
 
-const fetchBukkas = (
+const fetchBukkas = ({
   coordinates,
   page = 1,
   limit = 12,
   by = 'majorCusine',
-  value = ''
+  value = '',
+},
+paginate,
 ) => async (dispatch) => {
   try {
     dispatch(loading(FETCH_BUKKAS, true));
@@ -22,9 +25,17 @@ const fetchBukkas = (
       }&page=${page}&limit=${limit}&by=${by}&value=${value}`
     );
     dispatch(loading(FETCH_BUKKAS, false));
-    dispatch(fetchBukkasAction('SUCCESS', request.data));
+    if (paginate) {
+      dispatch(fetchBukkasAction('PAGINATE_SUCCESS', request.data));
+    } else {
+      dispatch(fetchBukkasAction('SUCCESS', request.data));
+    }
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
+    if (!error.response) {
+      dispatch(alertMessage(SET_DEFAULT_CARD, true, 'Sorry, Server maintaince is going on, try again later'));
+      dispatch(loading(FETCH_BUKKAS, false));
+    }
     dispatch(fetchBukkasAction('ERROR', error.response.data));
   }
 };

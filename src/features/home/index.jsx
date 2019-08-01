@@ -12,26 +12,35 @@ import ChooseAreaToExploreSection from './components/ChooseAreaToExploreSection'
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
+import VerifyPhone from '../verifyPhone';
+
 const Home = ({
   history: { push },
   coordinates,
   fetchNearbyBukkas,
   fetchedBukkas: { nearbyBukkas },
+  errorMessage,
 }) => {
+  useEffect(() => () => scrollTo(0, 0), []);
+
   useEffect(
     () => () => {
-      console.log('about to fetch bukkas ...');
-      fetchNearbyBukkas(coordinates);
+      fetchNearbyBukkas({ coordinates });
     },
     [coordinates],
   );
 
-  useEffect(() => () => {
-    push('/feed');
-  }, [nearbyBukkas]);
+  useEffect(() => {
+    if (!errorMessage && nearbyBukkas.length > 0) {
+      return push('/feed');
+    } else if (errorMessage && nearbyBukkas.length <= 0) {
+      return push('/coming-soon');
+    }
+  }, [errorMessage, nearbyBukkas]);
 
   return (
     <div className="home">
+      <VerifyPhone />
       <IntroSection push={push} />
       <DiscoverSection />
       <ChooseAreaToExploreSection />
@@ -43,10 +52,11 @@ const Home = ({
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
-  bukkasReducer: { fetchedBukkas },
+  bukkasReducer: { fetchedBukkas, errorMessage },
 }) => ({
   coordinates,
   fetchedBukkas,
+  errorMessage,
 });
 
 export default connect(
@@ -54,7 +64,12 @@ export default connect(
   { fetchNearbyBukkas: fetchBukkas },
 )(Home);
 
+Home.defaultProps = {
+  errorMessage: ''
+};
+
 Home.propTypes = {
+  errorMessage: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,

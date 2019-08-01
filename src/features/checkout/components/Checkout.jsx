@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 
+import logOut from 'Components/navbar/actionCreators/logOut';
+import authServices from 'Utilities/authServices';
 import Map from 'Components/map';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
@@ -20,24 +23,28 @@ import DeliveryAddress from './DeliveryAddress';
 import ScheduleSelector from './ScheduleSelector';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
+import VerifyPhone from '../../verifyPhone';
+import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
 
 const Checkout = ({
   push,
+  chargeUserToSaveCard,
   checkoutUser,
-  card,
-  amount,
   message,
-  data,
   cart,
-  bukkaMenu,
   fetchBukkaMenu,
   menuIsFetched,
   bukkaOfMenu,
   day,
   time,
   success,
+  cards,
+  hasDefaultCard,
+  coordinates,
+  mode,
+  signOut,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -49,7 +56,7 @@ const Checkout = ({
   const [deliveryAddressData, setDeliveryAddressData] = useState({
     address: '',
     deliveryInstructions: '',
-    name: '',
+    name: authServices.getFullName(),
     mobileNumber: ''
   });
 
@@ -75,7 +82,25 @@ const Checkout = ({
     });
   };
 
+  const validateAddress = () => {
+    const { errors, passes } = validateAllFields(deliveryAddressData);
+    setValidationErrors({
+      ...validationErrors,
+      ...errors
+    });
+    return passes;
+  };
+
   useEffect(() => {
+    const currentPage = location.pathname;
+    if (!authServices.getToken() || !authServices.isValid(authServices.getToken())) {
+      signOut();
+      setTimeout(() => {
+        swal('You need to login first');
+        return push(`/login?next=${currentPage}`);
+      }, 2000);
+    }
+
     const bukkaMenuToFetch = location.pathname.split('/')[2];
     if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
       window.scrollTo(0, 0);
@@ -94,8 +119,27 @@ const Checkout = ({
     }
   });
 
+  const handleUserCheckout = () => {
+    const user = authServices.getUserSlug();
+    const deliveryAddress = { ...deliveryAddressData, user, location: { type: 'Point', coordinates, } };
+    checkoutUser({ deliveryAddress, cart: { items: [...cart], user }, day, user, time, deliveryMode: mode });
+  };
+
+  const handleCheckout = () => {
+    if (cards.length <= 0) {
+      swal('Please save your card before proceed to checkout');
+    } else if (!hasDefaultCard) {
+      swal('Please select your card');
+    } else if (!validateAddress()) {
+      scrollTo(0, 0);
+    } else {
+      handleUserCheckout();
+    }
+  };
+
   return (
     <>
+      <VerifyPhone />
       <Navbar push={push} />
       <AddToCart />
       <SendSecurityKeyForm cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
@@ -120,13 +164,13 @@ const Checkout = ({
               title="Time"
               list={duration.sheduleTimeLists}
             />
-            <Payment />
+            <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
                 type="submit"
                 text="CONTINUE"
                 classNames="big-button"
-                handleClick={() => checkoutUser({ card, amount })}
+                handleClick={() => handleCheckout()}
               />
             </div>
           </div>
@@ -146,7 +190,7 @@ const Checkout = ({
                 text="CONTINUE"
                 classNames="big-button"
                 id="charge-user-small"
-                handleClick={() => checkoutUser({ card, amount })}
+                handleClick={() => { /* checkoutUser({ card, amount }) */ }}
               />
             </div>
           </div>
@@ -159,14 +203,18 @@ const Checkout = ({
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data },
+  fetchBukkaMenuReducer: { totalPriceInCart },
   cartReducer: { totalCost, items },
   fetchBukkaMenuReducer: {
     bukkaMenu,
     status: { fetched }
   },
+  getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
   },
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { coordinates },
   deliveryScheduleReducer: { schedule: { day, time } },
 }) => ({
   card: manipulateCardDetailsReducer,
@@ -180,13 +228,56 @@ const mapStateToProps = ({
   day,
   time,
   success,
+  cards,
+  hasDefaultCard,
+  coordinates,
+  mode,
 });
 
 export default connect(
   mapStateToProps,
-  { checkoutUser: chargeUser, fetchBukkaMenu: fetchBukkaMenuAction }
+  { checkoutUser: chargeUser },
+  { chargeUserToSaveCard: chargeUser,
+    checkoutUser: postUserOrder,
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    signOut: logOut,
+  }
 )(Checkout);
 
 Checkout.propTypes = {
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
+};
+
+Checkout.defaultProps = {
+  message: '',
+  cart: [{}],
+  menuIsFetched: false,
+  bukkaOfMenu: '',
+  day: '',
+  time: '',
+  success: false,
+  cards: [{}],
+  hasDefaultCard: false,
+};
+
+Checkout.propTypes = {
+  push: PropTypes.func.isRequired,
+  chargeUserToSaveCard: PropTypes.func.isRequired,
+  checkoutUser: PropTypes.func.isRequired,
+  message: PropTypes.string.isRequired,
+  cart: PropTypes.arrayOf([PropTypes.object]).isRequired,
+  fetchBukkaMenu: PropTypes.func.isRequired,
+  menuIsFetched: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])).isRequired,
+  bukkaOfMenu: PropTypes.string,
+  day: PropTypes.string,
+  time: PropTypes.string,
+  success: PropTypes.bool,
+  cards: PropTypes.arrayOf(PropTypes.object),
+  hasDefaultCard: PropTypes.bool,
+  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  mode: PropTypes.bool.isRequired,
+  signOut: PropTypes.func.isRequired,
 };

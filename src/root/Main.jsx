@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
 import Map from 'Components/map';
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 import Home from '../features/home';
 import Bukka from '../features/bukka';
@@ -20,6 +21,8 @@ import Merchant from '../features/merchant';
 import ComplainCategory from '../features/support/complain/Category';
 import SubCategory from '../features/support/complain/SubCategory';
 import ComplainScene from '../features/support/complain/ComplainScene';
+import Privacy from '../features/statement/Privacy';
+import Terms from '../features/statement/Terms';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -52,6 +55,9 @@ const Main = () => (
       <Route exact path="/map" component={Map} />
       <Route exact path="/merchant" component={Merchant} />
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
+      <Route exact path="/legal/privacy" component={Privacy} />
+      <Route exact path="/legal/terms" component={Terms} />
+      <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
       <Route
         exact
         path="/support/buyer/contact-us/:id"

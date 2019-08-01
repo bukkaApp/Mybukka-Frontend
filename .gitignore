@@ -66,5 +66,5 @@ build
 # test coverage __snapshots__
 client/__snapshots__
 
-#basic vs code settings
+#basic vs code setting
 .vscode

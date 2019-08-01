@@ -42,5 +42,5 @@ Feed.propTypes = {
   search: PropTypes.bool,
   food: PropTypes.bool,
   drink: PropTypes.bool,
-  push: PropTypes.func.isRequired
+  push: PropTypes.func.isRequired,
 };

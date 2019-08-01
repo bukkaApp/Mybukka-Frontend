@@ -4,7 +4,11 @@ const rules = {
   address: 'required',
   name: 'required',
   mobileNumber: 'required|min:8',
-  number: 'required',
+  deliveryInstructions: 'string',
+};
+
+const paymentRules = {
+  number: 'required|min:8',
   expDate: 'required',
   cvv: 'required',
 };
@@ -53,5 +57,44 @@ export const validateAllFields = (data) => {
     // version of the error message
     [errors[errorKey]] = errors[errorKey];
   });
-  return errors;
+  return { errors, passes: validation.passes() };
+};
+
+/**
+ *
+ * @param {object} data containing key:value pairs
+ * of field and value to be validated
+ * @param {string} field field in rules to run validation against
+ * @param {object} rules rules validation
+ * @returns {object} containing key:value pairs of a field:errormessage
+ */
+
+export const validateAFieldPayment = (data, field) => {
+  const validation = new Validator(data, paymentRules, errorMessages);
+  validation.passes();
+  let firstError = validation.errors.first(field);
+  if (firstError === false) firstError = '';
+  return {
+    message: firstError,
+  };
+};
+
+
+/**
+ *
+ * @param {object} data object to run rules against
+ * @param {object} rules object to run rules against
+ * @returns {object} containing keys:value pair of field:errormessage
+ *
+ */
+export const validateAllFieldsPayment = (data) => {
+  const validation = new Validator(data, paymentRules, errorMessages);
+  validation.passes();
+  const errors = validation.errors.all();
+  Object.keys(errors).forEach((errorKey) => {
+    // reassigns the key to a destructured
+    // version of the error message
+    [errors[errorKey]] = errors[errorKey];
+  });
+  return { errors, passes: validation.passes() };
 };

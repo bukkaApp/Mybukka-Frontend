@@ -2,6 +2,7 @@ import swal from 'sweetalert';
 
 const initialState = {
   items: [],
+  item: {},
   totalCost: 0,
   status: {
     updated: false,
@@ -20,7 +21,8 @@ const calculatePrice = (cartItems) => {
 };
 
 const cartUpdateSuccess = (userCart, state) => {
-  const newCart = [...state.items, userCart.items];
+  const item = { ...userCart.items, meal: [userCart.items] };
+  const newCart = [...state.items, item];
   return {
     items: newCart,
     totalCost: calculatePrice(newCart),
@@ -66,7 +68,8 @@ const cartReducer = (state = initialState, action) => {
           errorMessage: 'your cart can only contain items of a single bukka at any given time',
         };
       }
-      const newItems = [...state.items, action.data];
+      const item = { ...action.data, meal: action.data };
+      const newItems = [...state.items, item];
       return {
         ...state,
         items: newItems,
