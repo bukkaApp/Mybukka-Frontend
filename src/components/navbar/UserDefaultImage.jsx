@@ -23,7 +23,7 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
             alt="authenticated-img"
           />
         </button>
-        {dropdown && <UserDropdown />}
+        {dropdown && <UserDropdown handleToggle={()=> toggleDropdown(false)}/>}
       </div>
     </div>
   );

@@ -60,6 +60,16 @@ $white: rgb(217, 219, 224);
   border: 1px solid #3b5998;
 }
 
+.facebook-btn {
+  @include button(110px, 48px, #3b5998, #fff, 12px);
+  border: 1px solid #3b5998;
+}
+
+.twitter-btn {
+  @include button(110px, 48px, #2aa3ef, #fff, 12px);
+  border: 1px solid #2aa3ef;
+}
+
 .button {
   @include button(165px, 48px, $color, #ffffff, 12px);
 }
