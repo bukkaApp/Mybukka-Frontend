@@ -25,7 +25,13 @@ const FoodNearBy = ({
   fetchMoreBukkas,
   currentPage,
   errorMessage,
-}) => (
+}) => {
+
+  const handleClick = () => {
+
+  }
+
+  return (
   <div className="mt-4 mb-4">
     {title && (
       <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
@@ -68,6 +74,7 @@ const FoodNearBy = ({
     </Container>
   </div>
 );
+            }
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
