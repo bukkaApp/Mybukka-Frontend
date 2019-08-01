@@ -14,6 +14,23 @@ const initialState = {
 const bukkasReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_BUKKAS_SUCCESS': {
+      return {
+        ...state,
+        fetchedBukkas: {
+          ...state.fetchedBukkas,
+          message: action.data.message,
+          nearbyBukkas: action.data.nearByBukkas,
+        },
+        currentPage: action.data.currentPage,
+        status: {
+          fetchedBukkas: true,
+          error: false
+        },
+        errorMessage: '',
+      };
+    }
+
+    case 'FETCH_BUKKAS_PAGINATE_SUCCESS': {
       const { nearbyBukkas } = state.fetchedBukkas;
 
       return {

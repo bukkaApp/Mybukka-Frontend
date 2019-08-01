@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
@@ -6,6 +7,8 @@ import { connect } from 'react-redux';
 // import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
+import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
+import Navbar from 'Components/navbar';
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
 import LocationNavSmallScreen, {
   SelectLocationModal,
@@ -21,8 +24,6 @@ import ExploreSection from '../common/ExploreSection';
 import FoodNearBy from './FoodNearBy';
 import Map from '../common/Map';
 import { foodBannerImage } from '../img/imgLinks';
-import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
-import Navbar from 'Components/navbar';
 
 import freeDelivery from '../data/free-delivery.json';
 import favorites from '../data/favorites.json';
@@ -43,20 +44,27 @@ const FoodSection = ({
   };
 
   useEffect(() => {
-    nearbyBukkas.length === 0 && fetchNearbyBukkas(coordinates);
-  }, [coordinates]);
+    if (coordinates.length < 2) {
+      push('/');
+    }
+  }, []);
 
-  console.log(nearbyBukkas.length === 0, errorMessage, nearbyBukkas);
+  useEffect(() => {
+    if (nearbyBukkas.length === 0 && coordinates.length !== 0) {
+      fetchNearbyBukkas({ coordinates });
+    }
+  }, []);
 
-  if (nearbyBukkas.length === 0 && errorMessage.length > 0) {
-    // if (true) {
+  if (nearbyBukkas.length === 0 && coordinates.length !== 0
+    && errorMessage) {
     return (
       <div>
         <Navbar push={push} />
-        <NoNearByBukkaLocation push={push} />
+        <NoNearByBukkaLocation history={{ push }} />
       </div>
     );
   }
+
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />

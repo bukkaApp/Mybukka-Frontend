@@ -136,9 +136,6 @@ const mapStateToProps = ({
     categories,
     status: { error, fetched },
   },
-  drinkReducer: {
-    fetchedBukkas: { nearbyBukkas: drinkBukkas },
-  },
   selectedLocationReducer: { coordinates },
   cartReducer: { errorMessage },
 }) => ({
@@ -146,7 +143,6 @@ const mapStateToProps = ({
   status,
   coordinates,
   mode,
-  drinkBukkas,
   categories,
   error,
   fetched,
