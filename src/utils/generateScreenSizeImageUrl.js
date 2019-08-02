@@ -1,6 +1,6 @@
 // 320
 const generateScreenSizeImageUrl = (imgUrl, size) => {
-  const splitedUrl = imgUrl.split('/upload');
+  const splitedUrl = imgUrl.split('/upload/');
   const getBaseUrl = splitedUrl[0];
   const endUrlStr = splitedUrl[1];
   // getBaseUrl - http://www.url.com/
