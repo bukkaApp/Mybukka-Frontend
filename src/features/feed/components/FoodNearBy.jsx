@@ -5,13 +5,13 @@ import shortId from 'shortid';
 import InfiniteScroll from 'react-infinite-scroller';
 import PropTypes from 'prop-types';
 
-import SmallSpinner from 'Components/spinners/SmallSpinner';
+// import SmallSpinner from 'Components/spinners/SmallSpinner';
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
-import fetchBukkas from '../actionCreators/fetchBukkas';
+import fetchBukkas from '../actionCreators/fetchMoreBukkas';
 
 const FoodNearBy = ({
   delivery,
@@ -25,13 +25,7 @@ const FoodNearBy = ({
   fetchMoreBukkas,
   currentPage,
   errorMessage,
-}) => {
-
-  const handleClick = () => {
-
-  }
-
-  return (
+}) => (
   <div className="mt-4 mb-4">
     {title && (
       <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
@@ -41,13 +35,15 @@ const FoodNearBy = ({
       {bukkaData.length > 0 && (
         <InfiniteScroll
           loadMore={() =>
-            fetchMoreBukkas({ coordinates, page: Number(currentPage) + 1 }, true)}
+            fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
           hasMore={
             errorMessage !== 'There are currently no bukkas in your location'
           }
           loader={
-            <div className="loader" key={0}>
-              <SmallSpinner />
+            <div className="loader text-center" key={0}>
+              <div className="spinner-grow custom-text-color" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
             </div>
           }
           useWindow
@@ -74,7 +70,6 @@ const FoodNearBy = ({
     </Container>
   </div>
 );
-            }
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Container from '../container';
+import Brand from 'Components/brand/Brand';
 import Button from 'Components/button/Button.jsx';
 import Footer from 'Components/footer/Footer';
 import './NoNearByBukkaLocation.css';
@@ -7,13 +8,18 @@ import Android, { Apple } from '../button/StoreSvg';
 
 const NoNearByBukkaLocation = ({ history: { push } }) => (
   <Fragment>
-    <div className="bg-color">
+    <Container classNames="my-3">
+      <Brand />
+    </Container>
+    <div className="bg-color pt-4">
       <Container>
         <div className="row">
           <div className="col-lg-6">
             <div className="padding">
-              <h4 className="caption-header">Your online Bukka is here.</h4>
-              <div className="runner no-nearby-bukka-runner" />
+              <div className="position-relative mb-5">
+                <h4 className="caption-header">Your online Bukka is here.</h4>
+                <div className="runner no-nearby-bukka-runner" />
+              </div>
               <p className="text-justify caption-text">
               Are you hungry, world? I hope so because Bukka is
               here to make delivery awesome. No longer confined to the NGN,
@@ -70,3 +76,4 @@ export default NoNearByBukkaLocation;
 NoNearByBukkaLocation.defaultProps = {
   history: { push: () => {} }
 };
+

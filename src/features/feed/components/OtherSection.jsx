@@ -32,7 +32,7 @@ import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
 
-import { drinkBannerImage } from '../img/imgLinks';
+import { drinkBannerImage, freshBannerImage } from '../img/imgLinks';
 
 const OtherSection = ({
   // mode,
@@ -49,18 +49,15 @@ const OtherSection = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
+  const isDrinks = type === 'drinks';
+
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchBukkaMenu('sample_bukka_fresh_drinks', type);
   }, [coordinates, type]);
 
   if (bukkaMenu.length === 1 && error) {
-    return (
-      <div>
-        <Navbar push={push} />
-        <NoNearByBukkaLocation push={push} />
-      </div>
-    );
+    return <NoNearByBukkaLocation push={push} />;
   }
 
   return (
@@ -70,7 +67,10 @@ const OtherSection = ({
         <div>
           <IntroSection push={push} />
           <ExploreSection>
-            <AreasToExplore text="Drinks" bgImage={drinkBannerImage} />
+            <AreasToExplore
+              text={isDrinks ? 'Drinks' : 'Groceries.'}
+              bgImage={isDrinks ? drinkBannerImage : freshBannerImage}
+            />
             <div className="feed-main-content">
               <LocationNavLargeScreen
                 scheduleTime
@@ -95,20 +95,20 @@ const OtherSection = ({
                                   menu.title
                                     .toLowerCase()
                                     .includes(searchQuery.toLowerCase()) && (
-                                    <BukkaCard
-                                      key={shortId.generate()}
-                                      imageUrl={menu.imageUrl}
-                                      mealName={menu.title}
-                                      deliveryPrice={menu.deliveryCost}
-                                      imageHeight="fresh-img-height"
-                                      classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                                      dataTarget="#mealModal"
-                                      dataToggle="modal"
-                                      handleClick={() =>
-                                        setMealToDisplay(menu.slug)
-                                      }
-                                    />
-                                  )}
+                                  <BukkaCard
+                                    key={shortId.generate()}
+                                    imageUrl={menu.imageUrl}
+                                    mealName={menu.title}
+                                    deliveryPrice={menu.deliveryCost}
+                                    imageHeight="fresh-img-height"
+                                    classNames="col-lg-3 col-md-4 col-sm-6 col-6"
+                                    dataTarget="#mealModal"
+                                    dataToggle="modal"
+                                    handleClick={() =>
+                                      setMealToDisplay(menu.slug)
+                                    }
+                                  />
+                                )}
                               </>
                             ))}
                           </Row>
