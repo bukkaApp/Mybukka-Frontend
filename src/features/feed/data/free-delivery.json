@@ -5,7 +5,7 @@
     "remark": true,
     "tags": ["nearby"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-2.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741829/samples/Bukka-Images/free-delivery-2.png",
     "position": {
       "top": true
     }
@@ -16,7 +16,7 @@
     "remark": true,
     "tags": ["new"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-3.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload//v1556741826/samples/Bukka-Images/free-delivery-3.png",
     "rating": "popular",
     "position": {
       "top": true
@@ -28,7 +28,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-1.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-1.png",
     "heading": "Get Drinks",
     "subHeading": "ALCOHOL DELIVERED",
     "position": { "top": true }
@@ -37,7 +37,7 @@
     "deliveryTime": "40-50 min",
     "title": "cheers market",
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/free-delivery-4.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload//v1556741826/samples/Bukka-Images/free-delivery-4.png",
     "rating": "popular",
     "remark": true,
     "tags": ["nearby"],
@@ -50,7 +50,7 @@
     "title": "salt & straw",
     "deliveryPrice": 300,
 
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-5.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-5.png",
     "rating": "popular",
     "tags": ["popular"],
     "heading": "Get All Orders Delivered Free",
@@ -63,7 +63,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-6.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-6.png",
     "rating": "popular",
     "position": {
       "top": true
@@ -75,7 +75,7 @@
     "remark": true,
     "tags": ["new"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-7.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-7.png",
     "rating": "popular",
     "heading": "Get Drinks",
     "subHeading": "ALCOHOL DELIVERED",
@@ -86,7 +86,7 @@
     "title": "urban remedy",
     "tags": ["nearby"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-8.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-8.png",
     "rating": "popular",
     "heading": "Get Fresh",
     "subHeading": "Groceries Delivered",
@@ -98,7 +98,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595381/free-delivery-9.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/free-delivery-9.png",
     "rating": "popular",
     "heading": "Get Fresh",
     "subHeading": "Groceries Delivered",
