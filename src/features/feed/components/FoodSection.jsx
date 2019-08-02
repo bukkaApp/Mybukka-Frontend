@@ -51,18 +51,13 @@ const FoodSection = ({
 
   useEffect(() => {
     if (nearbyBukkas.length === 0 && coordinates.length !== 0) {
-      fetchNearbyBukkas({ coordinates });
+      fetchNearbyBukkas(coordinates);
     }
   }, []);
 
   if (nearbyBukkas.length === 0 && coordinates.length !== 0
     && errorMessage) {
-    return (
-      <div>
-        <Navbar push={push} />
-        <NoNearByBukkaLocation history={{ push }} />
-      </div>
-    );
+    return <NoNearByBukkaLocation history={{ push }} />;
   }
 
   return (
@@ -97,7 +92,7 @@ const FoodSection = ({
                     className={
                       displayMap
                         ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
-                        : ''
+                        : 'mb-5'
                     }
                   >
                     <FoodNearBy

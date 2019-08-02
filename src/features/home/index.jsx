@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import fetchBukkas from '../feed/actionCreators/fetchBukkas';
 import Footer from 'Components/footer/Footer';
+import fetchBukkas from '../feed/actionCreators/fetchBukkas';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
 
@@ -19,24 +19,15 @@ const Home = ({
   coordinates,
   fetchNearbyBukkas,
   fetchedBukkas: { nearbyBukkas },
-  errorMessage,
 }) => {
-  useEffect(() => () => scrollTo(0, 0), []);
-
   useEffect(
     () => () => {
-      fetchNearbyBukkas({ coordinates });
+      fetchNearbyBukkas(coordinates);
     },
     [coordinates],
   );
 
-  useEffect(() => {
-    if (!errorMessage && nearbyBukkas.length > 0) {
-      return push('/feed');
-    } else if (errorMessage && nearbyBukkas.length <= 0) {
-      return push('/coming-soon');
-    }
-  }, [errorMessage, nearbyBukkas]);
+  useEffect(() => () => push('/feed'), [nearbyBukkas]);
 
   return (
     <div className="home">
@@ -52,11 +43,10 @@ const Home = ({
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
-  bukkasReducer: { fetchedBukkas, errorMessage },
+  bukkasReducer: { fetchedBukkas },
 }) => ({
   coordinates,
   fetchedBukkas,
-  errorMessage,
 });
 
 export default connect(
@@ -64,14 +54,14 @@ export default connect(
   { fetchNearbyBukkas: fetchBukkas },
 )(Home);
 
-Home.defaultProps = {
-  errorMessage: ''
-};
-
 Home.propTypes = {
-  errorMessage: PropTypes.string,
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
+  fetchNearbyBukkas: PropTypes.func.isRequired,
+  fetchedBukkas: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])).isRequired
 };

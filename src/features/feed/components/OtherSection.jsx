@@ -55,12 +55,7 @@ const OtherSection = ({
   }, [coordinates, type]);
 
   if (bukkaMenu.length === 1 && error) {
-    return (
-      <div>
-        <Navbar push={push} />
-        <NoNearByBukkaLocation push={push} />
-      </div>
-    );
+    return <NoNearByBukkaLocation push={push} />;
   }
 
   return (

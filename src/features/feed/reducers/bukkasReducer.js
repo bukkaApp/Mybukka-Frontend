@@ -30,6 +30,20 @@ const bukkasReducer = (state = initialState, action) => {
       };
     }
 
+    case 'FETCH_BUKKAS_ERROR':
+      return {
+        ...state,
+        fetchedBukkas: {
+          message: '',
+          nearbyBukkas: []
+        },
+        status: {
+          fetchedBukkas: false,
+          error: true,
+        },
+        errorMessage: action.data.message,
+      };
+
     case 'FETCH_BUKKAS_PAGINATE_SUCCESS': {
       const { nearbyBukkas } = state.fetchedBukkas;
 
@@ -49,7 +63,7 @@ const bukkasReducer = (state = initialState, action) => {
       };
     }
 
-    case 'FETCH_BUKKAS_ERROR':
+    case 'FETCH_BUKKAS_PAGINATE_ERROR':
       return {
         ...state,
         fetchedBukkas: {

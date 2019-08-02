@@ -1,14 +1,13 @@
 import { FETCH_BUKKAS } from 'Redux/actionTypes';
 import axiosInstance from 'Redux/axios';
-import alertMessage from 'Redux/alertMessage';
 import loading from 'Redux/loading';
 
-const fetchBukkasAction = (type, data) => ({
+const fetchMoreBukkasAction = (type, data) => ({
   type: `${FETCH_BUKKAS}_${type}`,
   data
 });
 
-const fetchBukkas = (
+const fetchMoreBukkas = (
   coordinates,
   page = 1,
   limit = 12,
@@ -23,15 +22,11 @@ const fetchBukkas = (
       }&page=${page}&limit=${limit}&by=${by}&value=${value}`
     );
     dispatch(loading(FETCH_BUKKAS, false));
-    dispatch(fetchBukkasAction('SUCCESS', request.data));
+    dispatch(fetchMoreBukkasAction('PAGINATE_SUCCESS', request.data));
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
-    if (!error.response) {
-      dispatch(alertMessage(FETCH_BUKKAS, true, 'Sorry, Server maintaince is going on, try again later'));
-      dispatch(loading(FETCH_BUKKAS, false));
-    }
-    dispatch(fetchBukkasAction('ERROR', error.response.data));
+    dispatch(fetchMoreBukkasAction('PAGINATE_ERROR', error.response.data));
   }
 };
 
-export default fetchBukkas;
+export default fetchMoreBukkas;
