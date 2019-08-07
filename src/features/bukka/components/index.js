@@ -20,6 +20,7 @@ import AddToCart from 'Components/common/addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
 import BukkaMeals from './BukkaMeals';
+import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
@@ -32,6 +33,7 @@ const BukkaMenuScene = ({ push, errorMessage, categories, bukka }) => {
 
   return (
     <div className="bukka-menu">
+      <ClosedNotification />
       <AddToCart />
       <SelectLocationModal />
       <Navbar push={push} bukka />

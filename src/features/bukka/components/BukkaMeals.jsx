@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import shortId from 'shortid';
@@ -10,6 +10,8 @@ import Column from 'Components/grid/Column';
 
 import MealCard from 'Components/card/MealCard';
 
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+
 import './bukkaMeals.scss';
 
 const BukkaMealsHeader = ({ category }) => (
@@ -18,10 +20,27 @@ const BukkaMealsHeader = ({ category }) => (
   </div>
 );
 
-const BukkaMeals = ({ bukkaMenu, searchQuery }) => {
+const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
   const bukkaCategories = [
     ...new Set(bukkaMenu.map(mealData => mealData.category))
   ];
+
+  const handleFetchBukkaMenuIfNoMenu = () => {
+    if (bukkaMenu.length <= 0
+      || Object.keys(bukkaMenu[0]).length <= 0) {
+      const bukkaToFetch = location.pathname.split('/')[2];
+      fetchBukkaMenu(bukkaToFetch);
+    }
+  };
+
+  useEffect(() => {
+    handleFetchBukkaMenuIfNoMenu();
+  }, []);
+
+  if (bukkaMenu.length <= 0
+    || Object.keys(bukkaMenu[0]).length <= 0) {
+    return null;
+  }
 
   return (
     <Container classNames="menu-catalogs">
@@ -54,7 +73,7 @@ const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
 
 export default connect(
   mapStateToProps,
-  null
+  { fetchBukkaMenu: fetchBukkaMenuAction }
 )(BukkaMeals);
 
 BukkaMealsHeader.propTypes = {
@@ -71,5 +90,6 @@ BukkaMeals.propTypes = {
       name: PropTypes.string,
       imageUrl: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  fetchBukkaMenu: PropTypes.func.isRequired,
 };

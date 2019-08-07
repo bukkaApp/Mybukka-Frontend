@@ -65,6 +65,42 @@ class AuthService {
     const token = this.getToken();
     return token && this.isValid(token) ? true : false;
   }
+
+  /**
+   * @method getCurrentHour
+   * @param {*} strFmt string format '10 am' etc or 10
+   * @returns {void}
+   */
+  getCurrentHour(strFmt) {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    if (strFmt) {
+      if (currentHour < 12 || currentHour === 0) {
+        const is24Hrs = currentHour === 0;
+        return `${is24Hrs ? 12 : currentHour} am`;
+      }
+      const convertTo12Hrs = currentHour - 12;
+      const convertedHrs = convertTo12Hrs === 0 ? 12 : convertTo12Hrs;
+      return `${convertedHrs} pm`;
+    }
+    return currentHour === 0 ? 24 : currentHour;
+  }
+
+  /**
+   * @method getRestaurantWrkHour
+   * @description get Restaurant Work Hour
+   * @param {*} closingHour string format '10 am' to 10
+   * @returns {void}
+   */
+  getRestaurantWrkHour(closingHour) {
+    const dHrs = Number(closingHour.split(' ')[0]);
+    const dTimeFmt = closingHour.split(' ')[1];
+    if (dHrs < 12 && dTimeFmt === 'am') {
+      return dHrs;
+    }
+    const d24Hrs = dHrs + 12;
+    return d24Hrs;
+  }
 }
 
 export default new AuthService();
