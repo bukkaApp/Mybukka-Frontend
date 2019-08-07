@@ -102,7 +102,7 @@ const ClosedNotification = ({ fetchedBukka }) => {
   const newImage = imageUrl ? generateImageUrl(imageUrl, 80) : '';
 
   if (closingHour && openingHour) {
-    isRestaurantClosed = getRestaurantWrkHour('2 pm') <= getCurrentHour();
+    isRestaurantClosed = getRestaurantWrkHour(closingHour) <= getCurrentHour();
     isRestaurantOpened = getRestaurantWrkHour(openingHour) <= getCurrentHour();
   }
 

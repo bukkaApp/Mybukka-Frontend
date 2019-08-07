@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import logOut from 'Components/navbar/actionCreators/logOut';
-import AuthenticatedPages from 'Components/hoc/AuthenticatedPages';
+import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
 
 import PropTypes from 'prop-types';
 import Checkout from './components/Checkout';

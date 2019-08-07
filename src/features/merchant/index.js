@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Footer from 'Components/footer/Footer';
 
-import Toolbar from './components/toolbar';
+import Toolbar from './components/Toolbar';
 import Header from './components/Header';
 import Stats from './components/Stats';
 import SellingPoint from './components/SellingPoint';
