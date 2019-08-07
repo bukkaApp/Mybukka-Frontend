@@ -1,36 +1,43 @@
 import React, { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import InputField from 'Components/input/InputField';
-import Button from 'Components/button/Button';
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
+import getUserCard from '../actionCreators/getUserCard';
 
-import { validateAField, validateAllFields } from '../validation/validateField';
-import inputFeild from '../InputAttribute/inputData.json';
-import AuthForm from '../common/AuthForm';
+import { validateAFieldPayment, validateAllFieldsPayment } from '../validation/validateField';
 import Demarcation from '../common/SmallScreenDivider';
+import Card, { AddCard } from './Card';
+import setDefaultCard from '../actionCreators/setDefaultCard';
 
 import './payment.scss';
 
-const Payment = ({ manipulateCardDetails }) => {
+const Payment = ({
+  manipulateCardDetails,
+  handleClick,
+  fetchUserCard,
+  cards,
+  setCardAsDefault,
+  status,
+  isCardSaved,
+}) => {
+  const [active, setActive] = useState(false);
+  const [addCard, showCardForm] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     number: '',
     expDate: '',
     cvv: '',
-    zipCode: ''
   });
 
   const [inputData, setInputData] = useState({
     number: '',
     expDate: '',
     cvv: '',
-    zipCode: ''
   });
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
+    const validation = validateAFieldPayment(newFieldData, name);
     setInputData({
       ...inputData,
       ...newFieldData
@@ -41,60 +48,129 @@ const Payment = ({ manipulateCardDetails }) => {
     });
   };
 
+  const manipulateCard = () => {
+    const { expDate, cvv, number } = inputData;
+    const cardValidityDates = expDate ? expDate.split('/') : ['', ''];
+    return {
+      cvv,
+      number: number.split(' ').join(''),
+      expiry_month: cardValidityDates[0],
+      expiry_year: cardValidityDates[1],
+    };
+  };
+
   const handleSaveButton = (event) => {
     event.preventDefault();
-    const validation = validateAllFields(inputData);
+    const { passes, errors } = validateAllFieldsPayment(inputData);
+
     setValidationErrors({
       ...validationErrors,
-      ...validation
+      ...errors
     });
+    if (passes && !active) {
+      manipulateCardDetails(inputData);
+      handleClick({ card: { ...manipulateCard() }, amount: 100 });
+      setActive(true);
+    }
+  };
+
+  const handleDefaultSelection = async (id) => {
+    await setCardAsDefault(id);
+    await fetchUserCard();
   };
 
   useEffect(() => {
-    manipulateCardDetails(inputData);
-    return () => ({});
-  });
+    showCardForm(false);
+    fetchUserCard();
+  }, [isCardSaved]);
+
+  useEffect(() => {
+    fetchUserCard();
+  }, []);
+
+  useEffect(() => {
+    setActive(false);
+  }, [status]);
 
   return (
     <section className="mb-2 mt-4">
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
       <form className="border padding-20 mt-4" action="">
-        <div className="row flex- flex-nowrap-sm font-size-14">
-          <AuthForm
-            inputData={inputData}
-            inputField={inputFeild.payment}
+        {!addCard && cards.length > 0 ?
+          <div>
+            <p>Your credits card</p>
+            { cards.map(card => (
+              <Card
+                handleClick={() => handleDefaultSelection(card._id)} // eslint-disable-line
+                selected={card.selected}
+                last4={card.last4}
+                expiredYear={card.exp_year}
+                expiredMonth={card.exp_month}
+                cardType={card.card_type}
+              />))}
+            <div
+              onKeyDown={() => {}}
+              role="button"
+              aria-pressed="false"
+              tabIndex="0"
+              onClick={() => showCardForm(true)}
+              className="text-muted cursor-pointer"
+            >+ add card</div>
+          </div>
+          : <AddCard
             handleChange={handleChange}
-            errors={validationErrors}
+            cards={cards}
+            inputData={inputData}
+            active={active}
+            handleSaveButton={handleSaveButton}
+            handleClick={() => showCardForm(false)}
+            validationErrors={validationErrors}
           />
-        </div>
-
-        <div className="form-group checkbox-form-group">
-          <InputField
-            type="checkbox"
-            classNames="checkbox"
-            placeholder=""
-            name="makeDefaultPaymentOption"
-            handleChange={() => {}}
-            handleFocus={() => {}}
-          />
-          <span className="make-default-text">Make default payment method</span>
-        </div>
-
-        <div>
-          <Button
-            type="button"
-            text="Save"
-            classNames="small-button-save"
-            handleClick={handleSaveButton}
-          />
-        </div>
+        }
       </form>
       <Demarcation />
     </section>
   );
 };
 
+const mapStateToProps = ({
+  getUserCardReducer: { cards },
+  chargeUserReducer: {
+    data: { status }
+  },
+  saveUserCardReducer: {
+    newPayment: { card: isCardSaved },
+
+  },
+}) => ({
+  cards,
+  status,
+  isCardSaved,
+});
+
 export default connect(
-  () => ({}),
-  { manipulateCardDetails: manipulateCardDetailsAction }
+  mapStateToProps,
+  { manipulateCardDetails: manipulateCardDetailsAction,
+    fetchUserCard: getUserCard,
+    setCardAsDefault: setDefaultCard,
+  }
 )(Payment);
+
+Payment.defaultProps = {
+  isCardSaved: {},
+  cards: [{}],
+  status: '',
+};
+
+Payment.propTypes = {
+  manipulateCardDetails: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  fetchUserCard: PropTypes.func.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.object),
+  setCardAsDefault: PropTypes.func.isRequired,
+  status: PropTypes.string,
+  isCardSaved: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])),
+};

@@ -5,7 +5,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-7.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-7.png",
     "position": {
       "top": true
     }
@@ -16,7 +16,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-5.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-5.png",
     "rating": "popular",
     "position": {
       "top": true
@@ -28,7 +28,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-6.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-6.png",
     "heading": "Get Drinks",
     "subHeading": "ALCOHOL DELIVERED",
     "position": { "top": true }
@@ -39,7 +39,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-8.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-8.png",
     "rating": "popular",
     "heading": "Get Fresh",
     "subHeading": "Groceries Delivered",
@@ -51,7 +51,7 @@
     "remark": true,
     "tags": ["new"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-1.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741802/samples/Bukka-Images/bukka-favorite-1.png",
     "rating": "popular",
     "heading": "Get All Orders Delivered Free",
     "subHeading": "TRY UNLIMITED",
@@ -63,7 +63,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-2.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-2.png",
     "rating": "popular",
     "position": {
       "top": true
@@ -75,7 +75,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-3.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-3.png",
     "rating": "popular",
     "position": { "top": true }
   },
@@ -85,7 +85,7 @@
     "remark": true,
     "tags": ["popular"],
     "deliveryPrice": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-4.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/bukka-favorite-4.png",
     "rating": "popular",
     "heading": "Get Fresh",
     "subHeading": "Groceries Delivered",

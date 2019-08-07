@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import inputData from 'Components/common-navs/inputData/duration.json';
+import inputData from 'Components/common-navs/inputData/duration';
 
 import SearchPlusMenu from 'Components/icons/SearchPlusMenu';
 import DismissModal from '../modal/DismissModal';
@@ -11,7 +11,6 @@ import InputField from '../input/InputField';
 import './bukkaNavSmallScreen.scss';
 
 const { categoryItems } = inputData;
-
 
 export const ResponsiveCategories = ({ placeholderText }) => (
   <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">

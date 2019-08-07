@@ -6,7 +6,6 @@ import PropTypes, { any } from 'prop-types';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import Button from 'Components/button/Button';
 import inputField from '../InputAttribute/inputData.json';
-import { validateAField, validateAllFields } from '../validation/validateField';
 
 import './payment.scss';
 import './deliveryAddress.scss';
@@ -34,16 +33,8 @@ const DeliveryForm = ({
         placeholderText="Add delivery instructuctions..."
         name="deliveryInstruction"
         classNames="instruction"
-        handleChange={() => {}}
+        handleChange={handleChange}
         handleFocus={() => {}}
-      />
-    </div>
-    <div>
-      <Button
-        type="button"
-        text="Save"
-        classNames="small-button-save"
-        handleClick={handleSaveButton}
       />
     </div>
   </form>
@@ -58,22 +49,18 @@ const Pickup = ({ title, name }) => (
   </section>
 );
 
-const Delivery = ({ mode }) => {
+const Delivery = ({
+  mode,
+  address,
+  inputData,
+  setInputData,
+  validationErrors,
+  setValidationErrors,
+  handleDeliveryAddressSave,
+  handleChange,
+}) => {
   let wrapperRef;
   const [autoComplete, setAutoComplete] = useState(false);
-  const [validationErrors, setValidationErrors] = useState({
-    streetAddress1: '',
-    streetAddress2: '',
-    contactName: '',
-    phoneNumber: ''
-  });
-
-  const [inputData, setInputData] = useState({
-    streetAddress1: '',
-    streetAddress2: '',
-    contactName: '',
-    phoneNumber: ''
-  });
 
   const setWrapperRef = (node) => {
     wrapperRef = node;
@@ -89,31 +76,6 @@ const Delivery = ({ mode }) => {
     document.addEventListener('mousedown', handleClickOutside);
   });
 
-  const handleChange = ({ target: { name, value } }) => {
-    const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
-    setInputData({
-      ...inputData,
-      ...newFieldData
-    });
-    setValidationErrors({
-      ...validationErrors,
-      [name]: validation.message
-    });
-    if (name === 'streetAddress1') {
-      setAutoComplete(true);
-    }
-  };
-
-  const handleSaveButton = (e) => {
-    e.preventDefault();
-    const validation = validateAllFields(inputData);
-    setValidationErrors({
-      ...validationErrors,
-      ...validation
-    });
-  };
-
   return (
     <div className="mb-2 mt-4">
       <h1 className="font-size-36 px-3 px-md-3 px-lg-0">Checkout</h1>
@@ -123,23 +85,22 @@ const Delivery = ({ mode }) => {
       <Demarcation />
       {mode === 'delivery' && (
         <Fragment>
-          <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Delivery Address</h2>
+          <h2 className="font-size-16 px-3 px-md-3 px-lg-0">
+            Delivery Address
+          </h2>
           <DeliveryForm
             inputData={inputData}
             handleChange={handleChange}
             validationErrors={validationErrors}
             autoComplete={autoComplete}
             setWrapperRef={setWrapperRef}
-            handleSaveButton={handleSaveButton}
+            handleSaveButton={handleDeliveryAddressSave}
           />
         </Fragment>
       )}
       {mode === 'pickup' && (
         <Fragment>
-          <Pickup
-            title="Pickup Address"
-            name="801 Mission St., San Francisco (1.0 mi)"
-          />
+          <Pickup title="Pickup Address" name={address} />
           <Pickup title="Pickup time" name="Ready in 20 min" />
         </Fragment>
       )}
@@ -147,18 +108,27 @@ const Delivery = ({ mode }) => {
   );
 };
 
-const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({
-  mode
+const mapStateToProps = ({
+  deliveryModeReducer: { mode },
+  selectedLocationReducer: { coordinates, selectedLocation },
+  fetchBukkaReducer: {
+    fetchedBukka: { address }
+  }
+}) => ({
+  mode,
+  coordinates,
+  selectedLocation,
+  address
 });
 
 export default connect(mapStateToProps)(Delivery);
 
 Delivery.defaultProps = {
-  mode: 'delivery',
+  mode: 'delivery'
 };
 
 Delivery.propTypes = {
-  mode: PropTypes.string,
+  mode: PropTypes.string
 };
 
 DeliveryForm.propTypes = {
@@ -172,5 +142,5 @@ DeliveryForm.propTypes = {
 
 Pickup.propTypes = {
   title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 };

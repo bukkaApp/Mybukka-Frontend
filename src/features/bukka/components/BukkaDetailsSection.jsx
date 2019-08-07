@@ -15,15 +15,16 @@ import './bukkaDetailsSection.scss';
 
 const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   <div className="delivery-price-tag">
-    <div className={`row ${deliveryMode === 'pickup' ?
-      'justify-content-end' : ''}`}
+    <div
+      className={`row ${
+        deliveryMode === 'pickup' ? 'justify-content-end' : ''
+      }`}
     >
-      {deliveryMode === 'pickup' ?
-        null :
+      {deliveryMode === 'pickup' ? null : (
         <div className="col col-9">
           <p className="delivery-price">${deliveryPrice} DELIVERY</p>
         </div>
-      }
+      )}
       <div className="col col-3">
         <div className="tag-bukka">
           <Button
@@ -84,23 +85,33 @@ const TitleAndDescription = ({ name, description }) => (
   </div>
 );
 
-const BukkaDetailsSection = ({ bukkaName, description, address, deliveryMode }) => (
-  <Container classNames="bukka-details-section">
-    <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
-    <TitleAndDescription bukkaName={bukkaName} description={description} />
-    <ActionButtons deliveryTime={'15'} address={address} />
-  </Container>
-);
+const BukkaDetailsSection = ({
+  fetchedBukka,
+  address,
+  deliveryMode
+}) => {
+  const { name, description } = fetchedBukka;
+  if (Object.keys(fetchedBukka).length <= 0) {
+    return null;
+  }
+
+  return (
+    <Container classNames="bukka-details-section">
+      <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
+      <TitleAndDescription name={name} description={description} />
+      <ActionButtons deliveryTime={'15'} address={address} />
+    </Container>
+  );
+};
 
 const mapStateToProps = ({
   fetchBukkaReducer: {
-    fetchedBukka: { name, description }
+    fetchedBukka
   },
-  deliveryModeReducer: { mode: deliveryMode },
+  deliveryModeReducer: { mode: deliveryMode }
 }) => ({
-  name,
-  description,
-  deliveryMode,
+  fetchedBukka,
+  deliveryMode
 });
 
 export default connect(
@@ -109,19 +120,25 @@ export default connect(
 )(BukkaDetailsSection);
 
 BukkaDetailsSection.defaultProps = {
-  description: ''
+  description: '',
+  fetchedBukka: {},
 };
 
 BukkaDetailsSection.propTypes = {
-  bukkaName: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  fetchedBukka: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ])),
   address: PropTypes.string.isRequired,
-  deliveryMode: PropTypes.string.isRequired,
+  deliveryMode: PropTypes.string.isRequired
 };
 
 DeliveryPriceAndtag.propTypes = {
   deliveryPrice: PropTypes.number.isRequired,
-  deliveryMode: PropTypes.string.isRequired,
+  deliveryMode: PropTypes.string.isRequired
 };
 
 ActionButtons.propTypes = {

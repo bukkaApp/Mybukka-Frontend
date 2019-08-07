@@ -3,8 +3,9 @@
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-chinese-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-chinese-thumbnail.png",
     "rating": "popular",
+    "id": "chinese",
     "heading": "chinese",
     "position": { "bottom": true }
   },
@@ -12,8 +13,9 @@
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-american-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-american-thumbnail.png",
     "rating": "popular",
+    "id": "american",
     "heading": "american",
     "position": { "bottom": true }
   },
@@ -21,8 +23,9 @@
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-fastfood-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-fastfood-thumbnail.png",
     "rating": "popular",
+    "id": "fast-food",
     "heading": "Fast food",
     "position": { "bottom": true }
   },
@@ -30,8 +33,9 @@
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-coffee-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-coffee-thumbnail.png",
     "rating": "popular",
+    "id": "coffee",
     "heading": "coffee",
     "position": { "bottom": true }
   },
@@ -39,38 +43,42 @@
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-pizza-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-pizza-thumbnail.png",
     "rating": "popular",
+    "id": "pizza",
     "heading": "pizza",
     "position": {
-        "bottom": true
+      "bottom": true
     }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-mexican-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-mexican-thumbnail.png",
     "rating": "popular",
+    "id": "mexican",
     "heading": "mexican",
     "position": { "bottom": true }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554566326/cuisine-burger-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-burger-thumbnail.png",
     "rating": "popular",
+    "id": "burger",
     "heading": "burger",
     "position": { "bottom": true }
-},
-{
+  },
+  {
     "deliveryTime": "40-50 min",
     "author": "habit",
     "deliveryCost": 300,
-    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/cuisine-italian-thumbnail.webp",
+    "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/cuisine-italian-thumbnail.png",
     "rating": "popular",
+    "id": "italian",
     "heading": "Italian",
     "position": { "bottom": true }
-}
+  }
 ]

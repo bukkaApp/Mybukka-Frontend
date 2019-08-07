@@ -26,6 +26,12 @@
 }
 
 .dismiss-closed-notification-icon {
+    cursor: pointer;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+        border: none;
+    }
     @media screen and (min-width: 1061px) {
         top: 24px;
         right: 24px;
@@ -52,6 +58,7 @@
     display: none;
     border-style: none;
 }
+
 .closed-notification-bg-image {
     position: absolute;
     background-size: cover;
@@ -87,6 +94,9 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0px;
+    span {
+        text-transform: capitalize;
+    }
     @media screen and (min-width: 768px) {
         font-size: 22px;
         letter-spacing: -0.6px;
@@ -132,18 +142,29 @@
     max-width: 132px;
     width: 33%;
     padding: 11px 0px;
+    &:focus {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+    }
 }
 
 .closed-notification-footer-img {
     cursor: pointer;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    .magnifier {
+        margin-bottom: 0;
+    }
     height: 14px;
     width: 14px;
     margin-bottom: 11px;
     background-position: center center;
     background-repeat: no-repeat;
     &.note-bell {
-        background-image: url('https://res.cloudinary.com/deqt3envc/image/upload/v1555504640/bell.png');
+        background-image: url('https://res.cloudinary.com/mybukka/image/upload/c_scale,w_33/v1565125165/bukka-bell2_q3ttq3.jpg');
     }
     &.note-time {
         background-image: url('https://res.cloudinary.com/deqt3envc/image/upload/v1555506046/time.svg');

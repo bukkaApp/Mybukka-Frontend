@@ -30,7 +30,7 @@ Object {
             </label>
             <input
               accept=""
-              autocomplete=""
+              autocomplete="off"
               class="form-control border-input-style p-0"
               name="streetAddress1"
               placeholder="Address"
@@ -52,7 +52,7 @@ Object {
             </label>
             <input
               accept=""
-              autocomplete=""
+              autocomplete="off"
               class="form-control border-input-style p-0"
               name="streetAddress2"
               placeholder="Apt no or company name"
@@ -74,7 +74,7 @@ Object {
             </label>
             <input
               accept=""
-              autocomplete=""
+              autocomplete="off"
               class="form-control border-input-style p-0"
               name="name"
               placeholder="Contact name"
@@ -96,7 +96,7 @@ Object {
             </label>
             <input
               accept=""
-              autocomplete=""
+              autocomplete="off"
               class="form-control border-input-style p-0"
               name="mobileNumber"
               placeholder="Phone number"
@@ -124,7 +124,7 @@ Object {
               data-target=""
               data-testid="button"
               data-toggle=""
-              id="oFWj9SvrY"
+              id="qTPLsib7d"
               type="button"
             >
               Save
@@ -160,7 +160,7 @@ Object {
           </label>
           <input
             accept=""
-            autocomplete=""
+            autocomplete="off"
             class="form-control border-input-style p-0"
             name="streetAddress1"
             placeholder="Address"
@@ -182,7 +182,7 @@ Object {
           </label>
           <input
             accept=""
-            autocomplete=""
+            autocomplete="off"
             class="form-control border-input-style p-0"
             name="streetAddress2"
             placeholder="Apt no or company name"
@@ -204,7 +204,7 @@ Object {
           </label>
           <input
             accept=""
-            autocomplete=""
+            autocomplete="off"
             class="form-control border-input-style p-0"
             name="name"
             placeholder="Contact name"
@@ -226,7 +226,7 @@ Object {
           </label>
           <input
             accept=""
-            autocomplete=""
+            autocomplete="off"
             class="form-control border-input-style p-0"
             name="mobileNumber"
             placeholder="Phone number"
@@ -254,7 +254,7 @@ Object {
             data-target=""
             data-testid="button"
             data-toggle=""
-            id="oFWj9SvrY"
+            id="qTPLsib7d"
             type="button"
           >
             Save

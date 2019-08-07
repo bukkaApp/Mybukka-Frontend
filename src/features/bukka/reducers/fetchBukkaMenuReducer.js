@@ -7,6 +7,7 @@ const initialState = {
   mealToDisplay: {},
   errorMessage: '',
   cart: [],
+  categories: [],
   totalPriceInCart: 0
 };
 
@@ -50,10 +51,12 @@ const updateCart = (slug, bukkaMenu, cart, mealToDisplay) => {
 
 const fetchBukkaMenuReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_BUKKA_MENU_SUCCESS':
+    case 'FETCH_BUKKA_MENU_SUCCESS': {
+      const { bukkaMenu } = action.data;
       return {
         ...state,
-        bukkaMenu: action.data.bukkaMenu,
+        bukkaMenu,
+        categories: [...new Set(bukkaMenu.map(mealData => mealData.category))],
         status: {
           fetched: true,
           error: false
@@ -61,11 +64,11 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
         mealToDisplay: action.data.bukkaMenu[0],
         errorMessage: ''
       };
+    }
 
     case 'FETCH_BUKKA_MENU_ERROR':
       return {
         ...state,
-        bukkaMenu: [{}],
         status: {
           fetched: false,
           error: true
@@ -99,9 +102,15 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
     }
 
     case 'SET_MEAL_TO_DISPLAY': {
-      const { cart, bukkaMenu } = state;
+      const { bukkaMenu } = state;
       const { isCart, slug } = action;
-      const menuToFilter = isCart ? cart : bukkaMenu;
+      const menuToFilter = isCart ? 'WHOLE_DATA' : bukkaMenu;
+      if (menuToFilter === 'WHOLE_DATA') {
+        return {
+          ...state,
+          mealToDisplay: action.slug
+        };
+      }
       return {
         ...state,
         mealToDisplay: {

@@ -1,3 +1,8 @@
+import React from 'react';
 import ProfileHeader from './components/ProfileScene';
 
-export default ProfileHeader;
+const Profile = ({ history }) => {
+  return <ProfileHeader history={history} />;
+};
+
+export default Profile;

@@ -5,6 +5,7 @@ import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
 const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
+  console.log('image  ulr: ', typeof imageUrl, imageUrl);
   const [dropdown, toggleDropdown] = useState(false);
   return (
     <div className="user-default-img">
@@ -14,34 +15,40 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
           onClick={() => toggleDropdown(!dropdown)}
         >
           <img
-            src={`${imageUrl}`}
+            src={
+              imageUrl === undefined
+                ? 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'
+                : `${imageUrl}`
+            }
             alt="authenticated-img"
           />
         </button>
-        {dropdown && <UserDropdown />}
+        {dropdown && <UserDropdown handleToggle={()=> toggleDropdown(false)}/>}
       </div>
     </div>
   );
 };
 
 const mapStateToProps = ({
-  fetchUserData: { userInfo: { userInfo }, }
+  fetchUserData: {
+    userInfo: { userInfo },
+  },
 }) => ({
-  userInfo
+  userInfo,
 });
 
 export default connect(
   mapStateToProps,
-  {})(UserDefaultImage);
+  {},
+)(UserDefaultImage);
 
 UserDefaultImage.defaultProps = {
   userInfo: {
-    imageUrl: 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'
-  }
+    imageUrl:
+      'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png',
+  },
 };
 
 UserDefaultImage.propTypes = {
-  userInfo: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string
-  ]))
+  userInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string])),
 };
