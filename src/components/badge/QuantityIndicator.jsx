@@ -9,8 +9,8 @@ const QuantityIndicator = ({ quantity }) => (
   <div className="quantity-badge">{quantity}</div>
 );
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { cart } }) => ({
-  quantity: cart.length
+const mapStateToProps = ({ cartReducer: { items } }) => ({
+  quantity: items.length
 });
 
 export default connect(

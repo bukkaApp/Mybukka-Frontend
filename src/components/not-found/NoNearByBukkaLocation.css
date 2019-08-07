@@ -1,0 +1,28 @@
+.caption-text {
+  line-height: 1.56;
+  font-size: 18px;
+  letter-spacing: -0.1px;
+}
+.caption-header {
+  font-size: 72px;
+  letter-spacing: -3.6px;
+}
+
+.padding {
+  padding: 2em;
+  margin: 1em;
+}
+
+.no-nearby-bukka-runner {
+  position: relative;
+  width: 60px;
+  height: 1px;
+  margin: 32px;
+  margin-left: 0;
+}
+
+.store-button-container {
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 44px;
+}

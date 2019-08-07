@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import setDeliverySchedule from 'Redux/setDeliverySchedule';
 
 import Clock from '../icons/Clock';
-import { ReusableButton, ReusableDropdown, ReusableWrapper }
-  from './ReusableNavElements';
-import inputData from './inputData/duration.json';
-import './duration.scss';
+import {
+  ReusableButton,
+  ReusableDropdown,
+  ReusableWrapper
+} from './ReusableNavElements';
+import inputData from './inputData/duration';
 
-// Note: duration timelist needs to be genuinely generated (durationList).
+import './duration.scss';
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
 
@@ -26,20 +31,44 @@ const scheduleData = [
   }
 ];
 
-export const TimeLists = ({ lists, handleClick, classNames, maxHeight }) => (
+export const TimeLists = ({
+  lists,
+  handleClick,
+  classNames,
+  maxHeight,
+  push,
+  pathname,
+  link
+}) => (
   <div className={`custom-duration-dropdown ${classNames}`}>
     <div className={`custom-duration-dropdown-content ${maxHeight}`}>
-      {lists.map(time => (
-        <div
-          key={time}
-          tabIndex="0"
-          role="button"
-          aria-pressed="false"
-          onClick={() => handleClick(time)}
-          className="custom-duration-dropdown-item"
-        >
-          <span>{time}</span>
-        </div>
+      {lists.map(list => (
+        <>
+          {link ? (
+            <a href={`${pathname}#${list}`}>
+              <div
+                key={list}
+                tabIndex="0"
+                role="button"
+                aria-pressed="false"
+                className="custom-duration-dropdown-item"
+              >
+                <span>{list}</span>
+              </div>
+            </a>
+          ) : (
+            <div
+              key={list}
+              tabIndex="0"
+              role="button"
+              aria-pressed="false"
+              onClick={() => handleClick(list)}
+              className="custom-duration-dropdown-item"
+            >
+              <span>{list}</span>
+            </div>
+          )}
+        </>
       ))}
     </div>
   </div>
@@ -76,7 +105,7 @@ const Schedule = ({ placeholder, handleClick, lists, name }) => {
   );
 };
 
-const Asap = ({ handleClick }) =>
+const Asap = () =>
   asapTime.map(text => (
     <div className="border-bottom" key={text}>
       <div className="position-relative">
@@ -87,7 +116,6 @@ const Asap = ({ handleClick }) =>
               tabIndex="0"
               role="button"
               aria-pressed="false"
-              onClick={() => handleClick(text)}
             >
               <span>{text}</span>
             </div>
@@ -97,21 +125,21 @@ const Asap = ({ handleClick }) =>
     </div>
   ));
 
-export const DurationContent = () => {
-  const [activeOption, setOption] = useState(false);
+export const DurationContent = ({
+  mode, setDeliverySchedule, currentSchedule
+}) => {
+  const { time, day } = currentSchedule;
+  const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({
-    day: 'Today',
-    time: '7:00 AM - 7:30 AM',
+    day,
+    time
   });
-
-  const [asap, setAsap] = useState('');
 
   const handleDeliveryTime = (name, value) => {
     reSchedule({
       ...scheduled,
       [name]: value
     });
-    console.log(asap);
   };
 
   return (
@@ -134,27 +162,38 @@ export const DurationContent = () => {
       </div>
       <div className="duration-dropdown-body">
         <div className="duration-dropdown-content">
-          {!activeOption &&
-          <Asap handleClick={setAsap} />
-          }
+          {!activeOption && <Asap />}
           {activeOption &&
-          scheduleData.map(schedule => (
-            <Schedule
-              key={`${schedule.selector} hi`}
-              placeholder={scheduled[schedule.selector]}
-              lists={schedule.options}
-              name={schedule.selector}
-              handleClick={handleDeliveryTime}
-            />
-          ))}
+            scheduleData.map(schedule => (
+              <Schedule
+                key={`${schedule.selector} hi`}
+                placeholder={scheduled[schedule.selector]}
+                lists={schedule.options}
+                name={schedule.selector}
+                handleClick={handleDeliveryTime}
+              />
+            ))}
         </div>
-        <button className="duration-dropdown-footer-button">
+        <button
+          className="duration-dropdown-footer-button"
+          onClick={() => setDeliverySchedule(scheduled)}
+        >
           <span>Set Delivery Time</span>
         </button>
       </div>
     </div>
   );
 };
+
+const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
+  mode,
+  currentSchedule: schedule
+});
+
+const ConnectedDurationContent = connect(
+  mapStateToProps,
+  { setDeliverySchedule }
+)(DurationContent);
 
 const Duration = props => (
   <ReusableWrapper>
@@ -175,7 +214,7 @@ const Duration = props => (
       </div>
     </ReusableButton>
     <ReusableDropdown classNames={`${props.focus ? '' : 'dropdown--disapear'}`}>
-      <DurationContent />
+      <ConnectedDurationContent />
     </ReusableDropdown>
   </ReusableWrapper>
 );
@@ -188,22 +227,25 @@ Duration.propTypes = {
 
 TimeLists.defaultProps = {
   classNames: '',
-  maxHeight: '',
+  maxHeight: ''
 };
 
 TimeLists.propTypes = {
-  lists: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])).isRequired,
+  lists: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  ).isRequired,
   handleClick: PropTypes.func.isRequired,
   classNames: PropTypes.string,
-  maxHeight: PropTypes.string,
+  maxHeight: PropTypes.string
 };
 
 Schedule.propTypes = {
-  lists: PropTypes.arrayOf([PropTypes.string]).isRequired,
+  lists: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleClick: PropTypes.func.isRequired,
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
+};
+
+DurationContent.propTypes = {
+  mode: PropTypes.string.isRequired
 };

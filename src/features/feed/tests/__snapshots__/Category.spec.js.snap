@@ -85,7 +85,7 @@ exports[`Category component renders properly 1`] = `
                           >
                             <input
                               accept=""
-                              autocomplete=""
+                              autocomplete="off"
                               class="default-input"
                               name="email"
                               placeholder="Email"
@@ -101,7 +101,7 @@ exports[`Category component renders properly 1`] = `
                           >
                             <input
                               accept=""
-                              autocomplete=""
+                              autocomplete="off"
                               class="default-input"
                               name="password"
                               placeholder="Password"
@@ -161,7 +161,7 @@ exports[`Category component renders properly 1`] = `
                           data-target=""
                           data-testid="button"
                           data-toggle=""
-                          id="1QwcRG014"
+                          id="aY-tiu0KU"
                           type="button"
                         >
                           Facebook
@@ -214,32 +214,6 @@ exports[`Category component renders properly 1`] = `
               />
             </div>
           </a>
-        </div>
-        <div
-          class="form-inline"
-        >
-          <button
-            class="small-outline-button"
-            data-dismiss=""
-            data-target="#authModal"
-            data-testid="button"
-            data-toggle="modal"
-            id="/login"
-            type="button"
-          >
-            sign in
-          </button>
-          <button
-            class="small-button"
-            data-dismiss=""
-            data-target="#authModal"
-            data-testid="button"
-            data-toggle="modal"
-            id="/signup"
-            type="button"
-          >
-            sign up
-          </button>
         </div>
       </nav>
     </div>
@@ -356,7 +330,7 @@ exports[`Category component renders properly 2`] = `
                               >
                                 <input
                                   accept=""
-                                  autocomplete=""
+                                  autocomplete="off"
                                   class="default-input"
                                   name="email"
                                   placeholder="Email"
@@ -372,7 +346,7 @@ exports[`Category component renders properly 2`] = `
                               >
                                 <input
                                   accept=""
-                                  autocomplete=""
+                                  autocomplete="off"
                                   class="default-input"
                                   name="password"
                                   placeholder="Password"
@@ -432,7 +406,7 @@ exports[`Category component renders properly 2`] = `
                               data-target=""
                               data-testid="button"
                               data-toggle=""
-                              id="1QwcRG014"
+                              id="aY-tiu0KU"
                               type="button"
                             >
                               Facebook
@@ -503,7 +477,7 @@ exports[`Category component renders properly 2`] = `
                       data-target=""
                       data-testid="button"
                       data-toggle=""
-                      id="1QwcRG014"
+                      id="aY-tiu0KU"
                       type="button"
                     >
                       <span
@@ -621,6 +595,7 @@ exports[`Category component renders properly 2`] = `
           <div
             class="mt-4 mb-4"
           >
+            hehehee
             
             
             <div
@@ -638,8 +613,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -679,8 +656,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -720,8 +699,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -761,8 +742,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -802,8 +785,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -843,8 +828,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -884,8 +871,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"
@@ -925,8 +914,10 @@ exports[`Category component renders properly 2`] = `
                     
                     <div
                       class="mt-4 bukka-card"
-                      data-target="#bukkaAddToCart"
+                      data-target="#mealModal"
                       data-toggle="modal"
+                      role="button"
+                      tabindex="0"
                     >
                       <img
                         alt="alt_image"

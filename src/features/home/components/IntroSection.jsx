@@ -31,7 +31,7 @@ const SearchLocationSection = ({ push }) => (
 
 const IntroSection = ({ push }) => (
   <div className="intro-section">
-    <PrimaryNavbar push={push} />
+    <PrimaryNavbar push={push} authButton={true}/>
     <LargeTextSection />
     <SmallTextSection />
     <SearchLocationSection push={push} />

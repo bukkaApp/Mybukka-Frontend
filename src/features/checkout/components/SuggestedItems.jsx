@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import addToCartAction from 'Redux/addToCartAction';
+import updateCartAction from 'Redux/updateCartAction';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
 import Chevron from 'Components/icons/ChevronRight';
@@ -27,12 +27,12 @@ const ChevronLeft = ({ handleClick }) => (
   </Button>
 );
 
-const SuggestedItemsWrapper = ({ bukkaMenu, addToCart }) => {
+const SuggestedItemsWrapper = ({ bukkaMenuToSuggest, addToCart }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // max-width = 75% multiply by number of index
   const maxWidth = 75;
-  const slidesLength = bukkaMenu.length - 1;
+  const slidesLength = bukkaMenuToSuggest.length - 1;
   const translate = activeIndex >= 1 ? maxWidth : 0;
 
   const goToPrevSlide = (e) => {
@@ -78,12 +78,12 @@ const SuggestedItemsWrapper = ({ bukkaMenu, addToCart }) => {
           style={{ transform: `translateX(${activeIndex * -translate}%)` }}
           className="d-flex flex-start overflow-visible suggested-items-pane-section"
         >
-          {bukkaMenu.map(suggestedItem => (
+          {bukkaMenuToSuggest.map(suggestedItem => (
             <SuggestedItemPane
               name={suggestedItem.title}
               key={suggestedItem.slug}
               price={suggestedItem.price}
-              handleClick={() => addToCart(suggestedItem.slug)}
+              handleClick={() => addToCart(suggestedItem, true)}
             />
           ))}
         </div>
@@ -92,13 +92,15 @@ const SuggestedItemsWrapper = ({ bukkaMenu, addToCart }) => {
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
-  bukkaMenu: bukkaMenu.slice(0, 7)
-});
+const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu }, cartReducer: { items } }) => {
+  const mealsInCart = items.map(item => item.slug);
+  const bukkaMenuToSuggest = bukkaMenu.filter(menu => !mealsInCart.includes(menu.slug)).slice(0, 7);
+  return { bukkaMenuToSuggest };
+};
 
 export default connect(
   mapStateToProps,
-  { addToCart: addToCartAction }
+  { addToCart: updateCartAction }
 )(SuggestedItemsWrapper);
 
 ChevronLeft.propTypes = {
