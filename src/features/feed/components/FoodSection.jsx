@@ -36,6 +36,7 @@ const FoodSection = ({
   fetchNearbyBukkas,
   currentPage,
   errorMessage,
+  // status: { }
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -52,13 +53,12 @@ const FoodSection = ({
   useEffect(() => {
     if (nearbyBukkas.length === 0 && coordinates.length !== 0) {
       fetchNearbyBukkas(coordinates);
+    } if (nearbyBukkas.length === 0 && coordinates.length !== 0
+      && errorMessage) {
+      return <NoNearByBukkaLocation history={{ push }} />;
     }
   }, []);
 
-  if (nearbyBukkas.length === 0 && coordinates.length !== 0
-    && errorMessage) {
-    return <NoNearByBukkaLocation history={{ push }} />;
-  }
 
   return (
     <div className="container-fluid p-0">

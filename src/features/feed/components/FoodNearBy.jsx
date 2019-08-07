@@ -11,6 +11,7 @@ import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkas from '../actionCreators/fetchMoreBukkas';
 
 const FoodNearBy = ({
@@ -25,6 +26,7 @@ const FoodNearBy = ({
   fetchMoreBukkas,
   currentPage,
   errorMessage,
+  fetchBukkaMenu,
 }) => (
   <div className="mt-4 mb-4">
     {title && (
@@ -56,6 +58,7 @@ const FoodNearBy = ({
                 imageUrl={bukka.imageUrl}
                 mealName={bukka.name}
                 delivery={delivery}
+                handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
                 deliveryPrice={bukka.deliveryPrice}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
@@ -79,7 +82,8 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { fetchMoreBukkas: fetchBukkas }
+  { fetchMoreBukkas: fetchBukkas,
+    fetchBukkaMenu: fetchBukkaMenuAction }
 )(FoodNearBy);
 
 FoodNearBy.defaultProps = {
@@ -91,9 +95,11 @@ FoodNearBy.defaultProps = {
   coordinates: [],
   currentPage: 1,
   errorMessage: '',
+  fetchBukkaMenu: () => {},
 };
 
 FoodNearBy.propTypes = {
+  fetchBukkaMenu: PropTypes.func,
   delivery: PropTypes.bool,
   handleRefFocus: PropTypes.func,
   title: PropTypes.string,

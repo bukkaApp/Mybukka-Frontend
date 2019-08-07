@@ -86,26 +86,31 @@ const TitleAndDescription = ({ name, description }) => (
 );
 
 const BukkaDetailsSection = ({
-  name,
-  description,
+  fetchedBukka,
   address,
   deliveryMode
-}) => (
-  <Container classNames="bukka-details-section">
-    <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
-    <TitleAndDescription name={name} description={description} />
-    <ActionButtons deliveryTime={'15'} address={address} />
-  </Container>
-);
+}) => {
+  const { name, description } = fetchedBukka;
+  if (Object.keys(fetchedBukka).length <= 0) {
+    return null;
+  }
+
+  return (
+    <Container classNames="bukka-details-section">
+      <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
+      <TitleAndDescription name={name} description={description} />
+      <ActionButtons deliveryTime={'15'} address={address} />
+    </Container>
+  );
+};
 
 const mapStateToProps = ({
   fetchBukkaReducer: {
-    fetchedBukka: { name, description }
+    fetchedBukka
   },
   deliveryModeReducer: { mode: deliveryMode }
 }) => ({
-  name,
-  description,
+  fetchedBukka,
   deliveryMode
 });
 
@@ -115,12 +120,18 @@ export default connect(
 )(BukkaDetailsSection);
 
 BukkaDetailsSection.defaultProps = {
-  description: ''
+  description: '',
+  fetchedBukka: {},
 };
 
 BukkaDetailsSection.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  fetchedBukka: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ])),
   address: PropTypes.string.isRequired,
   deliveryMode: PropTypes.string.isRequired
 };
