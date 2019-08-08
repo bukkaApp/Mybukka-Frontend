@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
 
-const SuggestionsDropdown = ({ setLocation }) => (
+const SuggestionsDropdown = ({ setLocation, push }) => (
   <div className="suggestion-dropdown">
-    <UseCurrentLocation />
+    <UseCurrentLocation push={push} />
     <GeoSuggestions handleClick={setLocation} />
   </div>
 );
@@ -14,9 +14,10 @@ const SuggestionsDropdown = ({ setLocation }) => (
 export default SuggestionsDropdown;
 
 SuggestionsDropdown.defaultProps = {
-  handleClick: () => {}
+  push: () => {}
 };
 
 SuggestionsDropdown.propTypes = {
   setLocation: PropTypes.func.isRequired,
+  push: PropTypes.func,
 };

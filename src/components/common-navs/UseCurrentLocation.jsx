@@ -7,9 +7,10 @@ import SmallSpinner from 'Components/spinners/SmallSpinner';
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import LocationArrow from '../icons/LocationArrow';
 
+import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
 import './usecurrentlocation.scss';
 
-const UseCurrentLocation = ({ selectLocation }) => {
+const UseCurrentLocation = ({ selectLocation, fetchNearbyBukkas, push }) => {
   const [isGettingLocation, setIsGettingLocation] = useState(false);
 
   const setLocation = () => {
@@ -21,6 +22,7 @@ const UseCurrentLocation = ({ selectLocation }) => {
           const longitude = position.coords.longitude;
           const coordinates = [longitude, lattitude];
           setIsGettingLocation(false);
+          fetchNearbyBukkas(coordinates, push);
           selectLocation(coordinates, true);
         },
         () =>
@@ -52,7 +54,10 @@ const UseCurrentLocation = ({ selectLocation }) => {
 
 export default connect(
   () => ({}),
-  { selectLocation: setSelectedLocation }
+  {
+    selectLocation: setSelectedLocation,
+    fetchNearbyBukkas: fetchBukkas
+  }
 )(UseCurrentLocation);
 
 UseCurrentLocation.propTypes = {

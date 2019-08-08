@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -16,52 +16,28 @@ import VerifyPhone from '../verifyPhone';
 
 const Home = ({
   history: { push },
-  coordinates,
-  fetchNearbyBukkas,
-  fetchedBukkas: { nearbyBukkas },
-}) => {
-  useEffect(
-    () => () => {
-      fetchNearbyBukkas(coordinates);
-    },
-    [coordinates],
-  );
-
-  useEffect(() => () => push('/feed'), [nearbyBukkas]);
-
-  return (
-    <div className="home">
-      <VerifyPhone />
-      <IntroSection push={push} />
-      <DiscoverSection />
-      <ChooseAreaToExploreSection />
-      <ReadyToOrderSection />
-      <Footer />
-    </div>
-  );
-};
-
-const mapStateToProps = ({
-  selectedLocationReducer: { coordinates },
-  bukkasReducer: { fetchedBukkas },
-}) => ({
-  coordinates,
-  fetchedBukkas,
-});
+}) => (
+  <div className="home">
+    <VerifyPhone />
+    <IntroSection push={push} />
+    <DiscoverSection />
+    <ChooseAreaToExploreSection />
+    <ReadyToOrderSection />
+    <Footer />
+  </div>
+);
 
 export default connect(
-  mapStateToProps,
+  () => ({}),
   { fetchNearbyBukkas: fetchBukkas },
 )(Home);
+
+Home.defaultProps = {
+  errorMessage: '',
+};
 
 Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  fetchNearbyBukkas: PropTypes.func.isRequired,
-  fetchedBukkas: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array
-  ])).isRequired
 };

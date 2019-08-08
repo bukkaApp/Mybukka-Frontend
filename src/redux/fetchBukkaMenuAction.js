@@ -1,6 +1,7 @@
 import { FETCH_BUKKA_MENU } from 'Redux/actionTypes';
 
 import loading from 'Redux/loading';
+import alertMessage from 'Redux/alertMessage';
 import axios from 'Redux/axios';
 
 const fetchBukkaMenu = (type, data) => ({
@@ -16,6 +17,8 @@ const fetchBukkaMenuAction = (bukka, type = 'food') => async (dispatch) => {
     dispatch(fetchBukkaMenu('SUCCESS', request.data));
   } catch (error) {
     dispatch(loading(FETCH_BUKKA_MENU, false));
+    const errMsg = 'restaurant is unavailable for delivery';
+    dispatch(alertMessage(FETCH_BUKKA_MENU, true, errMsg));
     dispatch(fetchBukkaMenu('ERROR', error.response.data));
   }
 };

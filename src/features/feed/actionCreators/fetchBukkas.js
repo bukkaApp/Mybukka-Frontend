@@ -10,6 +10,7 @@ const fetchBukkasAction = (type, data) => ({
 
 const fetchBukkas = (
   coordinates,
+  cb,
   page = 1,
   limit = 12,
   by = 'majorCusine',
@@ -24,12 +25,13 @@ const fetchBukkas = (
     );
     dispatch(loading(FETCH_BUKKAS, false));
     dispatch(fetchBukkasAction('SUCCESS', request.data));
+    cb('/feed');
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
     if (!error.response) {
-      dispatch(alertMessage(FETCH_BUKKAS, true, 'Sorry, Server maintaince is going on, try again later'));
+      dispatch(alertMessage(FETCH_BUKKAS, true, 'Please check your network'));
       dispatch(loading(FETCH_BUKKAS, false));
-    }
+    } else { cb('/coming-soon'); }
     dispatch(fetchBukkasAction('ERROR', error.response.data));
   }
 };
