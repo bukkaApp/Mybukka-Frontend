@@ -15,5 +15,5 @@ Scope.defaultProps = {
 
 Scope.propTypes = {
   text: PropTypes.string.isRequired,
-  classNames: '',
+  classNames: PropTypes.string,
 };

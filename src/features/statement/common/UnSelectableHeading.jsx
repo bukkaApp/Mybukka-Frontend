@@ -14,11 +14,12 @@ export default UnSelectableHeading;
 UnSelectableHeading.defaultProps = {
   classNames: '',
   font: '',
+  text: '',
   children: <div />
 };
 
 UnSelectableHeading.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   classNames: PropTypes.string,
   font: PropTypes.string,
   children: PropTypes.oneOfType([

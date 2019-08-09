@@ -30,6 +30,7 @@ const SmallScreen = ({ activePage }) => {
       >
         {navArr.map(navText => (
           <a
+            key={navText.text}
             href={navText.href}
             className={`${activePage === navText.text ? 'text-dark'
               : 'text-muted'}`}
@@ -55,6 +56,7 @@ const LargeScreen = ({ activePage }) => (
     >
       {navArr.map(navText => (
         <a
+          key={navText.text}
           href={navText.href}
           className={`${activePage === navText.text ? 'text-dark' : 'text-muted'}`}
         >
