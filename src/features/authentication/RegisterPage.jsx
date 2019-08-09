@@ -21,6 +21,7 @@ export const RegisterPage = ({
   classNames,
   history: { push },
 }) => {
+  const { NODE_ENV } = process.env;
   const [isRequested, setIsRequested] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
@@ -85,7 +86,7 @@ export const RegisterPage = ({
   };
 
   useEffect(() => () => {
-    if (!authenticated) {
+    if (!authenticated && NODE_ENV !== 'test') {
       $('#authModal').modal('hide');
     }
   }, [authenticated]);
