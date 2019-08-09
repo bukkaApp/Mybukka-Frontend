@@ -22,6 +22,7 @@ export const LoginPage = ({
   authenticateUser,
   history: { push, location }
 }) => {
+  const { NODE_ENV } = process.env;
   const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
   const [redirect, setRedirection] = useState('');
@@ -105,10 +106,13 @@ export const LoginPage = ({
     }
   };
 
-  useEffect(() => {
-    if (authenticated) {
+  useEffect(() => () => {
+    if (!authenticated && NODE_ENV !== 'test') {
       $('#authModal').modal('hide');
     }
+  }, [authenticated]);
+
+  useEffect(() => {
     if (location && location.search) {
       urlFilter(location.search);
       if (authenticated) {

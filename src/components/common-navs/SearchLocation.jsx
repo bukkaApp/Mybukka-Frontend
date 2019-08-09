@@ -3,7 +3,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GoogleApiWrapper } from 'google-maps-react';
-import { Link } from 'react-router-dom';
 
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import MapMarker from 'Icons/MapMarker';
@@ -13,6 +12,8 @@ import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 
 import updateLocationsPrediction from '../../features/home/actionCreators/updateLocationsPrediction';
+
+import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
 
 import './searchlocation.scss';
 
@@ -24,9 +25,12 @@ const SearchLocation = ({
   showDeliveryOrPickupNav,
   chevronButtonVisible,
   showDropdown,
+  fetchNearbyBukkas,
+  push,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
+  const [inputData, setInputData] = useState('');
 
   const setWrapperRef = (node) => {
     wrapperRef = node;
@@ -47,6 +51,7 @@ const SearchLocation = ({
 
   const handleChange = ({ target: { value } }) => {
     if (value) {
+      setInputData(value);
       const autoCompleteService = new google.maps.places.AutocompleteService();
       autoCompleteService.getPlacePredictions(
         { input: value },
@@ -63,19 +68,51 @@ const SearchLocation = ({
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
       selectLocation({ coordinates, suggestion });
+      fetchNearbyBukkas(coordinates, push);
     });
+  };
+
+  const handlePredictions = (suggestions) => {
+    if (suggestions.length > 0) {
+      geoCodeLocation(suggestions[0]);
+    }
+  };
+
+  const handleSuggestion = (predictions, status) => {
+    if (status !== google.maps.places.PlacesServiceStatus.OK) {
+      return;
+    }
+    handlePredictions(predictions);
+  };
+
+  const handleChevronSelectedLocation = () => {
+    if (inputData || selectedLocation.description) {
+      const autoCompleteService = new google.maps.places.AutocompleteService();
+      autoCompleteService.getPlacePredictions(
+        { input: inputData || selectedLocation.description },
+        handleSuggestion
+      );
+    }
+  };
+
+  const handleChevronClick = () => {
+    handleChevronSelectedLocation();
   };
 
   const showChevronButton = () => {
     if (chevronButtonVisible) {
       return (
-        <Link to="/feed">
-          <div className="input-group-append button-go-feed">
-            <span className="input-group-text button-search">
-              <ChevronRight />
-            </span>
-          </div>
-        </Link>
+        <div
+          onClick={handleChevronClick}
+          aria-pressed="false"
+          tabIndex="0"
+          role="button"
+          className="input-group-append button-go-feed"
+        >
+          <span className="input-group-text button-search">
+            <ChevronRight />
+          </span>
+        </div>
       );
     }
     return null;
@@ -96,15 +133,15 @@ const SearchLocation = ({
             <MapMarker />
           </span>
         </div>
-          <InputField
-            type="text"
-            name="searchLocation"
-            placeholderText="Enter your address..."
-            classNames="text-field form-control searchlocation"
-            handleFocus={() => setFocus(true)}
-            handleChange={handleChange}
-            defaultValue={selectedLocation ? selectedLocation.description : ''}
-          />
+        <InputField
+          type="text"
+          name="searchLocation"
+          placeholderText="Enter your address..."
+          classNames="text-field form-control searchlocation"
+          handleFocus={() => setFocus(true)}
+          handleChange={handleChange}
+          defaultValue={selectedLocation ? selectedLocation.description : ''}
+        />
         {showChevronButton()}
       </div>
       {showDropdown && (<div className="carousel-divider mb-0" />)}
@@ -112,7 +149,7 @@ const SearchLocation = ({
         {(isFocused || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
-            <SuggestionsDropdown setLocation={geoCodeLocation} />
+            <SuggestionsDropdown push={push} setLocation={geoCodeLocation} />
           </Fragment>
         )}
       </div>
@@ -132,7 +169,8 @@ export default connect(
   mapStateToProps,
   {
     updatePredictions: updateLocationsPrediction,
-    selectLocation: setSelectedLocation
+    selectLocation: setSelectedLocation,
+    fetchNearbyBukkas: fetchBukkas
   }
 )(
   GoogleApiWrapper({
@@ -143,11 +181,14 @@ export default connect(
 
 SearchLocation.defaultProps = {
   chevronButtonVisible: true,
-  showDeliveryOrPickupNav: true
+  showDeliveryOrPickupNav: true,
+  showDropdown: false,
 };
 
 SearchLocation.propTypes = {
   showDropdown: PropTypes.bool,
+  fetchNearbyBukkas: PropTypes.func.isRequired,
+  push: PropTypes.func.isRequired,
   google: PropTypes.shape({}).isRequired,
   updatePredictions: PropTypes.func.isRequired,
   selectedLocation: PropTypes.shape({}).isRequired,

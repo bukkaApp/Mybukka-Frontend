@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
 const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
-  console.log('image  ulr: ', typeof imageUrl, imageUrl);
+  let wrapperRef;
   const [dropdown, toggleDropdown] = useState(false);
+
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      toggleDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
+
   return (
-    <div className="user-default-img">
+    <div ref={setWrapperRef} className="user-default-img">
       <div className="position-relative">
         <button
           className="auth-btn-drop"
@@ -23,7 +38,7 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
             alt="authenticated-img"
           />
         </button>
-        {dropdown && <UserDropdown handleToggle={()=> toggleDropdown(false)}/>}
+        {dropdown && <UserDropdown handleToggle={() => toggleDropdown(false)} />}
       </div>
     </div>
   );

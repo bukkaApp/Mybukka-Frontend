@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import Container from 'Components/container/Container';
 
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
-import Navbar from 'Components/navbar';
+// import Navbar from 'Components/navbar';
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
 import LocationNavSmallScreen, {
   SelectLocationModal,
@@ -37,6 +37,7 @@ const FoodSection = ({
   currentPage,
   errorMessage,
   // status: { }
+  loading,
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -44,21 +45,23 @@ const FoodSection = ({
     setDisplayMap(!displayMap);
   };
 
-  useEffect(() => {
-    if (coordinates.length < 2) {
-      push('/');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (coordinates.length < 2) {
+  //     push('/');
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (nearbyBukkas.length === 0 && coordinates.length !== 0) {
-      fetchNearbyBukkas(coordinates);
-    } if (nearbyBukkas.length === 0 && coordinates.length !== 0
-      && errorMessage) {
-      return <NoNearByBukkaLocation history={{ push }} />;
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!loading && nearbyBukkas.length === 0
+  //     && coordinates.length !== 0 && !errorMessage) {
+  //     fetchNearbyBukkas(coordinates);
+  //   }
+  // }, []);
 
+  if (!loading && nearbyBukkas.length === 0
+    && coordinates.length !== 0 && errorMessage) {
+    return <NoNearByBukkaLocation history={{ push }} />;
+  }
 
   return (
     <div className="container-fluid p-0">
@@ -143,6 +146,7 @@ const FoodSection = ({
 };
 
 const mapStateToProps = ({
+  loadingReducer: { status: loading },
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
   selectedLocationReducer: { coordinates },
@@ -153,6 +157,7 @@ const mapStateToProps = ({
   coordinates,
   mode,
   errorMessage,
+  loading,
 });
 
 export default connect(

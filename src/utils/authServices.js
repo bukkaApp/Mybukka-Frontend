@@ -3,6 +3,7 @@
 /* eslint-disable no-unneeded-ternary */
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
+import timeEngine from './timeEngine';
 
 class AuthService {
   tokenKey = 'x-access-token';
@@ -72,18 +73,7 @@ class AuthService {
    * @returns {void}
    */
   getCurrentHour(strFmt) {
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-    if (strFmt) {
-      if (currentHour < 12 || currentHour === 0) {
-        const is24Hrs = currentHour === 0;
-        return `${is24Hrs ? 12 : currentHour} am`;
-      }
-      const convertTo12Hrs = currentHour - 12;
-      const convertedHrs = convertTo12Hrs === 0 ? 12 : convertTo12Hrs;
-      return `${convertedHrs} pm`;
-    }
-    return currentHour === 0 ? 24 : currentHour;
+    return timeEngine.getCurrentHour(strFmt);
   }
 
   /**
@@ -93,13 +83,7 @@ class AuthService {
    * @returns {void}
    */
   getRestaurantWrkHour(closingHour) {
-    const dHrs = Number(closingHour.split(' ')[0]);
-    const dTimeFmt = closingHour.split(' ')[1];
-    if (dHrs < 12 && dTimeFmt === 'am') {
-      return dHrs;
-    }
-    const d24Hrs = dHrs + 12;
-    return d24Hrs;
+    return timeEngine.getWorkHour(closingHour);
   }
 }
 

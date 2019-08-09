@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger'; // eslint-disable-line
 import thunk from 'redux-thunk';
-
+// import { routerMiddleware } from 'react-router-redux';
 import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';
