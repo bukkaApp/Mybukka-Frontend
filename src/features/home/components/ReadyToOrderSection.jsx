@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import SearchLocation from 'Components/common-navs/SearchLocation';
 
 import './readyToOrderSection.scss';
@@ -10,15 +12,19 @@ const ReadyToOrderHeader = () => (
   </div>
 );
 
-const ReadyToOrderSection = () => (
+const ReadyToOrderSection = ({ push }) => (
   <div className="ready-to-order-section">
     <div className="container">
       <ReadyToOrderHeader />
       <div className="search-location-section">
-        <SearchLocation />
+        <SearchLocation push={push} />
       </div>
     </div>
   </div>
 );
 
 export default ReadyToOrderSection;
+
+ReadyToOrderSection.propTypes = {
+  push: PropTypes.func.isRequired,
+};

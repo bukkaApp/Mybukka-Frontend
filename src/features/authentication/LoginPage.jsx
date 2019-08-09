@@ -105,10 +105,13 @@ export const LoginPage = ({
     }
   };
 
-  useEffect(() => {
-    if (authenticated) {
+  useEffect(() => () => {
+    if (!authenticated) {
       $('#authModal').modal('hide');
     }
+  }, [authenticated]);
+
+  useEffect(() => {
     if (location && location.search) {
       urlFilter(location.search);
       if (authenticated) {

@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import './header.scss';
 
 const Header = () => (
-  <section className="header">
+  <section className="merchant-header">
     <div className="wrap">
       <div className="wrap-head">
         <h1>Partner With MyBukka</h1>

@@ -13,6 +13,7 @@ import { validateAField, validateAllFields } from './helper/validateFields';
 import inputInterface from './common/inputInterface.json';
 
 import './index.scss';
+import authServices from '../../utils/authServices';
 
 const Index = ({
   user,
@@ -97,10 +98,11 @@ const Index = ({
   }, []);
 
   useEffect(() => {
+    const { phoneVerificationWarning } = authServices;
     if (status.authenticated) {
       if (user.verified) {
         setModalOpen(false);
-      } else {
+      } else if (!user.verified && phoneVerificationWarning()) {
         setModalOpen(true);
       }
     }

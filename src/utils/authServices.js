@@ -3,9 +3,11 @@
 /* eslint-disable no-unneeded-ternary */
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
+import timeEngine from './timeEngine';
 
 class AuthService {
   tokenKey = 'x-access-token';
+  verifiedPhone = 'verizon';
 
   getToken() {
     return localStorage.getItem(this.tokenKey);
@@ -66,24 +68,57 @@ class AuthService {
     return token && this.isValid(token) ? true : false;
   }
 
+  getDate = () => {
+    const today = new Date();
+    return today.getDate();
+  };
+
+  getMonth = () => {
+    const today = new Date();
+    return today.getDate();
+  };
+
+  getFullYear = () => {
+    const today = new Date();
+    return today.getFullYear();
+  };
+
+  getPhoneVerificationToken() {
+    const token = localStorage.getItem(this.verifiedPhone);
+    if (token) return JSON.parse(token);
+  }
+
+  phoneVerificationWarning() {
+    const prevDate = this.getPhoneVerificationToken();
+    const today = this.getDate();
+    if (prevDate && prevDate < today) {
+      return true;
+    } else if (!this.getPhoneVerificationToken()) {
+      return true;
+    }
+  }
+
+  autoPromptVerification() {
+    if (!this.phoneVerificationWarning()) {
+      localStorage.setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
+    }
+  }
+
+  stopVerificationWarning() {
+    localStorage.setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
+  }
+
+  timeConverter(number) {
+    return moment.unix(number);
+  }
+
   /**
    * @method getCurrentHour
    * @param {*} strFmt string format '10 am' etc or 10
    * @returns {void}
    */
   getCurrentHour(strFmt) {
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-    if (strFmt) {
-      if (currentHour < 12 || currentHour === 0) {
-        const is24Hrs = currentHour === 0;
-        return `${is24Hrs ? 12 : currentHour} am`;
-      }
-      const convertTo12Hrs = currentHour - 12;
-      const convertedHrs = convertTo12Hrs === 0 ? 12 : convertTo12Hrs;
-      return `${convertedHrs} pm`;
-    }
-    return currentHour === 0 ? 24 : currentHour;
+    return timeEngine.getCurrentHour(strFmt);
   }
 
   /**
@@ -93,13 +128,7 @@ class AuthService {
    * @returns {void}
    */
   getRestaurantWrkHour(closingHour) {
-    const dHrs = Number(closingHour.split(' ')[0]);
-    const dTimeFmt = closingHour.split(' ')[1];
-    if (dHrs < 12 && dTimeFmt === 'am') {
-      return dHrs;
-    }
-    const d24Hrs = dHrs + 12;
-    return d24Hrs;
+    return timeEngine.getWorkHour(closingHour);
   }
 }
 
