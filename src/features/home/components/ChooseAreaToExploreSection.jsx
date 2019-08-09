@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import setSelectedLocation from 'Redux/setSelectedLocation';
+import showLoadingAction from 'Redux/showLoadingAction';
 
 import { GoogleApiWrapper } from 'google-maps-react';
 import shortId from 'shortid';
@@ -70,7 +71,7 @@ const AreaToExploreHeader = () => (
 );
 
 const ChooseAreaToExploreSection =
-({ push, google, fetchNearbyBukkas, selectLocation }) => {
+({ push, google, fetchNearbyBukkas, selectLocation, handleLoader }) => {
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
@@ -98,6 +99,7 @@ const ChooseAreaToExploreSection =
 
   const handleSelectedLocation = (text) => {
     if (text) {
+      handleLoader();
       const autoCompleteService = new google.maps.places.AutocompleteService();
       autoCompleteService.getPlacePredictions(
         { input: text },
@@ -125,7 +127,8 @@ export default connect(
   () => ({}),
   {
     selectLocation: setSelectedLocation,
-    fetchNearbyBukkas: fetchBukkas
+    fetchNearbyBukkas: fetchBukkas,
+    handleLoader: showLoadingAction,
   }
 )(
   GoogleApiWrapper({
@@ -141,6 +144,7 @@ AreasToExploreList.propTypes = {
 
 
 ChooseAreaToExploreSection.propTypes = {
+  handleLoader: PropTypes.func.isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
   push: PropTypes.func.isRequired,
   google: PropTypes.shape({}).isRequired,

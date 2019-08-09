@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GoogleApiWrapper } from 'google-maps-react';
 
+import showLoadingAction from 'Redux/showLoadingAction';
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import MapMarker from 'Icons/MapMarker';
 import ChevronRight from 'Icons/ChevronRight';
@@ -27,6 +28,7 @@ const SearchLocation = ({
   showDropdown,
   fetchNearbyBukkas,
   push,
+  handleLoader,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -87,6 +89,7 @@ const SearchLocation = ({
 
   const handleChevronSelectedLocation = () => {
     if (inputData || selectedLocation.description) {
+      handleLoader();
       const autoCompleteService = new google.maps.places.AutocompleteService();
       autoCompleteService.getPlacePredictions(
         { input: inputData || selectedLocation.description },
@@ -170,7 +173,8 @@ export default connect(
   {
     updatePredictions: updateLocationsPrediction,
     selectLocation: setSelectedLocation,
-    fetchNearbyBukkas: fetchBukkas
+    fetchNearbyBukkas: fetchBukkas,
+    handleLoader: showLoadingAction,
   }
 )(
   GoogleApiWrapper({
@@ -187,6 +191,7 @@ SearchLocation.defaultProps = {
 
 SearchLocation.propTypes = {
   showDropdown: PropTypes.bool,
+  handleLoader: PropTypes.func.isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
   push: PropTypes.func.isRequired,
   google: PropTypes.shape({}).isRequired,
