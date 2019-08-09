@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import CartItems from 'Components/common/CartItems';
 import Brand from 'Components/brand/Brand';
@@ -10,11 +10,26 @@ import UserDefaultImage from './UserDefaultImage';
 import './navbar.scss';
 
 const AuthenticaticatedNavbar = () => {
+  let wrapperRef;
   const [isFocused, setFocus] = useState(false);
 
   const handleClick = () => {
     setFocus(!isFocused);
   };
+
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      setFocus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
 
   return (
     <Fragment>
@@ -27,10 +42,12 @@ const AuthenticaticatedNavbar = () => {
             <div>
               <CartSection handleClick={handleClick} />
             </div>
-            <CartDropdown display={isFocused}>
-              <EmptyCart />
-              <CartIconSection />
-            </CartDropdown>
+            <div ref={setWrapperRef}>
+              <CartDropdown display={isFocused}>
+                <EmptyCart />
+                <CartIconSection />
+              </CartDropdown>
+            </div>
           </div>
         </div>
       </nav>

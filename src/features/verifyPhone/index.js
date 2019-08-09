@@ -13,7 +13,7 @@ import { validateAField, validateAllFields } from './helper/validateFields';
 import inputInterface from './common/inputInterface.json';
 
 import './index.scss';
-import authServices from '../../utils/authServices';
+import authServices from '../../utils/timeEngine';
 
 const Index = ({
   user,
@@ -89,7 +89,10 @@ const Index = ({
     }
   };
 
-  const closeModal = () => setModalOpen(false);
+  const closeModal = () => {
+    setModalOpen(false);
+    authServices.stopVerificationWarning();
+  };
 
   useEffect(() => {
     if (status.authenticated) {
@@ -104,6 +107,7 @@ const Index = ({
         setModalOpen(false);
       } else if (!user.verified && phoneVerificationWarning()) {
         setModalOpen(true);
+        authServices.stopVerificationWarning();
       }
     }
   }, [user]);

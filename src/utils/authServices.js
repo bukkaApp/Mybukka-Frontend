@@ -7,7 +7,6 @@ import timeEngine from './timeEngine';
 
 class AuthService {
   tokenKey = 'x-access-token';
-  verifiedPhone = 'verizon';
 
   getToken() {
     return localStorage.getItem(this.tokenKey);
@@ -66,50 +65,6 @@ class AuthService {
   isAuthenticated() {
     const token = this.getToken();
     return token && this.isValid(token) ? true : false;
-  }
-
-  getDate = () => {
-    const today = new Date();
-    return today.getDate();
-  };
-
-  getMonth = () => {
-    const today = new Date();
-    return today.getDate();
-  };
-
-  getFullYear = () => {
-    const today = new Date();
-    return today.getFullYear();
-  };
-
-  getPhoneVerificationToken() {
-    const token = localStorage.getItem(this.verifiedPhone);
-    if (token) return JSON.parse(token);
-  }
-
-  phoneVerificationWarning() {
-    const prevDate = this.getPhoneVerificationToken();
-    const today = this.getDate();
-    if (prevDate && prevDate < today) {
-      return true;
-    } else if (!this.getPhoneVerificationToken()) {
-      return true;
-    }
-  }
-
-  autoPromptVerification() {
-    if (!this.phoneVerificationWarning()) {
-      localStorage.setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
-    }
-  }
-
-  stopVerificationWarning() {
-    localStorage.setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
-  }
-
-  timeConverter(number) {
-    return moment.unix(number);
   }
 
   /**

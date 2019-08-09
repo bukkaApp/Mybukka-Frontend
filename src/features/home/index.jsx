@@ -18,10 +18,10 @@ const Home = ({
   history: { push },
 }) => (
   <div className="home">
-    {/* <VerifyPhone /> */}
+    <VerifyPhone />
     <IntroSection push={push} />
     <DiscoverSection />
-    <ChooseAreaToExploreSection />
+    <ChooseAreaToExploreSection push={push} />
     <ReadyToOrderSection push={push} />
     <Footer />
   </div>

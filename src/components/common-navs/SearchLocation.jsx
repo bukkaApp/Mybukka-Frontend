@@ -3,7 +3,6 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { GoogleApiWrapper } from 'google-maps-react';
-// import { Link } from 'react-router-dom';
 
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import MapMarker from 'Icons/MapMarker';

@@ -30,7 +30,7 @@ class TimeEngine {
     return today.getFullYear();
   };
 
-  comparedMonth(prevMonth) {
+  comparedMonth = (prevMonth) => {
     const currentMonth = this.getMonth();
     if (prevMonth <= currentMonth
         || (currentMonth === 1 && prevMonth > currentMonth)) {
@@ -38,7 +38,7 @@ class TimeEngine {
     }
   }
 
-  comparedDay(prevDay) {
+  comparedDay = (prevDay) => {
     const currentDay = this.getDate();
     if (prevDay < currentDay) {
       return true;
@@ -47,19 +47,20 @@ class TimeEngine {
     }
   }
 
-  phoneVerificationWarning() {
-    const prevDate = this.getPhoneVerificationToken();
-    if (this.comparedMonth(prevDate)) {
+  getPhoneVerificationToken = () => localStorage.getItem(this.verifiedPhone)
+
+  phoneVerificationWarning = () => {
+    if (!this.getPhoneVerificationToken()) {
+      return true;
+    } else if (this.comparedDay(this.getPhoneVerificationToken())) {
       return true;
     }
   }
 
-  getPhoneVerificationToken() {
-    const token = localStorage.getItem(this.verifiedPhone);
-    if (token) return JSON.parse(token);
-  }
+  resetPhoneVericationPrompt = () => localStorage
+    .removeItem(this.verifiedPhone);
 
-  autoPromptForPhoneNumbVerification() {
+  autoPromptForPhoneNumbVerification = () => {
     if (!this.phoneVerificationWarning()) {
       localStorage.setItem(
         this.verifiedPhone,
@@ -68,16 +69,15 @@ class TimeEngine {
     }
   }
 
-  stopVerificationWarning() {
-    localStorage.setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
-  }
+  stopVerificationWarning = () => localStorage
+    .setItem(this.verifiedPhone, JSON.stringify(this.getDate()));
 
   /**
    * @method getCurrentHour
    * @param {*} strFmt string format '10 am' etc or 10
    * @returns {void}
    */
-  static getCurrentHour(strFmt) {
+  getCurrentHour(strFmt) {
     const currentDate = new Date();
     const currentHour = currentDate.getHours();
     if (strFmt) {
@@ -98,7 +98,7 @@ class TimeEngine {
    * @param {*} closingHour string format '10 am' to 10
    * @returns {void}
    */
-  static getWorkHour(closingHour) {
+  getWorkHour(closingHour) {
     const dHrs = Number(closingHour.split(' ')[0]);
     const dTimeFmt = closingHour.split(' ')[1];
     if (dHrs < 12 && dTimeFmt === 'am') {
@@ -109,4 +109,4 @@ class TimeEngine {
   }
 }
 
-export default TimeEngine;
+export default new TimeEngine();

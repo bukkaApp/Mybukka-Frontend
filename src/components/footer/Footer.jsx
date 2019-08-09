@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import UrlLists from '../list/UrlLists';
 
 import './footer.scss';
@@ -114,6 +115,10 @@ const Footer = () => (
       </div>
       <div className="copyright-text text-center">
         <p>©2019 MYBUKKA INC TERMS PRIVACY</p>
+        <div className="text-center">
+          <Link to="/legal/terms" className="px-2">Terms</Link>
+          <Link to="/legal/privacy" className="px-2">Privacy</Link>
+        </div>
       </div>
     </div>
   </div>
