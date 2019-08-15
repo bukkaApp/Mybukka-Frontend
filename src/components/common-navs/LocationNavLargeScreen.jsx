@@ -48,6 +48,7 @@ const SuggestionsDropdown = () => (
     <SearchLocation
       chevronButtonVisible={false}
       showDeliveryOrPickupNav={false}
+      reduceSuggestionText
     />
   </div>
 );
@@ -76,7 +77,7 @@ const CurrentLocation = ({ handleClick, focus, selectedLocation }) => (
       {focus && (
         <div className="search-container">
           <div className="search-wrapper">
-            <SuggestionsDropdown handleClick={() => {}} />
+            <SuggestionsDropdown />
           </div>
         </div>
       )}

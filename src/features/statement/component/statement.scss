@@ -24,7 +24,7 @@
 .secondary-custom-navbar-content {
     background-color: rgb(255, 255, 255);
     filter: drop-shadow(rgba(16, 25, 30, 0.08) 0px 1px 4px);
-    z-index: 1100;
+    z-index: 100;
     width: 100%;
     opacity: 1;
     border-width: 1px;
@@ -37,7 +37,7 @@
         border-width: 0px;
     }
     .secondary-content-list {
-        color: rgb(0, 0, 0);
+        // color: rgb(0, 0, 0);
         margin-left: 0px;
         width: 100%;
         text-align: center;

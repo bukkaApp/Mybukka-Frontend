@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
-import AuthModal from './common/AuthModal';
 import navAuthentication from './actionCreators/navAuthentication';
 import './navbar.scss';
 
@@ -29,7 +28,6 @@ const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
 
   return (
     <Fragment>
-      <AuthModal push={push} />
       <div className="">
         <nav className="container navbar navbar-light">
           <Brand />

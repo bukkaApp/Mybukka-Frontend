@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
+import AuthModal from 'Components/navbar/common/AuthModal';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
 import AuthResetForm from './AuthResetForm';
@@ -97,11 +98,18 @@ const RetrieveSection = ({
 
   return (
     <>
+      <AuthModal push={push} />
       <Navbar push={push} />
       <div className="bg-color py-8">
         <Container classNames="relative modal-open">
-          <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-center">
-            <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
+          <div
+            className="d-flex flex-column flex-xl-row
+              flex-lg-row flex-md-column justify-content-center"
+          >
+            <div
+              className="col-xl-6 col-lg-6 px-0
+                px-md-0 px-lg-3 col-md-12 col-12"
+            >
               {requestSent &&
               <div className="card-shadow card mb-3 border">
                 {isValidUser ? (

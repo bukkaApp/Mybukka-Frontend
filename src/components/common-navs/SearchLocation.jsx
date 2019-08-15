@@ -29,6 +29,7 @@ const SearchLocation = ({
   fetchNearbyBukkas,
   push,
   handleLoader,
+  reduceSuggestionText,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -152,7 +153,11 @@ const SearchLocation = ({
         {(isFocused || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
-            <SuggestionsDropdown push={push} setLocation={geoCodeLocation} />
+            <SuggestionsDropdown
+              push={push}
+              setLocation={geoCodeLocation}
+              reduceTextLength={reduceSuggestionText}
+            />
           </Fragment>
         )}
       </div>
@@ -187,6 +192,7 @@ SearchLocation.defaultProps = {
   chevronButtonVisible: true,
   showDeliveryOrPickupNav: true,
   showDropdown: false,
+  reduceSuggestionText: false,
 };
 
 SearchLocation.propTypes = {
@@ -199,5 +205,6 @@ SearchLocation.propTypes = {
   selectedLocation: PropTypes.shape({}).isRequired,
   selectLocation: PropTypes.func.isRequired,
   chevronButtonVisible: PropTypes.bool,
-  showDeliveryOrPickupNav: PropTypes.bool
+  showDeliveryOrPickupNav: PropTypes.bool,
+  reduceSuggestionText: PropTypes.bool,
 };

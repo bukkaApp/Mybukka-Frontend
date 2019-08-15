@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import MapMarker from '../icons/MapMarker';
 
-const GeoSuggestions = ({ suggestions, handleClick }) => (
+const GeoSuggestions = ({ suggestions, handleClick, reduceTextLength }) => (
   <Fragment>
     {suggestions.map(suggestion => (
       <div
@@ -22,7 +22,9 @@ const GeoSuggestions = ({ suggestions, handleClick }) => (
         </div>
         <h4 className="suggestion suggestion-geo text-center d-block">
           {suggestion.description.length > 48
-            ? `${suggestion.description.slice(0, 48)}...`
+          || (reduceTextLength && suggestion.description.length > 33)
+            ? `${reduceTextLength ? suggestion.description.slice(0, 33)
+              : suggestion.description.slice(0, 48)}...`
             : suggestion.description}
         </h4>
       </div>
@@ -41,5 +43,6 @@ export default connect(
 
 GeoSuggestions.propTypes = {
   suggestions: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  reduceTextLength: PropTypes.bool.isRequired,
 };

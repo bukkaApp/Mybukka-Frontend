@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from 'Components/button/Button';
 
 import './category.scss';
-import '../components/supportmainsection.scss';
+import '../support/components/supportmainsection.scss';
 
 
 const HelpBlock = ({ errorMsg }) => (

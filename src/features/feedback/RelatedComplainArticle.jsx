@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 
 import './category.scss';
-import '../components/supportmainsection.scss';
+import '../support/components/supportmainsection.scss';
 import './relatedcomlainarticle.scss';
 
 const ListItemGroup = ({ heading, items, listType }) => (

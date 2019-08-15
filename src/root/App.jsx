@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 import { PersistGate } from 'redux-persist/integration/react';
 
+// import AuthModal from 'Components/navbar/common/AuthModal';
 import reduxStore from '../redux/store';
 import Main from './Main';
 import IndeterminateProgressbar from
@@ -26,6 +27,7 @@ const App = () => (
     <PersistGate loading={null} persistor={persistor}>
       <IndeterminateProgressbar />
       <AlertMessage />
+      {/* <AuthModal push={() => {}} /> */}
       <BrowserRouter>
         <Main />
       </BrowserRouter>
