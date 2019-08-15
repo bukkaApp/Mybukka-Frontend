@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from 'Components/navbar';
+import AuthModal from 'Components/navbar/common/AuthModal';
 import Container from 'Components/container';
 import ResetIntroSection from './ResetIntroSection';
 import FeedbackSection from './FeedbackSection';
@@ -17,11 +18,18 @@ const ResetSection = ({
   errorMessage
 }) => (
   <>
+    <AuthModal push={push} />
     <Navbar push={push} />
     <div className="bg-color py-8">
       <Container classNames="relative modal-open">
-        <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-center">
-          <div className={`col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12 ${requested ? 'd-none' : ''}`}>
+        <div
+          className="d-flex flex-column flex-xl-row
+          flex-lg-row flex-md-column justify-content-center"
+        >
+          <div
+            className={`col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3
+              col-md-12 col-12 ${requested ? 'd-none' : ''}`}
+          >
             <div className="card-shadow card mb-3 border">
               <ResetIntroSection
                 push={push}
@@ -30,7 +38,9 @@ const ResetSection = ({
               />
             </div>
           </div>
-          <div className={`col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12 ${requested ? '' : 'd-none'}`}>
+          <div className={`col-xl-6 col-lg-6 px-0 px-md-0
+            px-lg-3 col-md-12 col-12 ${requested ? '' : 'd-none'}`}
+          >
             <div className="card-shadow card mb-3 border">
               <FeedbackSection push={push} />
             </div>

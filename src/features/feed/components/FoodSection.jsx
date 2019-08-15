@@ -45,18 +45,24 @@ const FoodSection = ({
     setDisplayMap(!displayMap);
   };
 
-  // useEffect(() => {
-  //   if (coordinates.length < 2) {
-  //     push('/');
-  //   }
-  // }, []);
+  const handleFetchOnRefresh = () => {
+    if (!loading && nearbyBukkas.length === 0
+      && coordinates.length !== 0 && !errorMessage) {
+      fetchNearbyBukkas(coordinates);
+    }
+  };
 
-  // useEffect(() => {
-  //   if (!loading && nearbyBukkas.length === 0
-  //     && coordinates.length !== 0 && !errorMessage) {
-  //     fetchNearbyBukkas(coordinates);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (coordinates.length < 2) {
+      push('/');
+    }
+  }, [coordinates]);
+
+  // useEffect(() => () => fetchNearbyBukkas(coordinates), [coordinates]);
+
+  useEffect(() => {
+    handleFetchOnRefresh();
+  }, [nearbyBukkas]);
 
   if (!loading && nearbyBukkas.length === 0
     && coordinates.length !== 0 && errorMessage) {

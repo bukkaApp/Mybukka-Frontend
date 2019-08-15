@@ -18,9 +18,9 @@ import SupportBuyer from '../features/support/components/SupportBuyer';
 import Articles from '../features/support/articles';
 import CategoryLists from '../features/support/Lists';
 import Merchant from '../features/merchant';
-import ComplainCategory from '../features/support/complain/Category';
-import SubCategory from '../features/support/complain/SubCategory';
-import ComplainScene from '../features/support/complain/ComplainScene';
+import ComplainCategory from '../features/feedback/Category';
+import SubCategory from '../features/feedback/SubCategory';
+import ComplainScene from '../features/feedback/ComplainScene';
 import Privacy from '../features/statement/Privacy';
 import Terms from '../features/statement/Terms';
 

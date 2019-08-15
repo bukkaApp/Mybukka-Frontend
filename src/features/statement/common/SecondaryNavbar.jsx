@@ -32,7 +32,7 @@ const SmallScreen = ({ activePage }) => {
           <a
             key={navText.text}
             href={navText.href}
-            className={`${activePage === navText.text ? 'text-dark'
+            className={`${activePage === navText.text ? 'text-custom-dark'
               : 'text-muted'}`}
           >
             <ListItem

@@ -13,6 +13,14 @@ const customUrlListsProps = {
     { text: 'link 5', href: '/', key: '5' },
     { text: 'link 6', href: '/', key: '6' },
   ],
+  partners: [
+    { text: 'Sell on MyBukka', href: '/merchant', key: '1' },
+    { text: 'link 2', href: '/', key: '2' },
+    { text: 'link 3', href: '/', key: '3' },
+    { text: 'link 4', href: '/', key: '4' },
+    { text: 'link 5', href: '/', key: '5' },
+    { text: 'link 6', href: '/', key: '6' },
+  ],
 };
 
 const Top = () => {
@@ -85,7 +93,7 @@ const Footer = () => (
             <div className="nav-section col">
               <h4 className="nav-title">PARTNERS</h4>
               <UrlLists
-                links={customUrlListsProps.links}
+                links={customUrlListsProps.partners}
                 classNames="list-item-white"
               />
             </div>

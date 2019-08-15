@@ -2,13 +2,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'Components/footer/Footer';
-import BannerSection from '../common/BannerSection';
-import PersonalizedHeader from '../components/PersonalizedHeader';
+import BannerSection from '../support/common/BannerSection';
+import PersonalizedHeader from '../support/components/PersonalizedHeader';
 import { RelatedComplainArticle } from './RelatedComplainArticle';
-import exportComplains from '../inputData/exportComplains';
+import exportComplains from '../support/inputData/exportComplains';
 import ComplainForm from './ComplainForm';
 import './category.scss';
-import '../components/supportmainsection.scss';
+import '../support/components/supportmainsection.scss';
 
 
 const SubCategory = ({ location }) => {

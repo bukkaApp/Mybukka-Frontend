@@ -10,7 +10,7 @@ const fetchBukkasAction = (type, data) => ({
 
 const fetchBukkas = (
   coordinates,
-  cb,
+  cb = () => {},
   page = 1,
   limit = 12,
   by = 'majorCusine',

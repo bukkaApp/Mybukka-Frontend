@@ -3,10 +3,10 @@ import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import MyContextPush from 'Redux/MyContextPush';
 import Magnifier from 'Icons/Magnifier';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
-import AuthModal from './common/AuthModal';
 import NavLink from '../navlink/Navlink';
 import UserDefaultImage from './UserDefaultImage';
 import navAuthentication from './actionCreators/navAuthentication';
@@ -23,18 +23,53 @@ const buttonProps = [
   { name: 'Drinks', href: '/drinks' }
 ];
 
+const CartScene = () => {
+  let wrapperRef;
+  const [isFocused, setFocus] = useState(false);
+
+  const handleClick = () => {
+    setFocus(!isFocused);
+  };
+
+  const setWrapperRef = (node) => {
+    wrapperRef = node;
+  };
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef && !wrapperRef.contains(event.target)) {
+      setFocus(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
+
+  return (
+    <div className="position-relative">
+      <div>
+        <CartSection handleClick={() => handleClick('cart')} />
+      </div>
+      <div ref={setWrapperRef}>
+        <CartDropdown display={isFocused}>
+          <EmptyCart />
+          <CartIconSection />
+        </CartDropdown>
+      </div>
+    </div>
+  );
+};
+
 const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   const { authenticated } = status;
   let wrapperRef;
 
   const defaultProps = {
-    cart: false,
     search: false,
     searchBtn: false
   };
 
   const [isFocused, setFocus] = useState({
-    cart: false,
     search: false,
     searchBtn: false
   });
@@ -77,7 +112,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
       handleClick: goToAuthRoute
     };
   }
-  let DefaultAuthenticatedImgOrButton = () => (
+  let AuthScene = () => (
     <Fragment>
       <Button
         type="button"
@@ -97,7 +132,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   );
 
   if (authenticated) {
-    DefaultAuthenticatedImgOrButton = () => (
+    AuthScene = () => (
       <Fragment>
         <div
           className="pb-3 mx-3 icon d-lg-none"
@@ -112,29 +147,21 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
           </span>
         </div>
         <UserDefaultImage />
-        <div className="position-relative">
-          <div>
-            <CartSection handleClick={() => handleClick('cart')} />
-          </div>
-          <CartDropdown display={isFocused.cart}>
-            <EmptyCart />
-            <CartIconSection />
-          </CartDropdown>
-        </div>
+        <CartScene />
       </Fragment>
     );
   }
 
   return (
-    <Fragment>
-      <AuthModal push={push} />
+    <MyContextPush.Provider value={{ push }}>
       <nav ref={setWrapperRef} className="container navbar navbar-light">
         <div className="row mx-0">
           {!isFocused.searchBtn &&
-            <Brand />
+          <Brand />
           }
           <div className={`pl-lg-5
-            ${isFocused.searchBtn ? '' : 'd-none d-md-none d-lg-inline-flex'}`}
+              ${isFocused.searchBtn ? ''
+      : 'd-none d-md-none d-lg-inline-flex'}`}
           >
             <SearchAnything
               handleClick={
@@ -151,22 +178,22 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
           </div>
         </div>
         {!isFocused.searchBtn &&
-          <div ref={setWrapperRef} className="form-inline">
-            <div className="d-none bukka-md-inline-flex">
-              {buttonProps.map(propData => (
-                <NavLink
-                  text={propData.name}
-                  key={propData.name}
-                  classNames="bukka-btn"
-                  href={propData.href}
-                />
-              ))}
-            </div>
-            <DefaultAuthenticatedImgOrButton />
+        <div ref={setWrapperRef} className="form-inline">
+          <div className="d-none bukka-md-inline-flex">
+            {buttonProps.map(propData => (
+              <NavLink
+                text={propData.name}
+                key={propData.name}
+                classNames="bukka-btn"
+                href={propData.href}
+              />
+            ))}
           </div>
+          <AuthScene />
+        </div>
         }
       </nav>
-    </Fragment>
+    </MyContextPush.Provider>
   );
 };
 

@@ -7,20 +7,20 @@ import signOut from './actionCreators/logOut';
 
 import './userdropdown.scss';
 
-const UserDropdown = ({ logoutUser, handleToggle }) => {
-  const handleClick = e => {
+const UserDropdown = ({ logoutUser, handleToggle, push }) => {
+  const handleClick = (e) => {
     e.preventDefault();
     return logoutUser();
   };
 
   const handleInviteFriends = () => {
-    $('#modal').modal('show');
+    $('#inviteFrnd').modal('show');
     handleToggle();
   };
 
   return (
     <Fragment>
-      <InviteFriends />
+      <InviteFriends push={push} />
       <div className="user-dropdown-container">
         <div role="menu" tabIndex="0" className="user-dropdown-content">
           <div className="custom-user-dropdown">
@@ -94,8 +94,8 @@ const UserDropdown = ({ logoutUser, handleToggle }) => {
             <button
               type="button"
               className="custom-user-dropdown-item"
-              data-target="#modal"
-              data-toggle="modal"
+              // data-target="#inviteFrnd"
+              // data-toggle="modal"
               onClick={handleInviteFriends}
             >
               <div className="user-dropdown-item-content">

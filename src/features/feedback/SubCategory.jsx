@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'Components/footer/Footer';
-import BannerSection from '../common/BannerSection';
-import PersonalizedHeader from '../components/PersonalizedHeader';
-import PersonalizedBody from '../components/PersonalizedBody';
-import complains from '../inputData/complains.json';
+import BannerSection from '../support/common/BannerSection';
+import PersonalizedHeader from '../support/components/PersonalizedHeader';
+import PersonalizedBody from '../support/components/PersonalizedBody';
+import complains from '../support/inputData/complains.json';
 
 import './category.scss';
-import '../components/supportmainsection.scss';
+import '../support/components/supportmainsection.scss';
 
 const categoryLocation = complains.categoryLocation;
 

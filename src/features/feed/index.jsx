@@ -2,10 +2,14 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import AuthModal from 'Components/navbar/common/AuthModal';
 import Feed from './components';
 
 const FeedPage = ({ history: { push }, ...props }) => (
-  <Feed push={push} {...props} />
+  <>
+    <AuthModal push={push} />
+    <Feed push={push} {...props} />
+  </>
 );
 
 export default FeedPage;
