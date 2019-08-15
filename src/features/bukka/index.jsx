@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import AuthModal from 'Components/navbar/common/AuthModal';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 
@@ -15,7 +16,12 @@ const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu }) => {
     fetchBukkaMenu(bukkaToFetch);
   });
 
-  return <Bukka push={push} />;
+  return (
+    <Fragment>
+      <AuthModal push={push} />
+      <Bukka push={push} />
+    </Fragment>
+  );
 };
 
 export default connect(

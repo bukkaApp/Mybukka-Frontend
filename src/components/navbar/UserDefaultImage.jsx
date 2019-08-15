@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import UserDropdown from './UserDropdown';
 import './navbar.scss';
 
-const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
+const UserDefaultImage = ({ userInfo: { imageUrl }, push }) => {
   let wrapperRef;
   const [dropdown, toggleDropdown] = useState(false);
 
@@ -38,7 +38,11 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
             alt="authenticated-img"
           />
         </button>
-        {dropdown && <UserDropdown handleToggle={() => toggleDropdown(false)} />}
+        {dropdown && <UserDropdown
+          push={push}
+          handleToggle={() => toggleDropdown(false)}
+        />
+        }
       </div>
     </div>
   );

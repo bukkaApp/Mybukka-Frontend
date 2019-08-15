@@ -97,8 +97,8 @@ const persistConfig = {
   storage,
   whitelist: [
     'authenticationReducer',
-    'fetchBukkaReducer',
-    'fetchBukkaMenuReducer',
+    // 'fetchBukkaReducer',
+    // 'fetchBukkaMenuReducer',
     'selectedLocationReducer',
     'deliveryScheduleReducer',
     'cartReducer',

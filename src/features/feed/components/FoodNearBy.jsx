@@ -37,7 +37,7 @@ const FoodNearBy = ({
       {bukkaData.length > 0 && (
         <InfiniteScroll
           loadMore={() =>
-            fetchMoreBukkas(coordinates, () => {}, Number(currentPage) + 1)}
+            fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
           hasMore={
             errorMessage !== 'There are currently no bukkas in your location'
           }
