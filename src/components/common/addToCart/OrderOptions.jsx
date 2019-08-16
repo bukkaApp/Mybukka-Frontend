@@ -12,7 +12,7 @@ import ActionSection from './ActionSection';
 
 import './orderOptions.scss';
 
-const OrderOptions = ({ title, description, price, slug, quantity, options }) => (
+const OrderOptions = ({ title, description, price, slug, quantity, submenus }) => (
   <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 order-options-section">
     <div
       data-dismiss="modal"
@@ -24,7 +24,9 @@ const OrderOptions = ({ title, description, price, slug, quantity, options }) =>
       <MealTitle title={title} />
       <MealDescription description={description} />
       <SpecialInstructions />
-      <SubMenus menus={options} />
+      {submenus.length > 0 && submenus.map(eachMenu => (
+        <SubMenus menus={eachMenu.options} title={eachMenu.title} />
+      ))}
     </div>
     <ActionSection price={price} slug={slug} quantity={quantity} />
   </Column>
