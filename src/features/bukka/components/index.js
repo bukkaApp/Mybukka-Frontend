@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
 
-import BukkaNavSmallScreen, { ResponsiveCategories }
+import BukkaNavSmallScreen
   from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
 import Navbar from 'Components/navbar';
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
-import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
+import UnAuthenticatedCheckout
+  from 'Components/common-navs/UnAuthenticatedCheckout';
 
 import LocationNavSmallScreen, {
   SelectLocationModal
