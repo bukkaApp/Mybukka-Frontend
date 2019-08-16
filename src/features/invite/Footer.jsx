@@ -8,6 +8,12 @@ import './InviteFriends.css';
 
 const Footer = ({ inputData, handleCopy }) => {
   const props = useContext(MyContextPush);
+
+  const handleClick = (toLocation) => {
+    $('#inviteFrnd').modal('hide');
+    props.push(toLocation);
+  };
+
   return (
     <section>
       <div className="d-flex flex-column">
@@ -31,15 +37,16 @@ const Footer = ({ inputData, handleCopy }) => {
             className="facebook-btn mb-4 w-50
             mr-4 d-flex justify-content-around"
             type="button"
-            onClick={() => props.push('/social/facebook')}
+            onClick={() => handleClick('/social/facebook')}
           >
             <Facebook />
             <span className="text-white">SHARE</span>
           </button>
           <Button
-            classNames="twitter-btn mb-4 w-50 mr-4 d-flex justify-content-around"
+            classNames="twitter-btn mb-4 w-50
+            mr-4 d-flex justify-content-around"
             type="button"
-            handleClick={() => props.push('/social/twitter')}
+            handleClick={() => handleClick('/social/twitter')}
           >
             <Twitter />
             <span className="text-white">SHARE</span>
