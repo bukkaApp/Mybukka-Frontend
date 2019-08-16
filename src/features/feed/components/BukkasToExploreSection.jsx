@@ -98,7 +98,7 @@ const BukkasToExploreSection = () => (
       noOfImagesShown={6}
       textOverlay
       title="Top Cuisines"
-      imageHeight="img-height"
+      imageHeight="cuisine-img-height"
       slideItems={topCategories}
       classNames="col-lg-2 col-md-2 col-sm-4 col-6 touchdown"
     />

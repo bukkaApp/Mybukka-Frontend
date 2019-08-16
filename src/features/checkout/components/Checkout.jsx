@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
@@ -14,6 +15,7 @@ import AddToCart from 'Components/common/addToCart';
 import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+import fetchBukkaAction from 'Redux/fetchBukkaAction';
 
 import { validateAField, validateAllFields } from '../validation/validateField';
 
@@ -45,6 +47,8 @@ const Checkout = ({
   coordinates,
   mode,
   signOut,
+  fetchBukka,
+  selectedLocation: { description },
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -54,7 +58,7 @@ const Checkout = ({
   });
 
   const [deliveryAddressData, setDeliveryAddressData] = useState({
-    address: '',
+    address: description || '',
     deliveryInstructions: '',
     name: authServices.getFullName(),
     mobileNumber: ''
@@ -92,20 +96,6 @@ const Checkout = ({
   };
 
   useEffect(() => {
-    const currentPage = location.pathname;
-    if (!authServices.getToken() || !authServices.isValid(authServices.getToken())) {
-      signOut();
-      setTimeout(() => {
-        swal('You need to login first');
-        return push(`/login?next=${currentPage}`);
-      }, 2000);
-    }
-
-    const bukkaMenuToFetch = location.pathname.split('/')[2];
-    if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
-      window.scrollTo(0, 0);
-      fetchBukkaMenu(bukkaMenuToFetch);
-    }
     if (success) {
       setDeliveryAddressData({
         address: '',
@@ -116,6 +106,27 @@ const Checkout = ({
     }
     if (message === 'Charge attempted') {
       $('#inputSecurityKey').modal('show');
+    }
+  });
+
+  useEffect(() => {
+    scrollTo(0, 0);
+    const bukkaMenuToFetch = location.pathname.split('/')[2];
+    if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
+      fetchBukkaMenu(bukkaMenuToFetch);
+      fetchBukka(bukkaMenuToFetch);
+    }
+  }, []);
+
+  useEffect(() => {
+    const currentPage = location.pathname;
+    if (!authServices.getToken()
+    || !authServices.isValid(authServices.getToken())) {
+      signOut();
+      setTimeout(() => {
+        swal('You need to login first');
+        return push(`/login?next=${currentPage}`);
+      }, 2000);
     }
   });
 
@@ -203,7 +214,8 @@ const Checkout = ({
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data },
-  fetchBukkaMenuReducer: { totalPriceInCart },
+  // fetchBukkaMenuReducer: { totalPriceInCart },
+  selectedLocationReducer: { selectedLocation },
   cartReducer: { totalCost, items },
   fetchBukkaMenuReducer: {
     bukkaMenu,
@@ -232,15 +244,16 @@ const mapStateToProps = ({
   hasDefaultCard,
   coordinates,
   mode,
+  selectedLocation,
 });
 
 export default connect(
   mapStateToProps,
-  { checkoutUser: chargeUser },
   { chargeUserToSaveCard: chargeUser,
     checkoutUser: postUserOrder,
     fetchBukkaMenu: fetchBukkaMenuAction,
     signOut: logOut,
+    fetchBukka: fetchBukkaAction,
   }
 )(Checkout);
 
@@ -258,9 +271,11 @@ Checkout.defaultProps = {
   success: false,
   cards: [{}],
   hasDefaultCard: false,
+  fetchBukka: () => {},
 };
 
 Checkout.propTypes = {
+  fetchBukka: PropTypes.func,
   push: PropTypes.func.isRequired,
   chargeUserToSaveCard: PropTypes.func.isRequired,
   checkoutUser: PropTypes.func.isRequired,

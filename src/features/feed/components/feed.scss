@@ -131,6 +131,24 @@ img {
   }
 }
 
+.cuisine-img-height {
+  object-fit: fill;
+  background-color: rgba(231, 226, 226, 0.7);
+  height: 217px;
+  @media (min-width: 1500px) {
+    height: 290px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 190px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    height: 113px;
+  }
+  @media (max-width: 444px) {
+    height: 180px;
+  }
+}
+
 .small-img-height {
   height: 150px;
   background-color: rgba(231, 226, 226, 0.7);

@@ -3,7 +3,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import MyContextPush from 'Redux/MyContextPush';
 import Magnifier from 'Icons/Magnifier';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
@@ -153,31 +152,30 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   }
 
   return (
-    <MyContextPush.Provider value={{ push }}>
-      <nav ref={setWrapperRef} className="container navbar navbar-light">
-        <div className="row mx-0">
-          {!isFocused.searchBtn &&
+    <nav ref={setWrapperRef} className="container navbar navbar-light">
+      <div className="row mx-0">
+        {!isFocused.searchBtn &&
           <Brand />
-          }
-          <div className={`pl-lg-5
+        }
+        <div className={`pl-lg-5
               ${isFocused.searchBtn ? ''
       : 'd-none d-md-none d-lg-inline-flex'}`}
-          >
-            <SearchAnything
-              handleClick={
-                isFocused.searchBtn ?
-                  () => {}
-                  : () => handleClick('search')
-              }
-              focus={
-                isFocused.searchBtn ?
-                  isFocused.searchBtn
-                  : isFocused.search
-              }
-            />
-          </div>
+        >
+          <SearchAnything
+            handleClick={
+              isFocused.searchBtn ?
+                () => {}
+                : () => handleClick('search')
+            }
+            focus={
+              isFocused.searchBtn ?
+                isFocused.searchBtn
+                : isFocused.search
+            }
+          />
         </div>
-        {!isFocused.searchBtn &&
+      </div>
+      {!isFocused.searchBtn &&
         <div ref={setWrapperRef} className="form-inline">
           <div className="d-none bukka-md-inline-flex">
             {buttonProps.map(propData => (
@@ -191,9 +189,8 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
           </div>
           <AuthScene />
         </div>
-        }
-      </nav>
-    </MyContextPush.Provider>
+      }
+    </nav>
   );
 };
 

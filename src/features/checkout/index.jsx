@@ -5,15 +5,16 @@ import { connect } from 'react-redux';
 import logOut from 'Components/navbar/actionCreators/logOut';
 import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
 
-import AuthModal from 'Components/navbar/common/AuthModal';
 import PropTypes from 'prop-types';
+import ModalRoot from '../modal-root/Index';
 import Checkout from './components/Checkout';
 
-const checkoutPage = ({ history: { push } }) =>
-  (<Fragment>
-    <AuthModal push={push} />
+const checkoutPage = ({ history: { push } }) => (
+  <Fragment>
+    <ModalRoot push={push} />
     <Checkout push={push} />
-  </Fragment>);
+  </Fragment>
+);
 
 const mapStateToProps = ({
   authenticationReducer: {

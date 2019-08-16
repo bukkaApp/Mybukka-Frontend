@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import DismissModal from 'Components/modal/DismissModal';
 import Modal from 'Components/modal/Modal';
-import MyContextPush from 'Redux/MyContextPush';
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
+import MyContextPush from './context-api/MyContextPush';
 import './InviteFriends.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -17,7 +16,7 @@ const Invite = ({ handleCopy, inputField, handleChange }) => (
   </div>
 );
 
-const InviteFriends = () => {
+const InviteFriends = ({ push }) => {
   const [inputData, setInputData] = useState({
     emails: '',
     copied: false,
@@ -40,15 +39,29 @@ const InviteFriends = () => {
   };
 
   return (
-    <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
-      <DismissModal classNames="close" />
-      <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
-    </Modal>
+    <MyContextPush.Provider value={{ push }}>
+      <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
+        <DismissModal classNames="close" />
+        <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
+      </Modal>
+    </MyContextPush.Provider>
   );
 };
 
 export default InviteFriends;
 
-// InviteFriends.propTypes = {
-//   push: PropTypes.func.isRequired
-// };
+
+InviteFriends.propTypes = {
+  push: PropTypes.func.isRequired,
+};
+
+Invite.propTypes = {
+  inputField: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ])).isRequired,
+  handleCopy: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};

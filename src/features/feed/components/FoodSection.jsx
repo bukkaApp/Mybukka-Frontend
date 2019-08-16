@@ -4,12 +4,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-// import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 
-import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
-// import Navbar from 'Components/navbar';
-import LocationNavLargeScreen from 'Components/common-navs/LocationNavLargeScreen';
+import NoNearByBukkaLocation
+  from 'Components/not-found/NoNearByBukkaLocation';
+import LocationNavLargeScreen
+  from 'Components/common-navs/LocationNavLargeScreen';
 import LocationNavSmallScreen, {
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
@@ -36,7 +36,6 @@ const FoodSection = ({
   fetchNearbyBukkas,
   currentPage,
   errorMessage,
-  // status: { }
   loading,
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
@@ -57,8 +56,6 @@ const FoodSection = ({
       push('/');
     }
   }, [coordinates]);
-
-  // useEffect(() => () => fetchNearbyBukkas(coordinates), [coordinates]);
 
   useEffect(() => {
     handleFetchOnRefresh();
@@ -100,7 +97,7 @@ const FoodSection = ({
                   <div
                     className={
                       displayMap
-                        ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
+                        ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none' // eslint-disable-line
                         : 'mb-5'
                     }
                   >

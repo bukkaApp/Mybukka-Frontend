@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import AuthModal from 'Components/navbar/common/AuthModal';
 import Footer from 'Components/footer/Footer';
+import ModalRoot from '../modal-root/Index';
 import fetchBukkas from '../feed/actionCreators/fetchBukkas';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
@@ -20,7 +20,7 @@ const Home = ({
   history: { push },
 }) => (
   <Fragment>
-    <AuthModal push={push} />
+    <ModalRoot push={push} />
     <div className="home">
       <VerifyPhone />
       <IntroSection push={push} />

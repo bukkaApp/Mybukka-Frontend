@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import AuthModal from 'Components/navbar/common/AuthModal';
+import ModalRoot from '../modal-root/Index';
 import Privacy from './Privacy';
 
 const Index = (props) => {
   const { history: { push } } = props;
   return (
     <Fragment>
-      <AuthModal push={push} />
+      <ModalRoot push={push} />
       <Privacy {...props} />
     </Fragment>
   );

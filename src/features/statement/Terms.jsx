@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import AuthModal from 'Components/navbar/common/AuthModal';
+import ModalRoot from '../modal-root/Index';
 import Statement from './component/Statement';
 import data from './inputData/terms.json';
 
 
 const Terms = ({ history: { push } }) => (
   <Fragment>
-    <AuthModal push={push} />
+    <ModalRoot push={push} />
     <Statement activePage="Terms of Service" data={data} />
   </Fragment>
 );

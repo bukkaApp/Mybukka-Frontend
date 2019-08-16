@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import InputField from 'Components/input/InputField';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './InviteFriends.css';
@@ -38,6 +38,12 @@ const Content = ({ inputData, handleChange }) => (
 
 export default Content;
 
-// InviteFriends.propTypes = {
-//   push: PropTypes.func.isRequired
-// };
+Content.propTypes = {
+  inputData: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
+    ])).isRequired,
+  handleChange: PropTypes.func.isRequired,
+};

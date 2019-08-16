@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import inputData from 'Components/common-navs/inputData/duration';
+// import inputData from 'Components/common-navs/inputData/duration';
 
 import SearchPlusMenu from 'Components/icons/SearchPlusMenu';
 import DismissModal from '../modal/DismissModal';
@@ -10,9 +10,11 @@ import InputField from '../input/InputField';
 
 import './bukkaNavSmallScreen.scss';
 
-const { categoryItems } = inputData;
+// const { categoryItems } = inputData;
 
-export const ResponsiveCategories = ({ placeholderText }) => (
+export const ResponsiveCategories = ({
+  placeholderText, categoryItems
+}) => (
   <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">
     <div className="small-search-container">
       <div className="bukka-nav-small-category-border pb-2">
@@ -32,9 +34,9 @@ export const ResponsiveCategories = ({ placeholderText }) => (
         <div className="dropdown-suggestion">
           <Fragment>
             <div className="mx-4">
-              {categoryItems.map(category =>
+              {categoryItems.map(eachCategory =>
                 (<div className="bukka-nav-small-category">
-                  {category}
+                  {eachCategory}
                 </div>
                 ))}
             </div>
@@ -45,32 +47,51 @@ export const ResponsiveCategories = ({ placeholderText }) => (
   </Modal>
 );
 
-const BukkaNavSmallScreen = ({ currentCategory, classNames }) => (
-  <div className={`bukka-nav-small d-block d-sm-block d-md-none
+
+const BukkaNavSmallScreen = ({
+  currentCategory,
+  classNames,
+  categoryItems,
+}) => (
+  <>
+    <div className={`bukka-nav-small d-block d-sm-block d-md-none
     d-lg-none d-xl-none ${classNames}`}
-  >
-    <nav className="container navbar navbar-light bukka-nav-small-content">
-      <div className="current-category">
-        <h5 className="current-category-text">{currentCategory}</h5>
-      </div>
-      <div data-target="#category-small-modal" data-toggle="modal">
-        <SearchPlusMenu />
-      </div>
-    </nav>
-  </div>
+    >
+      <nav className="container navbar navbar-light bukka-nav-small-content">
+        <div className="current-category">
+          <h5 className="current-category-text">{currentCategory}</h5>
+        </div>
+        <div data-target="#category-small-modal" data-toggle="modal">
+          <SearchPlusMenu />
+        </div>
+      </nav>
+    </div>
+    <ResponsiveCategories
+      placeholderText={categoryItems[0]}
+      categoryItems={categoryItems}
+    />
+  </>
 );
 
 export default BukkaNavSmallScreen;
 
 BukkaNavSmallScreen.defaultProps = {
-  classNames: ''
+  classNames: '',
+  categoryItems: [],
+};
+
+ResponsiveCategories.defaultProps = {
+  categoryItems: [],
+  placeholderText: 'breakfast'
 };
 
 ResponsiveCategories.propTypes = {
-  placeholderText: PropTypes.string.isRequired,
+  placeholderText: PropTypes.string,
+  categoryItems: PropTypes.arrayOf(PropTypes.string)
 };
 
 BukkaNavSmallScreen.propTypes = {
   currentCategory: PropTypes.string.isRequired,
-  classNames: PropTypes.string
+  classNames: PropTypes.string,
+  categoryItems: PropTypes.arrayOf(PropTypes.string)
 };

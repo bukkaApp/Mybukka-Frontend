@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
-import AuthModal from 'Components/navbar/common/AuthModal';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
 import AuthResetForm from './AuthResetForm';
 import TokenErrorFeedback from './TokenErrorFeedback';
 
+import ModalRoot from '../../modal-root/Index';
 import changePassword from '../actionCreators/changePassword';
 import validateToken from '../actionCreators/validateToken';
 import { validateAField, validateAllFields } from '../helper/validateFields';
@@ -98,7 +98,7 @@ const RetrieveSection = ({
 
   return (
     <>
-      <AuthModal push={push} />
+      <ModalRoot push={push} />
       <Navbar push={push} />
       <div className="bg-color py-8">
         <Container classNames="relative modal-open">
