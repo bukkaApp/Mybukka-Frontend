@@ -1,26 +1,19 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import InviteFriends from '../../features/invite/InviteFriends';
 
 import signOut from './actionCreators/logOut';
 
 import './userdropdown.scss';
 
-const UserDropdown = ({ logoutUser, handleToggle, push }) => {
+const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
   const handleClick = (e) => {
     e.preventDefault();
     return logoutUser();
   };
 
-  const handleInviteFriends = () => {
-    $('#inviteFrnd').modal('show');
-    handleToggle();
-  };
-
   return (
     <Fragment>
-      <InviteFriends push={push} />
       <div className="user-dropdown-container">
         <div role="menu" tabIndex="0" className="user-dropdown-content">
           <div className="custom-user-dropdown">
@@ -94,9 +87,8 @@ const UserDropdown = ({ logoutUser, handleToggle, push }) => {
             <button
               type="button"
               className="custom-user-dropdown-item"
-              // data-target="#inviteFrnd"
-              // data-toggle="modal"
-              onClick={handleInviteFriends}
+              data-target="#inviteFrnd"
+              data-toggle="modal"
             >
               <div className="user-dropdown-item-content">
                 <span

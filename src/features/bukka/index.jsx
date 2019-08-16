@@ -3,13 +3,17 @@ import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import AuthModal from 'Components/navbar/common/AuthModal';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
+import ModalRoot from '../modal-root/Index';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 
 import Bukka from './components';
 
 const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     const bukkaToFetch = location.pathname.split('/')[2];
     fetchBukka(bukkaToFetch);
@@ -18,7 +22,7 @@ const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu }) => {
 
   return (
     <Fragment>
-      <AuthModal push={push} />
+      <ModalRoot push={push} />
       <Bukka push={push} />
     </Fragment>
   );

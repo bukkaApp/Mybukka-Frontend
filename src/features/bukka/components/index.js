@@ -24,10 +24,9 @@ import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
-const BukkaMenuScene = ({ push, errorMessage, categories, bukka }) => {
+const BukkaMenuScene = ({ push, errorMessage, categories, bukka, bukkaMenu }) => {
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (errorMessage !== '') return toastr.error(errorMessage);
   });
 
@@ -47,7 +46,12 @@ const BukkaMenuScene = ({ push, errorMessage, categories, bukka }) => {
       />
       <LocationNavSmallScreen />
       <div className="carousel-divider mb-0" />
-      <BukkaNavSmallScreen classNames="top-0" currentCategory="breakfast" />
+      <BukkaNavSmallScreen
+        classNames="top-0"
+        categoryItems={categories}
+        bukkaMenu={bukkaMenu}
+        currentCategory="breakfast"
+      />
       <BukkaDetailsSection />
 
       <BukkaMeals searchQuery={searchQuery} />
@@ -63,6 +67,7 @@ const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer:
 }, }) => ({
   errorMessage,
   categories,
+  bukkaMenu,
   bukka: bukkaMenu[0].bukka
 });
 

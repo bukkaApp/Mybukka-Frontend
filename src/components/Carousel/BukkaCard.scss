@@ -143,6 +143,9 @@ $fontFamily: 'Roboto', sans-serif;
   text-transform: capitalize;
   line-height: normal;
   letter-spacing: -0.2px;
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    font-size: 14px;
+  }
 }
 
 .overlay-h4, .overlay-top h4, .overlay-top h5, .overlay-bottom h5

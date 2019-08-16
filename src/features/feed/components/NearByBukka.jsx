@@ -18,7 +18,6 @@ const NearByBukka = ({
   handleRefFocus,
 }) => (
   <div className="mt-4 mb-4">
-  hehehee
     {title &&
     <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
     }

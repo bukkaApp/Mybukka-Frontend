@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from 'Components/navbar';
-import AuthModal from 'Components/navbar/common/AuthModal';
 import Container from 'Components/container';
 import ResetIntroSection from './ResetIntroSection';
 import FeedbackSection from './FeedbackSection';
 import requestPassChanges from '../actionCreators/requestPassChanges';
+import ModalRoot from '../../modal-root/Index';
 
 import './resetsection.scss';
 
@@ -18,7 +18,7 @@ const ResetSection = ({
   errorMessage
 }) => (
   <>
-    <AuthModal push={push} />
+    <ModalRoot push={push} />
     <Navbar push={push} />
     <div className="bg-color py-8">
       <Container classNames="relative modal-open">

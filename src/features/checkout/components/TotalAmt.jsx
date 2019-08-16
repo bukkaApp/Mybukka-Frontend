@@ -31,10 +31,12 @@ const totalAmount = ({ totalPriceInCart, fetchedBukka, deliveryPrice }) => (
 const mapStateToprops = ({
   cartReducer: { items, totalCost },
   deliveryModeReducer: { mode },
-  fetchBukkaReducer: { fetchedBukka }
+  fetchBukkaReducer: { fetchedBukka },
+  fetchBukkaMenuReducer: { totalPriceInCart },
 }) => ({
   cartItems: items,
   totalPriceInCart: totalCost,
+  // totalPriceInCart,
   fetchedBukka,
   deliveryPrice: mode === 'delivery' ? fetchedBukka.deliveryPrice : null,
 });

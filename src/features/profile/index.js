@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import AuthModal from 'Components/navbar/common/AuthModal';
+import ModalRoot from '../modal-root/Index';
 import ProfileHeader from './components/ProfileScene';
 
 const Profile = ({ history }) => {
   const { push } = history;
   return (<Fragment>
-    <AuthModal push={push} />
+    <ModalRoot push={push} />
     <ProfileHeader history={history} />
   </Fragment>);
 };
