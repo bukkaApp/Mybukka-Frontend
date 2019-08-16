@@ -24,7 +24,9 @@ import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
-const BukkaMenuScene = ({ push, errorMessage, categories, bukka, bukkaMenu }) => {
+const BukkaMenuScene = ({
+  push, errorMessage, categories, bukka, bukkaMenu
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   useEffect(() => {
     if (errorMessage !== '') return toastr.error(errorMessage);

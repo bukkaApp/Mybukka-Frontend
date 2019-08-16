@@ -13,52 +13,45 @@ import './bukkaNavSmallScreen.scss';
 // const { categoryItems } = inputData;
 
 export const ResponsiveCategories = ({
-  placeholderText, categoryItems, bukkaMenu
-}) => {
-  const bukkaCategories = [
-    ...new Set(bukkaMenu.map(mealData => mealData.category))
-  ];
-
-  return (
-    <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">
-      <div className="small-search-container">
-        <div className="bukka-nav-small-category-border pb-2">
-          <div className="mx-4 row">
-            <div className="col-2 px-0">
-              <DismissModal classNames="pl-0" />
-            </div>
-            <div className="col-10">
-              <InputField
-                placeholderText={placeholderText}
-                classNames="bukka-nav-search-input"
-              />
-            </div>
+  placeholderText, categoryItems
+}) => (
+  <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">
+    <div className="small-search-container">
+      <div className="bukka-nav-small-category-border pb-2">
+        <div className="mx-4 row">
+          <div className="col-2 px-0">
+            <DismissModal classNames="pl-0" />
           </div>
-        </div>
-        <div className="small-search-wrapper">
-          <div className="dropdown-suggestion">
-            <Fragment>
-              <div className="mx-4">
-                {bukkaCategories.map(eachCategory =>
-                  (<div className="bukka-nav-small-category">
-                    {eachCategory}
-                  </div>
-                  ))}
-              </div>
-            </Fragment>
+          <div className="col-10">
+            <InputField
+              placeholderText={placeholderText}
+              classNames="bukka-nav-search-input"
+            />
           </div>
         </div>
       </div>
-    </Modal>
-  );
-};
+      <div className="small-search-wrapper">
+        <div className="dropdown-suggestion">
+          <Fragment>
+            <div className="mx-4">
+              {categoryItems.map(eachCategory =>
+                (<div className="bukka-nav-small-category">
+                  {eachCategory}
+                </div>
+                ))}
+            </div>
+          </Fragment>
+        </div>
+      </div>
+    </div>
+  </Modal>
+);
 
 
 const BukkaNavSmallScreen = ({
   currentCategory,
   classNames,
   categoryItems,
-  bukkaMenu
 }) => (
   <>
     <div className={`bukka-nav-small d-block d-sm-block d-md-none
@@ -76,7 +69,6 @@ const BukkaNavSmallScreen = ({
     <ResponsiveCategories
       placeholderText={categoryItems[0]}
       categoryItems={categoryItems}
-      bukkaMenu={bukkaMenu}
     />
   </>
 );
