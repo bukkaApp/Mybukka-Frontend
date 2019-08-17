@@ -9,17 +9,23 @@ const EachSubMenus = ({ menu }) => {
   const [checked, setCheck] = useState(false);
 
   return (
-    <div className="sub-menu">
+    <div
+      className="sub-menu cursor-pointer"
+      onClick={() => setCheck(!checked)}
+      tabIndex="0"
+      aria-pressed="false"
+      role="button"
+    >
       <InputField
         type="checkbox"
         defaultValue={menu.name}
         classNames="checkbox"
         checked={checked}
-        handleChange={() => setCheck(!checked)}
+        // handleChange={() => {}}
       />
       <p className="col-10 menu-text d-flex justify-content-between">
         <span>{menu.name}</span>
-        <span className="text-muted">{menu.price}</span>
+        <span className="text-muted">₦{menu.price}</span>
       </p>
     </div>
   );
