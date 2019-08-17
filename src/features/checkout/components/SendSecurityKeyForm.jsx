@@ -114,7 +114,7 @@ const SendSecurityKeyForm = ({
   transactionDetails,
   paymentStatus,
   displayText,
-  isCardSaved,
+  cardSaved,
 }) => {
   const [key, setKey] = useState('');
   const [sent, setState] = useState(false);
@@ -122,7 +122,7 @@ const SendSecurityKeyForm = ({
   const [tried, setTrial] = useState(1);
 
   const timeoutMessageDisplay = () => {
-    if (isCardSaved) {
+    if (cardSaved) {
       setVisibility(0);
     }
   };
@@ -150,8 +150,8 @@ const SendSecurityKeyForm = ({
   return (
     <Modal dataTarget="inputSecurityKey">
       <DismissModal />
-      {visibleCount > 0 && isCardSaved && <SuccessMessage />}
-      {(!transactionSuccess && !paymentStatus && !isCardSaved) && <InputKeyForm
+      {visibleCount > 0 && cardSaved && <SuccessMessage />}
+      {(!transactionSuccess && !paymentStatus && !cardSaved) && <InputKeyForm
         setKey={setKey}
         reference={reference}
         pin={key}
@@ -167,7 +167,7 @@ const SendSecurityKeyForm = ({
         status={chargeStatus}
         saveUserCard={saveCard}
       />}
-      {(paymentStatus && displayText && !isCardSaved) && <InputKeyForm
+      {(paymentStatus && displayText && !cardSaved) && <InputKeyForm
         setKey={setKey}
         reference={reference}
         pin={key}
@@ -221,7 +221,7 @@ const mapStateToProps = ({
   transactionDetails,
   paymentStatus,
   displayText,
-  isCardSaved: card,
+  cardSaved: card,
 });
 
 export default connect(
