@@ -25,7 +25,7 @@ const OrderOptions = ({ title, description, price, slug, quantity, submenus }) =
       <MealDescription description={description} />
       <SpecialInstructions />
       {submenus.length > 0 && submenus.map(eachMenu => (
-        <SubMenus menus={eachMenu.options} title={eachMenu.title} />
+        <SubMenus type={eachMenu.type} menus={eachMenu.options} title={eachMenu.title} />
       ))}
     </div>
     <ActionSection price={price} slug={slug} quantity={quantity} />

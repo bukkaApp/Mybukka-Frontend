@@ -5,9 +5,9 @@ import InputField from 'Components/input/InputField';
 import './submenus.scss';
 // SUB MENUS
 
-const EachSubMenus = ({ menu }) => {
+const EachSubMenus = ({ menu, type }) => {
   const [checked, setCheck] = useState(false);
-
+  const isMutipleOptions = type === 'multiple';
   return (
     <div
       className="sub-menu cursor-pointer"
@@ -17,9 +17,9 @@ const EachSubMenus = ({ menu }) => {
       role="button"
     >
       <InputField
-        type="checkbox"
+        type={isMutipleOptions ? 'checkbox' : 'radio'}
         defaultValue={menu.name}
-        classNames="checkbox"
+        classNames={isMutipleOptions ? 'checkbox' : 'radio'}
         checked={checked}
         // handleChange={() => {}}
       />
@@ -31,12 +31,12 @@ const EachSubMenus = ({ menu }) => {
   );
 };
 
-const SubMenus = ({ menus, title }) => (
+const SubMenus = ({ menus, title, type }) => (
   <div className="sub-menus">
     <h5 className="header text-uppercase">{title}</h5>
     {menus.map(menu => (
       (menu.price && menu.name)
-      && <EachSubMenus key={shortId.generate()} menu={menu} />
+      && <EachSubMenus type={type} key={shortId.generate()} menu={menu} />
     ))}
   </div>
 );
