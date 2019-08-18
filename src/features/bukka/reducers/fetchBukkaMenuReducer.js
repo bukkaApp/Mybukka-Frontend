@@ -69,6 +69,7 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
     case 'FETCH_BUKKA_MENU_ERROR':
       return {
         ...state,
+        bukkaMenu: [{}],
         status: {
           fetched: false,
           error: true

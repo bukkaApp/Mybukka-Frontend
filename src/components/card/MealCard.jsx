@@ -41,7 +41,8 @@ const MealPicture = ({ imageUrl }) => (
   <Column classNames="col-4 col-md-3 col-lg-4 meal-picture-column">
     {imageUrl ? (
       <div className="meal-picture-section">
-        <img className="meal-picture" src={imageUrl} alt="" />
+        <img className="d-none" src={imageUrl} alt="" />
+        <div className="meal-picture" style={{ backgroundImage: `url(${imageUrl})` }} />
       </div>
     ) : null}
   </Column>
