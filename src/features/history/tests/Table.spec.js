@@ -25,8 +25,8 @@ describe('Table component', () => {
       }
     }],
     handleClick: jest.fn(),
-    extractPrice: jest.fn(),
-    extractQuantity: jest.fn(),
+    extractPrice: () => 300,
+    extractQuantity: () => 3,
   };
 
   const { container, getByTestId } = render(<Table {...props} />);

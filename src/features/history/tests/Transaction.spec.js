@@ -10,7 +10,7 @@ const initialState = {
   getOrderHistoryReducer: { orderHistory: { userOrders: [
     {
       time: '27/3/2019 12:43 pm',
-      orderId: '03d77',
+      _id: '03d77',
       status: 'pending',
       cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
     }
@@ -42,7 +42,9 @@ describe('Transaction component', () => {
         address: 'delivery address street',
         name: 'mr delivery name',
         contactMobile: '94574783930',
-      }
+      },
+      _id: '03d77',
+      cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
     }],
     handleClick: jest.fn(),
   };
