@@ -7,7 +7,15 @@ const initialState = {
     show: true,
     status: 'pending',
   },
-  getOrderHistoryReducer: { status: { fetched: true, error: false } },
+  getOrderHistoryReducer: { orderHistory: { userOrders: [
+    {
+      time: '27/3/2019 12:43 pm',
+      orderId: '03d77',
+      status: 'pending',
+      cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
+    }
+  ] },
+  Ordestatus: { fetched: true, error: false } },
 };
 
 const store = mockStore(initialState);
