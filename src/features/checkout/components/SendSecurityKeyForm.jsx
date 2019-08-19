@@ -150,7 +150,8 @@ const SendSecurityKeyForm = ({
   return (
     <Modal dataTarget="inputSecurityKey">
       <DismissModal />
-      {visibleCount > 0 && cardSaved && <SuccessMessage />}
+      {(visibleCount >= 0 && cardSaved)
+        && Object.keys(cardSaved).length > 0 && <SuccessMessage />}
       {(!transactionSuccess && !paymentStatus && !cardSaved) && <InputKeyForm
         setKey={setKey}
         reference={reference}

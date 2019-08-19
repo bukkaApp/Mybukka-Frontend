@@ -28,7 +28,7 @@ const saveUserCard = data => async (dispatch) => {
     });
     dispatch(saveUserCardAction('SUCCESS', request.data));
     dispatch(finishChargeTransactionAction('SUCCESS', request.data));
-    dispatch(alertMessage(POST_USER_ORDER, true, 'Your Order is now placed'));
+    dispatch(alertMessage(POST_USER_ORDER, true, 'You Successfully Placed Your Order'));
     dispatch(loading(POST_USER_ORDER, false));
   } catch (error) {
     dispatch(loading(POST_USER_ORDER, false));
