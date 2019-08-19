@@ -15,7 +15,7 @@ const initialState = {
       cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
     }
   ] },
-  Ordestatus: { fetched: true, error: false } },
+  status: { fetched: true, error: false } },
 };
 
 const store = mockStore(initialState);
@@ -39,7 +39,7 @@ describe('Transaction component', () => {
         address: 'pickup address street',
         contactMobile: '03847858',
       },
-      delivery: {
+      deliveryAddress: {
         address: 'delivery address street',
         name: 'mr delivery name',
         contactMobile: '94574783930',

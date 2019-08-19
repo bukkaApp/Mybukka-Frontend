@@ -3,28 +3,23 @@ import Table from '../components/Table';
 
 describe('Table component', () => {
   const props = {
-    data: [{
-      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }], quantity: 1 }] },
-      quantity: '2',
-      title: 'salad and bbq',
-      time: '27/3/2019 12:43 pm',
-      _id: '03d77',
-      price: '3000',
-      status: 'pending',
-      courier: {
-        name: 'curier name',
-        img: 'https;//www.google.com/img',
-      },
-      pickup: {
-        address: 'pickup address street',
-        contactMobile: '03847858',
-      },
-      delivery: {
-        address: 'delivery address street',
-        name: 'mr delivery name',
-        contactMobile: '94574783930',
-      },
-    }],
+    data: [
+      {
+        time: '27/3/2019 12:43 pm',
+        _id: '03d77',
+        status: 'pending',
+        cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] },
+        deliveryAddress: {
+          address: 'delivery address street',
+          name: 'mr delivery name',
+          contactMobile: '94574783930',
+          time: '27/3/2019 12:43 pm',
+        },
+        pickup: {
+          address: 'pickup address street',
+          contactMobile: '03847858',
+        },
+      }],
     handleClick: jest.fn(),
     extractPrice: () => 300,
     extractQuantity: () => 3,
