@@ -44,7 +44,7 @@ describe('Transaction component', () => {
         contactMobile: '94574783930',
       },
       _id: '03d77',
-      cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
+      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }] }] }
     }],
     handleClick: jest.fn(),
   };
