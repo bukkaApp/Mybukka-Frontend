@@ -4,6 +4,7 @@ import Table from '../components/Table';
 describe('Table component', () => {
   const props = {
     data: [{
+      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }], quantity: 1 }] },
       quantity: '2',
       title: 'salad and bbq',
       time: '27/3/2019 12:43 pm',
@@ -23,7 +24,6 @@ describe('Table component', () => {
         name: 'mr delivery name',
         contactMobile: '94574783930',
       },
-      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }] }] }
     }],
     handleClick: jest.fn(),
     extractPrice: () => 300,

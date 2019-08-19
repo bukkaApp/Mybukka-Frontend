@@ -24,6 +24,7 @@ const store = mockStore(initialState);
 describe('Transaction component', () => {
   const props = {
     data: [{
+      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }], quantity: 1 }] },
       quantity: '2',
       title: 'salad and bbq',
       time: '27/3/2019 12:43 pm',
@@ -44,7 +45,6 @@ describe('Transaction component', () => {
         contactMobile: '94574783930',
       },
       _id: '03d77',
-      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }] }] }
     }],
     handleClick: jest.fn(),
   };
