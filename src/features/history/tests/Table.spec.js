@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from '../components/Table';
 
-describe('Table component', () => {
+describe.skip('Table component', () => {
   const props = {
     data: [
       {
