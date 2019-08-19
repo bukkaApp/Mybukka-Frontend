@@ -19,17 +19,25 @@ const BgColor = ({ children }) => (
 );
 
 const Transaction = ({
-  orderHistory,
+  userOrders,
   fetched,
   openTrackingDropdown,
   fetchedOrderHistory
 }) => {
   const [refreshed, refresh] = useState(false);
 
+  const extractPrice = dom => dom.cart.items
+    .map(item => item.meal[0].price)
+    .reduce((prev, curr) => prev + curr, 0);
+
+  const extractQuantity = dom => dom.cart.items
+    .map(item => item.quantity)
+    .reduce((prev, curr) => prev + curr, 0);
+
   useEffect(() => {
     if (!refreshed && !fetched) {
       refresh(true);
-      fetchedOrderHistory('/order');
+      fetchedOrderHistory('/order?role=customer');
     }
   });
 
@@ -39,23 +47,28 @@ const Transaction = ({
         <div className="profile-header-section mb-4">
           <ProfileHeaderTitle firstName="Order" lastName="history" />
         </div>
-        {orderHistory.length >= 1 &&
-        <Container classNames="relative">
+        {(userOrders && userOrders.length > 0) &&
+        <Container classNames="relative d-bg-white-none">
           <div
             className="d-flex flex-column flex-xl-column
         flex-lg-column flex-md-column justify-content-between"
           >
-            <Table data={orderHistory} handleClick={openTrackingDropdown} />
-            {orderHistory.map(dom => (
+            <Table
+              extractPrice={extractPrice}
+              extractQuantity={extractQuantity}
+              data={userOrders}
+              handleClick={openTrackingDropdown}
+            />
+            {userOrders.map(dom => (
               <Card
                 handleClick={() => openTrackingDropdown(dom.status)}
                 time={dom.time}
-                orderId={dom.orderId}
-                mealTitle={dom.title}
-                price={dom.price}
+                orderId={dom._id} // eslint-disable-line
+                mealTitle={dom.cart.items[0].meal[0].title}
+                price={extractPrice(dom)}
                 key={shortId.generate() + dom.title}
                 status={dom.status}
-                quantity={dom.quantity}
+                quantity={extractQuantity(dom)}
               />
             ))}
           </div>
@@ -68,11 +81,11 @@ const Transaction = ({
 };
 
 const mapStateToProps = ({
-  getOrderHistoryReducer: { orderHistory, status: { fetched, error } },
+  getOrderHistoryReducer: { orderHistory: { userOrders }, status: { fetched, error } },
 }) => ({
   fetched,
   error,
-  orderHistory
+  userOrders
 });
 
 export default connect(
@@ -84,14 +97,14 @@ export default connect(
 )(Transaction);
 
 Transaction.defaultProps = {
-  orderHistory: []
+  userOrders: []
 };
 
 Transaction.propTypes = {
   fetched: PropTypes.bool.isRequired,
   fetchedOrderHistory: PropTypes.func.isRequired,
   openTrackingDropdown: PropTypes.func.isRequired,
-  orderHistory: PropTypes.arrayOf(
+  userOrders: PropTypes.arrayOf(
     PropTypes.objectOf(
       PropTypes.oneOfType([
         PropTypes.string,

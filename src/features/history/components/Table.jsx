@@ -4,10 +4,10 @@ import shortId from 'shortid';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
-const Table = ({ data, handleClick }) => (
+const Table = ({ data, handleClick, extractPrice, extractQuantity }) => (
   <div
     className="d-flex flex-column flex-xl-column flex-lg-column flex-md-column
-    justify-content-between"
+      justify-content-between"
   >
     <TableHead />
     {data.map(dom => (
@@ -16,17 +16,17 @@ const Table = ({ data, handleClick }) => (
         handleClick={() => handleClick(dom.status)}
         time={dom.time}
         status={dom.status}
-        quantity={dom.quantity}
-        title={dom.title}
-        price={dom.price}
-        orderId={dom.orderId}
-        courierName={dom.courier.name}
-        courierImg={dom.courier.img}
-        pickupAddress={dom.pickup.address}
-        pickupContactMobile={dom.pickup.contactMobile}
-        deliveryAddress={dom.delivery.address}
-        deliveryName={dom.delivery.name}
-        deliveryContactMobile={dom.delivery.contactMobile}
+        quantity={extractQuantity(dom)}
+        title={dom.cart.items[0].meal[0].title}
+        price={extractPrice(dom)}
+        orderId={dom._id.slice(0, 18)}// eslint-disable-line
+        courierName={/* dom.courier.name || */'Default carier'}
+        courierImg={/* dom.courier.img || */'http://i.pravatar.cc/50'}
+        pickupAddress={dom.deliveryAddress.address}
+        pickupContactMobile={dom.deliveryAddress.contactMobile}
+        deliveryAddress={dom.deliveryAddress.address}
+        deliveryName={dom.deliveryAddress.name}
+        deliveryContactMobile={dom.deliveryAddress.contactMobile}
       />
     ))}
   </div>
@@ -41,5 +41,7 @@ Table.propTypes = {
       PropTypes.string,
       PropTypes.objectOf(PropTypes.string)
     ])
-  )).isRequired
+  )).isRequired,
+  extractPrice: PropTypes.func.isRequired,
+  extractQuantity: PropTypes.func.isRequired,
 };

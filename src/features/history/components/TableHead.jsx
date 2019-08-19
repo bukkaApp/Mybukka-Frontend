@@ -3,7 +3,7 @@ import Row from 'Components/grid/Row';
 import PropTypes from 'prop-types';
 
 // eslint-disable-next-line max-len
-const Col = ({ children }) => <div className="col-2 pt-1 pb-1 bold">{children}</div>;
+const Col = ({ children }) => <div className="col-2 pt-1 pb-1 custom-border bold">{children}</div>;
 
 const TableHead = () => (
   <Row classNames="flex d-xl-flex d-lg-flex d-md-none d-none">

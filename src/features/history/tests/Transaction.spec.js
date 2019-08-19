@@ -7,15 +7,24 @@ const initialState = {
     show: true,
     status: 'pending',
   },
-  getOrderHistoryReducer: { status: { fetched: true, error: false } },
+  getOrderHistoryReducer: { orderHistory: { userOrders: [
+    {
+      time: '27/3/2019 12:43 pm',
+      _id: '03d77',
+      status: 'pending',
+      cart: { items: [{ meals: { title: 'jollof rice', price: 2000 } }] }
+    }
+  ] },
+  status: { fetched: true, error: false } },
 };
 
 const store = mockStore(initialState);
 
 
-describe('Transaction component', () => {
+describe.skip('Transaction component', () => {
   const props = {
     data: [{
+      cart: { items: [{ meals: [{ title: 'jollof rice', price: 2000 }], quantity: 1 }] },
       quantity: '2',
       title: 'salad and bbq',
       time: '27/3/2019 12:43 pm',
@@ -30,11 +39,12 @@ describe('Transaction component', () => {
         address: 'pickup address street',
         contactMobile: '03847858',
       },
-      delivery: {
+      deliveryAddress: {
         address: 'delivery address street',
         name: 'mr delivery name',
         contactMobile: '94574783930',
-      }
+      },
+      _id: '03d77',
     }],
     handleClick: jest.fn(),
   };

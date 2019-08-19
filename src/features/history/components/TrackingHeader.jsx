@@ -18,7 +18,7 @@ const TrackingHeader = ({ open, handleClick }) => (
       >
         <Cancel />
       </Button>
-      <h5>Logistics details</h5>
+      <h5>Transaction Details</h5>
     </Row>
     <hr className="text-muted m-0 border-box col-12" />
   </div>

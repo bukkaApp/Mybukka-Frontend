@@ -27,7 +27,7 @@ const Card = ({
     aria-pressed
   >
     <Container
-      classNames="px-0 d-flex-column column mb-2 justify-content-center"
+      classNames="d-flex-column column mb-2 justify-content-center"
     >
       <Col>
         <Head orderId={orderId} time={time} />

@@ -71,7 +71,7 @@ const Tracking = ({ show, status, closeTrackingDropdown }) => {
         className={`tracking-absolute ${show ? 'tracking' : 'not-tracking'}`}
       >
         <div className="bg-color">
-          <div className={'tracking-content content-bg-color'}>
+          <div className="tracking-content content-bg-color">
             <TrackingHeader open={show} handleClick={closeTrackingDropdown} />
             <div className="tracking-content-body">
               {
