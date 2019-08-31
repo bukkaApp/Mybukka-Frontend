@@ -6,7 +6,7 @@ import Payment
   from '../components/Payment';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  selectedAuthFormReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
 };
 

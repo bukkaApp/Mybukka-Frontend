@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
-import navAuthentication from './actionCreators/navAuthentication';
+import selectAuthForm from './actionCreators/selectAuthForm';
 import './navbar.scss';
 
 const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
@@ -58,7 +58,7 @@ const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
 export default connect(
   null,
   {
-    navigateToNextRoute: navAuthentication
+    navigateToNextRoute: selectAuthForm
   }
 )(PrimaryNavbar);
 

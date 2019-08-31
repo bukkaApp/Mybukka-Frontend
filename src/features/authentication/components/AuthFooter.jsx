@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 // import NavLink from 'Components/navlink/Navlink';
 import Button from 'Components/button/Button';
-import navAuthentication from 'Components/navbar/actionCreators/navAuthentication';
+import selectAuthForm from 'Components/navbar/actionCreators/selectAuthForm';
 import './authfooter.scss';
 
 const signUpTextOption = 'Already have an account?';
@@ -62,7 +62,7 @@ const AuthFooter = ({
 const AuthFooterComponent = withRouter(AuthFooter);
 
 export default connect(null, {
-  navigateToNextRoute: navAuthentication
+  navigateToNextRoute: selectAuthForm
 })(AuthFooterComponent);
 
 AuthFooter.defaultProps = {

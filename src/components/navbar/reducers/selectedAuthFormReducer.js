@@ -1,4 +1,4 @@
-import { PRIMARY_NAV_AUTH } from 'Redux/actionTypes';
+import { SELECT_AUTH_FORM } from 'Redux/actionTypes';
 
 const initialState = {
   type: 'Sign In',
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case `${PRIMARY_NAV_AUTH}_SUCCESS`:
+    case `${SELECT_AUTH_FORM}_SUCCESS`:
       return {
         ...state,
         type: action.data,
