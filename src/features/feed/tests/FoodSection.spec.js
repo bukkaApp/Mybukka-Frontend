@@ -8,7 +8,7 @@ import bukkaData from '../data/search.json';
 import FoodSection from '../components/FoodSection';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  selectedAuthFormReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   authenticationReducer: {

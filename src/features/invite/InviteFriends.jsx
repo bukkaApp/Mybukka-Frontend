@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DismissModal from 'Components/modal/DismissModal';
 import Modal from 'Components/modal/Modal';
-import MyContextPush from './context-api/MyContextPush';
+import PushContext from './context-api/PushContext';
 import './InviteFriends.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -39,12 +39,12 @@ const InviteFriends = ({ push }) => {
   };
 
   return (
-    <MyContextPush.Provider value={{ push }}>
+    <PushContext.Provider value={{ push }}>
       <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
         <DismissModal classNames="close" />
         <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
       </Modal>
-    </MyContextPush.Provider>
+    </PushContext.Provider>
   );
 };
 

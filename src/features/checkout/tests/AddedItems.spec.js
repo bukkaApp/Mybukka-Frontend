@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import AddedItems from '../components/AddedItems';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  selectedAuthFormReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },

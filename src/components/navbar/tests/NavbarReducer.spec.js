@@ -1,4 +1,4 @@
-import NavbarReducer from '../reducers/navbarAuthReducer';
+import NavbarReducer from '../reducers/selectedAuthFormReducer';
 
 const initialState = {
   type: 'Sign In'
@@ -9,7 +9,7 @@ describe('Authentication Reducer', () => {
   type is AUTHENTICATE_USER_SUCCESS`, () => {
     expect(
       NavbarReducer(initialState, {
-        type: 'PRIMARY_NAV_AUTH_SUCCESS',
+        type: 'SELECT_AUTH_FORM_SUCCESS',
         data: 'Sign Up'
       })
     ).toEqual({

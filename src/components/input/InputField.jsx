@@ -17,26 +17,24 @@ const InputField = ({
   accept,
   autoComplete,
   checked,
-  value,
-}) => {
-  const props = value !== undefined ? { value } : {};
-  return (
-    <input
-      type={type}
-      name={name}
-      ref={inputRef}
-      accept={accept}
-      className={classNames}
-      placeholder={placeholderText}
-      onChange={handleChange}
-      onFocus={handleFocus}
-      {...props}
-      defaultValue={defaultValue}
-      autoComplete={autoComplete}
-      checked={checked}
-    />
-  );
-};
+  ...props,
+}) => (
+  <input
+    type={type}
+    name={name}
+    ref={inputRef}
+    accept={accept}
+    className={classNames}
+    placeholder={placeholderText}
+    onChange={handleChange}
+    onFocus={handleFocus}
+    {...props}
+    defaultValue={defaultValue}
+    autoComplete={autoComplete}
+    checked={checked}
+  />
+);
+
 export default InputField;
 
 InputField.defaultProps = {

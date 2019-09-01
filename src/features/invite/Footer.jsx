@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import MyContextPush from './context-api/MyContextPush';
+import PushContext from './context-api/PushContext';
 import Button from '../../components/button/Button';
 import './InviteFriends.css';
 
 const Footer = ({ inputData, handleCopy }) => {
-  const props = useContext(MyContextPush);
+  const props = useContext(PushContext);
 
   const handleClick = (toLocation) => {
     $('#inviteFrnd').modal('hide');
