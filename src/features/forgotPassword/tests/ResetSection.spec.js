@@ -6,7 +6,7 @@ import ResetSection from '../components/ResetSection';
 
 
 const initialState = {
-  selectedAuthFormReducer: { type: '/login' },
+  navbarAuthReducer: { type: '/login' },
   requestPasswordChangesReducer: { requested: true, errorMessage: 'error occur' },
   authenticationReducer: {
     user: {},

@@ -8,7 +8,7 @@ import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import NavLink from '../navlink/Navlink';
 import UserDefaultImage from './UserDefaultImage';
-import selectAuthForm from './actionCreators/selectAuthForm';
+import navAuthentication from './actionCreators/navAuthentication';
 import CartSection from './CartSection';
 import EmptyCart, { CartDropdown } from './EmptyCart';
 import CartIconSection from '../common-navs/CartIconSection';
@@ -197,7 +197,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
 export default connect(
   null,
   {
-    navigateToNextRoute: selectAuthForm
+    navigateToNextRoute: navAuthentication
   }
 )(BukkaAuthenticatedNav);
 

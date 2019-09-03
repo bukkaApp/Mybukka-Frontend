@@ -10,23 +10,23 @@ const Table = ({ data, handleClick, extractPrice, extractQuantity }) => (
       justify-content-between"
   >
     <TableHead />
-    {data.map(dom => (
+    {data.map(order => (
       <TableBody
-        key={shortId.generate() + dom.title}
-        handleClick={() => handleClick(dom.status)}
-        time={dom.time}
-        status={dom.status}
-        quantity={extractQuantity(dom)}
-        title={dom.cart.items[0].meal[0].title}
-        price={extractPrice(dom)}
-        orderId={dom._id.slice(0, 18)}// eslint-disable-line
-        courierName={/* dom.courier.name || */'Default carier'}
-        courierImg={/* dom.courier.img || */'http://i.pravatar.cc/50'}
-        pickupAddress={dom.deliveryAddress.address}
-        pickupContactMobile={dom.deliveryAddress.contactMobile}
-        deliveryAddress={dom.deliveryAddress.address}
-        deliveryName={dom.deliveryAddress.name}
-        deliveryContactMobile={dom.deliveryAddress.contactMobile}
+        key={shortId.generate() + order.title}
+        handleClick={() => handleClick(order.status)}
+        time={order.time}
+        status={order.status}
+        quantity={extractQuantity(order)}
+        title={order.cart.items[0].meal[0].title}
+        price={extractPrice(order)}
+        orderId={order._id.slice(0, 18)}// eslint-disable-line
+        courierName={/* order.courier.name || */'Default carier'}
+        courierImg={/* order.courier.img || */'http://i.pravatar.cc/50'}
+        pickupAddress={order.deliveryAddress.address}
+        pickupContactMobile={order.deliveryAddress.contactMobile}
+        deliveryAddress={order.deliveryAddress.address}
+        deliveryName={order.deliveryAddress.name}
+        deliveryContactMobile={order.deliveryAddress.contactMobile}
       />
     ))}
   </div>

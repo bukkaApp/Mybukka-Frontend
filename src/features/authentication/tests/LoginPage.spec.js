@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 import { LoginPage } from '../LoginPage';
 
 const initialState = {
-  selectedAuthFormReducer: { type: 'Sign In', },
+  navbarAuthReducer: { type: 'Sign In', },
   authenticationReducer: {
     user: {},
     status: {

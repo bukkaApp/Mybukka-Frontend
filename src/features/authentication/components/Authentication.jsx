@@ -18,7 +18,6 @@ const GoToPrev = ({ handleBackClick, slideToNextInput, classNames }) => {
       <div
         tabIndex="0"
         role="button"
-        onkeyPress={() => {}}
         aria-pressed="false"
         onClick={handleBackClick}
         className={`chevron-left ${classNames ? '' : 'mt-20'}`}
@@ -31,24 +30,22 @@ const GoToPrev = ({ handleBackClick, slideToNextInput, classNames }) => {
 };
 
 const Authentication = ({ ...props }) => {
-  let { title } = props;
-  const { slideToNextInput, classNames } = props;
-  if (slideToNextInput) {
-    title = 'Type your password';
+  let authTitle = props.title;
+  if (props.slideToNextInput) {
+    authTitle = 'Type your password';
   }
   return (
-    <Wrapper classNames={classNames}>
+    <Wrapper classNames={props.classNames}>
       <GoToPrev {...props} />
-      <h2 className="text-center pt-4 mb-0 auth-title">{title}</h2>
+      <h2 className="text-center pt-4 mb-0 auth-title">{authTitle}</h2>
       <AuthForm {...props} />
     </Wrapper>
   );
 };
 
 const Container = ({ ...props }) => {
-    const { authModal } = props;
   const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-8';
-  const authClass = authModal ? '' : className;
+  const authClass = props.authModal ? '' : className;
   return (
     <div className={authClass}>
       <Authentication {...props} />
@@ -59,17 +56,17 @@ const Container = ({ ...props }) => {
 export default Container;
 
 Wrapper.defaultProps = {
-  children: <div />,
+  children: PropTypes.node.isRequired,
   classNames: ''
 };
 
 Wrapper.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   classNames: PropTypes.string
 };
 
 Authentication.defaultProps = {
-  title: '',
+  title: PropTypes.string.isRequired,
   classNames: '',
   slideToNextInput: false
 };
@@ -87,7 +84,7 @@ GoToPrev.propTypes = {
 };
 
 Authentication.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   slideToNextInput: PropTypes.bool
 };

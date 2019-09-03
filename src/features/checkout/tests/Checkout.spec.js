@@ -6,7 +6,7 @@ import Checkout from '../components/Checkout';
 
 describe.skip('Area to explore component', () => {
   const store = mockStore({
-    selectedAuthFormReducer: { type: 'Sign Up' },
+    navbarAuthReducer: { type: 'Sign Up' },
     authenticationReducer: {
       user: {},
       status: {

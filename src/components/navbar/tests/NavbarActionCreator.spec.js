@@ -1,4 +1,4 @@
-import selectAuthForm from '../actionCreators/selectAuthForm';
+import navAuthentication from '../actionCreators/navAuthentication';
 
 describe('set nav Authentication type action creator', () => {
   it(`creates action with type SET DELIVERY MODE
@@ -7,12 +7,12 @@ describe('set nav Authentication type action creator', () => {
 
     const expectedActions = [
       {
-        type: 'SELECT_AUTH_FORM_SUCCESS',
+        type: 'PRIMARY_NAV_AUTH_SUCCESS',
         data: 'Sign Up'
       }
     ];
 
-    await store.dispatch(selectAuthForm('Sign Up'));
+    await store.dispatch(navAuthentication('Sign Up'));
     expect(store.getActions()).toEqual(expectedActions);
   });
 });
