@@ -49,7 +49,7 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
             {bukkaMenu.map(mealData => (
-              <>
+              <Fragment key={shortId.generate()}>
                 {mealData.category === eachCategory && mealData.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
                   <Column
                     classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
@@ -58,7 +58,7 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
                     <MealCard {...mealData} />
                   </Column>
                 )}
-              </>
+              </Fragment>
             ))}
           </Row>
         </Fragment>

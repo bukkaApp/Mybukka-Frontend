@@ -58,9 +58,9 @@ const MealCard = ({
 }) => (
   <div
     className="meal-card"
-    data-target="#mealModal"
-    data-toggle="modal"
-    onClick={() => setMealToDisplay(slug)}
+    // data-target="#mealModal"
+    // data-toggle="modal"
+    onClick={() => setMealToDisplay(slug, null, true)}
     tabIndex={0}
     role="button"
   >

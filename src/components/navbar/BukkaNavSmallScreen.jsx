@@ -35,7 +35,7 @@ export const ResponsiveCategories = ({
           <Fragment>
             <div className="mx-4">
               {categoryItems.map(eachCategory =>
-                (<div className="bukka-nav-small-category">
+                (<div key={eachCategory} className="bukka-nav-small-category">
                   {eachCategory}
                 </div>
                 ))}

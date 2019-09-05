@@ -22,43 +22,43 @@ const EachSubMenus = ({
   const [checked, setCheck] = useState(defaultChecked);
   const isMutipleOptions = type === 'multiple';
 
-  const handleOnClick = ({ manipulateSubmenus, mealToDisplay }) => {
+  const handleOnClick = (e) => {
     setCheck(!checked);
     handleClick(menu._id, submenuId, type);
-
-    // const data = {
-    //   submenus,
-    //   submenuId,
-    //   submenuOptionId: optionId,
-    //   mealSlug: mealSlug || mealToDisplay.slug,
-    // };
-    // manipulateSubmenus({ ...data });
   };
 
   return (
     <ReactStateProvider.Consumer>
-      {value => (
-        <div
-          className="sub-menu cursor-pointer"
-          onClick={() => handleOnClick({ ...value })}
-          tabIndex="0"
-          aria-pressed="false"
-          role="button"
-        >
-          <InputField
-            type={isMutipleOptions ? 'checkbox' : 'radio'}
-            defaultValue={menu.name}
-            classNames={isMutipleOptions ? 'custom-checkbox' : 'radio'}
-            checked={checked}
-            id={menu.name}
-            // handleChange={() => {}}
-          />
-          <label htmlFor={menu.name} className="col-10 pl-0 menu-text d-flex justify-content-between">
-            <span>{menu.name}</span>
-            <span className="text-muted">₦{menu.price}</span>
-          </label>
-        </div>
-      )}
+      {(value) => {
+        const subMenusArr = value[submenuId] || [];
+        return (
+          <div className="sub-menu cursor-pointer">
+            <InputField
+              name={submenuId}
+              type={isMutipleOptions ? 'checkbox' : 'radio'}
+              defaultValue={menu.name}
+              classNames={isMutipleOptions ? 'custom-checkbox' : 'radio'}
+              checked={
+                isMutipleOptions ? subMenusArr.find(el => el === menu._id) :
+                  value[submenuId] === menu._id
+              }
+              id={menu.name}
+              handleChange={handleOnClick}
+            />
+            <label
+              htmlFor={menu.name}
+              className="col-10 pl-0 menu-text d-flex justify-content-between"
+              onClick={handleOnClick}
+              role="button"
+              aria-pressed="false"
+              tabIndex="0"
+            >
+              <span>{menu.name}</span>
+              <span className="text-muted">₦{menu.price}</span>
+            </label>
+          </div>
+        );
+      }}
     </ReactStateProvider.Consumer>
   );
 };
@@ -103,8 +103,8 @@ const mapStateToProps = ({
 }) => ({
   mealToDisplay,
   cart: items,
-  itemIsInCart:
-    items.filter(item => item.slug === mealToDisplay.slug).length > 0,
+  // itemIsInCart:
+  //   items.filter(item => item.slug === mealToDisplay.slug).length > 0,
   // submenus:
 });
 

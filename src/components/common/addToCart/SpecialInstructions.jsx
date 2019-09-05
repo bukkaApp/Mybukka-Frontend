@@ -13,8 +13,13 @@ const TextLengthSection = ({ length }) => (
   </div>
 );
 
-const SpecialInstructions = () => {
+const SpecialInstructions = ({ handleChange }) => {
   const [textLength, setTextLength] = useState(0);
+
+  const onChangeHandler = ({ target: { value } }) => {
+    handleChange(value);
+    setTextLength(value);
+  };
 
   return (
     <div className="special-instructions-section">
@@ -25,7 +30,7 @@ const SpecialInstructions = () => {
         type="textarea"
         name="specialInstructions"
         maxLength={200}
-        handleChange={event => setTextLength(event.target.value.length)}
+        handleChange={onChangeHandler}
         handleFocus={() => {}}
       />
       <TextLengthSection length={textLength} />

@@ -60,12 +60,12 @@ const AddedItem = ({ cart, bukka, removeFromCart, setMealToDisplay }) => (
       </h5>
     </div>
 
-    {cart.map(item => (
+    {cart.map((item, index) => (
       <OrderTray
         name={item.title}
         price={item.price}
         key={item.slug}
-        handleRemove={() => removeFromCart(item.slug)}
+        handleRemove={() => removeFromCart(item.slug, index)}
         handleEdit={() => setMealToDisplay(item, true)}
       />
     ))}
