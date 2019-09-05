@@ -7,10 +7,6 @@ const isArrayEqual = function doSomething(x, y) {
   return lodash(x).differenceWith(y, lodash.isEqual).isEmpty();
 };
 
-// const isAvailable = menus.filter(menu => isArrayEqual(menu.submenus, item.submenus));
-// const checker = menus.filter(menu => lodash.every(menu.submenus, item.submenus));
-// const isArr = menus.filter(menu => lodash.filter(menu.submenus, item.submenus));
-
 const handleSubmenusPrice = (submenus, quantity) =>
   submenus.map(eachItem => ({
     ...eachItem,
@@ -69,23 +65,8 @@ const _isArrayEqual = (firstArr, secondArr) => {
   return false;
 };
 
-const handleData = (menus, item) => {
-  let index = null;
+const createMenuData = (menus, index) => {
   let total = 0;
-  const newItem = loopNewItem(item.submenus);
-  const menufound = menus.find(menu => menu._id === item._id);
-  if (!menufound) return null;
-  const OneMenuFound = menufound.length === 1;
-  if (OneMenuFound && menufound[0].submenus.length === 0 && item.submenus.length === 0) return null;
-  menus.map((menu, indx) => {
-    if (menu._id === item._id) {
-      const currentItem = loopNewItem(menu.submenus);
-      if (_isArrayEqual(newItem, currentItem)) {
-        index = indx;
-      }
-    }
-  });
-  if (!index) return null;
   const menuToReturn = menus.map((menu, indx) => {
     if (indx === index) {
       const menuQuantity = menu.quantity + 1;
@@ -103,85 +84,23 @@ const handleData = (menus, item) => {
   return menuToReturn;
 };
 
-
-const loopMenus = (dSubmenus, otherSubmenus) => {
-  const storeIndex = 0;
-  const submenus = {};
-  const arr = [];
-  for (let i = 0; i < dSubmenus.length; i++) {
-    for (let k = 0; k < otherSubmenus.length; k++) {
-      if (dSubmenus[i]._id === otherSubmenus[k]._id) {
-        arr.push(otherSubmenus[k]);
-        if (!submenus[dSubmenus[i]._id]) {
-          submenus[dSubmenus[i]._id] = [];
-        }
-        for (let j = 0; j < dSubmenus[i].options.length; j++) {
-          for (let p = 0; p < otherSubmenus[k].options.length; p++) {
-            if (dSubmenus[i].options[j]._id === otherSubmenus[k].options[p]._id) {
-              submenus[dSubmenus[i]._id].push(dSubmenus[i].options[j]._id);
-            }
-          }
-        }
-      }
-    }
-  }
-  // after getting the filtered data, now compared to newItem before adding
-
-
-  return arr;
-};
-
-const loopThroughMenus = (menus, otherMenu) => {
-  const arr = [];
-  for (let i = 0; i < menus.length; i++) {
-    for (let k = 0; k < otherMenu.length; k++) {
-      if (menus[i]._id === otherMenu[k]._id) {
-        arr.push(otherMenu[k]);
-      }
-    }
-  }
-  return arr;
-};
-
-const deepFilterSubMenus = (menus, otherMenu) => {
-  const newSubmenu = [];
-  menus.map((eachMenu) => {
-    otherMenu.map((eachItem) => {
-      const option = loopThroughMenus(eachMenu.options, eachItem.options);
-      if (option.length === eachMenu.options.length) {
-        newSubmenu.push(eachItem);
-      }
-    });
-  });
-  return newSubmenu;
-};
-
-
-const handleOrderQuantity = (menus, item) => {
-  let total = 0;
+const handleData = (menus, item) => {
+  let index = null;
+  const newItem = loopNewItem(item.submenus);
   const menufound = menus.find(menu => menu._id === item._id);
   if (!menufound) return null;
   const OneMenuFound = menufound.length === 1;
   if (OneMenuFound && menufound[0].submenus.length === 0 && item.submenus.length === 0) return null;
-  const submenusFound = loopThroughMenus(menufound.submenus, item.submenus);
-  if (item.submenus.length !== submenusFound.length) return null;
-  const result = deepFilterSubMenus(submenusFound, item.submenus);
-  if (result.length !== submenusFound.length) return null;
-  const menuToReturn = menus.map((menu) => {
+  menus.map((menu, indx) => {
     if (menu._id === item._id) {
-      const menuQuantity = menu.quantity + 1;
-      total += menuQuantity * menu.price;
-      const submenus = handleSubmenusPrice(menu.submenus, menuQuantity);
-      return {
-        ...menu,
-        submenus,
-        price: total,
-        quantity: menu.quantity + 1,
-      };
+      const currentItem = loopNewItem(menu.submenus);
+      if (_isArrayEqual(newItem, currentItem)) {
+        index = indx;
+      }
     }
-    return menu;
   });
-  return menuToReturn;
+  if (!index) return null;
+  return createMenuData(menus, index);
 };
 
 export default handleData;
