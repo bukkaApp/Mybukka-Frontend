@@ -1,8 +1,17 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable camelcase */
+/* eslint-disable no-plusplus */
+/* eslint-disable no-underscore-dangle */
 import swal from 'sweetalert';
+import handleOrderQuantity from 'Utilities/handleOrderQuantity';
 
 const initialState = {
   items: [],
   item: {},
+  sub_menus: {
+    mealSlug: '',
+    submenus: []
+  },
   totalCost: 0,
   status: {
     updated: false,
@@ -11,17 +20,38 @@ const initialState = {
   errorMessage: ''
 };
 
+const handleSubmenusPrice = (cartItems) => {
+  let total = 0;
+  cartItems.map((eachItem) => {
+    if (eachItem.submenus.length > 0) {
+      for (let i = 0; i < eachItem.submenus.length; i++) {
+        for (let k = 0; k < eachItem.submenus[i].options.length; k++) {
+          total += eachItem.submenus[i].options[k].price;
+        }
+      }
+    }
+  });
+  return total;
+};
+
 const calculatePrice = (cartItems) => {
   if (cartItems.length === 0) {
     return 0;
   }
   const add = (accumulator, digit) => accumulator + digit;
   const totalPrice = cartItems.map(item => item.price).reduce(add);
-  return totalPrice;
+  return handleSubmenusPrice(cartItems) + totalPrice;
 };
 
+const createLocalCart = (state, newItems) => ({
+  ...state,
+  items: newItems,
+  totalCost: calculatePrice(newItems || []),
+  errorMessage: '',
+});
+
 const cartUpdateSuccess = (userCart, state) => {
-  const item = { ...userCart.items, meal: [userCart.items] };
+  const item = { ...userCart.items, ...userCart.items.meal[0] };
   const newCart = [...state.items, item];
   return {
     items: newCart,
@@ -68,18 +98,21 @@ const cartReducer = (state = initialState, action) => {
           errorMessage: 'your cart can only contain items of a single bukka at any given time',
         };
       }
-      const item = { ...action.data, meal: action.data };
+      const item = { ...action.data, meal: action.data, quantity: 1 };
+      if (state.items.length > 0) {
+        const incrementQuantity = handleOrderQuantity(state.items, item);
+        if (incrementQuantity) {
+          return createLocalCart(state, incrementQuantity);
+        }
+        const newItems = [...state.items, item];
+        return createLocalCart(state, newItems);
+      }
       const newItems = [...state.items, item];
-      return {
-        ...state,
-        items: newItems,
-        totalCost: calculatePrice(newItems || []),
-        errorMessage: '',
-      };
+      return createLocalCart(state, newItems);
     }
 
     case 'UPDATE_CART_REMOVE': {
-      const newItems = state.items.filter(items => items.slug !== action.slug);
+      const newItems = state.items.filter((items, index) => index !== action.index);
       return {
         ...state,
         items: newItems,

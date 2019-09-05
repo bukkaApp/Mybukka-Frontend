@@ -49,6 +49,7 @@ const Checkout = ({
   signOut,
   fetchBukka,
   selectedLocation: { description },
+  bukkaSlug,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -133,7 +134,7 @@ const Checkout = ({
   const handleUserCheckout = () => {
     const user = authServices.getUserSlug();
     const deliveryAddress = { ...deliveryAddressData, user, location: { type: 'Point', coordinates, } };
-    checkoutUser({ deliveryAddress, cart: { items: [...cart], user }, day, user, time, deliveryMode: mode });
+    checkoutUser({ deliveryAddress, cart: { items: [...cart], user }, day, bukkaSlug, time, deliveryMode: mode });
   };
 
   const handleCheckout = () => {
@@ -201,7 +202,7 @@ const Checkout = ({
                 text="CONTINUE"
                 classNames="big-button"
                 id="charge-user-small"
-                handleClick={() => { /* checkoutUser({ card, amount }) */ }}
+                handleClick={() => handleCheckout()}
               />
             </div>
           </div>
@@ -221,6 +222,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
+  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -234,6 +236,7 @@ const mapStateToProps = ({
   message,
   data,
   bukkaMenu,
+  bukkaSlug,
   menuIsFetched: fetched,
   bukkaOfMenu: bukkaMenu[0].bukka,
   cart: items,

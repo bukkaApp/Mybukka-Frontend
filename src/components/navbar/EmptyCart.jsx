@@ -49,11 +49,11 @@ const EmptyCart = ({
             orderQuantity > 2 ? 'cart-body-height' : ''
           }`}
         >
-          {orderItems.map(item => (
+          {orderItems.map((item, index) => (
             <CartItems
               key={shortId.generate()}
               title={item.title}
-              removeFromCartAction={() => removeFromCartAction(item.slug)}
+              removeFromCartAction={() => removeFromCartAction(item.slug, index)}
               category={item.category}
               price={item.price}
               quantity={item.quantity}

@@ -8,7 +8,7 @@ import bukkaData from '../data/search.json';
 import SearchResult from '../components/SearchResult';
 
 const initialState = {
-  selectedAuthFormReducer: { type: 'Sign In', },
+  navbarAuthReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   searchAnythingReducer: { search: '' },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },

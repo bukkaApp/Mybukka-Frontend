@@ -33,7 +33,7 @@ const SubtotalSection = ({ totalPriceInCart }) => (
   </div>
 );
 
-const CartItem = ({ item, removeFromCartAction }) => (
+const CartItem = ({ item, index, removeFromCartAction }) => (
   <div className="single-cart-item-section">
     <div className="quantity-section">{item.quantity}</div>
     <div>{item.title}</div>
@@ -42,7 +42,7 @@ const CartItem = ({ item, removeFromCartAction }) => (
     </div>
     <div
       className="remove-from-cart-icon-section"
-      onClick={() => removeFromCart(item.slug)}
+      onClick={() => removeFromCart(item.slug, index)}
       tabIndex={0}
       role="button"
     >
@@ -58,10 +58,11 @@ const CartItems = ({ cartItems, removeFromCartAction, totalPriceInCart }) => {
         <div className="cart-order-heading">
           <h5>Order</h5>
         </div>
-        {cartItems.map(cartItem => (
+        {cartItems.map((cartItem, index) => (
           <CartItem
             item={cartItem}
             key={shortId.generate()}
+            index={index}
             removeFromCart={removeFromCart}
           />
         ))}

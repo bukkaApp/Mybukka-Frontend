@@ -5,6 +5,7 @@ const initialState = {
     error: false
   },
   mealToDisplay: {},
+  modalShow: false,
   errorMessage: '',
   cart: [],
   categories: [],
@@ -104,22 +105,30 @@ const fetchBukkaMenuReducer = (state = initialState, action) => {
 
     case 'SET_MEAL_TO_DISPLAY': {
       const { bukkaMenu } = state;
-      const { isCart, slug } = action;
+      const { isCart, slug, modalShow } = action;
       const menuToFilter = isCart ? 'WHOLE_DATA' : bukkaMenu;
       if (menuToFilter === 'WHOLE_DATA') {
         return {
           ...state,
+          modalShow,
           mealToDisplay: action.slug
         };
       }
       return {
         ...state,
+        modalShow,
         mealToDisplay: {
           ...menuToFilter.filter(menu => menu.slug === slug)[0],
           quantity: 1
         }
       };
     }
+
+    case 'TOGGLE_ADD_TO_CART_MODAL':
+      return {
+        ...state,
+        modalShow: action.modalShow,
+      };
 
     case 'MANIPULATE_MEAL': {
       const { bukkaMenu, mealToDisplay } = state;

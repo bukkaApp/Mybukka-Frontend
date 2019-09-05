@@ -59,16 +59,16 @@ const Transaction = ({
               data={userOrders}
               handleClick={openTrackingDropdown}
             />
-            {userOrders.map(dom => (
+            {userOrders.map(order => (
               <Card
-                handleClick={() => openTrackingDropdown(dom.status)}
-                time={dom.time}
-                orderId={dom._id} // eslint-disable-line
-                mealTitle={dom.cart.items[0].meal[0].title}
-                price={extractPrice(dom)}
-                key={shortId.generate() + dom.title}
-                status={dom.status}
-                quantity={extractQuantity(dom)}
+                handleClick={() => openTrackingDropdown(order.status)}
+                time={order.time}
+                orderId={order._id} // eslint-disable-line
+                mealTitle={order.cart.items[0].meal[0].title}
+                price={extractPrice(order)}
+                key={shortId.generate() + order.title}
+                status={order.status}
+                quantity={extractQuantity(order)}
               />
             ))}
           </div>

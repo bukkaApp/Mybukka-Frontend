@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable max-len */
 import React, { useEffect, Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
@@ -22,7 +24,6 @@ import BukkaNavSmallScreen, {
 } from 'Components/navbar/BukkaNavSmallScreen';
 
 import CheckoutButton from 'Components/common/CheckoutButton';
-import Navbar from 'Components/navbar';
 
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
@@ -102,10 +103,8 @@ const OtherSection = ({
                                     deliveryPrice={menu.deliveryCost}
                                     imageHeight="fresh-img-height"
                                     classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                                    dataTarget="#mealModal"
-                                    dataToggle="modal"
                                     handleClick={() =>
-                                      setMealToDisplay(menu.slug)
+                                      setMealToDisplay(menu.slug, null, true)
                                     }
                                   />
                                 )}

@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable array-callback-return */
+import React, { useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -87,9 +88,39 @@ const CartIconSection = ({
     handleClick(true);
   };
 
+  const handleCategoryText = (item) => {
+    let result = '';
+    if (item.submenus.length > 0) {
+      item.submenus.map((subMenu) => {
+        subMenu.options.map((option) => {
+          result += ` ${option.name},`;
+        });
+      });
+    }
+    const slicedResult = result.slice(0, 21);
+    return slicedResult.slice(0, slicedResult.length - 1);
+  };
+
+  const handleEachCost = (item) => {
+    let total = 0;
+    if (item.submenus.length > 0) {
+      item.submenus.map((subMenu) => {
+        subMenu.options.map((option) => {
+          total += option.price;
+        });
+      });
+    }
+    return total;
+  };
+
   if (!focus || (focus && orderQuantity <= 0)) {
     return null;
   }
+
+  useEffect(() => {
+    console.log('orderItems', orderItems);
+  });
+
   return (
     <div className={`cart-container ${orderQuantity <= 0 ? 'd-none' : ''}`}>
       <div>
@@ -99,13 +130,13 @@ const CartIconSection = ({
             orderQuantity > 2 ? 'cart-body-height' : ''
           }`}
         >
-          {orderItems.map(item => (
+          {orderItems.map((item, index) => (
             <CartItems
               key={shortId.generate()}
               title={item.title}
-              removeFromCartAction={() => removeFromCartAction(item.slug)}
-              category={item.category}
-              price={item.price}
+              removeFromCartAction={() => removeFromCartAction(item.slug, index)}
+              category={handleCategoryText(item) || item.category}
+              price={handleEachCost(item) + item.price}
               quantity={item.quantity}
             />
           ))}
