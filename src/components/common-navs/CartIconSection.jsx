@@ -136,7 +136,7 @@ const CartIconSection = ({
               title={item.title}
               removeFromCartAction={() => removeFromCartAction(item.slug, index)}
               category={handleCategoryText(item) || item.category}
-              price={handleEachCost(item) + item.price}
+              price={(handleEachCost(item) + item.price) * item.quantity}
               quantity={item.quantity}
             />
           ))}

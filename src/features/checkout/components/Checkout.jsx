@@ -97,14 +97,6 @@ const Checkout = ({
   };
 
   useEffect(() => {
-    if (success) {
-      setDeliveryAddressData({
-        address: '',
-        deliveryInstructions: '',
-        name: '',
-        mobileNumber: ''
-      });
-    }
     if (message === 'Charge attempted') {
       $('#inputSecurityKey').modal('show');
     }
