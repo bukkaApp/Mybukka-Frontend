@@ -7,21 +7,12 @@ const isArrayEqual = function doSomething(x, y) {
   return lodash(x).differenceWith(y, lodash.isEqual).isEmpty();
 };
 
-const handleSubmenusPrice = (submenus, quantity) =>
-  submenus.map(eachItem => ({
-    ...eachItem,
-    options: eachItem.options.map(option => ({
-      ...option,
-      price: option.price * quantity
-    }))
-  }));
-
 /**
  * @function flattenObjectArray
  * @param {*} submenus { '7373hfj': ['123eeerrr', 'ieeuue8338'] }
  * @returns {arr} arr ['123eeerrr', 'ieeuue8338', '7373hfj']
  */
-const flattenObjectArray = (submenus) => {
+const flatObjectToArray = (submenus) => {
   const submenusArr = [];
   const submenuKeys = Object.keys(submenus);
   submenuKeys.map((eachSubmenu) => {
@@ -49,7 +40,7 @@ const loopNewItem = (dSubmenus) => {
       submenus[dSubmenus[i]._id].push(dSubmenus[i].options[j]._id);
     }
   }
-  return flattenObjectArray(submenus);
+  return flatObjectToArray(submenus);
 };
 
 const _isArrayEqual = (firstArr, secondArr) => {
@@ -61,46 +52,44 @@ const _isArrayEqual = (firstArr, secondArr) => {
       }
     }
   }
-  if (arr.length === firstArr.length) return true;
+  if (arr.length === secondArr.length && isArrayEqual(arr, secondArr)) return true;
   return false;
 };
 
-const createMenuData = (menus, index) => {
-  let total = 0;
-  const menuToReturn = menus.map((menu, indx) => {
-    if (indx === index) {
-      const menuQuantity = menu.quantity + 1;
-      total += menuQuantity * menu.price;
-      const submenus = handleSubmenusPrice(menu.submenus, menuQuantity);
-      return {
-        ...menu,
-        submenus,
-        price: total,
-        quantity: menu.quantity + 1,
-      };
-    }
-    return menu;
-  });
-  return menuToReturn;
-};
+const createMenuData = (menus, index) => menus.map((menu, indx) => {
+  if (indx === index || menu._id === index) {
+    const menuQuantity = menu.quantity + 1;
+    return {
+      ...menu,
+      quantity: menuQuantity,
+    };
+  }
+  return menu;
+});
 
 const handleData = (menus, item) => {
   let index = null;
   const newItem = loopNewItem(item.submenus);
-  const menufound = menus.find(menu => menu._id === item._id);
-  if (!menufound) return null;
+  const menufound = menus.filter(menu => menu._id === item._id);
+  if (menufound.length <= 0) return null;
   const OneMenuFound = menufound.length === 1;
-  if (OneMenuFound && menufound[0].submenus.length === 0 && item.submenus.length === 0) return null;
+  if (OneMenuFound && menufound[0].submenus.length === 0
+    && item.submenus.length === 0) {
+    return createMenuData(menus, item._id);
+  }
   menus.map((menu, indx) => {
     if (menu._id === item._id) {
       const currentItem = loopNewItem(menu.submenus);
-      if (_isArrayEqual(newItem, currentItem)) {
+      if (newItem.length === currentItem.length
+        && _isArrayEqual(newItem, currentItem)) {
         index = indx;
       }
     }
   });
-  if (!index) return null;
-  return createMenuData(menus, index);
+  if (index >= 0 && index !== null) {
+    return createMenuData(menus, index);
+  }
+  return null;
 };
 
 export default handleData;

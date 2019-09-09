@@ -26,7 +26,7 @@ const handleSubmenusPrice = (cartItems) => {
     if (eachItem.submenus.length > 0) {
       for (let i = 0; i < eachItem.submenus.length; i++) {
         for (let k = 0; k < eachItem.submenus[i].options.length; k++) {
-          total += eachItem.submenus[i].options[k].price;
+          total += eachItem.submenus[i].options[k].price * eachItem.quantity;
         }
       }
     }
@@ -39,7 +39,7 @@ const calculatePrice = (cartItems) => {
     return 0;
   }
   const add = (accumulator, digit) => accumulator + digit;
-  const totalPrice = cartItems.map(item => item.price).reduce(add);
+  const totalPrice = cartItems.map(item => item.price * item.quantity).reduce(add);
   return handleSubmenusPrice(cartItems) + totalPrice;
 };
 
@@ -101,6 +101,7 @@ const cartReducer = (state = initialState, action) => {
       const item = { ...action.data, meal: action.data, quantity: 1 };
       if (state.items.length > 0) {
         const incrementQuantity = handleOrderQuantity(state.items, item);
+        console.log('incrementQuantity', incrementQuantity);
         if (incrementQuantity) {
           return createLocalCart(state, incrementQuantity);
         }
