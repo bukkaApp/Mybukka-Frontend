@@ -17,7 +17,7 @@ const ReadyToOrderSection = ({ push }) => (
     <div className="container">
       <ReadyToOrderHeader />
       <div className="search-location-section">
-        <SearchLocation push={push} />
+        <SearchLocation reduceSuggestionText push={push} />
       </div>
     </div>
   </div>
