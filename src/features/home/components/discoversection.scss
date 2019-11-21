@@ -73,9 +73,15 @@
     padding-right: 10px;
   }
 
-  .home .row {
-    margin-right: 0px;
-    margin-left: 0px;
+  .home {
+    .row {
+      margin-right: 0px;
+      margin-left: 0px;
+    }
+    .container {
+      padding-right: 25px;
+      padding-left: 25px;
+    }
   }
 
   .discover-section {

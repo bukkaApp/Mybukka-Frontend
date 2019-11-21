@@ -25,7 +25,7 @@ const SmallTextSection = () => (
 
 const SearchLocationSection = ({ push }) => (
   <div className="container search-location-section">
-    <SearchLocation push={push} />
+    <SearchLocation reduceSuggestionText push={push} />
   </div>
 );
 
@@ -34,7 +34,9 @@ const IntroSection = ({ push }) => (
     <PrimaryNavbar push={push} authButton />
     <LargeTextSection />
     <SmallTextSection />
-    <SearchLocationSection push={push} />
+    <div className="col-12 px-0 col-sm-9 col-md-10 col-lg-5 max-search-location mx-auto">
+      <SearchLocationSection push={push} />
+    </div>
   </div>
 );
 

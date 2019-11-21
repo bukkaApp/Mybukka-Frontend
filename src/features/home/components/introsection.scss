@@ -8,9 +8,13 @@ $bgColor: #f9fbe7;
 }
 
 .large-text-section {
+  max-width: 543px;
+  margin: auto;
   margin-top: 70px;
-  padding-left: 300px;
-  padding-right: 300px;
+}
+
+.max-search-location {
+  max-width: 543px;
 }
 
 .address-input-section {
@@ -30,12 +34,6 @@ $bgColor: #f9fbe7;
   margin-top: 20px;
   padding-left: 250px;
   padding-right: 250px;
-}
-
-.search-location-section {
-  margin-top: 40px;
-  padding-left: 325px;
-  padding-right: 325px;
 }
 
 .sub-text {
@@ -81,14 +79,9 @@ $bgColor: #f9fbe7;
     font-size: 40px;
   }
 
-  .search-location-section {
-    padding-left: 130px;
-    padding-right: 130px;
-  }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .large-text-section,
   .small-text-section {
     padding-left: 200px;
     padding-right: 200px;
@@ -96,10 +89,5 @@ $bgColor: #f9fbe7;
 
   .larger-text {
     font-size: 40px;
-  }
-
-  .search-location-section {
-    padding-left: 230px;
-    padding-right: 230px;
   }
 }
