@@ -83,7 +83,14 @@ const BukkaCard = ({
   const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
 
   return (
-    <div className="mt-4 bukka-card" data-target={dataTarget} data-toggle={dataToggle} onClick={handleClick} tabIndex={0} role="button">
+    <div
+      className="mt-4 bukka-card"
+      data-target={dataTarget}
+      data-toggle={dataToggle}
+      onClick={handleClick}
+      tabIndex={0}
+      role="button"
+    >
       <img
         className={`img-small-screen bukka-img ${imageHeight}`}
         src={smImgUrl}
