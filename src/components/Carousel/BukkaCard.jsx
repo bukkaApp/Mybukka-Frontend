@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
+import placeholder from './placeholder.PNG'
 import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
@@ -78,9 +79,24 @@ const BukkaCard = ({
   dataToggle,
   handleClick,
 }) => {
+  const [processed, process] = useState(true);
   const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
 
   const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
+
+  const rendered = () => {
+    // Render complete
+    process(true);
+  };
+
+  const startRender = () => {
+    // Rendering start
+    requestAnimationFrame(rendered);
+  };
+
+  const loaded = () => {
+    requestAnimationFrame(startRender);
+  };
 
   return (
     <div
@@ -98,8 +114,18 @@ const BukkaCard = ({
       />
       <img
         className={`img-large-screen bukka-img ${imageHeight}`}
+        style={{
+          opacity: processed ? 1 : 0
+        }}
         src={lgImgUrl}
         alt="alt_image"
+      />
+      <img
+        className={`img-large-screen bukka-img ${imageHeight}
+        ${processed ? 'd-none' : ''}`}
+        src={lgImgUrl}
+        alt="alt_image"
+        onLoad={loaded}
       />
       {textOverlay && (
         <TextOverlay

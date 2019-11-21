@@ -16,7 +16,7 @@ import freeDelivery from '../data/free-delivery.json';
 const BukkasToExploreSection = () => (
   <Fragment>
     <div className="carousel-divider" />
-    <div className="pt-0 p-sm-5" />
+    <div className="pt-0 p-sm-3" />
     <Carousel
       noOfImagesShown={2}
       title="New on Bukka"
