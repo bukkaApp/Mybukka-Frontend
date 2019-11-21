@@ -62,7 +62,8 @@ const FoodNearBy = ({
                 deliveryPrice={bukka.deliveryPrice}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
-                imageHeight={imageHeight}
+                // imageHeight={imageHeight}
+                imageHeight="img-fluid"
                 classNames={classNames}
                 href={`/bukka/${bukka.slug}`}
               />

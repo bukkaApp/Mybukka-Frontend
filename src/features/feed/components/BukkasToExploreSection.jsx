@@ -16,18 +16,18 @@ import freeDelivery from '../data/free-delivery.json';
 const BukkasToExploreSection = () => (
   <Fragment>
     <div className="carousel-divider" />
-    <div className="pt-29" />
+    <div className="pt-5" />
     <Carousel
       noOfImagesShown={2}
       title="New on Bukka"
       textOverlay
       top
       slideItems={bukkaData}
-      imageHeight="img-big-height"
+      // imageHeight="img-big-height"
+      imageHeight="img-fluid"
       classNames="col-lg-6 col-md-6 col-sm-12 col-12"
     />
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <div>
       <Headline title="Salty & Sweet" activeIndex={1} />
       <Container>
@@ -41,64 +41,65 @@ const BukkasToExploreSection = () => (
             deliveryTime={favorites[4].deliveryTime}
             rating={favorites[4].rating}
             remark={favorites[4].remark}
-            imageHeight="img-height"
+            // imageHeight="img-height"
+            imageHeight="img-fluid"
             classNames="col-lg-4 col-md-6 col-sm-12"
           />
         </Row>
       </Container>
     </div>
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <Carousel
       delivery
       noOfImagesShown={3}
       title="$1.99 Delivery"
       slideItems={freeDelivery}
       controlClassNames="custom-mt-minus22"
-      imageHeight="img-height"
+      // imageHeight="img-height"
+      imageHeight="img-fluid"
       classNames="col-lg-4 col-md-4 col-sm-12 col-12"
     />
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <Carousel
       delivery
       noOfImagesShown={3}
       title="Bukkas favorites"
       controlClassNames="custom-mt-minus22"
       slideItems={favorites}
-      imageHeight="img-height"
+      // imageHeight="img-height"
+      imageHeight="img-fluid"
       classNames="col-lg-4 col-md-4 col-sm-12 col-12"
     />
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <Carousel
       delivery
       noOfImagesShown={3}
       title="Free Delivery from The Habit 🍔"
       slideItems={freeDelivery}
       controlClassNames="custom-mt-minus22"
-      imageHeight="img-height"
+      // imageHeight="img-height"
+      imageHeight="img-fluid"
       classNames="col-lg-4 col-md-4 col-sm-12 col-12"
     />
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <Carousel
       delivery
       noOfImagesShown={4}
       title="Touchdown"
       controlClassNames="custom-mt-touchdown"
-      imageHeight="small-img-height"
+      // imageHeight="small-img-height"
+      imageHeight="img-fluid"
       slideItems={favorites}
       classNames="col-lg-3 col-md-4 col-sm-12 col-12 touchdown"
     />
     <div className="carousel-divider" />
-    <div className="pt-29" />
     <Carousel
       type="majorCuisine"
       noOfImagesShown={6}
       textOverlay
       title="Top Cuisines"
-      imageHeight="cuisine-img-height"
+      // imageHeight="cuisine-img-height"
+      imageHeight="img-fluid"
       slideItems={topCategories}
       classNames="col-lg-2 col-md-2 col-sm-4 col-6 touchdown"
     />

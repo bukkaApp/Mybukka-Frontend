@@ -80,7 +80,7 @@ const BukkaCard = ({
 }) => {
   const smImgUrl = generateImageSize(imageUrl, '320');
 
-  const lgImgUrl = generateImageSize(imageUrl, '640');
+  const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
 
   return (
     <div className="mt-4 bukka-card" data-target={dataTarget} data-toggle={dataToggle} onClick={handleClick} tabIndex={0} role="button">

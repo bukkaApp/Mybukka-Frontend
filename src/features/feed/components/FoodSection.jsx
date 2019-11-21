@@ -108,6 +108,7 @@ const FoodSection = ({
                       }
                       title={displayMap ? '' : 'Nearby'}
                       bukkaData={[...nearbyBukkas]}
+                      // imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
