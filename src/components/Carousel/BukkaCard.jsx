@@ -78,7 +78,7 @@ const BukkaCard = ({
   dataToggle,
   handleClick,
 }) => {
-  const smImgUrl = generateImageSize(imageUrl, '320');
+  const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
 
   const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
 
