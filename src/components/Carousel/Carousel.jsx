@@ -80,7 +80,7 @@ const Carousel = ({
       )}
       <Container>
         <div className="carousel">
-          <div className="carousel-container">
+          <div className="carousel-container align-items-center">
             {activeIndex >= 1 && (
               <ControlLeft
                 classNames={controlClassNames}

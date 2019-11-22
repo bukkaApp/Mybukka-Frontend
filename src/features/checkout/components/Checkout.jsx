@@ -147,7 +147,7 @@ const Checkout = ({
       <Navbar push={push} />
       <AddToCart />
       <SendSecurityKeyForm cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
-      <Container classNames="relative modal-open">
+      <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
             <DeliveryAddress
@@ -159,7 +159,7 @@ const Checkout = ({
               handleChange={handleDeliveryAddress}
             />
             <ScheduleSelector
-              type="time"
+              type="day"
               title="Day"
               list={duration.durationList}
             />

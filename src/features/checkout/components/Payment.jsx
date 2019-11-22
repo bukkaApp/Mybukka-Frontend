@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Container from 'Components/container';
 import manipulateCardDetailsAction from 'Redux/manipulateCardDetailsAction';
 import getUserCard from '../actionCreators/getUserCard';
 
@@ -94,40 +95,43 @@ const Payment = ({
 
   return (
     <section className="mb-2 mt-4">
-      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
-      <form className="border padding-20 mt-4" action="">
-        {!addCard && cards.length > 0 ?
-          <div>
-            <p>Your credits card</p>
-            { cards.map(card => (
-              <Card
+      <Demarcation />
+      <Container classNames="p-0">
+        <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
+        <form className="border padding-20 mt-4" action="">
+          {!addCard && cards.length > 0 ?
+            <div>
+              <p>Your credits card</p>
+              { cards.map(card => (
+                <Card
                 handleClick={() => handleDefaultSelection(card._id)} // eslint-disable-line
-                selected={card.selected}
-                last4={card.last4}
-                expiredYear={card.exp_year}
-                expiredMonth={card.exp_month}
-                cardType={card.card_type}
-              />))}
-            <div
-              onKeyDown={() => {}}
-              role="button"
-              aria-pressed="false"
-              tabIndex="0"
-              onClick={() => showCardForm(true)}
-              className="text-muted cursor-pointer"
-            >+ add card</div>
-          </div>
-          : <AddCard
-            handleChange={handleChange}
-            cards={cards}
-            inputData={inputData}
-            active={active}
-            handleSaveButton={handleSaveButton}
-            handleClick={() => showCardForm(false)}
-            validationErrors={validationErrors}
-          />
-        }
-      </form>
+                  selected={card.selected}
+                  last4={card.last4}
+                  expiredYear={card.exp_year}
+                  expiredMonth={card.exp_month}
+                  cardType={card.card_type}
+                />))}
+              <div
+                onKeyDown={() => {}}
+                role="button"
+                aria-pressed="false"
+                tabIndex="0"
+                onClick={() => showCardForm(true)}
+                className="text-muted cursor-pointer"
+              >+ add card</div>
+            </div>
+            : <AddCard
+              handleChange={handleChange}
+              cards={cards}
+              inputData={inputData}
+              active={active}
+              handleSaveButton={handleSaveButton}
+              handleClick={() => showCardForm(false)}
+              validationErrors={validationErrors}
+            />
+          }
+        </form>
+      </Container>
       <Demarcation />
     </section>
   );

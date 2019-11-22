@@ -2,11 +2,11 @@ import React, { Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-import placeholder from './placeholder.PNG'
 import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
 import Price from 'Components/badge/Price';
+import placeholder from './placeholder.jpg';
 
 import './BukkaCard.scss';
 
@@ -119,13 +119,13 @@ const BukkaCard = ({
         }}
         src={lgImgUrl}
         alt="alt_image"
+        onLoad={loaded}
       />
       <img
         className={`img-large-screen bukka-img ${imageHeight}
         ${processed ? 'd-none' : ''}`}
-        src={lgImgUrl}
+        src={placeholder}
         alt="alt_image"
-        onLoad={loaded}
       />
       {textOverlay && (
         <TextOverlay

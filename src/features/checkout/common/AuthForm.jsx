@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Input from 'Components/input/InputField';
-import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
+import Address from './Address';
 
 const AuthForm = ({
   inputData,
-  autoComplete,
+  autoComplete,// eslint-disable-line
   inputField,
   handleChange,
   errors
@@ -18,7 +18,7 @@ const AuthForm = ({
       >
         {propData.placeholderText}
       </label>
-      <Input
+      {propData.name !== 'address' && <Input
         inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
@@ -28,9 +28,9 @@ const AuthForm = ({
         placeholderText={propData.placeholderText}
         id={propData.id}
         handleFocus={() => {}}
-      />
-      {propData.name === 'streetAddress1' && autoComplete && (
-        <SuggestionsDropdown handleClick={() => {}} />
+      />}
+      {propData.name === 'address' && (
+        <Address propData={propData} handleInputChange={handleChange} />
       )}
       <span className="text-danger font-size-11">{errors[propData.name]}</span>
     </div>
