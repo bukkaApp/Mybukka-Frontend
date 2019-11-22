@@ -17,18 +17,18 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   <div className="delivery-price-tag">
     <div
       className={`row ${
-        deliveryMode === 'pickup' ? 'justify-content-end' : ''
+        deliveryMode === 'pickup' ? 'justify-content-end' : 'justify-content-between'
       }`}
     >
       {deliveryMode === 'pickup' ? null : (
-        <div className="col col-9">
+        <div className="col col-7">
           <p className="delivery-price">${deliveryPrice} DELIVERY</p>
         </div>
       )}
-      <div className="col col-3">
+      <div className="px-3 d-inline-block">
         <div className="tag-bukka">
           <Button
-            classNames="tag-bukka-button"
+            classNames="tag-bukka-button px-3"
             text="AFRICAN"
             handleClick={() => {}}
             type="button"

@@ -5,6 +5,10 @@ $fontFamily: 'Roboto', sans-serif;
   padding-bottom: 20px;
 }
 
+.bukka-img-color {
+  background: rgb(233, 231, 231);
+}
+
 .card-wrap {
   display: flex;
   flex-shrink: 0;
@@ -42,6 +46,12 @@ $fontFamily: 'Roboto', sans-serif;
   @media (max-width: 767px) {
     font-size: 13px;
   }
+}
+
+.bukka-img {
+  min-height: 150px;
+  width: 100%;
+  background: rgb(233, 231, 231);
 }
 
 .custom-delivery-badge {

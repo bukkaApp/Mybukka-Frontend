@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -6,6 +6,7 @@ import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
 import Price from 'Components/badge/Price';
+import placeholder from './placeholder.jpg';
 
 import './BukkaCard.scss';
 
@@ -78,12 +79,34 @@ const BukkaCard = ({
   dataToggle,
   handleClick,
 }) => {
-  const smImgUrl = generateImageSize(imageUrl, '320');
+  const [processed, process] = useState(true);
+  const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
 
-  const lgImgUrl = generateImageSize(imageUrl, '640');
+  const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
+
+  const rendered = () => {
+    // Render complete
+    process(true);
+  };
+
+  const startRender = () => {
+    // Rendering start
+    requestAnimationFrame(rendered);
+  };
+
+  const loaded = () => {
+    requestAnimationFrame(startRender);
+  };
 
   return (
-    <div className="mt-4 bukka-card" data-target={dataTarget} data-toggle={dataToggle} onClick={handleClick} tabIndex={0} role="button">
+    <div
+      className="mt-4 bukka-card"
+      data-target={dataTarget}
+      data-toggle={dataToggle}
+      onClick={handleClick}
+      tabIndex={0}
+      role="button"
+    >
       <img
         className={`img-small-screen bukka-img ${imageHeight}`}
         src={smImgUrl}
@@ -91,7 +114,17 @@ const BukkaCard = ({
       />
       <img
         className={`img-large-screen bukka-img ${imageHeight}`}
+        style={{
+          opacity: processed ? 1 : 0
+        }}
         src={lgImgUrl}
+        alt="alt_image"
+        onLoad={loaded}
+      />
+      <img
+        className={`img-large-screen bukka-img ${imageHeight}
+        ${processed ? 'd-none' : ''}`}
+        src={placeholder}
         alt="alt_image"
       />
       {textOverlay && (

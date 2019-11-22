@@ -70,6 +70,7 @@ const SuggestionsDropdown = () => (
       chevronButtonVisible={false}
       showDeliveryOrPickupNav={false}
       showDropdown
+      reduceSuggestionText
     />
   </div>
 );
