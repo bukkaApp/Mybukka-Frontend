@@ -44,7 +44,10 @@ const Carousel = ({
   imageHeight,
   delivery,
   controlClassNames,
-  type
+  type,
+  numberOfViews,
+  description,
+  placeId,
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -74,8 +77,10 @@ const Carousel = ({
         <Headline
           activeIndex={activeIndex}
           title={title}
+          description={description}
           slidesLenght={slidesLenght}
-          NumberOfViews={slidesLenght}
+          numberOfViews={numberOfViews}
+          placeId={placeId}
         />
       )}
       <Container>
@@ -97,8 +102,9 @@ const Carousel = ({
                 {slideItems.map(bukka => (
                   <FoodCard
                     key={shortId.generate()}
-                    remark={bukka.remark}
-                    mealName={bukka.title}
+                    remark={bukka.placeGroup && bukka.placeGroup.length > 0 ?
+                      bukka.placeGroup[0] : bukka.remark}
+                    mealName={bukka.name || bukka.title}
                     deliveryCost={bukka.deliveryCost}
                     deliveryTime={bukka.deliveryTime}
                     delivery={delivery}
@@ -107,14 +113,16 @@ const Carousel = ({
                     imageHeight={imageHeight}
                     heading={bukka.heading}
                     subHeading={bukka.subHeading}
-                    top={bukka.position.top}
-                    bottom={bukka.position.bottom}
+                    top={bukka.position ? bukka.position.top : undefined}
+                    bottom={bukka.position ? bukka.position.bottom : undefined}
                     imageUrl={bukka.imageUrl}
                     deliveryPrice={bukka.deliveryPrice}
-                    tags={bukka.tags}
+                    tags={bukka.tags && bukka.tags.length > 0 ? bukka.tags : bukka.placeGroup}
                     slug={bukka.slug}
                     classNames={`${classNames}`}
-                    href={type === 'majorCuisine' ? `/search?by=${type}&value=${bukka.id}` : '#'}
+                    href={type === 'majorCuisine' ?
+                      `/search?by=${type}&value=${bukka.id}`
+                      : `/bukka/${bukka.slug}`}
                   />
                 ))}
               </div>

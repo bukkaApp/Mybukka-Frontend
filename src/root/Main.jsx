@@ -23,6 +23,7 @@ import SubCategory from '../features/feedback/SubCategory';
 import ComplainScene from '../features/feedback/ComplainScene';
 import Privacy from '../features/statement/Privacy';
 import Terms from '../features/statement/Terms';
+import Promotion from '../features/promotion';
 
 const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
@@ -43,6 +44,7 @@ const Main = () => (
       <Route exact path="/fresh" component={Fresh} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/favorites" component={Favorites} />
+      <Route exact path="/place-groups/d/:id" component={Promotion} />
       <Route exact path="/categories/:id" component={Category} />
       <Route exact path="/merchant/:slug/checkout" component={Checkout} />
       <Route exact path="/profile" component={Profile} />

@@ -15,6 +15,7 @@ import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 import updateLocationsPrediction from '../../features/home/actionCreators/updateLocationsPrediction';
 
 import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
+import getPromotedBukkas from '../../features/feed/actionCreators/getPromotedBukkas';
 
 import './searchlocation.scss';
 
@@ -30,6 +31,7 @@ const SearchLocation = ({
   push,
   handleLoader,
   reduceSuggestionText,
+  fetchedPromotedBukkas,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -66,12 +68,13 @@ const SearchLocation = ({
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
-    GeoCoder.geocode({ placeId }, (response) => {
+    GeoCoder.geocode({ placeId }, async (response) => {
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
       selectLocation({ coordinates, suggestion });
-      fetchNearbyBukkas(coordinates, push);
+      await fetchNearbyBukkas(coordinates, push);
+      await fetchedPromotedBukkas(coordinates);
     });
   };
 
@@ -180,6 +183,7 @@ export default connect(
     selectLocation: setSelectedLocation,
     fetchNearbyBukkas: fetchBukkas,
     handleLoader: showLoadingAction,
+    fetchedPromotedBukkas: getPromotedBukkas,
   }
 )(
   GoogleApiWrapper({
@@ -193,9 +197,11 @@ SearchLocation.defaultProps = {
   showDeliveryOrPickupNav: true,
   showDropdown: false,
   reduceSuggestionText: false,
+  fetchedPromotedBukkas: () => {}
 };
 
 SearchLocation.propTypes = {
+  fetchedPromotedBukkas: PropTypes.func,
   showDropdown: PropTypes.bool,
   handleLoader: PropTypes.func.isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,

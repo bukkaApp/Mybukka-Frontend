@@ -22,7 +22,7 @@ const SearchInputField = ({ handleChange }) => (
     classNames="searchanything-text-field inherit-bg searchlocation"
     handleChange={handleChange}
     defaultValue={''}
-    autoComplete="searchanything"
+    autoComplete="off"
   />
 );
 

@@ -10,6 +10,29 @@ import placeholder from './placeholder.jpg';
 
 import './BukkaCard.scss';
 
+const randomNum = tagLenght => Math.floor(Math.random() * tagLenght);
+
+const Rating = ({ tags }) => (
+  <span className="rating">{tags ?
+    tags[randomNum(tags.length)] : 'POPULAR'}
+  </span>
+);
+
+const Remark = () => (
+  <span>
+    <span className="icon">
+      <MarkIcon />
+    </span>
+  </span>
+);
+
+const RestauranDetails = ({ name, remark }) => (
+  <span className="details-location">
+    {name}
+    {remark && <Remark />}
+  </span>
+);
+
 const TopOverlayText = ({ heading, subHeading }) => (
   <div className="overlay-top">
     <h4>{heading}</h4>
@@ -38,19 +61,8 @@ const NormalText = ({
 }) => (
   <div className="details">
     <h3>
-      <span className="details-location">
-        {mealName}
-        {remark &&
-        <span>
-          <span className="icon">
-            <MarkIcon />
-          </span>
-        </span>
-        }
-      </span>
-      {tags.length > 0 &&
-      <span className="rating">{tags ? tags[0] : 'POPULAR'}</span>
-      }
+      <RestauranDetails name={mealName} remark={remark} />
+      {tags.length > 0 && <Rating tags={tags} />}
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}

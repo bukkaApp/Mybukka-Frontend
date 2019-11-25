@@ -41,16 +41,18 @@ const Favorites = ({
         <div>
           <IntroSection push={push} />
           <ExploreSection classNames="pt-5">
-            <Container>
-              <h2 className="pt-100 px-15 capitalize pb-3">Your Favorites</h2>
+            <Container classNames="position-sticky top-114">
+              <h2 className="place-group-header pt-100 px-15 capitalize pb-3">
+                Your Favorites
+              </h2>
             </Container>
             <div className="border-top" />
-            <Container>
+            <Container classNames="position-relative bg-white">
               <NearByBukka
                 classNames="col-lg-4 col-md-4 col-sm-12"
                 heading={false}
                 bukkaData={nearbyBukkas}
-                imageHeight="img-height"
+                imageHeight="img-fluid"
               />
             </Container>
           </ExploreSection>

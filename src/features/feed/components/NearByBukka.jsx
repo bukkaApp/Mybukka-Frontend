@@ -17,7 +17,7 @@ const NearByBukka = ({
   children,
   handleRefFocus,
 }) => (
-  <div className="mt-4 mb-4">
+  <div className="pt-4 mb-4">
     {title &&
     <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
     }

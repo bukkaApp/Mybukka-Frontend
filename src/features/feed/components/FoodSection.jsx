@@ -27,6 +27,7 @@ import { foodBannerImage } from '../img/imgLinks';
 
 import freeDelivery from '../data/free-delivery.json';
 import favorites from '../data/favorites.json';
+import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
 
 const FoodSection = ({
   mode,
@@ -37,6 +38,7 @@ const FoodSection = ({
   currentPage,
   errorMessage,
   loading,
+  fetchedPromotedBukkas,
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -56,6 +58,10 @@ const FoodSection = ({
       push('/');
     }
   }, [coordinates]);
+
+  useEffect(() => {
+    getPromotedBukkas(coordinates);
+  }, [fetchedPromotedBukkas]);
 
   useEffect(() => {
     handleFetchOnRefresh();
@@ -84,7 +90,7 @@ const FoodSection = ({
               <LocationNavLargeScreen handleMapClick={handleClick} />
               <LocationNavSmallScreen />
               <div>
-                {mode === 'delivery' && <BukkasToExploreSection />}
+                {mode === 'delivery' && <BukkasToExploreSection promotedBukkas={fetchedPromotedBukkas} />}
                 <div className="carousel-divider" />
                 <Container
                   classNames={
@@ -155,8 +161,10 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
   selectedLocationReducer: { coordinates },
+  getPromotedBukkasReducer: { fetchedBukkas: fetchedPromotedBukkas }
 }) => ({
   fetchedBukkas,
+  fetchedPromotedBukkas,
   status,
   currentPage,
   coordinates,

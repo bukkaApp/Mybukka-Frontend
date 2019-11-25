@@ -51,6 +51,7 @@ import sendContactReducer from '../features/verifyPhone/reducers/sendContactRedu
 import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVerificationCodeReducer';
 
 import getUserDataReducer from '../features/verifyPhone/reducers/getUserDataReducer';
+import getPromotedBukkasReducer from '../features/feed/reducers/getPromotedBukkasReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -88,6 +89,7 @@ const reducer = combineReducers({
   getUserCardReducer,
   setDefaultCardReducer,
   alertMessageReducer,
+  getPromotedBukkasReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);
@@ -99,6 +101,7 @@ const persistConfig = {
     'authenticationReducer',
     // 'fetchBukkaReducer',
     // 'fetchBukkaMenuReducer',
+    'getPromotedBukkasReducer',
     'selectedLocationReducer',
     'deliveryScheduleReducer',
     'cartReducer',

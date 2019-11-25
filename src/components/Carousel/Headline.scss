@@ -2,12 +2,9 @@ $fontFamily: 'Roboto', sans-serif;
 
 .headline {
   position: relative;
-  display: flex;
-  justify-content: space-between;
   border-bottom: 1px solid rgba(217, 219, 224, 0.5);
   align-items: flex-end;
   font-family: $fontFamily;
-  font-size: 24px;
   letter-spacing: -1.16px;
   font-weight: 600;
   line-height: normal;
@@ -16,6 +13,19 @@ $fontFamily: 'Roboto', sans-serif;
   text-transform: capitalize;
   margin-bottom: 20px;
   margin-top: 5px;
+  h2 {
+    font-size: 24px;
+  }
+  p {
+    padding: 0;
+    margin: 0;
+    margin-top: 12px;
+    font-weight: 400;
+    line-height: normal;
+    color: #8F95A3;
+    font-size: 14px;
+    letter-spacing: normal;
+  }
   @media (max-width: 576px) {
     margin-bottom: 5px;
   }
@@ -29,8 +39,8 @@ $fontFamily: 'Roboto', sans-serif;
   .headline-h2 {
     font-family: $fontFamily;
     font-size: 24px !important;
-    letter-spacing: -1.16px;
-    font-weight: 500;
+    letter-spacing: -0.06px;
+    font-weight: 600;
     line-height: normal;
   }
 }
