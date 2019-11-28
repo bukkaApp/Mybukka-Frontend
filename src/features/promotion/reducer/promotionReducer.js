@@ -60,7 +60,7 @@ const bukkasReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: 1,
-        promotedBukkas: action.data.fetchedPromotion.category,
+        promotedBukkas: action.data.fetchedPromotion.category || [],
         promotionToDisplay: {
           ...action.data.fetchedPromotion,
           slug: action.data.fetchedPromotion._id,
