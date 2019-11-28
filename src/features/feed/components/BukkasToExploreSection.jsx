@@ -31,7 +31,8 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
     />
     <div className="carousel-divider" />
     {
-      promotedBukkas.length > 0 && promotedBukkas.map(promoBukkas => (
+      promotedBukkas && promotedBukkas.length > 0 &&
+      promotedBukkas.map(promoBukkas => (
         promoBukkas.category.length > 0 ?
           <Fragment>
             <Carousel
