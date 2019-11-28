@@ -49,7 +49,7 @@ const Favorites = ({
             <div className="border-top" />
             <Container classNames="position-relative bg-white">
               <NearByBukka
-                classNames="col-lg-4 col-md-4 col-sm-12"
+                classNames="col-xl-4 col-md-6 col-sm-12"
                 heading={false}
                 bukkaData={nearbyBukkas}
                 imageHeight="img-fluid"

@@ -92,7 +92,7 @@ const PlaceGroup = ({
                       rating={bukka.rating}
                       tags={bukka.placeGroup}
                       imageHeight="img-fluid"
-                      classNames="col-lg-4 col-md-4 col-sm-12"
+                      classNames="col-xl-4 col-md-6 col-sm-12"
                       href={`/bukka/${bukka.slug}`}
                     />
                   ))}
@@ -110,7 +110,7 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   selectedLocationReducer: { coordinates },
-  getPromotedBukkasReducer: {
+  promotionReducer: {
     promotedBukkas, errorMessage, promotionToDisplay: { name, slug },
     currentPage,
   },
