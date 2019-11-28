@@ -17,9 +17,6 @@ const initialState = {
       error: false
     }
   },
-  match: {
-    params: { id: 'ameriacan' },
-  },
   cuisineReducer: {
     cuisineItems: [{
       _id: '5ddc5dfb9a29af135cd21ce7',
@@ -48,6 +45,9 @@ const store = mockStore(initialState);
 describe('Category component', () => {
   const props = {
     signOut: jest.fn(),
+    match: {
+      params: { id: 'ameriacan' },
+    },
     setDeliveryModeAction: jest.fn(),
     push: jest.fn(),
     coordinates: [3.7474, 3.4848],
