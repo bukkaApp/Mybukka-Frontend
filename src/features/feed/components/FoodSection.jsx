@@ -114,7 +114,6 @@ const FoodSection = ({
                   fetchedCuisines={fetchedCuisines}
                 />
                 }
-                <div className="carousel-divider" />
                 <Container
                   classNames={mapContainerDisplay(displayMap)}
                 >

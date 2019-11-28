@@ -56,21 +56,26 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
       ))
     }
     {(fetchedCuisines && fetchedCuisines.length > 0) &&
-    <Carousel
-      type="majorCuisine"
-      noOfImagesShown={5}
-      xl={5}
-      lg={4}
-      md={4}
-      sm={2}
-      textOverlay
-      carouselType="cuisine"
-      textPositionBottom
-      title="Top Categories"
-      imageHeight="img-fluid"
-      slideItems={fetchedCuisines}
-      classNames="col-lg-3 col-md-3 col-sm-5 col-5 touchdown"
-    />}
+    <Fragment>
+      <Carousel
+        type="majorCuisine"
+        noOfImagesShown={5}
+        xl={5}
+        lg={4}
+        md={4}
+        sm={2}
+        textOverlay
+        carouselType="cuisine"
+        textPositionBottom
+        title="Top Categories"
+        imageHeight="img-fluid"
+        slideItems={fetchedCuisines}
+        classNames="col-lg-3 col-md-3 col-sm-5 col-5 touchdown"
+      />
+      <div className="carousel-divider" />
+    </Fragment>
+    }
+
   </Fragment>
 );
 
