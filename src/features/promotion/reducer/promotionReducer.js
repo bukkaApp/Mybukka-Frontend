@@ -37,10 +37,7 @@ const bukkasReducer = (state = initialState, action) => {
     case `${FETCH_PROMOTED_BUKKAS}_ERROR`:
       return {
         ...state,
-        fetchedBukkas: {
-          message: '',
-          nearbyBukkas: []
-        },
+        fetchedBukkas: [],
         status: {
           fetchedBukkas: false,
           error: true,
@@ -79,6 +76,7 @@ const bukkasReducer = (state = initialState, action) => {
     case `${FETCH_SINGLE_PROMOTED_BUKKAS}_ERROR`:
       return {
         ...state,
+        promotedBukkas: [],
         status: {
           fetchedBukkas: false,
           error: true
