@@ -17,6 +17,16 @@ const initialState = {
       error: false
     }
   },
+  cuisineReducer: {
+    cuisineItems: [{
+      _id: '5ddc5dfb9a29af135cd21ce7',
+      name: 'american',
+      imageUrl: 'https://res.cloudinary.com/mybukka/image/upload/v1574723013/American_e1n3aj.png'
+    }],
+    errorMessage: '',
+    currentPage: 1,
+    cuisineToDisplay: { name: 'cuisine name' },
+  },
   bukkasReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],

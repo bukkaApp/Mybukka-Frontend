@@ -25,7 +25,7 @@ const fetchBukkas = (
     );
     dispatch(loading(FETCH_BUKKAS, false));
     dispatch(fetchBukkasAction('SUCCESS', request.data));
-    cb('/feed');
+    // cb('/feed');
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
     if (!error.response) {

@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react';
+/* eslint-disable react/prop-types */
+import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -6,7 +7,6 @@ import Navlink from 'Components/navlink/Navlink';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import MarkIcon from 'Icons/Remark';
 import Price from 'Components/badge/Price';
-import placeholder from './placeholder.jpg';
 
 import './BukkaCard.scss';
 
@@ -49,7 +49,8 @@ const BottomOverlayText = ({ heading, subHeading }) => (
   </div>
 );
 
-const TextOverlay = ({ top, bottom, heading, subHeading }) => (
+const TextOverlay = ({ top, bottom, heading, subHeading, textOverlay }) => (
+  textOverlay &&
   <Fragment>
     {top && <TopOverlayText heading={heading} subHeading={subHeading} />}
     {bottom && <BottomOverlayText heading={heading} subHeading={subHeading} />}
@@ -57,12 +58,14 @@ const TextOverlay = ({ top, bottom, heading, subHeading }) => (
 );
 
 const NormalText = ({
-  remark, mealName, deliveryCost, deliveryTime, delivery, tags
+  remark, mealName, deliveryCost, deliveryTime, delivery, tags,
+  textOverlay,
 }) => (
+  !textOverlay &&
   <div className="details">
     <h3>
       <RestauranDetails name={mealName} remark={remark} />
-      {tags.length > 0 && <Rating tags={tags} />}
+      {tags.length > 0 && tags[0] !== null && <Rating tags={tags} />}
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
@@ -80,7 +83,7 @@ const BukkaCard = ({
   tags,
   deliveryPrice,
   deliveryTime,
-  imageHeight,
+  carouselType,
   textOverlay,
   top,
   bottom,
@@ -91,72 +94,59 @@ const BukkaCard = ({
   dataToggle,
   handleClick,
 }) => {
-  const [processed, process] = useState(true);
   const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
 
   const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
 
-  const rendered = () => {
-    // Render complete
-    process(true);
-  };
-
-  const startRender = () => {
-    // Rendering start
-    requestAnimationFrame(rendered);
-  };
-
-  const loaded = () => {
-    requestAnimationFrame(startRender);
+  const imageSpacingClassName = (type) => {
+    if (type === 'cuisine') {
+      return 'cuisine-image-spacing';
+    } else if (type === 'collection') {
+      return 'collection-image-spacing';
+    }
+    return 'normal-image-spacing';
   };
 
   return (
-    <div
-      className="mt-4 bukka-card"
-      data-target={dataTarget}
-      data-toggle={dataToggle}
-      onClick={handleClick}
-      tabIndex={0}
-      role="button"
-    >
-      <img
-        className={`img-small-screen bukka-img ${imageHeight}`}
-        src={smImgUrl}
-        alt="alt_image"
-      />
-      <img
-        className={`img-large-screen bukka-img ${imageHeight}`}
-        style={{
-          opacity: processed ? 1 : 0
-        }}
-        src={lgImgUrl}
-        alt="alt_image"
-        onLoad={loaded}
-      />
-      <img
-        className={`img-large-screen bukka-img ${imageHeight}
-        ${processed ? 'd-none' : ''}`}
-        src={placeholder}
-        alt="alt_image"
-      />
-      {textOverlay && (
+    <div>
+      <div
+        className="mt-4 bukka-card"
+        data-target={dataTarget}
+        data-toggle={dataToggle}
+        onClick={handleClick}
+        tabIndex={0}
+        role="button"
+      >
+        <div>
+          <img
+            className="img-fluid d-none"
+            src={smImgUrl}
+            alt="alt_image"
+          />
+          <div
+            style={{ backgroundImage: `url(${lgImgUrl})`, opacity: 1 }}
+            className="custom-bukka-image"
+          />
+        </div>
+
+        <div className={imageSpacingClassName(carouselType)} />
         <TextOverlay
           top={top}
           bottom={bottom}
           heading={heading}
+          textOverlay={textOverlay}
           subHeading={subHeading}
         />
-      )}
-      {!textOverlay && (
-        <NormalText
-          deliveryCost={deliveryPrice}
-          deliveryTime={deliveryTime}
-          mealName={mealName}
-          remark={remark}
-          tags={tags}
-          delivery={delivery}
-        />
-      )}
+      </div>
+      <NormalText
+        deliveryCost={deliveryPrice}
+        deliveryTime={deliveryTime}
+        textOverlay={textOverlay}
+        mealName={mealName}
+        remark={remark}
+        tags={tags}
+        delivery={delivery}
+      />
     </div>
   );
 };
@@ -224,7 +214,7 @@ BukkaCard.defaultProps = {
   remark: false,
   deliveryTime: '',
   rating: '',
-  imageHeight: '',
+  carouselType: '',
   textOverlay: false,
   deliveryPrice: 0,
   top: false,
@@ -246,7 +236,7 @@ BukkaCard.propTypes = {
     PropTypes.number,
     PropTypes.string
   ]),
-  imageHeight: PropTypes.string,
+  carouselType: PropTypes.string,
   textOverlay: PropTypes.bool,
   top: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   bottom: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),

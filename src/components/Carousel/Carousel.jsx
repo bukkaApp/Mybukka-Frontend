@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useLayoutEffect } from 'react';
 
 import shortId from 'shortid';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,39 @@ import FoodCard from './BukkaCard';
 import Headline from './Headline';
 
 import './Carousel.scss';
+
+const numImagesToDisplay = (width, xl, lg, md, sm) => {
+  if (width >= 1200) {
+    return xl || xl;
+  } else if (width >= 992 && width < 1200) {
+    return lg || xl;
+  } else if (width >= 767 && width < 992) {
+    return md || lg || xl;
+  } else if (width >= 576 && width < 767) {
+    return sm || md || lg || xl;
+  }
+};
+
+/**
+ * @function useWindowSize
+ * @returns {js} size
+ */
+const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    /**
+    * @function updateSize
+    * @returns {js} cleanup func
+    */
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+};
 
 const ControlLeft = ({ handleClick, classNames }) => (
   <div
@@ -39,22 +72,28 @@ const Carousel = ({
   textOverlay,
   classNames,
   noOfImagesShown,
+  xl,
+  lg,
+  md,
+  sm,
   title,
   slideItems,
-  imageHeight,
+  carouselType,
   delivery,
   controlClassNames,
+  textPositionTop,
+  textPositionBottom,
   type,
   numberOfViews,
   description,
   placeId,
 }) => {
+  const [width, height] = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const maxWidth = 100;
   const slidesLenght = slideItems.length;
-  const translate = activeIndex >= 1 ? maxWidth / noOfImagesShown : 0;
-
+  const translate = activeIndex >= 1 ? maxWidth / numImagesToDisplay(width, xl, lg, md, sm) : 0;
   const goToPrevSlide = (e) => {
     let index = activeIndex;
     e.preventDefault();
@@ -110,18 +149,18 @@ const Carousel = ({
                     delivery={delivery}
                     rating={bukka.rating}
                     textOverlay={textOverlay}
-                    imageHeight={imageHeight}
-                    heading={bukka.heading}
+                    carouselType={carouselType}
+                    heading={bukka.heading || bukka.name}
                     subHeading={bukka.subHeading}
                     top={bukka.position ? bukka.position.top : undefined}
-                    bottom={bukka.position ? bukka.position.bottom : undefined}
+                    bottom={textPositionBottom || undefined}
                     imageUrl={bukka.imageUrl}
                     deliveryPrice={bukka.deliveryPrice}
                     tags={bukka.tags && bukka.tags.length > 0 ? bukka.tags : bukka.placeGroup}
                     slug={bukka.slug}
                     classNames={`${classNames}`}
                     href={type === 'majorCuisine' ?
-                      `/search?by=${type}&value=${bukka.id}`
+                      `/categories/${bukka.name}`
                       : `/bukka/${bukka.slug}`}
                   />
                 ))}
@@ -166,7 +205,12 @@ Carousel.defaultProps = {
   controlClassNames: '',
   title: '',
   handleRefFocus: () => {},
-  delivery: false
+  delivery: false,
+  xl: null,
+  lg: null,
+  md: null,
+  sm: null,
+  carouselType: '',
 };
 
 Carousel.propTypes = {
@@ -177,6 +221,10 @@ Carousel.propTypes = {
   title: PropTypes.string,
   noOfImagesShown: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
     .isRequired,
-  imageHeight: PropTypes.string.isRequired,
-  textOverlay: PropTypes.bool
+  carouselType: PropTypes.string,
+  textOverlay: PropTypes.bool,
+  xl: PropTypes.number,
+  lg: PropTypes.number,
+  md: PropTypes.number,
+  sm: PropTypes.number,
 };

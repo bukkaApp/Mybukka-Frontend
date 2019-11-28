@@ -58,11 +58,11 @@ const FoodNearBy = ({
                 imageUrl={bukka.imageUrl}
                 mealName={bukka.name}
                 delivery={delivery}
+                tags={bukka.placeGroup}
                 handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
                 deliveryPrice={bukka.deliveryPrice}
                 deliveryTime={bukka.deliveryTime}
                 rating={bukka.rating}
-                // imageHeight={imageHeight}
                 imageHeight="img-fluid"
                 classNames={classNames}
                 href={`/bukka/${bukka.slug}`}

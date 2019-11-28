@@ -11,7 +11,7 @@ const getPromotedBukkas = coordinates => async (dispatch) => {
   try {
     dispatch(loading(FETCH_PROMOTED_BUKKAS, true));
     const request = await axiosInstance.get(
-      `/restaurants/category?longitude=${
+      `/place-group/items?longitude=${
         coordinates[0]}&lattitude=${coordinates[1]}`);
     dispatch(loading(FETCH_PROMOTED_BUKKAS, false));
     dispatch(getPromotedBukkasAction('SUCCESS', request.data));

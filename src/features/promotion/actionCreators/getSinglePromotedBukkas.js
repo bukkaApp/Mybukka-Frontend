@@ -17,7 +17,7 @@ const getSinglePromotedBukkas = (
   try {
     dispatch(loading(FETCH_SINGLE_PROMOTED_BUKKAS, true));
     const request = await axiosInstance.get(
-      `/promotion/${id}?longitude=${
+      `/place-group/items/${id}?longitude=${
         coordinates[0]}&lattitude=${coordinates[1]
       }&page=${page}&limit=${limit}`
     );

@@ -3,31 +3,48 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import shortId from 'shortid';
+import InfiniteScroll from 'react-infinite-scroller';
+import Row from 'Components/grid/Row';
+import BukkaCard from 'Components/Carousel/BukkaCard';
 import Container from 'Components/container/Container';
 import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
-import fetchBukkas from '../actionCreators/fetchBukkas';
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
-import NearByBukka from './NearByBukka';
-import favorites from '../data/favorites.json';
+import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
+import getMoreBukkasRelatedToSingleCuisines from '../actionCreators/getMoreBukkasRelatedToSingleCuisines';
+
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
-const Category = ({
-  // mode,
+const PlaceGroup = ({
+  name,
   push,
+  cuisineItems,
+  getBukkasRelatedToCuisines,
+  match: {
+    params: { id },
+  },
+  status: { error },
+  errorMessage,
+  currentPage,
   coordinates,
-  fetchedBukkas: { nearbyBukkas },
-  fetchNearbyBukkas,
-  status: { error }
+  fetchBukkaMenu,
+  getMoreBukkasRelatedToCuisines,
 }) => {
   useEffect(() => {
-    fetchNearbyBukkas(coordinates);
-  }, [coordinates]);
+    console.log('params', id);
+    let suscribed = true;//eslint-disable-line
+    getBukkasRelatedToCuisines(id, coordinates);
+    return () => {
+      suscribed = false;
+    };
+  }, [id]);
 
-  if (nearbyBukkas.length === 0 && error) {
+  if (cuisineItems.length === 0 && error) {
     return (
       <div>
         <Navbar push={push} />
@@ -37,22 +54,52 @@ const Category = ({
   }
 
   return (
-    <div className="container-fluid p-0">
-      {nearbyBukkas.length >= 0 && (
+    <div className="Place__Group container-fluid p-0">
+      {cuisineItems.length >= 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection classNames="pt-5">
-            <Container>
-              <h2 className="pt-100 px-15 capitalize">Fast food</h2>
+            <Container classNames="position-sticky top-114">
+              <h2 className="place-group-header pt-100 capitalize pb-3">
+                {name}
+              </h2>
             </Container>
             <div className="border-top" />
-            <Container>
-              <NearByBukka
-                classNames="col-lg-4 col-md-4 col-sm-12"
-                heading={false}
-                bukkaData={favorites}
-                imageHeight="img-height"
-              />
+            <Container classNames="position-relative bg-white">
+              <InfiniteScroll
+                loadMore={() =>
+                  getMoreBukkasRelatedToCuisines(
+                    id, coordinates, Number(currentPage) + 1)}
+                hasMore={errorMessage === ''}
+                loader={
+                  <div className="loader text-center" key={0}>
+                    <div className="spinner-grow custom-text-color" role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                }
+                useWindow
+                initialLoad={false}
+              >
+                <Row classNames="pb-4">
+                  {cuisineItems.map(bukka => (
+                    <BukkaCard
+                      key={shortId.generate()}
+                      imageUrl={bukka.imageUrl}
+                      mealName={bukka.name}
+                      delivery={false}
+                      handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
+                      deliveryPrice={bukka.deliveryPrice}
+                      deliveryTime={bukka.deliveryTime}
+                      rating={bukka.rating}
+                      tags={bukka.placeGroup}
+                      imageHeight="img-fluid"
+                      classNames="col-xl-4 col-md-6 col-sm-12"
+                      href={`/bukka/${bukka.slug}`}
+                    />
+                  ))}
+                </Row>
+              </InfiniteScroll>
             </Container>
           </ExploreSection>
         </div>
@@ -65,25 +112,43 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   selectedLocationReducer: { coordinates },
+  cuisineReducer: {
+    cuisineItems, errorMessage,
+    currentPage,
+    cuisineToDisplay: { name },
+  },
 }) => ({
+  coordinates,
   fetchedBukkas,
   status,
-  coordinates,
   mode,
+  name,
+  cuisineItems,
+  errorMessage,
+  currentPage,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas }
-)(Category);
+  { getBukkasRelatedToCuisines: getBukkasRelatedToSingleCuisines,
+    getMoreBukkasRelatedToCuisines: getMoreBukkasRelatedToSingleCuisines,
+    fetchBukkaMenu: fetchBukkaMenuAction, }
+)(PlaceGroup);
 
-Category.propTypes = {
-  // mode: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
+PlaceGroup.defaultProps = {
+  errorMessage: '',
+};
+
+PlaceGroup.propTypes = {
+  errorMessage: PropTypes.string,
+  getMoreBukkasRelatedToCuisines: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  fetchBukkaMenu: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
-  fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
-  }).isRequired,
-  fetchNearbyBukkas: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  match: PropTypes.objectOf(PropTypes.shape({})).isRequired,
+  push: PropTypes.func.isRequired,
+  cuisineItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  getBukkasRelatedToCuisines: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired
 };

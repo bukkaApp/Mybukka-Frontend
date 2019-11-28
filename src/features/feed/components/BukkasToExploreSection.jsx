@@ -14,19 +14,20 @@ const renameCategory = name => (
     'New on Bukka' : name
 );
 
-const BukkasToExploreSection = ({ promotedBukkas }) => (
+const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
   <Fragment>
     <div className="carousel-divider" />
     <div className="pt-0 p-sm-3" />
     <Carousel
       noOfImagesShown={2}
+      xl={2}
       title="Featured"
+      carouselType="collection"
       textOverlay
       top
       slideItems={bukkaData}
-      // imageHeight="img-big-height"
       imageHeight="img-fluid"
-      classNames="col-lg-6 col-md-6 col-sm-12 col-12"
+      classNames="col-lg-6 col-md-6 col-sm-12 col-11"
     />
     <div className="carousel-divider" />
     {
@@ -36,6 +37,10 @@ const BukkasToExploreSection = ({ promotedBukkas }) => (
             <Carousel
               delivery
               noOfImagesShown={3}
+              xl={3}
+              lg={2}
+              md={2}
+              sm={1}
               placeId={promoBukkas._id}
               description={promoBukkas.description}
               numberOfViews={promoBukkas.numItems}
@@ -43,22 +48,28 @@ const BukkasToExploreSection = ({ promotedBukkas }) => (
               slideItems={promoBukkas.category}
               controlClassNames="custom-mt-minus22"
               imageHeight="img-fluid"
-              classNames="col-lg-4 col-md-4 col-sm-12 col-12"
+              classNames="col-xl-4 col-md-6 col-sm-12 col-11"
             />
             <div className="carousel-divider" />
           </Fragment> : null
       ))
     }
+    {fetchedCuisines.length > 0 &&
     <Carousel
       type="majorCuisine"
-      noOfImagesShown={6}
+      noOfImagesShown={5}
+      xl={5}
+      lg={4}
+      md={4}
+      sm={2}
       textOverlay
-      title="Top Cuisines"
-      // imageHeight="cuisine-img-height"
+      carouselType="cuisine"
+      textPositionBottom
+      title="Top Categories"
       imageHeight="img-fluid"
-      slideItems={topCategories}
-      classNames="col-lg-2 col-md-2 col-sm-4 col-6 touchdown"
-    />
+      slideItems={fetchedCuisines}
+      classNames="col-lg-3 col-md-3 col-sm-6 col-5 touchdown"
+    />}
   </Fragment>
 );
 

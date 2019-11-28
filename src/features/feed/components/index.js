@@ -12,15 +12,24 @@ import Favorites from './Favorites';
 
 import './feed.scss';
 
-const Feed = ({ push, food, drink, search, category, fresh, favorites }) => (
+const Feed = ({
+  push,
+  food,
+  drink,
+  search,
+  category,
+  fresh,
+  favorites,
+  ...props,
+}) => (
   <Fragment>
     <AddToCart />
-    {food && <FoodSection push={push} />}
-    {drink && <OtherSection push={push} type="drinks" />}
-    {search && <SearchResult push={push} />}
-    {fresh && <OtherSection push={push} type="fresh" />}
-    {category && <Category push={push} />}
-    {favorites && <Favorites push={push} />}
+    {food && <FoodSection {...props} push={push} />}
+    {drink && <OtherSection {...props} push={push} type="drinks" />}
+    {search && <SearchResult {...props} push={push} />}
+    {fresh && <OtherSection {...props} push={push} type="fresh" />}
+    {category && <Category {...props} push={push} />}
+    {favorites && <Favorites {...props} push={push} />}
   </Fragment>
 );
 

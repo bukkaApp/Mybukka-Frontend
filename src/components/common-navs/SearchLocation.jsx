@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, Fragment } from 'react';
 
 import { connect } from 'react-redux';
@@ -16,7 +17,7 @@ import updateLocationsPrediction from '../../features/home/actionCreators/update
 
 import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
 import getPromotedBukkas from '../../features/feed/actionCreators/getPromotedBukkas';
-
+import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
 import './searchlocation.scss';
 
 const SearchLocation = ({
@@ -32,6 +33,7 @@ const SearchLocation = ({
   handleLoader,
   reduceSuggestionText,
   fetchedPromotedBukkas,
+  getRestaurantCuisine,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -73,8 +75,11 @@ const SearchLocation = ({
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
       selectLocation({ coordinates, suggestion });
-      await fetchNearbyBukkas(coordinates, push);
-      await fetchedPromotedBukkas(coordinates);
+      new Promise((resolve) => {
+        resolve(fetchedPromotedBukkas(coordinates));
+      }).then(() => getRestaurantCuisine(coordinates))
+        .then(() => fetchNearbyBukkas(coordinates, push))
+        .then(() => push('/feed'));
     });
   };
 
@@ -184,6 +189,7 @@ export default connect(
     fetchNearbyBukkas: fetchBukkas,
     handleLoader: showLoadingAction,
     fetchedPromotedBukkas: getPromotedBukkas,
+    getRestaurantCuisine: getRestaurantCuisineAction,
   }
 )(
   GoogleApiWrapper({
