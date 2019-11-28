@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
@@ -7,10 +8,18 @@ import SmallSpinner from 'Components/spinners/SmallSpinner';
 import setSelectedLocation from 'Redux/setSelectedLocation';
 import LocationArrow from '../icons/LocationArrow';
 
+import getPromotedBukkas from '../../features/feed/actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
 import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
 import './usecurrentlocation.scss';
 
-const UseCurrentLocation = ({ selectLocation, fetchNearbyBukkas, push }) => {
+const UseCurrentLocation = ({
+  selectLocation,
+  fetchNearbyBukkas,
+  push,
+  fetchedPromotedBukkas,
+  getRestaurantCuisine,
+}) => {
   const [isGettingLocation, setIsGettingLocation] = useState(false);
 
   const setLocation = () => {
@@ -22,8 +31,12 @@ const UseCurrentLocation = ({ selectLocation, fetchNearbyBukkas, push }) => {
           const longitude = position.coords.longitude;
           const coordinates = [longitude, lattitude];
           setIsGettingLocation(false);
-          fetchNearbyBukkas(coordinates, push);
           selectLocation(coordinates, true);
+          new Promise((resolve) => {
+            resolve(fetchedPromotedBukkas(coordinates));
+          }).then(() => getRestaurantCuisine(coordinates))
+            .then(() => fetchNearbyBukkas(coordinates, push))
+            .then(() => push('/feed'));
         },
         () =>
           setIsGettingLocation(false)
@@ -56,7 +69,9 @@ export default connect(
   () => ({}),
   {
     selectLocation: setSelectedLocation,
-    fetchNearbyBukkas: fetchBukkas
+    fetchNearbyBukkas: fetchBukkas,
+    fetchedPromotedBukkas: getPromotedBukkas,
+    getRestaurantCuisine: getRestaurantCuisineAction,
   }
 )(UseCurrentLocation);
 

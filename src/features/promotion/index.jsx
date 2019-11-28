@@ -12,39 +12,37 @@ import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
-import IntroSection from '../common/IntroSection';
-import ExploreSection from '../common/ExploreSection';
-import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
-import getMoreBukkasRelatedToSingleCuisines from '../actionCreators/getMoreBukkasRelatedToSingleCuisines';
+import IntroSection from '../feed/common/IntroSection';
+import ExploreSection from '../feed/common/ExploreSection';
+import getSinglePromotedBukkasAction from './actionCreators/getSinglePromotedBukkas';
+import getMoreSinglePromotionBukkasAction from './actionCreators/getMoreSinglePromotionBukkas';
 
+import './index.scss';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
 const PlaceGroup = ({
   name,
   push,
-  cuisineItems,
-  getBukkasRelatedToCuisines,
-  match: {
-    params: { id },
-  },
+  promotedBukkas,
+  getSinglePromotedBukkas,
+  placeId,
   status: { error },
   errorMessage,
   currentPage,
   coordinates,
   fetchBukkaMenu,
-  getMoreBukkasRelatedToCuisines,
+  getMoreSinglePromotionBukkas,
 }) => {
   useEffect(() => {
-    console.log('params', id);
     let suscribed = true;//eslint-disable-line
-    getBukkasRelatedToCuisines(id, coordinates);
+    getSinglePromotedBukkas(placeId, coordinates);
     return () => {
       suscribed = false;
     };
-  }, [id]);
+  }, [placeId]);
 
-  if (cuisineItems.length === 0 && error) {
+  if (promotedBukkas.length === 0 && error) {
     return (
       <div>
         <Navbar push={push} />
@@ -55,7 +53,7 @@ const PlaceGroup = ({
 
   return (
     <div className="Place__Group container-fluid p-0">
-      {cuisineItems.length >= 0 && (
+      {promotedBukkas.length >= 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection classNames="pt-5">
@@ -68,8 +66,8 @@ const PlaceGroup = ({
             <Container classNames="position-relative bg-white">
               <InfiniteScroll
                 loadMore={() =>
-                  getMoreBukkasRelatedToCuisines(
-                    id, coordinates, Number(currentPage) + 1)}
+                  getMoreSinglePromotionBukkas(
+                    placeId, coordinates, Number(currentPage) + 1)}
                 hasMore={errorMessage === ''}
                 loader={
                   <div className="loader text-center" key={0}>
@@ -82,7 +80,7 @@ const PlaceGroup = ({
                 initialLoad={false}
               >
                 <Row classNames="pb-4">
-                  {cuisineItems.map(bukka => (
+                  {promotedBukkas.map(bukka => (
                     <BukkaCard
                       key={shortId.generate()}
                       imageUrl={bukka.imageUrl}
@@ -112,26 +110,26 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
   selectedLocationReducer: { coordinates },
-  cuisineReducer: {
-    cuisineItems, errorMessage,
+  promotionReducer: {
+    promotedBukkas, errorMessage, promotionToDisplay: { name, slug },
     currentPage,
-    cuisineToDisplay: { name },
   },
 }) => ({
   coordinates,
   fetchedBukkas,
   status,
+  placeId: slug,
   mode,
   name,
-  cuisineItems,
+  promotedBukkas,
   errorMessage,
   currentPage,
 });
 
 export default connect(
   mapStateToProps,
-  { getBukkasRelatedToCuisines: getBukkasRelatedToSingleCuisines,
-    getMoreBukkasRelatedToCuisines: getMoreBukkasRelatedToSingleCuisines,
+  { getSinglePromotedBukkas: getSinglePromotedBukkasAction,
+    getMoreSinglePromotionBukkas: getMoreSinglePromotionBukkasAction,
     fetchBukkaMenu: fetchBukkaMenuAction, }
 )(PlaceGroup);
 
@@ -141,14 +139,14 @@ PlaceGroup.defaultProps = {
 
 PlaceGroup.propTypes = {
   errorMessage: PropTypes.string,
-  getMoreBukkasRelatedToCuisines: PropTypes.func.isRequired,
+  getMoreSinglePromotionBukkas: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   fetchBukkaMenu: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   name: PropTypes.string.isRequired,
-  match: PropTypes.objectOf(PropTypes.shape({})).isRequired,
+  placeId: PropTypes.string.isRequired,
   push: PropTypes.func.isRequired,
-  cuisineItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  getBukkasRelatedToCuisines: PropTypes.func.isRequired,
+  promotedBukkas: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  getSinglePromotedBukkas: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired
 };

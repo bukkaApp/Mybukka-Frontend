@@ -6,6 +6,7 @@ module.exports = {
       '<rootDir>/assetsTransformer.js',
     '\\.(css|less|scss)$': '<rootDir>/assetsTransformer.js',
     'Components(.*)$': '<rootDir>/src/components/$1',
+    'Features(.*)$': '<rootDir>/src/features/$1',
     'Icons(.*)$': '<rootDir>/src/components/icons/$1',
     'Redux(.*)$': '<rootDir>/src/redux/$1',
     'Utilities(.*)$': '<rootDir>/src/utils/$1'

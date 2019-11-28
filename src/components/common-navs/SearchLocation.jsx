@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, Fragment } from 'react';
 
 import { connect } from 'react-redux';
@@ -15,7 +16,8 @@ import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
 import updateLocationsPrediction from '../../features/home/actionCreators/updateLocationsPrediction';
 
 import fetchBukkas from '../../features/feed/actionCreators/fetchBukkas';
-
+import getPromotedBukkas from '../../features/feed/actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
 import './searchlocation.scss';
 
 const SearchLocation = ({
@@ -30,6 +32,8 @@ const SearchLocation = ({
   push,
   handleLoader,
   reduceSuggestionText,
+  fetchedPromotedBukkas,
+  getRestaurantCuisine,
 }) => {
   let wrapperRef;
   const [isFocused, setFocus] = useState(false);
@@ -66,12 +70,16 @@ const SearchLocation = ({
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
-    GeoCoder.geocode({ placeId }, (response) => {
+    GeoCoder.geocode({ placeId }, async (response) => {
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
       selectLocation({ coordinates, suggestion });
-      fetchNearbyBukkas(coordinates, push);
+      new Promise((resolve) => {
+        resolve(fetchedPromotedBukkas(coordinates));
+      }).then(() => getRestaurantCuisine(coordinates))
+        .then(() => fetchNearbyBukkas(coordinates, push))
+        .then(() => push('/feed'));
     });
   };
 
@@ -180,6 +188,8 @@ export default connect(
     selectLocation: setSelectedLocation,
     fetchNearbyBukkas: fetchBukkas,
     handleLoader: showLoadingAction,
+    fetchedPromotedBukkas: getPromotedBukkas,
+    getRestaurantCuisine: getRestaurantCuisineAction,
   }
 )(
   GoogleApiWrapper({
@@ -193,9 +203,11 @@ SearchLocation.defaultProps = {
   showDeliveryOrPickupNav: true,
   showDropdown: false,
   reduceSuggestionText: false,
+  fetchedPromotedBukkas: () => {}
 };
 
 SearchLocation.propTypes = {
+  fetchedPromotedBukkas: PropTypes.func,
   showDropdown: PropTypes.bool,
   handleLoader: PropTypes.func.isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,

@@ -1,0 +1,14 @@
+.Place__Group {
+    .intro-navbar-area {
+        background: white;
+    }
+    .searchanything-text-field {
+        color: #96989B;
+        font-size: 16px;
+    }
+    ::placeholder {
+        color: #96989B;
+        font-size: 16px;
+        opacity: 1; /* Firefox */
+      }
+}

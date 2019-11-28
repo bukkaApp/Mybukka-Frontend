@@ -35,7 +35,7 @@ const UserDefaultImage = ({ userInfo: { imageUrl }, push }) => {
                 ? 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'
                 : `${imageUrl}`
             }
-            alt="authenticated-img"
+            alt="user-img"
           />
         </button>
         {dropdown && <UserDropdown

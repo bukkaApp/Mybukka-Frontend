@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 
@@ -27,6 +28,25 @@ import { foodBannerImage } from '../img/imgLinks';
 
 import freeDelivery from '../data/free-delivery.json';
 import favorites from '../data/favorites.json';
+import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
+
+const mapContainerDisplay = displayMap => (
+  displayMap
+    ? 'px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column'
+    : 'px-0'
+);
+
+const mapContentDisplay = displayMap => (
+  displayMap
+    ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
+    : 'mb-5'
+);
+
+const mapDisplay = displayMap => (
+  displayMap
+    ? 'container map-wrapper col-xl-8 col-lg-8 col-md-12col-12 order-first order-lg-0'
+    : 'd-none'
+);
 
 const FoodSection = ({
   mode,
@@ -37,6 +57,8 @@ const FoodSection = ({
   currentPage,
   errorMessage,
   loading,
+  fetchedPromotedBukkas,
+  fetchedCuisines,
 }) => {
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -58,6 +80,10 @@ const FoodSection = ({
   }, [coordinates]);
 
   useEffect(() => {
+    getPromotedBukkas(coordinates);
+  }, [fetchedPromotedBukkas]);
+
+  useEffect(() => {
     handleFetchOnRefresh();
   }, [nearbyBukkas]);
 
@@ -77,64 +103,47 @@ const FoodSection = ({
               <AreasToExplore bgImage={foodBannerImage} />
             </div>
             <div
-              className={
-                displayMap ? 'feed-main-content-map' : 'feed-main-content'
-              }
+              className={displayMap ? 'feed-main-content-map' : 'feed-main-content'}
             >
               <LocationNavLargeScreen handleMapClick={handleClick} />
               <LocationNavSmallScreen />
               <div>
-                {mode === 'delivery' && <BukkasToExploreSection />}
-                <div className="carousel-divider" />
+                {mode === 'delivery' &&
+                <BukkasToExploreSection
+                  promotedBukkas={fetchedPromotedBukkas}
+                  fetchedCuisines={fetchedCuisines}
+                />
+                }
                 <Container
-                  classNames={
-                    displayMap
-                      ? `px-0 d-flex flex-column flex-xl-row flex-lg-row
-                  flex-md-column`
-                      : 'px-0'
-                  }
+                  classNames={mapContainerDisplay(displayMap)}
                 >
-                  <div
-                    className={
-                      displayMap
-                        ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none' // eslint-disable-line
-                        : 'mb-5'
-                    }
-                  >
+                  <div className={mapContentDisplay(displayMap)}>
                     <FoodNearBy
                       delivery
-                      classNames={
-                        displayMap ? 'col-12' : 'col-lg-4 col-md-4 col-sm-12'
-                      }
+                      classNames={displayMap ? 'col-12' : 'col-xl-4 col-md-6 col-sm-12'}
                       title={displayMap ? '' : 'Nearby'}
                       bukkaData={[...nearbyBukkas]}
-                      // imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
                     />
                   </div>
-                  <div
-                    className={
-                      displayMap
-                        ? `container map-wrapper
-                  col-xl-8 col-lg-8 col-md-12col-12 order-first order-lg-0`
-                        : 'd-none'
-                    }
-                  >
+                  <div className={mapDisplay(displayMap)}>
                     <Map />
                   </div>
                   {/* display carousel for map on small & medium screen */}
                   {displayMap && (
                     <div
-                      className="d-flex d-md-flex d-lg-none
-                  d-xl-none px-0 col-12"
+                      className="d-flex d-md-flex d-lg-none d-xl-none px-0 col-12"
                     >
                       <Carousel
                         delivery
                         noOfImagesShown={3}
+                        xl={3}
+                        lg={2}
+                        md={2}
+                        sm={1}
                         slideItems={[...favorites, ...freeDelivery]}
-                        // imageHeight="map-img-height"
                         imageHeight="img-fluid"
                         classNames="col-lg-6 col-md-6 col-sm-12 col-12"
                       />
@@ -155,8 +164,12 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
   selectedLocationReducer: { coordinates },
+  promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
+  cuisineReducer: { fetchedBukkas: fetchedCuisines }
 }) => ({
   fetchedBukkas,
+  fetchedCuisines,
+  fetchedPromotedBukkas,
   status,
   currentPage,
   coordinates,

@@ -17,6 +17,16 @@ const initialState = {
       error: false
     }
   },
+  cuisineReducer: {
+    cuisineItems: [{
+      _id: '5ddc5dfb9a29af135cd21ce7',
+      name: 'american',
+      imageUrl: 'https://res.cloudinary.com/mybukka/image/upload/v1574723013/American_e1n3aj.png'
+    }],
+    errorMessage: '',
+    currentPage: 1,
+    cuisineToDisplay: { name: 'cuisine name' },
+  },
   bukkasReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
@@ -35,6 +45,9 @@ const store = mockStore(initialState);
 describe('Category component', () => {
   const props = {
     signOut: jest.fn(),
+    match: {
+      params: { id: 'ameriacan' },
+    },
     setDeliveryModeAction: jest.fn(),
     push: jest.fn(),
     coordinates: [3.7474, 3.4848],

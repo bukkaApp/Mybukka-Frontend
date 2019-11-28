@@ -49,6 +49,6 @@
     "rating": "popular",
     "heading": "Get All Orders Delivered Free",
     "subHeading": "TRY UNLIMITED",
-    "position": { "bottom": true }
+    "textPositionBottom": true
   }
 ]

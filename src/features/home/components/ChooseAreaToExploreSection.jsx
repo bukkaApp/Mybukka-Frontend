@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import { connect } from 'react-redux';
@@ -11,6 +12,8 @@ import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 
 import fetchBukkas from '../../feed/actionCreators/fetchBukkas';
+import getPromotedBukkasAction from '../../feed/actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../../feed/actionCreators/getRestaurantCuisineAction';
 
 import './chooseAreaToExplore.scss';
 
@@ -71,7 +74,9 @@ const AreaToExploreHeader = () => (
 );
 
 const ChooseAreaToExploreSection =
-({ push, google, fetchNearbyBukkas, selectLocation, handleLoader }) => {
+({ push, google, fetchNearbyBukkas, selectLocation,
+  handleLoader, getRestaurantCuisine, getPromotedBukkas,
+}) => {
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     const GeoCoder = new google.maps.Geocoder();
@@ -80,7 +85,11 @@ const ChooseAreaToExploreSection =
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
       selectLocation({ coordinates, suggestion });
-      fetchNearbyBukkas(coordinates, push);
+      new Promise((resolve) => {
+        resolve(getPromotedBukkas(coordinates));
+      }).then(() => getRestaurantCuisine(coordinates))
+        .then(() => fetchNearbyBukkas(coordinates, push))
+        .then(() => push('/feed'));
     });
   };
 
@@ -123,12 +132,17 @@ const ChooseAreaToExploreSection =
   );
 };
 
+
+const mapStateToProps = () => ({});
+
 export default connect(
-  () => ({}),
+  mapStateToProps,
   {
     selectLocation: setSelectedLocation,
     fetchNearbyBukkas: fetchBukkas,
     handleLoader: showLoadingAction,
+    getPromotedBukkas: getPromotedBukkasAction,
+    getRestaurantCuisine: getRestaurantCuisineAction,
   }
 )(
   GoogleApiWrapper({
@@ -144,6 +158,8 @@ AreasToExploreList.propTypes = {
 
 
 ChooseAreaToExploreSection.propTypes = {
+  getPromotedBukkas: PropTypes.func.isRequired,
+  getRestaurantCuisine: PropTypes.func.isRequired,
   handleLoader: PropTypes.func.isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
   push: PropTypes.func.isRequired,

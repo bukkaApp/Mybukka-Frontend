@@ -4,6 +4,23 @@ $fontFamily: 'Roboto', sans-serif;
   padding-top: 100px;
 }
 
+.top-114 {
+  top: 114px;
+}
+
+.touchdown {
+  @media (min-width: 1200px) {
+    max-width: 20%!important;
+    flex-basis: 20%!important;
+  }
+}
+.place-group-header {
+  font-size: 42px;
+  letter-spacing: -2.4px;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+
 .custom-text-color {
   color: #9c1c26
 }
@@ -45,6 +62,16 @@ $fontFamily: 'Roboto', sans-serif;
   transition: transform 100ms ease-in-out 0s;
   @media (min-width: 1060px) {
     margin-top: 308px;
+  }
+  @media screen and (max-width: 576px) {
+    .touchdown, .col-6, .col-11 {
+      padding-right: 0;
+    }
+
+    .touchdown {
+      max-width: calc(50% - 16px - 16px);
+      flex: 0 0 calc(50% - 16px - 16px);
+    }
   }
 }
 
@@ -96,75 +123,6 @@ img {
   height: 100%;
   border: 0;
   outline: 0;
-}
-
-.img-big-height {
-  background-color: rgba(231, 226, 226, 0.7);
-  height: 315px;
-  object-fit: fill;
-  @media (min-width: 1500px) {
-    height: 390px;
-  }
-  @media (max-width: 1200px) {
-    height: 290px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 217px;
-  }
-  @media (max-width: 444px) {
-    height: 200px;
-  }
-}
-
-.img-height {
-  object-fit: fill;
-  background-color: rgba(231, 226, 226, 0.7);
-  height: 217px;
-  @media (min-width: 1500px) {
-    height: 290px;
-  }
-  @media screen and (max-width: 768px) {
-    height: 250px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 150px;
-  }
-  @media (max-width: 444px) {
-    height: 200px;
-  }
-}
-
-.cuisine-img-height {
-  object-fit: fill;
-  background-color: rgba(231, 226, 226, 0.7);
-  height: 217px;
-  @media (min-width: 1500px) {
-    height: 290px;
-  }
-  @media screen and (max-width: 768px) {
-    height: 190px;
-  }
-  @media screen and (min-width: 768px) and (max-width: 992px) {
-    height: 113px;
-  }
-  @media (max-width: 444px) {
-    height: 180px;
-  }
-}
-
-.small-img-height {
-  height: 150px;
-  background-color: rgba(231, 226, 226, 0.7);
-  object-fit: fill;
-  @media (min-width: 1500px) {
-    height: 250px;
-  }
-  @media (max-width: 768px) {
-    height: 250px;
-  }
-  @media (max-width: 444px) {
-    height: 200px;
-  }
 }
 
 .drinks-img-height {
