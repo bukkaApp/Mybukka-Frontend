@@ -17,6 +17,9 @@ const initialState = {
       error: false
     }
   },
+  match: {
+    params: { id: 'ameriacan' },
+  },
   cuisineReducer: {
     cuisineItems: [{
       _id: '5ddc5dfb9a29af135cd21ce7',

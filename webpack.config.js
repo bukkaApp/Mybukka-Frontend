@@ -90,6 +90,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       Components: path.resolve(__dirname, 'src/components'),
+      Features: path.resolve(__dirname, 'src/features'),
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
       Utilities: path.resolve(__dirname, 'src/utils'),

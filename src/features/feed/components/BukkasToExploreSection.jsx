@@ -27,7 +27,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
       top
       slideItems={bukkaData}
       imageHeight="img-fluid"
-      classNames="col-lg-6 col-md-6 col-sm-12 col-11"
+      classNames="col-lg-6 col-md-6 col-sm-11 col-11"
     />
     <div className="carousel-divider" />
     {
@@ -48,7 +48,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
               slideItems={promoBukkas.category}
               controlClassNames="custom-mt-minus22"
               imageHeight="img-fluid"
-              classNames="col-xl-4 col-md-6 col-sm-12 col-11"
+              classNames="col-xl-4 col-md-6 col-sm-11 col-11"
             />
             <div className="carousel-divider" />
           </Fragment> : null
@@ -68,7 +68,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
       title="Top Categories"
       imageHeight="img-fluid"
       slideItems={fetchedCuisines}
-      classNames="col-lg-3 col-md-3 col-sm-6 col-5 touchdown"
+      classNames="col-lg-3 col-md-3 col-sm-5 col-5 touchdown"
     />}
   </Fragment>
 );

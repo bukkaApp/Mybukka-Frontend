@@ -30,18 +30,6 @@ describe('Headline Components', () => {
   it('renders properly', () => {
     const newState = {
       ...initialState,
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
-        fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
-          message: ''
-        },
-        status: {
-          ...initialState.bukkasReducer.status,
-          fetchedBukkas: true,
-          error: false
-        }
-      }
     };
 
     const newProps = {

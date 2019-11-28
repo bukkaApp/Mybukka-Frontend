@@ -3,6 +3,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
+import bukkaData from 'Features/feed/data/search.json';
+import freeDelivery from 'Features/feed/data/free-delivery.json';
 import Carousel from '../Carousel';
 
 const initialState = {
