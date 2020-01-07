@@ -131,7 +131,7 @@ const Checkout = ({
 
   const handleCheckout = () => {
     if (cards.length <= 0) {
-      swal('Please save your card before proceed to checkout');
+      swal('Please save your card before proceeding to checkout');
     } else if (!hasDefaultCard) {
       swal('Please select your card');
     } else if (!validateAddress()) {

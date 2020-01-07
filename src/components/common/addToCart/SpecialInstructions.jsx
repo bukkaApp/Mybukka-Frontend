@@ -1,7 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+
 import TextArea from 'Components/input/TextArea';
+import manipulateMealAction from 'Redux/manipulateMealAction';
 
 import SelectQuantityButtons from './SelectQuantityButtons';
 
@@ -13,7 +17,9 @@ const TextLengthSection = ({ length }) => (
   </div>
 );
 
-const SpecialInstructions = ({ handleChange }) => {
+const SpecialInstructions = ({
+  handleChange, itemIsInCart, quantity, manipulateMeal
+}) => {
   const [textLength, setTextLength] = useState(0);
 
   const onChangeHandler = ({ target: { value } }) => {
@@ -35,13 +41,19 @@ const SpecialInstructions = ({ handleChange }) => {
       />
       <TextLengthSection length={textLength} />
       <div className="d-lg-none quantity-toggler-md">
-        <SelectQuantityButtons />
+        <SelectQuantityButtons
+          itemIsInCart={itemIsInCart}
+          quantity={quantity}
+          manipulateMeal={manipulateMeal}
+        />
       </div>
     </div>
   );
 };
 
-export default SpecialInstructions;
+export default connect(() => ({}), {
+  manipulateMeal: manipulateMealAction
+})(SpecialInstructions);
 
 TextLengthSection.defaultProps = {
   length: 0

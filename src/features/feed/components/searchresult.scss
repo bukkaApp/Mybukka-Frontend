@@ -1,4 +1,9 @@
 .search-result-scene {
+    .headline {
+        @media (max-width: 576px){
+            margin-bottom: 15px;
+        }
+    }
     .headline-h2 {
         font-size: 37px!important
     }

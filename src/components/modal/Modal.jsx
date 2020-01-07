@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './modal.scss';
 
-const Modal = ({ children, classNames, dataTarget }) => (
+const Modal = ({ children, classNames, dataTarget, largeOnSmallScreen }) => (
   <div
     className="modal fade"
     id={dataTarget}
@@ -13,7 +13,9 @@ const Modal = ({ children, classNames, dataTarget }) => (
     aria-hidden="true"
   >
     <div
-      className={`modal-dialog modal-dialog-centered ${classNames}`}
+      className={`modal-dialog modal-dialog-centered ${
+        largeOnSmallScreen ? 'modal-dialog-margin-0' : ''
+      } ${classNames}`}
       role="document"
     >
       <div className="modal-content">

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'Components/container/Container';
@@ -30,18 +30,45 @@ const Headline = ({
   description,
   placeId,
   setPromotionToDisplay,
+  itemSizes,
 }) => {
+  const [state, setState] = useState(0);
+  const [result, calc] = useState(0);
+  const headline = useRef(null);
+
+  const updateSlideWidth = (width) => {
+    let slideWidth = ((width || state) / (slidesLength - itemSizes)) * activeIndex;
+    if (activeIndex === 1) {
+      slideWidth = state / (slidesLength - itemSizes);
+    } else if (activeIndex > 1) {
+      slideWidth = (((width || state) / (slidesLength - itemSizes)) * activeIndex) - 32;
+    }
+    calc(slideWidth);
+  };
+
+  useEffect(() => {
+    const width = headline ? headline.current.clientWidth : 0;
+    setState(width);
+    updateSlideWidth(width);
+  }, [headline]);
+
   const handleClick = async () => {
     await setPromotionToDisplay(placeId, title, description);
   };
 
-  const calc = (100 / slidesLength) * activeIndex;
+  useEffect(() => {
+    updateSlideWidth();
+  }, [activeIndex]);
+
   return (
     <Container>
-      <div className="headline" id={title}>
+      <div className="headline" id={title} ref={headline}>
         <div
-          className="runner"
-          style={{ transform: `translateX(${calc}% - 32px)` }}
+          className="runner h"
+          style={{
+            transform: `translateX(${result}px)`,
+            opacity: 1
+          }}
         />
         <div className="d-flex justify-content-between">
           <h2 className="headline-h2">{title}</h2>

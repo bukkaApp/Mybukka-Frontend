@@ -10,7 +10,7 @@ import SearchLocation from './SearchLocation';
 import DeliveryOrPickupNav from './DeliveryOrPickupNav';
 import ChevronRight from '../icons/ChevronRight';
 import MapMarker from '../icons/MapMarker';
-import { DurationContent } from './Duration';
+import { ConnectedDurationContent } from './Duration';
 
 import './LocationNavSmallScreen.scss';
 
@@ -28,10 +28,14 @@ const CancelScheduleBtn = ({ handleClick }) => (
   </div>
 );
 
-export const SelectLocationModal = ({ delivery }) => {
+export const SelectLocationModal = ({ delivery, currentSchedule, mode }) => {
   const [schedule, setSchedule] = useState(false);
   return (
-    <Modal classNames="select-delivery-pickup" dataTarget="small-location-nav">
+    <Modal
+      classNames="select-delivery-pickup"
+      dataTarget="small-location-nav"
+      largeOnSmallScreen
+    >
       <div className="small-search-container">
         {!schedule && <DismissModal />}
         {schedule &&
@@ -56,7 +60,7 @@ export const SelectLocationModal = ({ delivery }) => {
               </Button>
             </Fragment>
             }
-            {schedule && <DurationContent />}
+            {schedule && <ConnectedDurationContent mode={mode} currentSchedule={currentSchedule} />}
           </div>
         </div>
       </div>
@@ -80,7 +84,7 @@ const ButtonText = ({ mode, selectedLocation }) => (
     {mode === 'delivery' && <span>Delivery to</span>}
     {mode === 'pickup' && <span>PICKUP NEAR</span>}
     <span className="text">
-    {Object.keys(selectedLocation).length > 0
+      {Object.keys(selectedLocation).length > 0
         ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
         : 'Current Location'}
       <span className="chevron-down">

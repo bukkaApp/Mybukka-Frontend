@@ -21,10 +21,11 @@ const AddToCart = ({ mealToDisplay, manipulateSubmenus, modalShow, toggleAddToCa
         onHide={() => toggleAddToCart(false)}
         size="xl"
         show={modalShow}
+        className="pl-0"
         centered
       >
         <Modal.Body className="order-meals-section">
-          <Row classNames="order-meals-section">
+          <Row classNames="order-meals-section mx-0">
             <MealImage
               toggleAddToCart={toggleAddToCart}
               imageUrl={mealToDisplay.imageUrl}
