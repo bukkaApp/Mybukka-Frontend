@@ -41,7 +41,13 @@ describe('SearchResult component', () => {
     coordinates: [3.7474, 3.4848],
     fetchedBukkas: { nearbyBukkas: [] },
     fetchNearbyBukkas: jest.fn(),
-    status: { error: false }
+    status: { error: false },
+    cuisineReducer: {
+      cuisineItems: [],
+      errorMessage: '',
+      currentPage: 1,
+      cuisineToDisplay: { name: '' },
+    },
   };
   const { container, rerender } = render(
     <Provider store={store}>
