@@ -15,7 +15,11 @@ import './bukkaNavSmallScreen.scss';
 export const ResponsiveCategories = ({
   placeholderText, categoryItems
 }) => (
-  <Modal classNames="select-delivery-pickup" dataTarget="category-small-modal">
+  <Modal
+    classNames="select-delivery-pickup"
+    dataTarget="category-small-modal"
+    largeOnSmallScreen
+  >
     <div className="small-search-container">
       <div className="bukka-nav-small-category-border pb-2">
         <div className="mx-4 row">

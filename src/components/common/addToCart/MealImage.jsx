@@ -9,12 +9,12 @@ import Cancel from 'Components/icons/Cancel';
 import './mealImage.scss';
 
 const MealImage = ({ imageUrl, toggleAddToCart }) => (
-  <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 img-column">
+  <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-7 pl-0 img-column">
     <div
       role="button"
       arai-pressed="false"
       tabIndex="0"
-      className="cancel-modal-meal d-lg-none"
+      className="cancel-modal-meal d-lg-none obvious-bg"
       onClick={() => toggleAddToCart(false)}
     >
       <Cancel />

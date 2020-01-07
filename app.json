@@ -1,4 +1,6 @@
 {
+  "name": "Mybukka-Frontend",
+  "description": "Frontend of bukka App using React",
   "addons": [
 
   ],
@@ -25,11 +27,8 @@
       "required": true
     }
   },
-  "description": "Frontend of bukka App using React",
   "formation": {
   },
-  "name": "Mybukka-Frontend",
   "scripts": {
-  },
-  "stack": "heroku-18"
+  }
 }

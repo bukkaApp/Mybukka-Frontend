@@ -1,3 +1,18 @@
+.meal-picture-section {
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: inherit;
+    // background-color: rgba(45, 49, 56, 0.03);
+  }
+}
+
 .meal-card {
   border: 1px solid #eceff1;
   height: 128px;
@@ -24,8 +39,6 @@
 .meal-picture {
   height: 127px;
   width: 100%;
-  // object-fit: cover;
-  background-color: rgb(233, 231, 231);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;

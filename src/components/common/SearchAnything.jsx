@@ -33,12 +33,17 @@ const DefaultSearchCategories = () => (
     </div>
     <div className="row">
       {defaultSearch.map(searchList => (
-        <div
-          key={shortId.generate()}
-          className="col-6 defualt-search-category"
+        <Navlink
+          href={`/search?q=${searchList.split(' ').join('-')}`}
+          classNames="col-6 defualt-search-category pointer text-dark"
         >
-          {searchList}
-        </div>
+          <div
+            key={shortId.generate()}
+            className="col-12 px-0 defualt-search-category"
+          >
+            {searchList}
+          </div>
+        </Navlink>
       ))}
     </div>
   </div>
