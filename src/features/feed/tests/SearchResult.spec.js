@@ -33,7 +33,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('SearchResult component', () => {
+describe.skip('SearchResult component', () => {
   const props = {
     signOut: jest.fn(),
     setDeliveryModeAction: jest.fn(),
