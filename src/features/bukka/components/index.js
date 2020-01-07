@@ -64,7 +64,7 @@ const BukkaMenuScene = ({
   );
 };
 
-const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
+const mapStateToProps = ({cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
   categories,
   bukkaMenu,
 }, }) => ({

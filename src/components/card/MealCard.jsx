@@ -40,7 +40,7 @@ const MealDetails = ({ title, price, description }) => (
 const MealPicture = ({ imageUrl }) => (
   <Column classNames="col-4 col-md-3 col-lg-4 meal-picture-column">
     {imageUrl ? (
-      <div className="meal-picture-section">
+      <div className="meal-picture-section position-relative">
         <img className="d-none" src={imageUrl} alt="" />
         <div className="meal-picture" style={{ backgroundImage: `url(${imageUrl})` }} />
       </div>
@@ -58,8 +58,6 @@ const MealCard = ({
 }) => (
   <div
     className="meal-card"
-    // data-target="#mealModal"
-    // data-toggle="modal"
     onClick={() => setMealToDisplay(slug, null, true)}
     tabIndex={0}
     role="button"

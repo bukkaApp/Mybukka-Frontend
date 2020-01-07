@@ -128,6 +128,7 @@ const Asap = () =>
 export const DurationContent = ({
   mode, setDeliverySchedule, currentSchedule
 }) => {
+  console.log(mode, 'currentSchedule currentSchedule', currentSchedule);
   const { time, day } = currentSchedule;
   const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({
@@ -190,7 +191,7 @@ const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
   currentSchedule: schedule
 });
 
-const ConnectedDurationContent = connect(
+export const ConnectedDurationContent = connect(
   mapStateToProps,
   { setDeliverySchedule }
 )(DurationContent);

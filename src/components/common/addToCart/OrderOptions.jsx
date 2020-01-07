@@ -118,7 +118,11 @@ const OrderOptions = ({ title, description, price, slug, quantity, submenus, man
           <div className="options-details">
             <MealTitle title={title} />
             <MealDescription description={description} />
-            <SpecialInstructions handleChange={handleSpecialInstruction} />
+            <SpecialInstructions
+              quantity={quantity}
+              handleChange={handleSpecialInstruction}
+              itemsIsInCart={isSubmitted}
+            />
             {options.length > 0 &&
             <Options menus={options} setOption={setOption} option={option} />
             }

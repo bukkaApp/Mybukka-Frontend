@@ -117,7 +117,8 @@ const Carousel = ({
           activeIndex={activeIndex}
           title={title}
           description={description}
-          slidesLenght={slidesLenght}
+          slidesLength={slidesLenght}
+          itemSizes={numImagesToDisplay(width, xl, lg, md, sm)}
           numberOfViews={numberOfViews}
           placeId={placeId}
         />

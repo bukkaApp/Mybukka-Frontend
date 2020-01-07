@@ -14,3 +14,34 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+blockquote {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-style: italic;
+  display: inline-flex;
+  margin: 0.25em 0;
+  padding: 0.35em 10px;
+  line-height: 1.45;
+  position: relative;
+  color: #383838;
+  padding-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+  
+blockquote:before {
+  display: block;
+  content: "\201C";
+  position: relative;
+  font-size: 32px;
+  top: -4px;
+}
+
+blockquote::after {
+  display: block;
+  content: "\201D";
+  position: relative;
+  font-size: 32px;
+  top: -4px;
+}
