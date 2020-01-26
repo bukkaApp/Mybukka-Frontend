@@ -4,6 +4,7 @@
 /* eslint-disable no-underscore-dangle */
 import swal from 'sweetalert';
 import handleOrderQuantity from 'Utilities/handleOrderQuantity';
+import { number } from 'prop-types';
 
 const initialState = {
   items: [],
@@ -12,6 +13,7 @@ const initialState = {
     mealSlug: '',
     submenus: []
   },
+  initialTime: 0,
   totalCost: 0,
   status: {
     updated: false,
@@ -73,6 +75,11 @@ const cartUpdateError = (state, message) => ({
   errorMessage: message || 'an error occured'
 });
 
+const updateTime = state => ({
+  ...state,
+  initialTime: typeof state.initialTime == "number" ? new Date() : state.initialTime
+})
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_CART_SUCCESS': {
@@ -91,6 +98,15 @@ const cartReducer = (state = initialState, action) => {
     }
 
     case 'UPDATE_CART_LOCAL': {
+      if ((new Date() - state.initialTime) <= 43200000) {
+        return {
+          ...state,
+          initialTime: 0,
+          items: [],
+          item: {},
+          totalCost: 0
+        }
+      }
       if (state.items.length > 0 && action.data.bukka !== state.items[0].bukka) {
         swal('your cart can only contain items of a single bukka at any given time');
         return {
@@ -101,15 +117,14 @@ const cartReducer = (state = initialState, action) => {
       const item = { ...action.data, meal: action.data, quantity: 1 };
       if (state.items.length > 0) {
         const incrementQuantity = handleOrderQuantity(state.items, item);
-        console.log('incrementQuantity', incrementQuantity);
         if (incrementQuantity) {
-          return createLocalCart(state, incrementQuantity);
+          return createLocalCart(updateTime(state), incrementQuantity);
         }
         const newItems = [...state.items, item];
-        return createLocalCart(state, newItems);
+        return createLocalCart(updateTime(state), newItems);
       }
       const newItems = [...state.items, item];
-      return createLocalCart(state, newItems);
+      return createLocalCart(updateTime(state), newItems);
     }
 
     case 'UPDATE_CART_REMOVE': {
@@ -134,6 +149,15 @@ const cartReducer = (state = initialState, action) => {
     }
 
     default: {
+      if ((new Date() - state.initialTime) <= 43200000) {
+        return {
+          ...state,
+          initialTime: 0,
+          items: [],
+          item: {},
+          totalCost: 0
+        }
+      }
       return state;
     }
   }
