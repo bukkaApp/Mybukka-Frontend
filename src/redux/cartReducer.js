@@ -4,7 +4,7 @@
 /* eslint-disable no-underscore-dangle */
 import swal from 'sweetalert';
 import handleOrderQuantity from 'Utilities/handleOrderQuantity';
-import { number } from 'prop-types';
+import moment from 'moment';
 
 const initialState = {
   items: [],
@@ -45,13 +45,15 @@ const calculatePrice = (cartItems) => {
   return handleSubmenusPrice(cartItems) + totalPrice;
 };
 
-const createLocalCart = (state, newItems) => ({
-  ...state,
-  items: newItems,
-  totalCost: calculatePrice(newItems || []),
-  errorMessage: '',
-});
-
+const createLocalCart = (state, newItems, newTime) => {
+  return ({
+    ...state,
+    initialTime: newTime || state.initialTime,
+    items: newItems,
+    totalCost: calculatePrice(newItems || []),
+    errorMessage: '',
+  });
+}
 const cartUpdateSuccess = (userCart, state) => {
   const item = { ...userCart.items, ...userCart.items.meal[0] };
   const newCart = [...state.items, item];
@@ -77,7 +79,7 @@ const cartUpdateError = (state, message) => ({
 
 const updateTime = state => ({
   ...state,
-  initialTime: typeof state.initialTime == "number" ? new Date() : state.initialTime
+  initialTime: typeof state.initialTime == "number" ? moment(new Date()) : state.initialTime
 })
 
 const cartReducer = (state = initialState, action) => {
@@ -98,7 +100,9 @@ const cartReducer = (state = initialState, action) => {
     }
 
     case 'UPDATE_CART_LOCAL': {
-      if ((new Date() - state.initialTime) <= 43200000) {
+      const initialTime = state.initialTime;
+      const currTime = moment(new Date());
+      if (typeof initialTime !== "number" && currTime.diff(initialTime) >= 3000) {
         return {
           ...state,
           initialTime: 0,
@@ -118,13 +122,13 @@ const cartReducer = (state = initialState, action) => {
       if (state.items.length > 0) {
         const incrementQuantity = handleOrderQuantity(state.items, item);
         if (incrementQuantity) {
-          return createLocalCart(updateTime(state), incrementQuantity);
+          return createLocalCart(state, incrementQuantity);
         }
         const newItems = [...state.items, item];
-        return createLocalCart(updateTime(state), newItems);
+        return createLocalCart(state, newItems);
       }
       const newItems = [...state.items, item];
-      return createLocalCart(updateTime(state), newItems);
+      return createLocalCart(state, newItems, currTime);
     }
 
     case 'UPDATE_CART_REMOVE': {
@@ -149,7 +153,9 @@ const cartReducer = (state = initialState, action) => {
     }
 
     default: {
-      if ((new Date() - state.initialTime) <= 43200000) {
+      const initialTime = state.initialTime;
+      const currTime = moment(new Date());
+      if (typeof initialTime !== "number" && currTime.diff(initialTime) >= 3000) {
         return {
           ...state,
           initialTime: 0,
