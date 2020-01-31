@@ -51,7 +51,7 @@
     {
       "name": "cvv",
       "classNames": "form-control border-input-style p-0",
-      "type": "text",
+      "type": "password",
       "placeholderText": "CVV",
       "id": "cvv",
       "emptyFieldError": "Required",
