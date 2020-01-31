@@ -20,7 +20,7 @@ const Feed = ({
   category,
   fresh,
   favorites,
-  ...props,
+  ...props
 }) => (
   <Fragment>
     <AddToCart />
