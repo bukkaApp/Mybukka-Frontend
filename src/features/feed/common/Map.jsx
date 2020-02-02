@@ -41,7 +41,7 @@ const MapContainer = (props) => {
           <Marker
             onClick={onMarkerClick}
             icon={{
-              url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqolr_dZ2_rULsfQWEowMe9rLSmfag5V29PU6y7HLcLugL0--vEA&s',
+              url: 'https://res.cloudinary.com/mybukka/image/upload/c_scale,r_50,w_30,h_30/v1580550858/yaiwq492u1lwuy2lb9ua.png',
             anchor: new google.maps.Point(coordinates[0], coordinates[1]), // eslint-disable-line
             scaledSize: new google.maps.Size(44, 44)  // eslint-disable-line
             }}
