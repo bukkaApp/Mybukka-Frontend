@@ -13,7 +13,7 @@ const verifyCardTransaction = reference => async (dispatch) => {
     dispatch(loading(VERIFIED_CARD_TRANSACTION, true));
     const request = await axios({
       method: 'GET',
-      url: `/pay/confirmed_card/${reference}`,
+      url: `/card/verify/${reference}`,
       headers: {
         authorization: localStorage.getItem('x-access-token'),
         accept: 'application/json'

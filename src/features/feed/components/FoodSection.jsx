@@ -129,7 +129,7 @@ const FoodSection = ({
                     />
                   </div>
                   <div className={mapDisplay(displayMap)}>
-                    <Map />
+                    <Map restaurants={nearbyBukkas} />
                   </div>
                   {/* display carousel for map on small & medium screen */}
                   {displayMap && (

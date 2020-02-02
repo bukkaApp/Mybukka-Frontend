@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -6,29 +6,68 @@ import logOut from 'Components/navbar/actionCreators/logOut';
 import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
 
 import PropTypes from 'prop-types';
+import verifyCardTransaction from './actionCreators/verifyCardTransaction';
 import ModalRoot from '../modal-root/Index';
 import Checkout from './components/Checkout';
 
-const checkoutPage = ({ history: { push } }) => (
-  <Fragment>
-    <ModalRoot push={push} />
-    <Checkout push={push} />
-  </Fragment>
-);
+const CheckoutPage = ({
+  reference,
+  url,
+  history: { push },
+  verifyCard,
+}) => {
+  const [state, setState] = useState({ closed: false });
+
+  const handleOpenWindow = () => {
+    const self = window.open(url, '_blank');
+    setState(self);
+  };
+
+  // User has switched back to the tab
+  const onWindowClosed = () => {
+    verifyCard(reference);
+  };
+
+  useEffect(() => {
+    handleOpenWindow();
+    return () => {};
+  }, [url]);
+
+  useEffect(() => {
+    onWindowClosed();
+    return () => {};
+  }, [state.closed]);
+
+  return (
+    <Fragment>
+      <ModalRoot push={push} />
+      <Checkout
+        openNewWindow={handleOpenWindow}
+        push={push}
+      />
+    </Fragment>
+  );
+};
 
 const mapStateToProps = ({
   authenticationReducer: {
     status: { authenticated }
-  }
+  },
+  chargeUserReducer: {
+    data: { reference, status, url }
+  },
 }) => ({
-  authenticated
+  authenticated,
+  reference,
+  url
 });
 
 export default connect(mapStateToProps,
-  { signOut: logOut }
-)(AuthenticatedPages(checkoutPage));
+  { signOut: logOut,
+    verifyCard: verifyCardTransaction }
+)(AuthenticatedPages(CheckoutPage));
 
-checkoutPage.propTypes = {
+CheckoutPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired

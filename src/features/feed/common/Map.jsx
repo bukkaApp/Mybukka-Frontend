@@ -11,6 +11,7 @@ const MapContainer = (props) => {
   });
 
   const onMarkerClick = (newProps, marker) => {
+    console.log(newProps, marker);
     setMapConfigurations({
       selectedPlace: newProps,
       activeMarker: marker,
@@ -36,15 +37,16 @@ const MapContainer = (props) => {
         google={props.google}
         zoom={14}
       >
-        <Marker
-          onClick={onMarkerClick}
-          icon={{
-            url: '/img/icon.svg',
-            anchor: new google.maps.Point(32, 32), // eslint-disable-line
-            scaledSize: new google.maps.Size(64, 64)  // eslint-disable-line
-          }}
-          name={'Current location'}
-        />
+        {props.restaurants.map(({ location: { coordinates }, name, imageUrl }) => (
+          <Marker
+            onClick={onMarkerClick}
+            icon={{
+              url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqolr_dZ2_rULsfQWEowMe9rLSmfag5V29PU6y7HLcLugL0--vEA&s',
+            anchor: new google.maps.Point(coordinates[0], coordinates[1]), // eslint-disable-line
+            scaledSize: new google.maps.Size(44, 44)  // eslint-disable-line
+            }}
+            name={name}
+          />))}
         <InfoWindow
           marker={mapConfigurations.activeMarker}
           visible={mapConfigurations.showingInfoWindow}

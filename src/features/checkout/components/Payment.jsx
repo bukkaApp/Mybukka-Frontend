@@ -21,8 +21,10 @@ const Payment = ({
   setCardAsDefault,
   status,
   isCardSaved,
+  openNewWindow,
 }) => {
   const [active, setActive] = useState(false);
+  const [prefix, onPrefix] = useState(false);
   const [addCard, showCardForm] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     number: '',
@@ -36,9 +38,21 @@ const Payment = ({
     cvv: '',
   });
 
+  const handleExpDate = (value, data) => {
+    if (value.length === 2 && !prefix) {
+      onPrefix(true);
+      return { expDate: `${value.slice(0, 2)}/${value.slice(2)}` };
+    } if (value.length < 2 && prefix) {
+      onPrefix(false);
+    } return data;
+  };
+
   const handleChange = ({ target: { name, value } }) => {
-    const newFieldData = { [name]: value };
+    let newFieldData = { [name]: value };
     const validation = validateAFieldPayment(newFieldData, name);
+    if (name === 'expDate') {
+      newFieldData = handleExpDate(value, newFieldData);
+    }
     setInputData({
       ...inputData,
       ...newFieldData
@@ -117,7 +131,7 @@ const Payment = ({
                 aria-pressed="false"
                 tabIndex="0"
                 onClick={() => showCardForm(true)}
-                className="text-muted cursor-pointer"
+                className="text-muted cursor-pointer my-3"
               >+ add card</div>
             </div>
             : <AddCard
@@ -125,6 +139,7 @@ const Payment = ({
               cards={cards}
               inputData={inputData}
               active={active}
+              openNewWindow={openNewWindow}
               handleSaveButton={handleSaveButton}
               handleClick={() => showCardForm(false)}
               validationErrors={validationErrors}
