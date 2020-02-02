@@ -39,11 +39,12 @@ const MapContainer = (props) => {
       >
         {props.restaurants.map(({ location: { coordinates }, name, imageUrl }) => (
           <Marker
+            position={{ lat: coordinates[1], lng: coordinates[0] }}
             onClick={onMarkerClick}
             icon={{
               url: 'https://res.cloudinary.com/mybukka/image/upload/c_scale,r_50,w_30,h_30/v1580550858/yaiwq492u1lwuy2lb9ua.png',
-            anchor: new google.maps.Point(coordinates[0], coordinates[1]), // eslint-disable-line
-            scaledSize: new google.maps.Size(44, 44)  // eslint-disable-line
+            anchor: new google.maps.Point(32, 32), // eslint-disable-line
+            scaledSize: new google.maps.Size(30, 30)  // eslint-disable-line
             }}
             name={name}
           />))}
