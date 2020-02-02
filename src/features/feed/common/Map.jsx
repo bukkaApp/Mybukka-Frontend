@@ -39,7 +39,7 @@ const MapContainer = (props) => {
           lng: props.coordinates[0] || 3.356072
         }}
         google={props.google}
-        zoom={14}
+        zoom={16}
       >
         {props.restaurants.map(({ location: { coordinates }, name, imageUrl }) => (
           <Marker

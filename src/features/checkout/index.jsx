@@ -29,14 +29,16 @@ const CheckoutPage = ({
   };
 
   useEffect(() => {
-    handleOpenWindow();
+    if (url !== '') {
+      handleOpenWindow();
+    }
     return () => {};
   }, [url]);
 
   useEffect(() => {
     onWindowClosed();
     return () => {};
-  }, [state.closed]);
+  }, [state]);
 
   return (
     <Fragment>

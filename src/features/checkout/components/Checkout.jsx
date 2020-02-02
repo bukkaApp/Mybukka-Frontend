@@ -51,6 +51,7 @@ const Checkout = ({
   selectedLocation: { description },
   bukkaSlug,
   openNewWindow,
+  url,
 }) => {
   const [validationErrors, setValidationErrors] = useState({
     address: '',
@@ -98,7 +99,7 @@ const Checkout = ({
   };
 
   useEffect(() => {
-    if (message === 'Charge attempted') {
+    if (message === 'Charge attempted' && url === '') {
       $('#inputSecurityKey').modal('show');
     }
   });
@@ -207,7 +208,7 @@ const Checkout = ({
 
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
-  chargeUserReducer: { message, data },
+  chargeUserReducer: { message, data, url },
   // fetchBukkaMenuReducer: { totalPriceInCart },
   selectedLocationReducer: { selectedLocation },
   cartReducer: { totalCost, items },
@@ -241,6 +242,7 @@ const mapStateToProps = ({
   coordinates,
   mode,
   selectedLocation,
+  url,
 });
 
 export default connect(
