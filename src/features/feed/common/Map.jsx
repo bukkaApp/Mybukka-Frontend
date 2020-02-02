@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
@@ -29,10 +30,13 @@ const MapContainer = (props) => {
         style={{
           minWidth: '200px',
           minHeight: '140px',
+          width: '100%',
+          height: '100%',
+          position: 'relative'
         }}
         initialCenter={{
-          lat: 6.5419476,
-          lng: 3.356072
+          lat: props.coordinates[1] || 6.5419476,
+          lng: props.coordinates[0] || 3.356072
         }}
         google={props.google}
         zoom={14}
