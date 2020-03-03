@@ -106,12 +106,6 @@ export const LoginPage = ({
     }
   };
 
-  useEffect(() => () => {
-    if (!authenticated && NODE_ENV !== 'test') {
-      $('#authModal').modal('hide');
-    }
-  }, [authenticated]);
-
   useEffect(() => {
     if (location && location.search) {
       urlFilter(location.search);
@@ -192,7 +186,8 @@ LoginPage.defaultProps = {
 LoginPage.propTypes = {
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
+    location: PropTypes.objectOf(PropTypes.any),
   }).isRequired,
   authModal: PropTypes.bool,
   classNames: PropTypes.string,

@@ -110,6 +110,7 @@ const FoodSection = ({
               <div>
                 {mode === 'delivery' &&
                 <BukkasToExploreSection
+                  push={push}
                   promotedBukkas={fetchedPromotedBukkas}
                   fetchedCuisines={fetchedCuisines}
                 />

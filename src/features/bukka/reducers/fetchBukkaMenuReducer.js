@@ -52,6 +52,20 @@ const updateCart = (slug, bukkaMenu, cart, mealToDisplay) => {
 
 const fetchBukkaMenuReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'FETCH_BUKKA_MENU_ONLOADING': {
+      return {
+        ...state,
+        bukkaMenu: [{}],
+        status: {
+          fetched: false,
+          error: false
+        },
+        mealToDisplay: {},
+        modalShow: false,
+        errorMessage: '',
+      };
+    }
+
     case 'FETCH_BUKKA_MENU_SUCCESS': {
       const { bukkaMenu } = action.data;
       return {

@@ -12,6 +12,7 @@ const fetchBukkaMenu = (type, data) => ({
 const fetchBukkaMenuAction = (bukka, type = 'food') => async (dispatch) => {
   try {
     dispatch(loading(FETCH_BUKKA_MENU, true));
+    dispatch(fetchBukkaMenu('ONLOADING', []));
     const request = await axios.get(`/menu/${bukka}?type=${type}`);
     dispatch(loading(FETCH_BUKKA_MENU, false));
     dispatch(fetchBukkaMenu('SUCCESS', request.data));

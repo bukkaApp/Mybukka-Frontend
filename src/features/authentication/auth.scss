@@ -3,3 +3,9 @@
         min-height: calc(#{"100vh - 65px"});
     }
 }
+
+.link-hover {
+    &:hover {
+        color: #2d3138!important;
+    }
+}
