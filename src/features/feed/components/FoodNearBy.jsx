@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 // import SmallSpinner from 'Components/spinners/SmallSpinner';
 import Row from 'Components/grid/Row';
+import fetchBukkaAction from 'Redux/fetchBukkaAction';
 import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
@@ -28,10 +29,12 @@ const FoodNearBy = ({
   currentPage,
   errorMessage,
   fetchBukkaMenu,
+  fetchBukka,
 }) => {
   const handleClick = (event, bukka) => {
     event.preventDefault();
     fetchBukkaMenu(`${bukka.slug}`)
+      .then(() => fetchBukka(bukka.slug))
       .then(() => push(`/bukka/${bukka.slug}`));
   };
 
@@ -93,7 +96,8 @@ const mapStateToProps = ({
 export default connect(
   mapStateToProps,
   { fetchMoreBukkas: fetchBukkas,
-    fetchBukkaMenu: fetchBukkaMenuAction }
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    fetchBukka: fetchBukkaAction, }
 )(FoodNearBy);
 
 FoodNearBy.defaultProps = {

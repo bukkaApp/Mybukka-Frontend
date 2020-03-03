@@ -14,7 +14,7 @@ const renameCategory = name => (
     'New on Bukka' : name
 );
 
-const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
+const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
   <Fragment>
     <div className="carousel-divider" />
     <div className="pt-0 p-sm-3" />
@@ -25,6 +25,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
       carouselType="collection"
       textOverlay
       top
+      push={push}
       slideItems={bukkaData}
       imageHeight="img-fluid"
       classNames="col-lg-6 col-md-6 col-sm-11 col-11"
@@ -42,6 +43,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
               lg={2}
               md={2}
               sm={1}
+              push={push}
               placeId={promoBukkas._id}
               description={promoBukkas.description}
               numberOfViews={promoBukkas.numItems}
@@ -65,6 +67,7 @@ const BukkasToExploreSection = ({ promotedBukkas, fetchedCuisines }) => (
         md={4}
         sm={2}
         textOverlay
+        push={push}
         carouselType="cuisine"
         textPositionBottom
         title="Top Categories"

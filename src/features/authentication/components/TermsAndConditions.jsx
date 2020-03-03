@@ -7,7 +7,7 @@ import './termsandconditions.scss';
 const TermsAndConditions = ({ title, handleLinkOptions }) => {
   if (title === 'Sign Up') {
     return (
-      <div className="col-lg-12 padding terms">
+      <div className="form-group padding terms">
         <p>
             By clicking the Sign Up or Facebook button, you agree to our{' '}
           <span

@@ -85,12 +85,6 @@ export const RegisterPage = ({
     }
   };
 
-  useEffect(() => () => {
-    if (!authenticated && NODE_ENV !== 'test') {
-      $('#authModal').modal('hide');
-    }
-  }, [authenticated]);
-
   useEffect(() => {
     if (authenticated) {
       $('#authModal').modal('hide');
