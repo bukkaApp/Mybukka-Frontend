@@ -15,6 +15,7 @@ import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkas from '../actionCreators/fetchMoreBukkas';
 
 const FoodNearBy = ({
+  push,
   delivery,
   bukkaData,
   title,
@@ -27,53 +28,61 @@ const FoodNearBy = ({
   currentPage,
   errorMessage,
   fetchBukkaMenu,
-}) => (
-  <div className="mt-4 mb-4">
-    {title && (
-      <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
-    )}
-    {children}
-    <Container>
-      {bukkaData.length > 0 && (
-        <InfiniteScroll
-          loadMore={() =>
-            fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
-          hasMore={
-            errorMessage !== 'There are currently no bukkas in your location'
-          }
-          loader={
-            <div className="loader text-center" key={0}>
-              <div className="spinner-grow custom-text-color" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-            </div>
-          }
-          useWindow
-          initialLoad={false}
-        >
-          <Row classNames="pb-4">
-            {bukkaData.map(bukka => (
-              <BukkaCard
-                key={shortId.generate()}
-                imageUrl={bukka.imageUrl}
-                mealName={bukka.name}
-                delivery={delivery}
-                tags={bukka.placeGroup}
-                handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
-                deliveryPrice={bukka.deliveryPrice}
-                deliveryTime={bukka.deliveryTime}
-                rating={bukka.rating}
-                imageHeight="img-fluid"
-                classNames={classNames}
-                href={`/bukka/${bukka.slug}`}
-              />
-            ))}
-          </Row>
-        </InfiniteScroll>
+}) => {
+  const handleClick = (event, bukka) => {
+    event.preventDefault();
+    fetchBukkaMenu(`${bukka.slug}`)
+      .then(() => push(`/bukka/${bukka.slug}`));
+  };
+
+  return (
+    <div className="mt-4 mb-4">
+      {title && (
+        <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
       )}
-    </Container>
-  </div>
-);
+      {children}
+      <Container>
+        {bukkaData.length > 0 && (
+          <InfiniteScroll
+            loadMore={() =>
+              fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
+            hasMore={
+              errorMessage !== 'There are currently no bukkas in your location'
+            }
+            loader={
+              <div className="loader text-center" key={0}>
+                <div className="spinner-grow custom-text-color" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+              </div>
+            }
+            useWindow
+            initialLoad={false}
+          >
+            <Row classNames="pb-4">
+              {bukkaData.map(bukka => (
+                <BukkaCard
+                  key={shortId.generate()}
+                  imageUrl={bukka.imageUrl}
+                  mealName={bukka.name}
+                  delivery={delivery}
+                  tags={bukka.placeGroup}
+                  handleClick={e => handleClick(e, bukka)}
+                  deliveryPrice={bukka.deliveryPrice}
+                  deliveryTime={bukka.deliveryTime}
+                  rating={bukka.rating}
+                  imageHeight="img-fluid"
+                  classNames={classNames}
+                  href={`/bukka/${bukka.slug}`}
+                />
+              ))}
+            </Row>
+          </InfiniteScroll>
+        )}
+      </Container>
+    </div>
+  );
+};
 
 const mapStateToProps = ({
   selectedLocationReducer: { coordinates },
