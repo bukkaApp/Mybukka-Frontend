@@ -126,6 +126,7 @@ const FoodSection = ({
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
+                      push={push}
                     />
                   </div>
                   <div className={mapDisplay(displayMap)}>
