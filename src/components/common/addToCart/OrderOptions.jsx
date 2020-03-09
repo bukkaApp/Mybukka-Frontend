@@ -22,7 +22,7 @@ import Options from './Options';
 export const ReactStateProvider = React.createContext({});
 export const ReactSubMenuProvider = React.createContext({});
 
-const OrderOptions = ({ title, description, price, slug, quantity, submenus, manipulateSubmenus, toggleAddToCart, options }) => {
+const OrderOptions = ({ title, description, price, slug, quantity, submenus, manipulateSubmenus, toggleAddToCart, options, imageUrl }) => {
   const [state, setState] = useState({});
   const [specialInstruction, handleSpecialInstruction] = useState('');
   const [isSubmitted, submit] = useState(false);
@@ -105,13 +105,13 @@ const OrderOptions = ({ title, description, price, slug, quantity, submenus, man
         }
       }
       >
-        <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-5 order-options-section">
+        <Column classNames={`col-12 col-xs-12 col-sm-12 col-md-12 col-lg-${imageUrl ? '5' : '12'} order-options-section`}>
           <div
             onClick={() => toggleAddToCart(false)}
             aria-pressed="false"
             tabIndex="0"
             role="button"
-            className="dismiss-modal-options d-none d-lg-block"
+            className={`dismiss-modal-options ${imageUrl ? 'd-none' : ''} d-lg-block`}
           >
             <Cancel />
           </div>
