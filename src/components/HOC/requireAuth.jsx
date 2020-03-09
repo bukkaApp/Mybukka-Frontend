@@ -23,8 +23,13 @@ export default ChildComponent => {
         this.props.signOut();
       }
       if (!this.props.auth) {
-        swal('You need to login first');
-        this.props.history.push(`/login?next=${currentPage}`);
+        const that = this;
+        swal('You need to login first')
+          .then((okay) => {
+            if (okay) {
+              return that.props.history.push(`/login?next=${currentPage}`);
+            }
+          });
       }
     }
 
