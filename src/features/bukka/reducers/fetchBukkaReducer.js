@@ -1,5 +1,5 @@
 const initialState = {
-  fetchedBukka: {},
+  fetchedBukka: { location: { coordinates: [] } },
   status: {
     fetched: false,
     error: false,

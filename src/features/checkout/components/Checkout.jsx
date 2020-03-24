@@ -50,7 +50,9 @@ const Checkout = ({
   fetchBukka,
   selectedLocation: { description },
   bukkaSlug,
+  bukkaCoordinates,
 }) => {
+  const [isWithinDeliveryRange, setDeliveryRange] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     address: '',
     deliveryInstructions: '',
@@ -64,6 +66,34 @@ const Checkout = ({
     name: authServices.getFullName(),
     mobileNumber: ''
   });
+
+  const radius = (x) => x * Math.PI / 180;
+
+  const getDistance = function(userCoordinates, bukkaCoordinates) {
+    const earthRadius = 6378137; // Earth’s mean radius in meter
+    // [1] - lattitude || [2] - longitude
+    const differenceInLat = radius(bukkaCoordinates[1] - userCoordinates[1]);
+    const differenceInLng = radius(bukkaCoordinates[0] - userCoordinates[0]);
+    const TrigonometryDistance = Math.sin(differenceInLat / 2) * Math.sin(differenceInLat / 2) +
+      Math.cos(radius(userCoordinates[1])) * Math.cos(radius(bukkaCoordinates[1])) *
+      Math.sin(differenceInLng / 2) * Math.sin(differenceInLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(TrigonometryDistance), Math.sqrt(1 - TrigonometryDistance));
+    const distance = earthRadius * c;
+    return distance; // returns the distance in meter
+  };
+
+  const validateUserLocationRange = () => {
+    // user coordinate
+    const distanceInMeter = getDistance(coordinates, bukkaCoordinates);
+    const distanceInKilometer = distanceInMeter / 1000;
+    if(distanceInKilometer > 5) {
+      setDeliveryRange(false)
+      setValidationErrors({
+        ...validateAllFields,
+        address: 'Sorry, this restaurant is not within your location',
+      })
+    } else { setDeliveryRange(true) }
+  }
 
   const handleDeliveryAddress = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
@@ -97,12 +127,18 @@ const Checkout = ({
   };
 
   useEffect(() => {
+    if (bukkaCoordinates.length) {
+      validateUserLocationRange();
+    }
+  }, [deliveryAddressData])
+
+  useEffect(() => {
     if (message === 'Charge attempted') {
       $('#inputSecurityKey').modal('show');
     }
   });
 
-  useEffect(() => {
+  useEffect(() => {bukkaCoordinates
     scrollTo(0, 0);
     const bukkaMenuToFetch = location.pathname.split('/')[2];
     if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
@@ -134,12 +170,15 @@ const Checkout = ({
   };
 
   const handleCheckout = () => {
+    validateUserLocationRange();
     if (cards.length <= 0) {
       swal('Please save your card before proceeding to checkout');
     } else if (!hasDefaultCard) {
       swal('Please select your card');
     } else if (!validateAddress()) {
       scrollTo(0, 0);
+    } else if (!isWithinDeliveryRange) {
+      return;
     } else {
       handleUserCheckout();
     }
@@ -218,7 +257,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
-  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug } },
+  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates } } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -231,6 +270,7 @@ const mapStateToProps = ({
   amount: totalCost,
   message,
   data,
+  bukkaCoordinates,
   bukkaMenu,
   bukkaSlug,
   menuIsFetched: fetched,
