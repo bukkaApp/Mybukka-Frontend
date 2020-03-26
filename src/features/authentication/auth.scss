@@ -1,11 +1,14 @@
-@media (max-width: 767px) {
-    .auth-page {
-        min-height: calc(#{"100vh - 65px"});
+.auth-page {
+    @media (max-width: 576px) {
+       background-color: white!important;
+    }
+    @media (max-width: 767px) {
+       min-height: calc(#{"100vh - 65px"});
     }
 }
 
-.link-hover {
-    &:hover {
-        color: #2d3138!important;
-    }
+.auth-wrapper {
+    @media (max-width: 576px) {
+        box-shadow: none!important;
+     }
 }

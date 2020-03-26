@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
@@ -29,15 +31,9 @@ const InputKeyForm = ({
   pin,
   receiver,
   amount,
-  finishTransaction,
-  mode,
-  cart,
-  deliveryAddress,
-  day,
-  time,
-  coordinates,
   status,
-  saveUserCard,
+  url,
+  saveCard,
   displayText,
 }) => {
   const [active, setActive] = useState(false);
@@ -45,11 +41,16 @@ const InputKeyForm = ({
 
   const handleClick = () => {
     if (!active) {
-      saveUserCard({ reference, [keyType]: pin, receiver, amount, });
+      saveCard({ reference, [keyType]: pin, receiver, amount, });
       setActive(true);
     }
   };
 
+  /**
+   * @function awaitResponse
+   * @summary await card confirmation Response interface if response was pending
+   * @returns {jsx} jsx
+   */
   const awaitResponse = () => (
     <>
       <h5 className="text-center">Submittion Pending </h5>
@@ -63,7 +64,12 @@ const InputKeyForm = ({
     </>
   );
 
-  const requestSecurity = () => (
+  /**
+   * @function requestSecurityInfo
+   * @summary Request security info like otp, pin for card confirmation
+   * @returns {jsx} jsx
+   */
+  const requestSecurityInfo = () => (
     <>
       <h5 className="text-center">Submit {keyType.toUpperCase()}</h5>
       {displayText && <h6 className="text-center">{displayText}</h6>}
@@ -85,18 +91,36 @@ const InputKeyForm = ({
     </>
   );
 
+  /**
+   * @function openUrlResponse
+   * @summary open url to bank portal for card confirmation
+   * @returns {jsx} jsx
+   */
+  const openUrlResponse = () => (
+    <>
+      <h5 className="text-center">Continue</h5>
+      {displayText && <h6 className="text-center">{displayText}</h6>}
+      <br />
+      <div className="text-center">
+        Click to complete <a href={`${url}`} target="_blank" rel="noopener noreferrer">Card Authorisation</a>
+      </div>
+    </>
+  );
+
   return (
     <div className="send-security-section animated">
       {keyType === 'pending' && awaitResponse()}
-      {keyType !== 'pending' && requestSecurity()}
+      {(keyType !== 'pending' && !url) && requestSecurityInfo()}
+      {/* {(keyType !== 'pending' && url) && openUrlResponse()} */}
     </div>
   );
 };
 
 const SendSecurityKeyForm = ({
   reference,
-  success,
-  message,
+  // success,
+  // message
+  openNewWindow,
   receiver,
   amount,
   finishTransaction,
@@ -106,15 +130,16 @@ const SendSecurityKeyForm = ({
   day,
   time,
   coordinates,
-  push,
+  // push,
   chargeStatus,
   saveCard,
   verifyCard,
   transactionSuccess,
-  transactionDetails,
+  // transactionDetails,
   paymentStatus,
   displayText,
   cardSaved,
+  url,
 }) => {
   const [key, setKey] = useState('');
   const [sent, setState] = useState(false);
@@ -152,7 +177,7 @@ const SendSecurityKeyForm = ({
       <DismissModal />
       {(visibleCount >= 0 && cardSaved)
         && Object.keys(cardSaved).length > 0 && <SuccessMessage />}
-      {(!transactionSuccess && !paymentStatus && !cardSaved) && <InputKeyForm
+      <InputKeyForm
         setKey={setKey}
         reference={reference}
         pin={key}
@@ -161,30 +186,17 @@ const SendSecurityKeyForm = ({
         finishTransaction={finishTransaction}
         cart={cart}
         mode={mode}
+        verifyCard={verifyCard}
         deliveryAddress={deliveryAddress}
         coordinates={coordinates}
         day={day}
         time={time}
-        status={chargeStatus}
-        saveUserCard={saveCard}
-      />}
-      {(paymentStatus && displayText && !cardSaved) && <InputKeyForm
-        setKey={setKey}
-        reference={reference}
-        pin={key}
-        receiver={receiver}
-        amount={amount}
-        finishTransaction={finishTransaction}
-        cart={cart}
-        mode={mode}
-        deliveryAddress={deliveryAddress}
-        coordinates={coordinates}
-        day={day}
-        time={time}
-        status={paymentStatus}
-        saveUserCard={saveCard}
-        displayText={displayText}
-      />}
+        url={url}
+        status={(paymentStatus && displayText && !cardSaved) ? paymentStatus
+          : (!transactionSuccess && !paymentStatus && !cardSaved) ? chargeStatus : ''}
+        saveCard={saveCard}
+        displayText={(paymentStatus && displayText && !cardSaved) ? displayText : null}
+      />
     </Modal>
   );
 };
@@ -192,12 +204,12 @@ const SendSecurityKeyForm = ({
 const mapStateToProps = ({
   saveUserCardReducer: {
     status: { success },
-    errorMessage,
+    // errorMessage,
     newPayment: { status: paymentStatus, display_text: displayText, card },
     message
   },
   chargeUserReducer: {
-    data: { reference, status }
+    data: { reference, status, url }
   },
   cartReducer: { totalCost },
   fetchBukkaReducer: {
@@ -223,6 +235,7 @@ const mapStateToProps = ({
   paymentStatus,
   displayText,
   cardSaved: card,
+  url,
 });
 
 export default connect(
