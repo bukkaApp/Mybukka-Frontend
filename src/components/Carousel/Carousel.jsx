@@ -3,6 +3,9 @@ import React, { Fragment, useState, useLayoutEffect } from 'react';
 import shortId from 'shortid';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import fetchBukkaAction from 'Redux/fetchBukkaAction';
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import Container from 'Components/container/Container';
 import ChevronRight from 'Icons/ChevronRight';
 import PropTypes, { any } from 'prop-types';
@@ -81,12 +84,12 @@ const Carousel = ({
   carouselType,
   delivery,
   controlClassNames,
-  textPositionTop,
   textPositionBottom,
   type,
   numberOfViews,
   description,
   placeId,
+  push, fetchBukka, fetchBukkaMenu,
 }) => {
   const [width, height] = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -108,6 +111,13 @@ const Carousel = ({
 
     index += 1;
     setActiveIndex(index);
+  };
+
+  const handleClick = (event, bukka) => {
+    event.preventDefault();
+    fetchBukkaMenu(`${bukka.slug}`)
+      .then(() => fetchBukka(bukka.slug))
+      .then(() => push(`/bukka/${bukka.slug}`));
   };
 
   return (
@@ -159,6 +169,7 @@ const Carousel = ({
                     deliveryPrice={bukka.deliveryPrice}
                     tags={bukka.tags && bukka.tags.length > 0 ? bukka.tags : bukka.placeGroup}
                     slug={bukka.slug}
+                    handleClick={e => handleClick(e, bukka)}
                     classNames={`${classNames}`}
                     href={type === 'majorCuisine' ?
                       `/categories/${bukka.name}`
@@ -181,7 +192,13 @@ const Carousel = ({
   );
 };
 
-export default Carousel;
+export default connect(
+  () => ({}),
+  {
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    fetchBukka: fetchBukkaAction
+  }
+)(Carousel);
 
 const defaultProps = {
   classNames: ''
@@ -204,6 +221,7 @@ ControlRight.propTypes = {
 Carousel.defaultProps = {
   textOverlay: false,
   controlClassNames: '',
+  push: () => {},
   title: '',
   handleRefFocus: () => {},
   delivery: false,

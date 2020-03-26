@@ -110,6 +110,7 @@ const FoodSection = ({
               <div>
                 {mode === 'delivery' &&
                 <BukkasToExploreSection
+                  push={push}
                   promotedBukkas={fetchedPromotedBukkas}
                   fetchedCuisines={fetchedCuisines}
                 />
@@ -126,6 +127,7 @@ const FoodSection = ({
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
+                      push={push}
                     />
                   </div>
                   <div className={mapDisplay(displayMap)}>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Button from 'Components/button/Button';
 
 const Divider = () => (
-  <div className="divider-box mt-2 mb-2">
+  <div className="divider-box padding mt-2 mb-2">
     <div className="divider">
       <span>or</span>
     </div>

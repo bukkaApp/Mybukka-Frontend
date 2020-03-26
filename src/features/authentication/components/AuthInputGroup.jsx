@@ -9,7 +9,7 @@ import './authinputgroup.scss';
 
 const SignUpGroup = props => (
   <div className="mt-1">
-    <TextField {...props} />
+    <TextField {...props} className="pl-0" />
   </div>
 );
 
@@ -22,7 +22,7 @@ const SignInGroup = (props) => {
       <Title {...props} />
       <div className="input-group-wrapper mt-9">
         <div className={`input-slide text-center ${slideToNextInput}`}>
-          <TextField {...props} />
+          <TextField {...props} classNames="pl-0" />
         </div>
         <ForgotPassword {...props} />
       </div>

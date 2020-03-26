@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import toggleAddToCartModal from 'Redux/toggleAddToCartModal';
 
+import generateImageSizes from 'Utilities/generateScreenSizeImageUrl';
 import Column from 'Components/grid/Column';
 import Cancel from 'Components/icons/Cancel';
 
@@ -19,7 +20,7 @@ const MealImage = ({ imageUrl, toggleAddToCart }) => (
     >
       <Cancel />
     </div>
-    <img src={imageUrl} className="image-details img-fluid" alt="" />
+    <img src={generateImageSizes(imageUrl, ['650', 600])} className="image-details img-fluid" alt="" />
   </Column>
 );
 

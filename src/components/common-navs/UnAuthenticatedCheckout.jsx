@@ -12,12 +12,13 @@ const UnAuthenticatedCheckout = ({
   push,
   authenticated,
   mode,
+  to,
   handleCheckoutMode,
 }) => {
   const handleClick = (e) => {
     e.preventDefault();
     handleCheckoutMode(false);
-    push('/checkout');
+    push(to);
   };
 
   const handleCancel = (e) => {

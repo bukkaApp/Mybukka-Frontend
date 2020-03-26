@@ -19,17 +19,18 @@
 }
 
 .auth-footer-btn {
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    letter-spacing: initial;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: normal;
-    color: #9c1c26;
-    &:focus, &:hover {
-        text-decoration: none;
-        outline: none;
-        color: #9c1c26;
-    };
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  letter-spacing: initial;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  color: #9c1c26;
+  &:focus, &:hover {
+      text-decoration: none;
+      outline: none;
+      color: #9c1c26;
+  };
 }

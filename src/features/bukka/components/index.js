@@ -59,12 +59,12 @@ const BukkaMenuScene = ({
 
       <BukkaMeals searchQuery={searchQuery} />
       <Footer />
-      <UnAuthenticatedCheckout push={push} />
+      <UnAuthenticatedCheckout push={push} to={`/merchant/${bukka}/checkout`} />
     </div>
   );
 };
 
-const mapStateToProps = ({cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
+const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
   categories,
   bukkaMenu,
 }, }) => ({

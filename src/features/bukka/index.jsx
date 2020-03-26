@@ -9,16 +9,18 @@ import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 
 import Bukka from './components';
 
-const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu }) => {
+const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu, bukkaMenu }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
     const bukkaToFetch = location.pathname.split('/')[2];
-    fetchBukka(bukkaToFetch);
-    fetchBukkaMenu(bukkaToFetch);
-  });
+    if (bukkaMenu[0].bukka !== bukkaToFetch) {
+      fetchBukka(bukkaToFetch);
+      fetchBukkaMenu(bukkaToFetch);
+    }
+  }, []);
 
   return (
     <Fragment>
@@ -28,8 +30,12 @@ const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu }) => {
   );
 };
 
+const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
+  bukkaMenu
+});
+
 export default connect(
-  () => ({}),
+  mapStateToProps,
   { fetchBukka: fetchBukkaAction, fetchBukkaMenu: fetchBukkaMenuAction }
 )(Scene);
 

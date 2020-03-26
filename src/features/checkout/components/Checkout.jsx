@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from 'react';
 
@@ -16,7 +17,6 @@ import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
-
 import { validateAField, validateAllFields } from '../validation/validateField';
 
 import SendSecurityKeyForm from './SendSecurityKeyForm';
@@ -119,8 +119,12 @@ const Checkout = ({
     || !authServices.isValid(authServices.getToken())) {
       signOut();
       setTimeout(() => {
-        swal('You need to login first');
-        return push(`/login?next=${currentPage}`);
+        swal('You need to login first')
+          .then((willDelete) => {
+            if (willDelete) {
+              return push(`/login?next=${currentPage}`);
+            }
+          });
       }, 2000);
     }
   });

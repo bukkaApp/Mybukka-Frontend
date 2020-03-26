@@ -27,21 +27,21 @@ const AuthFooter = ({
   };
 
   const minWidth = window.innerWidth;
-  let btnAttribute = { handleClick: navigateToAuth };
-  if (minWidth > 767) {
-    if (location.pathname.match('/login')
-        || location.pathname.match('/signup')) {
-      btnAttribute = {
-        dataToggle: 'modal',
-        dataTarget: '#modal',
-        handleClick: goToAuthRoute
-      };
-    } else {
-      btnAttribute = {
-        handleClick: goToAuthRoute
-      };
-    }
-  }
+  let btnAttribute = { handleClick: goToAuthRoute };
+  // if (minWidth > 767) {
+  //   if (location.pathname.match('/login')
+  //       || location.pathname.match('/signup')) {
+  //     btnAttribute = {
+  //       // dataToggle: 'modal',
+  //       // dataTarget: '#modal',
+  //       handleClick: goToAuthRoute
+  //     };
+  //   } else {
+  //     btnAttribute = {
+  //       handleClick: goToAuthRoute
+  //     };
+  //   }
+  // }
 
   const formType = title === 'Sign Up';
   const AltOption = (
