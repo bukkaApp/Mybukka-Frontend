@@ -45,6 +45,7 @@ const Checkout = ({
   cards,
   hasDefaultCard,
   coordinates,
+  bukkaDeliveryDistance,
   mode,
   signOut,
   fetchBukka,
@@ -86,7 +87,7 @@ const Checkout = ({
     // user coordinate
     const distanceInMeter = getDistance(coordinates, bukkaCoordinates);
     const distanceInKilometer = distanceInMeter / 1000;
-    if(distanceInKilometer > 5) {
+    if(distanceInKilometer > bukkaDeliveryDistance) {
       setDeliveryRange(false)
       setValidationErrors({
         ...validateAllFields,
@@ -257,7 +258,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
-  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates } } },
+  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -271,6 +272,7 @@ const mapStateToProps = ({
   message,
   data,
   bukkaCoordinates,
+  bukkaDeliveryDistance,
   bukkaMenu,
   bukkaSlug,
   menuIsFetched: fetched,
