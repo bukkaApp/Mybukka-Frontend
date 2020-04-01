@@ -7,8 +7,11 @@ import Navlink from 'Components/navlink/Navlink';
 import searchAnything from 'Redux/searchAnything';
 import InputField from 'Components/input/InputField';
 import Magnifier from '../icons/Magnifier';
-import { ReusableButton, ReusableDropdown, ReusableWrapper }
-  from '../common-navs/ReusableNavElements';
+import {
+  ReusableButton,
+  ReusableDropdown,
+  ReusableWrapper,
+} from '../common-navs/ReusableNavElements';
 import data from './data.json';
 import './searchanything.scss';
 
@@ -28,9 +31,7 @@ const SearchInputField = ({ handleChange }) => (
 
 const DefaultSearchCategories = () => (
   <div className="search-padding">
-    <div className="search-result-head">
-      cuisines
-    </div>
+    <div className="search-result-head">cuisines</div>
     <div className="row">
       {defaultSearch.map(searchList => (
         <Navlink
@@ -50,9 +51,7 @@ const DefaultSearchCategories = () => (
 );
 
 const SearchHead = ({ title }) => (
-  <div className="search-result-head p-3">
-    {title}
-  </div>
+  <div className="search-result-head p-3">{title}</div>
 );
 
 const SearchItem = ({ searchObj }) => (
@@ -77,32 +76,32 @@ const ViewAllSearch = ({ searchText }) => (
     <hr />
     <div className="row px-3 pt-1 pb-2 pointer">
       <div className="col-12 text-color search-text">
-        View all results for {'"'}{searchText}{'"'}
+        View all results for {'"'}
+        {searchText}
+        {'"'}
       </div>
     </div>
   </Fragment>
 );
 
-const SearchTextMatch = ({ matchText }) => (
-  matchText &&
-  <div className="row px-3 pt-1 pb-2 pointer">
-    <div className="col-10 text-muted search-text">
-      {matchText}
+const SearchTextMatch = ({ matchText }) =>
+  matchText && (
+    <div className="row px-3 pt-1 pb-2 pointer">
+      <div className="col-10 text-muted search-text">{matchText}</div>
+      <span className="pb-3 icon">
+        <Magnifier />
+      </span>
     </div>
-    <span className="pb-3 icon">
-      <Magnifier />
-    </span>
-  </div>
-);
+  );
 
-const headerTexts = ['for delivery', 'for pickup', 'items'];
+const headerTexts = ['for ', 'for pickup', 'items'];
 
 const lists = ['delivery', 'pickup', 'items'];
 
 const SearchLists = ({ item }) => (
   <Fragment>
-    {searchData.map(search => (
-      search.items.map((itm) => {
+    {searchData.map(search =>
+      search.items.map(itm => {
         if (itm.includes(item)) {
           return (
             <Navlink
@@ -115,14 +114,14 @@ const SearchLists = ({ item }) => (
           );
         }
         return null;
-      })
-    ))}
+      }),
+    )}
 
     {lists.map((list, index) => (
       <Fragment>
         <hr className="my-1" />
         <SearchHead title={headerTexts[index]} />
-        {searchData.map((search) => {
+        {searchData.map(search => {
           if (search.type === list) {
             return <SearchItem searchObj={search} />;
           }
@@ -134,7 +133,7 @@ const SearchLists = ({ item }) => (
   </Fragment>
 );
 
-const SearchAnything = (props) => {
+const SearchAnything = props => {
   const { handleSearch } = props;
   const [search, setSearch] = useState('');
 
@@ -155,32 +154,31 @@ const SearchAnything = (props) => {
           </div>
         </div>
       </ReusableButton>
-      {props.focus &&
-      <ReusableDropdown classNames="search-anything-scene">
-        <div className="search-result-content">
-          <div>
-            {search === '' ?
-              <DefaultSearchCategories />
-              : <SearchLists item={search} />
-            }
+      {props.focus && (
+        <ReusableDropdown classNames="search-anything-scene">
+          <div className="search-result-content">
+            <div>
+              {search === '' ? (
+                <DefaultSearchCategories />
+              ) : (
+                <SearchLists item={search} />
+              )}
+            </div>
           </div>
-        </div>
-      </ReusableDropdown>
-      }
+        </ReusableDropdown>
+      )}
     </ReusableWrapper>
   );
 };
 
-export default connect(null,
-  { handleSearch: searchAnything }
-)(SearchAnything);
+export default connect(null, { handleSearch: searchAnything })(SearchAnything);
 
 SearchLists.defaultProps = {
-  searchText: ''
+  searchText: '',
 };
 
 ViewAllSearch.propTypes = {
-  searchText: PropTypes.string.isRequired
+  searchText: PropTypes.string.isRequired,
 };
 
 SearchAnything.defaultProps = {
@@ -189,19 +187,19 @@ SearchAnything.defaultProps = {
 
 SearchAnything.propTypes = {
   handleSearch: PropTypes.func,
-  focus: PropTypes.bool.isRequired
+  focus: PropTypes.bool.isRequired,
 };
 
 SearchInputField.propTypes = {
-  handleChange: PropTypes.func.isRequired
+  handleChange: PropTypes.func.isRequired,
 };
 
 SearchHead.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 SearchLists.defaultProps = {
-  item: ''
+  item: '',
 };
 
 SearchLists.propTypes = {
@@ -213,9 +211,7 @@ SearchItem.propTypes = {
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
-      PropTypes.arrayOf(
-        PropTypes.string
-      )
-    ])
-  ).isRequired
+      PropTypes.arrayOf(PropTypes.string),
+    ]),
+  ).isRequired,
 };

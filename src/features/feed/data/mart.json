@@ -1,0 +1,127 @@
+[
+    {
+      "deliveryTime": "40-50 min",
+      "title": "My Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 200,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-7.webp",
+      "position": {
+        "top": true
+      }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 300,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-5.webp",
+      "rating": "popular",
+      "position": {
+        "top": true
+      }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "The New Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 300,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-6.webp",
+      "heading": "Get Drinks",
+      "subHeading": "ALCOHOL DELIVERED",
+      "position": { "top": true }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Chat Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 300,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-8.webp",
+      "rating": "popular",
+      "heading": "Get Fresh",
+      "subHeading": "Groceries Delivered",
+      "position": { "top": true }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Mart",
+      "remark": true,
+      "tags": ["new"],
+      "deliveryCost": 200,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-1.webp",
+      "rating": "popular",
+      "heading": "Get All Orders Delivered Free",
+      "subHeading": "TRY UNLIMITED",
+      "position": { "bottom": true }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Jack Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 200,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595379/bukka-favorite-2.webp",
+      "rating": "popular",
+      "position": {
+        "top": true
+      }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Ike's Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 300,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-3.webp",
+      "rating": "popular",
+      "position": { "top": true }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Urban Mart",
+      "remark": true,
+      "tags": ["popular"],
+      "deliveryCost": 400,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554595380/bukka-favorite-4.webp",
+      "rating": "popular",
+      "heading": "Get Fresh",
+      "subHeading": "Groceries Delivered",
+      "position": { "top": true }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Itua's Mart",
+      "deliveryCost": 500,
+      "tags": ["popular"],
+      "heading": "Get Fresh",
+      "subHeading": "Groceries Delivered",
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-burger-img.webp",
+      "textOverlay": "textOverlay",
+      "position": {
+        "top": true
+      }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "George's mart",
+      "deliveryCost": 500,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-ice-dougnut.webp",
+      "textOverlay": "textOverlay",
+      "position": {
+        "top": true
+      }
+    },
+    {
+      "deliveryTime": "40-50 min",
+      "title": "Osagie's mart",
+      "deliveryCost": 300,
+      "imageUrl": "https://res.cloudinary.com/deqt3envc/image/upload/v1554495327/carousel-alcholic-drinks.webp",
+      "heading": "Get Mart",
+      "subHeading": "Mart DELIVERED",
+      "position": { "top": true }
+    }
+  ]
+  
