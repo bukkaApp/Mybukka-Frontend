@@ -6,3 +6,7 @@ export const foodBannerImage =
 
 export const freshBannerImage =
     'https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/banner-fresh.png';
+
+export const MartBannerImage =
+    'https://res.cloudinary.com/deqt3envc/image/upload/v1556741830/samples/Bukka-Images/banner-mart.png';
+
