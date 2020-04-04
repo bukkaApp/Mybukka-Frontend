@@ -33,10 +33,10 @@ import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
 
-import { drinkBannerImage, freshBannerImage } from '../img/imgLinks';
+import { martBannerImage, freshBannerImage } from '../img/imgLinks';
 
 const OtherSection = ({
-  // mode,
+  mode,
   push,
   coordinates,
   bukkaMenu,
@@ -50,11 +50,11 @@ const OtherSection = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const isDrinks = type === 'drinks';
+  const isMart = type === 'mart';
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchBukkaMenu('sample_bukka_fresh_drinks', type);
+    fetchBukkaMenu('sample_bukka_fresh_mart', type);
   }, [coordinates, type]);
 
   if (bukkaMenu.length === 1 && error) {
@@ -69,8 +69,8 @@ const OtherSection = ({
           <IntroSection push={push} />
           <ExploreSection>
             <AreasToExplore
-              text={isDrinks ? 'Drinks' : 'Groceries.'}
-              bgImage={isDrinks ? drinkBannerImage : freshBannerImage}
+              text={isMart ? 'Mart' : 'Groceries.'}
+              bgImage={isMart ? martBannerImage : freshBannerImage}
             />
             <div className="feed-main-content">
               <LocationNavLargeScreen
@@ -79,7 +79,7 @@ const OtherSection = ({
                 categoryItems={categories}
                 section={type}
               />
-              <BukkaNavSmallScreen currentCategory="Wine Under $20" />
+              <BukkaNavSmallScreen currentCategory="Mart Under $20" />
               <LocationNavSmallScreen />
               <div id="flyout-left-container">
                 {categories.map(category => (
@@ -156,7 +156,7 @@ export default connect(
 )(OtherSection);
 
 OtherSection.propTypes = {
-  // mode: PropTypes.string.isRequired,
+  mode: PropTypes.string.isRequired,
   push: PropTypes.func.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
