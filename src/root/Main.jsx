@@ -17,7 +17,7 @@ import PerformResetPass from '../features/forgotPassword/PerformResetPass';
 import SupportBuyer from '../features/support/components/SupportBuyer';
 import Articles from '../features/support/articles';
 import CategoryLists from '../features/support/Lists';
-import Merchant from '../features/merchant';
+import Merchant from '../features/merchantPage';
 import ComplainCategory from '../features/feedback/Category';
 import SubCategory from '../features/feedback/SubCategory';
 import ComplainScene from '../features/feedback/ComplainScene';
