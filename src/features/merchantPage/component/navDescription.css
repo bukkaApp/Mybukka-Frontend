@@ -1,0 +1,29 @@
+.navigation-info {
+    background: #9D1621;
+    width: 100%;
+}
+
+.map-img {
+    width: 410px;
+    height: 413px;
+    object-fit: contain;
+}
+
+.navigation-info h4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #ffff;
+}
+
+.navigation-info p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    width: 390px;
+    color: #ffff;
+}

@@ -1,0 +1,60 @@
+.description {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.description h4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 41px;
+}
+
+.description p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #949494;
+}
+
+.bar {
+    content: '';
+    width: 69px;
+    height: 7px;
+    background: #9D1621;
+    margin-top: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.custom-icon {
+    color: #9D1621;
+    border-radius: 50%;
+    background: rgba(157, 22, 33, 0.2);
+    width: 70px;
+    height: 70px;
+    line-height: 70px !important;
+}
+
+.description-info h4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.description-info p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #949494;
+    width: 220px;
+    margin: auto;
+}

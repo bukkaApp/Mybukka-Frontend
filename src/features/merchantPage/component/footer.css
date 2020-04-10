@@ -1,0 +1,33 @@
+.footer {
+    background: #000000;
+    width: 100%;
+}
+
+.f-16 {
+    font-size: 15px;
+}
+
+.f-15 {
+    font-size: 14px;
+}
+
+.txt-white {
+    color: #ffff;
+}
+
+.height-18 {
+    line-height: 18px;
+}
+
+.height-19 {
+    line-height: 19px;
+}
+
+.line {
+    background: #E5E5E5;
+    line-height: 1px;
+}
+
+.justify-content {
+    justify-content: space-between;
+}

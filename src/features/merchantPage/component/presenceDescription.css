@@ -1,0 +1,26 @@
+.meal-img {
+    width: 410px;
+    height: 413px;
+    object-fit: contain;
+}
+
+.digital-info h4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 35px;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 100px;
+    width: 250px;
+}
+
+.digital-info p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    width: 390px;
+    color: #949494;
+}
