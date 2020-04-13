@@ -17,7 +17,6 @@ import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
-import { validateAField, validateAllFields } from '../validation/validateField';
 
 import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
@@ -29,6 +28,10 @@ import VerifyPhone from '../../verifyPhone';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
+import useAuthentication from '../context/useAuthentication';
+import useChargeAttempted from '../context/useChargeAttempted';
+import useFetchedRestaurant from '../context/useFetchedRestaurant';
+import useDeliveryState from '../context/useDeliveryState';
 
 const Checkout = ({
   push,
@@ -53,81 +56,21 @@ const Checkout = ({
   openNewWindow,
   url,
 }) => {
-  const [validationErrors, setValidationErrors] = useState({
-    address: '',
-    deliveryInstructions: '',
-    name: '',
-    mobileNumber: ''
-  });
+  const {
+    useDeliveryData,
+    useDeliveryValidation,
+    handleDeliveryAddress,
+    handleDeliveryAddressSave,
+    validateAddress } = useDeliveryState();
+  // destrucure from useDeliveryValidation and useDeliveryData object
+  const [validationErrors, setValidationErrors] = useDeliveryValidation;
+  const [deliveryAddressData, setDeliveryAddressData] = useDeliveryData;
 
-  const [deliveryAddressData, setDeliveryAddressData] = useState({
-    address: description || '',
-    deliveryInstructions: '',
-    name: authServices.getFullName(),
-    mobileNumber: ''
-  });
+  useChargeAttempted(message, url);
 
-  const handleDeliveryAddress = ({ target: { name, value } }) => {
-    const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
-    setDeliveryAddressData({
-      ...deliveryAddressData,
-      ...newFieldData
-    });
-    setValidationErrors({
-      ...validationErrors,
-      [name]: validation.message
-    });
-  };
+  useFetchedRestaurant(fetchBukka, fetchBukkaMenu, menuIsFetched, bukkaOfMenu);
 
-  const handleDeliveryAddressSave = (e) => {
-    e.preventDefault();
-    const validation = validateAllFields(deliveryAddressData);
-    setValidationErrors({
-      ...validationErrors,
-      ...validation
-    });
-  };
-
-  const validateAddress = () => {
-    const { errors, passes } = validateAllFields(deliveryAddressData);
-    setValidationErrors({
-      ...validationErrors,
-      ...errors
-    });
-    return passes;
-  };
-
-  useEffect(() => {
-    if (message === 'Charge attempted' && url === '') {
-      $('#inputSecurityKey').modal('show');
-    }
-  });
-
-  useEffect(() => {
-    scrollTo(0, 0);
-    const bukkaMenuToFetch = location.pathname.split('/')[2];
-    if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
-      fetchBukkaMenu(bukkaMenuToFetch);
-      fetchBukka(bukkaMenuToFetch);
-    }
-  }, []);
-
-  useEffect(() => {
-    const currentPage = location.pathname;
-    if (!authServices.getToken()
-    || !authServices.isValid(authServices.getToken())) {
-      signOut();
-      setTimeout(() => {
-        swal('You need to login first')
-          .then((willDelete) => {
-            if (willDelete) {
-              return push(`/login?next=${currentPage}`);
-            }
-          });
-      }, 2000);
-    }
-  });
+  useAuthentication(authServices, signOut, swal);
 
   const handleUserCheckout = () => {
     const user = authServices.getUserSlug();

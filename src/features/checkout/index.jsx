@@ -29,7 +29,7 @@ const CheckoutPage = ({
   };
 
   useEffect(() => {
-    if (url !== '') {
+    if (url && url !== '') {
       handleOpenWindow();
     }
     return () => {};
