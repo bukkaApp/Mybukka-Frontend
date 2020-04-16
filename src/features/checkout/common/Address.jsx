@@ -54,6 +54,7 @@ const Address = ({
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     setInputData(suggestion.description);
+    setFocus(false);
     handleInputChange({ target: { name: 'address', value: suggestion.description } }); // eslint-disable-line
     const GeoCoder = new google.maps.Geocoder();
     GeoCoder.geocode({ placeId }, (response) => {

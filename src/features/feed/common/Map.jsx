@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
@@ -11,6 +12,7 @@ const MapContainer = (props) => {
   });
 
   const onMarkerClick = (newProps, marker) => {
+    console.log(newProps, marker);
     setMapConfigurations({
       selectedPlace: newProps,
       activeMarker: marker,
@@ -28,23 +30,28 @@ const MapContainer = (props) => {
         style={{
           minWidth: '200px',
           minHeight: '140px',
+          width: '100%',
+          height: '100%',
+          position: 'relative'
         }}
         initialCenter={{
-          lat: 6.5419476,
-          lng: 3.356072
+          lat: props.coordinates[1] || 6.5419476,
+          lng: props.coordinates[0] || 3.356072
         }}
         google={props.google}
-        zoom={14}
+        zoom={16}
       >
-        <Marker
-          onClick={onMarkerClick}
-          icon={{
-            url: '/img/icon.svg',
+        {props.restaurants.map(({ location: { coordinates }, name, imageUrl }) => (
+          <Marker
+            position={{ lat: coordinates[1], lng: coordinates[0] }}
+            onClick={onMarkerClick}
+            icon={{
+              url: 'https://res.cloudinary.com/mybukka/image/upload/c_scale,r_50,w_30,h_30/v1580550858/yaiwq492u1lwuy2lb9ua.png',
             anchor: new google.maps.Point(32, 32), // eslint-disable-line
-            scaledSize: new google.maps.Size(64, 64)  // eslint-disable-line
-          }}
-          name={'Current location'}
-        />
+            scaledSize: new google.maps.Size(30, 30)  // eslint-disable-line
+            }}
+            name={name}
+          />))}
         <InfoWindow
           marker={mapConfigurations.activeMarker}
           visible={mapConfigurations.showingInfoWindow}

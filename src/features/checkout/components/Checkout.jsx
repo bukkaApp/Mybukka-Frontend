@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -17,7 +15,6 @@ import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
-import { validateAField, validateAllFields } from '../validation/validateField';
 
 import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
@@ -29,6 +26,11 @@ import VerifyPhone from '../../verifyPhone';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
+import useAuthentication from '../context/useAuthentication';
+import useChargeAttempted from '../context/useChargeAttempted';
+import useFetchedRestaurant from '../context/useFetchedRestaurant';
+import useDeliveryState from '../context/useDeliveryState';
+import useLocationWithinDistance from '../context/useLocationWithinDistance';
 
 const Checkout = ({
   push,
@@ -51,117 +53,27 @@ const Checkout = ({
   selectedLocation: { description },
   bukkaSlug,
   bukkaCoordinates,
+  openNewWindow,
+  url,
 }) => {
-  const [isWithinDeliveryRange, setDeliveryRange] = useState(false);
-  const [validationErrors, setValidationErrors] = useState({
-    address: '',
-    deliveryInstructions: '',
-    name: '',
-    mobileNumber: ''
-  });
+  const selectSchedule = ['Day', 'Time'];
+  const [isWithinDeliveryRange, validateUserLocationRange] = useLocationWithinDistance(coordinates, bukkaCoordinates);
 
-  const [deliveryAddressData, setDeliveryAddressData] = useState({
-    address: description || '',
-    deliveryInstructions: '',
-    name: authServices.getFullName(),
-    mobileNumber: ''
-  });
+  const {
+    useDeliveryData,
+    useDeliveryValidation,
+    handleDeliveryAddress,
+    handleDeliveryAddressSave,
+    validateAddress } = useDeliveryState(description);
+  // destrucure from useDeliveryValidation and useDeliveryData object
+  const [validationErrors, setValidationErrors] = useDeliveryValidation;
+  const [deliveryAddressData, setDeliveryAddressData] = useDeliveryData;
 
-  const radius = (x) => x * Math.PI / 180;
+  useChargeAttempted(message, url);
 
-  const getDistance = function(userCoordinates, bukkaCoordinates) {
-    const earthRadius = 6378137; // Earth’s mean radius in meter
-    // [1] - lattitude || [2] - longitude
-    const differenceInLat = radius(bukkaCoordinates[1] - userCoordinates[1]);
-    const differenceInLng = radius(bukkaCoordinates[0] - userCoordinates[0]);
-    const TrigonometryDistance = Math.sin(differenceInLat / 2) * Math.sin(differenceInLat / 2) +
-      Math.cos(radius(userCoordinates[1])) * Math.cos(radius(bukkaCoordinates[1])) *
-      Math.sin(differenceInLng / 2) * Math.sin(differenceInLng / 2);
-    const c = 2 * Math.atan2(Math.sqrt(TrigonometryDistance), Math.sqrt(1 - TrigonometryDistance));
-    const distance = earthRadius * c;
-    return distance; // returns the distance in meter
-  };
+  useFetchedRestaurant(fetchBukka, fetchBukkaMenu, menuIsFetched, bukkaOfMenu);
 
-  const validateUserLocationRange = () => {
-    // user coordinate
-    const distanceInMeter = getDistance(coordinates, bukkaCoordinates);
-    const distanceInKilometer = distanceInMeter / 1000;
-    if(distanceInKilometer > 5) {
-      setDeliveryRange(false)
-      setValidationErrors({
-        ...validateAllFields,
-        address: 'Sorry, this restaurant is not within your location',
-      })
-    } else { setDeliveryRange(true) }
-  }
-
-  const handleDeliveryAddress = ({ target: { name, value } }) => {
-    const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
-    setDeliveryAddressData({
-      ...deliveryAddressData,
-      ...newFieldData
-    });
-    setValidationErrors({
-      ...validationErrors,
-      [name]: validation.message
-    });
-  };
-
-  const handleDeliveryAddressSave = (e) => {
-    e.preventDefault();
-    const validation = validateAllFields(deliveryAddressData);
-    setValidationErrors({
-      ...validationErrors,
-      ...validation
-    });
-  };
-
-  const validateAddress = () => {
-    const { errors, passes } = validateAllFields(deliveryAddressData);
-    setValidationErrors({
-      ...validationErrors,
-      ...errors
-    });
-    return passes;
-  };
-
-  useEffect(() => {
-    if (bukkaCoordinates.length) {
-      validateUserLocationRange();
-    }
-  }, [deliveryAddressData])
-
-  useEffect(() => {
-    if (message === 'Charge attempted') {
-      $('#inputSecurityKey').modal('show');
-    }
-  });
-
-  useEffect(() => {bukkaCoordinates
-    scrollTo(0, 0);
-    const bukkaMenuToFetch = location.pathname.split('/')[2];
-    if (!menuIsFetched || bukkaMenuToFetch !== bukkaOfMenu) {
-      fetchBukkaMenu(bukkaMenuToFetch);
-      fetchBukka(bukkaMenuToFetch);
-    }
-  }, []);
-
-  useEffect(() => {
-    const currentPage = location.pathname;
-    if (!authServices.getToken()
-    || !authServices.isValid(authServices.getToken())) {
-      signOut();
-      setTimeout(() => {
-        swal('You need to login first')
-          .then((willDelete) => {
-            if (willDelete) {
-              return push(`/login?next=${currentPage}`);
-            }
-          });
-      }, 2000);
-    }
-  });
+  useAuthentication(authServices, signOut, swal);
 
   const handleUserCheckout = () => {
     const user = authServices.getUserSlug();
@@ -178,7 +90,11 @@ const Checkout = ({
     } else if (!validateAddress()) {
       scrollTo(0, 0);
     } else if (!isWithinDeliveryRange) {
-      return;
+      scrollTo(0, 0);
+      setValidationErrors({
+        ...validationErrors,
+        address: 'Sorry, this restaurant is not within your location',
+      });
     } else {
       handleUserCheckout();
     }
@@ -189,7 +105,7 @@ const Checkout = ({
       <VerifyPhone />
       <Navbar push={push} />
       <AddToCart />
-      <SendSecurityKeyForm cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
+      <SendSecurityKeyForm openNewWindow={openNewWindow} cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
@@ -201,16 +117,15 @@ const Checkout = ({
               handleDeliveryAddressSave={handleDeliveryAddressSave}
               handleChange={handleDeliveryAddress}
             />
-            <ScheduleSelector
-              type="day"
-              title="Day"
-              list={duration.durationList}
-            />
-            <ScheduleSelector
-              type="time"
-              title="Time"
-              list={duration.sheduleTimeLists}
-            />
+            {selectSchedule.map((eachSchedule) => {
+              const scheduleList = eachSchedule !== 'Day' ? duration.sheduleTimeLists
+                : duration.sheduleTimeLists;
+              return (<ScheduleSelector
+                type={eachSchedule.toLowerCase()}
+                title={eachSchedule}
+                list={scheduleList}
+              />);
+            })}
             <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
@@ -249,7 +164,7 @@ const Checkout = ({
 
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
-  chargeUserReducer: { message, data },
+  chargeUserReducer: { message, data, url },
   // fetchBukkaMenuReducer: { totalPriceInCart },
   selectedLocationReducer: { selectedLocation },
   cartReducer: { totalCost, items },
@@ -284,6 +199,7 @@ const mapStateToProps = ({
   coordinates,
   mode,
   selectedLocation,
+  url,
 });
 
 export default connect(

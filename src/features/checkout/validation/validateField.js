@@ -9,7 +9,7 @@ const rules = {
 
 const paymentRules = {
   number: 'required|min:8',
-  expDate: 'required',
+  expDate: 'required|max:5',
   cvv: 'required',
 };
 

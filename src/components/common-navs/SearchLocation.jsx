@@ -31,7 +31,6 @@ const SearchLocation = ({
   fetchNearbyBukkas,
   push,
   handleLoader,
-  reduceSuggestionText,
   fetchedPromotedBukkas,
   getRestaurantCuisine,
 }) => {
@@ -74,7 +73,9 @@ const SearchLocation = ({
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
+      setInputData(suggestion.description);
       selectLocation({ coordinates, suggestion });
+      setFocus(false);
       new Promise((resolve) => {
         resolve(fetchedPromotedBukkas(coordinates));
       }).then(() => getRestaurantCuisine(coordinates))
@@ -152,6 +153,7 @@ const SearchLocation = ({
           classNames="text-field form-control searchlocation"
           handleFocus={() => setFocus(true)}
           handleChange={handleChange}
+          value={inputData}
           defaultValue={selectedLocation ? selectedLocation.description : ''}
         />
         {showChevronButton()}
@@ -164,7 +166,6 @@ const SearchLocation = ({
             <SuggestionsDropdown
               push={push}
               setLocation={geoCodeLocation}
-              reduceTextLength={reduceSuggestionText}
             />
           </Fragment>
         )}
