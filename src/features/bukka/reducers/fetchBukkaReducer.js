@@ -1,5 +1,5 @@
 const initialState = {
-  fetchedBukka: {},
+  fetchedBukka: { location: { coordinates: [] } },
   status: {
     fetched: false,
     error: false,
@@ -31,7 +31,8 @@ const fetchBukkaReducer = (state = initialState, action) => {
         errorMessage: action.data.message
       };
 
-    default: {
+    default:
+    {
       return state;
     }
   }

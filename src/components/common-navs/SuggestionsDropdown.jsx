@@ -5,7 +5,7 @@ import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
 
 const SuggestionsDropdown = ({
-  setLocation, push, reduceTextLength,
+  setLocation, push,
   useCurrentLocationVisible,
 }) => (
   <div className="suggestion-dropdown">
@@ -14,7 +14,6 @@ const SuggestionsDropdown = ({
     }
     <GeoSuggestions
       handleClick={setLocation}
-      reduceTextLength={reduceTextLength}
     />
   </div>
 );

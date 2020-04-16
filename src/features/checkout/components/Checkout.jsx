@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable max-len */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -32,6 +30,7 @@ import useAuthentication from '../context/useAuthentication';
 import useChargeAttempted from '../context/useChargeAttempted';
 import useFetchedRestaurant from '../context/useFetchedRestaurant';
 import useDeliveryState from '../context/useDeliveryState';
+import useLocationWithinDistance from '../context/useLocationWithinDistance';
 
 const Checkout = ({
   push,
@@ -48,20 +47,25 @@ const Checkout = ({
   cards,
   hasDefaultCard,
   coordinates,
+  bukkaDeliveryDistance,
   mode,
   signOut,
   fetchBukka,
   selectedLocation: { description },
   bukkaSlug,
+  bukkaCoordinates,
   openNewWindow,
   url,
 }) => {
+  const selectSchedule = ['Day', 'Time'];
+  const [isWithinDeliveryRange, validateUserLocationRange] = useLocationWithinDistance(coordinates, bukkaCoordinates);
+
   const {
     useDeliveryData,
     useDeliveryValidation,
     handleDeliveryAddress,
     handleDeliveryAddressSave,
-    validateAddress } = useDeliveryState();
+    validateAddress } = useDeliveryState(description);
   // destrucure from useDeliveryValidation and useDeliveryData object
   const [validationErrors, setValidationErrors] = useDeliveryValidation;
   const [deliveryAddressData, setDeliveryAddressData] = useDeliveryData;
@@ -79,12 +83,19 @@ const Checkout = ({
   };
 
   const handleCheckout = () => {
+    validateUserLocationRange();
     if (cards.length <= 0) {
       swal('Please save your card before proceeding to checkout');
     } else if (!hasDefaultCard) {
       swal('Please select your card');
     } else if (!validateAddress()) {
       scrollTo(0, 0);
+    } else if (!isWithinDeliveryRange) {
+      scrollTo(0, 0);
+      setValidationErrors({
+        ...validationErrors,
+        address: 'Sorry, this restaurant is not within your location',
+      });
     } else {
       handleUserCheckout();
     }
@@ -107,16 +118,15 @@ const Checkout = ({
               handleDeliveryAddressSave={handleDeliveryAddressSave}
               handleChange={handleDeliveryAddress}
             />
-            <ScheduleSelector
-              type="day"
-              title="Day"
-              list={duration.durationList}
-            />
-            <ScheduleSelector
-              type="time"
-              title="Time"
-              list={duration.sheduleTimeLists}
-            />
+            {selectSchedule.map((eachSchedule) => {
+              const scheduleList = eachSchedule !== 'Day' ? duration.sheduleTimeLists
+                : duration.sheduleTimeLists;
+              return (<ScheduleSelector
+                type={eachSchedule.toLowerCase()}
+                title={eachSchedule}
+                list={scheduleList}
+              />);
+            })}
             <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
@@ -163,7 +173,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
-  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug } },
+  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -176,6 +186,8 @@ const mapStateToProps = ({
   amount: totalCost,
   message,
   data,
+  bukkaCoordinates,
+  bukkaDeliveryDistance,
   bukkaMenu,
   bukkaSlug,
   menuIsFetched: fetched,

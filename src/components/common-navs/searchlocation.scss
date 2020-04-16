@@ -1,3 +1,19 @@
+.suggestion-geo-group {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10px 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  h4 {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 .location-marker {
   background-color: #fff;
   border: none;

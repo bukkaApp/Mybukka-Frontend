@@ -34,6 +34,12 @@ const Address = ({
     }
   };
 
+  const handleCollapse = (event) => {
+    if (inputData && !inputData.contains(event.target)){
+      setFocus(false)
+    }
+  }
+
   const displaySuggestions = (predictions, status) => {
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       return;
@@ -54,6 +60,7 @@ const Address = ({
   const geoCodeLocation = (suggestion) => {
     const placeId = suggestion.place_id;
     setInputData(suggestion.description);
+    setFocus(false);
     handleInputChange({ target: { name: 'address', value: suggestion.description } }); // eslint-disable-line
     const GeoCoder = new google.maps.Geocoder();
     GeoCoder.geocode({ placeId }, (response) => {
@@ -65,9 +72,9 @@ const Address = ({
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
   });
-
+  
   return (
     <div ref={setWrapperRef}>
       <Input
@@ -82,6 +89,7 @@ const Address = ({
         label="Location"
         placeholderText="Enter your address..."
         id={propData.id}
+        onClick = {handleCollapse}
       />
       <div className="dropdown-suggestion position-relative top__30n">
         {isFocused && (
