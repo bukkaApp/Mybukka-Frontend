@@ -26,10 +26,6 @@ const useLocationWithinDistance = (coordinates, restaurantCoordinates) => {
     const distanceInKilometer = distanceInMeter / 1000;
     if (distanceInKilometer > 5) {
       setDeliveryRange(false);
-      // setValidationErrors({
-      //   ...validateAllFields,
-      //   address: 'Sorry, this restaurant is not within your location',
-      // });
     } else { setDeliveryRange(true); }
   };
 
