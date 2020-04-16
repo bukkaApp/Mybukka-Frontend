@@ -34,6 +34,12 @@ const Address = ({
     }
   };
 
+  const handleCollapse = (event) => {
+    if (inputData && !inputData.contains(event.target)){
+      setFocus(false)
+    }
+  }
+
   const displaySuggestions = (predictions, status) => {
     if (status !== google.maps.places.PlacesServiceStatus.OK) {
       return;
@@ -66,9 +72,9 @@ const Address = ({
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
   });
-
+  
   return (
     <div ref={setWrapperRef}>
       <Input
@@ -83,6 +89,7 @@ const Address = ({
         label="Location"
         placeholderText="Enter your address..."
         id={propData.id}
+        onClick = {handleCollapse}
       />
       <div className="dropdown-suggestion position-relative top__30n">
         {isFocused && (

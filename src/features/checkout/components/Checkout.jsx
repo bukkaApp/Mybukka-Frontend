@@ -47,6 +47,7 @@ const Checkout = ({
   cards,
   hasDefaultCard,
   coordinates,
+  bukkaDeliveryDistance,
   mode,
   signOut,
   fetchBukka,
@@ -172,7 +173,7 @@ const mapStateToProps = ({
     bukkaMenu,
     status: { fetched }
   },
-  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates } } },
+  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -186,6 +187,7 @@ const mapStateToProps = ({
   message,
   data,
   bukkaCoordinates,
+  bukkaDeliveryDistance,
   bukkaMenu,
   bukkaSlug,
   menuIsFetched: fetched,

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Column from 'Components/grid/Column';
 import Row from 'Components/grid/Row';
 import updateCartAction from 'Redux/updateCartAction';
+import toggleAddToCartModal from 'Redux/toggleAddToCartModal';
 import manipulateMealAction from 'Redux/manipulateMealAction';
 import { ReactSubMenuProvider } from './OrderOptions';
 import SelectQuantityButtons from './SelectQuantityButtons';
@@ -19,6 +18,7 @@ const ActionSection = ({
   quantity,
   manipulateMeal,
   mealToDisplay,
+  toggleAddToCart
 }) => {
   const state = useContext(ReactSubMenuProvider);
 
@@ -27,6 +27,7 @@ const ActionSection = ({
     const result = state.handleSubmenu(submenus, customerSubmenu);
     const menuToAdd = { ...mealToDisplay, options, specialInstruction, submenus: result };
     addToCart(menuToAdd, true, state.submit(true));
+    toggleAddToCart(false)
   };
 
   return (
@@ -59,12 +60,14 @@ const mapStateToProps = ({
 
 export default connect(mapStateToProps, {
   addToCart: updateCartAction,
-  manipulateMeal: manipulateMealAction
+  manipulateMeal: manipulateMealAction,
+  toggleAddToCart: toggleAddToCartModal
 })(ActionSection);
 
 ActionSection.propTypes = {
   price: PropTypes.number.isRequired,
   addToCart: PropTypes.func.isRequired,
   quantity: PropTypes.number.isRequired,
-  manipulateMeal: PropTypes.func.isRequired
+  manipulateMeal: PropTypes.func.isRequired,
+  toggleAddToCart:PropTypes.func.isRequired
 };
