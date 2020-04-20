@@ -31,3 +31,7 @@
 .justify-content {
     justify-content: space-between;
 }
+
+.d-privacy {
+    display: flex;
+}

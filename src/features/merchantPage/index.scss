@@ -1,7 +1,4 @@
 @media(max-width: 768px) {
-    .content {
-        margin-top: 70px!important;
-    }
     .map-img {
         width: 300px!important;
     }
@@ -10,9 +7,6 @@
     }
     .digital-info p {
         width: 300px!important;
-    }
-    .content {
-        margin-top: 30px!important;
     }
     .meal-img {
         width: 290px!important;
@@ -25,6 +19,29 @@
     }
     .order-bg {
         width: 200px!important;
+    }
+    .content h4 {
+        width: 80%;
+        font-size: 20px;
+    }
+    .content p {
+        width: 80%;
+    }
+    .d-privacy {
+        flex-direction: column;
+    }
+    .policy {
+        display: block;
+    }
+    .privacy {
+        display: block;
+        padding-top: 5px;
+    }
+    .f-16 {
+        font-size: 16px!important;
+    }
+    .f-15 {
+        font-size: 15px!important;
     }
 }
 
