@@ -13,7 +13,7 @@ import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
-import fetchBukkas from '../actionCreators/fetchMoreBukkas';
+import fetchNearestMartOrFresh from '../actionCreators/fetchNearestMartOrFresh';
 
 const NearestFreshOrMart = ({
   push,
@@ -25,7 +25,7 @@ const NearestFreshOrMart = ({
   children,
   handleRefFocus,
   coordinates,
-  fetchMoreBukkas,
+  fetchNearestMaOrFr,
   currentPage,
   errorMessage,
   fetchBukkaMenu,
@@ -48,7 +48,7 @@ const NearestFreshOrMart = ({
         {bukkaData.length > 0 && (
           <InfiniteScroll
             loadMore={() =>
-              fetchMoreBukkas(coordinates, Number(currentPage) + 1)}
+              fetchNearestMaOrFr(coordinates, Number(currentPage) + 1)}
             hasMore={
               errorMessage !== 'There is currently no fresh or mart in your location'
             }
@@ -95,7 +95,7 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { fetchMoreBukkas: fetchBukkas,
+  { fetchNearestMaOrFr: fetchNearestMartOrFresh,
     fetchBukkaMenu: fetchBukkaMenuAction,
     fetchBukka: fetchBukkaAction, }
 )(NearestFreshOrMart);
@@ -110,17 +110,19 @@ NearestFreshOrMart.defaultProps = {
   currentPage: 1,
   errorMessage: '',
   fetchBukkaMenu: () => {},
+  fetchBukka: () => {},
 };
 
 NearestFreshOrMart.propTypes = {
   fetchBukkaMenu: PropTypes.func,
+  fetchBukka: PropTypes.func,
   delivery: PropTypes.bool,
   handleRefFocus: PropTypes.func,
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,
   imageHeight: PropTypes.string.isRequired,
   coordinates: PropTypes.arrayOf(PropTypes.number),
-  fetchMoreBukkas: PropTypes.func.isRequired,
+  fetchNearestMaOrFr: PropTypes.func.isRequired,
   currentPage: PropTypes.number,
   errorMessage: PropTypes.string,
   bukkaData: PropTypes.arrayOf(
