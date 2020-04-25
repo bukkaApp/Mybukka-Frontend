@@ -4,15 +4,29 @@ import Logo from '../../../../src/components/brand/Logo';
 import '../index.scss'
 const Footer = () => (
     <div className="footer pt-4 pb-4">
+
+
         <div className="container">
+
+
             <div className="row txt-white">
+
+
                 <div className="bukka-description col-md-4 f-16 height-19">
+
+
                     <Logo />
+
+
                     <div className="pt-5 txt-white f-16">
                         <p>The largest, most reliable on-demand delivery and pickup platform.</p>
                         <p className="pt-2">Able to deliver anything from any where, MyBukka is the food delivery, grocery delivery, whatever you can think of delivery app to bring what you crave right to your door.</p>
                     </div>
+
+
                 </div>
+
+
                 <div className="bukka-platforms col-md-2 f-15 height-18">
                     <h5>BUKKA</h5>
                     <p>About</p>
@@ -22,6 +36,8 @@ const Footer = () => (
                     <p>Promtion Offers</p>
                     <p>Pickups</p>
                 </div>
+
+
                 <div className="col-md-2 f-15 height-18">
                     <h5>MERCHANTS</h5>
                     <p>Sell on Bukka</p>
@@ -32,6 +48,8 @@ const Footer = () => (
                         <p>Merchant Help</p>
                     </div>
                 </div>
+
+
                 <div className="bukka-cities col-md-2 f-15 height-18">
                     <h5>CITIES</h5>
                     <p>Lagos</p>
@@ -41,6 +59,8 @@ const Footer = () => (
                     <p>Kogi</p>
                     <p>Kano</p>
                 </div>
+
+
                 <div className="bukka-handle col-md-2 f-15 height-18">
                     <h5>FOLLOW US</h5>
                     <p>Twitter</p>
@@ -48,8 +68,14 @@ const Footer = () => (
                     <p>Instagram</p>
                     <p>LinkedIn</p>
                 </div>
+
+
             </div>
+
+
             <hr className="line" />
+
+
             <div className="d-privacy justify-content txt-white f-16">
                 <p>©2019 MYBUKKA INC TERMS PRIVACY </p>
                 <div>
@@ -59,6 +85,8 @@ const Footer = () => (
             </div>
 
         </div>
+
+        
     </div>
 );
 
