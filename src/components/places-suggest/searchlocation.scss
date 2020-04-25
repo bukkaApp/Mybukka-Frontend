@@ -6,6 +6,11 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  height: 60px;
+  &:hover {
+    background-color: #fafafa;
+  }
   h4 {
     display: flex;
     align-items: center;

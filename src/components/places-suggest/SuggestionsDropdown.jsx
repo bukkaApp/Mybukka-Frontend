@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import UseCurrentLocation from './UseCurrentLocation';
 import GeoSuggestions from './GeoSuggestions';
 
+import './SuggestionsDropdown.scss';
+
 const SuggestionsDropdown = ({
-  setLocation, push,
+  setLocation,
   useCurrentLocationVisible,
 }) => (
   <div className="suggestion-dropdown">
     {useCurrentLocationVisible &&
-      <UseCurrentLocation push={push} />
+      <UseCurrentLocation />
     }
     <GeoSuggestions
       handleClick={setLocation}
@@ -21,14 +23,10 @@ const SuggestionsDropdown = ({
 export default SuggestionsDropdown;
 
 SuggestionsDropdown.defaultProps = {
-  push: () => {},
-  reduceTextLength: false,
   useCurrentLocationVisible: true,
 };
 
 SuggestionsDropdown.propTypes = {
   setLocation: PropTypes.func.isRequired,
-  push: PropTypes.func,
-  reduceTextLength: PropTypes.bool,
   useCurrentLocationVisible: PropTypes.bool
 };

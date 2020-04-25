@@ -1,0 +1,230 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Suggestions dropdown component renders properly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="suggestion-dropdown"
+      >
+        <div
+          class="suggestion-geo-group input-group"
+          role="link"
+          tabindex="0"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text location-arrow spinner-loading"
+            >
+              <svg
+                class="css-3n0dwa e13fwc0q0"
+                height="18"
+                viewBox="0 0 18 18"
+                width="18"
+              >
+                <defs>
+                  <path
+                    d="M20 28h9v9l9-18z"
+                    id="icon-current-location_svg__a"
+                  />
+                </defs>
+                <use
+                  fill="#9c1c26"
+                  fill-rule="evenodd"
+                  transform="translate(-20 -19)"
+                  xlink:href="#icon-current-location_svg__a"
+                />
+              </svg>
+            </span>
+          </div>
+          <h4
+            class="suggestion text-center d-block"
+          >
+            Use current location
+          </h4>
+        </div>
+        <div
+          class="suggestion-geo-group input-group"
+          role="link"
+          tabindex="0"
+        >
+          <div
+            class="input-group-prepend"
+          >
+            <span
+              class="input-group-text location-arrow"
+            >
+              <svg
+                height="17"
+                width="14"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <path
+                    d="M7 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                    fill="#8F95A3"
+                  />
+                  <path
+                    d="M7 16.362c4.35-3.483 6.5-6.616 6.5-9.362C13.5 3.324 10.638.5 7 .5A6.5 6.5 0 0 0 .5 7c0 2.746 2.15 5.879 6.5 9.362z"
+                    stroke="#8F95A3"
+                  />
+                </g>
+              </svg>
+            </span>
+          </div>
+          <h4
+            class="suggestion suggestion-geo text-center d-block"
+          >
+            some-description
+          </h4>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="suggestion-dropdown"
+    >
+      <div
+        class="suggestion-geo-group input-group"
+        role="link"
+        tabindex="0"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text location-arrow spinner-loading"
+          >
+            <svg
+              class="css-3n0dwa e13fwc0q0"
+              height="18"
+              viewBox="0 0 18 18"
+              width="18"
+            >
+              <defs>
+                <path
+                  d="M20 28h9v9l9-18z"
+                  id="icon-current-location_svg__a"
+                />
+              </defs>
+              <use
+                fill="#9c1c26"
+                fill-rule="evenodd"
+                transform="translate(-20 -19)"
+                xlink:href="#icon-current-location_svg__a"
+              />
+            </svg>
+          </span>
+        </div>
+        <h4
+          class="suggestion text-center d-block"
+        >
+          Use current location
+        </h4>
+      </div>
+      <div
+        class="suggestion-geo-group input-group"
+        role="link"
+        tabindex="0"
+      >
+        <div
+          class="input-group-prepend"
+        >
+          <span
+            class="input-group-text location-arrow"
+          >
+            <svg
+              height="17"
+              width="14"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M7 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                  fill="#8F95A3"
+                />
+                <path
+                  d="M7 16.362c4.35-3.483 6.5-6.616 6.5-9.362C13.5 3.324 10.638.5 7 .5A6.5 6.5 0 0 0 .5 7c0 2.746 2.15 5.879 6.5 9.362z"
+                  stroke="#8F95A3"
+                />
+              </g>
+            </svg>
+          </span>
+        </div>
+        <h4
+          class="suggestion suggestion-geo text-center d-block"
+        >
+          some-description
+        </h4>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
