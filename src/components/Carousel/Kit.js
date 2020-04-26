@@ -90,7 +90,7 @@ NormalText.defaultProps = {
 
 NormalText.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
-  remark: PropTypes.bool,
+  remark: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   mealName: PropTypes.string,
   deliveryCost: PropTypes.number,
 };

@@ -132,7 +132,7 @@ const LocationNavLargeScreen = ({
       d-lg-block d-xl-block"
     >
       <Container classNames="location-navbar-content">
-        <div classNames="location-navbar-delivery-pickup-section">
+        <div className="location-navbar-delivery-pickup-section">
           <div className="navbar-delivery-pickup">
             <DeliveryOrPickupNav
               handleClick={handleDeliveryorPickup}

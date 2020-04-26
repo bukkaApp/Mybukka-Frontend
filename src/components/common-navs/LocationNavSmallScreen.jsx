@@ -158,9 +158,13 @@ const mapStateToProps = ({
 
 export default connect(mapStateToProps)(LocationNavSmallScreen);
 
+LocationNavSmallScreen.defaultProps = {
+  bukka: false,
+};
+
 LocationNavSmallScreen.propTypes = {
   mode: PropTypes.string.isRequired,
-  bukka: PropTypes.bool.isRequired
+  bukka: PropTypes.bool
 };
 
 ButtonText.propTypes = {

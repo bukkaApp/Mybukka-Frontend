@@ -113,7 +113,7 @@ FoodNearBy.propTypes = {
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,
   fetchMoreBukkas: PropTypes.func.isRequired,
-  currentPage: PropTypes.number,
+  currentPage: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   errorMessage: PropTypes.string,
   bukkaData: PropTypes.arrayOf(
     PropTypes.shape({

@@ -35,7 +35,7 @@ const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
       (promotedBukkas && promotedBukkas.length > 0) &&
       promotedBukkas.map(promoBukkas => (
         promoBukkas.category.length > 0 ?
-          <Fragment>
+          <Fragment key={`promo${promoBukkas._id}`}>
             <Carousel
               delivery
               noOfImagesShown={3}

@@ -122,7 +122,7 @@ BukkaCard.propTypes = {
   dataTarget: PropTypes.string,
   dataToggle: PropTypes.string,
   delivery: PropTypes.bool,
-  remark: PropTypes.bool,
+  remark: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
   deliveryPrice: PropTypes.number.isRequired,
@@ -146,5 +146,4 @@ GetBukka.defaultProps = {
 GetBukka.propTypes = {
   classNames: PropTypes.string,
   href: PropTypes.string,
-  slug: PropTypes.string.isRequired,
 };
