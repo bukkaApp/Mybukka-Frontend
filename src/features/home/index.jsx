@@ -28,12 +28,6 @@ const Home = ({
   getPromotedBukkas,
   getRestaurantCuisine,
 }) => {
-  // const [state, setState] = useState(0);
-
-  // const moveToFeed = useCallback(() => {
-  //   push('/feed');
-  // }, [state]);
-
   useDocumentTitle('Welcome to bukka');
   const { coordinates } = useLocationContext();
 
@@ -77,4 +71,7 @@ Home.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func,
   }).isRequired,
+  fetchNearbyBukkas: PropTypes.func.isRequired,
+  getPromotedBukkas: PropTypes.func.isRequired,
+  getRestaurantCuisine: PropTypes.func.isRequired,
 };
