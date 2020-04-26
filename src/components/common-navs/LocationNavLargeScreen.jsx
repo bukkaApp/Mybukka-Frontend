@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-
+import { useLocationContext } from '../../context/LocationContext';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
 import Button from '../button/Button';
-import SearchLocation from './SearchLocation';
+import SearchLocation from '../places-suggest/SearchLocation';
 import MapMarker from '../icons/MapMarker';
 
 import './LocationNavLargeScreen.scss';
@@ -53,45 +53,48 @@ const SuggestionsDropdown = () => (
   </div>
 );
 
-const CurrentLocation = ({ handleClick, focus, selectedLocation }) => (
-  <div className="pr-17">
-    <div className="position-relative">
-      <div>
-        <Button
-          type="button"
-          classNames="current-location-button"
-          handleClick={handleClick}
-        >
-          <span className="current-location-button-icon">
-            <MapMarker />
-          </span>
-          <div>
-            <h2 className="current-location-button-text">
-              {Object.keys(selectedLocation).length > 0
-                ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
-                : 'Current Location'}
-            </h2>
-          </div>
-        </Button>
-      </div>
-      {focus && (
-        <div className="search-container">
-          <div className="search-wrapper">
-            <SuggestionsDropdown />
-          </div>
+const CurrentLocation = ({ handleClick, focus, }) => {
+  const { selectedLocation } = useLocationContext();
+
+  return (
+    <div className="pr-17">
+      <div className="position-relative">
+        <div>
+          <Button
+            type="button"
+            classNames="current-location-button"
+            handleClick={handleClick}
+          >
+            <span className="current-location-button-icon">
+              <MapMarker />
+            </span>
+            <div>
+              <h2 className="current-location-button-text">
+                {Object.keys(selectedLocation).length > 0
+                  ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
+                  : 'Current Location'}
+              </h2>
+            </div>
+          </Button>
         </div>
-      )}
+        {focus && (
+          <div className="search-container">
+            <div className="search-wrapper">
+              <SuggestionsDropdown />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const LocationNavLargeScreen = ({
   mode,
   setDeliveryModeAction,
   handleMapClick,
-  selectedLocation
 }) => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
   const [showMap, setMapDisplay] = useState(false);
 
@@ -112,12 +115,8 @@ const LocationNavLargeScreen = ({
     setDeliveryModeAction(status);
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus(false);
     }
   };
@@ -128,7 +127,7 @@ const LocationNavLargeScreen = ({
 
   return (
     <div
-      ref={setWrapperRef}
+      ref={wrapperRef}
       className="location-navbar d-none d-sm-none d-md-block
       d-lg-block d-xl-block"
     >
@@ -143,7 +142,6 @@ const LocationNavLargeScreen = ({
             <CurrentLocation
               handleClick={handleClick}
               focus={isFocused}
-              selectedLocation={selectedLocation}
             />
           </div>
         </div>
@@ -164,10 +162,8 @@ const LocationNavLargeScreen = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  selectedLocationReducer: { selectedLocation }
 }) => ({
   mode,
-  selectedLocation
 });
 
 export default connect(

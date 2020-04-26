@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './modal.scss';
+import './index.scss';
 
 const Modal = ({ children, classNames, dataTarget, largeOnSmallScreen }) => (
   <div

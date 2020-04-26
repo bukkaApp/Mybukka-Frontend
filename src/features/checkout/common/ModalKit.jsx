@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes, { any } from 'prop-types';
 import Times from 'Components/icons/Times';
 import Button from 'Components/button/Button';
-import './modal.scss';
 
 export const ModalFooter = ({ handleIncrement, handleDecrement, newPrice }) => (
   <div className="modal-footer mx-auto bg-white border-top col-lg-5">

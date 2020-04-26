@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Magnifier from 'Icons/Magnifier';
@@ -19,23 +20,19 @@ import SearchAnything from '../common/SearchAnything';
 const buttonProps = [
   { name: 'Food', href: '/feed' },
   { name: 'Fresh', href: '/fresh' },
-  { name: 'Drinks', href: '/drinks' }
+  { name: 'Mart', href: '/mart' }
 ];
 
 const CartScene = () => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
 
   const handleClick = () => {
     setFocus(!isFocused);
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus(false);
     }
   };
@@ -49,7 +46,7 @@ const CartScene = () => {
       <div>
         <CartSection handleClick={() => handleClick('cart')} />
       </div>
-      <div ref={setWrapperRef}>
+      <div ref={wrapperRef}>
         <CartDropdown display={isFocused}>
           <EmptyCart />
           <CartIconSection />
@@ -59,9 +56,10 @@ const CartScene = () => {
   );
 };
 
-const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
+const BukkaAuthenticatedNav = ({ status, navigateToNextRoute }) => {
+  const wrapperRef = React.createRef();
+  const { push } = useHistory();
   const { authenticated } = status;
-  let wrapperRef;
 
   const defaultProps = {
     search: false,
@@ -80,12 +78,8 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
     });
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus({ ...defaultProps });
     }
   };
@@ -152,7 +146,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   }
 
   return (
-    <nav ref={setWrapperRef} className="container navbar navbar-light">
+    <nav ref={wrapperRef} className="container navbar navbar-light">
       <div className="row mx-0">
         {!isFocused.searchBtn &&
           <Brand />
@@ -176,7 +170,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
         </div>
       </div>
       {!isFocused.searchBtn &&
-        <div ref={setWrapperRef} className="form-inline">
+        <div ref={wrapperRef} className="form-inline">
           <div className="d-none bukka-md-inline-flex">
             {buttonProps.map(propData => (
               <NavLink
@@ -202,7 +196,6 @@ export default connect(
 )(BukkaAuthenticatedNav);
 
 BukkaAuthenticatedNav.propTypes = {
-  push: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };

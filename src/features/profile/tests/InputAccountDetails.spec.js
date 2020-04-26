@@ -7,7 +7,7 @@ describe('InputAccountDetails component', () => {
     placeHolder: 'First Name',
     name: 'firstName',
     type: 'firstName',
-    defaultValue: 'Value',
+    value: 'Value',
   };
 
   const wrapper = mount(

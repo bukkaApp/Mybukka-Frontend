@@ -6,7 +6,7 @@ import ChevronVertical from '../icons/ChevronVertical';
 import DismissModal from '../modal/DismissModal';
 import Modal from '../modal';
 import Button from '../button/Button';
-import SearchLocation from './SearchLocation';
+import SearchLocation from '../places-suggest/SearchLocation';
 import DeliveryOrPickupNav from './DeliveryOrPickupNav';
 import ChevronRight from '../icons/ChevronRight';
 import MapMarker from '../icons/MapMarker';
@@ -15,6 +15,7 @@ import { ConnectedDurationContent } from './Duration';
 import './LocationNavSmallScreen.scss';
 
 import Cancel from '../icons/Cancel';
+import { useLocationContext } from '../../context/LocationContext';
 
 const CancelScheduleBtn = ({ handleClick }) => (
   <div
@@ -47,7 +48,7 @@ export const SelectLocationModal = ({ delivery, currentSchedule, mode }) => {
               <DeliveryOrPickupNav delivery={delivery} />
               <SuggestionsDropdown handleClick={() => {}} />
               <div className="carousel-divider mb-0" />
-              <Button classNames="schedule-later-btn" handleClick={() => setSchedule(true)}>
+              <Button type="button" classNames="schedule-later-btn" handleClick={() => setSchedule(true)}>
                 <span className="col-10 text-left">
                   <span className="top--1">
                     <Clock />
@@ -74,25 +75,28 @@ const SuggestionsDropdown = () => (
       chevronButtonVisible={false}
       showDeliveryOrPickupNav={false}
       showDropdown
-      reduceSuggestionText
     />
   </div>
 );
 
-const ButtonText = ({ mode, selectedLocation }) => (
-  <h2 className="inline-text">
-    {mode === 'delivery' && <span>Delivery to</span>}
-    {mode === 'pickup' && <span>PICKUP NEAR</span>}
-    <span className="text">
-      {Object.keys(selectedLocation).length > 0
-        ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
-        : 'Current Location'}
-      <span className="chevron-down">
-        <ChevronRight />
+const ButtonText = ({ mode }) => {
+  const { selectedLocation } = useLocationContext();
+
+  return (
+    <h2 className="inline-text">
+      {mode === 'delivery' && <span>Delivery to</span>}
+      {mode === 'pickup' && <span>PICKUP NEAR</span>}
+      <span className="text">
+        {Object.keys(selectedLocation).length > 0
+          ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
+          : 'Current Location'}
+        <span className="chevron-down">
+          <ChevronRight />
+        </span>
       </span>
-    </span>
-  </h2>
-);
+    </h2>
+  );
+};
 
 const BukkaButtonText = () => (
   <h2 className="inline-text">
@@ -104,51 +108,52 @@ const BukkaButtonText = () => (
   </h2>
 );
 
-const CurrentLocation = ({ handleClick, mode, bukka, selectedLocation }) => (
+const CurrentLocation = ({ handleClick, mode, bukka }) => (
   <Button
     type="button"
     classNames="small-nav-btn container pl-10"
     handleClick={handleClick}
   >
-    {!bukka && <ButtonText mode={mode} selectedLocation={selectedLocation} />}
+    {!bukka && <ButtonText mode={mode} />}
     {bukka && <BukkaButtonText />}
   </Button>
 );
 
-const LocationNavSmallScreen = ({ mode, bukka, selectedLocation }) => (
-  <Fragment>
-    <div
-      className="d-block d-sm-block d-md-none
+const LocationNavSmallScreen = ({ mode, bukka }) => {
+  const { selectedLocation } = useLocationContext();
+  return (
+    <Fragment>
+      <div
+        className="d-block d-sm-block d-md-none
       d-lg-none d-xl-none gutter-bg-clor"
-    >
-      <div className="location-navbar-content container">
-        <div className="options-center col-lg-12 px-0">
-          <div className="options-wrapper">
-            <div className="options">
-              <div className="btn-location">
-                <div data-target="#small-location-nav" data-toggle="modal">
-                  <CurrentLocation
-                    mode={mode}
-                    bukka={bukka}
-                    handleClick={() => {}}
-                    selectedLocation={selectedLocation}
-                  />
+      >
+        <div className="location-navbar-content container">
+          <div className="options-center col-lg-12 px-0">
+            <div className="options-wrapper">
+              <div className="options">
+                <div className="btn-location">
+                  <div data-target="#small-location-nav" data-toggle="modal">
+                    <CurrentLocation
+                      mode={mode}
+                      bukka={bukka}
+                      handleClick={() => {}}
+                      selectedLocation={selectedLocation}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </Fragment>
-);
+    </Fragment>
+  );
+};
 
 const mapStateToProps = ({
-  deliveryModeReducer: { mode },
-  selectedLocationReducer: { selectedLocation }
+  deliveryModeReducer: { mode }
 }) => ({
   mode,
-  selectedLocation
 });
 
 export default connect(mapStateToProps)(LocationNavSmallScreen);

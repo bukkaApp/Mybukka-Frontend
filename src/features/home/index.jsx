@@ -5,36 +5,68 @@ import { connect } from 'react-redux';
 
 import Footer from 'Components/footer/Footer';
 import ModalRoot from '../modal-root/Index';
-import fetchBukkas from '../feed/actionCreators/fetchBukkas';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
 
+import { useLocationContext } from '../../context/LocationContext';
 import ChooseAreaToExploreSection
   from './components/ChooseAreaToExploreSection';
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
 import VerifyPhone from '../verifyPhone';
+import useDocumentTitle from '../../context/useDocumentTitle';
+import fetchBukkasAction from '../feed/actionCreators/fetchBukkas';
+import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
+import useUpdateEffect from '../../context/useUpdateEffect';
+
 
 const Home = ({
   history: { push },
-}) => (
-  <Fragment>
-    <ModalRoot push={push} />
-    <div className="home">
-      <VerifyPhone />
-      <IntroSection push={push} />
-      <DiscoverSection />
-      <ChooseAreaToExploreSection push={push} />
-      <ReadyToOrderSection push={push} />
-      <Footer />
-    </div>
-  </Fragment>
-);
+  fetchNearbyBukkas,
+  getPromotedBukkas,
+  getRestaurantCuisine,
+}) => {
+  // const [state, setState] = useState(0);
 
+  // const moveToFeed = useCallback(() => {
+  //   push('/feed');
+  // }, [state]);
+
+  useDocumentTitle('Welcome to bukka');
+  const { coordinates } = useLocationContext();
+
+  useUpdateEffect(() => {
+    new Promise((resolve) => {
+      resolve(getPromotedBukkas(coordinates));
+    }).then(() => getRestaurantCuisine(coordinates))
+      .then(() => fetchNearbyBukkas(coordinates))
+      .then(() => push('/feed'));
+    return () => console.log('unmounted');
+  }, [coordinates]);
+
+  return (
+    <Fragment>
+      <ModalRoot push={push} />
+      <div className="home">
+        <VerifyPhone />
+        <IntroSection push={push} />
+        <DiscoverSection />
+        <ChooseAreaToExploreSection />
+        <ReadyToOrderSection />
+        <Footer />
+      </div>
+    </Fragment>
+  );
+};
 export default connect(
   () => ({}),
-  { fetchNearbyBukkas: fetchBukkas },
+  {
+    fetchNearbyBukkas: fetchBukkasAction,
+    getPromotedBukkas: getPromotedBukkasAction,
+    getRestaurantCuisine: getRestaurantCuisineAction
+  },
 )(Home);
 
 Home.defaultProps = {

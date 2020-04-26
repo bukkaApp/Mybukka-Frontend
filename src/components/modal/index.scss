@@ -28,26 +28,32 @@
   cursor: pointer;
 }
 
-@media (max-width: 767.98px) { 
-  .modal-dialog-margin-0 {
+.modal-dialog-margin-0 {
+  @media (max-width: 767.98px) { 
     margin: 0px;
   }
+}
 
-  .modal {
+.modal {
+  @media (max-width: 767.98px) {
     min-height: 100vh;
   }
+}
 
-  .modal-content {
+.modal-content {
+  @media (max-width: 767.98px) {
     box-shadow: none;
   }
+}
 
-  .modal-dialog-centered {
+.modal-dialog-centered {
+  @media (max-width: 767.98px) {
     align-items: flex-start;
   }
- }
+}
 
- @media (min-width: 768px) and (max-width: 991.98px) {
-  .modal {
+.modal {
+  @media (min-width: 768px) and (max-width: 991.98px) {
     height: 100vh;
   }
 }

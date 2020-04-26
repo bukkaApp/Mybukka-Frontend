@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import SearchLocation from 'Components/places-suggest/SearchLocation';
 import InputField from 'Components/input/InputField';
 import ChevronVertical from 'Icons/ChevronVertical';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
 import Button from '../button/Button';
 import MapMarker from '../icons/MapMarker';
-import SearchLocation from './SearchLocation';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import Duration from './Duration';
@@ -24,9 +24,9 @@ import { CategoryLists } from './Categories';
 
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
-import inputData from './inputData/duration';
 
 import './locationnavlarge.scss';
+import { useLocationContext } from '../../context/LocationContext';
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -70,42 +70,44 @@ const SearchInputField = ({ handleChange }) => (
     name="searchLocation"
     placeholderText="Search items..."
     classNames="text-field form-control searchlocation"
-    // handleFocus={() => setFocus(true)}
     handleChange={handleChange}
-    defaultValue={''}
   />
 );
 
-const CurrentLocation = ({ selectedLocation, focus }) => (
-  <ReusableWrapper>
-    <ReusableButton
-      classNames="custom-current-loc"
-      selectedLocation={selectedLocation}
-      focus={focus}
-    >
-      <span className="current-location-button-icon mr-0">
-        <MapMarker />
-      </span>
-      <div>
-        <h2
-          className={`current-location-button-text ml-1 ${
-            focus ? 'current-loc-h2-text-active' : 'current-loc-h2-text'
-          }`}
-        >
-          {Object.keys(selectedLocation).length > 0
-            ? selectedLocation.structured_formatting.main_text
-            : 'Current Location'}
-        </h2>
-      </div>
-    </ReusableButton>
-    <ReusableDropdown classNames={`${focus ? '' : 'dropdown--disapear'}`}>
-      <SearchLocation
-        chevronButtonVisible={false}
-        showDeliveryOrPickupNav={false}
-      />
-    </ReusableDropdown>
-  </ReusableWrapper>
-);
+const CurrentLocation = ({ focus, handleClick }) => {
+  const { selectedLocation } = useLocationContext();
+
+  return (
+    <ReusableWrapper>
+      <ReusableButton
+        classNames="custom-current-loc"
+        handleClick={handleClick}
+        focus={focus}
+      >
+        <span className="current-location-button-icon mr-0">
+          <MapMarker />
+        </span>
+        <div>
+          <h2
+            className={`current-location-button-text ml-1 ${
+              focus ? 'current-loc-h2-text-active' : 'current-loc-h2-text'
+            }`}
+          >
+            {Object.keys(selectedLocation).length > 0
+              ? selectedLocation.structured_formatting.main_text
+              : 'Current Location'}
+          </h2>
+        </div>
+      </ReusableButton>
+      <ReusableDropdown classNames={`${focus ? '' : 'dropdown--disapear'}`}>
+        <SearchLocation
+          chevronButtonVisible={false}
+          showDeliveryOrPickupNav={false}
+        />
+      </ReusableDropdown>
+    </ReusableWrapper>
+  );
+};
 
 const Categories = props => (
   <ReusableWrapper>
@@ -154,12 +156,11 @@ const LocationNavLarge = ({
   deliveryorpickup,
   scheduleTime,
   cartItemsQuantity,
-  selectedLocation,
   categoryItems,
   handleSearch,
   section
 }) => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const unFocus = {
     location: false,
     duration: false,
@@ -182,12 +183,8 @@ const LocationNavLarge = ({
     });
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus({
         ...isFocused,
         ...unFocus
@@ -204,7 +201,7 @@ const LocationNavLarge = ({
 
   return (
     <div
-      ref={setWrapperRef}
+      ref={wrapperRef}
       className={`location-navbar d-none d-sm-none d-md-block
       d-lg-block d-xl-block ${classNames}`}
     >
@@ -222,7 +219,6 @@ const LocationNavLarge = ({
                 <CurrentLocation
                   handleClick={() => handleClick('location')}
                   focus={isFocused.location}
-                  selectedLocation={selectedLocation}
                 />
                 <div className="delivery-or-pickup-vertical-divider" />
                 {scheduleTime && (
@@ -277,11 +273,9 @@ const LocationNavLarge = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   cartReducer: { items },
-  selectedLocationReducer: { selectedLocation }
 }) => ({
   mode,
   cartItemsQuantity: items.length,
-  selectedLocation
 });
 
 export default connect(
@@ -295,7 +289,8 @@ export default connect(
 LocationNavLarge.defaultProps = {
   classNames: '',
   deliveryorpickup: false,
-  scheduleTime: false
+  scheduleTime: false,
+  handleSearch: () => {},
 };
 
 LocationNavLarge.propTypes = {
@@ -310,7 +305,8 @@ LocationNavLarge.propTypes = {
 };
 
 CurrentLocation.propTypes = {
-  focus: PropTypes.bool.isRequired
+  focus: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func.isRequired
 };
 
 Categories.propTypes = {

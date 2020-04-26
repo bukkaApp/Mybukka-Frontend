@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import queryString from 'query-string';
 import PropTypes from 'prop-types';
 
 import Navbar from 'Components/navbar';
@@ -15,6 +15,7 @@ import validateToken from '../actionCreators/validateToken';
 import { validateAField, validateAllFields } from '../helper/validateFields';
 
 import signUpDomStructure from '../signUpDomStructure.json';
+import useQuery from '../../../context/useQuery';
 
 const RetrieveSection = ({
   isValidUser,
@@ -23,12 +24,9 @@ const RetrieveSection = ({
   requested,
   errorMessage,
   changeAuthPassword,
-  ...props
 }) => {
-  const {
-    history: { push },
-    location: { search }
-  } = props;
+  const query = useQuery();
+  const { push } = useHistory();
   const [validationErrors, setValidationErrors] = useState({
     password: '',
     confirmPassword: ''
@@ -66,8 +64,7 @@ const RetrieveSection = ({
     const { errors, passes } = validation;
     validateOnClick(errors);
     if (passes) {
-      const query = queryString.parse(search);
-      return changeAuthPassword('/user/reset', inputData, query.token);
+      return changeAuthPassword('/user/reset', inputData, query.get('token'));
     }
   };
 
@@ -91,8 +88,7 @@ const RetrieveSection = ({
   };
 
   useEffect(() => {
-    const query = queryString.parse(search);
-    handleUserValidity(query.token);
+    handleUserValidity(query.get('token'));
     successRedirection();
   });
 
