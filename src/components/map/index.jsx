@@ -31,7 +31,7 @@ const Map = () => {
 
   useEffect(() => {
     google = window.google;
-  }, []);
+  }, [window.google]);
 
   if (error) {
     return <div>Map cannot be loaded right now, sorry.</div>;

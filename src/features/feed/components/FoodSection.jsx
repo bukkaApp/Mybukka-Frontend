@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -69,21 +69,21 @@ const FoodSection = ({
     setDisplayMap(!displayMap);
   };
 
-  const handleFetchOnRefresh = () => {
+  const handleFetchOnRefresh = useCallback(() => {
     if (!loading && nearbyBukkas.length === 0
       && coordinates.length !== 0 && !errorMessage) {
       fetchNearbyBukkas(coordinates);
+      new Promise((resolve) => {
+        resolve(getPromoBukkas(coordinates));
+      }).then(() => fetchNearbyBukkas(coordinates));
+      // .then(() => getRestaurantCuisine(coordinates))
     }
-  };
+  }, [coordinates, loading, nearbyBukkas, errorMessage]);
 
   useEffect(() => {
     if (coordinates.length < 2) {
       push('/');
     }
-  }, [coordinates]);
-
-  useEffect(() => {
-    getPromoBukkas(coordinates);
   }, [coordinates]);
 
   useEffect(() => {
