@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Input from 'Components/input/InputField';
-import SuggestionsDropdown from 'Components/common-navs/SuggestionsDropdown';
+import SuggestionsDropdown from 'Components/places-suggest/SuggestionsDropdown';
 
 const AuthForm = ({
   inputData,
@@ -27,6 +27,7 @@ const AuthForm = ({
         placeholderText={propData.placeholderText}
         id={propData.id}
         handleFocus={() => {}}
+        value={inputData[propData.name]}
       />
       {propData.name === 'streetAddress1' && autoComplete && (
         <SuggestionsDropdown handleClick={() => {}} />

@@ -149,6 +149,13 @@ const AccountDetails = ({
   };
 
   useEffect(() => {
+    setInputData({
+      ...inputData,
+      ...userInfo,
+    });
+  }, [userInfo]);
+
+  useEffect(() => {
     if (inputStatus[activeInput] === 'edit') {
       textInputFocus[activeInput].current.focus();
     }
@@ -160,20 +167,20 @@ const AccountDetails = ({
       {signUpDomStructure.map(propData => (
         <AccountDetailsSection
           errorMessage={validationErrors[propData.name]}
-          inputRef={textInputFocus[propData.name]}
+          ref={textInputFocus[propData.name]}
           handleChange={handleAccountDetails}
           placeHolder={propData.placeholder}
           name={propData.name}
           key={propData.name}
           status={inputStatus[propData.name]}
-          defaultValue={userInfo[propData.name]}
+          value={inputData[propData.name]}
           handleEdit={event => handleEditButton(event, propData.name)}
           handleSave={event => handleInputSaveButton(event, propData.name)}
         />
       ))}
       <PasswordSection
         handleChange={handleAccountDetails}
-        inputRef={textInputFocus.password}
+        ref={textInputFocus.password}
         status={inputStatus.password}
         handleEdit={event => handleEditButton(event, 'password')}
         handleSave={event => handleInputSaveButton(event, 'password')}

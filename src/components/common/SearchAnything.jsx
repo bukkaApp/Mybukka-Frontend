@@ -21,7 +21,6 @@ const SearchInputField = ({ handleChange }) => (
     placeholderText="Search for anything..."
     classNames="searchanything-text-field inherit-bg searchlocation"
     handleChange={handleChange}
-    defaultValue={''}
     autoComplete="off"
   />
 );

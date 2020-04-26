@@ -4,18 +4,17 @@ import InputAccountDetails from './InputAccountDetails';
 import PlainAccountDetails from './PlainAccountDetails';
 import ErrorDisplaySection from './ErrorDisplaySection';
 
-const AccountDetailsSection = ({
+const AccountDetailsSection = React.createRef(({
   placeHolder,
   name,
   type,
   status,
-  defaultValue,
+  value,
   handleSave,
   handleChange,
   handleEdit,
-  inputRef,
   errorMessage,
-}) => (
+}, ref) => (
   <Fragment>
     {status === 'edit' ? (
       <Fragment>
@@ -24,8 +23,8 @@ const AccountDetailsSection = ({
           placeHolder={placeHolder}
           name={name}
           type={type}
-          inputRef={inputRef}
-          defaultValue={defaultValue}
+          ref={ref}
+          value={value}
           handleSave={handleSave}
         />
         <ErrorDisplaySection errorMessage={errorMessage} />
@@ -33,25 +32,24 @@ const AccountDetailsSection = ({
     ) : (
       <PlainAccountDetails
         altText={placeHolder}
-        text={defaultValue}
+        text={value}
         handleEdit={handleEdit}
       />
     )}
   </Fragment>
-);
+));
 
 export default AccountDetailsSection;
 
 AccountDetailsSection.defaultProps = {
   type: 'text',
-  defaultValue: '',
+  value: '',
   children: '',
   status: '',
   errorMessage: '',
   handleChange: () => {},
   handleSave: () => {},
   handleEdit: () => {},
-  inputRef: () => {},
 };
 
 AccountDetailsSection.propTypes = {
@@ -59,13 +57,9 @@ AccountDetailsSection.propTypes = {
   placeHolder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
-  defaultValue: PropTypes.string,
+  value: PropTypes.string,
   status: PropTypes.string,
   handleChange: PropTypes.func,
   handleSave: PropTypes.func,
   handleEdit: PropTypes.func,
-  inputRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
-  ])
 };

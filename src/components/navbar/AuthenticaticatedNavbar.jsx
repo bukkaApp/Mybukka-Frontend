@@ -10,19 +10,15 @@ import UserDefaultImage from './UserDefaultImage';
 import './navbar.scss';
 
 const AuthenticaticatedNavbar = () => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
 
   const handleClick = () => {
     setFocus(!isFocused);
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus(false);
     }
   };
@@ -42,7 +38,7 @@ const AuthenticaticatedNavbar = () => {
             <div>
               <CartSection handleClick={handleClick} />
             </div>
-            <div ref={setWrapperRef}>
+            <div ref={wrapperRef}>
               <CartDropdown display={isFocused}>
                 <EmptyCart />
                 <CartIconSection />

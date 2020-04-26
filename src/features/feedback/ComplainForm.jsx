@@ -42,7 +42,7 @@ const ComplainForm = ({
         style={{ height: '50px' }}
         className="form-control"
         name="firstName"
-        defaultValue={inputData.firstName}
+        value={inputData.firstName}
         id="firstName"
       />
       <HelpBlock errorMsg={validationErrors.firstName} />
@@ -57,7 +57,7 @@ const ComplainForm = ({
         style={{ height: '50px' }}
         className="form-control"
         id="lastName"
-        defaultValue={inputData.lastName}
+        value={inputData.lastName}
         name="lastName"
       />
       <HelpBlock errorMsg={validationErrors.lastName} />
@@ -70,7 +70,7 @@ const ComplainForm = ({
         style={{ height: '50px' }}
         className="form-control"
         id="email"
-        defaultValue={inputData.email}
+        value={inputData.email}
         name="email"
       />
       <HelpBlock errorMsg={validationErrors.email} />

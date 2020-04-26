@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect, useCallback } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -21,7 +21,6 @@ export const RegisterPage = ({
   classNames,
   history: { push },
 }) => {
-  const { NODE_ENV } = process.env;
   const [isRequested, setIsRequested] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
@@ -79,18 +78,18 @@ export const RegisterPage = ({
     }
   };
 
-  const handleRedirection = () => {
+  const handleRedirection = useCallback(() => {
     if (!authModal && authenticated) {
       return push('/');
     }
-  };
+  }, [authModal, authenticated]);
 
   useEffect(() => {
     if (authenticated) {
       $('#authModal').modal('hide');
     }
     handleRedirection();
-  });
+  }, [authenticated]);
 
   const BukkaLogo = () => {
     if (!authModal) {
@@ -120,6 +119,7 @@ export const RegisterPage = ({
           title="Sign Up"
           errorMessage={errorMsg}
           handleChange={handleChange}
+          inputData={inputData}
           handleLinkOptions={handleLinkOptions}
           validationErrors={validationErrors}
           handleSubmit={handleSubmit}

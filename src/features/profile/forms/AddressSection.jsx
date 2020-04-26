@@ -11,16 +11,16 @@ import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
 import postUserAddress from '../actionCreators/postUserAddress';
+import { useLocationContext } from '../../../context/LocationContext';
 
-const DeliveryForm = ({
-  setWrapperRef,
+const DeliveryForm = React.forwardRef(({
   inputData,
   validationErrors,
   handleSaveButton,
   autoComplete,
   handleChange
-}) => (
-  <form ref={setWrapperRef} className="border padding-20 mt-4">
+}, ref) => (
+  <form ref={ref} className="border padding-20 mt-4">
     <AuthForm
       inputData={inputData}
       inputField={inputField.deliveryAddress}
@@ -46,12 +46,13 @@ const DeliveryForm = ({
       />
     </div>
   </form>
-);
+));
 
 const Delivery = ({
-  sendUserAddress, errorMessage, requestUserAddress, posted, coordinates
+  sendUserAddress, errorMessage, requestUserAddress, posted,
 }) => {
-  let wrapperRef;
+  const { coordinates } = useLocationContext();
+  const wrapperRef = React.createRef();
   const [autoComplete, setAutoComplete] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     streetAddress1: '',
@@ -74,21 +75,21 @@ const Delivery = ({
     mobileNumber: ''
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setAutoComplete(false);
     }
   };
 
+
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
     if (posted) {
       $('.close').click();
     }
+  }, [posted]);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
   });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -145,7 +146,7 @@ const Delivery = ({
         handleChange={handleChange}
         validationErrors={validationErrors}
         autoComplete={autoComplete}
-        setWrapperRef={setWrapperRef}
+        ref={wrapperRef}
         handleSaveButton={handleSaveButton}
       />
     </div>
@@ -154,11 +155,9 @@ const Delivery = ({
 
 const mapStateToProps = ({
   postUserAddress: { errorMessage, posted },
-  selectedLocationReducer: { coordinates }
 }) => ({
   errorMessage,
   posted,
-  coordinates,
 });
 
 export default connect(
@@ -178,14 +177,12 @@ Delivery.propTypes = {
   sendUserAddress: PropTypes.func.isRequired,
   requestUserAddress: PropTypes.func.isRequired,
   errorMessage: PropTypes.string,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired
 };
 
 DeliveryForm.propTypes = {
   inputData: PropTypes.objectOf(any).isRequired,
   handleChange: PropTypes.func.isRequired,
   autoComplete: PropTypes.bool.isRequired,
-  setWrapperRef: PropTypes.func.isRequired,
   handleSaveButton: PropTypes.func.isRequired,
   validationErrors: PropTypes.objectOf(any).isRequired
 };
