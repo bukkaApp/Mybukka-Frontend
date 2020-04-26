@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -11,17 +12,17 @@ import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
 import NearByBukka from './NearByBukka';
+import { useLocationContext } from '../../../context/LocationContext';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
 const Favorites = ({
-  // mode,
-  push,
-  coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   status: { error }
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
   useEffect(() => {
     fetchNearbyBukkas(coordinates);
   }, [coordinates]);
@@ -63,14 +64,10 @@ const Favorites = ({
 };
 
 const mapStateToProps = ({
-  deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
-  selectedLocationReducer: { coordinates },
 }) => ({
   fetchedBukkas,
   status,
-  coordinates,
-  mode,
 });
 
 export default connect(
@@ -79,9 +76,6 @@ export default connect(
 )(Favorites);
 
 Favorites.propTypes = {
-  // mode: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
   }).isRequired,

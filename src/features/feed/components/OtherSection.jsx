@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable max-len */
-import React, { useEffect, Fragment, useState } from 'react';
+import React, { useEffect, Fragment, useState, useCallback } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Container from 'Components/container/Container';
@@ -11,24 +12,19 @@ import shortId from 'shortid';
 import Row from 'Components/grid/Row';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
-
 import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
-
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import LocationNavSmallScreen, {
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
-
-import BukkaNavSmallScreen, {
-  ResponsiveCategories,
-} from 'Components/navbar/BukkaNavSmallScreen';
-
+import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
 import CheckoutButton from 'Components/common/CheckoutButton';
-
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
-
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+
+import fetchFreshOrMartAction from 'Redux/fetchFreshOrMartAction';
+import { useLocationContext } from '../../../context/LocationContext';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
@@ -36,26 +32,29 @@ import ExploreSection from '../common/ExploreSection';
 import { drinkBannerImage, freshBannerImage } from '../img/imgLinks';
 
 const OtherSection = ({
-  // mode,
-  push,
-  coordinates,
   bukkaMenu,
-  fetchBukkaMenu,
   categories,
   error,
   errorMessage,
   fetched,
   setMealToDisplay,
   type,
+  fetchNearbyBukkas,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const isDrinks = type === 'drinks';
+  const isMart = type === 'mart';
+
+  const fetchFreshorMart = useCallback(() =>
+    fetchNearbyBukkas(coordinates, type)
+  , [coordinates, type]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchBukkaMenu('sample_bukka_fresh_drinks', type);
-  }, [coordinates, type]);
+    fetchFreshorMart();
+  }, []);
 
   if (bukkaMenu.length === 1 && error) {
     return <NoNearByBukkaLocation push={push} />;
@@ -69,8 +68,8 @@ const OtherSection = ({
           <IntroSection push={push} />
           <ExploreSection>
             <AreasToExplore
-              text={isDrinks ? 'Drinks' : 'Groceries.'}
-              bgImage={isDrinks ? drinkBannerImage : freshBannerImage}
+              text={isMart ? 'Mart' : 'Groceries.'}
+              bgImage={isMart ? drinkBannerImage : freshBannerImage}
             />
             <div className="feed-main-content">
               <LocationNavLargeScreen
@@ -100,6 +99,7 @@ const OtherSection = ({
                                     key={shortId.generate()}
                                     imageUrl={menu.imageUrl}
                                     mealName={menu.title}
+                                    other
                                     deliveryPrice={menu.deliveryCost}
                                     imageHeight="fresh-img-height"
                                     classNames="col-lg-3 col-md-4 col-sm-6 col-6"
@@ -128,19 +128,15 @@ const OtherSection = ({
 };
 
 const mapStateToProps = ({
-  deliveryModeReducer: { mode },
   fetchBukkaMenuReducer: {
     bukkaMenu,
     categories,
     status: { error, fetched },
   },
-  selectedLocationReducer: { coordinates },
   cartReducer: { errorMessage },
 }) => ({
   bukkaMenu,
   status,
-  coordinates,
-  mode,
   categories,
   error,
   fetched,
@@ -152,16 +148,12 @@ export default connect(
   {
     fetchBukkaMenu: fetchBukkaMenuAction,
     setMealToDisplay: setMealToDisplayAction,
+    fetchNearbyBukkas: fetchFreshOrMartAction
   },
 )(OtherSection);
 
 OtherSection.propTypes = {
-  // mode: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
-  fetchBukkaMenu: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
 };

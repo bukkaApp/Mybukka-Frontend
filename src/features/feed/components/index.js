@@ -15,7 +15,7 @@ import './feed.scss';
 const Feed = ({
   push,
   food,
-  drink,
+  mart,
   search,
   category,
   fresh,
@@ -25,7 +25,7 @@ const Feed = ({
   <Fragment>
     <AddToCart />
     {food && <FoodSection {...props} push={push} />}
-    {drink && <OtherSection {...props} push={push} type="drinks" />}
+    {mart && <OtherSection {...props} push={push} type="mart" />}
     {search && <SearchResult {...props} push={push} />}
     {fresh && <OtherSection {...props} push={push} type="fresh" />}
     {category && <Category {...props} push={push} />}
@@ -37,7 +37,7 @@ export default Feed;
 
 Feed.defaultProps = {
   food: false,
-  drink: false,
+  mart: false,
   search: false,
   category: false,
   fresh: false,
@@ -50,6 +50,6 @@ Feed.propTypes = {
   category: PropTypes.bool,
   search: PropTypes.bool,
   food: PropTypes.bool,
-  drink: PropTypes.bool,
+  mart: PropTypes.bool,
   push: PropTypes.func.isRequired,
 };

@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import shortId from 'shortid';
 import InfiniteScroll from 'react-infinite-scroller';
 import PropTypes from 'prop-types';
 
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 // import SmallSpinner from 'Components/spinners/SmallSpinner';
 import Row from 'Components/grid/Row';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
@@ -12,25 +13,25 @@ import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 
-import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+import { useLocationContext } from '../../../context/LocationContext';
 import fetchBukkas from '../actionCreators/fetchMoreBukkas';
 
 const FoodNearBy = ({
-  push,
   delivery,
   bukkaData,
   title,
   classNames,
-  imageHeight,
   children,
   handleRefFocus,
-  coordinates,
   fetchMoreBukkas,
   currentPage,
   errorMessage,
   fetchBukkaMenu,
   fetchBukka,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
+
   const handleClick = (event, bukka) => {
     event.preventDefault();
     fetchBukkaMenu(`${bukka.slug}`)
@@ -87,14 +88,8 @@ const FoodNearBy = ({
   );
 };
 
-const mapStateToProps = ({
-  selectedLocationReducer: { coordinates },
-}) => ({
-  coordinates,
-});
-
 export default connect(
-  mapStateToProps,
+  () => ({}),
   { fetchMoreBukkas: fetchBukkas,
     fetchBukkaMenu: fetchBukkaMenuAction,
     fetchBukka: fetchBukkaAction, }
@@ -106,7 +101,6 @@ FoodNearBy.defaultProps = {
   title: '',
   delivery: false,
   handleRefFocus: () => {},
-  coordinates: [],
   currentPage: 1,
   errorMessage: '',
   fetchBukkaMenu: () => {},
@@ -118,8 +112,6 @@ FoodNearBy.propTypes = {
   handleRefFocus: PropTypes.func,
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,
-  imageHeight: PropTypes.string.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number),
   fetchMoreBukkas: PropTypes.func.isRequired,
   currentPage: PropTypes.number,
   errorMessage: PropTypes.string,

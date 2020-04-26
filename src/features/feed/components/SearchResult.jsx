@@ -3,31 +3,26 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useHistory } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
-import queryString from 'query-string';
+import shortId from 'shortid';
+
+import BukkaCard from 'Components/Carousel/BukkaCard';
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
-import Navbar from 'Components/navbar';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
-import NotAvailable from 'Components/not-found/NotAvailable';
+import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
 import getMoreBukkasRelatedToSingleCuisines from '../actionCreators/getMoreBukkasRelatedToSingleCuisines';
 
-import shortId from 'shortid';
 
-// import Headline from 'Components/Carousel/Headline';
-import BukkaCard from 'Components/Carousel/BukkaCard';
+import { useLocationContext } from '../../../context/LocationContext';
 
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
-// import NearByBukka from './NearByBukka';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
-
-import searchData from '../data/search.json';
-import categories from '../data/cuisine.json';
 
 import './searchresult.scss';
 
@@ -52,8 +47,6 @@ const Headline = ({ title, views }) => (
 
 const FoodSection = ({
   search,
-  push,
-  coordinates,
   fetchNearbyBukkas,
   status: { error },
   location: match,
@@ -63,7 +56,10 @@ const FoodSection = ({
   cuisineToDisplay: { name },
   getMoreBukkasRelatedToCuisines,
   getBukkasRelatedToCuisines,
+  fetchBukkaMenu,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState({
     by: '',
     value: ''
@@ -71,18 +67,17 @@ const FoodSection = ({
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    console.log('params', 'american');
     console.log('match', match);
     let suscribed = true;//eslint-disable-line
     getBukkasRelatedToCuisines('american', coordinates);
     return () => {
       suscribed = false;
     };
-  }, []);
+  }, [coordinates]);
 
   useEffect(() => {
     fetchNearbyBukkas(coordinates, 1, 100, searchQuery.by, searchQuery.value);
-  }, [coordinates]);
+  }, [coordinates, searchQuery]);
 
   useEffect(() => {
     if (cuisineItems.length > 0 && searchQuery.value.length > 0) {
@@ -91,7 +86,7 @@ const FoodSection = ({
       );
       setSearchResults(newSearchResult);
     }
-  }, [searchQuery]);
+  }, [cuisineItems, searchQuery]);
 
   useEffect(() => {
     setSearchQuery({ by: 'name', value: search });
@@ -195,7 +190,6 @@ const mapStateToProps = ({
   deliveryModeReducer: { mode },
   searchAnythingReducer: { search },
   bukkasReducer: { fetchedBukkas, status },
-  selectedLocationReducer: { coordinates },
   cuisineReducer: {
     cuisineItems, errorMessage,
     currentPage,
@@ -205,7 +199,6 @@ const mapStateToProps = ({
   search,
   fetchedBukkas,
   status,
-  coordinates,
   mode,
   cuisineItems,
   errorMessage,
@@ -216,14 +209,13 @@ const mapStateToProps = ({
 export default connect(
   mapStateToProps,
   { fetchNearbyBukkas: fetchBukkas,
+    fetchBukkaMenu: fetchBukkaMenuAction,
     getBukkasRelatedToCuisines: getBukkasRelatedToSingleCuisines,
     getMoreBukkasRelatedToCuisines: getMoreBukkasRelatedToSingleCuisines, }
 )(withRouter(FoodSection));
 
 FoodSection.propTypes = {
   search: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
   }).isRequired,

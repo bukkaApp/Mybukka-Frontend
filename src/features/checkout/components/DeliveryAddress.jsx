@@ -4,7 +4,6 @@ import TextArea from 'Components/input/TextArea';
 import { connect } from 'react-redux';
 import PropTypes, { any } from 'prop-types';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
-import Button from 'Components/button/Button';
 import inputField from '../InputAttribute/inputData.json';
 
 import './payment.scss';
@@ -12,15 +11,13 @@ import './deliveryAddress.scss';
 import AuthForm from '../common/AuthForm';
 import Demarcation from '../common/SmallScreenDivider';
 
-const DeliveryForm = ({
-  setWrapperRef,
+const DeliveryForm = React.forwardRef(({
   inputData,
   validationErrors,
-  handleSaveButton,
   autoComplete,
   handleChange
-}) => (
-  <form ref={setWrapperRef} className="border padding-20 mt-4">
+}, ref) => (
+  <form ref={ref} className="border padding-20 mt-4">
     <AuthForm
       inputData={inputData}
       inputField={inputField.deliveryAddress}
@@ -38,7 +35,7 @@ const DeliveryForm = ({
       />
     </div>
   </form>
-);
+));
 
 const Pickup = ({ title, name }) => (
   <section className="px-3 px-md-3 px-lg-0 mb-2 mt-4">
@@ -53,21 +50,15 @@ const Delivery = ({
   mode,
   address,
   inputData,
-  setInputData,
   validationErrors,
-  setValidationErrors,
   handleDeliveryAddressSave,
   handleChange,
 }) => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const [autoComplete, setAutoComplete] = useState(false);
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setAutoComplete(false);
     }
   };
@@ -93,7 +84,7 @@ const Delivery = ({
             handleChange={handleChange}
             validationErrors={validationErrors}
             autoComplete={autoComplete}
-            setWrapperRef={setWrapperRef}
+            ref={wrapperRef}
             handleSaveButton={handleDeliveryAddressSave}
           />
         </Fragment>
@@ -110,14 +101,11 @@ const Delivery = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  selectedLocationReducer: { coordinates, selectedLocation },
   fetchBukkaReducer: {
     fetchedBukka: { address }
   }
 }) => ({
   mode,
-  coordinates,
-  selectedLocation,
   address
 });
 
@@ -135,8 +123,6 @@ DeliveryForm.propTypes = {
   inputData: PropTypes.objectOf(any).isRequired,
   handleChange: PropTypes.func.isRequired,
   autoComplete: PropTypes.bool.isRequired,
-  setWrapperRef: PropTypes.func.isRequired,
-  handleSaveButton: PropTypes.func.isRequired,
   validationErrors: PropTypes.objectOf(any).isRequired
 };
 

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { useHistory } from 'react-router-dom';
 import Container from 'Components/container/Container';
 
 import NoNearByBukkaLocation
@@ -15,15 +16,16 @@ import LocationNavSmallScreen, {
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 
+import Map from 'Components/map';
 import Carousel from 'Components/Carousel/Carousel';
 import BukkasToExploreSection from './BukkasToExploreSection';
 
+import { useLocationContext } from '../../../context/LocationContext';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
 import FoodNearBy from './FoodNearBy';
-import Map from '../common/Map';
 import { foodBannerImage } from '../img/imgLinks';
 
 import freeDelivery from '../data/free-delivery.json';
@@ -50,8 +52,6 @@ const mapDisplay = displayMap => (
 
 const FoodSection = ({
   mode,
-  push,
-  coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   currentPage,
@@ -59,7 +59,10 @@ const FoodSection = ({
   loading,
   fetchedPromotedBukkas,
   fetchedCuisines,
+  getPromoBukkas,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
   const handleClick = () => {
@@ -80,8 +83,8 @@ const FoodSection = ({
   }, [coordinates]);
 
   useEffect(() => {
-    getPromotedBukkas(coordinates);
-  }, [fetchedPromotedBukkas]);
+    getPromoBukkas(coordinates);
+  }, [coordinates]);
 
   useEffect(() => {
     handleFetchOnRefresh();
@@ -127,11 +130,11 @@ const FoodSection = ({
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
-                      push={push}
                     />
                   </div>
                   <div className={mapDisplay(displayMap)}>
-                    <Map restaurants={nearbyBukkas} coordinates={coordinates} />
+                    <Map />
+                    {/* <Map restaurants={nearbyBukkas} coordinates={coordinates} /> */}
                   </div>
                   {/* display carousel for map on small & medium screen */}
                   {displayMap && (
@@ -165,7 +168,6 @@ const mapStateToProps = ({
   loadingReducer: { status: loading },
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
-  selectedLocationReducer: { coordinates },
   promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
   cuisineReducer: { fetchedBukkas: fetchedCuisines }
 }) => ({
@@ -174,7 +176,6 @@ const mapStateToProps = ({
   fetchedPromotedBukkas,
   status,
   currentPage,
-  coordinates,
   mode,
   errorMessage,
   loading,
@@ -182,13 +183,12 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas },
+  { fetchNearbyBukkas: fetchBukkas,
+    getPromoBukkas: getPromotedBukkas },
 )(FoodSection);
 
 FoodSection.propTypes = {
   mode: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,

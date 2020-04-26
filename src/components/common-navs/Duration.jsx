@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import setDeliverySchedule from 'Redux/setDeliverySchedule';
 
@@ -15,6 +14,7 @@ import {
 import inputData from './inputData/duration';
 
 import './duration.scss';
+
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
 
@@ -128,13 +128,13 @@ const Asap = () =>
 export const DurationContent = ({
   mode, setDeliverySchedule, currentSchedule
 }) => {
-  console.log(mode, 'currentSchedule currentSchedule', currentSchedule);
-  const { time, day } = currentSchedule;
   const [activeOption, setOption] = useState(mode === 'schedule');
-  const [scheduled, reSchedule] = useState({
-    day,
-    time
-  });
+  const [scheduled, reSchedule] = useState({ ...currentSchedule });
+
+  useEffect(() => {
+    const { time, day } = currentSchedule;
+    reSchedule({ day, time });
+  }, []);
 
   const handleDeliveryTime = (name, value) => {
     reSchedule({

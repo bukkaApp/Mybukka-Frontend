@@ -1,6 +1,9 @@
 .bukka-logo {
     width: 100px;
     display: inline-block;
+    img {
+        width: 100%;
+    }
     @media screen and (max-width: 307px) {
         width: 60px
     }

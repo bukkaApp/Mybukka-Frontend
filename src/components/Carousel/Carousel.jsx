@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useLayoutEffect } from 'react';
 
 import shortId from 'shortid';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
@@ -75,10 +75,7 @@ const Carousel = ({
   textOverlay,
   classNames,
   noOfImagesShown,
-  xl,
-  lg,
-  md,
-  sm,
+  xl, lg, md, sm,
   title,
   slideItems,
   carouselType,
@@ -89,8 +86,9 @@ const Carousel = ({
   numberOfViews,
   description,
   placeId,
-  push, fetchBukka, fetchBukkaMenu,
+  fetchBukka, fetchBukkaMenu, otherBukka
 }) => {
+  const { push } = useHistory();
   const [width, height] = useWindowSize();
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -152,6 +150,7 @@ const Carousel = ({
                 {slideItems.map(bukka => (
                   <FoodCard
                     key={shortId.generate()}
+                    other={otherBukka}
                     remark={bukka.placeGroup && bukka.placeGroup.length > 0 ?
                       bukka.placeGroup[0] : bukka.remark}
                     mealName={bukka.name || bukka.title}
