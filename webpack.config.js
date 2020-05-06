@@ -121,6 +121,7 @@ module.exports = {
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
       Utilities: path.resolve(__dirname, 'src/utils'),
+      Hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
 };
