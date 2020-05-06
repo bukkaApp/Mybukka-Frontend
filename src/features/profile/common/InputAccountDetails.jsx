@@ -1,7 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
 import InputField from 'Components/input/InputField';
 
 import EditTogglerButton from './EditTogglerButton';
@@ -38,21 +36,3 @@ const InputAccountDetails = React.forwardRef(({
 ));
 
 export default InputAccountDetails;
-
-InputAccountDetails.defaultProps = {
-  type: 'text',
-  value: '',
-  children: '',
-  handleChange: () => {},
-  handleSave: () => {}
-};
-
-InputAccountDetails.propTypes = {
-  placeHolder: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  value: PropTypes.string,
-  children: PropTypes.node,
-  handleChange: PropTypes.func,
-  handleSave: PropTypes.func
-};
