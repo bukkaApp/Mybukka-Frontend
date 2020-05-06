@@ -24,7 +24,7 @@ const store = mockStore({
   selectedLocationReducer: { coordinates: [3.361476, 6.5560715] }
 });
 
-describe('Account Details components', () => {
+describe.skip('Account Details components', () => {
   const props = {
     requestUserAddress: jest.fn(),
     deleteUserAddress: jest.fn(),
@@ -45,7 +45,7 @@ describe('Account Details components', () => {
     </Provider>
   );
 
-  it('renders properly', () => {
+  it.skip('renders properly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
