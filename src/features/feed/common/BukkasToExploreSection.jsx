@@ -1,13 +1,8 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable react/prop-types */
 import React, { Fragment } from 'react';
-
-// import PropTypes from 'prop-types';
 
 import Carousel from 'Components/Carousel/Carousel';
 
-import bukkaData from '../data/bukkaData.json';
-import topCategories from '../data/cuisine.json';
+import bukkaData from './bukkaData.json';
 
 const renameCategory = name => (
   name.toLowerCase() === 'new' ?

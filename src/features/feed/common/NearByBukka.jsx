@@ -1,7 +1,5 @@
 import React from 'react';
 
-import shortId from 'shortid';
-
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 import Headline from 'Components/Carousel/Headline';
@@ -18,16 +16,14 @@ const NearByBukka = ({
   handleRefFocus,
 }) => (
   <div className="pt-4 mb-4">
-    {title &&
-    <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
-    }
+    {title && <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />}
     {children}
     <Container>
       {bukkaData.length > 0 && (
         <Row classNames="pb-4">
           {bukkaData.map(bukka => (
             <BukkaCard
-              key={shortId.generate()}
+              key={`nearBy-Bukka-${bukka.title}-${bukka._id}`}
               imageUrl={bukka.imageUrl}
               mealName={bukka.title}
               deliveryPrice={bukka.deliveryCost}

@@ -12,6 +12,7 @@ import Main from './Main';
 import IndeterminateProgressbar from
   '../components/progress-bar/IndeterminateProgressbar';
 import AlertMessage from '../components/alert';
+import Loader from '../components/loader/Loader';
 
 import './index.scss';
 import './animate.scss';
@@ -20,7 +21,7 @@ import ContextProviders from './ContextProviders';
 const { store, persistor } = reduxStore();
 
 const App = () => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={<Loader />}>
     <BrowserRouter>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>

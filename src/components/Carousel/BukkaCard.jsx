@@ -27,6 +27,7 @@ const BukkaCard = ({
   dataToggle,
   handleClick,
   others,
+  itemClassName,
 }) => {
   const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
 
@@ -59,7 +60,7 @@ const BukkaCard = ({
           />
           <div
             style={{ backgroundImage: `url(${lgImgUrl})`, opacity: 1 }}
-            className="custom-bukka-image"
+            className={`custom-bukka-image ${itemClassName}`}
           />
         </div>
 

@@ -2,10 +2,8 @@
 import React, { useEffect, Fragment, createRef } from 'react';
 
 import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import showLoadingAction from 'Redux/showLoadingAction';
 import MapMarker from 'Icons/MapMarker';
 import ChevronRight from 'Icons/ChevronRight';
 import InputField from 'Components/input/InputField';
@@ -63,6 +61,7 @@ const SearchLocation = ({
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   return (

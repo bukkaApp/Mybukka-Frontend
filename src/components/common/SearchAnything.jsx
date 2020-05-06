@@ -12,7 +12,7 @@ import { ReusableButton, ReusableDropdown, ReusableWrapper }
 import data from './data.json';
 import './searchanything.scss';
 
-const { defaultSearch, searchData } = data;
+const { searchData } = data;
 
 const SearchInputField = ({ handleChange }) => (
   <InputField
@@ -31,7 +31,7 @@ const DefaultSearchCategories = () => (
       cuisines
     </div>
     <div className="row">
-      {defaultSearch.map(searchList => (
+      {data.defaultSearch.map(searchList => (
         <Navlink
           href={`/search?q=${searchList.split(' ').join('-')}`}
           classNames="col-6 defualt-search-category pointer text-dark"
@@ -100,7 +100,7 @@ const lists = ['delivery', 'pickup', 'items'];
 
 const SearchLists = ({ item }) => (
   <Fragment>
-    {searchData.map(search => (
+    {data.searchData.map(search => (
       search.items.map((itm) => {
         if (itm.includes(item)) {
           return (

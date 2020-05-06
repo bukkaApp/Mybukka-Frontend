@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NearbyBukka from '../components/NearByBukka';
+import NearbyBukka from '../common/NearByBukka';
 
 describe('IntroSection FeedPage component', () => {
   const props = {

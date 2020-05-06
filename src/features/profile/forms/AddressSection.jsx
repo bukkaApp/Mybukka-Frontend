@@ -90,6 +90,7 @@ const Delivery = ({
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   const handleChange = ({ target: { name, value } }) => {

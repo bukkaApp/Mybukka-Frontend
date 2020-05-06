@@ -11,7 +11,7 @@ import NotAvailable from 'Components/not-found/NotAvailable';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
-import NearByBukka from './NearByBukka';
+import NearByBukka from '../common/NearByBukka';
 import { useLocationContext } from '../../../context/LocationContext';
 
 // TODO: Don't  display time if bukkas are not avaailable or they have closed

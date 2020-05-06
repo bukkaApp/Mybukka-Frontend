@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import UserDropdown from './UserDropdown';
-import './navbar.scss';
+import '../navbar.scss';
+import useClickOutside from '../../../hooks/useClickOutside';
 
 const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
   const { push } = useHistory();
-  const wrapperRef = React.createRef();
+  const wrapperRef = React.useRef(null);
   const [dropdown, toggleDropdown] = useState(false);
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      toggleDropdown(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-  });
+  useClickOutside(() => toggleDropdown(false), wrapperRef);
 
   return (
     <div ref={wrapperRef} className="user-default-img">

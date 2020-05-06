@@ -4,13 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import removeFromCart from 'Redux/removeFromCart';
 import { Link } from 'react-router-dom';
-import shortId from 'shortid';
 import Cart from 'Icons/Cart';
 import {
   CartItems,
   CheckoutBtn,
   SubTotal
-} from '../common-navs/CartIconSection';
+} from '../../common-navs/CartIconSection';
 import './emptycart.scss';
 
 export const CartDropdown = ({ children, display }) =>
@@ -25,7 +24,6 @@ const EmptyCart = ({
   orderItems,
   totalPriceInCart,
   removeFromCartAction,
-  focus,
   bukka
 }) => {
   if (orderQuantity > 0) {
@@ -51,7 +49,7 @@ const EmptyCart = ({
         >
           {orderItems.map((item, index) => (
             <CartItems
-              key={shortId.generate()}
+              key={`order-item-${item.title}-${item.slug}`}
               title={item.title}
               removeFromCartAction={() => removeFromCartAction(item.slug, index)}
               category={item.category}
@@ -131,5 +129,4 @@ CartDropdown.defualtProps = {
 
 CartDropdown.propTypes = {
   children: PropTypes.node.isRequired,
-  display: PropTypes.bool
 };

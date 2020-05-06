@@ -15,7 +15,6 @@ import ChooseAreaToExploreSection
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
 import VerifyPhone from '../verifyPhone';
-import useDocumentTitle from '../../context/useDocumentTitle';
 import fetchBukkasAction from '../feed/actionCreators/fetchBukkas';
 import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
@@ -28,11 +27,10 @@ const Home = ({
   getPromotedBukkas,
   getRestaurantCuisine,
 }) => {
-  useDocumentTitle('Welcome to bukka');
   const { coordinates } = useLocationContext();
 
   useUpdateEffect(() => {
-    new Promise((resolve) => {
+    new Promise(async (resolve) => {
       resolve(getPromotedBukkas(coordinates));
     }).then(() => getRestaurantCuisine(coordinates))
       .then(() => fetchNearbyBukkas(coordinates))

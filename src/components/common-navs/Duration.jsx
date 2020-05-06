@@ -36,40 +36,23 @@ export const TimeLists = ({
   handleClick,
   classNames,
   maxHeight,
-  push,
   pathname,
   link
 }) => (
   <div className={`custom-duration-dropdown ${classNames}`}>
     <div className={`custom-duration-dropdown-content ${maxHeight}`}>
       {lists.map(list => (
-        <>
-          {link ? (
-            <a href={`${pathname}#${list}`}>
-              <div
-                key={list}
-                tabIndex="0"
-                role="button"
-                aria-pressed="false"
-                className="custom-duration-dropdown-item"
-              >
-                <span>{list}</span>
-              </div>
-            </a>
-          ) : (
-            <div
-              key={list}
-              tabIndex="0"
-              role="button"
-              aria-pressed="false"
-              onClick={() => handleClick(list)}
-              className="custom-duration-dropdown-item"
-            >
+        link ? (
+          <a href={`${pathname}#${list}`}>
+            <div key={list} tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
               <span>{list}</span>
             </div>
-          )}
-        </>
-      ))}
+          </a>
+        ) : (
+          <div key={list} tabIndex="0" role="button" aria-pressed="false" onClick={() => handleClick(list)} className="custom-duration-dropdown-item">
+            <span>{list}</span>
+          </div>
+        )))}
     </div>
   </div>
 );
@@ -87,13 +70,7 @@ const Schedule = ({ placeholder, handleClick, lists, name }) => {
       <div className="position-relative">
         <div>
           <div className="font-size-16">
-            <div
-              className="font-size-text"
-              tabIndex="0"
-              role="button"
-              aria-pressed="false"
-              onClick={() => setDropdown(!dropdown)}
-            >
+            <div className="font-size-text" tabIndex="0" role="button" aria-pressed="false" onClick={() => setDropdown(!dropdown)}>
               <span>{placeholder}</span>
             </div>
             <span className="custom-chevron-down" />
@@ -111,12 +88,7 @@ const Asap = () =>
       <div className="position-relative">
         <div>
           <div className="font-size-16">
-            <div
-              className="font-size-text"
-              tabIndex="0"
-              role="button"
-              aria-pressed="false"
-            >
+            <div className="font-size-text" tabIndex="0" role="button" aria-pressed="false">
               <span>{text}</span>
             </div>
           </div>
@@ -126,7 +98,7 @@ const Asap = () =>
   ));
 
 export const DurationContent = ({
-  mode, setDeliverySchedule, currentSchedule
+  mode, setSchedule, currentSchedule
 }) => {
   const [activeOption, setOption] = useState(mode === 'schedule');
   const [scheduled, reSchedule] = useState({ ...currentSchedule });
@@ -177,7 +149,7 @@ export const DurationContent = ({
         </div>
         <button
           className="duration-dropdown-footer-button"
-          onClick={() => setDeliverySchedule(scheduled)}
+          onClick={() => setSchedule(scheduled)}
         >
           <span>Set Delivery Time</span>
         </button>
@@ -193,7 +165,7 @@ const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
 
 export const ConnectedDurationContent = connect(
   mapStateToProps,
-  { setDeliverySchedule }
+  { setSchedule: setDeliverySchedule }
 )(DurationContent);
 
 const Duration = props => (

@@ -2,10 +2,10 @@ import React, { Fragment, useState, useEffect } from 'react';
 
 import CartItems from 'Components/common/CartItems';
 import Brand from 'Components/brand/Brand';
-import CartSection from './CartSection';
-import EmptyCart, { CartDropdown } from './EmptyCart';
+import CartSection from './common/CartSection';
+import EmptyCart, { CartDropdown } from './common/EmptyCart';
 import CartIconSection from '../common-navs/CartIconSection';
-import UserDefaultImage from './UserDefaultImage';
+import UserDefaultImage from './common/UserDefaultImage';
 
 import './navbar.scss';
 
@@ -25,6 +25,7 @@ const AuthenticaticatedNavbar = () => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   return (

@@ -3,19 +3,14 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter, useHistory } from 'react-router-dom';
-import InfiniteScroll from 'react-infinite-scroller';
-import shortId from 'shortid';
-
-import BukkaCard from 'Components/Carousel/BukkaCard';
-import Row from 'Components/grid/Row';
+import { useHistory } from 'react-router-dom';
 import Container from 'Components/container/Container';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
 import getMoreBukkasRelatedToSingleCuisines from '../actionCreators/getMoreBukkasRelatedToSingleCuisines';
 
-
+import SearchItems, { Headline } from '../common/SearchItems';
 import { useLocationContext } from '../../../context/LocationContext';
 
 import fetchBukkas from '../actionCreators/fetchBukkas';
@@ -26,37 +21,11 @@ import ExploreSection from '../common/ExploreSection';
 
 import './searchresult.scss';
 
-const Headline = ({ title, views }) => (
-  <Container>
-    <div className="headline">
-      <blockquote>
-        <h2 className="headline-h2">
-          {title}
-        </h2>
-      </blockquote>
-      {views > 0 && (
-        <a className="headline-link" href="/" rel="nofollow">
-          <span className="d-none pr-3 d-sm-inline-flex">
-            {views} {views > 1 ? 'Results' : 'Result'}
-          </span>
-        </a>
-      )}
-    </div>
-  </Container>
-);
-
 const FoodSection = ({
   search,
   fetchNearbyBukkas,
-  status: { error },
-  location: match,
   cuisineItems,
-  errorMessage,
-  currentPage,
-  cuisineToDisplay: { name },
-  getMoreBukkasRelatedToCuisines,
   getBukkasRelatedToCuisines,
-  fetchBukkaMenu,
 }) => {
   const { push } = useHistory();
   const { coordinates } = useLocationContext();
@@ -67,7 +36,6 @@ const FoodSection = ({
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    console.log('match', match);
     let suscribed = true;//eslint-disable-line
     getBukkasRelatedToCuisines('american', coordinates);
     return () => {
@@ -117,68 +85,12 @@ const FoodSection = ({
                 <h6 className="pl-3">EXPLORE TOP CUISINES</h6>
               )}
             </Container>
-            <>
-              {searchResults.length === 0 && searchQuery.value.length > 0 && (
-                <h2 className="text-center" style={{ marginTop: '50px' }}>
-                  Your search returned no results
-                </h2>
-              )}
-            </>
-            <Container>
-              {searchResults.length > 0 && (
-                <Row classNames="pb-4">
-                  {searchResults.map(bukka => (
-                    <BukkaCard
-                      key={shortId.generate()}
-                      imageUrl={bukka.imageUrl}
-                      mealName={bukka.name}
-                      deliveryPrice={bukka.deliveryPrice}
-                      deliveryTime={bukka.deliveryTime}
-                      rating={bukka.rating}
-                      imageHeight="img-height"
-                      classNames="col-xl-4 col-md-6 col-sm-12"
-                      dataTarget="#bukkaAddToCart"
-                      dataToggle="modal"
-                    />
-                  ))}
-                </Row>
-              )}
-              {/* show categories if there is no search */}
-              <InfiniteScroll
-                loadMore={() =>
-                  getMoreBukkasRelatedToCuisines(
-                    'american', coordinates, Number(currentPage) + 1)}
-                hasMore={errorMessage === ''}
-                loader={
-                  <div className="loader text-center" key={0}>
-                    <div className="spinner-grow custom-text-color" role="status">
-                      <span className="sr-only">Loading...</span>
-                    </div>
-                  </div>
-                }
-                useWindow
-                initialLoad={false}
-              >
-                <Row classNames="pb-4">
-                  {cuisineItems.map(bukka => (
-                    <BukkaCard
-                      key={shortId.generate()}
-                      imageUrl={bukka.imageUrl}
-                      mealName={bukka.name}
-                      delivery={false}
-                      handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
-                      deliveryPrice={bukka.deliveryPrice}
-                      deliveryTime={bukka.deliveryTime}
-                      rating={bukka.rating}
-                      tags={bukka.placeGroup}
-                      imageHeight="img-fluid"
-                      classNames="col-xl-4 col-md-6 col-sm-12"
-                      href={`/bukka/${bukka.slug}`}
-                    />
-                  ))}
-                </Row>
-              </InfiniteScroll>
-            </Container>
+            {searchResults.length === 0 && searchQuery.value.length > 0 && (
+              <h2 className="text-center" style={{ marginTop: '50px' }}>
+                Your search returned no results
+              </h2>
+            )}
+            <SearchItems searchResults={searchResults} />
           </div>
         </ExploreSection>
       </div>
@@ -212,7 +124,7 @@ export default connect(
     fetchBukkaMenu: fetchBukkaMenuAction,
     getBukkasRelatedToCuisines: getBukkasRelatedToSingleCuisines,
     getMoreBukkasRelatedToCuisines: getMoreBukkasRelatedToSingleCuisines, }
-)(withRouter(FoodSection));
+)(FoodSection);
 
 FoodSection.propTypes = {
   search: PropTypes.string.isRequired,
@@ -220,7 +132,6 @@ FoodSection.propTypes = {
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({}))
   }).isRequired,
   fetchNearbyBukkas: PropTypes.func.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired
 };
 
 Headline.defaultProps = {

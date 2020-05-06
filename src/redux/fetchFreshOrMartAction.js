@@ -13,9 +13,9 @@ const fetchFreshOrMartAction = (coordinates, type) => async (dispatch) => {
     dispatch(loading(FETCH_BUKKA, true));
     const request = await axios.get(`/bukka/nearby?longitude=${coordinates[0]}&lattitude=${coordinates[1]}&type=${type}`);
     dispatch(loading(FETCH_BUKKA, false));
-    const { fetchedBukka } = request.data;
+    const { bukkaMenu } = request.data;
     dispatch(fetchFreshOrMart('SUCCESS', request.data));
-    dispatch({ type: 'FETCH_BUKKA_SUCCESS', data: { fetchedBukka } });
+    dispatch({ type: 'FETCH_BUKKA_MENU_SUCCESS', data: { bukkaMenu } });
   } catch (error) {
     dispatch(loading(FETCH_BUKKA, false));
     dispatch(fetchFreshOrMart('ERROR', error.response.data));

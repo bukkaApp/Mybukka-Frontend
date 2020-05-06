@@ -38,6 +38,7 @@ export const ReusableButton = ({ handleClick, children, classNames }) => {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   return (
