@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { useLocationContext } from '../context/LocationContext';
 import { useLocationsPredictionContext } from '../context/LocationsPrediction';
 import useScript from './useScript';
