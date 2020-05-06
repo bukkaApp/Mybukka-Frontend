@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from 'react';
-import { UPDATE_LOCATIONS_PREDICTION } from 'src/redux/actionTypes';
+import { UPDATE_LOCATIONS_PREDICTION } from 'Redux/actionTypes';
 import constate from 'constate';
 import logger from './Logger';
 

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
@@ -13,8 +14,6 @@ import './addToCartButton.scss';
 const AddToCartButton = ({
   price,
   handleClick,
-  items,
-  mealToDisplay,
   itemIsInCart,
   submenus,
 }) => {
@@ -56,12 +55,12 @@ const AddToCartButton = ({
 
 const mapStateToProps = ({
   fetchBukkaMenuReducer: { mealToDisplay },
-  cartReducer: { items }
+  // cartReducer: { items }
 }) => ({
   mealToDisplay,
-  items,
+  // items,
   // itemIsInCart:
-  //   items.filter(item => item.slug === mealToDisplay.slug).length > 0
+  // items.filter(item => item.slug === mealToDisplay.slug).length > 0
 });
 
 export default connect(

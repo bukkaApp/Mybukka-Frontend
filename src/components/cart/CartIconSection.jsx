@@ -1,11 +1,10 @@
 /* eslint-disable array-callback-return */
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import removeFromCart from 'Redux/removeFromCart';
-import shortId from 'shortid';
 import Price from '../badge/Price';
 import Times from '../icons/Times';
 import Button from '../button/Button';
@@ -117,10 +116,6 @@ const CartIconSection = ({
     return null;
   }
 
-  useEffect(() => {
-    console.log('orderItems', orderItems);
-  });
-
   return (
     <div className={`cart-container ${orderQuantity <= 0 ? 'd-none' : ''}`}>
       <div>
@@ -132,7 +127,7 @@ const CartIconSection = ({
         >
           {orderItems.map((item, index) => (
             <CartItems
-              key={shortId.generate()}
+              key={`cart-ordr-items-${item.title}-${item.slug}`}
               title={item.title}
               removeFromCartAction={() => removeFromCartAction(item.slug, index)}
               category={handleCategoryText(item) || item.category}

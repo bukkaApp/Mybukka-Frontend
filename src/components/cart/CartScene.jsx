@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import CartSection from './CartSection';
 import EmptyCart, { CartDropdown } from './EmptyCart';
-import CartIconSection from '../../common-navs/CartIconSection';
+import CartIconSection from './CartIconSection';
 
 
 const CartScene = () => {

@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 
-import CartItems from 'Components/common/CartItems';
+import CartItems from 'Components/cart/CartItems';
 import Brand from 'Components/brand/Brand';
-import CartSection from './common/CartSection';
-import EmptyCart, { CartDropdown } from './common/EmptyCart';
-import CartIconSection from '../common-navs/CartIconSection';
+import CartSection from '../cart/CartSection';
+import EmptyCart, { CartDropdown } from '../cart/EmptyCart';
+import CartIconSection from '../cart/CartIconSection';
 import UserDefaultImage from './common/UserDefaultImage';
 
 import './navbar.scss';

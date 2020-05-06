@@ -13,7 +13,7 @@ import MapMarker from '../icons/MapMarker';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import Duration from './Duration';
-import CartDropdown from './CartIconSection';
+import CartDropdown from '../cart/CartIconSection';
 import {
   ReusableButton,
   ReusableDropdown,

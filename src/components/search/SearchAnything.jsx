@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import MarkIcon from 'Icons/Remark';
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import Navlink from 'Components/navlink/Navlink';
 import searchAnything from 'Redux/searchAnything';
 import InputField from 'Components/input/InputField';
@@ -14,7 +13,7 @@ import './searchanything.scss';
 
 const { searchData } = data;
 
-const SearchInputField = ({ handleChange }) => (
+const SearchInputField = ({ handleChange, value }) => (
   <InputField
     type="text"
     name="searchLocation"
@@ -22,6 +21,7 @@ const SearchInputField = ({ handleChange }) => (
     classNames="searchanything-text-field inherit-bg searchlocation"
     handleChange={handleChange}
     autoComplete="off"
+    value={value}
   />
 );
 
@@ -33,11 +33,11 @@ const DefaultSearchCategories = () => (
     <div className="row">
       {data.defaultSearch.map(searchList => (
         <Navlink
+          key={`default-search-${searchList.split(' ').join('-')}}`}
           href={`/search?q=${searchList.split(' ').join('-')}`}
           classNames="col-6 defualt-search-category pointer text-dark"
         >
           <div
-            key={shortId.generate()}
             className="col-12 px-0 defualt-search-category"
           >
             {searchList}
@@ -56,6 +56,7 @@ const SearchHead = ({ title }) => (
 
 const SearchItem = ({ searchObj }) => (
   <Navlink
+    key={`search-item-${searchObj.title.split(' ').join('-')}-10`}
     href={`/search?q=${searchObj.title.split(' ').join('-')}`}
     classNames="search-link pointer"
   >
@@ -106,7 +107,7 @@ const SearchLists = ({ item }) => (
           return (
             <Navlink
               classNames="link"
-              key={shortId.generate()}
+              key={`search-lists-${itm}-${item.split(' ').join('-')}`}
               href={`/search?q=${item.split(' ').join('-')}`}
             >
               <SearchTextMatch matchText={itm} />
@@ -118,12 +119,12 @@ const SearchLists = ({ item }) => (
     ))}
 
     {lists.map((list, index) => (
-      <Fragment>
+      <Fragment key={`fragment-list-${list}`}>
         <hr className="my-1" />
         <SearchHead title={headerTexts[index]} />
         {searchData.map((search) => {
           if (search.type === list) {
-            return <SearchItem searchObj={search} />;
+            return <SearchItem key={`search-type-${list}-${JSON.stringify(search)}`} searchObj={search} />;
           }
           return null;
         })}
@@ -150,7 +151,7 @@ const SearchAnything = (props) => {
         </span>
         <div>
           <div className="current-location-button-text">
-            <SearchInputField handleChange={handleChange} />
+            <SearchInputField value={search} handleChange={handleChange} />
           </div>
         </div>
       </ReusableButton>

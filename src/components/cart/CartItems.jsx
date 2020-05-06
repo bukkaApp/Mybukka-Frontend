@@ -2,7 +2,6 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import { Link } from 'react-router-dom';
 
 import CancelSmall from 'Icons/CancelSmall';
@@ -10,7 +9,7 @@ import DropDown from 'Components/dropdown';
 import Button from 'Components/button/Button';
 import Price from 'Components/badge/Price';
 
-import removeFromCart from 'Redux/removeFromCart';
+import removeFromCartAction from 'Redux/removeFromCart';
 
 import './cartItems.scss';
 
@@ -33,7 +32,7 @@ const SubtotalSection = ({ totalPriceInCart }) => (
   </div>
 );
 
-const CartItem = ({ item, index, removeFromCartAction }) => (
+const CartItem = ({ item, index, removeFromCart }) => (
   <div className="single-cart-item-section">
     <div className="quantity-section">{item.quantity}</div>
     <div>{item.title}</div>
@@ -51,7 +50,7 @@ const CartItem = ({ item, index, removeFromCartAction }) => (
   </div>
 );
 
-const CartItems = ({ cartItems, removeFromCartAction, totalPriceInCart }) => {
+const CartItems = ({ cartItems, removeFromCart, totalPriceInCart }) => {
   if (cartItems.length > 0) {
     return (
       <DropDown>
@@ -61,7 +60,7 @@ const CartItems = ({ cartItems, removeFromCartAction, totalPriceInCart }) => {
         {cartItems.map((cartItem, index) => (
           <CartItem
             item={cartItem}
-            key={shortId.generate()}
+            key={`Cart--item-${cartItem.slug}-${cartItem.title}`}
             index={index}
             removeFromCart={removeFromCart}
           />
@@ -80,12 +79,10 @@ const mapStateToProps = ({ cartReducer: { items, totalCost } }) => ({
 
 export default connect(
   mapStateToProps,
-  { removeFromCartAction: removeFromCart }
+  { removeFromCart: removeFromCartAction }
 )(CartItems);
 
-SubtotalSection.propTypes = {
-  totalPriceInCart: PropTypes.number
-};
+SubtotalSection.propTypes = {};
 
 CartItems.propTypes = {
   cartItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

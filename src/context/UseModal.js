@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from 'react';
-import { SET_MODAL } from 'src/redux/actionTypes';
+import { SET_MODAL } from 'Redux/actionTypes';
 import constate from 'constate';
 import logger from './Logger';
 

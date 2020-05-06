@@ -9,7 +9,7 @@ const TermsAndConditions = ({ title, handleLinkOptions }) => {
     return (
       <div className="form-group padding terms">
         <p>
-            By clicking the Sign Up or Facebook button, you agree to our{' '}
+          By clicking the Sign Up or Facebook button, you agree to our{' '}
           <span
             onClick={() => handleLinkOptions('/support/buyer')}
             aria-pressed="false"
@@ -17,7 +17,7 @@ const TermsAndConditions = ({ title, handleLinkOptions }) => {
             tabIndex="0"
             className="link"
           >
-          Terms of Service
+            Terms of Service
           </span>
           {' '}and{' '}
           <span
@@ -27,7 +27,7 @@ const TermsAndConditions = ({ title, handleLinkOptions }) => {
             tabIndex="0"
             className="link"
           >
-          Privacy Policy
+            Privacy Policy
           </span>.
         </p>
       </div>

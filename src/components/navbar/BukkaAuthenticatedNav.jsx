@@ -18,8 +18,8 @@ import getPromotedBukkasAction from '../../features/feed/actionCreators/getPromo
 import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
 
 import './bukka-authenticated-nav.scss';
-import SearchAnything from '../common/SearchAnything';
-import CartScene from './common/CartScene';
+import SearchAnything from '../search/SearchAnything';
+import CartScene from '../cart/CartScene';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },

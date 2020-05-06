@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { useEffect, useReducer, useCallback } from 'react';
-import { SET_BIZ_GROUP, SET_MORE_BIZ_GROUP } from 'src/redux/actionTypes';
+import { SET_BIZ_GROUP, SET_MORE_BIZ_GROUP } from 'Redux/actionTypes';
 import constate from 'constate';
 import logger from './Logger';
 import { useLocalStorage } from '../shared/useLocalStorage';

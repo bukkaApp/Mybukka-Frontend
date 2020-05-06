@@ -9,7 +9,7 @@ import {
   CartItems,
   CheckoutBtn,
   SubTotal
-} from '../../common-navs/CartIconSection';
+} from './CartIconSection';
 import './emptycart.scss';
 
 export const CartDropdown = ({ children, display }) =>
