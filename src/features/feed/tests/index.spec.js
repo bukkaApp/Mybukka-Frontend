@@ -3,8 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import freeDelivery from '../data/free-delivery.json';
-import bukkaData from '../data/search.json';
+import bukkaData from '../common/bukkaData.json';
 import Feed from '../components';
 
 const initialState = {
@@ -79,7 +78,7 @@ describe.skip('FeedPage component', () => {
     expect(container).toMatchSnapshot();
   });
   it.skip('rerenders food component properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'a' },
@@ -112,7 +111,7 @@ describe.skip('FeedPage component', () => {
     expect(container).toMatchSnapshot();
   });
   it.skip('rerenders drinks component properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       bukkasReducer: {
@@ -146,7 +145,7 @@ describe.skip('FeedPage component', () => {
     expect(container).toMatchSnapshot();
   });
   it.skip('rerenders category component properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'jack' },
@@ -182,7 +181,7 @@ describe.skip('FeedPage component', () => {
     expect(container).toMatchSnapshot();
   });
   it.skip('rerenders fresh component properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       bukkasReducer: {

@@ -3,8 +3,7 @@ import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import freeDelivery from '../data/free-delivery.json';
-import bukkaData from '../data/search.json';
+import bukkaData from '../common/bukkaData.json';
 import FoodSection from '..';
 
 const initialState = {
@@ -82,7 +81,7 @@ describe.skip('FoodSection component', () => {
     expect(container).toMatchSnapshot();
   });
   it.skip('renders properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'a' },
