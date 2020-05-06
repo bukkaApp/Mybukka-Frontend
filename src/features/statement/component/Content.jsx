@@ -1,5 +1,4 @@
 import React from 'react';
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
 import List, { UnOrderList, ListItem, OrderList } from '../common/List';
 import UnselectableHeading from '../common/UnSelectableHeading';
@@ -9,7 +8,7 @@ import Paragraph from '../common/Paragraph';
 const Content = ({ data }) => (
   <List classNames="p-0" type="number">
     {data.mainContent.map((eachContent, index) => (
-      <div key={shortId.generate()}>
+      <div key={`main-content-${eachContent.section}`}>
         {/* main heading section */}
         <UnselectableHeading classNames="p-0 m-0 mt-5 mb-3">
           {index + 1}. {eachContent.section}
@@ -17,7 +16,7 @@ const Content = ({ data }) => (
         {/* content of each main heading */}
         <OrderList classNames="p-0">
           {eachContent.article.map((eachArticle, indx) =>
-            (<section key={shortId.generate()}>
+            (<section key={`order-list-0-${eachArticle.heading || eachArticle.paragraph[0] || eachArticle.list[0] || eachArticle.address[0]}`}>
               {/* sub heading section */}
               {eachArticle.heading &&
                 <UnselectableHeading
@@ -28,7 +27,7 @@ const Content = ({ data }) => (
               {/* Paragraph section */}
               {eachArticle.paragraph && eachArticle.paragraph.map(eachLine => (
                 <Paragraph
-                  key={shortId.generate()}
+                  key={`paragraph-key-${eachContent.section}-${eachLine.slice(0, 30)}`}
                   classNames="mt-4 mb-2 short-text inline-paragraph"
                 >
                   {eachLine}
@@ -38,7 +37,7 @@ const Content = ({ data }) => (
               <UnOrderList classNames="pl-3">
                 {eachArticle.list.map(eachLine => (
                   <ListItem
-                    key={shortId.generate()}
+                    key={`unorder-list-item-each-Line-${eachContent.section}-${eachLine.slice(0, 30)}`}
                     classNames="m-0 mt-4 mb-2 ml-2 short-text
                     inline-paragraph disc-list"
                   >
@@ -51,7 +50,7 @@ const Content = ({ data }) => (
               {eachArticle.address &&
                 <address className="mt-5">
                   {eachArticle.address.map(eachData => (
-                    <em key={shortId.generate()}>{eachData}<br /></em>
+                    <em key={`list-content-address-${eachContent.section}-${eachData.slice(0, 30)}`}>{eachData}<br /></em>
                   ))}
                 </address>}
             </section>)

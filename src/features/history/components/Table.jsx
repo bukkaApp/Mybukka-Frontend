@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortId from 'shortid';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
@@ -12,7 +11,7 @@ const Table = ({ data, handleClick, extractPrice, extractQuantity }) => (
     <TableHead />
     {data.map(order => (
       <TableBody
-        key={shortId.generate() + order.title}
+        key={`order-table-title-${order._id}-${order.status}`}
         handleClick={() => handleClick(order.status)}
         time={order.time}
         status={order.status}

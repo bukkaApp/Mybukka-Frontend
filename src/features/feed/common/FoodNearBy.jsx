@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import InfiniteScroll from 'react-infinite-scroller';
 import PropTypes from 'prop-types';
 
@@ -66,7 +65,7 @@ const FoodNearBy = ({
             <Row classNames="pb-4">
               {bukkaData.map(bukka => (
                 <BukkaCard
-                  key={shortId.generate()}
+                  key={`food-nearby-data-card-${bukka.name}-${bukka.slug}`}
                   imageUrl={bukka.imageUrl}
                   mealName={bukka.name}
                   delivery={delivery}

@@ -7,7 +7,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const devMode = process.env.NODE_ENV !== 'production';
+// const devMode = process.env.NODE_ENV !== 'production';
 // const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -22,8 +22,8 @@ const MiniCssPlugin = new MiniCssExtractPlugin({
   // Options similar to the same options in webpackOptions.output
   // both options are optional
   ignoreOrder: true,
-  filename: devMode ? '[name].css' : '[name].[hash].css',
-  chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+  filename: '[name].css',
+  chunkFilename: '[id].css',
 });
 
 const defineVariablesPlugin = new webpack.DefinePlugin({
@@ -62,17 +62,6 @@ module.exports = {
     defineVariablesPlugin,
     ServiceWorkerPlugin,
   ],
-  optimization: {
-    minimize: true,
-    namedModules: true,
-    namedChunks: true,
-    removeAvailableModules: true,
-    flagIncludedChunks: true,
-    occurrenceOrder: false,
-    usedExports: true,
-    concatenateModules: true,
-    sideEffects: false, // <----- in prod defaults to true if left blank
-  },
   module: {
     rules: [
       {

@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
 
 import Container from 'Components/container';
@@ -45,16 +44,13 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
   return (
     <Container classNames="menu-catalogs">
       {bukkaCategories.map(eachCategory => (
-        <Fragment key={shortId.generate()}>
+        <Fragment key={`store-menu-catelogs-${eachCategory}`}>
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
             {bukkaMenu.map(mealData => (
-              <Fragment key={shortId.generate()}>
+              <Fragment key={`store-menu-catelogs-${mealData.title}-${mealData._id}`}>
                 {mealData.category === eachCategory && mealData.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                  <Column
-                    classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
-                    key={`${shortId.generate()}`}
-                  >
+                  <Column classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column">
                     <MealCard {...mealData} />
                   </Column>
                 )}

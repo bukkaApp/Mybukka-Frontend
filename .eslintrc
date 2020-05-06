@@ -22,6 +22,7 @@
   },
   "plugins": ["react-hooks"],
   "rules": {
+    "no-plusplus": 0,
     "one-var": 0,
     "no-underscore-dangle": 0,
     "react/prop-types": 0,

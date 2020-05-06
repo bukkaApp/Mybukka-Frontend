@@ -1,6 +1,5 @@
 import React from 'react';
 
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
 import './buttons.scss';
 
@@ -40,7 +39,7 @@ Button.defaultProps = {
   dataTarget: '',
   dataToggle: '',
   dataDismiss: '',
-  id: shortId.generate(),
+  id: 'button-id',
   children: <div />,
   disabled: false,
 };

@@ -1,12 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable array-callback-return */
-/* eslint-disable no-plusplus */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-
-import shortId from 'shortid';
 
 import Column from 'Components/grid/Column';
 import Cancel from 'Components/icons/Cancel';
@@ -128,7 +122,7 @@ const OrderOptions = ({ title, description, price, slug, quantity, submenus, man
             }
             {submenus.length > 0 && submenus.map(eachMenu => (
               <SubMenus
-              key={shortId.generate()}// eslint-disable-line
+              key={`submenus-${eachMenu._id}-${slug}`}// eslint-disable-line
                 mealSlug={slug}
                 submenus={submenus}
               submenuId={eachMenu._id} // eslint-disable-line
@@ -149,13 +143,3 @@ export default OrderOptions;
 OrderOptions.defaultProps = {
   description: ''
 };
-
-
-// OrderOptions.propTypes = {
-//   title: PropTypes.string.isRequired,
-//   description: PropTypes.string,
-//   price: PropTypes.number.isRequired,
-//   slug: PropTypes.string.isRequired,
-//   quantity: PropTypes.number.isRequired,
-//   submenus: PropTypes.shape({}).isRequired,
-// };

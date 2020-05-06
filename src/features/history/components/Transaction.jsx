@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-import shortId from 'shortid';
 import Container from 'Components/container';
 import { connect } from 'react-redux';
 import ProfileHeaderTitle from '../../profile/common/ProfileHeaderTitle';
@@ -61,12 +60,12 @@ const Transaction = ({
             />
             {userOrders.map(order => (
               <Card
+                key={`order-transaction-card-${order._id}--${order.status}`}
                 handleClick={() => openTrackingDropdown(order.status)}
                 time={order.time}
                 orderId={order._id} // eslint-disable-line
                 mealTitle={order.cart.items[0].meal[0].title}
                 price={extractPrice(order)}
-                key={shortId.generate() + order.title}
                 status={order.status}
                 quantity={extractQuantity(order)}
               />

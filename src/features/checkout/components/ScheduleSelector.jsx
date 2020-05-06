@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import Container from 'Components/container';
 
 import setDeliverySchedule from 'Redux/setDeliverySchedule';
@@ -23,15 +22,11 @@ const DoubledChevron = () => (
 
 const Schedule = ({ handleClick, item, timeChanged, active }) => (
   <li
-    className={[
-      'list-group-item pointer',
-      active ? 'active-time' : 'time-display'
-    ].join(' ')}
+    className={`list-group-item pointer ${active ? 'active-time' : 'time-display'}`}
     onClick={() => handleClick(item)}
     aria-pressed="false"
     tabIndex="0"
-  role="button" // eslint-disable-line
-    key={shortId.generate()}
+    role="button"
   >
     <span>{item}</span>
     {!timeChanged && <DoubledChevron />}
@@ -62,19 +57,12 @@ const ScheduleSelector = ({
       <Demarcation />
       <Container classNames="p-lg-0">
         <h2 className="font-size-16 px-3 px-md-3 px-lg-0">{title}</h2>
-        <ul
-          className={[
-            'list-group time-list mt-4',
-            timeChanged ? 'time-dropdown' : 'time'
-          ].join(' ')}
-        >
-          <li
-            className="time-list-wrapper"
-            style={{ overflowY: timeChanged ? 'scroll' : 'hidden' }}
-          >
+        <ul className={`list-group time-list mt-4 ${timeChanged ? 'time-dropdown' : 'time'}`}>
+          <li className="time-list-wrapper" style={{ overflowY: timeChanged ? 'scroll' : 'hidden' }}>
             {
               activeList.map(item => (
                 <Schedule
+                  key={`schedule-selector-active-list-${item}`}
                   handleClick={handleClick}
                   item={item}
                   timeChanged={timeChanged}
@@ -85,6 +73,7 @@ const ScheduleSelector = ({
             {
               nonActiveList.map(item => (
                 <Schedule
+                  key={`schedule-selector-non-active-list-${item}`}
                   handleClick={handleClick}
                   item={item}
                   timeChanged={timeChanged}

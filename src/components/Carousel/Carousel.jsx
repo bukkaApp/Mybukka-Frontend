@@ -1,7 +1,6 @@
 import React, { Fragment, useState, useLayoutEffect } from 'react';
 
-import shortId from 'shortid';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
@@ -149,7 +148,7 @@ const Carousel = ({
               >
                 {slideItems.map(bukka => (
                   <FoodCard
-                    key={shortId.generate()}
+                    key={`carousel-${bukka.title}-${bukka.name}-${bukka.slug}`}
                     other={otherBukka}
                     remark={bukka.placeGroup && bukka.placeGroup.length > 0 ?
                       bukka.placeGroup[0] : bukka.remark}
