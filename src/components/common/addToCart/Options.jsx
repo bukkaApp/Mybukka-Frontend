@@ -13,7 +13,7 @@ const Options = ({ menus, setOption, option }) => (
         <InputField
           type="radio"
           handleChange={() => setOption(menu)}
-          defaultValue={menu}
+          value={menu}
           checked={option === menu}
           classNames="radio"
         />

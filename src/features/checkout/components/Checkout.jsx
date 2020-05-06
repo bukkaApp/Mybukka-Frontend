@@ -31,6 +31,7 @@ import useChargeAttempted from '../context/useChargeAttempted';
 import useFetchedRestaurant from '../context/useFetchedRestaurant';
 import useDeliveryState from '../context/useDeliveryState';
 import useLocationWithinDistance from '../context/useLocationWithinDistance';
+import { useLocationContext } from '../../../context/LocationContext';
 
 const Checkout = ({
   push,
@@ -46,17 +47,16 @@ const Checkout = ({
   success,
   cards,
   hasDefaultCard,
-  coordinates,
   bukkaDeliveryDistance,
   mode,
   signOut,
   fetchBukka,
-  selectedLocation: { description },
   bukkaSlug,
   bukkaCoordinates,
   openNewWindow,
   url,
 }) => {
+  const { coordinates, selectedLocation: { description } } = useLocationContext();
   const selectSchedule = ['Day', 'Time'];
   const [isWithinDeliveryRange, validateUserLocationRange] = useLocationWithinDistance(coordinates, bukkaCoordinates);
 
@@ -106,7 +106,7 @@ const Checkout = ({
       <VerifyPhone />
       <Navbar push={push} />
       <AddToCart />
-      <SendSecurityKeyForm openNewWindow={openNewWindow} cart={cart} deliveryAddress={deliveryAddressData} day={day} time={time} push={push} />
+      <SendSecurityKeyForm />
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
@@ -167,7 +167,6 @@ const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data, url },
   // fetchBukkaMenuReducer: { totalPriceInCart },
-  selectedLocationReducer: { selectedLocation },
   cartReducer: { totalCost, items },
   fetchBukkaMenuReducer: {
     bukkaMenu,
@@ -179,7 +178,6 @@ const mapStateToProps = ({
     status: { success },
   },
   deliveryModeReducer: { mode },
-  selectedLocationReducer: { coordinates },
   deliveryScheduleReducer: { schedule: { day, time } },
 }) => ({
   card: manipulateCardDetailsReducer,
@@ -198,9 +196,7 @@ const mapStateToProps = ({
   success,
   cards,
   hasDefaultCard,
-  coordinates,
   mode,
-  selectedLocation,
   url,
 });
 
@@ -249,7 +245,6 @@ Checkout.propTypes = {
   success: PropTypes.bool,
   cards: PropTypes.arrayOf(PropTypes.object),
   hasDefaultCard: PropTypes.bool,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   mode: PropTypes.bool.isRequired,
   signOut: PropTypes.func.isRequired,
 };

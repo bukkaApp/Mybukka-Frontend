@@ -1,0 +1,134 @@
+.empty-cart-container {
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 100%;
+  height: calc(100% - 72px);
+  display: flex;
+  flex-direction: column;
+  .cart-bukka-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    border-bottom: 1px solid #eceff1;
+  }
+
+  .view-menu-text {
+    font-size: 12px;
+  }
+
+  .cart-bukka-name {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+  @media screen and (min-width: 768px) {
+      width: 362px;
+      height: 100%;
+  }
+}
+
+.font-size-15 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.empty-cart-section {
+  padding-left: 24px;
+  padding-right: 24px;
+  svg {
+      width: 32px;
+      height: 32px;
+      use {
+          fill: #D9DBE0
+      }
+  }
+}
+
+.empty-cart-icon {
+  font-family: "Robot", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  background-color: rgb(255, 253, 60);
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+}
+
+.empty-cart-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: 24px;
+}
+
+// card dropdown
+
+.cart-dropdown-menu {
+  background-color: rgb(255, 255, 255);
+  filter: drop-shadow(rgba(16, 25, 30, 0.08) 0px 1px 4px);
+  position: absolute;
+  z-index: 1100;
+  opacity: 1;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(242, 243, 243);
+  border-image: initial;
+  transition: opacity 100ms ease-in-out 0s;
+  @media screen and (min-width: 838px) {
+    left: calc((20% + 8px) + -138px);
+  }
+  @media screen and (min-width: 768px) {
+    bottom: -26px;
+    left: calc((0% + 8px) + -138px);
+    transform: translate(calc((-50% + 8px) + 0px), 100%);
+  }
+  @media screen and (max-width: 767px) {
+    bottom: -26px;
+    left: calc((-70vw) + -9px);
+    transform: translate(calc(12% + 0px), 100%);
+    width: 68vw;
+  }
+  &::before {
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      content: "";
+      bottom: 100%;
+      left: calc(50% - -138px);
+      border-width: initial;
+      border-style: solid;
+      border-color: transparent;
+      border-image: initial;
+      margin-left: -9px;
+      border-bottom-color: rgb(242, 243, 243) !important;
+      border-width: 9px !important;
+    }
+  }
+  &::after {
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      content: "";
+      bottom: 100%;
+      left: calc(50% - -138px);
+      border-width: initial;
+      border-style: solid;
+      border-color: transparent;
+      border-image: initial;
+      margin-left: -8px;
+      border-bottom-color: rgb(255, 255, 255) !important;
+      border-width: 8px !important;
+    }
+  }
+  }

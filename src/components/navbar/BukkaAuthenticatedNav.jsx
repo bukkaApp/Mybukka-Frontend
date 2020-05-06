@@ -1,67 +1,46 @@
+/* eslint-disable react/prop-types */
 import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import fetchFreshOrMartAction from 'Redux/fetchFreshOrMartAction';
 import Magnifier from 'Icons/Magnifier';
+import { useLocationContext } from '../../context/LocationContext';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import NavLink from '../navlink/Navlink';
-import UserDefaultImage from './UserDefaultImage';
+import UserDefaultImage from './common/UserDefaultImage';
 import navAuthentication from './actionCreators/navAuthentication';
-import CartSection from './CartSection';
-import EmptyCart, { CartDropdown } from './EmptyCart';
-import CartIconSection from '../common-navs/CartIconSection';
+import fetchBukkasAction from '../../features/feed/actionCreators/fetchBukkas';
+import getPromotedBukkasAction from '../../features/feed/actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
 
 import './bukka-authenticated-nav.scss';
-import SearchAnything from '../common/SearchAnything';
+import SearchAnything from '../search/SearchAnything';
+import CartScene from '../cart/CartScene';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },
   { name: 'Fresh', href: '/fresh' },
-  { name: 'Drinks', href: '/drinks' }
+  { name: 'Mart', href: '/mart' }
 ];
 
-const CartScene = () => {
-  let wrapperRef;
-  const [isFocused, setFocus] = useState(false);
 
-  const handleClick = () => {
-    setFocus(!isFocused);
-  };
+const BukkaAuthenticatedNav = ({
+  status,
+  navigateToNextRoute,
+  fetchNearbyBukkas,
+  getPromotedBukkas,
+  getRestaurantCuisine,
+  fetchNearbyFreshOrMart,
+}) => {
+  const { coordinates } = useLocationContext();
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
-  const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
-      setFocus(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-  });
-
-  return (
-    <div className="position-relative">
-      <div>
-        <CartSection handleClick={() => handleClick('cart')} />
-      </div>
-      <div ref={setWrapperRef}>
-        <CartDropdown display={isFocused}>
-          <EmptyCart />
-          <CartIconSection />
-        </CartDropdown>
-      </div>
-    </div>
-  );
-};
-
-const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
+  const wrapperRef = React.createRef();
+  const { push } = useHistory();
   const { authenticated } = status;
-  let wrapperRef;
 
   const defaultProps = {
     search: false,
@@ -80,18 +59,31 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
     });
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
+  const fetchPageApis = (e, href) => {
+    e.preventDefault();
+    if (href === '/feed') {
+      new Promise(async (resolve) => {
+        resolve(getPromotedBukkas(coordinates));
+      }).then(() => getRestaurantCuisine(coordinates))
+        .then(() => fetchNearbyBukkas(coordinates))
+        .then(() => push('/feed'));
+    } else {
+      const type = href === '/fresh' ? 'fresh' : 'mart';
+      new Promise(async (resolve) => {
+        resolve(fetchNearbyFreshOrMart(coordinates, type));
+      }).then(() => push(href));
+    }
   };
 
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus({ ...defaultProps });
     }
   };
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   const navigateToAuth = ({ target: { id } }) => {
@@ -152,7 +144,7 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
   }
 
   return (
-    <nav ref={setWrapperRef} className="container navbar navbar-light">
+    <nav ref={wrapperRef} className="container navbar navbar-light">
       <div className="row mx-0">
         {!isFocused.searchBtn &&
           <Brand />
@@ -176,11 +168,12 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
         </div>
       </div>
       {!isFocused.searchBtn &&
-        <div ref={setWrapperRef} className="form-inline">
+        <div ref={wrapperRef} className="form-inline">
           <div className="d-none bukka-md-inline-flex">
             {buttonProps.map(propData => (
               <NavLink
                 text={propData.name}
+                onClick={e => fetchPageApis(e, propData.href)}
                 key={propData.name}
                 classNames="bukka-btn"
                 href={propData.href}
@@ -197,12 +190,15 @@ const BukkaAuthenticatedNav = ({ push, status, navigateToNextRoute }) => {
 export default connect(
   null,
   {
-    navigateToNextRoute: navAuthentication
+    navigateToNextRoute: navAuthentication,
+    fetchNearbyBukkas: fetchBukkasAction,
+    getPromotedBukkas: getPromotedBukkasAction,
+    getRestaurantCuisine: getRestaurantCuisineAction,
+    fetchNearbyFreshOrMart: fetchFreshOrMartAction
   }
 )(BukkaAuthenticatedNav);
 
 BukkaAuthenticatedNav.propTypes = {
-  push: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };

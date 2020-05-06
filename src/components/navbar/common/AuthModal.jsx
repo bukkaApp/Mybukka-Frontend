@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Modal from '../../modal/Modal';
+import Modal from '../../modal';
 import DismissModal from '../../modal/DismissModal';
 import AuthenticateLogin from '../../../features/authentication/LoginPage';
 

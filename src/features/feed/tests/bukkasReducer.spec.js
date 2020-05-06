@@ -1,9 +1,9 @@
-import freshMilk from '../data/fresh-milk.json';
+import bukkaData from '../common/bukkaData.json';
 
 import bukkasReducer from '../reducers/bukkasReducer';
 
 const bukkadefault = [
-  ...freshMilk,
+  ...bukkaData,
 ];
 
 const initialState = {

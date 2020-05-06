@@ -30,7 +30,8 @@ const AuthForm = ({
   errorMessage,
   title,
   slideToNextInput,
-  userEmail
+  userEmail,
+  inputData,
 }) => (
   <form
     className="pb-3 form-auth"
@@ -43,6 +44,7 @@ const AuthForm = ({
       userEmail={userEmail}
       handleChange={handleChange}
       domStructure={domStructure}
+      inputData={inputData}
       handleLinkOptions={handleLinkOptions}
       validationErrors={validationErrors}
     />
@@ -83,6 +85,8 @@ AuthForm.propTypes = {
   isFormCompleted: PropTypes.bool,
   title: PropTypes.string,
   errorMessage: PropTypes.string,
+  inputData: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string, PropTypes.number])).isRequired,
 };
 
 ErrorMessage.defaultProps = {

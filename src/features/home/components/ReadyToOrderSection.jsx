@@ -1,8 +1,6 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
-import SearchLocation from 'Components/common-navs/SearchLocation';
+import SearchLocation from 'Components/places-suggest/SearchLocation';
 
 import './readyToOrderSection.scss';
 
@@ -12,12 +10,12 @@ const ReadyToOrderHeader = () => (
   </div>
 );
 
-const ReadyToOrderSection = ({ push }) => (
+const ReadyToOrderSection = () => (
   <div className="ready-to-order-section">
     <div className="container">
       <ReadyToOrderHeader />
       <div className="max-search-location mx-auto">
-        <SearchLocation reduceSuggestionText push={push} />
+        <SearchLocation />
       </div>
     </div>
   </div>
@@ -25,6 +23,4 @@ const ReadyToOrderSection = ({ push }) => (
 
 export default ReadyToOrderSection;
 
-ReadyToOrderSection.propTypes = {
-  push: PropTypes.func.isRequired,
-};
+ReadyToOrderSection.propTypes = {};

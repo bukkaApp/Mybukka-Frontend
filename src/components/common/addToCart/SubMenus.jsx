@@ -36,7 +36,7 @@ const EachSubMenus = ({
             <InputField
               name={submenuId}
               type={isMutipleOptions ? 'checkbox' : 'radio'}
-              defaultValue={menu.name}
+              value={menu.name}
               classNames={isMutipleOptions ? 'custom-checkbox' : 'radio'}
               checked={
                 isMutipleOptions ? subMenusArr.find(el => el === menu._id) :

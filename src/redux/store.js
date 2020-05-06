@@ -13,9 +13,6 @@ import authenticationReducer from '../features/authentication/reducers';
 import loadingReducer from './loadingReducer';
 
 import deliveryModeReducer from '../components/common-navs/reducers/deliveryModeReducer';
-import selectedLocationReducer from './selectedLocationReducer';
-
-import locationsPredictionReducer from '../features/home/reducers/locationsPredictionReducer';
 
 import bukkasReducer from '../features/feed/reducers/bukkasReducer';
 import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
@@ -60,8 +57,6 @@ const reducer = combineReducers({
   signOutReducer,
   navbarAuthReducer,
   deliveryModeReducer,
-  locationsPredictionReducer,
-  selectedLocationReducer,
   bukkasReducer,
   fetchUserAddress,
   fetchUserData,
@@ -105,7 +100,6 @@ const persistConfig = {
     // 'fetchBukkaMenuReducer',
     'cuisineReducer',
     'promotionReducer',
-    'selectedLocationReducer',
     'deliveryScheduleReducer',
     'cartReducer',
   ]

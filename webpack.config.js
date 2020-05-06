@@ -1,14 +1,29 @@
 require('dotenv').config();
 
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
+const devMode = process.env.NODE_ENV !== 'production';
+// const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   inject: 'body',
+});
+
+const ServiceWorkerPlugin = new ServiceWorkerWebpackPlugin({
+  entry: path.join(__dirname, 'src/sw.js'),
+});
+
+const MiniCssPlugin = new MiniCssExtractPlugin({
+  // Options similar to the same options in webpackOptions.output
+  // both options are optional
+  ignoreOrder: true,
+  filename: devMode ? '[name].css' : '[name].[hash].css',
+  chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
 });
 
 const defineVariablesPlugin = new webpack.DefinePlugin({
@@ -41,10 +56,23 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    MiniCssPlugin,
     HtmlWebpackPluginConfig,
-    extractTextPlugin,
+    // extractTextPlugin,
     defineVariablesPlugin,
+    ServiceWorkerPlugin,
   ],
+  optimization: {
+    minimize: true,
+    namedModules: true,
+    namedChunks: true,
+    removeAvailableModules: true,
+    flagIncludedChunks: true,
+    occurrenceOrder: false,
+    usedExports: true,
+    concatenateModules: true,
+    sideEffects: false, // <----- in prod defaults to true if left blank
+  },
   module: {
     rules: [
       {
@@ -59,18 +87,17 @@ module.exports = {
         }
       },
       {
-        test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader'
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
             },
-            {
-              loader: 'sass-loader'
-            }
-          ]
-        })
+          },
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(jpe?g|gif|png|PNG|svg)$/,
@@ -94,6 +121,7 @@ module.exports = {
       Icons: path.resolve(__dirname, 'src/components/icons'),
       Redux: path.resolve(__dirname, 'src/redux'),
       Utilities: path.resolve(__dirname, 'src/utils'),
+      Hooks: path.resolve(__dirname, 'src/hooks'),
     },
   },
 };

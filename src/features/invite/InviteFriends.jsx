@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DismissModal from 'Components/modal/DismissModal';
-import Modal from 'Components/modal/Modal';
-import MyContextPush from './context-api/MyContextPush';
+import Modal from 'Components/modal';
+// import MyContextPush from './context-api/MyContextPush';
 import './InviteFriends.css';
 import Header from './Header';
 import Footer from './Footer';
@@ -16,7 +16,7 @@ const Invite = ({ handleCopy, inputField, handleChange }) => (
   </div>
 );
 
-const InviteFriends = ({ push }) => {
+const InviteFriends = () => {
   const [inputData, setInputData] = useState({
     emails: '',
     copied: false,
@@ -39,21 +39,14 @@ const InviteFriends = ({ push }) => {
   };
 
   return (
-    <MyContextPush.Provider value={{ push }}>
-      <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
-        <DismissModal classNames="close" />
-        <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
-      </Modal>
-    </MyContextPush.Provider>
+    <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
+      <DismissModal classNames="close" />
+      <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
+    </Modal>
   );
 };
 
 export default InviteFriends;
-
-
-InviteFriends.propTypes = {
-  push: PropTypes.func.isRequired,
-};
 
 Invite.propTypes = {
   inputField: PropTypes.objectOf(

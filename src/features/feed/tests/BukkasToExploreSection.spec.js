@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MemoryRouter } from 'react-router-dom';
 
-import BukkasToExploreSection from '../components/BukkasToExploreSection';
+import BukkasToExploreSection from '../common/BukkasToExploreSection';
 
 describe('BukkasToExploreSection component', () => {
   const wrapper = shallow(<MemoryRouter><BukkasToExploreSection /></MemoryRouter>);

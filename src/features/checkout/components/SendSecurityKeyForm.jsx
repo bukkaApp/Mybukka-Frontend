@@ -1,17 +1,16 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { connect } from 'react-redux';
 
 import Button from 'Components/button/Button';
 import InputField from 'Components/input/InputField';
-import Modal from 'Components/modal/Modal';
+import Modal from 'Components/modal';
 import DismissModal from 'Components/modal/DismissModal';
 import ChevronRight from 'Icons/ChevronRight';
 
 import verifyCardTransaction from '../actionCreators/verifyCardTransaction';
-import finishChargeTransaction from '../actionCreators/finishChargeTransaction';
 import saveUserCard from '../actionCreators/saveUserCard';
 
 import './securityModalInfo.scss';
@@ -91,22 +90,6 @@ const InputKeyForm = ({
     </>
   );
 
-  /**
-   * @function openUrlResponse
-   * @summary open url to bank portal for card confirmation
-   * @returns {jsx} jsx
-   */
-  const openUrlResponse = () => (
-    <>
-      <h5 className="text-center">Continue</h5>
-      {displayText && <h6 className="text-center">{displayText}</h6>}
-      <br />
-      <div className="text-center">
-        Click to complete <a href={`${url}`} target="_blank" rel="noopener noreferrer">Card Authorisation</a>
-      </div>
-    </>
-  );
-
   return (
     <div className="send-security-section animated">
       {keyType === 'pending' && awaitResponse()}
@@ -118,24 +101,12 @@ const InputKeyForm = ({
 
 const SendSecurityKeyForm = ({
   reference,
-  // success,
-  // message
-  openNewWindow,
   receiver,
   amount,
-  finishTransaction,
-  cart,
-  mode,
-  deliveryAddress,
-  day,
-  time,
-  coordinates,
-  // push,
   chargeStatus,
   saveCard,
   verifyCard,
   transactionSuccess,
-  // transactionDetails,
   paymentStatus,
   displayText,
   cardSaved,
@@ -146,13 +117,13 @@ const SendSecurityKeyForm = ({
   const [visibleCount, setVisibility] = useState(0);
   const [tried, setTrial] = useState(1);
 
-  const timeoutMessageDisplay = () => {
+  const timeoutMessageDisplay = useCallback(() => {
     if (cardSaved) {
       setVisibility(0);
     }
-  };
+  }, [cardSaved]);
 
-  const reauthorizePayment = () => {
+  const reauthorizePayment = useCallback(() => {
     let clear;
     if (paymentStatus === 'pending' && !sent && tried < 3) {
       verifyCard(reference);
@@ -165,7 +136,7 @@ const SendSecurityKeyForm = ({
       clearInterval(clear);
       setState(true);
     }
-  };
+  }, [paymentStatus, sent, tried]);
 
   useEffect(() => {
     timeoutMessageDisplay();
@@ -183,14 +154,6 @@ const SendSecurityKeyForm = ({
         pin={key}
         receiver={receiver}
         amount={amount}
-        finishTransaction={finishTransaction}
-        cart={cart}
-        mode={mode}
-        verifyCard={verifyCard}
-        deliveryAddress={deliveryAddress}
-        coordinates={coordinates}
-        day={day}
-        time={time}
         url={url}
         status={(paymentStatus && displayText && !cardSaved) ? paymentStatus
           : (!transactionSuccess && !paymentStatus && !cardSaved) ? chargeStatus : ''}
@@ -215,8 +178,6 @@ const mapStateToProps = ({
   fetchBukkaReducer: {
     fetchedBukka: { slug }
   },
-  deliveryModeReducer: { mode },
-  selectedLocationReducer: { coordinates },
   verifyCardReducer: {
     transactionDetails, status: { success: transactionSuccess }
   }
@@ -228,8 +189,6 @@ const mapStateToProps = ({
   chargeStatus: status,
   receiver: slug,
   amount: totalCost,
-  mode,
-  coordinates,
   transactionSuccess,
   transactionDetails,
   paymentStatus,
@@ -240,7 +199,7 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { finishTransaction: finishChargeTransaction,
+  {
     saveCard: saveUserCard,
     verifyCard: verifyCardTransaction,
   }

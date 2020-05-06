@@ -1,0 +1,68 @@
+.cancel-icon-section {
+  cursor: pointer;
+}
+
+.modal-header {
+  border-bottom: none;
+  align-items: flex-end;
+  display: block;
+  padding: 0px;
+  height: 0px;
+}
+
+.modal-body {
+  padding: 0px;
+}
+
+.modal-backdrop {
+  background-color:rgb(255, 255, 255);
+}
+
+.modal-content {
+  border-radius: 0px;
+  border: none;
+  box-shadow: rgba(34, 34, 34, 0.15) 0px 2px 20px 0px;
+}
+
+.dismiss-modal {
+  cursor: pointer;
+}
+
+.modal-dialog-margin-0 {
+  @media (max-width: 767.98px) { 
+    margin: 0px;
+  }
+}
+
+.modal {
+  @media (max-width: 767.98px) {
+    min-height: 100vh;
+  }
+}
+
+.modal-content {
+  @media (max-width: 767.98px) {
+    box-shadow: none;
+  }
+}
+
+.modal-dialog-centered {
+  @media (max-width: 767.98px) {
+    align-items: flex-start;
+  }
+}
+
+.modal {
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    height: 100vh;
+  }
+}
+
+.dismiss-modal {
+  padding: 15px 15px 15px;
+  color: #000;
+}
+
+.dismiss-modal-right {
+  text-align: right;
+}

@@ -22,7 +22,6 @@ export const LoginPage = ({
   authenticateUser,
   history: { push, location }
 }) => {
-  const { NODE_ENV } = process.env;
   const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
   const [redirect, setRedirection] = useState('');
@@ -117,7 +116,7 @@ export const LoginPage = ({
     if (!authModal && !location.search && authenticated) {
       return push('/');
     }
-  });
+  }, [location, authModal, authenticated]);
 
   const BukkaLogo = () => {
     if (!authModal) {
@@ -145,6 +144,7 @@ export const LoginPage = ({
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
+          inputData={inputData}
           handleLinkOptions={handleLinkOptions}
           errorMessage={errorMsg}
           handleChange={handleChange}

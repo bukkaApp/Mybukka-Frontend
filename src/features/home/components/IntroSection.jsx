@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import PrimaryNavbar from 'Components/navbar';
-import SearchLocation from 'Components/common-navs/SearchLocation';
+import SearchLocation from 'Components/places-suggest/SearchLocation';
 
 import './introsection.scss';
 
@@ -18,14 +18,14 @@ const LargeTextSection = () => (
 const SmallTextSection = () => (
   <div className="container small-text-section">
     <h5 className="text-center sub-text">
-      Food, drinks and groceries available for delivery or pickup.
+      Food, mart and groceries available for delivery or pickup.
     </h5>
   </div>
 );
 
-const SearchLocationSection = ({ push }) => (
+const SearchLocationSection = () => (
   <div className="container search-location-section">
-    <SearchLocation reduceSuggestionText push={push} />
+    <SearchLocation />
   </div>
 );
 
@@ -46,6 +46,4 @@ IntroSection.propTypes = {
   push: PropTypes.func.isRequired,
 };
 
-SearchLocationSection.propTypes = {
-  push: PropTypes.func.isRequired,
-};
+SearchLocationSection.propTypes = {};

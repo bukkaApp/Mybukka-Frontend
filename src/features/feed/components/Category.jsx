@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -12,6 +12,7 @@ import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+import { useLocationContext } from '../../../context/LocationContext';
 import IntroSection from '../common/IntroSection';
 import ExploreSection from '../common/ExploreSection';
 import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
@@ -25,24 +26,21 @@ const PlaceGroup = ({
   push,
   cuisineItems,
   getBukkasRelatedToCuisines,
-  match: {
-    params: { id },
-  },
   status: { error },
   errorMessage,
   currentPage,
-  coordinates,
   fetchBukkaMenu,
   getMoreBukkasRelatedToCuisines,
 }) => {
+  const { coordinates } = useLocationContext();
+  const { id } = useParams();
   useEffect(() => {
-    console.log('params', id);
     let suscribed = true;//eslint-disable-line
     getBukkasRelatedToCuisines(id, coordinates);
     return () => {
       suscribed = false;
     };
-  }, [id]);
+  }, [id, coordinates]);
 
   if (cuisineItems.length === 0 && error) {
     return (
@@ -111,14 +109,12 @@ const PlaceGroup = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
-  selectedLocationReducer: { coordinates },
   cuisineReducer: {
     cuisineItems, errorMessage,
     currentPage,
     cuisineToDisplay: { name },
   },
 }) => ({
-  coordinates,
   fetchedBukkas,
   status,
   mode,
@@ -144,9 +140,7 @@ PlaceGroup.propTypes = {
   getMoreBukkasRelatedToCuisines: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   fetchBukkaMenu: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   name: PropTypes.string.isRequired,
-  match: PropTypes.objectOf(PropTypes.shape({})).isRequired,
   push: PropTypes.func.isRequired,
   cuisineItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   getBukkasRelatedToCuisines: PropTypes.func.isRequired,

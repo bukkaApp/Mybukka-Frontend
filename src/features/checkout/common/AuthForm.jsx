@@ -24,7 +24,6 @@ const AuthForm = ({
         name={propData.name}
         handleChange={handleChange}
         classNames={propData.classNames}
-        defaultValue={inputData[propData.name]}
         value={inputData[propData.name]}
         placeholderText={propData.placeholderText}
         id={propData.id}

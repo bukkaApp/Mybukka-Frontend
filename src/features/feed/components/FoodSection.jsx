@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { useHistory } from 'react-router-dom';
 import Container from 'Components/container/Container';
 
 import NoNearByBukkaLocation
@@ -15,28 +16,28 @@ import LocationNavSmallScreen, {
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 
+import Map from 'Components/map';
 import Carousel from 'Components/Carousel/Carousel';
-import BukkasToExploreSection from './BukkasToExploreSection';
+import BukkasToExploreSection from '../common/BukkasToExploreSection';
 
+import { useLocationContext } from '../../../context/LocationContext';
 import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
-import FoodNearBy from './FoodNearBy';
-import Map from '../common/Map';
+import FoodNearBy from '../common/FoodNearBy';
 import { foodBannerImage } from '../img/imgLinks';
 
-import freeDelivery from '../data/free-delivery.json';
-import favorites from '../data/favorites.json';
 import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
+import getRestaurantCuisineAction from '../actionCreators/getRestaurantCuisineAction';
 
-const mapContainerDisplay = displayMap => (
+const mapContainer = displayMap => (
   displayMap
     ? 'px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column'
     : 'px-0'
 );
 
-const mapContentDisplay = displayMap => (
+const mapContent = displayMap => (
   displayMap
     ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
     : 'mb-5'
@@ -50,8 +51,6 @@ const mapDisplay = displayMap => (
 
 const FoodSection = ({
   mode,
-  push,
-  coordinates,
   fetchedBukkas: { nearbyBukkas },
   fetchNearbyBukkas,
   currentPage,
@@ -59,18 +58,15 @@ const FoodSection = ({
   loading,
   fetchedPromotedBukkas,
   fetchedCuisines,
+  getPromoBukkas,
+  getRestaurantCuisine,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
   const handleClick = () => {
     setDisplayMap(!displayMap);
-  };
-
-  const handleFetchOnRefresh = () => {
-    if (!loading && nearbyBukkas.length === 0
-      && coordinates.length !== 0 && !errorMessage) {
-      fetchNearbyBukkas(coordinates);
-    }
   };
 
   useEffect(() => {
@@ -80,10 +76,14 @@ const FoodSection = ({
   }, [coordinates]);
 
   useEffect(() => {
-    getPromotedBukkas(coordinates);
-  }, [fetchedPromotedBukkas]);
-
-  useEffect(() => {
+    const handleFetchOnRefresh = () => {
+      if (!loading && nearbyBukkas.length === 0 && coordinates.length !== 0 && !errorMessage) {
+        new Promise((resolve) => {
+          resolve(getPromoBukkas(coordinates));
+        }).then(() => fetchNearbyBukkas(coordinates))
+          .then(() => getRestaurantCuisine(coordinates));
+      }
+    };
     handleFetchOnRefresh();
   }, [nearbyBukkas]);
 
@@ -116,39 +116,29 @@ const FoodSection = ({
                 />
                 }
                 <Container
-                  classNames={mapContainerDisplay(displayMap)}
+                  classNames={mapContainer(displayMap)}
                 >
-                  <div className={mapContentDisplay(displayMap)}>
+                  <div className={mapContent(displayMap)}>
                     <FoodNearBy
                       delivery
                       classNames={displayMap ? 'col-12' : 'col-xl-4 col-md-6 col-sm-12'}
                       title={displayMap ? '' : 'Nearby'}
-                      bukkaData={[...nearbyBukkas]}
+                      bukkaData={nearbyBukkas}
                       imageHeight={displayMap ? 'map-img-height' : 'img-height'}
                       currentPage={currentPage}
                       errorMessage={errorMessage}
-                      push={push}
                     />
                   </div>
                   <div className={mapDisplay(displayMap)}>
-                    <Map restaurants={nearbyBukkas} coordinates={coordinates} />
+                    <Map />
+                    {/* <Map restaurants={nearbyBukkas} coordinates={coordinates} /> */}
                   </div>
                   {/* display carousel for map on small & medium screen */}
                   {displayMap && (
                     <div
                       className="d-flex d-md-flex d-lg-none d-xl-none px-0 col-12"
                     >
-                      <Carousel
-                        delivery
-                        noOfImagesShown={3}
-                        xl={3}
-                        lg={2}
-                        md={2}
-                        sm={1}
-                        slideItems={[...favorites, ...freeDelivery]}
-                        imageHeight="img-fluid"
-                        classNames="col-lg-6 col-md-6 col-sm-12 col-12"
-                      />
+                      <Carousel delivery noOfImagesShown={3} xl={3} lg={2} md={2} sm={1} slideItems={nearbyBukkas} imageHeight="img-fluid" classNames="col-lg-6 col-md-6 col-sm-12 col-12" />
                     </div>
                   )}
                 </Container>
@@ -165,7 +155,6 @@ const mapStateToProps = ({
   loadingReducer: { status: loading },
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
-  selectedLocationReducer: { coordinates },
   promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
   cuisineReducer: { fetchedBukkas: fetchedCuisines }
 }) => ({
@@ -174,7 +163,6 @@ const mapStateToProps = ({
   fetchedPromotedBukkas,
   status,
   currentPage,
-  coordinates,
   mode,
   errorMessage,
   loading,
@@ -182,13 +170,14 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas },
+  { fetchNearbyBukkas: fetchBukkas,
+    getPromoBukkas: getPromotedBukkas,
+    getRestaurantCuisine: getRestaurantCuisineAction
+  },
 )(FoodSection);
 
 FoodSection.propTypes = {
   mode: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   fetchedBukkas: PropTypes.shape({
     nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,

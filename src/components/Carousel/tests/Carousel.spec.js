@@ -3,8 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 
-import bukkaData from 'Features/feed/data/search.json';
-import freeDelivery from 'Features/feed/data/free-delivery.json';
+import bukkaData from 'Features/feed/common/bukkaData.json';
 import Carousel from '../Carousel';
 
 const initialState = {
@@ -88,7 +87,7 @@ describe('Carousel component', () => {
   });
 
   it('renders properly', () => {
-    const nearbyBukkas = [...freeDelivery, ...bukkaData];
+    const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
       bukkasReducer: {

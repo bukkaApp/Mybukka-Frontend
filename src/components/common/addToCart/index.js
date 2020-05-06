@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import { connect } from 'react-redux';
@@ -8,7 +9,6 @@ import Modal from 'react-bootstrap/Modal';
 import manipulateSubmenusAction from 'Redux/manipulateSubmenusAction';
 // import Modal from 'Components/modal';
 import Row from 'Components/grid/Row';
-
 import OrderOptions from './OrderOptions';
 import MealImage from './MealImage';
 
@@ -64,6 +64,8 @@ AddToCart.defaultProps = {
 
 AddToCart.propTypes = {
   imageUrl: PropTypes.string,
-  manipulateSubmenusAction: PropTypes.func.isRequired,
+  manipulateSubmenus: PropTypes.func.isRequired,
   mealToDisplay: PropTypes.shape({}).isRequired,
+  modalShow: PropTypes.bool.isRequired,
+  toggleAddToCart: PropTypes.func.isRequired,
 };

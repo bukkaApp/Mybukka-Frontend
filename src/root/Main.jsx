@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
 import Map from 'Components/map';
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
-import Home from '../features/home';
-import Bukka from '../features/bukka';
-import Register from '../features/authentication/RegisterPage';
-import Login from '../features/authentication/LoginPage';
-import FeedPage from '../features/feed';
-import Checkout from '../features/checkout/index';
-import Profile from '../features/profile';
-import TransactionHistory from '../features/history';
-import ResetPassword from '../features/forgotPassword/ResetPassword';
-import PerformResetPass from '../features/forgotPassword/PerformResetPass';
-import SupportBuyer from '../features/support/components/SupportBuyer';
-import Articles from '../features/support/articles';
-import CategoryLists from '../features/support/Lists';
-import Merchant from '../features/merchant';
-import ComplainCategory from '../features/feedback/Category';
-import SubCategory from '../features/feedback/SubCategory';
-import ComplainScene from '../features/feedback/ComplainScene';
-import Privacy from '../features/statement/Privacy';
-import Terms from '../features/statement/Terms';
-import Promotion from '../features/promotion';
+const Home = lazy(() => import('../features/home'));
+const Bukka = lazy(() => import('../features/bukka'));
+const Register = lazy(() => import('../features/authentication/RegisterPage'));
+const Login = lazy(() => import('../features/authentication/LoginPage'));
+const FeedPage = lazy(() => import('../features/feed'));
+const Checkout = lazy(() => import('../features/checkout/index'));
+const Profile = lazy(() => import('../features/profile'));
+const TransactionHistory = lazy(() => import('../features/history'));
+const ResetPassword = lazy(() => import('../features/forgotPassword/ResetPassword'));
+const PerformResetPass = lazy(() => import('../features/forgotPassword/PerformResetPass'));
+const SupportBuyer = lazy(() => import('../features/support/components/SupportBuyer'));
+const Articles = lazy(() => import('../features/support/articles'));
+const CategoryLists = lazy(() => import('../features/support/Lists'));
+const Merchant = lazy(() => import('../features/merchant'));
+const ComplainCategory = lazy(() => import('../features/feedback/Category'));
+const SubCategory = lazy(() => import('../features/feedback/SubCategory'));
+const ComplainScene = lazy(() => import('../features/feedback/ComplainScene'));
+const Privacy = lazy(() => import('../features/statement/Privacy'));
+const Terms = lazy(() => import('../features/statement/Terms'));
+const Promotion = lazy(() => import('../features/promotion'));
 
-const Drinks = ({ ...props }) => <FeedPage {...props} drink />;
+const Mart = ({ ...props }) => <FeedPage {...props} mart />;
 const Foods = ({ ...props }) => <FeedPage {...props} food />;
 const Fresh = ({ ...props }) => <FeedPage {...props} fresh />;
 const Search = ({ ...props }) => <FeedPage {...props} search />;
@@ -40,7 +40,7 @@ const Main = () => (
       <Route exact path="/signup" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/feed" food component={Foods} />
-      <Route exact path="/drinks" component={Drinks} />
+      <Route exact path="/mart" component={Mart} />
       <Route exact path="/fresh" component={Fresh} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/favorites" component={Favorites} />

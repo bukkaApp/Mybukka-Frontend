@@ -22,7 +22,7 @@ export const ReusableDropdown = ({ children, classNames }) => (
 );
 
 export const ReusableButton = ({ handleClick, children, classNames }) => {
-  let wrapperRef;
+  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
 
   const handleBtnClick = () => {
@@ -30,22 +30,19 @@ export const ReusableButton = ({ handleClick, children, classNames }) => {
     handleClick();
   };
 
-  const setWrapperRef = (node) => {
-    wrapperRef = node;
-  };
-
   const handleClickOutside = (event) => {
-    if (wrapperRef && !wrapperRef.contains(event.target)) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus(false);
     }
   };
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
   return (
-    <div ref={setWrapperRef}>
+    <div ref={wrapperRef}>
       <Button
         type="button"
         classNames={`current-location-button ${classNames}`}

@@ -1,64 +1,58 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 
-import { connect } from 'react-redux';
-
-import setSelectedLocation from 'Redux/setSelectedLocation';
-import showLoadingAction from 'Redux/showLoadingAction';
-
-import { GoogleApiWrapper } from 'google-maps-react';
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 
-import fetchBukkas from '../../feed/actionCreators/fetchBukkas';
-import getPromotedBukkasAction from '../../feed/actionCreators/getPromotedBukkas';
-import getRestaurantCuisineAction from '../../feed/actionCreators/getRestaurantCuisineAction';
+import useLocationService from '../../../context/useLocationService';
 
 import './chooseAreaToExplore.scss';
 
 const mockAreas = [
-  { href: '/', text: 'Wilmer Street Ilupeju', id: '1' },
-  { href: '/', text: 'Lekki Phase 1', id: '1' },
-  { href: '/', text: 'Ikeja lagos', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Fadeyi Yaba', id: '1' },
-  { href: '/', text: 'Ojuelegba Lagos', id: '1' },
-  { href: '/', text: 'Lekki Phase 2', id: '1' },
-  { href: '/', text: 'Ajah Lagos', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' },
-  { href: '/', text: 'Mende Maryland', id: '1' }
+  { href: '/', text: 'Wilmer Street Ilupeju', id: '11' },
+  { href: '/', text: 'Lekki Phase 1', id: '12' },
+  { href: '/', text: 'Ikeja lagos', id: '13' },
+  { href: '/', text: 'Mende Maryland', id: '14' },
+  { href: '/', text: 'Fadeyi Yaba', id: '15' },
+  { href: '/', text: 'Ojuelegba Lagos', id: '16' },
+  { href: '/', text: 'Lekki Phase 2', id: '17' },
+  { href: '/', text: 'Ajah Lagos', id: '18' },
+  { href: '/', text: 'Mende Maryland', id: '19' },
+  { href: '/', text: 'Mende Maryland', id: '110' },
+  { href: '/', text: 'Mende Maryland', id: '111' },
+  { href: '/', text: 'Mende Maryland', id: '112' },
+  { href: '/', text: 'Mende Maryland', id: '113' },
+  { href: '/', text: 'Mende Maryland', id: '114' },
+  { href: '/', text: 'Mende Maryland', id: '115' },
+  { href: '/', text: 'Mende Maryland', id: '116' }
 ];
 
-const AreasToExploreList = ({ areas, handleClick }) => (
-  <div className="area-to-explore-list">
-    <div className="row">
-      {areas.map(area => (
-        <div
-          onClick={() => handleClick(area.text)}
-          role="button"
-          tabIndex="0"
-          aria-pressed="false"
-          className="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section"
-          key={shortId.generate()}
-        >
-          <Navlink
-            href={area.href}
-            text={area.text}
+const AreasToExploreList = ({ areas }) => {
+  const { handleClick } = useLocationService();
+
+  return (
+    <div className="area-to-explore-list">
+      <div className="row">
+        {areas.map(area => (
+          <div
+            onClick={() => handleClick(area.text)}
+            role="button"
+            tabIndex="0"
+            aria-pressed="false"
+            className="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section"
             key={area.id}
-            classNames="area-link"
-          />
-        </div>
-      ))}
+          >
+            <Navlink
+              href={area.href}
+              text={area.text}
+              classNames="area-link"
+            />
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const AreaToExploreHeader = () => (
   <div className="area-explore-header">
@@ -73,97 +67,19 @@ const AreaToExploreHeader = () => (
   </div>
 );
 
-const ChooseAreaToExploreSection =
-({ push, google, fetchNearbyBukkas, selectLocation,
-  handleLoader, getRestaurantCuisine, getPromotedBukkas,
-}) => {
-  const geoCodeLocation = (suggestion) => {
-    const placeId = suggestion.place_id;
-    const GeoCoder = new google.maps.Geocoder();
-    GeoCoder.geocode({ placeId }, (response) => {
-      const lattitude = response[0].geometry.location.lat();
-      const longitude = response[0].geometry.location.lng();
-      const coordinates = [longitude, lattitude];
-      selectLocation({ coordinates, suggestion });
-      new Promise((resolve) => {
-        resolve(getPromotedBukkas(coordinates));
-      }).then(() => getRestaurantCuisine(coordinates))
-        .then(() => fetchNearbyBukkas(coordinates, push))
-        .then(() => push('/feed'));
-    });
-  };
-
-  const handlePredictions = (suggestions) => {
-    if (suggestions.length > 0) {
-      geoCodeLocation(suggestions[0]);
-    }
-  };
-
-  const handleSuggestion = (predictions, status) => {
-    if (status !== google.maps.places.PlacesServiceStatus.OK) {
-      return;
-    }
-    handlePredictions(predictions);
-  };
-
-  const handleSelectedLocation = (text) => {
-    if (text) {
-      handleLoader();
-      const autoCompleteService = new google.maps.places.AutocompleteService();
-      autoCompleteService.getPlacePredictions(
-        { input: text },
-        handleSuggestion
-      );
-    }
-  };
-
-  const handleAreaToExploreClick = (text) => {
-    handleSelectedLocation(text);
-  };
-
-  return (
-    <div className="container choose-area-section">
-      <AreaToExploreHeader />
-      <AreasToExploreList
-        handleClick={handleAreaToExploreClick}
-        areas={mockAreas}
-      />
-    </div>
-  );
-};
-
-
-const mapStateToProps = () => ({});
-
-export default connect(
-  mapStateToProps,
-  {
-    selectLocation: setSelectedLocation,
-    fetchNearbyBukkas: fetchBukkas,
-    handleLoader: showLoadingAction,
-    getPromotedBukkas: getPromotedBukkasAction,
-    getRestaurantCuisine: getRestaurantCuisineAction,
-  }
-)(
-  GoogleApiWrapper({
-    apiKey: process.env.GOOGLE_API_KEY,
-    v: '3'
-  })(ChooseAreaToExploreSection)
+const ChooseAreaToExploreSection = () => (
+  <div className="container choose-area-section">
+    <AreaToExploreHeader />
+    <AreasToExploreList
+      areas={mockAreas}
+    />
+  </div>
 );
+
+export default ChooseAreaToExploreSection;
 
 AreasToExploreList.propTypes = {
   areas: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
-
-ChooseAreaToExploreSection.propTypes = {
-  getPromotedBukkas: PropTypes.func.isRequired,
-  getRestaurantCuisine: PropTypes.func.isRequired,
-  handleLoader: PropTypes.func.isRequired,
-  fetchNearbyBukkas: PropTypes.func.isRequired,
-  push: PropTypes.func.isRequired,
-  google: PropTypes.shape({}).isRequired,
-  selectedLocation: PropTypes.shape({}).isRequired,
-  selectLocation: PropTypes.func.isRequired,
-};
+ChooseAreaToExploreSection.propTypes = {};

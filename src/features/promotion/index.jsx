@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { useHistory } from 'react-router-dom';
 import shortId from 'shortid';
 import InfiniteScroll from 'react-infinite-scroller';
 import Row from 'Components/grid/Row';
@@ -12,6 +13,7 @@ import Navbar from 'Components/navbar';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+import { useLocationContext } from '../../context/LocationContext';
 import IntroSection from '../feed/common/IntroSection';
 import ExploreSection from '../feed/common/ExploreSection';
 import getSinglePromotedBukkasAction from './actionCreators/getSinglePromotedBukkas';
@@ -19,28 +21,29 @@ import getMoreSinglePromotionBukkasAction from './actionCreators/getMoreSinglePr
 
 import './index.scss';
 
+
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
 
 const PlaceGroup = ({
   name,
-  push,
   promotedBukkas,
   getSinglePromotedBukkas,
   placeId,
   status: { error },
   errorMessage,
   currentPage,
-  coordinates,
   fetchBukkaMenu,
   getMoreSinglePromotionBukkas,
 }) => {
+  const { push } = useHistory();
+  const { coordinates } = useLocationContext();
+  const getPromoBukka = useCallback(() =>
+    getSinglePromotedBukkas(placeId, coordinates)
+  , [placeId, coordinates]);
+
   useEffect(() => {
-    let suscribed = true;//eslint-disable-line
-    getSinglePromotedBukkas(placeId, coordinates);
-    return () => {
-      suscribed = false;
-    };
-  }, [placeId]);
+    getPromoBukka();
+  }, []);
 
   if (promotedBukkas.length === 0 && error) {
     return (
@@ -109,13 +112,11 @@ const PlaceGroup = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   bukkasReducer: { fetchedBukkas, status },
-  selectedLocationReducer: { coordinates },
   promotionReducer: {
     promotedBukkas, errorMessage, promotionToDisplay: { name, slug },
     currentPage,
   },
 }) => ({
-  coordinates,
   fetchedBukkas,
   status,
   placeId: slug,
@@ -142,10 +143,8 @@ PlaceGroup.propTypes = {
   getMoreSinglePromotionBukkas: PropTypes.func.isRequired,
   currentPage: PropTypes.number.isRequired,
   fetchBukkaMenu: PropTypes.func.isRequired,
-  coordinates: PropTypes.arrayOf(PropTypes.number).isRequired,
   name: PropTypes.string.isRequired,
   placeId: PropTypes.string.isRequired,
-  push: PropTypes.func.isRequired,
   promotedBukkas: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   getSinglePromotedBukkas: PropTypes.func.isRequired,
   status: PropTypes.objectOf(PropTypes.bool).isRequired

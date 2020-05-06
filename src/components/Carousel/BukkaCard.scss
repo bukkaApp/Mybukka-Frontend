@@ -118,6 +118,10 @@ $fontFamily: 'Roboto', sans-serif;
   opacity: 1;
 }
 
+.other-bukka-card {
+  padding-top: 69px;
+}
+
 .favorite {
   opacity: 0;
   transition: opacity 200ms ease-in;
@@ -143,6 +147,7 @@ $fontFamily: 'Roboto', sans-serif;
 .details-location {
   flex: 1;
   color: #111;
+  word-break: break-all;
 }
 
 .rating {
