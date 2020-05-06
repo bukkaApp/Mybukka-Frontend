@@ -1,28 +1,18 @@
 import React from 'react';
 
+import { LocationsPredictionProvider } from '../../../context/useLocationsPrediction';
 import SuggestionsDropdown from '../SuggestionsDropdown';
 
 describe('Suggestions dropdown component', () => {
-  const store = mockStore({
-    locationsPredictionReducer: {
-      predictions: [
-        {
-          description: 'some-description',
-          id: '123'
-        }
-      ]
-    }
-  });
-
   const props = {
     handleClick: jest.fn(),
     setLocation: jest.fn()
   };
 
   const wrapper = render(
-    <Provider store={store}>
+    <LocationsPredictionProvider >
       <SuggestionsDropdown {...props} />
-    </Provider>
+    </LocationsPredictionProvider>
   );
 
   it('renders properly', () => {

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import InputAccountDetails from './InputAccountDetails';
 import PlainAccountDetails from './PlainAccountDetails';
 import ErrorDisplaySection from './ErrorDisplaySection';
@@ -22,7 +21,7 @@ const AccountDetailsSection = React.createRef(({
           handleChange={handleChange}
           placeHolder={placeHolder}
           name={name}
-          type={type}
+          type={type || 'text'}
           ref={ref}
           value={value}
           handleSave={handleSave}
@@ -40,26 +39,3 @@ const AccountDetailsSection = React.createRef(({
 ));
 
 export default AccountDetailsSection;
-
-AccountDetailsSection.defaultProps = {
-  type: 'text',
-  value: '',
-  children: '',
-  status: '',
-  errorMessage: '',
-  handleChange: () => {},
-  handleSave: () => {},
-  handleEdit: () => {},
-};
-
-AccountDetailsSection.propTypes = {
-  errorMessage: PropTypes.string,
-  placeHolder: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string,
-  value: PropTypes.string,
-  status: PropTypes.string,
-  handleChange: PropTypes.func,
-  handleSave: PropTypes.func,
-  handleEdit: PropTypes.func,
-};

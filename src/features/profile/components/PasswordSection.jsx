@@ -1,6 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 import AccountDetailsSection from '../common/AccountDetailsSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 
@@ -27,16 +26,3 @@ const PasswordSection = React.forwardRef(({
 ));
 
 export default PasswordSection;
-
-PasswordSection.defaultProps = {
-  handleSave: () => {},
-  handleChange: () => {},
-  handleEdit: () => {},
-};
-
-PasswordSection.propTypes = {
-  status: PropTypes.string.isRequired,
-  handleSave: PropTypes.func,
-  handleChange: PropTypes.func,
-  handleEdit: PropTypes.func,
-};

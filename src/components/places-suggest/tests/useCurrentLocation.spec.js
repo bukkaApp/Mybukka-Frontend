@@ -1,17 +1,16 @@
 import React from 'react';
 
+import { LocationProvider } from '../../../context/LocationContext';
 import UseCurrentLocation from '../UseCurrentLocation';
 
 describe('Use current location ccomponent', () => {
-  const store = mockStore({});
-
   const props = {
     selectLocation: jest.fn()
   };
   const wrapper = render(
-    <Provider store={store}>
+    <LocationProvider>
       <UseCurrentLocation {...props} />
-    </Provider>
+    </LocationProvider>
   );
 
   it('renders properly', () => {

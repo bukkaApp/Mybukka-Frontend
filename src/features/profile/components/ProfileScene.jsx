@@ -57,9 +57,9 @@ const ProfileScene = ({
     }
   });
 
-  const uploadImageToCloudinary = event => {
+  const uploadImageToCloudinary = (event) => {
     const file = event.target.files[0];
-    addProfilePicture(file, userData, async data => {
+    addProfilePicture(file, userData, async (data) => {
       await editUserData('/user/profile', data);
       await requestUserData('/user/profile');
     });
