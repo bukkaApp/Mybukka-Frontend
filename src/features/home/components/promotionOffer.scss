@@ -1,0 +1,44 @@
+/** @format */
+
+.promotion-offer-section {
+  padding-top: 20px;
+  background: #f2f2f2;
+  
+  .offer-description {
+    background: #f2f2f2;
+
+    h6 {
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 30px;
+      width: 508px;
+
+      line-height: 35px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 21px;
+      color: #949494;
+      font-family: Roboto;
+      font-weight: normal;
+      line-height: 21px;
+      width: 525px;
+    }
+
+  }
+
+}
+
+@media (max-width: 767px) {
+  h6 {
+    width: 290px !important;
+    font-size: 18px !important;
+  }
+
+  p {
+    width: 290px !important;
+    font-size: 15px !important;
+  }
+  
+}
