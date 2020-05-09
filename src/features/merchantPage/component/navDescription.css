@@ -3,11 +3,13 @@
     width: 100%;
 }
 
+
 .map-img {
     width: 410px;
     height: 413px;
     object-fit: contain;
 }
+
 
 .navigation-info h4 {
     font-family: Roboto;
@@ -17,6 +19,7 @@
     line-height: 35px;
     color: #ffff;
 }
+
 
 .navigation-info p {
     font-family: Roboto;

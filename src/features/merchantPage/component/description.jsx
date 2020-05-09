@@ -22,28 +22,28 @@ const Description = () => (
             <div className="row mx-0">
 
 
-                <div className="col-md-3 text-align-center description-info pt-2">
+                <div className="col-md-6 col-lg-3 text-align-center description-info pt-2">
                     <i className="far fa-snowflake custom-icon"></i>
                     <h4>Seamless Connections</h4>
                     <p>We help businesses like yours reach new customers in your neighborhoods and grow to become local favorites.</p>
                 </div>
 
 
-                <div className="col-md-3 text-align-center description-info pt-2">
+                <div className="col-md-6 col-lg-3 text-align-center description-info pt-2">
                     <i className="fas fa-laptop custom-icon"></i>
                     <h4>Digital Presence</h4>
                     <p>We help businesses like yours reach new customers in your neighborhoods and grow to become local favorites.</p>
                 </div>
 
 
-                <div className="col-md-3 text-align-center description-info pt-2">
+                <div className="col-md-6 col-lg-3 text-align-center description-info pt-2">
                     <i className="fas fa-shopping-cart custom-icon"></i>
                     <h4>Increasing Orders</h4>
                     <p>We help businesses like yours reach new customers in your neighborhoods and grow to become local favorites.</p>
                 </div>
 
 
-                <div className="col-md-3 text-align-center description-info pt-2">
+                <div className="col-md-6 col-lg-3 text-align-center description-info pt-2">
                     <i className="fas fa-question custom-icon"></i>
                     <h4>Online help</h4>
                     <p>We help businesses like yours reach new customers in your neighborhoods and grow to become local favorites.</p>

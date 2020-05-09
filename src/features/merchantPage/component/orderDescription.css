@@ -2,12 +2,14 @@
     background: #F7F7F7;
 }
 
+
 .order-bg {
     position: relative;
     width: 300px;
     height: 381px;
     background: #F5E7D8;
 }
+
 
 .order-img {
     width: 390px;
@@ -16,6 +18,7 @@
     position: absolute;
     top: 0px;
 }
+
 
 .order-info h4 {
     font-family: Roboto;
@@ -26,6 +29,7 @@
     color: rgba(0, 0, 0, 0.8);
     margin-top: 100px;
 }
+
 
 .order-info p {
     font-family: Roboto;

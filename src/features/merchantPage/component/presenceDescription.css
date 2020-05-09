@@ -4,6 +4,7 @@
     object-fit: contain;
 }
 
+
 .digital-info h4 {
     font-family: Roboto;
     font-style: normal;
@@ -14,6 +15,7 @@
     margin-top: 100px;
     width: 250px;
 }
+
 
 .digital-info p {
     font-family: Roboto;

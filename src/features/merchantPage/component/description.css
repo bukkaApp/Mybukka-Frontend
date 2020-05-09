@@ -3,6 +3,7 @@
     margin-top: 30px;
 }
 
+
 .description h4 {
     font-family: Roboto;
     font-style: normal;
@@ -10,6 +11,7 @@
     font-size: 35px;
     line-height: 41px;
 }
+
 
 .description p {
     font-family: Roboto;
@@ -19,6 +21,7 @@
     line-height: 21px;
     color: #949494;
 }
+
 
 .bar {
     content: '';
@@ -30,6 +33,7 @@
     margin: auto;
 }
 
+
 .custom-icon {
     color: #9D1621;
     border-radius: 50%;
@@ -39,6 +43,7 @@
     line-height: 70px !important;
 }
 
+
 .description-info h4 {
     font-family: Roboto;
     font-style: normal;
@@ -46,6 +51,7 @@
     font-size: 22px;
     line-height: 26px;
 }
+
 
 .description-info p {
     font-family: Roboto;
