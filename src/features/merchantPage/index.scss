@@ -1,36 +1,36 @@
 @media(max-width: 767px) {
     .map-img {
-        width: 300px!important;
+        width: 250px!important;
     }
 
 
     .navigation-info p {
-        width: 300px!important;
+        width: 250px!important;
     }
 
 
     .digital-info p {
-        width: 300px!important;
+        width: 250px!important;
     }
 
 
     .meal-img {
-        width: 290px!important;
+        width: 250px!important;
     }
 
 
     .order-img {
-        width: 290px!important;
+        width: 250px!important;
     }
 
 
     .order-info p {
-        width: 300px!important;
+        width: 250px!important;
     }
 
 
     .order-bg {
-        width: 200px!important;
+        width: 160px!important;
     }
 
 
@@ -41,7 +41,8 @@
     
     
     .content p {
-        width: 80%;
+        width: 80%!important;
+        font-size: 10px!important;
     }
 
 
@@ -94,12 +95,12 @@
 
 
     .custom-padding-left{
-        padding-left: 3rem!important;
+        padding-left: 2rem!important;
     }
 
 
 }
-@media(max-width: 800px){
+@media(min-width: 768px){
     
     .map-img {
         width: 300px!important;
@@ -110,6 +111,16 @@
         width: 290px!important;
     }
 
+
+    .content h4 {
+        width: 70%!important;
+        font-size: 37px!important;
+    } 
+    
+    
+    .content p {
+        width: 60%!important;
+    }
 
     .meal-img {
         width: 290px!important;
@@ -132,14 +143,44 @@
 }
 
 
-@media(max-width: 1024px){
+@media(min-width: 1024px){
 
 
     .description-info h4{
         font-size: 16px!important;
     }
 
+    .content h4 {
+        width: 50%!important;
+        font-size: 37px!important;
+    } 
+    
+    
+    .content p {
+        width: 50%!important;
+    }
+
 }
+
+@media(min-width: 1200px){
+
+
+    .description-info h4{
+        font-size: 22px!important;
+    }
+
+    .content h4 {
+        width: 40%!important;
+        font-size: 40px!important;
+    } 
+    
+    
+    .content p {
+        width: 50%!important;
+    }
+
+}
+
 
 
 .top-3 {
