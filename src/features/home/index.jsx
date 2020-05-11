@@ -3,10 +3,12 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Footer from 'Components/footer/Footer';
+import Footer from './components/footer';
 import ModalRoot from '../modal-root/Index';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
+import PromotionOffer from './components/promotionOffer';
+import MoreOffers from './components/moreOffers'
 
 import { useLocationContext } from '../../context/LocationContext';
 import ChooseAreaToExploreSection
@@ -46,6 +48,8 @@ const Home = ({
         <IntroSection push={push} />
         <DiscoverSection />
         <ChooseAreaToExploreSection />
+        <PromotionOffer />
+        <MoreOffers />
         <ReadyToOrderSection />
         <Footer />
       </div>

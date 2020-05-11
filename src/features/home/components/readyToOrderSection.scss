@@ -1,12 +1,27 @@
 .ready-to-order-section {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #f0f4c3;
-  height: 290px;
-  max-height: 290px;
+  background: #F5E7D8;
+  height: 378px;
+  max-height:378px;
+}
+.order-content {
+  text-align: center;
+  margin: auto;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 16px;
+  width: 468px;
 }
 
 .header-section {
   padding-bottom: 10px;
+}
+
+@media(max-width: 767px){
+  .order-content{
+    width: 290px;
+    font-size: 12px;
+  }
 }
 

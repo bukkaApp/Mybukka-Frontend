@@ -1,0 +1,110 @@
+
+
+.more-offers-description {
+  padding: 40px 0px 20px;
+
+  
+  .container {
+    padding: 0px 20px;
+
+     .offer-img {
+        width: 390px;
+        }
+  }
+
+  
+  h6 {
+    width: 348px;
+    font-family: Roboto;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: bold;
+  }
+
+  
+  .offer-content {
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #949494;
+    width: 390px;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+  h6 {
+    width: 280px !important;
+    font-size: 25px !important;
+  }
+
+
+  .offer-content {
+    width: 290px !important;
+    font-size: 15px !important;
+  }
+
+
+  .offer-img{
+      width: 250px!important;
+  }
+
+
+  .text-align {
+      text-align: center;
+    }
+
+
+  .margin-auto {
+      margin: auto;
+  }
+
+
+}
+
+
+@media(min-width: 768px) {
+  .offer-img {
+      width: 290px!important;
+  }
+
+
+   .offer-content {
+    width: 290px !important;
+    font-size: 15px !important;
+  }
+
+  
+}
+
+
+@media(min-width: 900px) {
+    .offer-img {
+      width: 330px!important;
+  }
+
+
+  .offer-content {
+    width: 330px !important;
+    font-size: 17px !important;
+  }
+
+
+}
+
+
+@media(min-width: 1200px) {
+    .offer-img {
+      width: 390px!important;
+    }
+
+
+  .offer-content {
+    width: 390px !important;
+    font-size: 18px !important;
+  }
+
+  
+}
