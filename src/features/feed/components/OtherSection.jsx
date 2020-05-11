@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Route, Redirect, matchPath } from 'react-router-dom';
 import { connect } from 'react-redux';
 import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
@@ -9,7 +9,6 @@ import LocationNavSmallScreen, {
 } from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
 import CheckoutButton from 'Components/common/CheckoutButton';
-import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 
 import fetchFreshOrMartAction from 'Redux/fetchFreshOrMartAction';
@@ -24,11 +23,14 @@ import OtherSectionCategories from '../common/OtherSectionCategories';
 const OtherSection = ({
   bukkaMenu,
   categories,
-  error,
+  // error,
   fetched,
-  type,
   fetchNearbyBukkas,
+  match,
+  location,
 }) => {
+  const { params } = matchPath(location.pathname, { path: '/:id' });
+  const type = params.id;
   const { push } = useHistory();
   const { coordinates } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState('');
@@ -40,15 +42,12 @@ const OtherSection = ({
     fetchNearbyBukkas(coordinates, type);
   }, [coordinates, type]);
 
-  if (bukkaMenu.length === 1 && error) {
-    return <NoNearByBukkaLocation push={push} />;
-  }
-
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />
-      {bukkaMenu.length > 1 && fetched && (
-        <div>
+      <Route
+        path={`${match.path}`}
+        render={() => (bukkaMenu.length > 1 && fetched ? <div>
           <IntroSection push={push} />
           <ExploreSection>
             <AreasToExplore
@@ -67,8 +66,8 @@ const OtherSection = ({
               <OtherSectionCategories searchQuery={searchQuery} />
             </div>
           </ExploreSection>
-        </div>
-      )}
+        </div> : <Redirect to="/coming-soon" />)}
+      />
       <CheckoutButton />
       <UnAuthenticatedCheckout push={push} />
     </div>
@@ -76,7 +75,7 @@ const OtherSection = ({
 };
 
 const mapStateToProps = ({
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu,
     categories,
     status: { error, fetched },

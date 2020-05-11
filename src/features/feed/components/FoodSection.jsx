@@ -75,6 +75,7 @@ const FoodSection = ({
     }
   }, [coordinates]);
 
+  console.log('feedeey');
   useEffect(() => {
     const handleFetchOnRefresh = () => {
       if (!loading && nearbyBukkas.length === 0 && coordinates.length !== 0 && !errorMessage) {
@@ -154,9 +155,9 @@ const FoodSection = ({
 const mapStateToProps = ({
   loadingReducer: { status: loading },
   deliveryModeReducer: { mode },
-  bukkasReducer: { fetchedBukkas, status, currentPage, errorMessage },
+  businessesReducer: { fetchedBukkas, status, currentPage, errorMessage },
   promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
-  cuisineReducer: { fetchedBukkas: fetchedCuisines }
+  businessGroupReducer: { fetchedBukkas: fetchedCuisines }
 }) => ({
   fetchedBukkas,
   fetchedCuisines,

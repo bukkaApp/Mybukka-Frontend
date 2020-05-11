@@ -1,34 +1,35 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, Fragment, createRef } from 'react';
+import React, { useEffect, Fragment, createRef, useState } from 'react';
 
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import MapMarker from 'Icons/MapMarker';
 import ChevronRight from 'Icons/ChevronRight';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from './SuggestionsDropdown';
 
 import './searchlocation.scss';
-import useLocationService from '../../context/useLocationService';
+import useAutocompleteService from '../../context/useAutocompleteService';
 
 const SearchLocation = ({
   showDeliveryOrPickupNav,
   chevronButtonVisible,
   showDropdown,
 }) => {
+  const [predictions, setPredictions] = useState([]);
   const wrapperRef = createRef();
   const { push } = useHistory();
 
   const {
     setFocus,
-    isFocused,
+    hasFocus,
     handleChange,
     handleClick,
-    geoCodeLocation,
-    inputData
-  } = useLocationService();
+    inputData,
+    LoadService
+  } = useAutocompleteService(setPredictions);
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -66,6 +67,7 @@ const SearchLocation = ({
 
   return (
     <div ref={wrapperRef}>
+      <LoadService />
       <div
         className="input-group address-input-section"
         style={{ border: '1 px solid #eceff1' }}
@@ -75,25 +77,27 @@ const SearchLocation = ({
             <MapMarker />
           </span>
         </div>
-        <InputField
+        <Field.Input
           type="text"
           name="searchLocation"
           placeholderText="Enter your address..."
           classNames="text-field form-control searchlocation"
-          handleFocus={() => setFocus(true)}
           handleChange={handleChange}
+          onFocus={() => setFocus(true)}
+          // onBlur={() => setFocus(false)}
           value={inputData}
         />
         {showChevronButton()}
       </div>
       {showDropdown && (<div className="carousel-divider mb-0" />)}
       <div className="dropdown-suggestion">
-        {(isFocused || showDropdown) && (
+        {(hasFocus || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
             <SuggestionsDropdown
               push={push}
-              setLocation={geoCodeLocation}
+              setLocation={handleClick}
+              predictions={predictions}
             />
           </Fragment>
         )}

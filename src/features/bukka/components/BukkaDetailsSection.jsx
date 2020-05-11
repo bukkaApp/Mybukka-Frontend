@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,6 +10,7 @@ import Clock from 'Icons/Clock';
 import ChevronVertical from 'Icons/ChevronVertical';
 import Star from 'Icons/Star';
 import MapMarkerAlt from 'Icons/MapMarkerAlt';
+import BusinessAddress from '../../../components/business-address';
 
 import './bukkaDetailsSection.scss';
 
@@ -22,7 +23,7 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
     >
       {deliveryMode === 'pickup' ? null : (
         <div className="col col-7">
-          <p className="delivery-price">${deliveryPrice} DELIVERY</p>
+          <p className="delivery-price">₦{deliveryPrice} DELIVERY</p>
         </div>
       )}
       <div className="px-3 d-inline-block">
@@ -39,12 +40,12 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   </div>
 );
 
-const ActionButtons = ({ deliveryTime, address }) => (
+const ActionButtons = ({ deliveryTime, address, handleClick }) => (
   <div className="action-buttons-section">
     <ButtonGroup>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
@@ -53,7 +54,7 @@ const ActionButtons = ({ deliveryTime, address }) => (
       </Button>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
@@ -62,7 +63,7 @@ const ActionButtons = ({ deliveryTime, address }) => (
       </Button>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
@@ -90,22 +91,25 @@ const BukkaDetailsSection = ({
   address,
   deliveryMode
 }) => {
-  const { name, description } = fetchedBukka;
+  const [state, setState] = useState(false);
+
+  const { name, description, deliveryPrice, schedule, location } = fetchedBukka;
   if (Object.keys(fetchedBukka).length <= 0) {
     return null;
   }
 
   return (
     <Container classNames="bukka-details-section">
-      <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
+      <DeliveryPriceAndtag deliveryPrice={deliveryPrice || 30} deliveryMode={deliveryMode} />
       <TitleAndDescription name={name} description={description} />
-      <ActionButtons deliveryTime={'15'} address={address} />
+      <ActionButtons handleClick={() => setState(prev => !prev)} deliveryTime={'15'} address={address} />
+      <BusinessAddress location={location} show={state} schedule={schedule} />
     </Container>
   );
 };
 
 const mapStateToProps = ({
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka
   },
   deliveryModeReducer: { mode: deliveryMode }

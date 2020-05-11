@@ -4,8 +4,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SuggestionsDropdown from 'Components/places-suggest/SuggestionsDropdown';
 
-import Input from 'Components/input/InputField';
-import useLocationService from '../../../context/useLocationService';
+import Field from 'Components/input/Field';
+import useAutocompleteService from '../../../context/useAutocompleteService';
 
 const Address = ({
   useCurrentLocationVisible,
@@ -13,7 +13,7 @@ const Address = ({
   propData,
 }) => {
   const wrapperRef = React.createRef();
-  const { selectedLocation, handleChange, geoCodeLocation,} = useLocationService();
+  const { selectedLocation, handleChange, geoCodeLocation, LoadService } = useAutocompleteService();
   const [inputData, setInputData] = useState('');
   const [isFocused, setFocus] = useState(false);
 
@@ -30,7 +30,9 @@ const Address = ({
   };
 
   useEffect(() => {
-    setInputData(selectedLocation.description);
+    if (selectedLocation && selectedLocation.description) {
+      setInputData(selectedLocation.description);
+    }
   }, [selectedLocation]);
 
   const emitOnChange = ({ target: { value } }) => {
@@ -45,14 +47,14 @@ const Address = ({
 
   return (
     <div ref={wrapperRef}>
-      <Input
+      <Field.Input
         inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
         handleChange={emitOnChange}
         classNames={propData.classNames}
         value={inputData}
-        handleFocus={() => setFocus(true)}
+        onFocus={() => setFocus(true)}
         label="Location"
         placeholderText="Enter your address..."
         id={propData.id}
@@ -68,6 +70,7 @@ const Address = ({
           </Fragment>
         )}
       </div>
+      <LoadService />
     </div>
   );
 };
@@ -81,10 +84,7 @@ Address.defaultProps = {
 };
 
 Address.propTypes = {
-  google: PropTypes.shape({}).isRequired,
-  updatePredictions: PropTypes.func.isRequired,
   selectedLocation: PropTypes.shape({}).isRequired,
-  selectLocation: PropTypes.func.isRequired,
   useCurrentLocationVisible: PropTypes.bool,
   handleInputChange: PropTypes.func,
   propData: PropTypes.objectOf({

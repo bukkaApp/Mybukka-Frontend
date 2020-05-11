@@ -1,3 +1,4 @@
+@import '../../../stylebase/variables.scss';
 $fontFamily: 'Roboto', sans-serif;
 
 .pt-100 {
@@ -57,7 +58,7 @@ $fontFamily: 'Roboto', sans-serif;
 
 .feed-main-content {
   position: relative;
-  background-color: rgb(255, 255, 255);
+  background-color: $color-light-gray;
   z-index: 200;
   margin-top: 248px;
   transition: transform 100ms ease-in-out 0s;
@@ -124,28 +125,6 @@ img {
   height: 100%;
   border: 0;
   outline: 0;
-}
-
-.drinks-img-height {
-  object-fit: scale-down;
-  min-height: 120px;
-  height: auto;
-  background-color: rgba(231, 226, 226, 0.7);
-  @media (min-width: 767px) {
-    max-height: 270px;
-    min-height: 200px
-  }
-}
-
-.fresh-img-height {
-  object-fit: scale-down;
-  min-height: 120px;
-  height: auto;
-  background-color: rgba(231, 226, 226, 0.7);
-  @media (min-width: 767px) {
-    max-height: 270px;
-    min-height: 200px
-  }
 }
 
 .search-container {

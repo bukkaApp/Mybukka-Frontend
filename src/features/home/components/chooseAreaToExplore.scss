@@ -1,3 +1,5 @@
+@import "../../../stylebase/variables.scss";
+
 .choose-area-section {
   padding-top: 20px;
 }
@@ -5,12 +7,12 @@
 .area-explore-header {
   padding-bottom: 15px;
   padding-top: 20px;
-  border-bottom: 1px solid #eceff1;
+  border-bottom: 1px solid $color-border;
 }
 
 .nav-link-view {
   text-align: right;
-  color: gray;
+  color: $color-middle-gray;
   text-decoration: none;
   font-weight: 300;
   font-family: 'Roboto', sans-serif;
@@ -20,7 +22,7 @@
 }
 
 .nav-link-view:hover {
-  color: gray;
+  color: $color-middle-gray;
   text-decoration: none;
 }
 
@@ -43,6 +45,7 @@
   color: #111;
   font-weight: 400;
   display: inline-block;
+  font-size: $font-size-medium;
   transition: border-bottom 500ms ease-in;
   &:hover {
     color: #111;

@@ -15,7 +15,7 @@ const initialState = {
       error: false
     }
   },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: {
       title: 'title',
       imageUrl: 'www.imageUrl.com',
@@ -27,7 +27,7 @@ const initialState = {
       error: false,
     },
   },
-  fetchBukkaMenuReducer: { bukkaMenu: [
+  productsReducer: { bukkaMenu: [
     {
       title: 'title',
       imageUrl: 'www.imageUrl.com',

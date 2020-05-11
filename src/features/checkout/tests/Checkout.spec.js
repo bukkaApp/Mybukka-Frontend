@@ -30,10 +30,10 @@ describe.skip('Area to explore component', () => {
       status: { success: false },
       message: 'jhfj'
     },
-    fetchBukkaReducer: {
+    businessReducer: {
       fetchedBukka: { slug: 'kssk-jhddj' }
     },
-    fetchBukkaMenuReducer: {
+    productsReducer: {
       bukkaMenu: [
         {
           title: 'title',

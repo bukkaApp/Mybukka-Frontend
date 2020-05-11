@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './underline.scss';
-
 const Underline = ({ children }) => (
   <span className="text_underline">
     {children}

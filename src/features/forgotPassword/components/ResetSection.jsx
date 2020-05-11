@@ -7,7 +7,6 @@ import Container from 'Components/container';
 import ResetIntroSection from './ResetIntroSection';
 import FeedbackSection from './FeedbackSection';
 import requestPassChanges from '../actionCreators/requestPassChanges';
-import ModalRoot from '../../modal-root/Index';
 
 import './resetsection.scss';
 
@@ -18,7 +17,6 @@ const ResetSection = ({
   errorMessage
 }) => (
   <>
-    <ModalRoot push={push} />
     <Navbar push={push} />
     <div className="bg-color py-8">
       <Container classNames="relative modal-open">

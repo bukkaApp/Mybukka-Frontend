@@ -6,7 +6,7 @@ const store = mockStore({
   deliveryModeReducer: {
     mode: 'pickup'
   },
-  postUserAddress: { errorMessage: '', posted: false },
+  updateUserAddressReducer: { errorMessage: '', posted: false },
   selectedLocationReducer: { coordinates: [3.361476, 6.5560715] }
 });
 

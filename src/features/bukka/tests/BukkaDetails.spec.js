@@ -14,7 +14,7 @@ const initialState = {
       error: false
     }
   },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: {
       title: 'title',
       imageUrl: 'www.imageUrl.com',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 
 import EditTogglerButton from './EditTogglerButton';
 
@@ -19,7 +19,7 @@ const InputAccountDetails = React.forwardRef(({
     <form className="form-acc-details">
       <div className="form-group input-acc-details">
         {children || (
-          <InputField
+          <Field.Input
             type={type}
             placeholderText={placeHolder}
             classNames="input-acc-details"

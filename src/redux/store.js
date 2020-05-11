@@ -9,24 +9,24 @@ import storage from 'redux-persist/lib/storage';
 
 import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
-import authenticationReducer from '../features/authentication/reducers';
+import authenticationReducer from '../provider/Redux/authenticationReducer';
 import loadingReducer from './loadingReducer';
 
 import deliveryModeReducer from '../components/common-navs/reducers/deliveryModeReducer';
 
-import bukkasReducer from '../features/feed/reducers/bukkasReducer';
-import fetchUserAddress from '../features/profile/reducers/fetchUserAddress';
-import fetchUserData from '../features/profile/reducers/fetchUserData';
-import postUserAddress from '../features/profile/reducers/postUserAddress';
-import postUserData from '../features/profile/reducers/postUserData';
+import businessesReducer from '../provider/Redux/businessesReducer';
+import userAddressReducer from '../provider/Redux/userAddressReducer';
+import userProfileReducer from '../provider/Redux/userProfileReducer';
+import updateUserAddressReducer from '../provider/Redux/updateUserAddressReducer';
+import updateUserProfileReducer from '../provider/Redux/updateUserProfileReducer';
 import displayTrackingReducer from '../features/history/reducers/displayTrackingReducer';
 import getOrderHistoryReducer from '../features/history/reducers/getOrderHistoryReducer';
 import validateTokenReducer from '../features/forgotPassword/reducers/validateTokenReducer';
 import requestPasswordChangesReducer from '../features/forgotPassword/reducers/requestPasswordChangesReducer';
 import changePasswordReducer from '../features/forgotPassword/reducers/changePasswordReducer';
-import fetchBukkaReducer from '../features/bukka/reducers/fetchBukkaReducer';
+import businessReducer from '../provider/Redux/businessReducer';
 
-import fetchBukkaMenuReducer from '../features/bukka/reducers/fetchBukkaMenuReducer';
+import productsReducer from '../provider/Redux/productsReducer';
 
 import manipulateCardDetailsReducer from '../features/checkout/reducers/manipulateCardDetailsReducer';
 
@@ -49,7 +49,7 @@ import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVe
 
 import getUserDataReducer from '../features/verifyPhone/reducers/getUserDataReducer';
 import promotionReducer from '../features/promotion/reducer/promotionReducer';
-import cuisineReducer from '../features/feed/reducers/cuisineReducer';
+import businessGroupReducer from '../provider/Redux/businessGroupReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -57,18 +57,18 @@ const reducer = combineReducers({
   signOutReducer,
   navbarAuthReducer,
   deliveryModeReducer,
-  bukkasReducer,
-  fetchUserAddress,
-  fetchUserData,
-  postUserAddress,
-  postUserData,
+  businessesReducer,
+  userAddressReducer,
+  userProfileReducer,
+  updateUserAddressReducer,
+  updateUserProfileReducer,
   displayTrackingReducer,
   getOrderHistoryReducer,
   validateTokenReducer,
   requestPasswordChangesReducer,
   changePasswordReducer,
-  fetchBukkaMenuReducer,
-  fetchBukkaReducer,
+  productsReducer,
+  businessReducer,
   manipulateCardDetailsReducer,
   chargeUserReducer,
   finishTransactionReducer,
@@ -86,7 +86,7 @@ const reducer = combineReducers({
   setDefaultCardReducer,
   alertMessageReducer,
   promotionReducer,
-  cuisineReducer,
+  businessGroupReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);
@@ -96,9 +96,9 @@ const persistConfig = {
   storage,
   whitelist: [
     'authenticationReducer',
-    // 'fetchBukkaReducer',
-    // 'fetchBukkaMenuReducer',
-    'cuisineReducer',
+    // 'businessReducer',
+    // 'productsReducer',
+    'businessGroupReducer',
     'promotionReducer',
     'deliveryScheduleReducer',
     'cartReducer',

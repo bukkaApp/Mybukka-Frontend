@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import Button from 'Components/button/Button';
 
 import { validateAField, validateAllFields } from '../validations/validateAddressAndPayment';
@@ -59,13 +59,13 @@ const Payment = () => {
         </div>
 
         <div className="form-group checkbox-form-group">
-          <InputField
+          <Field.Checkbox
             type="checkbox"
             classNames="checkbox"
             placeholder=""
             name="makeDefaultPaymentOption"
             handleChange={() => {}}
-            handleFocus={() => {}}
+            onFocus={() => {}}
           />
           <span className="make-default-text">Make default payment method</span>
         </div>

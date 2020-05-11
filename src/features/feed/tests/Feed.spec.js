@@ -20,7 +20,7 @@ const initialState = {
       error: false
     }
   },
-  bukkasReducer: {
+  businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
       message: ''
@@ -30,7 +30,7 @@ const initialState = {
       error: true,
     }
   },
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu: [
       {
         title: 'title',
@@ -85,15 +85,15 @@ describe.skip('FoodSection component', () => {
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'a' },
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }

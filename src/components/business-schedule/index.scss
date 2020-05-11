@@ -1,0 +1,149 @@
+.Business-Schedule {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+  width: 100%;
+  @media screen and (min-width: 768px) {
+    margin-right: 48px;
+    max-width: 350px;
+  }
+  @media screen and (min-width: 1060px) {
+    margin-right: 96px;
+  }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 16px;
+  }
+}
+
+.Business-Schedule-Header {
+  padding-bottom: 21px;
+  border-bottom: 1px solid rgba(217,219,224,0.5);
+}
+
+.Business-Schedule-Header-Content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.Business-Schedule-Header-Title {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  -webkit-letter-spacing: -0.48px;
+  -moz-letter-spacing: -0.48px;
+  -ms-letter-spacing: -0.48px;
+  letter-spacing: -0.48px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+}
+
+.Business-Schedule-Header-Desc {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.14px;
+  -moz-letter-spacing: 0.14px;
+  -ms-letter-spacing: 0.14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Business-Schedule-Body {
+  padding-top: 8px;
+}
+
+.Business-Schedule-Body-Content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 0 15px;
+  @media screen and (min-width: 1060px) {
+    padding-bottom: 24px;
+  }
+}
+
+.Business-Schedule-Section--active {
+  color: #8F95A3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 36px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  -webkit-letter-spacing: -0.28px;
+  -moz-letter-spacing: -0.28px;
+  -ms-letter-spacing: -0.28px;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  line-height: normal;
+  color: #000;
+}
+
+.Business-Schedule-Section {
+  color: #8F95A3;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 36px;
+  width: 100%;
+}
+
+.Business-Schedule-Day_Time {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.14px;
+  -moz-letter-spacing: 0.14px;
+  -ms-letter-spacing: 0.14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.14px;
+  -moz-letter-spacing: 0.14px;
+  -ms-letter-spacing: 0.14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.Schedule-Capitalise {
+  text-transform: capitalize;
+}
+
+.Schedule-Uppercase {
+  text-transform: uppercase;
+}

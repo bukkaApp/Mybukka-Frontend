@@ -92,7 +92,7 @@ const SuggestedItemsWrapper = ({ bukkaMenuToSuggest, addToCart }) => {
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu }, cartReducer: { items } }) => {
+const mapStateToProps = ({ productsReducer: { bukkaMenu }, cartReducer: { items } }) => {
   const mealsInCart = items.map(item => item.slug);
   const bukkaMenuToSuggest = bukkaMenu.filter(menu => !mealsInCart.includes(menu.slug)).slice(0, 7);
   return { bukkaMenuToSuggest };

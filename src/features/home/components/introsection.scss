@@ -1,24 +1,27 @@
+@import "../../../stylebase/variables.scss";
+
 $bgColor: #f9fbe7;
 
 .intro-section {
   width: 100%;
   height: 580px;
-  background-color: $bgColor;
+  background-color: $color-light-gray;
   font-family: 'Roboto', sans-serif;
 }
 
 .large-text-section {
-  max-width: 543px;
+  max-width: 544px;
   margin: auto;
   margin-top: 70px;
 }
 
 .max-search-location {
-  max-width: 543px;
+  // max-width: 543px;
+  max-width: 415px;
 }
 
 .address-input-section {
-  border: 1px solid #eceff1;
+  border: 1px solid $color-border;
 }
 
 .address-input {
@@ -39,7 +42,7 @@ $bgColor: #f9fbe7;
 .sub-text {
   font-size: 16px;
   font-weight: 400;
-  color: #000;
+  color: $color-black;
 }
 
 @media (max-width: 767.98px) {
@@ -50,7 +53,7 @@ $bgColor: #f9fbe7;
   }
 
   .intro-section {
-    border-bottom: 20px solid #f7f7f8;
+    border-bottom: 20px solid $color-light-gray;
     height: 530px;
   }
 

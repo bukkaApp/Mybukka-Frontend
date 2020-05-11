@@ -1,0 +1,39 @@
+@import "variables";
+
+.medium-emphasis {
+  color: $medium-emphasis;
+}
+
+.high-emphasis {
+  color: $high-emphasis;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+@mixin a11y-visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+@mixin disabled {
+  pointer-events: none;
+  opacity: .75;
+}
+
+@mixin bp-large {
+  @media (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}

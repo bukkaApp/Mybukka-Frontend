@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../button/Button';
@@ -7,7 +8,8 @@ import Brand from '../brand/Brand';
 import navAuthentication from './actionCreators/navAuthentication';
 import './navbar.scss';
 
-const PrimaryNavbar = ({ push, navigateToNextRoute, authButton }) => {
+const PrimaryNavbar = ({ navigateToNextRoute, authButton }) => {
+  const { push } = useHistory();
   const navigateToAuth = ({ target: { id } }) => {
     push(id);
   };
@@ -68,6 +70,5 @@ PrimaryNavbar.defaultProps = {
 
 PrimaryNavbar.propTypes = {
   authButton: PropTypes.bool,
-  push: PropTypes.func.isRequired,
   navigateToNextRoute: PropTypes.func.isRequired
 };

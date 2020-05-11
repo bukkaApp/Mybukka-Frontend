@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'Components/button/Button';
 
 import './discoversection.scss';
+import Img from '../../../components/img';
 
 const LargeText = () => (
   <div className="large-text-discover">
@@ -33,9 +34,9 @@ const ActionButton = ({ handleClick }) => (
 
 const SideImage = () => (
   <div className="side-image-section">
-    <img
+    <Img
       src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1548762594/app-car-charging-33488_fnegrl.jpg" // eslint-disable-line
-      alt=""
+      alt="discovery"
       className="side-image"
     />
   </div>

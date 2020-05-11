@@ -64,7 +64,7 @@ const Favorites = ({
 };
 
 const mapStateToProps = ({
-  bukkasReducer: { fetchedBukkas, status },
+  businessesReducer: { fetchedBukkas, status },
 }) => ({
   fetchedBukkas,
   status,

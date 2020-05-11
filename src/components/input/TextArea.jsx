@@ -9,7 +9,7 @@ const TextArea = ({
   classNames,
   placeholderText,
   handleChange,
-  handleFocus,
+  onFocus,
   maxLength
 }) => (
   <textarea
@@ -17,7 +17,7 @@ const TextArea = ({
     className={`text-area ${classNames}`}
     placeholder={placeholderText}
     onChange={handleChange}
-    onFocus={handleFocus}
+    onFocus={onFocus}
     maxLength={`${maxLength}`}
   />
 );
@@ -35,6 +35,6 @@ TextArea.propTypes = {
   classNames: PropTypes.string,
   placeholderText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
-  handleFocus: PropTypes.func.isRequired,
+  onFocus: PropTypes.func.isRequired,
   maxLength: PropTypes.number,
 };

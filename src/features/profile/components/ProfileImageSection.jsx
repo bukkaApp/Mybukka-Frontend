@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 
 import ProfileHeaderTitle from '../common/ProfileHeaderTitle';
 
@@ -23,7 +23,7 @@ const UploadImageSection = ({ handleChange }) => (
     <Button classNames="button-upload" type="button" handleClick={() => {}}>
       <span className="button-text">
         Change Photo
-        <InputField
+        <Field.Input
           type="file"
           classNames="select-photo"
           name="selectFile"

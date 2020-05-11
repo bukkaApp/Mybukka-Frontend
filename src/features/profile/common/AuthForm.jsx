@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import SuggestionsDropdown from 'Components/places-suggest/SuggestionsDropdown';
 
 const AuthForm = ({
@@ -18,7 +18,7 @@ const AuthForm = ({
       >
         {propData.placeholderText}
       </label>
-      <Input
+      <Field.Input
         inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
@@ -26,7 +26,7 @@ const AuthForm = ({
         classNames={propData.classNames}
         placeholderText={propData.placeholderText}
         id={propData.id}
-        handleFocus={() => {}}
+        onFocus={() => {}}
         value={inputData[propData.name]}
       />
       {propData.name === 'streetAddress1' && autoComplete && (

@@ -17,11 +17,10 @@ import LocationNavSmallScreen, {
   SelectLocationModal
 } from 'Components/common-navs/LocationNavSmallScreen';
 
-import AddToCart from 'Components/common/addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
 import BukkaMeals from './BukkaMeals';
-import ClosedNotification from '../notification/ClosedNotification';
+// import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
@@ -35,8 +34,7 @@ const BukkaMenuScene = ({
 
   return (
     <div className="bukka-menu">
-      <ClosedNotification />
-      <AddToCart />
+      {/* <ClosedNotification /> */}
       <SelectLocationModal />
       <Navbar push={push} bukka />
       <BukkaImageSection />
@@ -64,7 +62,7 @@ const BukkaMenuScene = ({
   );
 };
 
-const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
+const mapStateToProps = ({ cartReducer: { errorMessage }, productsReducer: {
   categories,
   bukkaMenu,
 }, }) => ({

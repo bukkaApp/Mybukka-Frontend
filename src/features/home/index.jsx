@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Footer from 'Components/footer/Footer';
-import ModalRoot from '../modal-root/Index';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
 
@@ -21,7 +20,7 @@ import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuis
 import useUpdateEffect from '../../context/useUpdateEffect';
 
 
-const Home = ({
+const Home = React.memo(({
   history: { push },
   fetchNearbyBukkas,
   getPromotedBukkas,
@@ -31,16 +30,15 @@ const Home = ({
 
   useUpdateEffect(() => {
     new Promise(async (resolve) => {
-      resolve(getPromotedBukkas(coordinates));
+      resolve(fetchNearbyBukkas(coordinates));
     }).then(() => getRestaurantCuisine(coordinates))
-      .then(() => fetchNearbyBukkas(coordinates))
+      .then(() => getPromotedBukkas(coordinates))
       .then(() => push('/feed'));
     return () => console.log('unmounted');
   }, [coordinates]);
 
   return (
     <Fragment>
-      <ModalRoot push={push} />
       <div className="home">
         <VerifyPhone />
         <IntroSection push={push} />
@@ -51,7 +49,8 @@ const Home = ({
       </div>
     </Fragment>
   );
-};
+});
+
 export default connect(
   () => ({}),
   {

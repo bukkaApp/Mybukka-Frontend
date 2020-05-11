@@ -74,7 +74,7 @@ const AddedItem = ({ cart, bukka, removeFromCart, setMealToDisplay }) => (
 
 const mapStateToProps = ({
   cartReducer: { items },
-  fetchBukkaReducer: { fetchedBukka }
+  businessReducer: { fetchedBukka }
 }) => ({ cart: items, bukka: fetchedBukka });
 
 export default connect(

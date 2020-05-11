@@ -10,7 +10,7 @@ const fetchUserDataAction = (type, data) => ({
   data,
 });
 
-const fetchUserData = url => async dispatch => {
+const fetchUserData = url => async (dispatch) => {
   console.log('url', url);
   try {
     dispatch(loading(FETCH_USER_DATA, true));

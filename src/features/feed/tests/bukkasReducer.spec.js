@@ -1,6 +1,6 @@
 import bukkaData from '../common/bukkaData.json';
 
-import bukkasReducer from '../reducers/bukkasReducer';
+import businessesReducer from '../../../provider/Redux/businessesReducer';
 
 const bukkadefault = [
   ...bukkaData,
@@ -22,7 +22,7 @@ describe('FETCH BUKKAS Reducer', () => {
   it(`sets fetchedBukkas to true if action
   type is FETCH_BUKKAS_SUCCESS`, () => {
     expect(
-      bukkasReducer(initialState, {
+      businessesReducer(initialState, {
         type: 'FETCH_BUKKAS_SUCCESS',
         data: {
           message: 'success',
@@ -45,7 +45,7 @@ describe('FETCH BUKKAS Reducer', () => {
   it(`sets error state to true if action
   type is FETCH_BUKKAS_ERROR`, () => {
     expect(
-      bukkasReducer(initialState, {
+      businessesReducer(initialState, {
         type: 'FETCH_BUKKAS_ERROR',
         data: {
           message: 'invalid'
@@ -66,7 +66,7 @@ describe('FETCH BUKKAS Reducer', () => {
   });
 
   it('returns initial state if action type is not handled', () => {
-    expect(bukkasReducer(initialState, { type: 'UNHANDLED' })).toEqual(
+    expect(businessesReducer(initialState, { type: 'UNHANDLED' })).toEqual(
       initialState
     );
   });

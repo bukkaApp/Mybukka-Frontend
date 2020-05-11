@@ -7,7 +7,6 @@ import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
 
 import PropTypes from 'prop-types';
 import verifyCardTransaction from './actionCreators/verifyCardTransaction';
-import ModalRoot from '../modal-root/Index';
 import Checkout from './components/Checkout';
 
 const CheckoutPage = ({
@@ -42,7 +41,6 @@ const CheckoutPage = ({
 
   return (
     <Fragment>
-      <ModalRoot push={push} />
       <Checkout
         openNewWindow={handleOpenWindow}
         push={push}

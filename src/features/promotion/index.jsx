@@ -110,7 +110,7 @@ const PlaceGroup = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  bukkasReducer: { fetchedBukkas, status },
+  businessesReducer: { fetchedBukkas, status },
   promotionReducer: {
     promotedBukkas, errorMessage, promotionToDisplay: { name, slug },
     currentPage,

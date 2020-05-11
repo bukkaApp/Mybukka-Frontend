@@ -16,14 +16,14 @@ const initialState = {
       error: false
     }
   },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: {},
     status: {
       fetched: false,
       error: false,
     },
   },
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu: [
       {
         title: 'title',

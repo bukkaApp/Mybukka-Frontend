@@ -109,8 +109,8 @@ const SearchItems = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   searchAnythingReducer: { search },
-  bukkasReducer: { fetchedBukkas, status },
-  cuisineReducer: {
+  businessesReducer: { fetchedBukkas, status },
+  businessGroupReducer: {
     cuisineItems, errorMessage,
     currentPage,
     cuisineToDisplay: { name },

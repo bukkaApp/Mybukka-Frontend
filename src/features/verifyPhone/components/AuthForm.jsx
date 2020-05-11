@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Spinner } from 'react-bootstrap';
 import Button from 'Components/button/Button';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import AuthService from 'Utilities/authServices';
-import swal from 'sweetalert';
 
 const AuthForm = ({
   handleSubmit,
@@ -33,18 +32,18 @@ const AuthForm = ({
           <div className="space">
             <div className="d-flex">
               <div className="p mt-2 prefix">+234</div>
-              <InputField
+              <Field.Input
                 name="contactMobile"
                 classNames="default-input"
                 type="text"
                 placeholderText="phone"
                 handleChange={handleChange}
-                error={errors['contactMobile']}
-                handleFocus={() => {}}
+                error={errors.contactMobile}
+                onFocus={() => {}}
               />
             </div>
             <small className="text-danger error-margin-left">
-              {errors['contactMobile']}
+              {errors.contactMobile}
             </small>
           </div>
         </div>

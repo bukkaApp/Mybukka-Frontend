@@ -1,14 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import ModalRoot from '../modal-root/Index';
-import Privacy from './Privacy';
+import PrimaryNavbar from 'Components/navbar';
+import { Route, matchPath } from 'react-router-dom';
+import Statement from './component/Statement';
 
 const Index = (props) => {
-  const { history: { push } } = props;
+  const match = props.match;
+  const pathMatch = matchPath(props.location.pathname, { path: '/legal/:id' });
+  const activePages = { privacy: 'Privacy Policy', terms: 'Terms of Service' };
   return (
     <Fragment>
-      <ModalRoot push={push} />
-      <Privacy {...props} />
+      <section className="border-bottom">
+        <PrimaryNavbar authButton />
+      </section>
+      <Route path={`${match.path}`}>
+        <Statement
+          activePage={activePages[pathMatch.params.id]}
+          data={import(`./inputData/${pathMatch.params.id}.js`).then(pageContent => pageContent.default)}
+        />
+      </Route>
     </Fragment>
   );
 };

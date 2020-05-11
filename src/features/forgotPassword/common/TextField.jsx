@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 
 import './textField.scss';
 
@@ -13,13 +13,13 @@ const HelpBlock = ({ errorMsg }) => (
 const TextField = ({ handleChange, domStructure, validationErrors }) =>
   domStructure.map(structure => (
     <div className="form-group padding" key={structure.id}>
-      <InputField
+      <Field.Input
         name={structure.name}
         classNames="default-input"
         type={structure.type}
         placeholderText={structure.placeholder}
         handleChange={handleChange}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
       <HelpBlock errorMsg={validationErrors[structure.name]} />
     </div>

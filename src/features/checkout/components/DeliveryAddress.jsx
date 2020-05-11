@@ -31,7 +31,7 @@ const DeliveryForm = React.forwardRef(({
         name="deliveryInstruction"
         classNames="instruction"
         handleChange={handleChange}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
     </div>
   </form>
@@ -102,7 +102,7 @@ const Delivery = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: { address }
   }
 }) => ({

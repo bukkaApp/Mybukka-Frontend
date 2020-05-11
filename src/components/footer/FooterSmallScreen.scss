@@ -1,0 +1,71 @@
+.Footer-SmallScreen {
+  font-family: "Roboto", 'san-serif';
+  font-size: 16px;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 168px;
+  max-width: 168px;
+  height: 56px;
+  color: rgb(45, 49, 56);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  flex-shrink: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(217, 219, 224, 0.5);
+  border-image: initial;
+  border-radius: 100px;
+  @media screen and (min-width: 1060px) {
+    display: none;
+  }
+}
+
+.Footer-SmallScreen-Minus {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: calc(100% - 15px);
+  user-select: none;
+  color: rgb(180, 184, 193);
+}
+
+.Footer-SmallScreen-Value {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 30px;
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  height: 100%;
+}
+
+.Footer-SmallScreen-Plus {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  width: calc(100% - 15px);
+  user-select: none;
+}

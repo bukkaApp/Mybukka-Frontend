@@ -1,4 +1,4 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useReducer } from 'react';
 import { UPDATE_LOCATIONS_PREDICTION } from 'Redux/actionTypes';
 import constate from 'constate';
 import logger from './Logger';
@@ -6,7 +6,6 @@ import logger from './Logger';
 const initialState = {
   predictions: []
 };
-
 
 const reducer = (originalState, action) => {
   const state = Object.assign({}, originalState);
@@ -26,16 +25,11 @@ const reducer = (originalState, action) => {
 
 const loggerReducer = logger(reducer);
 
-const useLocationsPrediction = () => {
+const useCurrentLocation = () => {
+  console.log('how many times running usecureent loacation prediction');
   // TODO: loader status:
   // const [isGettingLocation, setIsGettingLocation] = useState(false);
-  const [data, setData] = useState(initialState);
-  const [state, dispatch] = useReducer(loggerReducer, data);
-
-
-  useEffect(() => {
-    setData(state);
-  }, [state, setData]);
+  const [state, dispatch] = useReducer(loggerReducer, initialState);
 
   const updateLocationsPrediction = (predictions) => {
     dispatch({
@@ -50,4 +44,4 @@ const useLocationsPrediction = () => {
 };
 
 export const [
-  LocationsPredictionProvider, useLocationsPredictionContext] = constate(useLocationsPrediction);
+  LocationsPredictionProvider, useLocationsPredictionContext] = constate(useCurrentLocation);

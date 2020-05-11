@@ -31,8 +31,8 @@ const totalAmount = ({ totalPriceInCart, fetchedBukka, deliveryPrice }) => (
 const mapStateToprops = ({
   cartReducer: { items, totalCost },
   deliveryModeReducer: { mode },
-  fetchBukkaReducer: { fetchedBukka },
-  fetchBukkaMenuReducer: { totalPriceInCart },
+  businessReducer: { fetchedBukka },
+  productsReducer: { totalPriceInCart },
 }) => ({
   cartItems: items,
   totalPriceInCart: totalCost,

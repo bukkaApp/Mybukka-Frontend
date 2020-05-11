@@ -13,7 +13,7 @@ const BukkaImage = ({ imageUrl }) => (
 );
 
 const mapStateToProps = ({
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: { imageUrl }
   }
 }) => ({

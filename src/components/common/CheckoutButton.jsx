@@ -41,7 +41,7 @@ const CheckOutButton = ({ cartItems }) => {
   return null;
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { cart } }) => ({
+const mapStateToProps = ({ productsReducer: { cart } }) => ({
   cartItems: cart,
 });
 

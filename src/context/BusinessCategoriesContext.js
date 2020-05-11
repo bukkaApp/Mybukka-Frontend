@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { useEffect, useReducer, useCallback } from 'react';
-import { SET_BIZ_CATEGORIES, SET_MORE_BIZ_CATEGORIES } from 'src/redux/actionTypes';
 import constate from 'constate';
+import { SET_BIZ_CATEGORIES, SET_MORE_BIZ_CATEGORIES } from '../redux/actionTypes';
 import logger from './Logger';
 import { useLocalStorage } from '../shared/useLocalStorage';
 import API from '../shared/api';

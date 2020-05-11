@@ -2,6 +2,12 @@
   cursor: pointer;
 }
 
+.modal-open .modal {
+  @media (max-width: 767.98px) { 
+    overflow-y: hidden;
+  }
+}
+
 .modal-header {
   border-bottom: none;
   align-items: flex-end;
@@ -47,8 +53,10 @@
 }
 
 .modal-dialog-centered {
+  max-width: 1060px;
   @media (max-width: 767.98px) {
     align-items: flex-start;
+    margin: 0px;
   }
 }
 

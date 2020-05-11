@@ -16,6 +16,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 const ServiceWorkerPlugin = new ServiceWorkerWebpackPlugin({
   entry: path.join(__dirname, 'src/sw.js'),
+  excludes: ['**/.*', '**/*.map', '*.html'],
 });
 
 const MiniCssPlugin = new MiniCssExtractPlugin({

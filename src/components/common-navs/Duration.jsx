@@ -43,8 +43,8 @@ export const TimeLists = ({
     <div className={`custom-duration-dropdown-content ${maxHeight}`}>
       {lists.map(list => (
         link ? (
-          <a href={`${pathname}#${list}`}>
-            <div key={list} tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
+          <a key={`${pathname}#${list}`} href={`${pathname}#${list}`}>
+            <div tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
               <span>{list}</span>
             </div>
           </a>

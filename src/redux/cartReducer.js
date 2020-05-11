@@ -54,7 +54,7 @@ const createLocalCart = (state, newItems, newTime) => ({
 });
 
 const cartUpdateSuccess = (userCart, state) => {
-  const item = { ...userCart.items, ...userCart.items.meal[0] };
+  const item = { ...userCart.items[0], ...userCart.items[0].meal[0] };
   const newCart = [...state.items, item];
   return {
     items: newCart,
@@ -94,8 +94,8 @@ const cartReducer = (state = initialState, action) => {
     }
 
     case 'UPDATE_CART_SUCCESS': {
-      const { items } = action.data;
-      return cartUpdateSuccess(items);
+      const { updatedCart } = action.data;
+      return cartUpdateSuccess(updatedCart, state);
     }
 
     case 'UPDATE_CART_LOCAL': {

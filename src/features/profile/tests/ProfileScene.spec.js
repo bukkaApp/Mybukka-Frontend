@@ -10,7 +10,7 @@ const store = mockStore({
   loadingReducer: { status: false },
   authenticationReducer: { status: { authenticated: true }
   },
-  fetchUserData: { userInfo: {
+  userProfileReducer: { userInfo: {
     userInfo: {
       firstName: 'save',
       lastName: 'save',
@@ -19,13 +19,13 @@ const store = mockStore({
     },
   },
   finishedRequest: true },
-  fetchUserAddress: { address: [
+  userAddressReducer: { address: [
     { address: '15, onayade street' }
   ] },
-  postUserData: { errorMessage: '' },
-  postUserAddress: { errorMessage: '', posted: false },
+  updateUserProfileReducer: { errorMessage: '' },
+  updateUserAddressReducer: { errorMessage: '', posted: false },
   selectedLocationReducer: { coordinates: [3.361476, 6.5560715] },
-  fetchBukkaMenuReducer: { cart: [], totalPriceInCart: 0 }
+  productsReducer: { cart: [], totalPriceInCart: 0 }
 });
 
 describe.skip('Profile Scene component', () => {

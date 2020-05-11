@@ -9,7 +9,6 @@ import Container from 'Components/container';
 import AuthResetForm from './AuthResetForm';
 import TokenErrorFeedback from './TokenErrorFeedback';
 
-import ModalRoot from '../../modal-root/Index';
 import changePassword from '../actionCreators/changePassword';
 import validateToken from '../actionCreators/validateToken';
 import { validateAField, validateAllFields } from '../helper/validateFields';
@@ -94,7 +93,6 @@ const RetrieveSection = ({
 
   return (
     <>
-      <ModalRoot push={push} />
       <Navbar push={push} />
       <div className="bg-color py-8">
         <Container classNames="relative modal-open">

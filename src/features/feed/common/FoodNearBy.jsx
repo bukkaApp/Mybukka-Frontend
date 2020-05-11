@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -63,9 +64,9 @@ const FoodNearBy = ({
             initialLoad={false}
           >
             <Row classNames="pb-4">
-              {bukkaData.map(bukka => (
+              {bukkaData.map((bukka, idx) => (
                 <BukkaCard
-                  key={`food-nearby-data-card-${bukka.name}-${bukka.slug}`}
+                  key={`food-nearby-data-card-${bukka.name}-${bukka.slug}-${idx}`}
                   imageUrl={bukka.imageUrl}
                   mealName={bukka.name}
                   delivery={delivery}

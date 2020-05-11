@@ -1,13 +1,15 @@
+@import '../../stylebase/variables.scss';
+
 .progress {
   position: fixed;
   height: 3px;
   display: block;
   width: 100%;
-  background-color: #ff8a65;
+  background-color: $color-primary;
   border-radius: 2px;
   background-clip: padding-box;
   overflow: hidden;
-  z-index: 1050;
+  z-index: 150;
 }
 
 .progress .determinate {

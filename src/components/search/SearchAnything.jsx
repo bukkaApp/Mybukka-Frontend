@@ -4,7 +4,7 @@ import MarkIcon from 'Icons/Remark';
 import { connect } from 'react-redux';
 import Navlink from 'Components/navlink/Navlink';
 import searchAnything from 'Redux/searchAnything';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import Magnifier from '../icons/Magnifier';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from '../common-navs/ReusableNavElements';
@@ -14,7 +14,7 @@ import './searchanything.scss';
 const { searchData } = data;
 
 const SearchInputField = ({ handleChange, value }) => (
-  <InputField
+  <Field.Input
     type="text"
     name="searchLocation"
     placeholderText="Search for anything..."

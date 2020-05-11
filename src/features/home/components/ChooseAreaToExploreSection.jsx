@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 
-import useLocationService from '../../../context/useLocationService';
+import useAutocompleteService from '../../../context/useAutocompleteService';
 
 import './chooseAreaToExplore.scss';
 
@@ -28,7 +28,7 @@ const mockAreas = [
 ];
 
 const AreasToExploreList = ({ areas }) => {
-  const { handleClick } = useLocationService();
+  const { handleClick, LoadService } = useAutocompleteService();
 
   return (
     <div className="area-to-explore-list">
@@ -50,6 +50,7 @@ const AreasToExploreList = ({ areas }) => {
           </div>
         ))}
       </div>
+      <LoadService />
     </div>
   );
 };

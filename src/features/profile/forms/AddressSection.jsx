@@ -34,7 +34,7 @@ const DeliveryForm = React.forwardRef(({
         name="deliveryInstructions"
         classNames="instruction"
         handleChange={handleChange}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
     </div>
     <div>
@@ -155,7 +155,7 @@ const Delivery = ({
 };
 
 const mapStateToProps = ({
-  postUserAddress: { errorMessage, posted },
+  updateUserAddressReducer: { errorMessage, posted },
 }) => ({
   errorMessage,
   posted,

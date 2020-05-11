@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { memo, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
@@ -8,6 +8,29 @@ import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 import Kit from './Kit';
 
 import './BukkaCard.scss';
+import { useCloudinayService } from '../img/Cloudinary';
+
+const styles = {
+  figure: {
+    position: 'relative',
+    margin: 0,
+    width: '100%',
+  },
+  lqip: {
+    width: '100%',
+    //   filter: 'blur(5px)',
+    opacity: 1,
+    transition: 'all 0.5s ease-in'
+  },
+  fullsize: {
+    position: 'absolute',
+    top: '0px',
+    left: '0px',
+    width: '100%',
+    height: '100%',
+    transition: 'all 0.5s ease-in'
+  }
+};
 
 const BukkaCard = ({
   mealName,
@@ -29,18 +52,25 @@ const BukkaCard = ({
   others,
   itemClassName,
 }) => {
-  const smImgUrl = generateImageSize(imageUrl, ['320', 'auto']);
-
-  const lgImgUrl = generateImageSize(imageUrl, ['650', 'auto']);
+  const { supports } = useCloudinayService();
+  const [state, setState] = useState({
+    isInViewport: false,
+    width: 0,
+    height: 0,
+    lqipLoaded: false,
+    fullsizeLoaded: false
+  });
 
   const imageSpacingClassName = (type) => {
-    if (type === 'cuisine') {
-      return 'cuisine-image-spacing';
-    } else if (type === 'collection') {
-      return 'collection-image-spacing';
-    }
+    if (type === 'cuisine') return 'cuisine-image-spacing';
+    else if (type === 'collection') return 'collection-image-spacing';
+    else if (type === 'category') return 'category-image-spacing';
     return 'normal-image-spacing';
   };
+
+  if (state.fullsizeLoaded) {
+    styles.lqip.opacity = 0;
+  }
 
   return (
     <div>
@@ -54,12 +84,15 @@ const BukkaCard = ({
       >
         <div>
           <img
-            className="img-fluid d-none"
-            src={smImgUrl}
+            style={styles.lqip}
+            className="img-fluid"
+            src={generateImageSize(imageUrl, ['150', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg')}
             alt="alt_image"
+            onLoad={() => { setState({ ...state, lqipLoaded: true }); }}
           />
           <div
-            style={{ backgroundImage: `url(${lgImgUrl})`, opacity: 1 }}
+            onLoad={() => { setState({ ...state, fullsizeLoaded: true }); }}
+            style={{ backgroundImage: `url(${generateImageSize(imageUrl, ['650', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg')})`, opacity: 1, ...styles.fullsize }}
             className={`custom-bukka-image ${itemClassName}`}
           />
         </div>
@@ -99,7 +132,7 @@ const GetBukka = ({ classNames, href, ...props }) => (
   </div>
 );
 
-export default GetBukka;
+export default memo(GetBukka);
 
 BukkaCard.defaultProps = {
   dataTarget: '',

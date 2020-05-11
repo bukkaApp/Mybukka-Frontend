@@ -1,4 +1,4 @@
-import AuthenticationReducer from '../reducers';
+import AuthenticationReducer from '../../../provider/Redux/authenticationReducer';
 
 const initialState = {
   user: {},

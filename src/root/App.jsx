@@ -16,24 +16,24 @@ import Loader from '../components/loader/Loader';
 
 import './index.scss';
 import './animate.scss';
-import ContextProviders from './ContextProviders';
+import Primary from '../provider/Primary';
 
 const { store, persistor } = reduxStore();
 
 const App = () => (
-  <Suspense fallback={<Loader />}>
-    <BrowserRouter>
+  <BrowserRouter>
+    <Suspense fallback={<Loader />}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <IndeterminateProgressbar />
           <AlertMessage />
-          <ContextProviders>
+          <Primary>
             <Main />
-          </ContextProviders>
+          </Primary>
         </PersistGate>
       </Provider>
-    </BrowserRouter>
-  </Suspense>
+    </Suspense>
+  </BrowserRouter>
 );
 
 export default App;

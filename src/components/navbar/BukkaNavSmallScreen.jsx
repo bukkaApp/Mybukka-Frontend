@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import SearchPlusMenu from 'Components/icons/SearchPlusMenu';
 import DismissModal from '../modal/DismissModal';
 import Modal from '../modal';
-import InputField from '../input/InputField';
+import Field from '../input/Field';
 
 import './bukkaNavSmallScreen.scss';
 
@@ -27,7 +27,7 @@ export const ResponsiveCategories = ({
             <DismissModal classNames="pl-0" />
           </div>
           <div className="col-10">
-            <InputField
+            <Field.Input
               placeholderText={placeholderText}
               classNames="bukka-nav-search-input"
             />

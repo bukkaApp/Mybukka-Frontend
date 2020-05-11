@@ -16,7 +16,7 @@ const initialState = {
       error: false
     }
   },
-  bukkasReducer: {
+  businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
       message: ''
@@ -56,15 +56,15 @@ describe.skip('FoodSection component', () => {
     const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }

@@ -4,7 +4,6 @@ import List, { UnOrderList, ListItem, OrderList } from '../common/List';
 import UnselectableHeading from '../common/UnSelectableHeading';
 import Paragraph from '../common/Paragraph';
 
-
 const Content = ({ data }) => (
   <List classNames="p-0" type="number">
     {data.mainContent.map((eachContent, index) => (

@@ -114,9 +114,9 @@ const ProfileScene = ({
 const mapStateToProps = ({
   loadingReducer: { status: loading },
   authenticationReducer: { status },
-  fetchUserData: { userInfo: user, finishedRequest },
-  fetchUserAddress: { address: userAddress },
-  postUserData: { errorMessage },
+  userProfileReducer: { userInfo: user, finishedRequest },
+  userAddressReducer: { address: userAddress },
+  updateUserProfileReducer: { errorMessage },
 }) => ({
   loading,
   status,

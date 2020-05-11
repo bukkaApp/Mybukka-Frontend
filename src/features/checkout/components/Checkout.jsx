@@ -10,7 +10,6 @@ import Map from 'Components/map';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
-import AddToCart from 'Components/common/addToCart';
 import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
@@ -105,7 +104,6 @@ const Checkout = ({
     <>
       <VerifyPhone />
       <Navbar push={push} />
-      <AddToCart />
       <SendSecurityKeyForm />
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
@@ -166,13 +164,13 @@ const Checkout = ({
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data, url },
-  // fetchBukkaMenuReducer: { totalPriceInCart },
+  // productsReducer: { totalPriceInCart },
   cartReducer: { totalCost, items },
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu,
     status: { fetched }
   },
-  fetchBukkaReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
+  businessReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },

@@ -1,0 +1,72 @@
+.ProductDescription-Icon {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 20px;
+  display: flex;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  z-index: 100000;
+  @media screen and (min-width: 768px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media screen and (min-width: 1060px) {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+  @media not screen and (min-width: 1060px) {
+    display: none;
+  }
+}
+
+.ProductDescription {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 37px;
+  margin-bottom: 30px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media screen and (min-width: 1060px) {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+  @media screen and (min-width: 1060px) {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+
+.ProductDescription-Header {
+  margin: 0.67em 0px;
+  margin-top: 0px;
+  font-family: "Roboto", 'san-serif';
+  font-size: 24px;
+  letter-spacing: -0.1px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.ProductDescription-Head-Transparent {
+  font-family: "Roboto", 'san-serif';
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  color: rgb(143, 149, 163);
+  line-height: 1.33;
+}
+
+.ProductDescription-Head-Hint {
+  color: rgb(151, 156, 166);
+  font-family: "Roboto", 'san-serif';
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { useMediaQuery } from 'react-responsive';
 import fetchFreshOrMartAction from 'Redux/fetchFreshOrMartAction';
 import Magnifier from 'Icons/Magnifier';
 import { useLocationContext } from '../../context/LocationContext';
@@ -36,6 +37,7 @@ const BukkaAuthenticatedNav = ({
   getRestaurantCuisine,
   fetchNearbyFreshOrMart,
 }) => {
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const { coordinates } = useLocationContext();
 
   const wrapperRef = React.createRef();
@@ -138,7 +140,7 @@ const BukkaAuthenticatedNav = ({
           </span>
         </div>
         <UserDefaultImage />
-        <CartScene />
+        {isBigScreen && <CartScene />}
       </Fragment>
     );
   }

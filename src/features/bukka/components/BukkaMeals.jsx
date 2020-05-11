@@ -63,7 +63,7 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
+const mapStateToProps = ({ productsReducer: { bukkaMenu } }) => ({
   bukkaMenu
 });
 

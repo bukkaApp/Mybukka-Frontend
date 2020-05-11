@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import SearchLocation from 'Components/places-suggest/SearchLocation';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import ChevronVertical from 'Icons/ChevronVertical';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
@@ -24,9 +24,12 @@ import { CategoryLists } from './Categories';
 
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
-
+import './LocationNavLargeScreen.scss';
 import './locationnavlarge.scss';
+import './LocationNavSmallScreen.scss';
+
 import { useLocationContext } from '../../context/LocationContext';
+import { useMediaQuery } from 'react-responsive';
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -65,7 +68,7 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
 );
 
 const SearchInputField = ({ handleChange }) => (
-  <InputField
+  <Field.Input
     type="text"
     name="searchLocation"
     placeholderText="Search items..."
@@ -160,6 +163,7 @@ const LocationNavLarge = ({
   handleSearch,
   section
 }) => {
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const wrapperRef = React.createRef();
   const unFocus = {
     location: false,
@@ -247,6 +251,7 @@ const LocationNavLarge = ({
             />
           </div>
         </Container>
+        {isBigScreen &&
         <div className="location-navbar-view-map">
           <div className="position-relative">
             <Button
@@ -265,7 +270,7 @@ const LocationNavLarge = ({
               focus={isFocused.cart}
             />
           </div>
-        </div>
+        </div>}
       </Container>
     </div>
   );
