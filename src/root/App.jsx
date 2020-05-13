@@ -9,10 +9,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import reduxStore from '../redux/store';
 import Main from './Main';
-import IndeterminateProgressbar, { ProgressBar } from
+import IndeterminateProgressbar /* , { ProgressBar } */ from
   '../components/progress-bar/IndeterminateProgressbar';
 import AlertMessage from '../components/alert';
-// import Loader from '../components/loader/Loader';
+import Loader from '../components/loader/Loader';
 
 import './index.scss';
 import './animate.scss';
@@ -26,12 +26,13 @@ const App = () => {
   return (
     <Fragment>
       <BrowserRouter>
-        <Suspense fallback={<ProgressBar loading />}>
+        <Suspense fallback={<Loader />}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <IndeterminateProgressbar />
               <AlertMessage />
               <Primary>
+                {/* <ProgressBar /> */}
                 <Main />
               </Primary>
             </PersistGate>
