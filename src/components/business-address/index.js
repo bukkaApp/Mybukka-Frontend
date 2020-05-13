@@ -3,11 +3,11 @@ import BusinessSchedule from '../business-schedule';
 import Map from '../map';
 import './index.scss';
 
-const BusinessAddress = ({ show, schedule, activeSchedule, location }) => {
+const BusinessAddress = ({ show, schedule, activeSchedule, location: { coordinates } }) => {
   const locations = [{
     text: "Obanta's Bakery",
     labelOrigin: { x: 85, y: 14 },
-    location: { lat: location[0], lng: location[1] }
+    location: { lat: coordinates[0], lng: coordinates[1] }
   }];
 
   return (

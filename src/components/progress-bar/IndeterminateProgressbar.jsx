@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './progress-bar.scss';
+import { useLoadingContext } from '../../context/UseLoading';
 
-const IndeterminateProgressBar = ({ loading }) => {
+export const ProgressBar = ({ loading }) => {
   if (loading) {
     return (
       <div className="progress">
@@ -14,6 +15,12 @@ const IndeterminateProgressBar = ({ loading }) => {
     );
   }
   return null;
+};
+
+
+const IndeterminateProgressBar = ({ loading }) => {
+  const { status: isLoading } = useLoadingContext();
+  return <ProgressBar loading={loading || isLoading} />;
 };
 
 const mapStateToProps = ({ loadingReducer: { status } }) => ({

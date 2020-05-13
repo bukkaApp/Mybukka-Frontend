@@ -13,7 +13,8 @@ const Address = ({
   propData,
 }) => {
   const wrapperRef = React.createRef();
-  const { selectedLocation, handleChange, geoCodeLocation, LoadService } = useAutocompleteService();
+  // const [predictions, setPredictions] = useState([]);
+  const { predictions, selectedLocation, handleChange, handleClick } = useAutocompleteService();
   const [inputData, setInputData] = useState('');
   const [isFocused, setFocus] = useState(false);
 
@@ -21,6 +22,14 @@ const Address = ({
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       setFocus(false);
     }
+  };
+
+  const onSelect = (predict, isGeoCode) => {
+    handleClick(predict, isGeoCode);
+    const value = predict.description;
+    setInputData(value);
+    handleInputChange({ target: { name: 'address', value } });
+    setFocus(false);
   };
 
   const handleCollapse = (event) => {
@@ -36,14 +45,15 @@ const Address = ({
   }, [selectedLocation]);
 
   const emitOnChange = ({ target: { value } }) => {
+    handleChange({ target: { value } });
     setInputData(value);
     handleInputChange({ target: { name: 'address', value } });
-    handleChange({ target: { value } });
   };
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
-  });
+    return () => document.addEventListener('click', handleClickOutside);
+  }, []);
 
   return (
     <div ref={wrapperRef}>
@@ -64,13 +74,13 @@ const Address = ({
         {isFocused && (
           <Fragment>
             <SuggestionsDropdown
-              setLocation={geoCodeLocation}
+              predictions={predictions}
+              setLocation={onSelect}
               useCurrentLocationVisible={useCurrentLocationVisible}
             />
           </Fragment>
         )}
       </div>
-      <LoadService />
     </div>
   );
 };

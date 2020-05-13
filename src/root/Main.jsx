@@ -64,7 +64,7 @@ const Main = () => (
             <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
             <Route exact path="/legal/:id" component={LegalStatement} />
             <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
-            <Route path="/:id" component={FeedPages} />
+            <Route exact path="/:id" component={FeedPages} />
             <Route
               exact
               path="/support/buyer/contact-us/:id"

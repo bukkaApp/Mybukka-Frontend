@@ -34,7 +34,6 @@ const Home = React.memo(({
     }).then(() => getRestaurantCuisine(coordinates))
       .then(() => getPromotedBukkas(coordinates))
       .then(() => push('/feed'));
-    return () => console.log('unmounted');
   }, [coordinates]);
 
   return (

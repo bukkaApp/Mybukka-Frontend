@@ -104,6 +104,7 @@ const BukkaCard = ({
           heading={heading}
           textOverlay={textOverlay}
           subHeading={subHeading}
+          type={carouselType}
         />
       </div>
       <Kit.NormalText
@@ -113,6 +114,7 @@ const BukkaCard = ({
         mealName={mealName}
         remark={remark}
         tags={tags}
+        type={carouselType}
         delivery={delivery}
       />
     </div>

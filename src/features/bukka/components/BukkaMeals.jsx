@@ -41,15 +41,23 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
     return null;
   }
 
+  const onSearch = (category, items) => {
+    const isCategory = item => item.category === category;
+    const isInSearch = item => item.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return Array.isArray(items) ? items.filter(menu => isCategory(menu) && isInSearch(menu))
+      : isCategory(items) && isInSearch(items);
+  };
+
   return (
     <Container classNames="menu-catalogs">
       {bukkaCategories.map(eachCategory => (
+        onSearch(eachCategory, bukkaMenu).length > 0 &&
         <Fragment key={`store-menu-catelogs-${eachCategory}`}>
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
             {bukkaMenu.map(mealData => (
               <Fragment key={`store-menu-catelogs-${mealData.title}-${mealData._id}`}>
-                {mealData.category === eachCategory && mealData.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
+                {onSearch(eachCategory, mealData) && (
                   <Column classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column">
                     <MealCard {...mealData} />
                   </Column>

@@ -17,6 +17,7 @@ const Scene = ({
   fetchBukkaMenu,
   bukkaMenu,
   fetchCartItems,
+  authenticated,
 }) => {
   const { setViewMoreOrderOnMobile, setModal } = useModalContext();
 
@@ -35,7 +36,7 @@ const Scene = ({
     if (bukkaMenu[0].bukka !== bukkaToFetch) {
       fetchBukka(bukkaToFetch);
       fetchBukkaMenu(bukkaToFetch);
-      fetchCartItems();
+      if (authenticated) fetchCartItems();
     }
   }, []);
 
@@ -43,16 +44,18 @@ const Scene = ({
     <Fragment>
       <Bukka push={push} />
       {!isBigScreen && cartItemsQuantity > 0 &&
-      <FooterBigScreen left handleClick={handleClick} text="View Orders" qty={cartItemsQuantity} fixed />}
+      <FooterBigScreen left handleClick={handleClick} text="View Order" qty={cartItemsQuantity} fixed />}
     </Fragment>
   );
 };
 
 const mapStateToProps = ({
   productsReducer: { bukkaMenu },
-  cartReducer: { items }
+  cartReducer: { items },
+  authenticationReducer: { status: { authenticated } },
 }) => ({
   bukkaMenu,
+  authenticated,
   cartItemsQuantity: items.length,
 });
 

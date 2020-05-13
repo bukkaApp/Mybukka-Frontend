@@ -17,10 +17,18 @@ const OtherSection = ({
   setMealToDisplay,
   type,
 }) => {
+  const onSearch = (category, items) => {
+    const isCategory = item => item.category === category;
+    const isInSearch = item => item.title.toLowerCase().includes(searchQuery.toLowerCase());
+    return Array.isArray(items) ? items.filter(menu => isCategory(menu) && isInSearch(menu))
+      : isCategory(items) && isInSearch(items);
+  };
+
   const { setModal } = useModalContext();
   return (
     <div id="flyout-left-container">
       {categories.map(category => (
+        onSearch(category, bukkaMenu).length > 0 &&
         <Fragment key={`nearby-${type}-category-${category.split(' ').join('-')}`}>
           <div className="carousel-divider" />
           <Container classNames="px-0">
@@ -29,7 +37,7 @@ const OtherSection = ({
               <Container>
                 <Row classNames="pb-4">
                   {bukkaMenu.map(menu => (
-                    menu.category === category && menu.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
+                    onSearch(category, menu) && (
                       <BukkaCard
                         key={`nearby-${type}-${menu.title.split(' ').join('-')}-${menu._id}`}
                         imageUrl={menu.imageUrl}

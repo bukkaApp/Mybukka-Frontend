@@ -1,13 +1,19 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-import { connect } from 'react-redux';
 import Container from 'Components/container';
 
-import setDeliverySchedule from 'Redux/setDeliverySchedule';
 import Chevron from 'Components/icons/ChevronRight';
-import './time.scss';
+import './scheduleSelector.scss';
 import Demarcation from '../common/SmallScreenDivider';
+
+const styles = {
+  maxHeight: '200px',
+  height: '100%',
+  overflowY: 'scroll',
+  marginTop: 0,
+};
 
 const DoubledChevron = () => (
   <div className="d-flex flex-column p-0 doubled-chevron">
@@ -20,7 +26,7 @@ const DoubledChevron = () => (
   </div>
 );
 
-const Schedule = ({ handleClick, item, timeChanged, active }) => (
+const Schedule = ({ handleClick, item, isFocus, active }) => (
   <li
     className={`list-group-item pointer ${active ? 'active-time' : 'time-display'}`}
     onClick={() => handleClick(item)}
@@ -29,74 +35,43 @@ const Schedule = ({ handleClick, item, timeChanged, active }) => (
     role="button"
   >
     <span>{item}</span>
-    {!timeChanged && <DoubledChevron />}
+    {!isFocus && <DoubledChevron />}
   </li>
 );
 
-const activeSchedule = (item, schedule) => item === schedule;
-
-const ScheduleSelector = ({
+const ScheduleSelector = React.forwardRef(({
+  isFocus,
+  active,
   title,
-  list,
-  schedule,
-  type,
-  setDeliveryScheduleTime
-}) => {
-  const [timeChanged, setTimeChanged] = useState(false);
+  type, list, handleChange,
+}, ref) => {
+  const [input, setInput] = useState('');
 
   const handleClick = (item) => {
-    setTimeChanged(!timeChanged);
-    setDeliveryScheduleTime({ ...schedule, [type]: item });
+    setInput(item);
+    handleChange({ target: { name: type, value: item } });
   };
 
-  const nonActiveList = list.filter(item => item !== schedule[type]);
-  const activeList = list.filter(item => item === schedule[type]);
-
   return (
-    <section className="mb-2 mt-4">
+    <section ref={ref} className="mb-2 mt-4">
       <Demarcation />
       <Container classNames="p-lg-0">
-        <h2 className="font-size-16 px-3 px-md-3 px-lg-0">{title}</h2>
-        <ul className={`list-group time-list mt-4 ${timeChanged ? 'time-dropdown' : 'time'}`}>
-          <li className="time-list-wrapper" style={{ overflowY: timeChanged ? 'scroll' : 'hidden' }}>
-            {
-              activeList.map(item => (
-                <Schedule
-                  key={`schedule-selector-active-list-${item}`}
-                  handleClick={handleClick}
-                  item={item}
-                  timeChanged={timeChanged}
-                  active={activeSchedule(item, schedule[type])}
-                />
-              ))
-            }
-            {
-              nonActiveList.map(item => (
-                <Schedule
-                  key={`schedule-selector-non-active-list-${item}`}
-                  handleClick={handleClick}
-                  item={item}
-                  timeChanged={timeChanged}
-                  active={activeSchedule(item, schedule[type])}
-                />
-              ))
-            }
-          </li>
+        <h2 className="font-size-16 px-3 px-md-3 px-lg-0 pb-2">{title}</h2>
+        <Schedule handleClick={handleClick} item={input || active} isFocus={isFocus} />
+        <ul style={styles} className={`list-group time-list ${isFocus ? 'time-dropdown' : 'time'}`}>
+          {list.map(listItem => (
+            listItem !== input ?
+              <Schedule
+                key={`non-schedule-selector-active-list-${listItem}-${type}`}
+                handleClick={handleClick}
+                item={listItem}
+                isFocus={isFocus}
+              /> : null
+          ))}
         </ul>
       </Container>
     </section>
   );
-};
-
-const mapStateToProps = ({
-  deliveryScheduleReducer: {
-    schedule
-  }
-}) => ({
-  schedule
 });
 
-export default connect(
-  mapStateToProps,
-  { setDeliveryScheduleTime: setDeliverySchedule }
-)(ScheduleSelector);
+export default ScheduleSelector;

@@ -54,7 +54,7 @@ const mapStateToProps = ({
     status: { authenticated }
   },
   chargeUserReducer: {
-    data: { reference, status, url }
+    data: { reference, url }
   },
 }) => ({
   authenticated,

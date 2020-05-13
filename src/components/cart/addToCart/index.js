@@ -36,7 +36,6 @@ const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, to
       timout = setTimeout(() => {
         handleClick(false);
         clearTimeout(timout);
-        console.log(timout);
       }, 200);
     }
   };
@@ -75,6 +74,7 @@ const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, to
     </Modal>
   );
 };
+
 const mapStateToProps = ({ productsReducer: { mealToDisplay, modalShow } }) => ({
   mealToDisplay,
   modalShow,

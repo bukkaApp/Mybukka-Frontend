@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import { useMediaQuery } from 'react-responsive';
 import SearchLocation from 'Components/places-suggest/SearchLocation';
 import Field from 'Components/input/Field';
 import ChevronVertical from 'Icons/ChevronVertical';
@@ -29,7 +30,6 @@ import './locationnavlarge.scss';
 import './LocationNavSmallScreen.scss';
 
 import { useLocationContext } from '../../context/LocationContext';
-import { useMediaQuery } from 'react-responsive';
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -67,9 +67,10 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   </div>
 );
 
-const SearchInputField = ({ handleChange }) => (
+const SearchInputField = ({ handleChange, value }) => (
   <Field.Input
     type="text"
+    value={value}
     name="searchLocation"
     placeholderText="Search items..."
     classNames="text-field form-control searchlocation"
@@ -144,7 +145,7 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField handleChange={props.handleChange} />
+          <SearchInputField value={props.value} handleChange={props.handleChange} />
         </div>
       </div>
     </ReusableButton>
@@ -165,6 +166,13 @@ const LocationNavLarge = ({
 }) => {
   const isBigScreen = useMediaQuery({ minWidth: 960 });
   const wrapperRef = React.createRef();
+  const [state, setState] = useState('');
+
+  const emitOnChange = (e) => {
+    setState(e.target.value);
+    handleSearch(e);
+  };
+
   const unFocus = {
     location: false,
     duration: false,
@@ -247,7 +255,8 @@ const LocationNavLarge = ({
             <Search
               handleClick={() => handleClick('search')}
               focus={isFocused.search}
-              handleChange={handleSearch}
+              value={state}
+              handleChange={emitOnChange}
             />
           </div>
         </Container>

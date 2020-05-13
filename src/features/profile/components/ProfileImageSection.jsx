@@ -11,7 +11,7 @@ import './profileImageSection.scss';
 
 const ProfileImage = ({ imageUrl, firstName, lastName }) => (
   <div className="profile-image-div text-center">
-    <img src={imageUrl} className="img-fluid profile-photo" alt="" />
+    <img src={imageUrl} style={{ margin: 'auto' }} className="img-fluid profile-photo" alt="" />
     <div className="d-lg-none profile-header-small">
       <ProfileHeaderTitle firstName={firstName} lastName={lastName} />
     </div>

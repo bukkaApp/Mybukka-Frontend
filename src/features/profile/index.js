@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProfileHeader from './components/ProfileScene';
+import ProfileScene from './components/ProfileScene';
+import './index.scss';
 
-const Profile = ({ history }) => {
-  return <ProfileHeader history={history} />;
-};
+const Profile = ({ history }) => <ProfileScene history={history} />;
 
 export default Profile;
 

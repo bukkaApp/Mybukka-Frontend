@@ -81,7 +81,6 @@ const Delivery = ({
     }
   };
 
-
   useEffect(() => {
     if (posted) {
       $('.close').click();
@@ -91,7 +90,7 @@ const Delivery = ({
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef.current]);
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };

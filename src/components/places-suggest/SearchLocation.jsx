@@ -28,7 +28,6 @@ const SearchLocation = ({
     handleChange,
     handleClick,
     inputData,
-    LoadService
   } = useAutocompleteService(setPredictions);
 
   const handleClickOutside = (event) => {
@@ -67,7 +66,6 @@ const SearchLocation = ({
 
   return (
     <div ref={wrapperRef}>
-      <LoadService />
       <div
         className="input-group address-input-section"
         style={{ border: '1 px solid #eceff1' }}

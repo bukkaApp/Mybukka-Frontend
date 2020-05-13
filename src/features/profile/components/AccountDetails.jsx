@@ -159,7 +159,7 @@ const AccountDetails = ({
     if (inputStatus[activeInput] === 'edit') {
       textInputFocus[activeInput].current.focus();
     }
-  });
+  }, [textInputFocus[activeInput]]);
 
   return (
     <div className="account-details">

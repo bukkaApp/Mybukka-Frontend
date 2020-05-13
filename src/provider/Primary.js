@@ -7,6 +7,7 @@ import { ThemeProvider } from '../context/ThemeProvider';
 import { CloudinaryProvider } from '../components/img/Cloudinary';
 import { ModalProvider } from '../context/UseModal';
 import { CartProvider } from '../context/CartContext';
+import { LoadingProvider } from '../context/UseLoading';
 
 const Primary = ({ children }) => (
   <LocationsPredictionProvider>
@@ -16,7 +17,9 @@ const Primary = ({ children }) => (
           <ThemeProvider>
             <ModalProvider>
               <CartProvider>
-                {children}
+                <LoadingProvider>
+                  {children}
+                </LoadingProvider>
               </CartProvider>
             </ModalProvider>
           </ThemeProvider>

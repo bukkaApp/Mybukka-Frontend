@@ -13,7 +13,6 @@ import './feed.scss';
 const Feed = (props) => {
   const pathMatch = matchPath(props.location.pathname, { path: '/:id' });
   const match = props.match;
-  console.log('pathMatch', pathMatch, 'match', match);
   let Component;
   if (pathMatch.params.id === 'feed') {
     Component = FoodSection;

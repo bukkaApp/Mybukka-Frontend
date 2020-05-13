@@ -10,7 +10,6 @@ import Map from 'Components/map';
 import Navbar from 'Components/navbar';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
-import duration from 'Components/common-navs/inputData/duration';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
@@ -18,7 +17,7 @@ import fetchBukkaAction from 'Redux/fetchBukkaAction';
 import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
 import DeliveryAddress from './DeliveryAddress';
-import ScheduleSelector from './ScheduleSelector';
+import Schedules from './Schedules';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
 import VerifyPhone from '../../verifyPhone';
@@ -43,20 +42,16 @@ const Checkout = ({
   bukkaOfMenu,
   day,
   time,
-  success,
   cards,
   hasDefaultCard,
-  bukkaDeliveryDistance,
   mode,
   signOut,
   fetchBukka,
   bukkaSlug,
   bukkaCoordinates,
-  openNewWindow,
   url,
 }) => {
   const { coordinates, selectedLocation: { description } } = useLocationContext();
-  const selectSchedule = ['Day', 'Time'];
   const [isWithinDeliveryRange, validateUserLocationRange] = useLocationWithinDistance(coordinates, bukkaCoordinates);
 
   const {
@@ -116,15 +111,7 @@ const Checkout = ({
               handleDeliveryAddressSave={handleDeliveryAddressSave}
               handleChange={handleDeliveryAddress}
             />
-            {selectSchedule.map((eachSchedule) => {
-              const scheduleList = eachSchedule !== 'Day' ? duration.sheduleTimeLists
-                : duration.sheduleTimeLists;
-              return (<ScheduleSelector
-                type={eachSchedule.toLowerCase()}
-                title={eachSchedule}
-                list={scheduleList}
-              />);
-            })}
+            <Schedules />
             <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
@@ -164,13 +151,12 @@ const Checkout = ({
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
   chargeUserReducer: { message, data, url },
-  // productsReducer: { totalPriceInCart },
   cartReducer: { totalCost, items },
   productsReducer: {
     bukkaMenu,
     status: { fetched }
   },
-  businessReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates },maxDeliveryDistance: bukkaDeliveryDistance } },
+  businessReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates }, maxDeliveryDistance: bukkaDeliveryDistance } },
   getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
@@ -223,26 +209,4 @@ Checkout.defaultProps = {
   cards: [{}],
   hasDefaultCard: false,
   fetchBukka: () => {},
-};
-
-Checkout.propTypes = {
-  fetchBukka: PropTypes.func,
-  push: PropTypes.func.isRequired,
-  chargeUserToSaveCard: PropTypes.func.isRequired,
-  checkoutUser: PropTypes.func.isRequired,
-  message: PropTypes.string.isRequired,
-  cart: PropTypes.arrayOf([PropTypes.object]).isRequired,
-  fetchBukkaMenu: PropTypes.func.isRequired,
-  menuIsFetched: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])).isRequired,
-  bukkaOfMenu: PropTypes.string,
-  day: PropTypes.string,
-  time: PropTypes.string,
-  success: PropTypes.bool,
-  cards: PropTypes.arrayOf(PropTypes.object),
-  hasDefaultCard: PropTypes.bool,
-  mode: PropTypes.bool.isRequired,
-  signOut: PropTypes.func.isRequired,
 };

@@ -88,7 +88,7 @@ const Carousel = ({
   fetchBukka, fetchBukkaMenu, otherBukka
 }) => {
   const { push } = useHistory();
-  const [width, height] = useWindowSize();
+  const [width, height] = useWindowSize(); // eslint-disable-line
   const [activeIndex, setActiveIndex] = useState(0);
 
   const maxWidth = 100;

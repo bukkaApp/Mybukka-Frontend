@@ -28,7 +28,8 @@ const mockAreas = [
 ];
 
 const AreasToExploreList = ({ areas }) => {
-  const { handleClick, LoadService } = useAutocompleteService();
+  const callback = null, showLoading = true;
+  const { handleClick } = useAutocompleteService(callback, showLoading);
 
   return (
     <div className="area-to-explore-list">
@@ -50,7 +51,6 @@ const AreasToExploreList = ({ areas }) => {
           </div>
         ))}
       </div>
-      <LoadService />
     </div>
   );
 };

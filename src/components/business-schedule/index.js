@@ -27,7 +27,7 @@ const BusinessSchedule = ({ schedule, activeSchedule = activeDay }) => {
       <div className="Business-Schedule-Body">
         <div className="Business-Schedule-Body-Content">
           {hasSchedule.map(({ day, openingHour, closingHour, closed }) => (
-            <div className={`Business-Schedule-Section${activeSchedule === day ? '--active' : ''}`}>
+            <div key={day} className={`Business-Schedule-Section${activeSchedule === day ? '--active' : ''}`}>
               <div className="Business-Schedule-Day_Time Schedule-Capitalise"><span>{day}</span></div>
               <div className="Business-Schedule-Day_Time Schedule-Uppercase">
                 <span>

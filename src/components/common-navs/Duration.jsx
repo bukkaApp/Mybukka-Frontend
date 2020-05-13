@@ -18,7 +18,7 @@ import './duration.scss';
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
 
-const scheduleData = [
+export const scheduleData = [
   {
     time: 'Today',
     selector: 'day',

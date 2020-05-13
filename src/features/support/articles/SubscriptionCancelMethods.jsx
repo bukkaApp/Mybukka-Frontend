@@ -65,7 +65,7 @@ const SubscriptionCancelMethods = () => (
           </li>
           <li>
             <span style={{ fontWeight: 400 }}>
-                &nbsp;Under Postmates Unlimited, select
+                &nbsp;Under Bukka Unlimited, select
               {'"Cancel Automatic Renewal."'}
             </span>
           </li>

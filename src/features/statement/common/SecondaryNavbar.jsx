@@ -33,8 +33,7 @@ const SmallScreen = ({ activePage }) => {
           <Navlink
             key={navText.text}
             href={navText.href}
-            classNames={`${activePage === navText.text ? 'nav-link-black'
-              : 'nav-link-white'}`}
+            classNames={`${activePage === navText.text ? 'nav-link-black' : 'nav-link-white'}`}
           >
             <ListItem
               classNames="secondary-content-list text-center"
@@ -53,7 +52,7 @@ const LargeScreen = ({ activePage }) => (
   <nav className="navbar justify-content-between">
     <p className="custom-mark">Legal</p>
     <UnOrderList
-      classNames="d-flex justify-content-between"
+      classNames="d-flex justify-content-between remove-list-style"
     >
       {navArr.map(navText => (
         <Navlink

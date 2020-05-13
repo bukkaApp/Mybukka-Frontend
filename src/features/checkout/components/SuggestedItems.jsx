@@ -81,7 +81,7 @@ const SuggestedItemsWrapper = ({ bukkaMenuToSuggest, addToCart }) => {
           {bukkaMenuToSuggest.map(suggestedItem => (
             <SuggestedItemPane
               name={suggestedItem.title}
-              key={suggestedItem.slug}
+              key={suggestedItem._id}
               price={suggestedItem.price}
               handleClick={() => addToCart(suggestedItem, true)}
             />

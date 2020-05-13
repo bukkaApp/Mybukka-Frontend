@@ -68,12 +68,12 @@ const BukkaAuthenticatedNav = ({
         resolve(getPromotedBukkas(coordinates));
       }).then(() => getRestaurantCuisine(coordinates))
         .then(() => fetchNearbyBukkas(coordinates))
-        .then(() => push('/feed'));
+        .then(() => push('/feed', { hasFetched: true }));
     } else {
       const type = href === '/fresh' ? 'fresh' : 'mart';
       new Promise(async (resolve) => {
         resolve(fetchNearbyFreshOrMart(coordinates, type));
-      }).then(() => push(href));
+      }).then(() => push(href, { hasFetched: true }));
     }
   };
 

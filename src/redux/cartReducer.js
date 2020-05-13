@@ -22,6 +22,10 @@ const initialState = {
   errorMessage: ''
 };
 
+// const sortOrdersUpdate = (orders) => {
+
+// };
+
 const handleSubmenusPrice = (cartItems) => {
   let total = 0;
   cartItems.map((eachItem) => {

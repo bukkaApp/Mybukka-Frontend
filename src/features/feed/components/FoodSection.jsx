@@ -31,23 +31,11 @@ import { foodBannerImage } from '../img/imgLinks';
 import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../actionCreators/getRestaurantCuisineAction';
 
-const mapContainer = displayMap => (
-  displayMap
-    ? 'px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column'
-    : 'px-0'
-);
+const mapContainer = displayMap => (displayMap ? 'px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column' : 'px-0');
 
-const mapContent = displayMap => (
-  displayMap
-    ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none'
-    : 'mb-5'
-);
+const mapContent = displayMap => (displayMap ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none' : 'mb-5');
 
-const mapDisplay = displayMap => (
-  displayMap
-    ? 'container map-wrapper col-xl-8 col-lg-8 col-md-12col-12 order-first order-lg-0'
-    : 'd-none'
-);
+const mapDisplay = displayMap => (displayMap ? 'container map-wrapper col-xl-8 col-lg-8 col-md-12 col-12 order-first order-lg-0' : 'd-none');
 
 const FoodSection = ({
   mode,
@@ -75,21 +63,23 @@ const FoodSection = ({
     }
   }, [coordinates]);
 
-  console.log('feedeey');
   useEffect(() => {
-    const handleFetchOnRefresh = () => {
-      if (!loading && nearbyBukkas.length === 0 && coordinates.length !== 0 && !errorMessage) {
+    const __refetchItems = () => {
+      const hasntFetched = nearbyBukkas.length === 0 && !errorMessage;
+      const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
+      if (hasntFetched && hasLoadedValidCoordinates) {
         new Promise((resolve) => {
           resolve(getPromoBukkas(coordinates));
         }).then(() => fetchNearbyBukkas(coordinates))
           .then(() => getRestaurantCuisine(coordinates));
       }
     };
-    handleFetchOnRefresh();
+    __refetchItems();
   }, [nearbyBukkas]);
 
-  if (!loading && nearbyBukkas.length === 0
-    && coordinates.length !== 0 && errorMessage) {
+  const hasFetchedButEmpty = nearbyBukkas.length === 0 && errorMessage;
+  const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
+  if (hasFetchedButEmpty && hasLoadedValidCoordinates) {
     return <NoNearByBukkaLocation history={{ push }} />;
   }
 

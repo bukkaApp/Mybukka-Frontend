@@ -14,7 +14,7 @@ const AuthForm = ({
     <div className={propData.containerClassNames} key={propData.name}>
       <label
         htmlFor={propData.id}
-        className={inputData[propData.name] ? 'fly-over m-0' : 'no-label'}
+        className={`font-size-14 ${inputData[propData.name] ? 'fly-over m-0' : 'no-label'}`}
       >
         {propData.placeholderText}
       </label>

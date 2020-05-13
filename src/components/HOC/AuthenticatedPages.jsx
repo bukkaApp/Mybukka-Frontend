@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import swal from 'sweetalert';
 import authServices from 'Utilities/authServices';
 

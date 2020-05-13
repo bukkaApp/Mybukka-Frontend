@@ -67,7 +67,8 @@ export const AddCard = ({ cards,
   active
 }) => (
   <Fragment>
-    {cards.length > 0 && <div
+    {cards.length > 0 &&
+    <div
       onKeyDown={() => {}}
       role="button"
       aria-pressed="false"
@@ -76,7 +77,8 @@ export const AddCard = ({ cards,
       className="text-muted cursor-pointer"
     >
       <i className="fas fa-chevron-left mr-2 mb-2" />
-            show cards</div>}
+      show cards
+    </div>}
     <div className="row flex-row flex-nowrap-sm font-size-14">
       <AuthForm
         inputData={inputData}

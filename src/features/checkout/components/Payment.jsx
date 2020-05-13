@@ -118,7 +118,8 @@ const Payment = ({
               <p>Your credits card</p>
               { cards.map(card => (
                 <Card
-                handleClick={() => handleDefaultSelection(card._id)} // eslint-disable-line
+                  key={card._id}
+                  handleClick={() => handleDefaultSelection(card._id)}
                   selected={card.selected}
                   last4={card.last4}
                   expiredYear={card.exp_year}
@@ -131,7 +132,7 @@ const Payment = ({
                 aria-pressed="false"
                 tabIndex="0"
                 onClick={() => showCardForm(true)}
-                className="text-muted cursor-pointer my-3"
+                className="text-muted cursor-pointer my-3 font-size-16"
               >+ add card</div>
             </div>
             : <AddCard
