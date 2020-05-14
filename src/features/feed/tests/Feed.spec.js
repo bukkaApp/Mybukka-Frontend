@@ -7,7 +7,7 @@ import bukkaData from '../common/bukkaData.json';
 import FoodSection from '..';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   searchAnythingReducer: { search: '' },
   checkoutModeReducer: { mode: true },

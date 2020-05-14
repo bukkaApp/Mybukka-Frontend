@@ -32,6 +32,10 @@ const BukkaMenuScene = ({
     if (errorMessage !== '') return toastr.error(errorMessage);
   });
 
+  const isInSearch = item => item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+  const hasNoResult = () => bukkaMenu.filter(menu => isInSearch(menu)).length === 0;
+
   return (
     <div className="bukka-menu">
       {/* <ClosedNotification /> */}
@@ -53,9 +57,9 @@ const BukkaMenuScene = ({
         bukkaMenu={bukkaMenu}
         currentCategory="breakfast"
       />
-      <BukkaDetailsSection />
+      {!hasNoResult() && <BukkaDetailsSection />}
 
-      <BukkaMeals searchQuery={searchQuery} />
+      <BukkaMeals isInSearch={isInSearch} hasNoResult={hasNoResult} searchQuery={searchQuery} />
       <Footer />
       <UnAuthenticatedCheckout push={push} to={`/merchant/${bukka}/checkout`} />
     </div>

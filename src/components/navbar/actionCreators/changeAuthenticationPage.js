@@ -5,6 +5,6 @@ const navigateAuth = (type, data) => ({
   data,
 });
 
-const navAuthentication = data => dispatch => dispatch(navigateAuth('SUCCESS', data));
+const changeAuthenticationPage = data => dispatch => dispatch(navigateAuth('SUCCESS', data));
 
-export default navAuthentication;
+export default changeAuthenticationPage;

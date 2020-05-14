@@ -132,7 +132,7 @@ const LocationNavSmallScreen = ({ mode, bukka }) => {
             <div className="options-wrapper">
               <div className="options">
                 <div className="btn-location">
-                  <div data-target="#small-location-nav" data-toggle="modal">
+                  <div className="small-location-nav" data-target="#small-location-nav" data-toggle="modal">
                     <CurrentLocation
                       mode={mode}
                       bukka={bukka}

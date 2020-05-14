@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useHistory } from 'react-router-dom';
 // import NavLink from 'Components/navlink/Navlink';
 import Button from 'Components/button/Button';
-import navAuthentication from 'Components/navbar/actionCreators/navAuthentication';
+import changeAuthenticationPageAction from 'Components/navbar/actionCreators/changeAuthenticationPage';
 import './authfooter.scss';
 
 const signUpTextOption = 'Already have an account?';
@@ -15,7 +15,7 @@ const signInTextOptions = 'New to Bukka?';
 
 const AuthFooter = ({
   title,
-  navigateToNextRoute,
+  changeAuthenticationPage,
 }) => {
   const { push, location } = useHistory();
   const path = location.pathname;
@@ -26,7 +26,7 @@ const AuthFooter = ({
   };
 
   const goToAuthRoute = ({ target: { id } }) => {
-    navigateToNextRoute(id);
+    changeAuthenticationPage(id);
   };
 
   const formType = title === 'Sign Up';
@@ -46,7 +46,7 @@ const AuthFooter = ({
 };
 
 export default connect(null, {
-  navigateToNextRoute: navAuthentication
+  changeAuthenticationPage: changeAuthenticationPageAction
 })(AuthFooter);
 
 AuthFooter.defaultProps = {

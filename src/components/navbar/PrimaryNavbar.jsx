@@ -2,31 +2,31 @@ import React, { Fragment } from 'react';
 
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import Button from '../button/Button';
 import Brand from '../brand/Brand';
-import navAuthentication from './actionCreators/navAuthentication';
+import changeAuthenticationPageAction from './actionCreators/changeAuthenticationPage';
 import './navbar.scss';
+import { useModalContext } from '../../context/UseModal';
 
-const PrimaryNavbar = ({ navigateToNextRoute, authButton }) => {
+const PrimaryNavbar = ({ changeAuthenticationPage, authButton }) => {
+  const { setAuthenticationPopup, setModal } = useModalContext();
+  const isMobileScreen = useMediaQuery({ minWidth: 767 });
   const { push } = useHistory();
-  const navigateToAuth = ({ target: { id } }) => {
+  const btnAtrributes = [{ type: 'button', text: 'sign in', classNames: 'small-outline-button bg-transparent', id: '/login' }, { type: 'button', text: 'sign up', classNames: 'small-button mr-0', id: '/signup' }];
+
+  const emitOnClickOnMobile = ({ target: { id } }) => {
+    // push to signin or signup pages on mobile
     push(id);
   };
 
-  const goToAuthRoute = ({ target: { id } }) => {
-    navigateToNextRoute(id);
+  const emitOnClickOnDesktop = ({ target: { id } }) => {
+    // toggle to signin or signup on destop using modal
+    changeAuthenticationPage(id);
+    setAuthenticationPopup(true);
+    setModal(true);
   };
-
-  const minWidth = window.innerWidth;
-  let btnAttribute = { handleClick: navigateToAuth };
-  if (minWidth > 767) {
-    btnAttribute = {
-      dataToggle: 'modal',
-      dataTarget: '#authModal',
-      handleClick: goToAuthRoute
-    };
-  }
 
   return (
     <Fragment>
@@ -35,20 +35,14 @@ const PrimaryNavbar = ({ navigateToNextRoute, authButton }) => {
           <Brand />
           {authButton &&
           <div className="form-inline">
-            <Button
-              type="button"
-              text="sign in"
-              {...btnAttribute}
-              classNames="small-outline-button"
-              id="/login"
-            />
-            <Button
-              type="button"
-              text="sign up"
-              {...btnAttribute}
-              classNames="small-button"
-              id="/signup"
-            />
+            {btnAtrributes.map(btnProp =>
+              (<Button
+                type={btnProp.type}
+                text={btnProp.text}
+                classNames={btnProp.classNames}
+                id={btnProp.id}
+                handleClick={isMobileScreen ? emitOnClickOnDesktop : emitOnClickOnMobile}
+              />))}
           </div>
           }
         </nav>
@@ -60,7 +54,7 @@ const PrimaryNavbar = ({ navigateToNextRoute, authButton }) => {
 export default connect(
   null,
   {
-    navigateToNextRoute: navAuthentication
+    changeAuthenticationPage: changeAuthenticationPageAction
   }
 )(PrimaryNavbar);
 
@@ -70,5 +64,5 @@ PrimaryNavbar.defaultProps = {
 
 PrimaryNavbar.propTypes = {
   authButton: PropTypes.bool,
-  navigateToNextRoute: PropTypes.func.isRequired
+  changeAuthenticationPage: PropTypes.func.isRequired
 };

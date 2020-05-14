@@ -5,7 +5,7 @@ import Index from '..';
 
 describe('Navbar Index container', () => {
   const store = mockStore({
-    navbarAuthReducer: { type: 'Sign Up' },
+    changeAuthenticationPageReducer: { type: 'Sign Up' },
     authenticationReducer: {
       user: {},
       status: {

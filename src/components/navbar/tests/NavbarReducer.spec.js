@@ -1,4 +1,4 @@
-import NavbarReducer from '../reducers/navbarAuthReducer';
+import NavbarReducer from '../reducers/changeAuthenticationPageReducer';
 
 const initialState = {
   type: 'Sign In'

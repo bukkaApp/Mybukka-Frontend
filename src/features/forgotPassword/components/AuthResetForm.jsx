@@ -43,7 +43,7 @@ const AuthResetForm = ({
         <div className="form-title mb-4">
           <span>{instruction || 'Type your email'}</span>
         </div>
-        <div className="col-12 mt-9">
+        <div className="col-12">{/* mt-9 */}
           <TextField
             handleChange={handleChange}
             domStructure={domStructure}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AddToCart from '../cart/addToCart';
 import { useModalContext } from '../../context/UseModal';
 import ViewOrdersOnMobile from '../cart/ViewOrdersOnMobile';
+import Authentication from '../authentication-popup';
 import './index.scss';
 
 const ModalRoot = () => {
@@ -24,6 +25,7 @@ const ModalRoot = () => {
     <div className={`Modal-Root-Wrapper ${state ? 'Modal-Root-Wrapper--active' : ''}`}>
       <AddToCart />
       <ViewOrdersOnMobile />
+      <Authentication />
     </div>
   );
 };

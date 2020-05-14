@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger'; // eslint-disable-line
 import thunk from 'redux-thunk';
 // import { routerMiddleware } from 'react-router-redux';
-import navbarAuthReducer from 'Components/navbar/reducers/navbarAuthReducer';
+import changeAuthenticationPageReducer from 'Components/navbar/reducers/changeAuthenticationPageReducer';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -55,7 +55,7 @@ const reducer = combineReducers({
   loadingReducer,
   authenticationReducer,
   signOutReducer,
-  navbarAuthReducer,
+  changeAuthenticationPageReducer,
   deliveryModeReducer,
   businessesReducer,
   userAddressReducer,

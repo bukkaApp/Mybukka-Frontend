@@ -14,6 +14,7 @@ const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
     <div className="carousel-divider" />
     <div className="pt-0 p-sm-3" />
     <Carousel
+      container="container-padding"
       noOfImagesShown={2}
       xl={2}
       title="Featured"
@@ -32,6 +33,7 @@ const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
         promoBukkas.category.length > 0 ?
           <Fragment key={`promo-${promoBukkas.name}-${promoBukkas._id}`}>
             <Carousel
+              container="container-padding"
               delivery
               noOfImagesShown={3}
               xl={3}
@@ -55,6 +57,7 @@ const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
     {(fetchedCuisines && fetchedCuisines.length > 0) &&
     <Fragment>
       <Carousel
+        container="container-padding"
         type="majorCuisine"
         noOfImagesShown={5}
         xl={5}

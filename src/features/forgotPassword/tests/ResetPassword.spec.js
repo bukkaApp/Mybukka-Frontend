@@ -7,7 +7,7 @@ import auth from './__mocks__/changePasswordAction.json';
 
 
 const initialState = {
-  navbarAuthReducer: { type: '/login' },
+  changeAuthenticationPageReducer: { type: '/login' },
   requestPasswordChangesReducer: { requested: true, errorMessage: 'error occur' },
   authenticationReducer: {
     user: {},

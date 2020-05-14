@@ -7,7 +7,7 @@ import bukkaData from '../common/bukkaData.json';
 import Feed from '../components';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   searchAnythingReducer: { search: '' },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },

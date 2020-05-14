@@ -13,7 +13,7 @@ import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import NavLink from '../navlink/Navlink';
 import UserDefaultImage from './common/UserDefaultImage';
-import navAuthentication from './actionCreators/navAuthentication';
+import changeAuthenticationPageAction from './actionCreators/changeAuthenticationPage';
 import fetchBukkasAction from '../../features/feed/actionCreators/fetchBukkas';
 import getPromotedBukkasAction from '../../features/feed/actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRestaurantCuisineAction';
@@ -21,6 +21,7 @@ import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRe
 import './bukka-authenticated-nav.scss';
 import SearchAnything from '../search/SearchAnything';
 import CartScene from '../cart/CartScene';
+import { useModalContext } from '../../context/UseModal';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },
@@ -31,15 +32,18 @@ const buttonProps = [
 
 const BukkaAuthenticatedNav = ({
   status,
-  navigateToNextRoute,
+  changeAuthenticationPage,
   fetchNearbyBukkas,
   getPromotedBukkas,
   getRestaurantCuisine,
   fetchNearbyFreshOrMart,
 }) => {
+  const { setAuthenticationPopup, setModal } = useModalContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
+  const isMobileScreen = useMediaQuery({ minWidth: 767 });
   const { coordinates } = useLocationContext();
 
+  const btnAtrributes = [{ type: 'button', text: 'sign in', classNames: 'small-outline-button bg-transparent', id: '/login' }, { type: 'button', text: 'sign up', classNames: 'small-button mr-0', id: '/signup' }];
   const wrapperRef = React.createRef();
   const { push } = useHistory();
   const { authenticated } = status;
@@ -88,39 +92,28 @@ const BukkaAuthenticatedNav = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   });
 
-  const navigateToAuth = ({ target: { id } }) => {
+  const emitOnClickOnMobile = ({ target: { id } }) => {
+    // push to signin or signup pages on mobile
     push(id);
   };
 
-  const goToAuthRoute = ({ target: { id } }) => {
-    navigateToNextRoute(id);
+  const emitOnClickOnDesktop = ({ target: { id } }) => {
+    // toggle to signin or signup on destop using modal
+    changeAuthenticationPage(id);
+    setAuthenticationPopup(true);
+    setModal(true);
   };
 
-  const windowWidth = window.innerWidth;
-  let btnAttribute = { handleClick: navigateToAuth };
-  if (windowWidth > 767) {
-    btnAttribute = {
-      dataToggle: 'modal',
-      dataTarget: '#authModal',
-      handleClick: goToAuthRoute
-    };
-  }
   let AuthScene = () => (
     <Fragment>
-      <Button
-        type="button"
-        text="sign in"
-        classNames="small-outline-button bg-transparent"
-        id="/login"
-        {...btnAttribute}
-      />
-      <Button
-        type="button"
-        text="sign up"
-        classNames="small-button mr-0"
-        id="/signup"
-        {...btnAttribute}
-      />
+      {btnAtrributes.map(btnProp =>
+        (<Button
+          type={btnProp.type}
+          text={btnProp.text}
+          classNames={btnProp.classNames}
+          id={btnProp.id}
+          handleClick={isMobileScreen ? emitOnClickOnDesktop : emitOnClickOnMobile}
+        />))}
     </Fragment>
   );
 
@@ -192,7 +185,7 @@ const BukkaAuthenticatedNav = ({
 export default connect(
   null,
   {
-    navigateToNextRoute: navAuthentication,
+    changeAuthenticationPage: changeAuthenticationPageAction,
     fetchNearbyBukkas: fetchBukkasAction,
     getPromotedBukkas: getPromotedBukkasAction,
     getRestaurantCuisine: getRestaurantCuisineAction,
@@ -202,5 +195,5 @@ export default connect(
 
 BukkaAuthenticatedNav.propTypes = {
   status: PropTypes.objectOf(PropTypes.bool).isRequired,
-  navigateToNextRoute: PropTypes.func.isRequired
+  changeAuthenticationPage: PropTypes.func.isRequired
 };

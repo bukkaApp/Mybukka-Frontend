@@ -14,23 +14,21 @@ const Button = ({
   dataToggle,
   dataDismiss,
   id,
-}) => {
-  return (
-    <button
-      type={type}
-      className={classNames}
-      onClick={handleClick}
-      disabled={disabled}
-      data-target={dataTarget}
-      data-toggle={dataToggle}
-      data-testid="button"
-      id={id}
-      data-dismiss={dataDismiss}
-    >
-      {text || children}
-    </button>
-  );
-};
+}) => (
+  <button
+    type={type}
+    className={classNames}
+    onClick={handleClick}
+    disabled={disabled}
+    data-target={dataTarget}
+    data-toggle={dataToggle}
+    data-testid="button"
+    id={id}
+    data-dismiss={dataDismiss}
+  >
+    {text || children}
+  </button>
+);
 
 export default Button;
 

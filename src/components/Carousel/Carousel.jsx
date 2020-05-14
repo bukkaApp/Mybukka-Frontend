@@ -85,7 +85,8 @@ const Carousel = ({
   numberOfViews,
   description,
   placeId,
-  fetchBukka, fetchBukkaMenu, otherBukka
+  fetchBukka, fetchBukkaMenu, otherBukka,
+  container,
 }) => {
   const { push } = useHistory();
   const [width, height] = useWindowSize(); // eslint-disable-line
@@ -130,7 +131,7 @@ const Carousel = ({
           placeId={placeId}
         />
       )}
-      <Container>
+      <Container classNames={container}>
         <div className="carousel">
           <div className="carousel-container align-items-center">
             {activeIndex >= 1 && (

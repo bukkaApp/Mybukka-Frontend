@@ -12,6 +12,7 @@ import MealCard from 'Components/card/MealCard';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 
 import './bukkaMeals.scss';
+import NoResult from '../../../components/not-found/NoResult';
 
 const BukkaMealsHeader = ({ category }) => (
   <div className="bukka-meals-header" id={category}>
@@ -19,7 +20,7 @@ const BukkaMealsHeader = ({ category }) => (
   </div>
 );
 
-const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
+const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu, isInSearch, hasNoResult }) => {
   const bukkaCategories = [
     ...new Set(bukkaMenu.map(mealData => mealData.category))
   ];
@@ -43,13 +44,12 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
 
   const onSearch = (category, items) => {
     const isCategory = item => item.category === category;
-    const isInSearch = item => item.title.toLowerCase().includes(searchQuery.toLowerCase());
     return Array.isArray(items) ? items.filter(menu => isCategory(menu) && isInSearch(menu))
       : isCategory(items) && isInSearch(items);
   };
 
   return (
-    <Container classNames="menu-catalogs">
+    <Container classNames={hasNoResult() ? '' : 'menu-catalogs'}>
       {bukkaCategories.map(eachCategory => (
         onSearch(eachCategory, bukkaMenu).length > 0 &&
         <Fragment key={`store-menu-catelogs-${eachCategory}`}>
@@ -67,6 +67,7 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
           </Row>
         </Fragment>
       ))}
+      {hasNoResult() && <NoResult withPadding text={searchQuery} />}
     </Container>
   );
 };
