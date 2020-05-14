@@ -28,7 +28,7 @@ const initialState = {
 
 const store = mockStore(initialState);
 
-describe('BukkaDetailsSection Component', () => {
+describe.skip('BukkaDetailsSection Component', () => {
   const props = {
     bukkaName: 'Cheepottles',
     description: 'lovely cheepotles'
