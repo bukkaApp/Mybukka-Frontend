@@ -57,7 +57,7 @@ const CurrentLocation = ({ handleClick, focus, }) => {
   const { selectedLocation } = useLocationContext();
 
   return (
-    <div className="pr-17">
+    <div className="p-17">
       <div className="position-relative">
         <div>
           <Button

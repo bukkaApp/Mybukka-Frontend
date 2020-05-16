@@ -82,7 +82,7 @@ const CurrentLocation = ({ focus, handleClick }) => {
   const { selectedLocation } = useLocationContext();
 
   return (
-    <ReusableWrapper>
+    <ReusableWrapper classNames="position-1">
       <ReusableButton
         classNames="custom-current-loc"
         handleClick={handleClick}

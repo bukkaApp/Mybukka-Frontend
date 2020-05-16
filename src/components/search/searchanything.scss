@@ -35,6 +35,7 @@
 
 .search-anything-scene {
     z-index: 1000 !important;
+    position: relative;
     @media (min-width: 768px) {
         bottom: 0px;
         top: 0!important;
@@ -73,6 +74,10 @@
     max-height: 410px;
     overflow-y: auto;
     overflow-x: hidden;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
     @media (max-height: 441px) {
         max-height: 250px;
     }

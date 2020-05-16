@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
 
-export const ReusableWrapper = ({ children }) => (
-  <div className="pr-17">
+export const ReusableWrapper = ({ children, classNames }) => (
+  <div className={classNames ? `pr-17 ${classNames}` : 'pr-17'}>
     <div className="position-relative">
       {children}
     </div>

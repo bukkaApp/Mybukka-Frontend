@@ -1,7 +1,7 @@
 $fontFamily: 'Roboto', sans-serif;
 
 .pr-17 {
-  padding-right: 17px
+  padding-right: 17px;
 }
 
 .pr-15 {
@@ -115,12 +115,12 @@ $fontFamily: 'Roboto', sans-serif;
   color: rgb(45, 49, 56);
   height: 56px;
   text-transform: none;
-  width: 100%;
+  width: 100% !important;
   margin: 0px;
   outline: none;
   transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
   border-radius: 0px;
-  padding: 0px 16px;
+  padding: 0px 16px !important;
   border: 0;
 }
 

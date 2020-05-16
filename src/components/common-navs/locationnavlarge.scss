@@ -2,6 +2,13 @@
     margin-top: -1px;
 }
 
+.position-1 {
+  height: 100px;
+  width: auto;
+  position: relative;
+  top: 23px;
+}
+
 .border-none {
   border: 0 !important
 }
@@ -29,14 +36,22 @@
 }
 
 .category-dropdown-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-10px);
+  width: 160px;
   @media (min-width: 768px){
     bottom: 21px !important;
-    transform: translate(calc((-17% + 153px) + 0px), 100%);
+    // transform: translate(calc((-17% + 153px) + 0px), 100%);
   }
 }
 
 .category-dropdown-height {
-  max-height: 380px !important
+  max-height: 380px !important;
+  background-color: #fff;
+  width: 160px;
+  text-align: center;
 }
 
 .cart-button {
