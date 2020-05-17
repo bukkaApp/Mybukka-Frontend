@@ -1,11 +1,30 @@
 @media(max-width: 767px) {
     .map-img {
         width: 250px!important;
+        display: none;
     }
 
 
+    .sm-padding-buttom{
+        padding-bottom: 0px!important;
+    }
+
+    .digital-info h4 {
+        margin-top: 50px!important;
+    }
+
     .navigation-info p {
         width: 250px!important;
+    }
+
+    
+    .sm-margin{
+        margin-top: 0px!important;
+    }
+
+    
+    .sm-padding {
+        padding-top: 40px!important;
     }
 
 
@@ -16,11 +35,13 @@
 
     .meal-img {
         width: 250px!important;
+        display: none;
     }
 
 
     .order-img {
         width: 250px!important;
+        display: none;
     }
 
 
@@ -31,6 +52,7 @@
 
     .order-bg {
         width: 160px!important;
+        display: none;
     }
 
 
@@ -42,7 +64,7 @@
     
     .content p {
         width: 80%!important;
-        font-size: 10px!important;
+        font-size: 16px!important;
     }
 
 
@@ -109,6 +131,12 @@
 
     .order-img {
         width: 290px!important;
+        top: -15px!important;
+    }
+
+
+    .md-padding{
+        padding-top: 30px!important;
     }
 
 
@@ -134,6 +162,7 @@
 
     .order-bg {
         width: 200px!important;
+        height: 350px!important;
     }
 
     .navigation-info p {
@@ -150,6 +179,10 @@
         font-size: 16px!important;
     }
 
+    .md-padding{
+        padding-top: 0px!important;
+    }
+
     .content h4 {
         width: 50%!important;
         font-size: 37px!important;
@@ -157,7 +190,13 @@
     
     
     .content p {
-        width: 50%!important;
+        width: 66% !important;
+        font-size: 22px!important;
+        line-height: 25px!important;
+    }
+
+    .map-img{
+        width: 370px!important;
     }
 
 }
@@ -176,7 +215,29 @@
     
     
     .content p {
-        width: 50%!important;
+        width: 40%!important;
+        font-size: 16px!important;
+        line-height: 19px!important;
+    }
+
+
+    .map-img {
+        width: 400px!important;
+    }
+
+
+    .meal-img {
+        width: 400px!important;
+    }
+
+    .order-bg {
+        width: 300px!important;
+        height: 400px!important;
+    }
+
+    .order-img {
+        width: 390px!important;
+        top: 5px!important;
     }
 
 }

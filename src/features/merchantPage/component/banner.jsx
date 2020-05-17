@@ -6,11 +6,6 @@ import '../index.scss'
 const Banner = () => (
     <div className="banner">
 
-
-        <img className="banner-img" 
-        src='https://res.cloudinary.com/mybukka/image/upload/v1586431637/edgar-castrejon-1SPu0KT-Ejg-unsplash_z4vudy.jpg' alt="banner" />
-
-
         <div className="banner-info">
             
             

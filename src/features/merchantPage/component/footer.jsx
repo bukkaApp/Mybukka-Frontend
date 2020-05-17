@@ -12,7 +12,7 @@ const Footer = () => (
             <div className="row txt-white">
 
 
-                <div className="bukka-description col-md-4 f-16 height-19">
+                <div className="bukka-description col-md-6 col-lg-4 f-16 height-19">
 
 
                     <Logo />
@@ -27,7 +27,7 @@ const Footer = () => (
                 </div>
 
 
-                <div className="bukka-platforms col-md-2 f-15 height-18">
+                <div className="bukka-platforms col-md-3 col-lg-2 f-15 height-18">
                     <h5>BUKKA</h5>
                     <p>About</p>
                     <p>Blog</p>
@@ -38,19 +38,19 @@ const Footer = () => (
                 </div>
 
 
-                <div className="col-md-2 f-15 height-18">
+                <div className="col-md-3 col-lg-2 f-15 height-18 sm-padding">
                     <h5>MERCHANTS</h5>
                     <p>Sell on Bukka</p>
                     <p>Restaurants</p>
-                    <div className="pt-5">
-                        <h4>SUPPORTS</h4>
+                    <div className="pt-4">
+                        <h5>SUPPORTS</h5>
                         <p>Customer Help</p>
                         <p>Merchant Help</p>
                     </div>
                 </div>
 
 
-                <div className="bukka-cities col-md-2 f-15 height-18">
+                <div className="bukka-cities col-md-6 col-lg-2 f-15 height-18 sm-padding">
                     <h5>CITIES</h5>
                     <p>Lagos</p>
                     <p>Akure</p>
@@ -61,7 +61,7 @@ const Footer = () => (
                 </div>
 
 
-                <div className="bukka-handle col-md-2 f-15 height-18">
+                <div className="bukka-handle col-md-6 col-lg-2 f-15 height-18 sm-padding">
                     <h5>FOLLOW US</h5>
                     <p>Twitter</p>
                     <p>Facebook</p>

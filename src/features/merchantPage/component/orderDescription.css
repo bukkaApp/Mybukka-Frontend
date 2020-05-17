@@ -6,7 +6,7 @@
 .order-bg {
     position: relative;
     width: 300px;
-    height: 381px;
+    height: 360px;
     background: #F5E7D8;
 }
 
@@ -16,7 +16,7 @@
     height: 400px;
     object-fit: contain;
     position: absolute;
-    top: 0px;
+    top: -5px;
 }
 
 

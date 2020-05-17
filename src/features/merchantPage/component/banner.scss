@@ -1,16 +1,16 @@
-.banner-img {
+.banner {
     height: 600px;
     width: 100%;
     object-fit: cover;
-    position: relative;
+    background-image: url('https://res.cloudinary.com/mybukka/image/upload/v1586431637/edgar-castrejon-1SPu0KT-Ejg-unsplash_z4vudy.jpg');
+    background-position: center;
+    background-size: cover;    
 }
 
 .banner-info {
-    position: absolute;
     background: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 600px;
-    top: 0px;
 }
 
 .info-content {

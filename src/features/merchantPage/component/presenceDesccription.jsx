@@ -4,7 +4,7 @@ import '../index.scss';
 import CustomButton from '../common/customButton'
 
 const PresenceDescription = () => (
-    <div className="digital-info pb-5">
+    <div className="digital-info pb-5 sm-padding-buttom">
 
 
         <div className="container">
@@ -13,7 +13,7 @@ const PresenceDescription = () => (
             <div className="row mx-0">
 
 
-                <div className="col-md-6 mt-5 custom-padding-left">
+                <div className="col-md-6 mt-5 custom-padding-left sm-margin">
                     <h4>Boost your digital presence.</h4>
                     <p>Grow your sales and become a favorite by getting in front of more people at the exact moment they’re ready to buy. They come to us, we introduce them to you.</p>
                     <CustomButton buttonChildren= '10,000 +' spanChildren= 'business online' />
