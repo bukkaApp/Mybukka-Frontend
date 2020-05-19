@@ -16,7 +16,7 @@ const Table = ({ data, handleClick, extractPrice, extractQuantity }) => (
         time={order.time}
         status={order.status}
         quantity={extractQuantity(order)}
-        title={order.cart.items[0].meal[0].title}
+        title={order.cart.items[0].meal.title}
         price={extractPrice(order)}
         orderId={order._id.slice(0, 18)}// eslint-disable-line
         courierName={/* order.courier.name || */'Default carier'}

@@ -90,12 +90,15 @@ const EmptyCart = ({
 
 const mapStateToProps = ({
   cartReducer: { items, totalCost },
-}) => ({
-  orderItems: items,
-  orderQuantity: items.length,
-  totalPriceInCart: totalCost,
-  bukka: items.length > 0 ? items[0].bukka : items,
-});
+}) => {
+  const qty = items.reduce((val, itm) => val + itm.quantity, 0);
+  return ({
+    orderItems: items,
+    orderQuantity: qty,
+    totalPriceInCart: totalCost,
+    bukka: items.length > 0 ? items[0].bukka : items,
+  });
+};
 
 export default connect(
   mapStateToProps,
@@ -115,9 +118,6 @@ const propTypes = [
 
 EmptyCart.propTypes = {
   bukka: PropTypes.objectOf(PropTypes.oneOfType(propTypes)).isRequired,
-  orderItems: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
-  ).isRequired,
   orderQuantity: PropTypes.number.isRequired,
   removeFromCartAction: PropTypes.func.isRequired,
   totalPriceInCart: PropTypes.number.isRequired

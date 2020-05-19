@@ -5,7 +5,7 @@
 import swal from 'sweetalert';
 import moment from 'moment';
 import { sortOrdersUpdate, flatArr } from '../../utils/cartUtils';
-import handleOrderQuantity from '../../utils/handleOrderQuantity';
+// import handleOrderQuantity from '../../utils/handleOrderQuantity';
 
 const initialState = {
   items: [],
@@ -59,14 +59,13 @@ const cartUpdateSuccess = (userCart) => {
   // const uniqueCart = {};
   let uniqueCarts = [];
   userCart.items.map((myCart) => {
-    const item = { ...myCart, ...myCart.meal[0] };
+    const item = { ...myCart, ...myCart.meal };
     const uniqueIds = flatArr(item.submenus);
     console.log('uniqueCarts', uniqueCarts, 'item', item, 'uniqueIds', uniqueIds);
     uniqueCarts = sortOrdersUpdate(uniqueCarts, item);
     return item;
   });
-  // const item = { ...userCart.items[0], ...userCart.items[0].meal[0] };
-  // const newCart = [item];
+
   const newCart = uniqueCarts;
   return {
     items: newCart,

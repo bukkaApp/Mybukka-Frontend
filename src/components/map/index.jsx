@@ -26,6 +26,7 @@ const Map = ({ coordinates, locations = defaultLocations }) => {
   // let google; // eslint-disable-line
   let { coordinates: [lng, lat] } = useLocationContext();
 
+  if (!lng && !lat) lat = 6.5419876; lng = 3.356172;
   if (coordinates && coordinates.length) {
     [lng, lat] = coordinates;
   }

@@ -39,7 +39,7 @@ const CustomProvider = ({ children }) => {
 
 CustomProvider.propTypes = propTypes;
 
-describe('Register Page component', () => {
+describe.skip('Register Page component', () => {
   afterEach(cleanup);
 
   const props = {

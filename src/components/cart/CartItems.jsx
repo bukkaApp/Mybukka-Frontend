@@ -23,7 +23,7 @@ const SubtotalSection = ({ totalPriceInCart }) => (
       <Link to="/checkout">
         <Button
           classNames="primary-block-btn"
-          text="CHECKO"
+          text="CHECKOUT"
           type="button"
           handleClick={() => ({})}
         />

@@ -12,7 +12,6 @@ import Main from './Main';
 import IndeterminateProgressbar, { ProgressSwitch, ProgressBar } from
   '../components/progress-bar/IndeterminateProgressbar';
 import AlertMessage from '../components/alert';
-// import Loader from '../components/loader/Loader';
 
 import ModalRoot from '../components/modal-root';
 import AuthModal from '../features/modal-root/Index';

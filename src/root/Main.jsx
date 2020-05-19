@@ -4,7 +4,6 @@ import NotFound from 'Components/not-found/NotFound';
 import Map from 'Components/map';
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
-import './Main.scss';
 import Home from '../features/home';
 import FeedPages from '../features/feed';
 import Bukka from '../features/bukka';
@@ -26,8 +25,6 @@ const ComplainScene = lazy(() => import('../features/feedback/ComplainScene'));
 const LegalStatement = lazy(() => import('../features/statement'));
 const Promotion = lazy(() => import('../features/promotion'));
 
-// How to use TransitionGroup  https://codesandbox.io/s/l9m3zrj4lq?from-embed
-// TransitionGroup Blog https://medium.com/@khwsc1/step-by-step-guide-of-simple-routing-transition-effect-for-react-with-react-router-v4-and-9152db1566a0
 const Main = () => (
   <main>
     <Switch>

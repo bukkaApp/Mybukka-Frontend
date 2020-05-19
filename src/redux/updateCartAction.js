@@ -7,14 +7,16 @@ const updateCart = (data, status) => ({
   data,
 });
 
-const updateCartAction = (updatedCart, updateLocally) => async (dispatch) => {
+const updateCartAction = (updatedCart, updateLocally) => async (dispatch, getState) => {
   try {
     const token = localStorage.getItem('x-access-token');
     if (!token || updateLocally) return dispatch(updateCart(updatedCart, 'LOCAL'));
+    dispatch(updateCart(updatedCart, 'LOCAL'));
+    const cart = await getState().cartReducer.items;
     const request = await axios({
       url: '/cart',
       method: 'PUT',
-      data: updatedCart,
+      data: { items: cart },
       headers: {
         Authorization: token,
         accept: 'application/json',

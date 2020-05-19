@@ -288,10 +288,13 @@ const LocationNavLarge = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   cartReducer: { items },
-}) => ({
-  mode,
-  cartItemsQuantity: items.length,
-});
+}) => {
+  const qty = items.reduce((val, itm) => val + itm.quantity, 0);
+  return ({
+    mode,
+    cartItemsQuantity: qty,
+  });
+};
 
 export default connect(
   mapStateToProps,
