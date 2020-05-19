@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import PropTypes from 'prop-types';
 import Chevron from 'Components/icons/ChevronRight';
 import AuthForm from './AuthForm';
 
 import './authentication.scss';
-
-const Wrapper = ({ children, classNames }) => (
-  <div className={`auth-wrapper ${classNames}`}>
-    {children}
-  </div>
-);
 
 const GoToPrev = ({ handleBackClick, slideToNextInput, classNames }) => {
   if (slideToNextInput) {
@@ -29,41 +23,21 @@ const GoToPrev = ({ handleBackClick, slideToNextInput, classNames }) => {
   return null;
 };
 
-const Authentication = ({ ...props }) => {
-  let authTitle = props.title;
-  if (props.slideToNextInput) {
-    authTitle = 'Type your password';
-  }
-  return (
-    <Wrapper classNames={props.classNames}>
+const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-8';
+
+const Authentication = ({ ...props }) => (
+  <div className={props.hasModal ? '' : className}>
+    <div className={`auth-wrapper ${props.classNames}`}>
       <GoToPrev {...props} />
-      <h2 className="text-center pt-4 mb-0 auth-title">{authTitle}</h2>
+      <h2 className="text-center pt-4 mb-0 auth-title">
+        {props.slideToNextInput ? 'Type your password' : props.title}
+      </h2>
       <AuthForm {...props} />
-    </Wrapper>
-  );
-};
-
-const Container = ({ ...props }) => {
-  const className = 'pt-2 mx-auto col-lg-4 col-md-6 col-sm-8';
-  const authClass = props.authModal ? '' : className;
-  return (
-    <div className={authClass}>
-      <Authentication {...props} />
     </div>
-  );
-};
+  </div>
+);
 
-export default Container;
-
-Wrapper.defaultProps = {
-  children: PropTypes.node.isRequired,
-  classNames: ''
-};
-
-Wrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-  classNames: PropTypes.string
-};
+export default memo(Authentication);
 
 Authentication.defaultProps = {
   title: PropTypes.string.isRequired,
@@ -87,12 +61,4 @@ Authentication.propTypes = {
   title: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   slideToNextInput: PropTypes.bool
-};
-
-Container.defaultProps = {
-  authModal: false
-};
-
-Container.propTypes = {
-  authModal: PropTypes.bool
 };

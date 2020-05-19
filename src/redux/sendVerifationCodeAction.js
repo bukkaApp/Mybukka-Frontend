@@ -10,9 +10,10 @@ const sendVerificationCodeAction = (type, data) => ({
 });
 
 const sendVerificationCode = (data, callback) => async (dispatch) => {
+  let request;
   try {
     dispatch(loading(SEND_VERIFACTION_CODE, true));
-    const request = await axios({
+    request = await axios({
       method: 'POST',
       url: '/user/verify-phone',
       data,
@@ -33,6 +34,7 @@ const sendVerificationCode = (data, callback) => async (dispatch) => {
       dangerMode: true
     });
   }
+  return request;
 };
 
 export default sendVerificationCode;

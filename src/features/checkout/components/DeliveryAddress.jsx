@@ -40,7 +40,7 @@ const DeliveryForm = React.forwardRef(({
 const Pickup = ({ title, name }) => (
   <section className="px-3 px-md-3 px-lg-0 mb-2 mt-4">
     <h2 className="font-size-16">{title}</h2>
-    <ul className="list-group mt-4 time">
+    <ul className="list-group mt-2">
       <li className="list-group-item">{name}</li>
     </ul>
   </section>

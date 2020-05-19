@@ -13,11 +13,10 @@ import ChooseAreaToExploreSection
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-import VerifyPhone from '../verifyPhone';
 import fetchBukkasAction from '../feed/actionCreators/fetchBukkas';
 import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
-import useUpdateEffect from '../../context/useUpdateEffect';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
 
 
 const Home = React.memo(({
@@ -33,13 +32,12 @@ const Home = React.memo(({
       resolve(fetchNearbyBukkas(coordinates));
     }).then(() => getRestaurantCuisine(coordinates))
       .then(() => getPromotedBukkas(coordinates))
-      .then(() => push('/feed'));
+      .then(() => push('/feed', { showMap: true }));
   }, [coordinates]);
 
   return (
     <Fragment>
       <div className="home">
-        <VerifyPhone />
         <IntroSection push={push} />
         <DiscoverSection />
         <ChooseAreaToExploreSection />

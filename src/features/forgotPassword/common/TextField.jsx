@@ -10,7 +10,7 @@ const HelpBlock = ({ errorMsg }) => (
   <div className="text-danger help-block">{errorMsg}</div>
 );
 
-const TextField = ({ handleChange, domStructure, validationErrors }) =>
+const TextField = ({ handleChange, domStructure, validationErrors, inputData }) =>
   domStructure.map(structure => (
     <div className="form-group padding" key={structure.id}>
       <Field.Input
@@ -19,6 +19,7 @@ const TextField = ({ handleChange, domStructure, validationErrors }) =>
         type={structure.type}
         placeholderText={structure.placeholder}
         handleChange={handleChange}
+        value={inputData[structure.name]}
         onFocus={() => {}}
       />
       <HelpBlock errorMsg={validationErrors[structure.name]} />

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import SuggestionsDropdown from 'Components/places-suggest/SuggestionsDropdown';
 
 import Field from 'Components/input/Field';
-import useAutocompleteService from '../../../context/useAutocompleteService';
+import useAutocompleteService from '../../../hooks/useAutocompleteService';
 
 const Address = ({
   useCurrentLocationVisible,

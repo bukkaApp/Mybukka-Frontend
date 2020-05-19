@@ -11,7 +11,7 @@ import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from './SuggestionsDropdown';
 
 import './searchlocation.scss';
-import useAutocompleteService from '../../context/useAutocompleteService';
+import useAutocompleteService from '../../hooks/useAutocompleteService';
 
 const SearchLocation = ({
   showDeliveryOrPickupNav,

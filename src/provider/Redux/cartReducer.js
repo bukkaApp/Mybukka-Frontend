@@ -3,8 +3,9 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-underscore-dangle */
 import swal from 'sweetalert';
-import handleOrderQuantity from 'Utilities/handleOrderQuantity';
 import moment from 'moment';
+import { sortOrdersUpdate, flatArr } from '../../utils/cartUtils';
+import handleOrderQuantity from '../../utils/handleOrderQuantity';
 
 const initialState = {
   items: [],
@@ -22,10 +23,6 @@ const initialState = {
   errorMessage: ''
 };
 
-// const sortOrdersUpdate = (orders) => {
-
-// };
-
 const handleSubmenusPrice = (cartItems) => {
   let total = 0;
   cartItems.map((eachItem) => {
@@ -39,6 +36,7 @@ const handleSubmenusPrice = (cartItems) => {
   });
   return total;
 };
+
 
 const calculatePrice = (cartItems) => {
   if (cartItems.length === 0) {
@@ -57,9 +55,19 @@ const createLocalCart = (state, newItems, newTime) => ({
   errorMessage: '',
 });
 
-const cartUpdateSuccess = (userCart, state) => {
-  const item = { ...userCart.items[0], ...userCart.items[0].meal[0] };
-  const newCart = [...state.items, item];
+const cartUpdateSuccess = (userCart) => {
+  // const uniqueCart = {};
+  let uniqueCarts = [];
+  userCart.items.map((myCart) => {
+    const item = { ...myCart, ...myCart.meal[0] };
+    const uniqueIds = flatArr(item.submenus);
+    console.log('uniqueCarts', uniqueCarts, 'item', item, 'uniqueIds', uniqueIds);
+    uniqueCarts = sortOrdersUpdate(uniqueCarts, item);
+    return item;
+  });
+  // const item = { ...userCart.items[0], ...userCart.items[0].meal[0] };
+  // const newCart = [item];
+  const newCart = uniqueCarts;
   return {
     items: newCart,
     totalCost: calculatePrice(newCart),
@@ -71,8 +79,9 @@ const cartUpdateSuccess = (userCart, state) => {
   };
 };
 
-const cartUpdateError = (state, message) => ({
+const cartUpdateError = (state, message, isEmpty) => ({
   ...state,
+  items: isEmpty ? [] : state.items,
   status: {
     updated: false,
     error: true
@@ -80,10 +89,6 @@ const cartUpdateError = (state, message) => ({
   errorMessage: message || 'an error occured'
 });
 
-const updateTime = state => ({
-  ...state,
-  initialTime: typeof state.initialTime === 'number' ? moment(new Date()) : state.initialTime
-});
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -94,7 +99,7 @@ const cartReducer = (state = initialState, action) => {
 
     case 'FETCH_CART_ERROR': {
       const { message } = action.data;
-      return cartUpdateError(state, message);
+      return cartUpdateError(state, message, true);
     }
 
     case 'UPDATE_CART_SUCCESS': {
@@ -123,15 +128,10 @@ const cartReducer = (state = initialState, action) => {
       }
       const item = { ...action.data, meal: action.data, quantity: 1 };
       if (state.items.length > 0) {
-        const incrementQuantity = handleOrderQuantity(state.items, item);
-        if (incrementQuantity) {
-          return createLocalCart(state, incrementQuantity);
-        }
-        const newItems = [...state.items, item];
-        return createLocalCart(state, newItems);
+        const orders = sortOrdersUpdate(state.items, item);
+        return createLocalCart(state, orders);
       }
-      const newItems = [...state.items, item];
-      return createLocalCart(state, newItems, currTime);
+      return createLocalCart(state, [item], currTime);
     }
 
     case 'UPDATE_CART_REMOVE': {

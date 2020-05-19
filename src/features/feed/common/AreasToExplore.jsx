@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useCookies } from 'react-cookie';
 
 import Container from 'Components/container';
 
 import './areastoexplore.scss';
+import { useCloudinayService } from '../../../components/img/Cloudinary';
 
 const LargeTextSection = ({ text }) => (
   <div className="intro-text-section">
@@ -14,17 +16,37 @@ const LargeTextSection = ({ text }) => (
   </div>
 );
 
-const HeaderImageSection = ({ bgImage }) => (
-  <div className="header-img-section">
-    <div>
-      <img src={`${bgImage}`} alt="bgImage" />
-      <div
-        className="feed-header-bg-img"
-        style={{ backgroundImage: `url(${bgImage})`, opacity: 1 }}
-      />
+const HeaderImageSection = ({ bgImage }) => {
+  const [cookies, setCookie] = useCookies([`_${bgImage}`]);
+  const { domain, supports } = useCloudinayService();
+  const [state, setState] = useState(false);
+  let ext = 'jpg';
+
+  // If a format has not been specified, detect webp support
+  if (supports.webp) {
+    ext = 'webp';
+  }
+
+  const handleLoad = () => {
+    setState(true);
+    setCookie(`_${bgImage}`, true, { path: '/' });
+  };
+
+  const [storageClienId, imageInfoWithExt] = bgImage.replace(domain, '').split('upload');
+  const imageInfo = imageInfoWithExt.replace(/\.(jpe?g|gif|png|PNG|svg)$/, '');
+
+  return (
+    <div className="header-img-section">
+      <div>
+        <img onLoad={handleLoad} src={`${`${domain}${storageClienId}upload${imageInfo}.${ext}`}`} alt="bgImage" />
+        <div
+          className="feed-header-bg-img"
+          style={{ backgroundImage: `url(${domain}${storageClienId}upload${imageInfo}.${ext})`, opacity: state || cookies[`_${bgImage}`] ? 1 : 0 }}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const AreasToExplore = ({ bgImage, text }) => (
   <div className="feed-header">

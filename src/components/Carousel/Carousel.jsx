@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useLayoutEffect } from 'react';
+import React, { Fragment, useState, useLayoutEffect, memo } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -115,7 +115,7 @@ const Carousel = ({
     event.preventDefault();
     fetchBukkaMenu(`${bukka.slug}`)
       .then(() => fetchBukka(bukka.slug))
-      .then(() => push(`/bukka/${bukka.slug}`));
+      .then(() => push(`/bukka/${bukka.slug}`, { showMap: true }));
   };
 
   return (
@@ -197,7 +197,7 @@ export default connect(
     fetchBukkaMenu: fetchBukkaMenuAction,
     fetchBukka: fetchBukkaAction
   }
-)(Carousel);
+)(memo(Carousel));
 
 const defaultProps = {
   classNames: ''

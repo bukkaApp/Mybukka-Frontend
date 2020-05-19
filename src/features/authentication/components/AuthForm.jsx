@@ -32,6 +32,8 @@ const AuthForm = ({
   slideToNextInput,
   userEmail,
   inputData,
+  hasModal,
+  handleFBAuth,
 }) => (
   <form
     className="pb-3 form-auth"
@@ -54,8 +56,10 @@ const AuthForm = ({
       title={title}
     />
     <AuthButtonGroup
+      hasModal={hasModal}
       isFormCompleted={isFormCompleted}
       title={title}
+      handleFBAuth={handleFBAuth}
     />
     <AuthFooter title={title} />
   </form>

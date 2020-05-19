@@ -52,6 +52,7 @@ const ResetIntroSection = ({ push, errorMessage, sendARequestToChangePassword })
       push={push}
       title="Reset"
       errorMessage={errorMessage}
+      inputData={inputData}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       domStructure={signInDomStructure}

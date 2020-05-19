@@ -5,11 +5,13 @@ import logger from './Logger';
 
 const SET_MOBILE_VIEW_CART = 'SET_MOBILE_VIEW_CART';
 const SET_AUTHENTICATION_POPUP = 'SET_AUTHENTICATION_POPUP';
+const SET_PHONE_VERIFICATION_POPUP = 'SET_PHONE_VERIFICATION_POPUP';
 
 const initialState = {
   show: false,
   viewMoreOrderOnMobile: false,
   authenticationPopup: false,
+  phoneVerificationPopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -23,6 +25,9 @@ const reducer = (originalState, action) => {
 
     case SET_AUTHENTICATION_POPUP:
       return { ...state, authenticationPopup: action.payload };
+
+    case SET_PHONE_VERIFICATION_POPUP:
+      return { ...state, phoneVerificationPopup: action.payload };
 
     default: {
       return state;
@@ -56,9 +61,15 @@ const useModal = () => {
     });
   };
 
-  const { show, viewMoreOrderOnMobile, authenticationPopup } = state;
+  const setVerificationPhonePopup = (payload) => {
+    dispatch({
+      type: SET_PHONE_VERIFICATION_POPUP,
+      payload,
+    });
+  };
+  const { show, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
 
-  return { show, viewMoreOrderOnMobile, setModal, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup };
+  return { show, viewMoreOrderOnMobile, setModal, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
 };
 
 export const [ModalProvider, useModalContext] = constate(useModal);

@@ -3,12 +3,9 @@ require('dotenv').config();
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// const devMode = process.env.NODE_ENV !== 'production';
-// const extractTextPlugin = new ExtractTextPlugin('./css/styles.css');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
   inject: 'body',
@@ -59,7 +56,6 @@ module.exports = {
   plugins: [
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
-    // extractTextPlugin,
     defineVariablesPlugin,
     ServiceWorkerPlugin,
   ],

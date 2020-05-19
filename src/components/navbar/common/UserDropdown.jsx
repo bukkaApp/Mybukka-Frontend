@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Navlink from '../../navlink/Navlink';
 
 import signOut from '../actionCreators/logOut';
 
@@ -17,8 +18,8 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
       <div className="user-dropdown-container">
         <div role="menu" tabIndex="0" className="user-dropdown-content">
           <div className="custom-user-dropdown">
-            <a
-              className="custom-user-dropdown-item"
+            <Navlink
+              classNames="custom-user-dropdown-item"
               data-event-category="Navigation"
               data-event-action="User Dropdown"
               data-event-label="Orders"
@@ -29,11 +30,11 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
                   <span>Order History</span>
                 </span>
               </div>
-            </a>
+            </Navlink>
           </div>
           <div className="custom-user-dropdown">
-            <a
-              className="custom-user-dropdown-item"
+            <Navlink
+              classNames="custom-user-dropdown-item"
               data-event-category="Navigation"
               data-event-action="User Dropdown"
               data-event-label="Favorites"
@@ -51,11 +52,11 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
                   {/* eslint-disable-line */}
                 </svg>
               </div>
-            </a>
+            </Navlink>
           </div>
           <div className="custom-user-dropdown">
-            <a
-              className="custom-user-dropdown-item"
+            <Navlink
+              classNames="custom-user-dropdown-item"
               data-event-category="Navigation"
               data-event-action="User Dropdown"
               data-event-label="Account"
@@ -66,11 +67,11 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
                   <span>Account Settings</span>
                 </span>
               </div>
-            </a>
+            </Navlink>
           </div>
           <div className="custom-user-dropdown">
-            <a
-              className="custom-user-dropdown-item"
+            <Navlink
+              classNames="custom-user-dropdown-item"
               href="/support/buyer"
               data-event-category="Navigation"
               data-event-action="User Dropdown"
@@ -81,7 +82,7 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
                   <span>Help Center</span>
                 </span>
               </div>
-            </a>
+            </Navlink>
           </div>
           <div className="custom-user-dropdown">
             <button

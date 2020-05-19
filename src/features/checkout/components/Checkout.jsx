@@ -20,7 +20,6 @@ import DeliveryAddress from './DeliveryAddress';
 import Schedules from './Schedules';
 import Payment from './Payment';
 import ShoppingCart from './ShoppingCart';
-import VerifyPhone from '../../verifyPhone';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
@@ -97,7 +96,6 @@ const Checkout = ({
 
   return (
     <>
-      <VerifyPhone />
       <Navbar push={push} />
       <SendSecurityKeyForm />
       <Container classNames="relative modal-open p-0">

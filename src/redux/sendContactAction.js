@@ -10,9 +10,10 @@ const sendContactAction = (type, data) => ({
 });
 
 const sendContact = (data, callback) => async (dispatch) => {
+  let request;
   try {
     dispatch(loading(SEND_CONTACT, true));
-    const request = await axios({
+    request = await axios({
       method: 'POST',
       url: '/user/send-code',
       data,
@@ -23,7 +24,7 @@ const sendContact = (data, callback) => async (dispatch) => {
     });
     dispatch(sendContactAction('SUCCESS', request.data));
     dispatch(loading(SEND_CONTACT, false));
-    callback();
+    if (callback) callback();
   } catch (error) {
     dispatch(loading(SEND_CONTACT, false));
     dispatch(sendContactAction('ERROR', error.response.data));
@@ -33,6 +34,7 @@ const sendContact = (data, callback) => async (dispatch) => {
       dangerMode: true
     });
   }
+  return request;
 };
 
 export default sendContact;

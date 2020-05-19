@@ -1,26 +1,33 @@
-import React, { useState, Fragment, useEffect, useCallback } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 
 import PrimaryNavbar from 'Components/navbar';
 import Authentication from './components/Authentication';
+import fetchUserDataAction from '../profile/actionCreators/fetchUserData';
 
 import Logo from './common/Logo';
 import authenticate from './actionCreators/authenticate';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
+import { useModalContext } from '../../context/UseModal';
 import signUpDomStructure from './signUpDomStructure.json';
 import './auth.scss';
+import urlFilter from '../../shared/urlFilter';
 
 export const RegisterPage = ({
-  status: { authenticated },
-  authModal,
+  status: { authenticated: isAuthenticated },
+  authModal: hasModal,
   authenticateUser,
   errorMessage,
   classNames,
   history: { push },
+  fetchUserData,
 }) => {
+  const { setVerificationPhonePopup, setAuthenticationPopup, setModal } = useModalContext();
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const [isRequested, setIsRequested] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
@@ -38,8 +45,13 @@ export const RegisterPage = ({
     confirmPassword: '',
   });
 
+  const handleClick = () => {
+    setModal(false);
+    setAuthenticationPopup(false);
+  };
+
   const handleLinkOptions = (link) => {
-    $('#authModal').modal('hide');
+    handleClick();
     push(link);
   };
 
@@ -66,6 +78,39 @@ export const RegisterPage = ({
     });
   };
 
+  const withSuccess = (isAuth, callback) => {
+    if (isAuth) {
+      callback();
+    }
+  };
+
+  const verifyPhone = () => {
+    fetchUserData()
+      .then((d) => {
+        withSuccess(d.status === 200, () => {
+          const hasntVerified = d.data.userInfo.verified === false;
+          if (hasntVerified) {
+            setVerificationPhonePopup(true);
+            setModal(true);
+          }
+        });
+      });
+  };
+
+  const handleExpensiveEvents = () => {
+    const hasRedirection = location && location.search;
+    if (isBigScreen && hasModal) {
+      handleClick();
+    } else if (isBigScreen && hasRedirection) {
+      const redirect = urlFilter(location.search);
+      verifyPhone();
+      return push(redirect);
+    } else {
+      push('/');
+    }
+    verifyPhone();
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const validation = validateAllFields(inputData);
@@ -74,46 +119,30 @@ export const RegisterPage = ({
     validateOnClick(errors);
     if (passes) {
       setIsRequested(true);
-      return authenticateUser('/user/signup', inputData);
+      return authenticateUser('/user/signup', inputData)
+        .then(d => withSuccess(d.status === 201, handleExpensiveEvents));
     }
   };
 
-  const handleRedirection = useCallback(() => {
-    if (!authModal && authenticated) {
-      return push('/');
-    }
-  }, [authModal, authenticated]);
+  const handleFBAuth = (e) => {
+    const fullName = e.name.split(' ');
+    const data = {
+      lastName: fullName[0],
+      firstName: fullName[1],
+      email: e.email,
+      imageUrl: e.picture.data.url,
+    };
+    authenticateUser('/user/social/auth', data)
+      .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
+  };
 
   useEffect(() => {
-    if (authenticated) {
-      $('#authModal').modal('hide');
-    }
-    handleRedirection();
-  }, [authenticated]);
-
-  const BukkaLogo = () => {
-    if (!authModal) {
-      return (
-        <div className="pb-3">
-          <Logo />
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const ToolBar = () => {
-    if (!authModal) {
-      return (
-        <PrimaryNavbar push={push} />
-      );
-    }
-    return null;
-  };
+    withSuccess(isAuthenticated, handleExpensiveEvents);
+  }, []);
 
   return (
     <Fragment>
-      <ToolBar />
+      {!hasModal && <PrimaryNavbar push={push} />}
       <div className="bg-color auth-page">
         <Authentication
           title="Sign Up"
@@ -125,11 +154,12 @@ export const RegisterPage = ({
           handleSubmit={handleSubmit}
           domStructure={signUpDomStructure}
           isFormCompleted
-          authModal={authModal}
+          hasModal={hasModal}
           classNames={classNames}
+          handleFBAuth={handleFBAuth}
         />
-        <BukkaLogo />
       </div>
+      {!hasModal && <div className="pb-3"> <Logo /></div>}
     </Fragment>
   );
 };
@@ -144,7 +174,8 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-  { authenticateUser: authenticate }
+  { authenticateUser: authenticate,
+    fetchUserData: fetchUserDataAction }
 )(RegisterPage);
 
 RegisterPage.defaultProps = {

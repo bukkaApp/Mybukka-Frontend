@@ -2,16 +2,16 @@ import React, { StrictMode } from 'react';
 // import { render } from 'react-dom';
 import { createRoot } from 'react-dom';
 import App from '../src/root/App';
-// import Worker from './Worker';
+import Worker from './Worker';
 import './index.scss';
 
 const rootElement = document.getElementById('root');
 
 createRoot(rootElement).render(
   <StrictMode>
-    {/* <Worker> */}
-    <App />
-    {/* </Worker> */}
+    <Worker>
+      <App />
+    </Worker>
   </StrictMode>
 );
 

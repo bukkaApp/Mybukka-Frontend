@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, /* useEffect */ useEffect } from 'react';
 import { GoogleMap, Marker, /* useLoadScript, */ } from '@react-google-maps/api';
 import { useLocationContext } from '../../context/LocationContext';
 import mapStyles from '../../shared/mapStyles.json';
 import marker from '../../assets/marker.svg';
 import './map.scss';
+import { useMapContext } from '../../context/UseMap';
+
 
 const defaultLocations = [
   {
@@ -19,7 +21,9 @@ const defaultLocations = [
 ];
 
 const Map = ({ coordinates, locations = defaultLocations }) => {
-  let google; // eslint-disable-line
+  console.log('loopppinnnggg in map componeent');
+  const { isLoaded, hasMap, setMapVisibility } = useMapContext();
+  // let google; // eslint-disable-line
   let { coordinates: [lng, lat] } = useLocationContext();
 
   if (coordinates && coordinates.length) {
@@ -27,13 +31,13 @@ const Map = ({ coordinates, locations = defaultLocations }) => {
   }
 
   const [showInfo, setShowInfo] = useState(false);
+  // show map
+  useEffect(() => {
+    setMapVisibility(true);
+  }, [hasMap]);
   // const { isLoaded, loadError } = useLoadScript({
   //   googleMapsApiKey: process.env.GOOGLE_API_KEY
   // });
-
-  useEffect(() => {
-    google = window.google;
-  }, [window.google]);
 
   // if (loadError) {
   //   return <div>Map cannot be loaded right now, sorry.</div>;
@@ -64,7 +68,7 @@ const Map = ({ coordinates, locations = defaultLocations }) => {
   </GoogleMap>);
 
 
-  return /* isLoaded  && */ mapJsx;
+  return (hasMap && isLoaded) && mapJsx;
 };
 
 export default Map;

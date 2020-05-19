@@ -60,5 +60,7 @@ UserDefaultImage.defaultProps = {
 };
 
 UserDefaultImage.propTypes = {
-  userInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string])),
+  userInfo: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string, PropTypes.number, PropTypes.bool
+  ])),
 };

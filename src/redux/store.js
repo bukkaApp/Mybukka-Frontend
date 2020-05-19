@@ -10,7 +10,7 @@ import storage from 'redux-persist/lib/storage';
 import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import authenticationReducer from '../provider/Redux/authenticationReducer';
-import loadingReducer from './loadingReducer';
+import loadingReducer from '../provider/Redux/loadingReducer';
 
 import deliveryModeReducer from '../components/common-navs/reducers/deliveryModeReducer';
 
@@ -35,8 +35,8 @@ import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
 import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
 import signOutReducer from '../components/navbar/reducers/signOutReducer';
 import searchAnythingReducer from './searchAnythingReducer';
-import deliveryScheduleReducer from './deliveryScheduleReducer';
-import cartReducer from './cartReducer';
+import deliveryScheduleReducer from '../provider/Redux/deliveryScheduleReducer';
+import cartReducer from '../provider/Redux/cartReducer';
 
 import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
 import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
@@ -44,10 +44,9 @@ import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer
 import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
 import alertMessageReducer from './alertMessageReducer';
 
-import sendContactReducer from '../features/verifyPhone/reducers/sendContactReducer';
-import sendVerificationCodeReducer from '../features/verifyPhone/reducers/sendVerificationCodeReducer';
+import sendContactReducer from '../provider/Redux/sendContactReducer';
+import sendVerificationCodeReducer from '../provider/Redux/sendVerificationCodeReducer';
 
-import getUserDataReducer from '../features/verifyPhone/reducers/getUserDataReducer';
 import promotionReducer from '../features/promotion/reducer/promotionReducer';
 import businessGroupReducer from '../provider/Redux/businessGroupReducer';
 
@@ -79,7 +78,6 @@ const reducer = combineReducers({
   reportIssueReducer,
   sendContactReducer,
   sendVerificationCodeReducer,
-  getUserDataReducer,
   saveUserCardReducer,
   verifyCardReducer,
   getUserCardReducer,

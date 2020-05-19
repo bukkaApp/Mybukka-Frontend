@@ -6,7 +6,7 @@ import Container from 'Components/container';
 
 import Chevron from 'Components/icons/ChevronRight';
 import './scheduleSelector.scss';
-import Demarcation from '../common/SmallScreenDivider';
+import Demarcation from './SmallScreenDivider';
 
 const styles = {
   maxHeight: '200px',

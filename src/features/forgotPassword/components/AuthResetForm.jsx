@@ -31,6 +31,7 @@ const AuthResetForm = ({
   isFormCompleted,
   errorMessage,
   title,
+  inputData,
 }) => (
   <>
     <Container>
@@ -47,6 +48,7 @@ const AuthResetForm = ({
           <TextField
             handleChange={handleChange}
             domStructure={domStructure}
+            inputData={inputData}
             validationErrors={validationErrors}
           />
         </div>

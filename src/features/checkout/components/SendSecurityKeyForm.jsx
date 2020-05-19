@@ -75,6 +75,8 @@ const InputKeyForm = ({
       <br />
       <div className="send-security-form-inline">
         <Field.Input
+          value={pin}
+          name="pin"
           handleChange={event => setKey(event.target.value)}
           onFocus={() => ({})}
           placeholderText={`SUBMIT ${keyType.toUpperCase()}`}

@@ -112,7 +112,7 @@ const Payment = ({
       <Demarcation />
       <Container classNames="p-0">
         <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
-        <form className="border padding-20 mt-4" action="">
+        <form className="border padding-20 mt-2" action="">
           {!addCard && cards.length > 0 ?
             <div>
               <p>Your credits card</p>

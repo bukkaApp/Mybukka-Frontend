@@ -14,7 +14,7 @@ import validateToken from '../actionCreators/validateToken';
 import { validateAField, validateAllFields } from '../helper/validateFields';
 
 import signUpDomStructure from '../signUpDomStructure.json';
-import useQuery from '../../../context/useQuery';
+import useQuery from '../../../hooks/useQuery';
 
 const RetrieveSection = ({
   isValidUser,
@@ -113,6 +113,7 @@ const RetrieveSection = ({
                     errorMessage={errorMessage}
                     instruction="Type your new password"
                     handleChange={handleChange}
+                    inputData={inputData}
                     validationErrors={validationErrors}
                     handleSubmit={handleSubmit}
                     domStructure={signUpDomStructure}

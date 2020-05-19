@@ -39,6 +39,7 @@ const PrimaryNavbar = ({ changeAuthenticationPage, authButton }) => {
               (<Button
                 type={btnProp.type}
                 text={btnProp.text}
+                key={btnProp.text}
                 classNames={btnProp.classNames}
                 id={btnProp.id}
                 handleClick={isMobileScreen ? emitOnClickOnDesktop : emitOnClickOnMobile}

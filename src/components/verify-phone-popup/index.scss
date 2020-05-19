@@ -1,0 +1,214 @@
+@import '../../stylebase/variables.scss';
+
+.Verify-Phone-Popup-Head {
+  padding-top: 71px;
+  padding-bottom: 34px;
+  padding-left: 42px;
+  padding-right: 42px;
+  @media screen and (min-width: 768px) {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 48px;
+    padding-bottom: 21px;
+  }
+  @media screen and (min-width: 768px) and (min-width: 1060px) {
+    padding-left: 36px;
+    padding-right: 36px;
+    padding-bottom: 30px;
+  }
+}
+
+.Verify-Phone-Popup-Header {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  letter-spacing: -1.16px;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.Verify-Phone-Spacing {
+  padding-top: 50px;
+}
+
+.Verify-Phone-NoSpacing {
+  padding-top: 0!important;
+}
+
+.Verify-Phone-Form {
+  width: 100%;
+  padding-bottom: 0px;
+}
+
+.Verify-Phone-Title {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  letter-spacing: initial;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  color: rgb(45, 49, 56);
+  padding-bottom: 40px;
+}
+
+.Verify-Phone-Body {
+  display: flex;
+  -webkit-appearance: none;
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+  font-family: inherit;
+  caret-color: rgb(0, 0, 0);
+  background-color: inherit;
+  color: rgb(45, 49, 56);
+  width: 280px;
+  box-shadow: none !important;
+  margin: 0px auto 76px;
+  border-radius: 0px;
+  border-bottom: 1px solid rgb(217, 219, 224);
+  padding: 22px 0px;
+}
+
+.Verify-Phone-Body-Space {
+  margin-bottom: 45px;
+}
+
+.Verify-Phone-Select {
+  position: relative;
+}
+
+.Verify-Phone-Select--active {
+  width: 52px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 21px;
+  letter-spacing: initial;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.Verify-Phone-Select-Icon {
+  margin-left: 4px;
+}
+
+.Verify-Phone-Select-Dropdown {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(16, 25, 30, 0.08) 0px 1px 4px 0px;
+  position: absolute;
+  z-index: 1200;
+  left: 114px;
+  bottom: -22px;
+  opacity: 1;
+  border-width: 1px 1px 1px;
+  border-style: none solid solid;
+  border-color: rgb(242, 243, 243) rgb(242, 243, 243) rgb(242, 243, 243);
+  border-image: initial;
+  border-top: none;
+  transition: opacity 100ms ease-in-out 0s;
+  @media screen and (min-width: 768px) {
+    bottom: 0px;
+    left: calc(-50% + 26px + 0px);
+    transform: translate(calc(-50% + 26px + 0px), 100%);
+  }
+}
+
+.Verify-Phone-Select-Dropdown-Content {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.Verify-Phone-Select-Item {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 280px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.Verify-Phone-Select-Item-Num {
+  display: inline-block;
+  width: 51px;
+  margin-right: 22px;
+  text-align: right;
+}
+
+.Verify-Phone-Select-Item-Text {
+  display: inline-block;
+  color: rgb(143, 149, 163);
+}
+
+.Verify-Phone-Input {
+  -webkit-appearance: none;
+  color: rgb(45, 49, 56);
+  width: 100%;
+  caret-color: rgb(0, 0, 0);
+  font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+  font-size: 21px;
+  letter-spacing: initial;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 17px;
+  box-shadow: none !important;
+  border-radius: 0px;
+  border: 0;
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+.Verify-Phone-Code {
+  text-align: center;
+  padding-left: 0;
+  font-size: 40px;
+}
+
+.Verify-Phone-Button {
+  -webkit-appearance: none;
+  cursor: pointer;
+  text-align: center;
+  background-color: $color-primary;
+  color: rgb(255, 255, 255);
+  font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+  font-size: 14px;
+  letter-spacing: initial;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  height: 48px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+  transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+  border-radius: 28px;
+}
+
+.Verify-Phone-Footer {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: initial;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  text-align: center;
+  margin-top: 19px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

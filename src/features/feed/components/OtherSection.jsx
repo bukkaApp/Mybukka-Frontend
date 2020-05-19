@@ -22,12 +22,12 @@ import OtherSectionCategories from '../common/OtherSectionCategories';
 const OtherSection = ({
   bukkaMenu,
   categories,
-  fetched,
   match,
   location,
   fetchNearbyFreshOrMart,
   error,
-  loading
+  loading,
+  businessError
 }) => {
   const prevPage = React.useRef(null);
   const { params } = matchPath(location.pathname, { path: '/:id' });
@@ -58,7 +58,7 @@ const OtherSection = ({
       <Route
         path={`${match.path}`}
         render={() => (
-          bukkaMenu.length < 2 && fetched ?
+          businessError ?
             <Redirect to="/coming-soon" />
             : <Fragment>
               <IntroSection push={push} />
@@ -93,10 +93,12 @@ const mapStateToProps = ({
     categories,
     status: { error, fetched },
   },
+  businessReducer: { status: { error: businessError }, },
   loadingReducer: { status: loading },
   cartReducer: { errorMessage },
 }) => ({
   loading,
+  businessError,
   bukkaMenu,
   status,
   categories,

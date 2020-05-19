@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from 'Components/navbar';
 import PropTypes from 'prop-types';
+import NavLink from '../navlink/Navlink';
 
 
 import './notavailable.scss';
@@ -27,11 +28,11 @@ const InternalError = ({ history: { push } }) => (
             should be back to normal.
           </span>
         </p>
-        <a href="/">
+        <NavLink href="/">
           <button className="error-redirect-btn">
             <span>Go To Homepage</span>
           </button>
-        </a>
+        </NavLink>
       </div>
     </div>
   </div>

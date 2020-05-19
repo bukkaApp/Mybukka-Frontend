@@ -27,7 +27,7 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
         </div>
       )}
       <div className="px-3 d-inline-block">
-        <div className="tag-bukka">
+        <div className="tag-bukka" style={{ paddingBottom: '15px' }}>
           <Button
             classNames="tag-bukka-button px-3"
             text="AFRICAN"
@@ -49,7 +49,7 @@ const ActionButtons = ({ deliveryTime, address, handleClick }) => (
         type="button"
       >
         <p className="action-button-text">
-          <Clock /> {deliveryTime} - {deliveryTime + 15} MIN
+          <Clock /> <span className="bukka-action-text-span">{deliveryTime} MIN</span>
         </p>
       </Button>
       <Button
@@ -58,7 +58,7 @@ const ActionButtons = ({ deliveryTime, address, handleClick }) => (
         type="button"
       >
         <p className="action-button-text">
-          <MapMarkerAlt /> {address}
+          <MapMarkerAlt /> <span className="bukka-action-text-span">{address}</span>
         </p>
       </Button>
       <Button
@@ -67,7 +67,7 @@ const ActionButtons = ({ deliveryTime, address, handleClick }) => (
         type="button"
       >
         <p className="action-button-text">
-          MORE INFO <ChevronVertical />
+          <span className="bukka-action-text-last-span">MORE INFO </span><ChevronVertical />
         </p>
       </Button>
     </ButtonGroup>
@@ -88,12 +88,11 @@ const TitleAndDescription = ({ name, description }) => (
 
 const BukkaDetailsSection = ({
   fetchedBukka,
-  address,
   deliveryMode
 }) => {
   const [state, setState] = useState(false);
 
-  const { name, description, deliveryPrice, schedule, location } = fetchedBukka;
+  const { name, description, deliveryPrice, schedule, location, address } = fetchedBukka;
   if (Object.keys(fetchedBukka).length <= 0) {
     return null;
   }
@@ -135,8 +134,8 @@ BukkaDetailsSection.propTypes = {
       PropTypes.number,
       PropTypes.array,
       PropTypes.object,
+      PropTypes.bool,
     ])),
-  address: PropTypes.string.isRequired,
   deliveryMode: PropTypes.string.isRequired
 };
 

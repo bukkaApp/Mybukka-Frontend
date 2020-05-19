@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Modal from '../modal/Modal';
 import { useModalContext } from '../../context/UseModal';
 import DismissModal from '../modal/DismissModal';
@@ -10,7 +11,8 @@ import AuthenticateRegister from
   '../../features/authentication/RegisterPage';
 import './index.scss';
 
-const AuthModal = ({ type, push }) => {
+const AuthModal = ({ type }) => {
+  const { push } = useHistory();
   const { authenticationPopup, setAuthenticationPopup, setModal } = useModalContext();
   const wrapperRef = React.createRef();
   let AuthForm = AuthenticateLogin;
@@ -37,7 +39,7 @@ const AuthModal = ({ type, push }) => {
   }, [wrapperRef]);
 
   return (
-    <Modal show={authenticationPopup} bodyClassName="SmallWidth" ref={wrapperRef} dataTarget="authModal" classNames="auth-modal">
+    <Modal show={authenticationPopup} bodyClassName="SmallWidth" ref={wrapperRef} classNames="auth-modal">
       <section className="Authentication-pop-wrapper">
         <DismissModal onClick={handleClick} classNames="close" />
         <AuthForm
@@ -69,5 +71,4 @@ AuthModal.defaultProps = {
 
 AuthModal.propTypes = {
   type: PropTypes.string,
-  push: PropTypes.func.isRequired,
 };

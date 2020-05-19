@@ -19,18 +19,20 @@ import LocationNavSmallScreen, {
 
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
-import BukkaMeals from './BukkaMeals';
 // import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
+
+import BukkaMeals from './BukkaMeals';
 
 const BukkaMenuScene = ({
   push, errorMessage, categories, bukka, bukkaMenu
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     if (errorMessage !== '') return toastr.error(errorMessage);
-  });
+  }, [errorMessage]);
 
   const isInSearch = item => item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());
 

@@ -16,9 +16,9 @@ const NotAvailable = () => (
     </div>
     <div className="custom-warning-body">
       <span>
-            The page no longer exists or the link may be broken.
-            But {'don\'t'} worry, you can always return
-            from whence you came.
+        The page no longer exists or the link may be broken.
+        But {'don\'t'} worry, you can always return
+        from whence you came.
       </span>
     </div>
   </div>

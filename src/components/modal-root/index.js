@@ -3,6 +3,7 @@ import AddToCart from '../cart/addToCart';
 import { useModalContext } from '../../context/UseModal';
 import ViewOrdersOnMobile from '../cart/ViewOrdersOnMobile';
 import Authentication from '../authentication-popup';
+import VerifyPhonePopup from '../verify-phone-popup';
 import './index.scss';
 
 const ModalRoot = () => {
@@ -26,6 +27,7 @@ const ModalRoot = () => {
       <AddToCart />
       <ViewOrdersOnMobile />
       <Authentication />
+      <VerifyPhonePopup />
     </div>
   );
 };

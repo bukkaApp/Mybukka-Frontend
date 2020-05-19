@@ -72,12 +72,12 @@ const BukkaAuthenticatedNav = ({
         resolve(getPromotedBukkas(coordinates));
       }).then(() => getRestaurantCuisine(coordinates))
         .then(() => fetchNearbyBukkas(coordinates))
-        .then(() => push('/feed', { hasFetched: true }));
+        .then(() => push('/feed', { hasFetched: true, showMap: true }));
     } else {
       const type = href === '/fresh' ? 'fresh' : 'mart';
       new Promise(async (resolve) => {
         resolve(fetchNearbyFreshOrMart(coordinates, type));
-      }).then(() => push(href, { hasFetched: true }));
+      }).then(() => push(href, { hasFetched: true, showMap: false }));
     }
   };
 
@@ -90,14 +90,14 @@ const BukkaAuthenticatedNav = ({
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef]);
 
-  const emitOnClickOnMobile = ({ target: { id } }) => {
+  const emitOnClickOnSmallScreen = ({ target: { id } }) => {
     // push to signin or signup pages on mobile
-    push(id);
+    push(id, { showMap: false });
   };
 
-  const emitOnClickOnDesktop = ({ target: { id } }) => {
+  const emitOnClickOnLargeScreen = ({ target: { id } }) => {
     // toggle to signin or signup on destop using modal
     changeAuthenticationPage(id);
     setAuthenticationPopup(true);
@@ -108,11 +108,12 @@ const BukkaAuthenticatedNav = ({
     <Fragment>
       {btnAtrributes.map(btnProp =>
         (<Button
+          key={btnProp.text}
           type={btnProp.type}
           text={btnProp.text}
           classNames={btnProp.classNames}
           id={btnProp.id}
-          handleClick={isMobileScreen ? emitOnClickOnDesktop : emitOnClickOnMobile}
+          handleClick={isMobileScreen ? emitOnClickOnLargeScreen : emitOnClickOnSmallScreen}
         />))}
     </Fragment>
   );

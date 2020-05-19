@@ -7,7 +7,7 @@ const updateCart = (data, status) => ({
   data,
 });
 
-const updateCartAction = (updatedCart, updateLocally, submenus) => async (dispatch) => {
+const updateCartAction = (updatedCart, updateLocally) => async (dispatch) => {
   try {
     const token = localStorage.getItem('x-access-token');
     if (!token || updateLocally) return dispatch(updateCart(updatedCart, 'LOCAL'));

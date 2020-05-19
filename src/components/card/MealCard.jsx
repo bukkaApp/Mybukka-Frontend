@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { useCookies } from 'react-cookie';
 import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 import Price from 'Components/badge/Price';
@@ -40,31 +41,39 @@ const MealDetails = ({ title, price, description }) => (
 );
 
 const MealPicture = ({ imageUrl }) => {
+  const [state, setState] = useState(false);
   const { domain, supports } = useCloudinayService();
-  let ext = 'jpg', queryString = '';
+  let ext = 'jpg', queryString = '', img;
+  // If a format has not been specified, detect webp support
+  if (supports.webp) {
+    ext = 'webp';
+  }
   const options = {
     w: '320', // width
     q: 85, // quality
     c: 'scale' // mode
   };
 
-  const [storageClienId, imgSrc] = imageUrl.replace(domain, '').split('upload');
-  const imgSrcWithoutExt = imgSrc.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');
-
-  // Loop through option prop and build queryString
+  if (imageUrl !== '') {
   Object.keys(options).map((option, i) => queryString += `${i < 1 ? '' : ','}${option}_${options[option]}`); // eslint-disable-line
-
-  // If a format has not been specified, detect webp support
-  if (supports.webp) {
-    ext = 'webp';
+    const [storageClienId, imgSrc] = imageUrl.replace(domain, '').split('upload');
+    const imgSrcWithoutExt = imgSrc.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');
+    img = `${domain}${storageClienId}upload/${queryString}${imgSrcWithoutExt}.${ext}`;
   }
+  // Loop through option prop and build queryString
+  const [cookies, setCookie] = useCookies([`_${img || '__img'}`]);
+
+  const handleLoad = () => {
+    setState(true);
+    setCookie(`_${img || '__img'}`, true, { path: '/' });
+  };
 
   return (
     <Column classNames="col-4 col-md-3 col-lg-4 meal-picture-column">
       {imageUrl ? (
         <div className="meal-picture-section position-relative">
-          <img className="d-none" src={`${domain}${storageClienId}upload/${queryString}${imgSrcWithoutExt}.${ext}`} alt="" />
-          <div className="meal-picture" style={{ backgroundImage: `url(${domain}${storageClienId}upload/${queryString}${imgSrcWithoutExt}.${ext})` }} />
+          <img onLoad={handleLoad} className="d-none" src={`${img}`} alt="" />
+          <div className="meal-picture" style={{ backgroundImage: `url(${img})`, opacity: state || cookies[`_${img}`] ? 1 : 0 }} />
         </div>
       ) : null}
     </Column>

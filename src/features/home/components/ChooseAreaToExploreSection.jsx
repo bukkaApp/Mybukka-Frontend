@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
 
-import useAutocompleteService from '../../../context/useAutocompleteService';
+import useAutocompleteService from '../../../hooks/useAutocompleteService';
 
 import './chooseAreaToExplore.scss';
 

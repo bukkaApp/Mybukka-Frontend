@@ -1,11 +1,8 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-underscore-dangle */
-import lodash from 'lodash';
 
-const isArrayEqual = function doSomething(x, y) {
-  return lodash(x).differenceWith(y, lodash.isEqual).isEmpty();
-};
+import { checkArrays } from './ArrayPolyfills';
 
 /**
  * @function flattenObjectArray
@@ -43,19 +40,6 @@ const loopNewItem = (dSubmenus) => {
   return flatObjectToArray(submenus);
 };
 
-const _isArrayEqual = (firstArr, secondArr) => {
-  const arr = [];
-  for (let i = 0; i < firstArr.length; i++) {
-    for (let k = 0; k < secondArr.length; k++) {
-      if (firstArr[i] === secondArr[k]) {
-        arr.push(firstArr[i]);
-      }
-    }
-  }
-  if (arr.length === secondArr.length && isArrayEqual(arr, secondArr)) return true;
-  return false;
-};
-
 const createMenuData = (menus, index) => menus.map((menu, indx) => {
   if (indx === index || menu._id === index) {
     const menuQuantity = menu.quantity + 1;
@@ -80,8 +64,7 @@ const handleData = (menus, item) => {
   menus.map((menu, indx) => {
     if (menu._id === item._id) {
       const currentItem = loopNewItem(menu.submenus);
-      if (newItem.length === currentItem.length
-        && _isArrayEqual(newItem, currentItem)) {
+      if (newItem.length === currentItem.length && checkArrays(newItem, currentItem)) {
         index = indx;
       }
     }

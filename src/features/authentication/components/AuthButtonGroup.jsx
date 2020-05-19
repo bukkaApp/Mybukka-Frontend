@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import PropTypes from 'prop-types';
-
+import FacebookLogin from 'react-facebook-login';
 import Button from 'Components/button/Button';
 
 const Divider = () => (
@@ -18,31 +18,24 @@ const SubmitButton = ({ ...props }) => (
   </div>
 );
 
-const AuthByFacebook = props => <SubmitButton {...props} />;
-
 const AuthButtonGroup = props => (
   <Fragment>
     <SubmitButton
       type="submit"
       id="submit"
-      classNames={
-        !props.isFormCompleted
-          ? 'disabled col-md-12 primary-button mt-5'
-          : 'button col-md-12 primary-button mt-5'
-      }
+      classNames={`col-md-12 primary-button mt-5 ${!props.isFormCompleted ? 'disabled' : 'button'}`}
       text={props.title}
       key="0"
       handleClick={() => {}}
     />
     <Divider />
-    <AuthByFacebook
-      type="button"
-      href="/"
-      key="1"
-      classNames="facebk-btn col-md-12"
-      text="Facebook"
-      handleClick={() => {}}
-    />
+    <div className="padding">
+      <FacebookLogin
+        appId="816985088495917"
+        cssClass="facebk-btn col-md-12"
+        callback={props.handleFBAuth}
+      />
+    </div>
   </Fragment>
 );
 

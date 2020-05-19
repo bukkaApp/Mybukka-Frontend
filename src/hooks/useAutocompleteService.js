@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import Script from 'react-load-script';
-import { useLocationContext } from './LocationContext';
-import { useLocationsPredictionContext } from './LocationsPrediction';
-import { useLoadingContext } from './UseLoading';
+import { useLocationContext } from '../context/LocationContext';
+import { useLocationsPredictionContext } from '../context/LocationsPrediction';
+import { useLoadingContext } from '../context/UseLoading';
+import { useMapContext } from '../context/UseMap';
 
 let placesService;// eslint-disable-line
 let autoCompleteService;
@@ -12,14 +14,16 @@ let GeoCoderService;
 /* global google */
 const useAutocompleteService = (callback = null, withLoading = false) => {
   // const wrapper = React.createRef();
+  console.log('useAutocompleteService - location', location);
   const mounted = React.useRef(false);
   // const attribution = React.createRef();
   const scriptReady = React.useRef(false);
 
-  const handleScriptLoad = () => {
+  const handleScriptLoad = (cb) => {
     autoCompleteService = new google.maps.places.AutocompleteService();
     // placesService = new google.maps.places.PlacesService(attribution.current);
     GeoCoderService = new google.maps.Geocoder();
+    if (cb) cb(true); // load map
   };
 
   useEffect(() => {
@@ -93,13 +97,15 @@ const useAutocompleteService = (callback = null, withLoading = false) => {
     if (withLoading) loading('LOC', false);
   };
 
-  const LoadService = () => (
-    window.google ? <div onLoad={() => { mounted.current ? handleScriptLoad() : scriptReady.current = true; }} /> // eslint-disable-line
-      : <Script
-        url={`https://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false&key=${process.env.GOOGLE_API_KEY}&libraries=places&callback=initMap`}
-        onLoad={() => { mounted.current ? handleScriptLoad() : scriptReady.current = true; }} // eslint-disable-line
+  const LoadService = memo(() => {
+    const { onLoad, hasMap } = useMapContext(); // eslint-disable-line
+    return (
+      <Script
+        url={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GOOGLE_API_KEY}${hasMap ? '&callback=initMap' : ''}`}
+        onLoad={() => { mounted.current ? handleScriptLoad(onLoad) : scriptReady.current = true; }}
       />
-  );
+    );
+  });
 
   return { predictions: expectedPredictions, LoadService, emitSelection, handleChange, handleClick, inputData, setInputData, hasFocus, setFocus, geoCodeLocation };
 };

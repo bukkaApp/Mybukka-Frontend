@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import Navlink from 'Components/navlink/Navlink';
@@ -9,27 +9,16 @@ import Kit from './Kit';
 
 import './BukkaCard.scss';
 import { useCloudinayService } from '../img/Cloudinary';
+import { useSessionStorage } from '../../context/UseSession';
 
 const styles = {
-  figure: {
-    position: 'relative',
-    margin: 0,
-    width: '100%',
-  },
-  lqip: {
-    width: '100%',
-    //   filter: 'blur(5px)',
-    opacity: 1,
-    transition: 'all 0.5s ease-in'
-  },
-  fullsize: {
-    position: 'absolute',
-    top: '0px',
-    left: '0px',
-    width: '100%',
-    height: '100%',
-    transition: 'all 0.5s ease-in'
-  }
+  position: 'absolute',
+  top: '0px',
+  left: '0px',
+  width: '100%',
+  height: '100%',
+  transition: 'all 0.5s ease-in',
+  backgroundColor: '#e9e7e7'
 };
 
 const BukkaCard = ({
@@ -52,14 +41,28 @@ const BukkaCard = ({
   others,
   itemClassName,
 }) => {
+  const _imgRef = React.createRef();
+  const [sessionItem, setItem] = useSessionStorage(`___${imageUrl}____`, false);
   const { supports } = useCloudinayService();
-  const [state, setState] = useState({
-    isInViewport: false,
-    width: 0,
-    height: 0,
-    lqipLoaded: false,
-    fullsizeLoaded: false
-  });
+  const [state, setState] = useState(false);
+  const img = generateImageSize(imageUrl, ['650', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg');
+
+  const handleScroll = () => {
+    if (_imgRef.current && _imgRef.current.complete && !state) {
+      setState(true);
+      setItem(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll);
+    return () => document.removeEventListener('scroll', handleScroll);
+  }, [_imgRef]);
+
+  const handleLoad = () => {
+    setState(true);
+    setItem(true);
+  };
 
   const imageSpacingClassName = (type) => {
     if (type === 'cuisine') return 'cuisine-image-spacing';
@@ -67,10 +70,6 @@ const BukkaCard = ({
     else if (type === 'category') return 'category-image-spacing';
     return 'normal-image-spacing';
   };
-
-  if (state.fullsizeLoaded) {
-    styles.lqip.opacity = 0;
-  }
 
   return (
     <div>
@@ -84,17 +83,18 @@ const BukkaCard = ({
       >
         <div>
           <img
-            style={styles.lqip}
+            ref={_imgRef}
+            style={{ display: 'none' }}
             className="img-fluid"
-            src={generateImageSize(imageUrl, ['150', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg')}
+            src={img}
             alt="alt_image"
-            onLoad={() => { setState({ ...state, lqipLoaded: true }); }}
+            onLoad={handleLoad}
           />
           <div
-            onLoad={() => { setState({ ...state, fullsizeLoaded: true }); }}
-            style={{ backgroundImage: `url(${generateImageSize(imageUrl, ['650', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg')})`, opacity: 1, ...styles.fullsize }}
+            style={{ backgroundImage: `url(${img})`, opacity: state || sessionItem ? 1 : 0, }}
             className={`custom-bukka-image ${itemClassName}`}
           />
+          <div style={{ ...styles, opacity: state || sessionItem ? 0 : 1 }} />
         </div>
 
         <div className={imageSpacingClassName(carouselType)} />
@@ -125,9 +125,9 @@ const GetBukka = ({ classNames, href, ...props }) => (
   <div className={`card-container ${classNames}`}>
     <div className="card-wrap">
       {href &&
-      <Navlink classNames="link" href={href}>
-        <BukkaCard {...props} />
-      </Navlink>
+        <Navlink classNames="link" href={href}>
+          <BukkaCard {...props} />
+        </Navlink>
       }
       {!href && <BukkaCard {...props} />}
     </div>

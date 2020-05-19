@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, memo } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,25 +8,33 @@ import PrimaryNavbar from 'Components/navbar';
 import urlFilter from '../../shared/urlFilter';
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
-
+import fetchUserDataAction from '../profile/actionCreators/fetchUserData';
 import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
 import './auth.scss';
+import { useModalContext } from '../../context/UseModal';
 
-export const LoginPage = ({
+export const LoginPage = memo(({
   status: { authenticated: isAuthenticated },
   authModal: hasModal,
   errorMessage,
   classNames,
   authenticateUser,
-  history: { push, location }
+  history: { push, location },
+  fetchUserData,
 }) => {
+  const { setAuthenticationPopup, setVerificationPhonePopup, setModal } = useModalContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
   const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
   // const [redirect, setRedirection] = useState('');
+
+  const handleClick = () => {
+    setModal(false);
+    setAuthenticationPopup(false);
+  };
 
   const [validationErrors, setValidationErrors] = useState({
     email: '',
@@ -38,8 +46,9 @@ export const LoginPage = ({
     password: ''
   });
 
+  // forgot password
   const handleLinkOptions = (link) => {
-    $('#authModal').modal('hide');
+    handleClick();
     push(link);
   };
 
@@ -70,22 +79,37 @@ export const LoginPage = ({
     });
   };
 
-  const withAuth = (isAuth, callback) => {
+  const withSuccess = (isAuth, callback) => {
     if (isAuth) {
       callback();
     }
   };
 
+  const verifyPhone = () => {
+    fetchUserData()
+      .then((d) => {
+        withSuccess(d.status === 200, () => {
+          const hasntVerified = d.data.userInfo.verified === false;
+          if (hasntVerified) {
+            setVerificationPhonePopup(true);
+            setModal(true);
+          }
+        });
+      });
+  };
+
   const handleExpensiveEvents = () => {
     const hasRedirection = location && location.search;
     if (isBigScreen && hasModal) {
-      $('#authModal').modal('hide');
+      handleClick();
     } else if (isBigScreen && hasRedirection) {
       const redirect = urlFilter(location.search);
+      verifyPhone();
       return push(redirect);
     } else {
       push('/');
     }
+    verifyPhone();
   };
 
   const handleSubmit = (event) => {
@@ -104,38 +128,30 @@ export const LoginPage = ({
       if (nextSlide) {
         setIsRequested(true);
         return authenticateUser('/user/signin', inputData)
-          .then(d => withAuth(d.status === 200, handleExpensiveEvents));
+          .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
       }
     }
   };
 
+  const handleFBAuth = (e) => {
+    const fullName = e.name.split(' ');
+    const data = {
+      lastName: fullName[0],
+      firstName: fullName[1],
+      email: e.email,
+      imageUrl: e.picture.data.url,
+    };
+    authenticateUser('/user/social/auth', data)
+      .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
+  };
+
   useEffect(() => {
-    withAuth(isAuthenticated, handleExpensiveEvents);
+    withSuccess(isAuthenticated, handleExpensiveEvents);
   }, []);
-
-  const BukkaLogo = () => {
-    if (!hasModal) {
-      return (
-        <div className="pb-3">
-          <Logo />
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const ToolBar = () => {
-    if (!hasModal) {
-      return (
-        <PrimaryNavbar push={push} />
-      );
-    }
-    return null;
-  };
 
   return (
     <Fragment>
-      <ToolBar />
+      {!hasModal && <PrimaryNavbar push={push} />}
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
@@ -147,30 +163,34 @@ export const LoginPage = ({
           domStructure={signInDomStructure}
           validationErrors={validationErrors}
           isFormCompleted
-          authModal={hasModal}
+          hasModal={hasModal}
           classNames={classNames}
           userEmail={inputData.email}
           slideToNextInput={nextSlide}
           handleBackClick={goToPrev}
+          handleFBAuth={handleFBAuth}
         />
-        <BukkaLogo />
       </div>
+      {!hasModal && <div className="pb-3"> <Logo /></div>}
     </Fragment>
   );
-};
+});
 
 const mapStateToProps = ({
-  authenticationReducer: { status, user, errorMessage }
+  authenticationReducer: { status, user, errorMessage },
+  // userProfileReducer: { userInfo },
 }) => ({
   status,
   user,
-  errorMessage
+  errorMessage,
 });
 
-export default connect(
+export default memo(connect(
   mapStateToProps,
-  { authenticateUser: authenticate }
-)(LoginPage);
+  { authenticateUser: authenticate,
+    fetchUserData: fetchUserDataAction
+  }
+)(LoginPage));
 
 LoginPage.defaultProps = {
   errorMessage: '',

@@ -5,7 +5,7 @@ import setDeliverySchedule from 'Redux/setDeliverySchedule';
 import { scheduleData } from 'Components/common-navs/Duration';
 
 
-import ScheduleSelector from './ScheduleSelector';
+import ScheduleSelector from '../common/ScheduleSelector';
 
 const Schedules = ({ schedule, setSchedule }) => {
   const [activeSelector, _setActiveSelector] = useState('time');
