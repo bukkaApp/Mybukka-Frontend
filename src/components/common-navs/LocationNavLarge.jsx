@@ -208,9 +208,12 @@ const LocationNavLarge = ({
     if (!deliveryorpickup && mode !== 'delivery') {
       setDeliveryModeAction('delivery');
     }
+  }, [deliveryorpickup, mode]);
+
+  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef]);
 
   return (
     <div

@@ -7,9 +7,9 @@ const Modal = React.forwardRef(({ children, useFullWidth, show, bodyClassName, c
   useEffect(() => {
     const timeout = setTimeout(() => {
       setState(show);
+      return clearTimeout(timeout);
     }, 200);
-    return () => clearTimeout(timeout);
-  });
+  }, [show]);
 
   return (
     <div>

@@ -1,6 +1,5 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/prop-types */
-import React, { useState, useEffect, useCallback } from 'react';
+
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 
@@ -119,31 +118,30 @@ const SendSecurityKeyForm = ({
   const [visibleCount, setVisibility] = useState(0);
   const [tried, setTrial] = useState(1);
 
-  const timeoutMessageDisplay = useCallback(() => {
-    if (cardSaved) {
-      setVisibility(0);
-    }
+  useEffect(() => {
+    const timeoutMessageDisplay = () => {
+      if (cardSaved) setVisibility(0);
+    };
+    timeoutMessageDisplay();
   }, [cardSaved]);
 
-  const reauthorizePayment = useCallback(() => {
-    let clear;
-    if (paymentStatus === 'pending' && !sent && tried < 3) {
-      verifyCard(reference);
-      clear = setInterval(() => {
-        verifyCard(reference);
-        setTrial(tried + 1);
-      }, 50000);
-    }
-    if (tried >= 3) {
-      clearInterval(clear);
-      setState(true);
-    }
-  }, [paymentStatus, sent, tried]);
-
   useEffect(() => {
-    timeoutMessageDisplay();
+    const reauthorizePayment = () => {
+      let clear;
+      if (paymentStatus === 'pending' && !sent && tried < 3) {
+        verifyCard(reference);
+        clear = setInterval(() => {
+          verifyCard(reference);
+          setTrial(tried + 1);
+        }, 50000);
+      }
+      if (tried >= 3) {
+        clearInterval(clear);
+        setState(true);
+      }
+    };
     reauthorizePayment();
-  });
+  }, [paymentStatus, sent, tried]);
 
   return (
     <Modal dataTarget="inputSecurityKey">
@@ -157,7 +155,7 @@ const SendSecurityKeyForm = ({
         receiver={receiver}
         amount={amount}
         url={url}
-        status={(paymentStatus && displayText && !cardSaved) ? paymentStatus
+        status={(paymentStatus && displayText && !cardSaved) ? paymentStatus // eslint-disable-line
           : (!transactionSuccess && !paymentStatus && !cardSaved) ? chargeStatus : ''}
         saveCard={saveCard}
         displayText={(paymentStatus && displayText && !cardSaved) ? displayText : null}

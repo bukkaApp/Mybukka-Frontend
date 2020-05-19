@@ -62,7 +62,7 @@ const SearchLocation = ({
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef]);
 
   return (
     <div ref={wrapperRef}>

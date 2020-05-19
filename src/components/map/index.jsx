@@ -1,4 +1,4 @@
-import React, { useState, /* useEffect */ useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleMap, Marker, /* useLoadScript, */ } from '@react-google-maps/api';
 import { useLocationContext } from '../../context/LocationContext';
 import mapStyles from '../../shared/mapStyles.json';
