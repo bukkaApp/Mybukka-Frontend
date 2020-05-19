@@ -38,7 +38,7 @@ const useUser = () => {
 
   useEffect(() => {
     setData(state);
-  }, [state, setData]);
+  }, [state]);
 
   const setUser = (user, token) => {
     dispatch({

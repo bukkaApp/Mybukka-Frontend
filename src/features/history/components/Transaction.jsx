@@ -38,7 +38,7 @@ const Transaction = ({
       refresh(true);
       fetchedOrderHistory('/order?role=customer');
     }
-  });
+  }, [refreshed, fetched]);
 
   return (
     <Fragment>

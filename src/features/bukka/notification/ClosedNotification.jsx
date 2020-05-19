@@ -128,13 +128,13 @@ const ClosedNotification = ({ fetchedBukka }) => {
     setState(!isOpen);
   };
 
-  const handleRestaurantUnavalaibleModal = () => {
-    if (!isRestaurantOpened || isRestaurantClosed) {
-      toggleModal();
-    }
-  };
-
   useEffect(() => {
+    const handleRestaurantUnavalaibleModal = () => {
+      if (!isRestaurantOpened || isRestaurantClosed) {
+        toggleModal();
+      }
+    };
+
     handleRestaurantUnavalaibleModal();
   }, []);
 

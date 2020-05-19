@@ -28,7 +28,7 @@ const useDarkMode = () => {
 
   useEffect(() => {
     setData(state);
-  }, [state, setData]);
+  }, [state]);
 
   const setThemeState = (payload) => {
     dispatch({

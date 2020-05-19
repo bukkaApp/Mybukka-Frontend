@@ -42,20 +42,15 @@ const ProfileScene = ({
   const { authenticated } = status;
 
   useEffect(() => {
-    if (!localStorage.getItem('x-access-token')) {
+    if (!localStorage.getItem('x-access-token') || !authenticated) {
       signOut();
-    }
-  });
-
-  useEffect(() => {
-    if (!authenticated) {
       push('/login?next=/profile');
     }
     if (AuthService.isAuthenticated() && authenticated && !finishedRequest) {
       requestUserData('/user/profile');
       requestUserAddress('/user/address');
     }
-  });
+  }, [authenticated, finishedRequest]);
 
   const uploadImageToCloudinary = (event) => {
     const file = event.target.files[0];

@@ -73,23 +73,21 @@ const RetrieveSection = ({
     }
   };
 
-  const handleUserValidity = async (token) => {
-    if (!isValidUser) {
-      handleToken(token);
-      await checkIsValidUser('/user/token/validate', token);
-    }
-  };
-
-  const successRedirection = () => {
-    if (requested) {
-      return push('/login');
-    }
-  };
-
   useEffect(() => {
+    const handleUserValidity = async (token) => {
+      if (!isValidUser) {
+        handleToken(token);
+        await checkIsValidUser('/user/token/validate', token);
+      }
+    };
+  
+    const successRedirection = () => {
+      if (requested) return push('/login');
+    };
+  
     handleUserValidity(query.get('token'));
     successRedirection();
-  });
+  }, [isValidUser, requested]);
 
   return (
     <>

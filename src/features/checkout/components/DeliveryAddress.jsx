@@ -66,7 +66,7 @@ const Delivery = ({
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef]);
 
   return (
     <div className="mb-2 mt-4">
