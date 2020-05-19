@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './InviteFriends.css';
 
@@ -18,12 +18,12 @@ const Content = ({ inputData, handleChange }) => (
     </div>
     <div className="recipient-form">
       <form>
-        <InputField
+        <Field.Input
           type="text"
           name="emails"
           placeholderText="Enter email address(es) separated by commas"
           classNames="text-field form-control p-2"
-          handleFocus={() => {}}
+          onFocus={() => {}}
           handleChange={handleChange}
           value={inputData.emails}
         />

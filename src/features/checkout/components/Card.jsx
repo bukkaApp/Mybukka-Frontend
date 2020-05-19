@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { Fragment } from 'react';
 
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import Button from 'Components/button/Button';
 
 import inputFeild from '../InputAttribute/inputData.json';
@@ -41,14 +41,14 @@ const Card = ({
       tabIndex="0"
       role="button"
     >
-      <InputField
+      <Field.Radio
         type="radio"
         classNames="radio"
         placeholder=""
         checked={selected}
         name="makeDefaultPaymentOption"
         handleChange={() => {}}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
       <CardIcon cardType={userCardType} />
       <h6 className="m-0">{userCardType}</h6>
@@ -67,7 +67,8 @@ export const AddCard = ({ cards,
   active
 }) => (
   <Fragment>
-    {cards.length > 0 && <div
+    {cards.length > 0 &&
+    <div
       onKeyDown={() => {}}
       role="button"
       aria-pressed="false"
@@ -76,7 +77,8 @@ export const AddCard = ({ cards,
       className="text-muted cursor-pointer"
     >
       <i className="fas fa-chevron-left mr-2 mb-2" />
-            show cards</div>}
+      show cards
+    </div>}
     <div className="row flex-row flex-nowrap-sm font-size-14">
       <AuthForm
         inputData={inputData}
@@ -87,13 +89,13 @@ export const AddCard = ({ cards,
     </div>
 
     <div className="form-group checkbox-form-group">
-      <InputField
+      <Field.Checkbox
         type="checkbox"
         classNames="checkbox"
         placeholder=""
         name="makeDefaultPaymentOption"
         handleChange={() => {}}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
       <span className="make-default-text">Make default payment method</span>
     </div>

@@ -1,0 +1,26 @@
+.Add-to-cart {
+  height: 100%
+}
+
+.modal-overflow-none {
+    overflow: hidden;
+}
+.Add-to-cart_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  @media screen and (min-width: 1060px) {
+    flex-direction: row;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: 1059px) {
+    overflow-y: scroll;
+    height: calc(100% - 108px);
+    border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+  }
+}

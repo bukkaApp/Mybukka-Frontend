@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
-import shortId from 'shortid';
 
 const ListItem = ({ listType, items }) => {
   if (listType === 'number') {
@@ -9,7 +8,7 @@ const ListItem = ({ listType, items }) => {
       <ol className="dropdown_article_item">
         {
           items.map(item =>
-            (<li key={shortId.generate()}>
+            (<li key={`article-order-list-item-${item || item.strong || item.light}`}>
               <strong>{item.strong || ''}</strong>
               <span> {item.light || ''}</span>
               <span> {(!item.light && !item.strong) && item}</span>
@@ -23,7 +22,7 @@ const ListItem = ({ listType, items }) => {
     <ul className="dropdown_article_item">
       {
         items.map(item => (
-          <li>
+          <li key={`article-unorder-list-item-${item || item.strong || item.light}`}>
             <strong>{item.strong || ''}</strong>
             <span> {item.light || ''}</span>
             <span>{(!item.light && !item.strong) && item}</span>

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import BukkaMeals from '../components/BukkaMeals';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
@@ -14,7 +14,7 @@ const initialState = {
       error: false
     }
   },
-  fetchBukkaMenuReducer: { bukkaMenu: [
+  productsReducer: { bukkaMenu: [
     {
       title: 'title',
       imageUrl: 'www.imageUrl.com',

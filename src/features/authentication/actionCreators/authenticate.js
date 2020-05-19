@@ -10,9 +10,10 @@ const authenticateUserAction = (type, data) => ({
 });
 
 const authenticateUser = (url, data) => async (dispatch) => {
+  let request;
   try {
     dispatch(loading(AUTHENTICATE_USER, true));
-    const request = await axios.post(url, data);
+    request = await axios.post(url, data);
     localStorage.setItem('x-access-token', request.data.token);
     dispatch(authenticateUserAction('SUCCESS', request.data));
     dispatch(loading(AUTHENTICATE_USER, false));
@@ -20,6 +21,7 @@ const authenticateUser = (url, data) => async (dispatch) => {
     dispatch(loading(AUTHENTICATE_USER, false));
     dispatch(authenticateUserAction('ERROR', error.response.data));
   }
+  return request;
 };
 
 export default authenticateUser;

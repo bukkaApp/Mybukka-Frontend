@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 
 import Button from 'Components/button/Button';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import Modal from 'Components/modal';
 import DismissModal from 'Components/modal/DismissModal';
 import ChevronRight from 'Icons/ChevronRight';
@@ -74,9 +74,11 @@ const InputKeyForm = ({
       {displayText && <h6 className="text-center">{displayText}</h6>}
       <br />
       <div className="send-security-form-inline">
-        <InputField
+        <Field.Input
+          value={pin}
+          name="pin"
           handleChange={event => setKey(event.target.value)}
-          handleFocus={() => ({})}
+          onFocus={() => ({})}
           placeholderText={`SUBMIT ${keyType.toUpperCase()}`}
         />
         <Button
@@ -175,7 +177,7 @@ const mapStateToProps = ({
     data: { reference, status, url }
   },
   cartReducer: { totalCost },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: { slug }
   },
   verifyCardReducer: {

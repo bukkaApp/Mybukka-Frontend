@@ -1,7 +1,6 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
 
 import Container from 'Components/container';
@@ -10,9 +9,9 @@ import Column from 'Components/grid/Column';
 
 import MealCard from 'Components/card/MealCard';
 
-import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 
 import './bukkaMeals.scss';
+import NoResult from '../../../components/not-found/NoResult';
 
 const BukkaMealsHeader = ({ category }) => (
   <div className="bukka-meals-header" id={category}>
@@ -20,41 +19,33 @@ const BukkaMealsHeader = ({ category }) => (
   </div>
 );
 
-const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
+const BukkaMeals = ({ bukkaMenu, searchQuery, isInSearch, hasNoResult }) => {
   const bukkaCategories = [
     ...new Set(bukkaMenu.map(mealData => mealData.category))
   ];
-
-  const handleFetchBukkaMenuIfNoMenu = () => {
-    if (bukkaMenu.length <= 0
-      || Object.keys(bukkaMenu[0]).length <= 0) {
-      const bukkaToFetch = location.pathname.split('/')[2];
-      fetchBukkaMenu(bukkaToFetch);
-    }
-  };
-
-  useEffect(() => {
-    handleFetchBukkaMenuIfNoMenu();
-  }, []);
 
   if (bukkaMenu.length <= 0
     || Object.keys(bukkaMenu[0]).length <= 0) {
     return null;
   }
 
+  const onSearch = (category, items) => {
+    const isCategory = item => item.category === category;
+    return Array.isArray(items) ? items.filter(menu => isCategory(menu) && isInSearch(menu))
+      : isCategory(items) && isInSearch(items);
+  };
+
   return (
-    <Container classNames="menu-catalogs">
+    <Container classNames={hasNoResult() ? '' : 'menu-catalogs'}>
       {bukkaCategories.map(eachCategory => (
-        <Fragment key={shortId.generate()}>
+        onSearch(eachCategory, bukkaMenu).length > 0 &&
+        <Fragment key={`store-menu-catelogs-${eachCategory}`}>
           <BukkaMealsHeader category={eachCategory} />
           <Row classNames="menu-section">
             {bukkaMenu.map(mealData => (
-              <Fragment key={shortId.generate()}>
-                {mealData.category === eachCategory && mealData.title.toLowerCase().includes(searchQuery.toLowerCase()) && (
-                  <Column
-                    classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column"
-                    key={`${shortId.generate()}`}
-                  >
+              <Fragment key={`store-menu-catelogs-${mealData.title}-${mealData._id}`}>
+                {onSearch(eachCategory, mealData) && (
+                  <Column classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column">
                     <MealCard {...mealData} />
                   </Column>
                 )}
@@ -63,17 +54,17 @@ const BukkaMeals = ({ bukkaMenu, searchQuery, fetchBukkaMenu }) => {
           </Row>
         </Fragment>
       ))}
+      {hasNoResult() && <NoResult withPadding text={searchQuery} />}
     </Container>
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
+const mapStateToProps = ({ productsReducer: { bukkaMenu } }) => ({
   bukkaMenu
 });
 
 export default connect(
   mapStateToProps,
-  { fetchBukkaMenu: fetchBukkaMenuAction }
 )(BukkaMeals);
 
 BukkaMealsHeader.propTypes = {

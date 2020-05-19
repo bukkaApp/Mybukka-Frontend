@@ -1,7 +1,6 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import shortId from 'shortid';
 
 import { RoundedPlus } from 'Icons/Plus';
 
@@ -29,7 +28,7 @@ const Addresses = ({ addresses, ...props }) => (
         handleEdit={() => props.handleDelete(address)}
         btnText="DELETE"
         text={address.address}
-        key={shortId.generate()}
+        key={`Plain-Account-Details-DELETE-$${address._id}`}
       />
     ))}
     <AddAnAddress />

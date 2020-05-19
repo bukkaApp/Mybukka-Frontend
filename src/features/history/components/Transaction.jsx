@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-import shortId from 'shortid';
 import Container from 'Components/container';
 import { connect } from 'react-redux';
 import ProfileHeaderTitle from '../../profile/common/ProfileHeaderTitle';
@@ -27,7 +26,7 @@ const Transaction = ({
   const [refreshed, refresh] = useState(false);
 
   const extractPrice = dom => dom.cart.items
-    .map(item => item.meal[0].price)
+    .map(item => item.meal.price)
     .reduce((prev, curr) => prev + curr, 0);
 
   const extractQuantity = dom => dom.cart.items
@@ -61,12 +60,12 @@ const Transaction = ({
             />
             {userOrders.map(order => (
               <Card
+                key={`order-transaction-card-${order._id}--${order.status}`}
                 handleClick={() => openTrackingDropdown(order.status)}
                 time={order.time}
                 orderId={order._id} // eslint-disable-line
-                mealTitle={order.cart.items[0].meal[0].title}
+                mealTitle={order.cart.items[0].meal.title}
                 price={extractPrice(order)}
-                key={shortId.generate() + order.title}
                 status={order.status}
                 quantity={extractQuantity(order)}
               />

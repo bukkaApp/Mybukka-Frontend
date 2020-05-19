@@ -9,9 +9,12 @@ const QuantityIndicator = ({ quantity }) => (
   <div className="quantity-badge">{quantity}</div>
 );
 
-const mapStateToProps = ({ cartReducer: { items } }) => ({
-  quantity: items.length
-});
+const mapStateToProps = ({ cartReducer: { items } }) => {
+  const qty = items.reduce((val, itm) => val + itm.quantity, 0);
+  return ({
+    quantity: qty
+  });
+};
 
 export default connect(
   mapStateToProps,

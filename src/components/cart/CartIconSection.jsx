@@ -146,11 +146,14 @@ const CartIconSection = ({
   );
 };
 
-const mapStateToProps = ({ cartReducer: { items, totalCost } }) => ({
-  orderQuantity: items.length,
-  orderItems: items,
-  totalCost
-});
+const mapStateToProps = ({ cartReducer: { items, totalCost } }) => {
+  const qty = items.reduce((val, itm) => val + itm.quantity, 0);
+  return ({
+    orderQuantity: qty,
+    orderItems: items,
+    totalCost
+  });
+};
 
 export default connect(
   mapStateToProps,
@@ -161,11 +164,14 @@ CheckoutBtn.propTypes = {
   handleClick: PropTypes.func.isRequired
 };
 
+CartIconSection.defaultProps = {
+  handleClick: () => {},
+};
+
 CartIconSection.propTypes = {
   removeFromCartAction: PropTypes.func.isRequired,
   totalCost: PropTypes.number.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  focus: PropTypes.bool.isRequired,
+  handleClick: PropTypes.func,
   orderItems: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
   ).isRequired,

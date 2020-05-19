@@ -7,21 +7,21 @@ import TextField from '../common/TextField';
 import Title from './Title';
 import './authinputgroup.scss';
 
-const SignUpGroup = props => (
-  <div className="mt-1">
-    <TextField {...props} className="pl-0" />
-  </div>
-);
 
-const SignInGroup = (props) => {
-  const slideToNextInput =
-    props.slideToNextInput ? 'slide-next-input' : '';
+const AuthInputGroup = (props) => {
+  if (props.title === 'Sign Up') {
+    return (
+      <div className="mt-1">
+        <TextField {...props} className="pl-0" />
+      </div>
+    );
+  }
 
   return (
     <Fragment>
       <Title {...props} />
       <div className="input-group-wrapper mt-9">
-        <div className={`input-slide text-center ${slideToNextInput}`}>
+        <div className={`input-slide text-center ${props.slideToNextInput ? 'slide-next-input' : ''}`}>
           <TextField {...props} classNames="pl-0" />
         </div>
         <ForgotPassword {...props} />
@@ -30,24 +30,7 @@ const SignInGroup = (props) => {
   );
 };
 
-const AuthInputGroup = props => (
-  <Fragment>
-    {props.title === 'Sign Up' ?
-      <SignUpGroup {...props} />
-      : <SignInGroup {...props} />
-    }
-  </Fragment>
-);
-
 export default AuthInputGroup;
-
-SignInGroup.defaultProps = {
-  slideToNextInput: false
-};
-
-SignInGroup.propTypes = {
-  slideToNextInput: PropTypes.bool
-};
 
 AuthInputGroup.defaultProps = {
   title: 'Sign Up',

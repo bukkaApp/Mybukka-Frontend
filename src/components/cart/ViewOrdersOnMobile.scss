@@ -1,0 +1,198 @@
+@import '../../stylebase/variables.scss';
+
+.View-Orders {
+  height: 100%;
+}
+
+.View-Orders-Wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 56px;
+}
+
+.View-Orders-Header {
+  position: relative;
+}
+
+.View-Orders-Header-Content {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  @media screen and (min-width: 768px) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  @media screen and (max-width: 1059px) and (min-width: 768px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.View-Orders-Header-Content-Item {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.View-Orders-Header-Title {
+  display: flex;
+  flex-direction: column;
+}
+
+.View-Orders-Header-Title-Context {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.View-Orders-Header-Title-Text {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  letter-spacing: -1.16px;
+  font-weight: 600;
+  line-height: normal;
+  padding-top: 20px;
+  padding-bottom: 16px;
+}
+
+.View-Orders-Content {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-top: 1px solid rgba(217, 219, 224, 0.5);
+}
+
+.View-Orders-Content-Section {
+  display: flex;
+  padding-top: 24px;
+  padding-bottom: 28px;
+  min-height: 60px;
+  border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+}
+
+.View-Orders-Content-Item {
+  display: flex;
+  cursor: pointer;
+  flex: 1 1 0%;
+}
+
+.View-Orders-Content-Item-Qty {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.View-Orders-Content-Item-Details {
+  flex: 1 1 0%;
+  padding: 0px 20px;
+}
+
+
+.View-Orders-Content-Item-Product {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.28px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 4px;
+}
+
+.View-Orders-Content-Item-Product-Addon {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: normal;
+  color: rgb(143, 149, 163);
+  overflow: hidden;
+  margin: 4px 0px 6px;
+}
+
+.View-Orders-Content-Item-Product-Price {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.16px;
+  font-weight: 500;
+  line-height: normal;
+  color: $color-primary;
+}
+
+.View-Orders-Product-Remove-icon {
+  margin-left: 15px;
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+.View-Orders-Content-Subtotal-Section {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.48px;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  padding: 26px 16px;
+}
+
+.View-Orders-Content-Subtotal-Text {
+  margin: 0px;
+}
+
+.View-Orders-Content-Subtotal-Price {
+  color: $color-primary;
+  margin: 0px;
+}
+
+.View-Orders-Content-Checkout {
+  -webkit-appearance: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.72px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+  height: 56px;
+  background-color: $color-primary;
+  color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 400;
+  padding: 0px;
+  margin: 0px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  outline: none;
+  transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
+  border-radius: 28px;
+  @media screen and (max-width: 1059px) {
+    width: calc(100% - 32px);
+    margin: 16px 16px 36px;
+  }
+}
+
+.View-Orders-Content-Checkout-Text {
+  text-align: center;
+  flex: 1 1 0%;
+}
+

@@ -1,7 +1,6 @@
-import React, { Fragment, useState, useLayoutEffect } from 'react';
+import React, { Fragment, useState, useLayoutEffect, memo } from 'react';
 
-import shortId from 'shortid';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
@@ -86,10 +85,11 @@ const Carousel = ({
   numberOfViews,
   description,
   placeId,
-  fetchBukka, fetchBukkaMenu, otherBukka
+  fetchBukka, fetchBukkaMenu, otherBukka,
+  container,
 }) => {
   const { push } = useHistory();
-  const [width, height] = useWindowSize();
+  const [width, height] = useWindowSize(); // eslint-disable-line
   const [activeIndex, setActiveIndex] = useState(0);
 
   const maxWidth = 100;
@@ -115,7 +115,7 @@ const Carousel = ({
     event.preventDefault();
     fetchBukkaMenu(`${bukka.slug}`)
       .then(() => fetchBukka(bukka.slug))
-      .then(() => push(`/bukka/${bukka.slug}`));
+      .then(() => push(`/bukka/${bukka.slug}`, { showMap: true }));
   };
 
   return (
@@ -131,7 +131,7 @@ const Carousel = ({
           placeId={placeId}
         />
       )}
-      <Container>
+      <Container classNames={container}>
         <div className="carousel">
           <div className="carousel-container align-items-center">
             {activeIndex >= 1 && (
@@ -149,7 +149,7 @@ const Carousel = ({
               >
                 {slideItems.map(bukka => (
                   <FoodCard
-                    key={shortId.generate()}
+                    key={`carousel-${bukka.title}-${bukka.name}-${bukka.slug}`}
                     other={otherBukka}
                     remark={bukka.placeGroup && bukka.placeGroup.length > 0 ?
                       bukka.placeGroup[0] : bukka.remark}
@@ -197,7 +197,7 @@ export default connect(
     fetchBukkaMenu: fetchBukkaMenuAction,
     fetchBukka: fetchBukkaAction
   }
-)(Carousel);
+)(memo(Carousel));
 
 const defaultProps = {
   classNames: ''

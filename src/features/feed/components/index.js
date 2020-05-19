@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 
-import PropTypes from 'prop-types';
-
-import AddToCart from 'Components/common/addToCart';
+import { Route, matchPath } from 'react-router-dom';
 
 import FoodSection from './FoodSection';
 import OtherSection from './OtherSection';
@@ -12,44 +10,31 @@ import Favorites from './Favorites';
 
 import './feed.scss';
 
-const Feed = ({
-  push,
-  food,
-  mart,
-  search,
-  category,
-  fresh,
-  favorites,
-  ...props
-}) => (
-  <Fragment>
-    <AddToCart />
-    {food && <FoodSection {...props} push={push} />}
-    {mart && <OtherSection {...props} push={push} type="mart" />}
-    {search && <SearchResult {...props} push={push} />}
-    {fresh && <OtherSection {...props} push={push} type="fresh" />}
-    {category && <Category {...props} push={push} />}
-    {favorites && <Favorites {...props} push={push} />}
-  </Fragment>
-);
+const Feed = (props) => {
+  const pathMatch = matchPath(props.location.pathname, { path: '/:id' });
+  const match = props.match;
+  let Component;
+  if (pathMatch.params.id === 'feed') {
+    Component = FoodSection;
+  } else if (pathMatch.params.id === 'search') {
+    Component = SearchResult;
+  } else if (pathMatch.params.id === 'category') {
+    Component = Category;
+  } else if (pathMatch.params.id === 'favorites') {
+    Component = Favorites;
+  } else {
+    Component = OtherSection;
+  }
+
+  return (
+    <Fragment>
+      <Route path={`${match.path}`} component={Component} />
+    </Fragment>
+  );
+};
 
 export default Feed;
 
-Feed.defaultProps = {
-  food: false,
-  mart: false,
-  search: false,
-  category: false,
-  fresh: false,
-  favorites: false,
-};
+Feed.defaultProps = {};
 
-Feed.propTypes = {
-  favorites: PropTypes.bool,
-  fresh: PropTypes.bool,
-  category: PropTypes.bool,
-  search: PropTypes.bool,
-  food: PropTypes.bool,
-  mart: PropTypes.bool,
-  push: PropTypes.func.isRequired,
-};
+Feed.propTypes = {};

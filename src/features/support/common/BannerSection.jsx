@@ -1,6 +1,6 @@
 import React from 'react';
 import Brand from 'Components/brand/Brand';
-// import Container from 'Components/container/Container';
+import Navlink from 'Components/navlink/Navlink';
 import Iconic from './Iconic';
 
 import './banner-section.scss';
@@ -26,9 +26,9 @@ const BannerSection = () => (
         />
       </div>
       <div className="custom-help-section">
-        <a className="custom-help-section-text unselectable" href="/buyer">
+        <Navlink classNames="custom-help-section-text unselectable" href="/buyer">
           <span>Help</span>
-        </a>
+        </Navlink>
       </div>
       <div className="support-search-section">
         <div className="support-search-content">

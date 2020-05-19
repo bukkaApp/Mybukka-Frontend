@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ChevronVertical from 'Icons/ChevronVertical';
 
 import { UnOrderList, ListItem } from '../common/List';
+import Navlink from '../../../components/navlink/Navlink';
 
 const navArr = [
   { text: 'Terms of Service', href: '/legal/terms' },
@@ -29,18 +30,17 @@ const SmallScreen = ({ activePage }) => {
         classNames="secondary-custom-navbar-content p-0"
       >
         {navArr.map(navText => (
-          <a
+          <Navlink
             key={navText.text}
             href={navText.href}
-            className={`${activePage === navText.text ? 'text-custom-dark'
-              : 'text-muted'}`}
+            classNames={`${activePage === navText.text ? 'nav-link-black' : 'nav-link-white'}`}
           >
             <ListItem
               classNames="secondary-content-list text-center"
             >
               {navText.text}
             </ListItem>
-          </a>
+          </Navlink>
         ))}
       </UnOrderList>
       }
@@ -52,16 +52,16 @@ const LargeScreen = ({ activePage }) => (
   <nav className="navbar justify-content-between">
     <p className="custom-mark">Legal</p>
     <UnOrderList
-      classNames="d-flex justify-content-between"
+      classNames="d-flex justify-content-between remove-list-style"
     >
       {navArr.map(navText => (
-        <a
+        <Navlink
           key={navText.text}
           href={navText.href}
-          className={`${activePage === navText.text ? 'text-dark' : 'text-muted'}`}
+          classNames={`${activePage === navText.text ? 'nav-link-black' : 'nav-link-white'}`}
         >
           <ListItem classNames="px-2">{navText.text}</ListItem>
-        </a>))}
+        </Navlink>))}
     </UnOrderList>
   </nav>
 );

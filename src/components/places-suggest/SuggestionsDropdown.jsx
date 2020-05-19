@@ -8,6 +8,7 @@ import './SuggestionsDropdown.scss';
 
 const SuggestionsDropdown = ({
   setLocation,
+  predictions,
   useCurrentLocationVisible,
 }) => (
   <div className="suggestion-dropdown">
@@ -16,6 +17,7 @@ const SuggestionsDropdown = ({
     }
     <GeoSuggestions
       handleClick={setLocation}
+      predictions={predictions}
     />
   </div>
 );

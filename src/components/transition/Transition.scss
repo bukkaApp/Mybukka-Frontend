@@ -1,0 +1,33 @@
+@import '../../stylebase/variables.scss';
+
+.react-myprogress-bar {
+  position: fixed;
+  height: 3px;
+  display: block;
+  width: 0%;
+  background-color: $color-primary;
+  border-radius: 2px;
+  background-clip: padding-box;
+  overflow: hidden;
+  z-index: 150;
+}
+
+.fade-enter .react-myprogress-bar {
+  width: 50%;
+}
+
+.fade-enter.fade-enter-active .react-myprogress-bar {
+  width: 100%;
+  transition: width 300ms ease-in;
+}
+
+.fade-exit .react-myprogress-bar {
+  width: 0%;
+  transition: width 300ms ease-in;
+}
+
+.fade-exit.fade-exit-active > .react-myprogress-bar {
+  width: 50%;
+  transition: width 300ms ease-in;
+}
+

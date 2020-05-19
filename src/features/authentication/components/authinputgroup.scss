@@ -1,9 +1,5 @@
 $fontFamily: 'Roboto', sans-serif;
 
-.mt-9 {
-  margin-top: 81px
-}
-
 .auth-form-title {
   font-family: $fontFamily;
   font-size: 18px;
@@ -32,6 +28,7 @@ $fontFamily: 'Roboto', sans-serif;
     width: 90%;
     margin: 0 5% 0 5%;
     padding-left: 0;
+    text-align: center;
   }
 }
 

@@ -2,6 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Navlink from 'Components/navlink/Navlink';
 import Container from 'Components/container/Container';
 import setPromotionToDisplayAction from 'Redux/setPromotionToDisplayAction';
 
@@ -9,8 +10,8 @@ import './Headline.scss';
 
 // NumItemsToView - number of items to view
 const NumItemsToView = ({ items, description, id, handleClick }) => (
-  <a
-    className={`headline-link ${description ? 'd-sm-none' : ''}`}
+  <Navlink
+    classNames={`headline-link ${description ? 'd-sm-none' : ''}`}
     href={`/place-groups/d/${id}`}
     onClick={handleClick}
     rel="nofollow"
@@ -19,7 +20,7 @@ const NumItemsToView = ({ items, description, id, handleClick }) => (
       View all {items}
     </span>
     <i className="fas fa-chevron-right" />
-  </a>
+  </Navlink>
 );
 
 const Headline = ({

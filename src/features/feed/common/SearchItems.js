@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
 
 import BukkaCard from 'Components/Carousel/BukkaCard';
+import Navlink from 'Components/navlink/Navlink';
 import Row from 'Components/grid/Row';
 import Container from 'Components/container/Container';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
@@ -28,11 +29,11 @@ export const Headline = ({ title, views }) => (
         </h2>
       </blockquote>
       {views > 0 && (
-        <a className="headline-link" href="/" rel="nofollow">
+        <Navlink classNames="headline-link" href="/" rel="nofollow">
           <span className="d-none pr-3 d-sm-inline-flex">
             {views} {views > 1 ? 'Results' : 'Result'}
           </span>
-        </a>
+        </Navlink>
       )}
     </div>
   </Container>
@@ -109,8 +110,8 @@ const SearchItems = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   searchAnythingReducer: { search },
-  bukkasReducer: { fetchedBukkas, status },
-  cuisineReducer: {
+  businessesReducer: { fetchedBukkas, status },
+  businessGroupReducer: {
     cuisineItems, errorMessage,
     currentPage,
     cuisineToDisplay: { name },

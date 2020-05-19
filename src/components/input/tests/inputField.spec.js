@@ -1,16 +1,16 @@
 import React from 'react';
-import InputField from '../InputField';
+import Field from '../Field';
 
 describe('Input Field', () => {
   const props = {
     name: 'test',
-    handleFocus: jest.fn(),
+    onFocus: jest.fn(),
     placeholderText: 'sign in',
     handleChange: jest.fn(),
     type: 'text',
     classNames: 'default-btn',
   };
-  const wrapper = shallow(<InputField {...props} />);
+  const wrapper = shallow(<Field.Input {...props} />);
 
   it('renders properly', () => {
     expect(wrapper).toMatchSnapshot();

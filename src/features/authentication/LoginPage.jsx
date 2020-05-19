@@ -1,30 +1,40 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, memo } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 
 import PrimaryNavbar from 'Components/navbar';
-
+import urlFilter from '../../shared/urlFilter';
 import authenticate from './actionCreators/authenticate';
 import Authentication from './components/Authentication';
-
+import fetchUserDataAction from '../profile/actionCreators/fetchUserData';
 import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
 import signInDomStructure from './signInDomStructure.json';
 import './auth.scss';
+import { useModalContext } from '../../context/UseModal';
 
-export const LoginPage = ({
-  status: { authenticated },
-  authModal,
+export const LoginPage = memo(({
+  status: { authenticated: isAuthenticated },
+  authModal: hasModal,
   errorMessage,
   classNames,
   authenticateUser,
-  history: { push, location }
+  history: { push, location },
+  fetchUserData,
 }) => {
+  const { setAuthenticationPopup, setVerificationPhonePopup, setModal } = useModalContext();
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const [isRequested, setIsRequested] = useState(false);
   const [nextSlide, setNextSlide] = useState(false);
-  const [redirect, setRedirection] = useState('');
+  // const [redirect, setRedirection] = useState('');
+
+  const handleClick = () => {
+    setModal(false);
+    setAuthenticationPopup(false);
+  };
 
   const [validationErrors, setValidationErrors] = useState({
     email: '',
@@ -36,9 +46,14 @@ export const LoginPage = ({
     password: ''
   });
 
+  // forgot password
   const handleLinkOptions = (link) => {
-    $('#authModal').modal('hide');
+    handleClick();
     push(link);
+  };
+
+  const goToPrev = () => {
+    setNextSlide(false);
   };
 
   // fix error message coincedence for both signup and signin
@@ -64,6 +79,39 @@ export const LoginPage = ({
     });
   };
 
+  const withSuccess = (isAuth, callback) => {
+    if (isAuth) {
+      callback();
+    }
+  };
+
+  const verifyPhone = () => {
+    fetchUserData()
+      .then((d) => {
+        withSuccess(d.status === 200, () => {
+          const hasntVerified = d.data.userInfo.verified === false;
+          if (hasntVerified) {
+            setVerificationPhonePopup(true);
+            setModal(true);
+          }
+        });
+      });
+  };
+
+  const handleExpensiveEvents = () => {
+    const hasRedirection = location && location.search;
+    if (isBigScreen && hasModal) {
+      handleClick();
+    } else if (isBigScreen && hasRedirection) {
+      const redirect = urlFilter(location.search);
+      verifyPhone();
+      return push(redirect);
+    } else {
+      push('/');
+    }
+    verifyPhone();
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const validation = validateAllFields(inputData, true);
@@ -73,74 +121,37 @@ export const LoginPage = ({
     // if No AutoSuggestion
     if (!errors.email && errors.password && !nextSlide) {
       setNextSlide(true);
-      setValidationErrors({
-        ...validationErrors,
-        password: ''
-      });
+      setValidationErrors({ ...validationErrors, password: '' });
     }
     if (passes) {
       setNextSlide(true);
       if (nextSlide) {
         setIsRequested(true);
-        return authenticateUser('/user/signin', inputData);
+        return authenticateUser('/user/signin', inputData)
+          .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
       }
     }
   };
 
-  const goToPrev = () => {
-    setNextSlide(false);
-  };
-
-  const urlFilter = (url) => {
-    // filter "/login?next=/support?cs_web_redirect=/buyer" or /login?next=/profile
-    const urlStringToArr = url.split('=');
-    if (urlStringToArr.length === 2) {
-      setRedirection(urlStringToArr[1]);
-    } else {
-      urlStringToArr.shift();
-      urlStringToArr[0] = urlStringToArr[0]
-        .replace('?cs_web_redirect', '');
-      const confirmedUrl = urlStringToArr.join('');
-      setRedirection(confirmedUrl);
-    }
+  const handleFBAuth = (e) => {
+    const fullName = e.name.split(' ');
+    const data = {
+      lastName: fullName[0],
+      firstName: fullName[1],
+      email: e.email,
+      imageUrl: e.picture.data.url,
+    };
+    authenticateUser('/user/social/auth', data)
+      .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
   };
 
   useEffect(() => {
-    if (location && location.search) {
-      urlFilter(location.search);
-      if (authenticated) {
-        push(redirect);
-        $('#authModal').modal('hide');
-      }
-    }
-    if (!authModal && !location.search && authenticated) {
-      return push('/');
-    }
-  }, [location, authModal, authenticated]);
-
-  const BukkaLogo = () => {
-    if (!authModal) {
-      return (
-        <div className="pb-3">
-          <Logo />
-        </div>
-      );
-    }
-    return null;
-  };
-
-  const ToolBar = () => {
-    if (!authModal) {
-      return (
-        <PrimaryNavbar push={push} />
-      );
-    }
-    return null;
-  };
+    withSuccess(isAuthenticated, handleExpensiveEvents);
+  }, []);
 
   return (
     <Fragment>
-      <ToolBar />
+      {!hasModal && <PrimaryNavbar push={push} />}
       <div className="bg-color auth-page">
         <Authentication
           title="Log In"
@@ -152,30 +163,34 @@ export const LoginPage = ({
           domStructure={signInDomStructure}
           validationErrors={validationErrors}
           isFormCompleted
-          authModal={authModal}
+          hasModal={hasModal}
           classNames={classNames}
           userEmail={inputData.email}
           slideToNextInput={nextSlide}
           handleBackClick={goToPrev}
+          handleFBAuth={handleFBAuth}
         />
-        <BukkaLogo />
       </div>
+      {!hasModal && <div className="pb-3"> <Logo /></div>}
     </Fragment>
   );
-};
+});
 
 const mapStateToProps = ({
-  authenticationReducer: { status, user, errorMessage }
+  authenticationReducer: { status, user, errorMessage },
+  // userProfileReducer: { userInfo },
 }) => ({
   status,
   user,
-  errorMessage
+  errorMessage,
 });
 
-export default connect(
+export default memo(connect(
   mapStateToProps,
-  { authenticateUser: authenticate }
-)(LoginPage);
+  { authenticateUser: authenticate,
+    fetchUserData: fetchUserDataAction
+  }
+)(LoginPage));
 
 LoginPage.defaultProps = {
   errorMessage: '',

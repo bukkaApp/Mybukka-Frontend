@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import shortId from 'shortid';
 import TrackingHeader from './TrackingHeader';
 import Timeline from '../common/Timeline';
 import trackingDisplayClose from '../actionCreators/trackingDisplayClose';
@@ -77,7 +76,7 @@ const Tracking = ({ show, status, closeTrackingDropdown }) => {
               {
                 Object.keys(trackingStatus).map(dom => (
                   <Timeline
-                    key={shortId.generate()}
+                    key={`order-tracking-${trackingStatus[dom].text}`}
                     icon={trackingStatus[dom].icon}
                     time={trackingStatus[dom].time}
                     status={trackingStatus[dom].text}

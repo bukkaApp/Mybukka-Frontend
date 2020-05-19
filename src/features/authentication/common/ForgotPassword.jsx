@@ -11,7 +11,7 @@ const ForgotPassword = ({ handleLinkOptions }) => (
     className="col-lg-12 padding terms text-center"
   >
     <p className="link text-muted link-hover">
-        Forgot Password?
+      Forgot Password?
     </p>
   </div>
 );

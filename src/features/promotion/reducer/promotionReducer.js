@@ -18,7 +18,7 @@ const initialState = {
   }
 };
 
-const bukkasReducer = (state = initialState, action) => {
+const businessesReducer = (state = initialState, action) => {
   switch (action.type) {
     case `${FETCH_PROMOTED_BUKKAS}_SUCCESS`: {
       return {
@@ -116,4 +116,4 @@ const bukkasReducer = (state = initialState, action) => {
   }
 };
 
-export default bukkasReducer;
+export default businessesReducer;

@@ -1,7 +1,9 @@
+@import "../../../stylebase/variables.scss";
+
 .small-text {
   font-size: 15px;
   font-weight: 300;
-  color: gray;
+  color: $color-dark-gray;
 }
 
 .small-text-discover {
@@ -26,6 +28,7 @@
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 20px;
+  position: relative;
 }
 
 .side-image {
@@ -36,7 +39,7 @@
 .smaller-text {
   font-weight: 400;
   font-size: 18px;
-  color: #8f95a3;
+  color: $color-dark-gray;
   line-height: 26px;
 }
 

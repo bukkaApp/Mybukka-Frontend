@@ -7,7 +7,7 @@ import bukkaData from '../common/bukkaData.json';
 import SearchResult from '../components/SearchResult';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   searchAnythingReducer: { search: '' },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
@@ -17,7 +17,7 @@ const initialState = {
       error: false
     }
   },
-  bukkasReducer: {
+  businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
       message: ''
@@ -41,7 +41,7 @@ describe.skip('SearchResult component', () => {
     fetchedBukkas: { nearbyBukkas: [] },
     fetchNearbyBukkas: jest.fn(),
     status: { error: false },
-    cuisineReducer: {
+    businessGroupReducer: {
       cuisineItems: [],
       errorMessage: '',
       currentPage: 1,
@@ -64,15 +64,15 @@ describe.skip('SearchResult component', () => {
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'a' },
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }

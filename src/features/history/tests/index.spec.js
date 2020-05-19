@@ -8,8 +8,8 @@ const store = mockStore({
     show: true,
     status: 'pending',
   },
-  fetchUserData: { userInfo: { userInfo: { imageUrl: 'www.imageUrl.com' } }, },
-  fetchBukkaMenuReducer: { cart: [], totalPriceInCart: 0 },
+  userProfileReducer: { userInfo: { userInfo: { imageUrl: 'www.imageUrl.com' } }, },
+  productsReducer: { cart: [], totalPriceInCart: 0 },
   getOrderHistoryReducer: { status: { fetched: true, error: false } },
 });
 

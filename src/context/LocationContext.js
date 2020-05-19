@@ -44,7 +44,8 @@ const geoLocationOptions = {
 };
 const loggerReducer = logger(reducer);
 
-const useCurrentLocation = () => {
+const useLocation = () => {
+  console.log('location service leaking ...');
   const [isGettingLocation, setIsGettingLocation] = useState(false);
   // lai - Location Area Identity
   const [data, setData] = useLocalStorage('lai', initialState);
@@ -52,7 +53,7 @@ const useCurrentLocation = () => {
 
   useEffect(() => {
     setData(state);
-  }, [state, setData]);
+  }, [state]);
 
   const setSelectedLocation = (coordinates) => {
     dispatch({
@@ -107,4 +108,4 @@ const useCurrentLocation = () => {
   return { selectedLocation, coordinates, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
 };
 
-export const [LocationProvider, useLocationContext] = constate(useCurrentLocation);
+export const [LocationProvider, useLocationContext] = constate(useLocation);

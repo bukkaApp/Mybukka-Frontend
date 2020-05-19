@@ -48,13 +48,17 @@
 
 .font-size96 {
     font-size: 96px!important;
+    line-height: 1;
     @media screen and (max-width: 767px) {
         font-size: 60px !important;
         letter-spacing: -3.3px;
         font-weight: 500;
-        line-height: 1;
         margin-bottom: 32px;
     }
+}
+
+.remove-list-style {
+  list-style: none;
 }
 
 .text-bold {

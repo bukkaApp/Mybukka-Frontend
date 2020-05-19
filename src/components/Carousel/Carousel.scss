@@ -97,6 +97,10 @@
 .control-left svg,
 .control-right svg {
   position: relative;
+  @media (min-width: 1060px) {
+    top: 4px;
+    left: 4px;
+  }
   top: 15%;
   left: 13%;
 }
@@ -110,4 +114,10 @@
 
 .carousel {
   padding-bottom: 20px;
+}
+
+.container-padding {
+  @media (max-width: 767px) {
+    padding-right: 0px;
+  }
 }

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Footer from 'Components/footer/Footer';
-import ModalRoot from '../modal-root/Index';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
 
@@ -14,14 +13,13 @@ import ChooseAreaToExploreSection
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-import VerifyPhone from '../verifyPhone';
 import fetchBukkasAction from '../feed/actionCreators/fetchBukkas';
 import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
-import useUpdateEffect from '../../context/useUpdateEffect';
+import useUpdateEffect from '../../hooks/useUpdateEffect';
 
 
-const Home = ({
+const Home = React.memo(({
   history: { push },
   fetchNearbyBukkas,
   getPromotedBukkas,
@@ -31,18 +29,15 @@ const Home = ({
 
   useUpdateEffect(() => {
     new Promise(async (resolve) => {
-      resolve(getPromotedBukkas(coordinates));
+      resolve(fetchNearbyBukkas(coordinates));
     }).then(() => getRestaurantCuisine(coordinates))
-      .then(() => fetchNearbyBukkas(coordinates))
-      .then(() => push('/feed'));
-    return () => console.log('unmounted');
+      .then(() => getPromotedBukkas(coordinates))
+      .then(() => push('/feed', { showMap: true }));
   }, [coordinates]);
 
   return (
     <Fragment>
-      <ModalRoot push={push} />
       <div className="home">
-        <VerifyPhone />
         <IntroSection push={push} />
         <DiscoverSection />
         <ChooseAreaToExploreSection />
@@ -51,7 +46,8 @@ const Home = ({
       </div>
     </Fragment>
   );
-};
+});
+
 export default connect(
   () => ({}),
   {

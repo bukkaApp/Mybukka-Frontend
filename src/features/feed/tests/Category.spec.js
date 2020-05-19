@@ -7,7 +7,7 @@ import bukkaData from '../common/bukkaData.json';
 import Category from '../components/Category';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   authenticationReducer: {
@@ -16,7 +16,7 @@ const initialState = {
       error: false
     }
   },
-  cuisineReducer: {
+  businessGroupReducer: {
     cuisineItems: [{
       _id: '5ddc5dfb9a29af135cd21ce7',
       name: 'american',
@@ -26,7 +26,7 @@ const initialState = {
     currentPage: 1,
     cuisineToDisplay: { name: 'cuisine name' },
   },
-  bukkasReducer: {
+  businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
       message: ''
@@ -69,15 +69,15 @@ describe('Category component', () => {
     const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }

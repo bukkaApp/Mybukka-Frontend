@@ -4,8 +4,8 @@ import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import SuggestionsDropdown from 'Components/places-suggest/SuggestionsDropdown';
 
-import Input from 'Components/input/InputField';
-import useLocationService from '../../../context/useLocationService';
+import Field from 'Components/input/Field';
+import useAutocompleteService from '../../../hooks/useAutocompleteService';
 
 const Address = ({
   useCurrentLocationVisible,
@@ -13,7 +13,8 @@ const Address = ({
   propData,
 }) => {
   const wrapperRef = React.createRef();
-  const { selectedLocation, handleChange, geoCodeLocation,} = useLocationService();
+  // const [predictions, setPredictions] = useState([]);
+  const { predictions, selectedLocation, handleChange, handleClick } = useAutocompleteService();
   const [inputData, setInputData] = useState('');
   const [isFocused, setFocus] = useState(false);
 
@@ -23,6 +24,14 @@ const Address = ({
     }
   };
 
+  const onSelect = (predict, isGeoCode) => {
+    handleClick(predict, isGeoCode);
+    const value = predict.description;
+    setInputData(value);
+    handleInputChange({ target: { name: 'address', value } });
+    setFocus(false);
+  };
+
   const handleCollapse = (event) => {
     if (inputData && !inputData.contains(event.target)) {
       setFocus(false);
@@ -30,29 +39,32 @@ const Address = ({
   };
 
   useEffect(() => {
-    setInputData(selectedLocation.description);
+    if (selectedLocation && selectedLocation.description) {
+      setInputData(selectedLocation.description);
+    }
   }, [selectedLocation]);
 
   const emitOnChange = ({ target: { value } }) => {
+    handleChange({ target: { value } });
     setInputData(value);
     handleInputChange({ target: { name: 'address', value } });
-    handleChange({ target: { value } });
   };
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
-  });
+    return () => document.addEventListener('click', handleClickOutside);
+  }, []);
 
   return (
     <div ref={wrapperRef}>
-      <Input
+      <Field.Input
         inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
         handleChange={emitOnChange}
         classNames={propData.classNames}
         value={inputData}
-        handleFocus={() => setFocus(true)}
+        onFocus={() => setFocus(true)}
         label="Location"
         placeholderText="Enter your address..."
         id={propData.id}
@@ -62,7 +74,8 @@ const Address = ({
         {isFocused && (
           <Fragment>
             <SuggestionsDropdown
-              setLocation={geoCodeLocation}
+              predictions={predictions}
+              setLocation={onSelect}
               useCurrentLocationVisible={useCurrentLocationVisible}
             />
           </Fragment>
@@ -81,10 +94,7 @@ Address.defaultProps = {
 };
 
 Address.propTypes = {
-  google: PropTypes.shape({}).isRequired,
-  updatePredictions: PropTypes.func.isRequired,
   selectedLocation: PropTypes.shape({}).isRequired,
-  selectLocation: PropTypes.func.isRequired,
   useCurrentLocationVisible: PropTypes.bool,
   handleInputChange: PropTypes.func,
   propData: PropTypes.objectOf({

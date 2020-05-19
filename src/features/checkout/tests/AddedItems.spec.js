@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import AddedItems from '../components/AddedItems';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
@@ -16,14 +16,14 @@ const initialState = {
       error: false
     }
   },
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: {},
     status: {
       fetched: false,
       error: false,
     },
   },
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu: [
       {
         title: 'title',

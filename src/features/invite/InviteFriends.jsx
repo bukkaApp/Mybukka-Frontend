@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DismissModal from 'Components/modal/DismissModal';
-import Modal from 'Components/modal';
+import Modal from 'Components/modal/Modal';
 // import MyContextPush from './context-api/MyContextPush';
 import './InviteFriends.css';
 import Header from './Header';
@@ -39,7 +39,7 @@ const InviteFriends = () => {
   };
 
   return (
-    <Modal dataTarget="inviteFrnd" classNames="inviteFrnd">
+    <Modal classNames="inviteFrnd">
       <DismissModal classNames="close" />
       <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
     </Modal>

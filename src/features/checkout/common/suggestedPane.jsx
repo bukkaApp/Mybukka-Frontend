@@ -31,7 +31,7 @@ export default CartPane;
 
 CartPane.propTypes = {
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired
 };
 

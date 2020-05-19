@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, Route, Redirect, matchPath } from 'react-router-dom';
 import { connect } from 'react-redux';
 import UnAuthenticatedCheckout from 'Components/common-navs/UnAuthenticatedCheckout';
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
@@ -9,10 +9,8 @@ import LocationNavSmallScreen, {
 } from 'Components/common-navs/LocationNavSmallScreen';
 import BukkaNavSmallScreen from 'Components/navbar/BukkaNavSmallScreen';
 import CheckoutButton from 'Components/common/CheckoutButton';
-import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
-import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
-
 import fetchFreshOrMartAction from 'Redux/fetchFreshOrMartAction';
+
 import { useLocationContext } from '../../../context/LocationContext';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
@@ -24,11 +22,16 @@ import OtherSectionCategories from '../common/OtherSectionCategories';
 const OtherSection = ({
   bukkaMenu,
   categories,
+  match,
+  location,
+  fetchNearbyFreshOrMart,
   error,
-  fetched,
-  type,
-  fetchNearbyBukkas,
+  loading,
+  businessError
 }) => {
+  const prevPage = React.useRef(null);
+  const { params } = matchPath(location.pathname, { path: '/:id' });
+  const type = params.id;
   const { push } = useHistory();
   const { coordinates } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState('');
@@ -37,38 +40,47 @@ const OtherSection = ({
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchNearbyBukkas(coordinates, type);
+    const _refetchItems = () => {
+      const hasntFetched = !loading && bukkaMenu.length === 1;
+      const validCoordinatesAndNoError = coordinates.length !== 0 && !error;
+      const pageChanged = !prevPage.current || prevPage.current !== type;
+      if (pageChanged && hasntFetched && validCoordinatesAndNoError) {
+        prevPage.current = type;
+        fetchNearbyFreshOrMart(coordinates, type);
+      }
+    };
+    _refetchItems();
   }, [coordinates, type]);
-
-  if (bukkaMenu.length === 1 && error) {
-    return <NoNearByBukkaLocation push={push} />;
-  }
 
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />
-      {bukkaMenu.length > 1 && fetched && (
-        <div>
-          <IntroSection push={push} />
-          <ExploreSection>
-            <AreasToExplore
-              text={isMart ? 'Mart' : 'Groceries.'}
-              bgImage={isMart ? drinkBannerImage : freshBannerImage}
-            />
-            <div className="feed-main-content">
-              <LocationNavLargeScreen
-                scheduleTime
-                handleSearch={event => setSearchQuery(event.target.value)}
-                categoryItems={categories}
-                section={type}
-              />
-              <BukkaNavSmallScreen currentCategory="Wine Under $20" />
-              <LocationNavSmallScreen />
-              <OtherSectionCategories searchQuery={searchQuery} />
-            </div>
-          </ExploreSection>
-        </div>
-      )}
+      <Route
+        path={`${match.path}`}
+        render={() => (
+          businessError ?
+            <Redirect to="/coming-soon" />
+            : <Fragment>
+              <IntroSection push={push} />
+              <ExploreSection>
+                <AreasToExplore
+                  text={isMart ? 'Mart' : 'Groceries.'}
+                  bgImage={isMart ? drinkBannerImage : freshBannerImage}
+                />
+                <div className="feed-main-content">
+                  <LocationNavLargeScreen
+                    scheduleTime
+                    handleSearch={event => setSearchQuery(event.target.value)}
+                    categoryItems={categories}
+                    section={type}
+                  />
+                  <BukkaNavSmallScreen currentCategory="Wine Under $20" />
+                  <LocationNavSmallScreen />
+                  <OtherSectionCategories searchQuery={searchQuery} />
+                </div>
+              </ExploreSection>
+            </Fragment>)}
+      />
       <CheckoutButton />
       <UnAuthenticatedCheckout push={push} />
     </div>
@@ -76,13 +88,17 @@ const OtherSection = ({
 };
 
 const mapStateToProps = ({
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu,
     categories,
     status: { error, fetched },
   },
+  businessReducer: { status: { error: businessError }, },
+  loadingReducer: { status: loading },
   cartReducer: { errorMessage },
 }) => ({
+  loading,
+  businessError,
   bukkaMenu,
   status,
   categories,
@@ -94,8 +110,7 @@ const mapStateToProps = ({
 export default connect(
   mapStateToProps,
   {
-    fetchBukkaMenu: fetchBukkaMenuAction,
-    fetchNearbyBukkas: fetchFreshOrMartAction
+    fetchNearbyFreshOrMart: fetchFreshOrMartAction
   },
 )(OtherSection);
 

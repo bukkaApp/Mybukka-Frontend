@@ -1,4 +1,4 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useReducer } from 'react';
 import constate from 'constate';
 import logger from './Logger';
 
@@ -17,15 +17,10 @@ const reducer = (originalState, action) => {
 const loggerReducer = logger(reducer);
 
 const useLoading = () => {
-  const [data, setData] = useState(initialState);
-  const [state, dispatch] = useReducer(loggerReducer, data);
+  const [state, dispatch] = useReducer(loggerReducer, initialState);
 
-  useEffect(() => {
-    setData(state);
-  }, [state, setData]);
-
-  const loading = (action, status) => dispatch({
-    type: `${action}_LOADING`,
+  const loading = (type, status) => dispatch({
+    type: `${type}_LOADING`,
     status,
   });
 

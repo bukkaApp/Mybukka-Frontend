@@ -1,6 +1,5 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import PrimaryNavbar from 'Components/navbar';
 import Container from 'Components/container';
 import Footer from 'Components/footer/Footer';
 import UnselectableHeading from '../common/UnSelectableHeading';
@@ -15,45 +14,46 @@ import './statement.scss';
 
 const Statement = ({ data, activePage }) => {
   useEffect(() => scrollTo(0, 0), []);
+  const [content, setContent] = useState('');
+
+  // get promised data value [[promiseValue]]
+  useEffect(() => { data.then(jsonData => setContent(jsonData)); }, [data]);
 
   return (
-    <Fragment>
-      <section className="border-bottom">
-        <PrimaryNavbar authButton />
-      </section>
+    Object.keys(content).length && <Fragment>
       <SeceondaryNavbar activePage={activePage} />
       <Container classNames="custom-container">
         <UnselectableHeading
           font="font-size96"
           classNames="my-5 pb-5 px-0 mx-0"
-          text={data.title}
+          text={content.title}
         />
-        <LastUpdated classNames="mx-0" text={data.lastUpdated} />
+        <LastUpdated classNames="mx-0" text={content.lastUpdated} />
         <Foreword
           classNames="short-text text-custom-dark forewords"
         >
-          {data.bold ? <strong className="font-18x">{data.forewords}</strong>
-            : data.forewords}{' '}
-          {data.forewordConclusion || ''}
+          {content.bold ? <strong className="font-18x">{content.forewords}</strong>
+            : content.forewords}{' '}
+          {content.forewordConclusion || ''}
         </Foreword>
-        {data.further && data.further.map(eachData =>
+        {content.further && content.further.map(eachData =>
           (<Paragraph
             key={eachData}
             classNames="short-text scope-definition mt-0"
             text={eachData}
           />))}
-        {data.privacyScope &&
+        {content.privacyScope &&
         <PrivacyScope
           classNames="text-custom-dark scope-text text-bold"
-          text={data.privacyScope}
+          text={content.privacyScope}
         />
         }
-        {data.scope &&
+        {content.scope &&
         <Paragraph
           classNames="short-text scope-definition mt-0"
-          text={data.scope}
+          text={content.scope}
         />}
-        <Content data={data} />
+        <Content data={content} />
       </Container>
       <section className="mt-5">
         <Footer />

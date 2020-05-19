@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import NavLink from '../../../components/navlink/Navlink';
 
 import './personalizedheader.scss';
 
@@ -9,12 +10,12 @@ const PersonalizedHeader = ({ title, className }) => (
       <div className={`personalized-header-text ${className}`}>
         {title}
       </div>
-      <a
-        className="personalized-header-link"
+      <NavLink
+        classNames="personalized-header-link"
         href="/support/buyer"
       >
         <span>View all</span>
-      </a>
+      </NavLink>
     </div>
     <div className="personalized-header-divider" />
   </div>

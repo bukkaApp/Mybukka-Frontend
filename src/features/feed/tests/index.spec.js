@@ -7,7 +7,7 @@ import bukkaData from '../common/bukkaData.json';
 import Feed from '../components';
 
 const initialState = {
-  navbarAuthReducer: { type: 'Sign In', },
+  changeAuthenticationPageReducer: { type: 'Sign In', },
   searchAnythingReducer: { search: '' },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
@@ -20,7 +20,7 @@ const initialState = {
       error: false
     }
   },
-  bukkasReducer: {
+  businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
       message: ''
@@ -30,7 +30,7 @@ const initialState = {
       error: true,
     }
   },
-  fetchBukkaMenuReducer: {
+  productsReducer: {
     bukkaMenu: [
       {
         title: 'title',
@@ -82,15 +82,15 @@ describe.skip('FeedPage component', () => {
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'a' },
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }
@@ -114,15 +114,15 @@ describe.skip('FeedPage component', () => {
     const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }
@@ -149,15 +149,15 @@ describe.skip('FeedPage component', () => {
     const newState = {
       ...initialState,
       searchAnythingReducer: { search: 'jack' },
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }
@@ -184,15 +184,15 @@ describe.skip('FeedPage component', () => {
     const nearbyBukkas = bukkaData;
     const newState = {
       ...initialState,
-      bukkasReducer: {
-        ...initialState.bukkasReducer,
+      businessesReducer: {
+        ...initialState.businessesReducer,
         fetchedBukkas: {
-          ...initialState.bukkasReducer.fetchedBukkas,
+          ...initialState.businessesReducer.fetchedBukkas,
           nearbyBukkas,
           message: ''
         },
         status: {
-          ...initialState.bukkasReducer.status,
+          ...initialState.businessesReducer.status,
           fetchedBukkas: true,
           error: false
         }

@@ -3,9 +3,18 @@ $primaryColor: #9c1c26;
 .action-button-text {
   font-weight: 300;
   margin-left: 10px;
-  padding-top: 7px;
+  // padding-top: 7px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
   margin-right: 10px;
   text-overflow: ellipsis;
+  .bukka-action-text-span {
+    margin-left: 5px;
+  }
+  .bukka-action-text-last-span {
+    margin-right: 5px;
+  }
 }
 
 .action-buttons-section {

@@ -18,7 +18,7 @@ import './duration.scss';
 
 const { sheduleTimeLists, durationList, asapTime } = inputData;
 
-const scheduleData = [
+export const scheduleData = [
   {
     time: 'Today',
     selector: 'day',
@@ -43,8 +43,8 @@ export const TimeLists = ({
     <div className={`custom-duration-dropdown-content ${maxHeight}`}>
       {lists.map(list => (
         link ? (
-          <a href={`${pathname}#${list}`}>
-            <div key={list} tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
+          <a key={`${pathname}#${list}`} href={`${pathname}#${list}`}>
+            <div tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
               <span>{list}</span>
             </div>
           </a>

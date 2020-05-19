@@ -9,18 +9,18 @@ const store = mockStore({
   loadingReducer: { status: false },
   authenticationReducer: { status: { authenticated: true }
   },
-  fetchUserData: { userInfo: {
+  userProfileReducer: { userInfo: {
     firstName: 'save',
     lastName: 'save',
     email: 'save',
     contactMobile: 'save'
   },
   finishedRequest: true },
-  fetchUserAddress: { userAddresses: [
+  userAddressReducer: { userAddresses: [
     { address: '15, onayade street' }
   ] },
-  postUserData: { errorMessage: '' },
-  postUserAddress: { errorMessage: '', posted: false },
+  updateUserProfileReducer: { errorMessage: '' },
+  updateUserAddressReducer: { errorMessage: '', posted: false },
   selectedLocationReducer: { coordinates: [3.361476, 6.5560715] }
 });
 

@@ -9,13 +9,12 @@ import Container from 'Components/container';
 import AuthResetForm from './AuthResetForm';
 import TokenErrorFeedback from './TokenErrorFeedback';
 
-import ModalRoot from '../../modal-root/Index';
 import changePassword from '../actionCreators/changePassword';
 import validateToken from '../actionCreators/validateToken';
 import { validateAField, validateAllFields } from '../helper/validateFields';
 
 import signUpDomStructure from '../signUpDomStructure.json';
-import useQuery from '../../../context/useQuery';
+import useQuery from '../../../hooks/useQuery';
 
 const RetrieveSection = ({
   isValidUser,
@@ -94,7 +93,6 @@ const RetrieveSection = ({
 
   return (
     <>
-      <ModalRoot push={push} />
       <Navbar push={push} />
       <div className="bg-color py-8">
         <Container classNames="relative modal-open">
@@ -115,6 +113,7 @@ const RetrieveSection = ({
                     errorMessage={errorMessage}
                     instruction="Type your new password"
                     handleChange={handleChange}
+                    inputData={inputData}
                     validationErrors={validationErrors}
                     handleSubmit={handleSubmit}
                     domStructure={signUpDomStructure}

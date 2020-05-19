@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import BukkaImageSection from '../components/BukkaImageSection';
 
 const initialState = {
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka: { imageUrl: 'www.imaeUrl.com' }
   }
 };

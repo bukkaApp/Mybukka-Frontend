@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import ChevronVertical from '../icons/ChevronVertical';
 import { TimeLists as CategoryList } from './Duration';
-// import CartIconSection from './CartIconSection';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
   from './ReusableNavElements';
 

@@ -165,7 +165,7 @@ const ClosedNotification = ({ fetchedBukka }) => {
   );
 };
 
-const mapStateToProps = ({ fetchBukkaReducer: { fetchedBukka } }) => ({
+const mapStateToProps = ({ businessReducer: { fetchedBukka } }) => ({
   fetchedBukka
 });
 

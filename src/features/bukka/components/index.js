@@ -17,26 +17,30 @@ import LocationNavSmallScreen, {
   SelectLocationModal
 } from 'Components/common-navs/LocationNavSmallScreen';
 
-import AddToCart from 'Components/common/addToCart';
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
-import BukkaMeals from './BukkaMeals';
-import ClosedNotification from '../notification/ClosedNotification';
+// import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
+
+import BukkaMeals from './BukkaMeals';
 
 const BukkaMenuScene = ({
   push, errorMessage, categories, bukka, bukkaMenu
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
+
   useEffect(() => {
     if (errorMessage !== '') return toastr.error(errorMessage);
-  });
+  }, [errorMessage]);
+
+  const isInSearch = item => item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());
+
+  const hasNoResult = () => bukkaMenu.filter(menu => isInSearch(menu)).length === 0;
 
   return (
     <div className="bukka-menu">
-      <ClosedNotification />
-      <AddToCart />
+      {/* <ClosedNotification /> */}
       <SelectLocationModal />
       <Navbar push={push} bukka />
       <BukkaImageSection />
@@ -55,16 +59,16 @@ const BukkaMenuScene = ({
         bukkaMenu={bukkaMenu}
         currentCategory="breakfast"
       />
-      <BukkaDetailsSection />
+      {!hasNoResult() && <BukkaDetailsSection />}
 
-      <BukkaMeals searchQuery={searchQuery} />
+      <BukkaMeals isInSearch={isInSearch} hasNoResult={hasNoResult} searchQuery={searchQuery} />
       <Footer />
       <UnAuthenticatedCheckout push={push} to={`/merchant/${bukka}/checkout`} />
     </div>
   );
 };
 
-const mapStateToProps = ({ cartReducer: { errorMessage }, fetchBukkaMenuReducer: {
+const mapStateToProps = ({ cartReducer: { errorMessage }, productsReducer: {
   categories,
   bukkaMenu,
 }, }) => ({

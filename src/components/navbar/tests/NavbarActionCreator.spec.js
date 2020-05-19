@@ -1,4 +1,4 @@
-import navAuthentication from '../actionCreators/navAuthentication';
+import changeAuthenticationPage from '../actionCreators/changeAuthenticationPage';
 
 describe('set nav Authentication type action creator', () => {
   it(`creates action with type SET DELIVERY MODE
@@ -12,7 +12,7 @@ describe('set nav Authentication type action creator', () => {
       }
     ];
 
-    await store.dispatch(navAuthentication('Sign Up'));
+    await store.dispatch(changeAuthenticationPage('Sign Up'));
     expect(store.getActions()).toEqual(expectedActions);
   });
 });

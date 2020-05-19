@@ -18,7 +18,7 @@ const NearByBukka = ({
   <div className="pt-4 mb-4">
     {title && <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />}
     {children}
-    <Container>
+    <Container classNames="container-padding">
       {bukkaData.length > 0 && (
         <Row classNames="pb-4">
           {bukkaData.map(bukka => (

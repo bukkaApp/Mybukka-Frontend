@@ -1,15 +1,17 @@
 import React, { StrictMode } from 'react';
 // import { render } from 'react-dom';
-import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 import { createRoot } from 'react-dom';
 import App from '../src/root/App';
-// import * as serviceWorker from './serviceWorker';
+import Worker from './Worker';
+import './index.scss';
 
 const rootElement = document.getElementById('root');
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <Worker>
+      <App />
+    </Worker>
   </StrictMode>
 );
 
@@ -19,6 +21,3 @@ createRoot(rootElement).render(
 // serviceWorker.unregister();
 /* eslint-disable no-unused-vars */
 
-if ('serviceWorker' in navigator) {
-  const registration = runtime.register();
-}

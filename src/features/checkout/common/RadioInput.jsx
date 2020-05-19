@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Input from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import PropTypes from 'prop-types';
 import './button.scss';
 
@@ -11,37 +11,27 @@ const RadioInput = ({ name, labelText }) => {
   };
 
   return (
-    <div
-      className="onfocus py-2"
-      role="button"
-      aria-pressed="false"
-      tabIndex="0"
-      onClick={handleClick}
+    <label
+      className="radio-container"
+      htmlFor="makeAsDefault"
     >
-      <label
-        className="radio-container"
-        htmlFor="makeAsDefault"
-      >
-        <span>{labelText}</span>
-        <Input
-          type="radio"
-          handleChange={() => {}}
-          handleClick={() => {}}
-          handleFocus={() => {}}
-          inputElement={{
-            checked: isChecked,
-            id: 'gridCheck',
-            value: labelText
-          }}
-          placeholderText=""
-          name={name}
-          classNames=""
-        />
-        <span
-          className="checkmark mt-1"
-        />
-      </label>
-    </div>
+      <span>{labelText}</span>
+      <Field.Radio
+        type="radio"
+        handleChange={handleClick}
+        handleClick={() => {}}
+        onFocus={() => {}}
+        checked={isChecked}
+        id="gridCheck"
+        value={labelText}
+        placeholderText=""
+        name={name}
+        classNames=""
+      />
+      <span
+        className="checkmark mt-1"
+      />
+    </label>
   );
 };
 

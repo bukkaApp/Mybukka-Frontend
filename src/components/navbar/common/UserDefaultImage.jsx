@@ -40,7 +40,7 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
 };
 
 const mapStateToProps = ({
-  fetchUserData: {
+  userProfileReducer: {
     userInfo: { userInfo },
   },
 }) => ({
@@ -60,5 +60,7 @@ UserDefaultImage.defaultProps = {
 };
 
 UserDefaultImage.propTypes = {
-  userInfo: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string])),
+  userInfo: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string, PropTypes.number, PropTypes.bool
+  ])),
 };

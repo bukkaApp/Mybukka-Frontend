@@ -2,6 +2,12 @@
   cursor: pointer;
 }
 
+.modal-open .modal {
+  @media (max-width: 767.98px) { 
+    overflow-y: hidden;
+  }
+}
+
 .modal-header {
   border-bottom: none;
   align-items: flex-end;
@@ -22,6 +28,17 @@
   border-radius: 0px;
   border: none;
   box-shadow: rgba(34, 34, 34, 0.15) 0px 2px 20px 0px;
+  @media (min-width: 767px) {
+    width: 60%;
+    margin: auto;
+  }
+  @media (min-width: 960px) {
+    width: 50%;
+    margin: auto;
+  }
+  @media (max-width: 767.98px) {
+    box-shadow: none;
+  }
 }
 
 .dismiss-modal {
@@ -40,15 +57,11 @@
   }
 }
 
-.modal-content {
-  @media (max-width: 767.98px) {
-    box-shadow: none;
-  }
-}
-
 .modal-dialog-centered {
+  max-width: 1060px;
   @media (max-width: 767.98px) {
     align-items: flex-start;
+    margin: 0px;
   }
 }
 

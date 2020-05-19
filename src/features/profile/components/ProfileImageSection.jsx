@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 
 import ProfileHeaderTitle from '../common/ProfileHeaderTitle';
 
@@ -11,7 +11,7 @@ import './profileImageSection.scss';
 
 const ProfileImage = ({ imageUrl, firstName, lastName }) => (
   <div className="profile-image-div text-center">
-    <img src={imageUrl} className="img-fluid profile-photo" alt="" />
+    <img src={imageUrl} style={{ margin: 'auto' }} className="img-fluid profile-photo" alt="" />
     <div className="d-lg-none profile-header-small">
       <ProfileHeaderTitle firstName={firstName} lastName={lastName} />
     </div>
@@ -23,7 +23,7 @@ const UploadImageSection = ({ handleChange }) => (
     <Button classNames="button-upload" type="button" handleClick={() => {}}>
       <span className="button-text">
         Change Photo
-        <InputField
+        <Field.Input
           type="file"
           classNames="select-photo"
           name="selectFile"

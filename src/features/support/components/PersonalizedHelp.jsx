@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Navlink from 'Components/navlink/Navlink';
 import PropTypes from 'prop-types';
 import './personalizedhelp.scss';
 
@@ -11,18 +12,18 @@ const PersonalizedHelp = ({ authenticated }) => {
     <div className="col-md-6 pl-0">
       <div>
         <div className="personalized-text" data-cy="login-prompt-title">
-        Log in for personalized help
+          Log in for personalized help
         </div>
         <div className="personalized-btn-wrapper">
-          <a
-          href="/login?next=/support?cs_web_redirect=/buyer" // eslint-disable-line
+          <Navlink
+            href="/login?next=/support?cs_web_redirect=/buyer"
           >
             <div className="personalized-login-btn" data-cy="page-button">
               <div className="personalized-btn-text">
                 <span>Log in</span>
               </div>
             </div>
-          </a>
+          </Navlink>
         </div>
       </div>
     </div>

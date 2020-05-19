@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Footer from 'Components/footer/Footer';
+import Navlink from 'Components/navlink/Navlink';
 import Voting from '../voting/Voting';
 import BannerSection from '../common/BannerSection';
 
@@ -12,16 +13,16 @@ const MainSection = () => (
     <div className="support-main-section-container">
       <div className="col-md-12 pl-0">
         <div className="article-heading">
-            What is Mybukka Unlimited?
+          What is Mybukka Unlimited?
         </div>
         <div className="articles-body">
           <div className="article-body-content">
             <p className="p1">
-                Mybukka Unlimited is our membership service.
-                For ₦{monthly}/month or ₦{yearly}/year, members receive
-                free delivery on ordersfrom all merchants on the mybukka platform {/* eslint-disable-line */}
-                when the order size is over ₦{orderOverCertainAmount}. Additionally, member orders {/* eslint-disable-line */}
-                will never have to pay a small cart fee or Blitz fee (surge).
+              Mybukka Unlimited is our membership service.
+              For ₦{monthly}/month or ₦{yearly}/year, members receive
+              free delivery on ordersfrom all merchants on the mybukka platform
+              when the order size is over ₦{orderOverCertainAmount}. Additionally, member orders
+              will never have to pay a small cart fee or Blitz fee (surge).
             </p>
             <p><strong className="text-dark">Signing Up</strong></p>
             <p>
@@ -36,27 +37,27 @@ const MainSection = () => (
             </p>
             <p><strong className="text-dark">Charges</strong></p>
             <p className="p1">
-                If you choose a monthly membership,
-                your membership fee will be ₦{monthly}/month and
-                will auto-renew every month on your membership billing date.
-                If you choose an annual membership,
-                your membership fee will be ₦{yearly}/year
-                and it will auto-renew every year on your membership billing date. {/* eslint-disable-line */}
-                Your Mybukka Unlimited membership fee is non-refundable,
-                unless we determine otherwise.
+              If you choose a monthly membership,
+              your membership fee will be ₦{monthly}/month and
+              will auto-renew every month on your membership billing date.
+              If you choose an annual membership,
+              your membership fee will be ₦{yearly}/year
+              and it will auto-renew every year on your membership billing date.
+              Your Mybukka Unlimited membership fee is non-refundable,
+              unless we determine otherwise.
             </p>
             <p><strong className="text-dark">Availability</strong></p>
             <p className="p1">
-                Mybukka Unlimited is available in each city we operate in.
-                The delivery fee (for orders over ₦{orderOverCertainAmount}), small cart fee, {/* eslint-disable-line */}
-                and Blitz fee will not be added to any order
-                placed on web or mobile (iOS, Android).
+              Mybukka Unlimited is available in each city we operate in.
+              The delivery fee (for orders over ₦{orderOverCertainAmount}), small cart fee,
+              and Blitz fee will not be added to any order
+              placed on web or mobile (iOS, Android).
             </p>
             <p><strong className="text-dark">Canceling</strong></p>
             <p className="p1">
-                For information on how to cancel your
-                monthly membership,{' '}
-              <a href="/buyer/articles/cancel-subscription" target="_self">click here</a>. {/* eslint-disable-line */}
+              For information on how to cancel your
+              monthly membership,{' '}
+              <Navlink href="/buyer/articles/cancel-subscription" target="_self">click here</Navlink>.
             </p>
             <div className="p-2" />
           </div>

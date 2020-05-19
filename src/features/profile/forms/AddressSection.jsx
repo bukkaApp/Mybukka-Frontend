@@ -34,7 +34,7 @@ const DeliveryForm = React.forwardRef(({
         name="deliveryInstructions"
         classNames="instruction"
         handleChange={handleChange}
-        handleFocus={() => {}}
+        onFocus={() => {}}
       />
     </div>
     <div>
@@ -81,7 +81,6 @@ const Delivery = ({
     }
   };
 
-
   useEffect(() => {
     if (posted) {
       $('.close').click();
@@ -91,7 +90,7 @@ const Delivery = ({
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, [wrapperRef.current]);
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
@@ -155,7 +154,7 @@ const Delivery = ({
 };
 
 const mapStateToProps = ({
-  postUserAddress: { errorMessage, posted },
+  updateUserAddressReducer: { errorMessage, posted },
 }) => ({
   errorMessage,
   posted,

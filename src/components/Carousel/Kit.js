@@ -57,6 +57,7 @@ const TextOverlay = ({ top, bottom, heading, subHeading, textOverlay }) => (
 const NormalText = ({
   remark, mealName, deliveryCost, tags,
   textOverlay,
+  type,
 }) => (
   !textOverlay &&
   <div className="details">
@@ -66,7 +67,7 @@ const NormalText = ({
     </h3>
     <div className="delivery">
       {deliveryCost ? <Price price={deliveryCost} /> : null}
-      {deliveryCost &&
+      {(type !== 'category' && deliveryCost) &&
       <span className="custom-delivery-badge">Delivery</span>
       }
     </div>

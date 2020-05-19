@@ -3,7 +3,7 @@ import InputAccountDetails from './InputAccountDetails';
 import PlainAccountDetails from './PlainAccountDetails';
 import ErrorDisplaySection from './ErrorDisplaySection';
 
-const AccountDetailsSection = React.createRef(({
+const AccountDetailsSection = React.forwardRef(({
   placeHolder,
   name,
   type,

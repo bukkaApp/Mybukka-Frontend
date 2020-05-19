@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import shortId from 'shortid';
 import InfiniteScroll from 'react-infinite-scroller';
 import Row from 'Components/grid/Row';
 import BukkaCard from 'Components/Carousel/BukkaCard';
@@ -82,7 +81,7 @@ const PlaceGroup = ({
                 <Row classNames="pb-4">
                   {cuisineItems.map(bukka => (
                     <BukkaCard
-                      key={shortId.generate()}
+                      key={`place-group-bukka-card-${bukka.name}-${bukka.slug}`}
                       imageUrl={bukka.imageUrl}
                       mealName={bukka.name}
                       delivery={false}
@@ -108,8 +107,8 @@ const PlaceGroup = ({
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
-  bukkasReducer: { fetchedBukkas, status },
-  cuisineReducer: {
+  businessesReducer: { fetchedBukkas, status },
+  businessGroupReducer: {
     cuisineItems, errorMessage,
     currentPage,
     cuisineToDisplay: { name },

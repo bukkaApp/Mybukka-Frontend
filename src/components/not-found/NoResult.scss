@@ -1,0 +1,21 @@
+.NoResult {
+  display: flex;
+  .magnifier {
+    width: 55px;
+    height: 50px;
+    color: rgb(217, 219, 224);
+    margin-right: 18px;
+  }
+}
+
+.NoResult--withPadding {
+  padding: 48px 0;
+}
+
+.NoResult-desc {
+  p {
+    font-size: 14px;
+    color: rgb(143, 149, 163);
+    padding-top: 8px;
+  }
+}

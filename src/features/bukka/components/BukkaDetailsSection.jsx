@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -10,6 +10,7 @@ import Clock from 'Icons/Clock';
 import ChevronVertical from 'Icons/ChevronVertical';
 import Star from 'Icons/Star';
 import MapMarkerAlt from 'Icons/MapMarkerAlt';
+import BusinessAddress from '../../../components/business-address';
 
 import './bukkaDetailsSection.scss';
 
@@ -22,11 +23,11 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
     >
       {deliveryMode === 'pickup' ? null : (
         <div className="col col-7">
-          <p className="delivery-price">${deliveryPrice} DELIVERY</p>
+          <p className="delivery-price">₦{deliveryPrice} DELIVERY</p>
         </div>
       )}
       <div className="px-3 d-inline-block">
-        <div className="tag-bukka">
+        <div className="tag-bukka" style={{ paddingBottom: '15px' }}>
           <Button
             classNames="tag-bukka-button px-3"
             text="AFRICAN"
@@ -39,34 +40,34 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   </div>
 );
 
-const ActionButtons = ({ deliveryTime, address }) => (
+const ActionButtons = ({ deliveryTime, address, handleClick }) => (
   <div className="action-buttons-section">
     <ButtonGroup>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
-          <Clock /> {deliveryTime} - {deliveryTime + 15} MIN
+          <Clock /> <span className="bukka-action-text-span">{deliveryTime} MIN</span>
         </p>
       </Button>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
-          <MapMarkerAlt /> {address}
+          <MapMarkerAlt /> <span className="bukka-action-text-span">{address}</span>
         </p>
       </Button>
       <Button
         classNames="small-outline-button"
-        handleClick={() => {}}
+        handleClick={handleClick}
         type="button"
       >
         <p className="action-button-text">
-          MORE INFO <ChevronVertical />
+          <span className="bukka-action-text-last-span">MORE INFO </span><ChevronVertical />
         </p>
       </Button>
     </ButtonGroup>
@@ -87,25 +88,27 @@ const TitleAndDescription = ({ name, description }) => (
 
 const BukkaDetailsSection = ({
   fetchedBukka,
-  address,
   deliveryMode
 }) => {
-  const { name, description } = fetchedBukka;
+  const [state, setState] = useState(false);
+
+  const { name, description, deliveryPrice, schedule, location, address } = fetchedBukka;
   if (Object.keys(fetchedBukka).length <= 0) {
     return null;
   }
 
   return (
     <Container classNames="bukka-details-section">
-      <DeliveryPriceAndtag deliveryPrice={30} deliveryMode={deliveryMode} />
+      <DeliveryPriceAndtag deliveryPrice={deliveryPrice || 30} deliveryMode={deliveryMode} />
       <TitleAndDescription name={name} description={description} />
-      <ActionButtons deliveryTime={'15'} address={address} />
+      <ActionButtons handleClick={() => setState(prev => !prev)} deliveryTime={'15'} address={address} />
+      <BusinessAddress location={location} show={state} schedule={schedule} />
     </Container>
   );
 };
 
 const mapStateToProps = ({
-  fetchBukkaReducer: {
+  businessReducer: {
     fetchedBukka
   },
   deliveryModeReducer: { mode: deliveryMode }
@@ -131,8 +134,8 @@ BukkaDetailsSection.propTypes = {
       PropTypes.number,
       PropTypes.array,
       PropTypes.object,
+      PropTypes.bool,
     ])),
-  address: PropTypes.string.isRequired,
   deliveryMode: PropTypes.string.isRequired
 };
 

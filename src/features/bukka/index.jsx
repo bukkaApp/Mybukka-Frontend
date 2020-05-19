@@ -1,15 +1,32 @@
 import React, { useEffect, Fragment } from 'react';
 
+import fetchCartAction from 'Redux/fetchCartAction';
+import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
-import ModalRoot from '../modal-root/Index';
+import { useModalContext } from '../../context/UseModal';
+import FooterBigScreen from '../../components/footer/FooterBigScreen';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 
 import Bukka from './components';
 
-const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu, bukkaMenu }) => {
+const Scene = ({
+  cartItemsQuantity, history: { location, push }, fetchBukka,
+  fetchBukkaMenu,
+  bukkaMenu,
+  fetchCartItems,
+  authenticated,
+}) => {
+  const { setViewMoreOrderOnMobile, setModal } = useModalContext();
+
+  const handleClick = () => {
+    setModal(true);
+    setViewMoreOrderOnMobile(true);
+  };
+
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -19,24 +36,37 @@ const Scene = ({ history: { location, push }, fetchBukka, fetchBukkaMenu, bukkaM
     if (bukkaMenu[0].bukka !== bukkaToFetch) {
       fetchBukka(bukkaToFetch);
       fetchBukkaMenu(bukkaToFetch);
+      if (authenticated) fetchCartItems();
     }
   }, []);
 
   return (
     <Fragment>
-      <ModalRoot push={push} />
       <Bukka push={push} />
+      {!isBigScreen && cartItemsQuantity > 0 &&
+      <FooterBigScreen left handleClick={handleClick} text="View Order" qty={cartItemsQuantity} fixed />}
     </Fragment>
   );
 };
 
-const mapStateToProps = ({ fetchBukkaMenuReducer: { bukkaMenu } }) => ({
-  bukkaMenu
+const mapStateToProps = ({
+  productsReducer: { bukkaMenu },
+  cartReducer: { items },
+  authenticationReducer: { status: { authenticated } },
+}) => ({
+  bukkaMenu,
+  authenticated,
+  cartItemsQuantity: items.length,
 });
+
 
 export default connect(
   mapStateToProps,
-  { fetchBukka: fetchBukkaAction, fetchBukkaMenu: fetchBukkaMenuAction }
+  {
+    fetchBukka: fetchBukkaAction,
+    fetchBukkaMenu: fetchBukkaMenuAction,
+    fetchCartItems: fetchCartAction
+  }
 )(Scene);
 
 Scene.defaultProps = {

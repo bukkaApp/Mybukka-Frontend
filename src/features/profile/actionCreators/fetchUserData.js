@@ -10,13 +10,13 @@ const fetchUserDataAction = (type, data) => ({
   data,
 });
 
-const fetchUserData = url => async dispatch => {
-  console.log('url', url);
+const fetchUserData = () => async (dispatch) => {
+  let request;
   try {
     dispatch(loading(FETCH_USER_DATA, true));
-    const request = await axios({
+    request = await axios({
       method: 'GET',
-      url,
+      url: '/user/profile',
       headers: {
         authorization: localStorage.getItem('x-access-token'),
         accept: 'application/json',
@@ -28,6 +28,7 @@ const fetchUserData = url => async dispatch => {
     dispatch(loading(FETCH_USER_DATA, false));
     dispatch(fetchUserDataAction('ERROR', error.response.data));
   }
+  return request;
 };
 
 export default fetchUserData;

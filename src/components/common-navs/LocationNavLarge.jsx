@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
+import { useMediaQuery } from 'react-responsive';
 import SearchLocation from 'Components/places-suggest/SearchLocation';
-import InputField from 'Components/input/InputField';
+import Field from 'Components/input/Field';
 import ChevronVertical from 'Icons/ChevronVertical';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
@@ -24,8 +25,10 @@ import { CategoryLists } from './Categories';
 
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
-
+import './LocationNavLargeScreen.scss';
 import './locationnavlarge.scss';
+import './LocationNavSmallScreen.scss';
+
 import { useLocationContext } from '../../context/LocationContext';
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
@@ -64,9 +67,10 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   </div>
 );
 
-const SearchInputField = ({ handleChange }) => (
-  <InputField
+const SearchInputField = ({ handleChange, value }) => (
+  <Field.Input
     type="text"
+    value={value}
     name="searchLocation"
     placeholderText="Search items..."
     classNames="text-field form-control searchlocation"
@@ -141,7 +145,7 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField handleChange={props.handleChange} />
+          <SearchInputField value={props.value} handleChange={props.handleChange} />
         </div>
       </div>
     </ReusableButton>
@@ -160,7 +164,15 @@ const LocationNavLarge = ({
   handleSearch,
   section
 }) => {
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const wrapperRef = React.createRef();
+  const [state, setState] = useState('');
+
+  const emitOnChange = (e) => {
+    setState(e.target.value);
+    handleSearch(e);
+  };
+
   const unFocus = {
     location: false,
     duration: false,
@@ -243,10 +255,12 @@ const LocationNavLarge = ({
             <Search
               handleClick={() => handleClick('search')}
               focus={isFocused.search}
-              handleChange={handleSearch}
+              value={state}
+              handleChange={emitOnChange}
             />
           </div>
         </Container>
+        {isBigScreen &&
         <div className="location-navbar-view-map">
           <div className="position-relative">
             <Button
@@ -265,7 +279,7 @@ const LocationNavLarge = ({
               focus={isFocused.cart}
             />
           </div>
-        </div>
+        </div>}
       </Container>
     </div>
   );
@@ -274,10 +288,13 @@ const LocationNavLarge = ({
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   cartReducer: { items },
-}) => ({
-  mode,
-  cartItemsQuantity: items.length,
-});
+}) => {
+  const qty = items.reduce((val, itm) => val + itm.quantity, 0);
+  return ({
+    mode,
+    cartItemsQuantity: qty,
+  });
+};
 
 export default connect(
   mapStateToProps,

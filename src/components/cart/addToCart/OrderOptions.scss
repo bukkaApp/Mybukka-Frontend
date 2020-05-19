@@ -1,0 +1,15 @@
+.OrderOptions {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.OrderOptions-Top {
+  position: relative;
+  height: 100%;
+  @media screen and (min-width: 1060px) {
+    height: calc(100% - 88px);
+    overflow-y: auto;
+    border-bottom: 1px solid rgba(217, 219, 224, 0.5);
+  }
+}

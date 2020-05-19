@@ -1,15 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ModalRoot from '../modal-root/Index';
-import ProfileHeader from './components/ProfileScene';
+import ProfileScene from './components/ProfileScene';
+import './index.scss';
 
-const Profile = ({ history }) => {
-  const { push } = history;
-  return (<Fragment>
-    <ModalRoot push={push} />
-    <ProfileHeader history={history} />
-  </Fragment>);
-};
+const Profile = ({ history }) => <ProfileScene history={history} />;
 
 export default Profile;
 
