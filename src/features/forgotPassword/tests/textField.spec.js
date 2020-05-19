@@ -8,7 +8,7 @@ describe('Input field component', () => {
     handleChange: jest.fn(),
     validationErrors: Data.validationErrorsMock,
     domStructure: Data.domStructureMock,
-    inputData: [Data.firstName]
+    inputData: { firstName: '' }
   };
   const wrapper = mount(<TextField {...props} />);
 
