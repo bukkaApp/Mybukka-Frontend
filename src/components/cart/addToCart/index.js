@@ -10,7 +10,7 @@ import OrderOptions from './OrderOptions';
 import FooterBigScreen from '../../footer/FooterBigScreen';
 import Modal from '../../modal/Modal';
 import './index.scss';
-import { useModalContext } from '../../../context/UseModal';
+import { useModalContext } from '../../../context/ModalContext';
 import { useCartContext } from '../../../context/CartContext';
 
 const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, toggleAddToCart }) => {

@@ -24,7 +24,7 @@ const finishChargeTransaction = data => async (dispatch) => {
     dispatch(loading(FINISH_CHARGE_TRANSACTION, false));
   } catch (error) {
     dispatch(loading(FINISH_CHARGE_TRANSACTION, false));
-    dispatch(finishChargeTransactionAction('SUCCESS', error.response.data));
+    dispatch(finishChargeTransactionAction('SUCCESS', error.response ? error.response.data : error));
   }
 };
 

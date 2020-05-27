@@ -25,7 +25,7 @@ const postUserData = (url, data) => async (dispatch) => {
     dispatch(loading(POST_USER_DATA, false));
   } catch (error) {
     dispatch(loading(POST_USER_DATA, false));
-    dispatch(postUserDataAction('ERROR', error.response.data));
+    dispatch(postUserDataAction('ERROR', error.response ? error.response.data : error));
   }
 };
 

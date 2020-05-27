@@ -31,7 +31,7 @@ const deleteAddress = url => async (dispatch) => {
     dispatch(loading(DELETE_USER_ADDRESS, false));
   } catch (error) {
     dispatch(loading(DELETE_USER_ADDRESS, false));
-    dispatch(deleteAddressAction('ERROR', error.response.data));
+    dispatch(deleteAddressAction('ERROR', error.response ? error.response.data : error));
   }
 };
 

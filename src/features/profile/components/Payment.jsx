@@ -4,7 +4,7 @@ import { BasicPlus } from 'Icons/Plus';
 
 import AddMoreSection from '../common/AddMoreSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
-import AddPaymentForm from '../forms/AddAddressForm';
+import AddPaymentForm from '../forms/PaymentSection';
 
 import './payment.scss';
 

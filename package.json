@@ -37,7 +37,6 @@
     "constate": "^2.0.0",
     "emotion-theming": "^10.0.27",
     "express": "^4.16.4",
-    "global": "^4.4.0",
     "jsonwebtoken": "^8.5.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
@@ -62,7 +61,7 @@
     "shortid": "^2.2.14",
     "superagent": "^4.1.0",
     "sweetalert": "^2.1.2",
-    "toastr": "^2.1.4",
+    "trackjs": "^3.7.4",
     "validatorjs": "^3.15.1",
     "webpack": "^4.43.0",
     "winston": "^3.2.1"

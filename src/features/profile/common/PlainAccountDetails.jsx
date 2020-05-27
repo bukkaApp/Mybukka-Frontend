@@ -40,7 +40,6 @@ PlainAccountDetails.defaultProps = {
 
 PlainAccountDetails.propTypes = {
   btnText: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
   altText: PropTypes.string,
   children: PropTypes.node,
   handleEdit: PropTypes.func

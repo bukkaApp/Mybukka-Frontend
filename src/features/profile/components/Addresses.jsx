@@ -8,20 +8,28 @@ import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import PlainAccountDetails from '../common/PlainAccountDetails';
 import AddMoreSection from '../common/AddMoreSection';
 
-import AddAddressForm from '../forms/AddAddressForm';
+import { useModalContext } from '../../../context/ModalContext';
 import './addresses.scss';
 
-const AddAnAddress = () => (
-  <div className="add-address" data-toggle="modal">
-    <AddMoreSection dataTarget="#modal" text="add new address">
-      <RoundedPlus />
-    </AddMoreSection>
-  </div>
-);
+const AddAnAddress = () => {
+  const { setAddressPopup, setModal } = useModalContext();
+
+  const handleClick = () => {
+    setModal(true);
+    setAddressPopup(true);
+  };
+
+  return (
+    <div className="add-address" data-toggle="modal">
+      <AddMoreSection onClick={handleClick} text="add new address">
+        <RoundedPlus />
+      </AddMoreSection>
+    </div>
+  );
+};
 
 const Addresses = ({ addresses, ...props }) => (
   <div className="addresses-section">
-    <AddAddressForm {...props} type="address" />
     <AccountDetailsGroupHeader text="Addresses" />
     {addresses.map && addresses.map(address => (
       <PlainAccountDetails

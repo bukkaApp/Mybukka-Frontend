@@ -20,10 +20,7 @@ const reducer = (state, action) => {
       return { ...state, ...action.data, isAuthenticated: true };
 
     case 'LOGOUT_SUCCESSFUL':
-      return { ...state,
-        token: null,
-        user: null,
-        isAuthenticated: false };
+      return { ...initialState };
 
     default:
       return state;
@@ -64,7 +61,7 @@ const useUser = () => {
 
   const logoutSuccess = () => {
     dispatch({
-      type: 'LOGOUT_SUCCESS',
+      type: 'LOGOUT_SUCCESSFUL',
     });
   };
 

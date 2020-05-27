@@ -9,7 +9,7 @@ import Kit from './Kit';
 
 import './BukkaCard.scss';
 import { useCloudinayService } from '../img/Cloudinary';
-import { useSessionStorage } from '../../context/UseSession';
+import { useSessionStorage } from '../../hooks/useSession';
 
 const styles = {
   position: 'absolute',

@@ -11,7 +11,7 @@ import Price from 'Components/badge/Price';
 import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
 
 import './mealCard.scss';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 import { useCloudinayService } from '../img/Cloudinary';
 
 export const MealTitle = ({ title }) => (

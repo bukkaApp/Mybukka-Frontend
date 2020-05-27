@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AddToCart from '../cart/addToCart';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 import ViewOrdersOnMobile from '../cart/ViewOrdersOnMobile';
 import Authentication from '../authentication-popup';
 import VerifyPhonePopup from '../verify-phone-popup';
+import Address from '../address/Address';
 import './index.scss';
 
 const ModalRoot = () => {
@@ -28,6 +29,7 @@ const ModalRoot = () => {
       <ViewOrdersOnMobile />
       <Authentication />
       <VerifyPhonePopup />
+      <Address withModal withPadding />
     </div>
   );
 };

@@ -42,7 +42,6 @@ import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
 import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
 import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer';
 import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
-import alertMessageReducer from './alertMessageReducer';
 
 import sendContactReducer from '../provider/Redux/sendContactReducer';
 import sendVerificationCodeReducer from '../provider/Redux/sendVerificationCodeReducer';
@@ -82,7 +81,6 @@ const reducer = combineReducers({
   verifyCardReducer,
   getUserCardReducer,
   setDefaultCardReducer,
-  alertMessageReducer,
   promotionReducer,
   businessGroupReducer,
 });

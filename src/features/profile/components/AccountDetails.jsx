@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import AccountDetailsSection from '../common/AccountDetailsSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import Addresses from './Addresses';
-// import Payment from './Payment';
+import Payment from './Payment';
 import PasswordSection from './PasswordSection';
 import { validateAField, validateAllFields }
   from '../validations/validateFields';
@@ -186,26 +186,12 @@ const AccountDetails = ({
         handleSave={event => handleInputSaveButton(event, 'password')}
       />
       <Addresses handleDelete={handleDeleteButton} addresses={userAddress} />
-      {/* <Payment /> */}
+      <Payment />
     </div>
   );
 };
 
 export default AccountDetails;
-
-const proptypes = PropTypes.objectOf(
-  PropTypes.oneOfType([
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.number),
-        PropTypes.string
-      ])
-    ),
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.number
-  ])
-);
 
 AccountDetails.defaultProps = {
   errorMessage: ''
@@ -219,14 +205,4 @@ AccountDetails.propTypes = {
   deleteUserAddress: PropTypes.func.isRequired,
   requestUserData: PropTypes.func.isRequired,
   editUserData: PropTypes.func.isRequired,
-  userAddress: PropTypes.oneOfType([
-    PropTypes.arrayOf(proptypes),
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.arrayOf(proptypes)
-      ])
-    )
-  ]).isRequired
 };

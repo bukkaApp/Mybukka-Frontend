@@ -21,7 +21,7 @@ import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRe
 import './bukka-authenticated-nav.scss';
 import SearchAnything from '../search/SearchAnything';
 import CartScene from '../cart/CartScene';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },

@@ -81,7 +81,6 @@ const Carousel = ({
   delivery,
   controlClassNames,
   textPositionBottom,
-  type,
   numberOfViews,
   description,
   placeId,
@@ -170,7 +169,7 @@ const Carousel = ({
                     slug={bukka.slug}
                     handleClick={e => handleClick(e, bukka)}
                     classNames={`${classNames}`}
-                    href={type === 'majorCuisine' ?
+                    href={carouselType === 'categories' ?
                       `/categories/${bukka.name}`
                       : `/bukka/${bukka.slug}`}
                   />

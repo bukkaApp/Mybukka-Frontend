@@ -6,12 +6,14 @@ import logger from './Logger';
 const SET_MOBILE_VIEW_CART = 'SET_MOBILE_VIEW_CART';
 const SET_AUTHENTICATION_POPUP = 'SET_AUTHENTICATION_POPUP';
 const SET_PHONE_VERIFICATION_POPUP = 'SET_PHONE_VERIFICATION_POPUP';
+const SET_ADDRESS_POPUP = 'SET_ADDRESS_POPUP';
 
 const initialState = {
   show: false,
   viewMoreOrderOnMobile: false,
   authenticationPopup: false,
   phoneVerificationPopup: false,
+  addressPopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -25,6 +27,9 @@ const reducer = (originalState, action) => {
 
     case SET_AUTHENTICATION_POPUP:
       return { ...state, authenticationPopup: action.payload };
+
+    case SET_ADDRESS_POPUP:
+      return { ...state, addressPopup: action.payload };
 
     case SET_PHONE_VERIFICATION_POPUP:
       return { ...state, phoneVerificationPopup: action.payload };
@@ -61,15 +66,22 @@ const useModal = () => {
     });
   };
 
+  const setAddressPopup = (payload) => {
+    dispatch({
+      type: SET_ADDRESS_POPUP,
+      payload,
+    });
+  };
+
   const setVerificationPhonePopup = (payload) => {
     dispatch({
       type: SET_PHONE_VERIFICATION_POPUP,
       payload,
     });
   };
-  const { show, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
+  const { show, addressPopup, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
 
-  return { show, viewMoreOrderOnMobile, setModal, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
+  return { show, addressPopup, setAddressPopup, viewMoreOrderOnMobile, setModal, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
 };
 
 export const [ModalProvider, useModalContext] = constate(useModal);

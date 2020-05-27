@@ -6,11 +6,12 @@ import { LocationProvider } from '../context/LocationContext';
 import { DarkModeProvider } from '../context/DarkMode';
 import { ThemeProvider } from '../context/ThemeProvider';
 import { CloudinaryProvider } from '../components/img/Cloudinary';
-import { ModalProvider } from '../context/UseModal';
+import { ModalProvider } from '../context/ModalContext';
 import { CartProvider } from '../context/CartContext';
-import { LoadingProvider } from '../context/UseLoading';
+import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/UseMap';
-import { CookieProvider } from '../context/UseCookie';
+import { CookieProvider } from '../context/CookieContext';
+import { ToastProvider } from '../context/ToastContext';
 
 const Primary = ({ children }) => (
   <LocationsPredictionProvider>
@@ -24,7 +25,9 @@ const Primary = ({ children }) => (
                   <CartProvider>
                     <LoadingProvider>
                       <MapProvider>
-                        {children}
+                        <ToastProvider>
+                          {children}
+                        </ToastProvider>
                       </MapProvider>
                     </LoadingProvider>
                   </CartProvider>

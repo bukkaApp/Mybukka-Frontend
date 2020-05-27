@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import removeFromCart from 'Redux/removeFromCart';
 import { connect } from 'react-redux';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 import Modal from '../modal/Modal';
 import './ViewOrdersOnMobile.scss';
 

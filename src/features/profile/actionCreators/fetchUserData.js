@@ -26,7 +26,7 @@ const fetchUserData = () => async (dispatch) => {
     dispatch(loading(FETCH_USER_DATA, false));
   } catch (error) {
     dispatch(loading(FETCH_USER_DATA, false));
-    dispatch(fetchUserDataAction('ERROR', error.response.data));
+    dispatch(fetchUserDataAction('ERROR', error.response ? error.response.data : error));
   }
   return request;
 };

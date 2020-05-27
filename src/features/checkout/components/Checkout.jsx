@@ -1,10 +1,8 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import swal from 'sweetalert';
 
-import logOut from 'Components/navbar/actionCreators/logOut';
 import authServices from 'Utilities/authServices';
 import Map from 'Components/map';
 import Navbar from 'Components/navbar';
@@ -23,7 +21,6 @@ import ShoppingCart from './ShoppingCart';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
-import useAuthentication from '../context/useAuthentication';
 import useChargeAttempted from '../context/useChargeAttempted';
 import useFetchedRestaurant from '../context/useFetchedRestaurant';
 import useDeliveryState from '../context/useDeliveryState';
@@ -31,7 +28,6 @@ import useLocationWithinDistance from '../context/useLocationWithinDistance';
 import { useLocationContext } from '../../../context/LocationContext';
 
 const Checkout = ({
-  push,
   chargeUserToSaveCard,
   checkoutUser,
   message,
@@ -44,7 +40,6 @@ const Checkout = ({
   cards,
   hasDefaultCard,
   mode,
-  signOut,
   fetchBukka,
   bukkaSlug,
   bukkaCoordinates,
@@ -59,15 +54,12 @@ const Checkout = ({
     handleDeliveryAddress,
     handleDeliveryAddressSave,
     validateAddress } = useDeliveryState(description);
-  // destrucure from useDeliveryValidation and useDeliveryData object
   const [validationErrors, setValidationErrors] = useDeliveryValidation;
   const [deliveryAddressData, setDeliveryAddressData] = useDeliveryData;
 
   useChargeAttempted(message, url);
 
   useFetchedRestaurant(fetchBukka, fetchBukkaMenu, menuIsFetched, bukkaOfMenu);
-
-  useAuthentication(authServices, signOut, swal);
 
   const handleUserCheckout = () => {
     const user = authServices.getUserSlug();
@@ -96,7 +88,7 @@ const Checkout = ({
 
   return (
     <>
-      <Navbar push={push} />
+      <Navbar />
       <SendSecurityKeyForm />
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
@@ -187,14 +179,11 @@ export default connect(
   { chargeUserToSaveCard: chargeUser,
     checkoutUser: postUserOrder,
     fetchBukkaMenu: fetchBukkaMenuAction,
-    signOut: logOut,
     fetchBukka: fetchBukkaAction,
   }
 )(Checkout);
 
-Checkout.propTypes = {
-  push: PropTypes.func.isRequired,
-};
+Checkout.propTypes = {};
 
 Checkout.defaultProps = {
   message: '',

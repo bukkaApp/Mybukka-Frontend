@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, Suspense } from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'Components/loader/Loader';
 import Container from 'Components/container';
 import Footer from 'Components/footer/Footer';
 import UnselectableHeading from '../common/UnSelectableHeading';
@@ -20,45 +21,48 @@ const Statement = ({ data, activePage }) => {
   useEffect(() => { data.then(jsonData => setContent(jsonData)); }, [data]);
 
   return (
-    Object.keys(content).length && <Fragment>
-      <SeceondaryNavbar activePage={activePage} />
-      <Container classNames="custom-container">
-        <UnselectableHeading
-          font="font-size96"
-          classNames="my-5 pb-5 px-0 mx-0"
-          text={content.title}
-        />
-        <LastUpdated classNames="mx-0" text={content.lastUpdated} />
-        <Foreword
-          classNames="short-text text-custom-dark forewords"
-        >
-          {content.bold ? <strong className="font-18x">{content.forewords}</strong>
-            : content.forewords}{' '}
-          {content.forewordConclusion || ''}
-        </Foreword>
-        {content.further && content.further.map(eachData =>
-          (<Paragraph
-            key={eachData}
+    <Suspense fallback={<Loader />}>
+      {Object.keys(content).length > 0 &&
+      <Fragment>
+        <SeceondaryNavbar activePage={activePage} />
+        <Container classNames="custom-container">
+          <UnselectableHeading
+            font="font-size96"
+            classNames="my-5 pb-5 px-0 mx-0"
+            text={content.title}
+          />
+          <LastUpdated classNames="mx-0" text={content.lastUpdated} />
+          <Foreword
+            classNames="short-text text-custom-dark forewords"
+          >
+            {content.bold ? <strong className="font-18x">{content.forewords}</strong>
+              : content.forewords}{' '}
+            {content.forewordConclusion || ''}
+          </Foreword>
+          {content.further && content.further.map(eachData =>
+            (<Paragraph
+              key={eachData}
+              classNames="short-text scope-definition mt-0"
+              text={eachData}
+            />))}
+          {content.privacyScope &&
+          <PrivacyScope
+            classNames="text-custom-dark scope-text text-bold"
+            text={content.privacyScope}
+          />
+          }
+          {content.scope &&
+          <Paragraph
             classNames="short-text scope-definition mt-0"
-            text={eachData}
-          />))}
-        {content.privacyScope &&
-        <PrivacyScope
-          classNames="text-custom-dark scope-text text-bold"
-          text={content.privacyScope}
-        />
-        }
-        {content.scope &&
-        <Paragraph
-          classNames="short-text scope-definition mt-0"
-          text={content.scope}
-        />}
-        <Content data={content} />
-      </Container>
-      <section className="mt-5">
-        <Footer />
-      </section>
-    </Fragment>
+            text={content.scope}
+          />}
+          <Content data={content} />
+        </Container>
+        <section className="mt-5">
+          <Footer />
+        </section>
+      </Fragment>}
+    </Suspense>
   );
 };
 export default Statement;

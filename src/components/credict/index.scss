@@ -1,16 +1,10 @@
-.component-credict {
-  *,
-  *::after,
-  *::before {
-    box-sizing: border-box;
-  }
-
-  .css-1wvv5q9 {
+.Credict-component {
+  .Credict-Content {
     margin-bottom: 36px;
   }
 
   // 1
-  .css-1mt43su {
+  .Credit-Header {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
     line-height: normal;
@@ -24,7 +18,7 @@
   }
 
   // 2
-  .css-1ofqig9 {
+  .Credict-Promo-Content {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -34,7 +28,7 @@
     flex-direction: column;
     width: 100%;
   }
-  .css-1nfaxfl {
+  .Credict-Promo-Content-Item {
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
@@ -48,7 +42,7 @@
     border-color: rgb(239, 239, 239);
     border-image: initial;
   }
-  .css-1fpoiyu {
+  .Credict-Promo-Field {
     -webkit-appearance: none;
     width: 100%;
     caret-color: rgb(0, 0, 0);
@@ -83,11 +77,11 @@
     margin: 0;
   }
 
-  .css-5y5wni:disabled {
+  .Credict-Promo-Button:disabled {
     opacity: 0.3;
   }
 
-  .css-5y5wni {
+  .Credict-Promo-Button {
     font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -140,10 +134,10 @@
   }
 
   // 3
-  .css-3hgi0y {
+  .Promo-Section {
     margin-top: 32px;
   }
-  .css-1fmiy3b {
+  .Promo-Section-Header {
     font-family: "Roboto", sans-serif;
     font-size: 18px;
     font-weight: 600;
@@ -151,14 +145,14 @@
     letter-spacing: -0.3px;
     margin-bottom: 19px;
   }
-  .css-1pi8p0q {
+  .Promo-Section-Content {
     padding-top: 24px;
     padding-bottom: 24px;
     display: flex;
     flex-direction: column;
     border-top: 1px solid rgba(217, 219, 224, 0.5);
   }
-  .css-1v0gnc7 {
+  .Promo-Section-Item {
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -169,7 +163,7 @@
     justify-content: space-between;
     margin-bottom: 6px;
   }
-  .css-150ytcn {
+  .Promo-Section-Item--sibling {
     font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -177,7 +171,7 @@
     letter-spacing: -0.2px;
     margin-bottom: 6px;
   }
-  .css-1hj6dq5 {
+  .Promo-Section-Footer {
     font-size: 15px;
     line-height: 1.6;
     letter-spacing: -0.3px;

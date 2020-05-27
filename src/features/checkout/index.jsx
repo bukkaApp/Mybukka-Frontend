@@ -2,17 +2,12 @@ import React, { Fragment, useEffect, useState } from 'react';
 
 import { connect } from 'react-redux';
 
-import logOut from 'Components/navbar/actionCreators/logOut';
-import AuthenticatedPages from 'Components/HOC/AuthenticatedPages';
-
-import PropTypes from 'prop-types';
 import verifyCardTransaction from './actionCreators/verifyCardTransaction';
 import Checkout from './components/Checkout';
 
 const CheckoutPage = ({
   reference,
   url,
-  history: { push },
   verifyCard,
 }) => {
   const [state, setState] = useState({ closed: false });
@@ -41,10 +36,14 @@ const CheckoutPage = ({
 
   return (
     <Fragment>
+<<<<<<< Updated upstream
       <Checkout
         openNewWindow={handleOpenWindow}
         push={push}
       />
+=======
+      <Checkout />
+>>>>>>> Stashed changes
     </Fragment>
   );
 };
@@ -63,12 +62,7 @@ const mapStateToProps = ({
 });
 
 export default connect(mapStateToProps,
-  { signOut: logOut,
-    verifyCard: verifyCardTransaction }
-)(AuthenticatedPages(CheckoutPage));
+  { verifyCard: verifyCardTransaction }
+)(CheckoutPage);
 
-CheckoutPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired
-};
+CheckoutPage.propTypes = {};

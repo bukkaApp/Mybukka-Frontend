@@ -1,4 +1,15 @@
-.card-form-header {
+
+.Address-Details-Header {
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.Address-Details-Text {
+  font-weight: 500;
+}
+
+.Address-Form-Header {
   display: flex;
   flex-direction: column;
   width: 100%;

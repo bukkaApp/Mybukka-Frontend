@@ -14,7 +14,7 @@ const Modal = React.forwardRef(({ children, useFullWidth, show, bodyClassName, c
   return (
     <div>
       {show && <div className={`Modal-Wrapper ${classNames} ${state ? 'Modal-Wrapper--active' : ''}`}>
-        <div ref={ref} className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}>
+        <div style={{ opacity: state ? 1 : 0 }} ref={ref} className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}>
           {children}
         </div>
       </div>}

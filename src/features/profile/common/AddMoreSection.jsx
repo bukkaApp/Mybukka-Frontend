@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 
 import './addMoreSection.scss';
 
-const AddMoreSection = ({ children, text, dataTarget }) => (
+const AddMoreSection = ({ onClick, children, text, dataTarget }) => (
   <div
     className="add-more-section"
     data-target={dataTarget}
+    onClick={onClick}
+    aria-pressed="false"
+    tabIndex="0"
+    role="button"
     data-toggle="modal"
   >
     {children}

@@ -1,6 +1,5 @@
 import axios from 'Redux/axios';
 import loading from 'Redux/loading';
-import alertMessage from 'Redux/alertMessage';
 
 import { SET_DEFAULT_CARD } from 'Redux/actionTypes';
 
@@ -27,7 +26,6 @@ const setDefaultCard = currentSelection =>
         }
       });
       dispatch(setDefaultCardAction('SUCCESS', response.data));
-      dispatch(alertMessage(SET_DEFAULT_CARD, true, response.data.message));
       dispatch(loading(SET_DEFAULT_CARD, false));
     } catch (error) {
       dispatch(loading(SET_DEFAULT_CARD, false));

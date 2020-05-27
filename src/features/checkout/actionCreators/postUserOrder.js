@@ -1,6 +1,5 @@
 import axios from 'Redux/axios';
 import loading from 'Redux/loading';
-import alertMessage from 'Redux/alertMessage';
 
 import { POST_USER_ORDER, FINISH_CHARGE_TRANSACTION } from 'Redux/actionTypes';
 
@@ -28,11 +27,9 @@ const saveUserCard = data => async (dispatch) => {
     });
     dispatch(saveUserCardAction('SUCCESS', request.data));
     dispatch(finishChargeTransactionAction('SUCCESS', request.data));
-    dispatch(alertMessage(POST_USER_ORDER, true, 'You Successfully Placed Your Order'));
     dispatch(loading(POST_USER_ORDER, false));
   } catch (error) {
     dispatch(loading(POST_USER_ORDER, false));
-    dispatch(alertMessage(POST_USER_ORDER, true, error.response.data.message));
     dispatch(saveUserCardAction('ERROR', error.response.data));
   }
 };

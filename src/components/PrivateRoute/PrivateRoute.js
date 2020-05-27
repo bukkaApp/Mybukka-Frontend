@@ -1,23 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ViewWrappers from '../ViewWrappers/ViewWrappers';
+
+import { Route } from 'react-router-dom';
+import useAuthentication from '../../hooks/useAuthentication';
 import { useUserContext } from '../../context/UserContext';
 
-
 const PrivateRoute = (props) => {
-  const { isAuthenticated } = useUserContext();
+  const { logoutSuccess: signOut, token, isAuthenticated } = useUserContext();
+  useAuthentication(signOut, isAuthenticated, token);
 
-  return isAuthenticated ? <props.component {...props} /> :
-    (<ViewWrappers.View container withPadding>
-      <div className="Intro">
-        <h1>authenticationNeeded</h1>
-        <p>
-          You have to be signed in to access this page. If you have an account
-          you can sign in <Link to="/login?next">here</Link>. Otherwise you can
-          register as a store owner <Link to="/stores/new/">here</Link>.
-        </p>
-      </div>
-    </ViewWrappers.View>);
+  return <Route {...props} />;
 };
 
 export default PrivateRoute;
