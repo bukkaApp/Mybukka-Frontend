@@ -19,7 +19,7 @@ const useAuthentication = (authServices, signOut, swal) => {
           });
       }, 2000);
     }
-  });
+  }, []);
 };
 
 export default useAuthentication;

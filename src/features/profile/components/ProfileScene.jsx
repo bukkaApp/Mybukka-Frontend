@@ -37,26 +37,13 @@ const ProfileScene = ({
   userAddress,
 }) => {
   const { API } = useApi();
-  const { isAuthenticated } = useUserContext();
+  const { isAuthenticated, token } = useUserContext();
   const { userInfo } = user;
   const userData = userInfo || defaultData;
   const { authenticated } = status;
 
   useEffect(() => {
-<<<<<<< Updated upstream
-    if (!localStorage.getItem('x-access-token')) {
-      signOut();
-    }
-  });
-
-  useEffect(() => {
-    if (!authenticated) {
-      push('/login?next=/profile');
-    }
-    if (AuthService.isAuthenticated() && authenticated && !finishedRequest) {
-=======
     if (isAuthenticated && !finishedRequest) {
->>>>>>> Stashed changes
       requestUserData('/user/profile');
       requestUserAddress('/user/address');
     }

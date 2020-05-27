@@ -12,24 +12,21 @@ const CheckoutPage = ({
 }) => {
   const [state, setState] = useState({ closed: false });
 
-  const handleOpenWindow = () => {
-    const self = window.open(url, '_blank');
-    setState(self);
-  };
-
-  // User has switched back to the tab
-  const onWindowClosed = () => {
-    verifyCard(reference);
-  };
-
   useEffect(() => {
-    if (url && url !== '') {
-      handleOpenWindow();
-    }
+    const handleOpenWindow = () => {
+      const self = window.open(url, '_blank');
+      setState(self);
+    };
+    if (url && url !== '') handleOpenWindow();
     return () => {};
   }, [url]);
 
   useEffect(() => {
+    // User has switched back to the tab
+    const onWindowClosed = () => {
+      verifyCard(reference);
+    };
+
     onWindowClosed();
     return () => {};
   }, [state]);
@@ -38,7 +35,6 @@ const CheckoutPage = ({
     <Fragment>
 <<<<<<< Updated upstream
       <Checkout
-        openNewWindow={handleOpenWindow}
         push={push}
       />
 =======

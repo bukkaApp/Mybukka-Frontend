@@ -14,11 +14,8 @@ const ModalRoot = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setState(show);
+      return clearTimeout(timeout);
     }, 10);
-    return () => clearTimeout(timeout);
-  });
-
-  useEffect(() => {
     if (show) document.body.style.overflow = 'hidden';
     else document.body.style = '';
   }, [show]);

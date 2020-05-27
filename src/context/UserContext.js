@@ -8,6 +8,7 @@ const initialState = {
   isAuthenticated: null,
   isVerified: false,
   user: null,
+  address: null
 };
 
 const reducer = (state, action) => {
@@ -35,7 +36,7 @@ const useUser = () => {
 
   useEffect(() => {
     setData(state);
-  }, [state, setData]);
+  }, [state]);
 
   const setUser = (user, token) => {
     dispatch({

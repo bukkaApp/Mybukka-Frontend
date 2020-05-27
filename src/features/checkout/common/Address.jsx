@@ -53,7 +53,7 @@ const Address = ({
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => document.addEventListener('click', handleClickOutside);
-  }, []);
+  }, [wrapperRef]);
 
   return (
     <div ref={wrapperRef}>

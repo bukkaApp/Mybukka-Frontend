@@ -5,6 +5,23 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+/* Import copy-webpack-plugin */
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const CopyPlugin = new CopyWebpackPlugin({
+  patterns: [
+    {
+      from: path.resolve(__dirname, 'client/pwa'),
+    },
+  ], // define the path of the files to be copied
+});
+
+// const WebpackManifestPlugin = require('webpack-manifest-plugin');
+
+// const ManifestPlugin = new WebpackManifestPlugin({
+//   fileName: 'manifest.json',
+//   basePath: '/client/',
+// });
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -58,6 +75,7 @@ module.exports = {
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,
     ServiceWorkerPlugin,
+    CopyPlugin,
   ],
   module: {
     rules: [

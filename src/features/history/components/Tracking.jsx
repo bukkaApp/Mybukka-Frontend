@@ -51,18 +51,17 @@ const Tracking = ({ show, status, closeTrackingDropdown }) => {
     },
   };
 
-  const handleDomBody = () => {
-    const bodyElement = document.querySelector('body');
-    if (show) {
-      bodyElement.classList.add('modal-open');
-    } else {
-      bodyElement.classList.remove('modal-open');
-    }
-  };
-
   useEffect(() => {
+    const handleDomBody = () => {
+      const bodyElement = document.querySelector('body');
+      if (show) {
+        bodyElement.classList.add('modal-open');
+      } else {
+        bodyElement.classList.remove('modal-open');
+      }
+    };
     handleDomBody();
-  });
+  }, [show]);
 
   return (
     <Fragment>
