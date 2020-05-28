@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Field from 'Components/input/Field';
-import Address from './Address';
 
 const AuthForm = ({
   inputData,
@@ -18,7 +17,7 @@ const AuthForm = ({
       >
         {propData.placeholderText}
       </label>
-      {propData.name !== 'address' && <Field.Input
+      <Field.Input
         inputElement={{ autoComplete: 'off' }}
         type={propData.type}
         name={propData.name}
@@ -28,10 +27,7 @@ const AuthForm = ({
         placeholderText={propData.placeholderText}
         id={propData.id}
         onFocus={() => {}}
-      />}
-      {propData.name === 'address' && (
-        <Address propData={propData} handleInputChange={handleChange} />
-      )}
+      />
       <span className="text-danger font-size-11">{errors[propData.name]}</span>
     </div>
   ));

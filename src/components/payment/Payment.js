@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Field from 'Components/input/Field';
 import Button from 'Components/button/Button';
 
+import Form from '../form/Form';
 import { validateAField, validateAllFields } from '../validations/validateAddressAndPayment';
-import inputFeild from '../InputAttribute/inputData.json';
-import './payment.scss';
-import AuthForm from '../common/AuthForm';
+import inputFeild from './payment.json';
+
+import './Payment.scss';
 
 const Payment = () => {
   const [validationErrors, setValidationErrors] = useState({
@@ -50,9 +51,9 @@ const Payment = () => {
       <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
       <form className="border padding-20 mt-4" action="">
         <div className="row flex- flex-nowrap-sm font-size-14">
-          <AuthForm
+          <Form
             inputData={inputData}
-            inputField={inputFeild.payment}
+            inputField={inputFeild}
             handleChange={handleChange}
             errors={validationErrors}
           />

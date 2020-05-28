@@ -37,7 +37,6 @@ Button.defaultProps = {
   dataTarget: '',
   dataToggle: '',
   dataDismiss: '',
-  id: 'button-id',
   children: <div />,
   disabled: false,
 };
@@ -54,6 +53,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   dataTarget: PropTypes.string,
   dataToggle: PropTypes.string,
-  id: PropTypes.string,
   dataDismiss: PropTypes.string,
 };

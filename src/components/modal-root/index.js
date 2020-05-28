@@ -26,7 +26,7 @@ const ModalRoot = () => {
       <ViewOrdersOnMobile />
       <Authentication />
       <VerifyPhonePopup />
-      <Address withModal withPadding />
+      <Address withModal withPadding label="Add Address" />
     </div>
   );
 };

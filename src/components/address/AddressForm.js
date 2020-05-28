@@ -11,9 +11,7 @@ import { useLocationContext } from '../../context/LocationContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
-import './AddressForm.scss';
-
-const AddressForm = ({ withPadding, label, withModal, handleClick }) => {
+const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { setAddress, address } = useUserContext();
@@ -82,7 +80,7 @@ const AddressForm = ({ withPadding, label, withModal, handleClick }) => {
     <div className={withPadding && 'mb-2 mt-4'}>
       {label && <h2 className="font-size-16 px-3 px-md-3 px-lg-0">{label}</h2>}
       <span className="text-danger font-size-11">{errorMessage}</span>
-      <form ref={wrapperRef} className="border padding-20 mt-4">
+      <form ref={wrapperRef} className={`border padding-20 ${withFormSpace ? 'mt-2' : 'mt-4'}`}>
         <Form
           inputData={inputData}
           inputField={inputField}
