@@ -16,6 +16,8 @@ import { validateAField, validateAllFields } from '../helper/validateFields';
 import signUpDomStructure from '../signUpDomStructure.json';
 import useQuery from '../../../hooks/useQuery';
 
+import './RetrieveSection.scss';
+
 const RetrieveSection = ({
   isValidUser,
   requestSent,
@@ -80,11 +82,11 @@ const RetrieveSection = ({
         await checkIsValidUser('/user/token/validate', token);
       }
     };
-  
+
     const successRedirection = () => {
       if (requested) return push('/login');
     };
-  
+
     handleUserValidity(query.get('token'));
     successRedirection();
   }, [isValidUser, requested]);
@@ -93,7 +95,7 @@ const RetrieveSection = ({
     <>
       <Navbar push={push} />
       <div className="bg-color py-8">
-        <Container classNames="relative modal-open">
+        <Container classNames="relative modal-open Retrieve-Section">
           <div
             className="d-flex flex-column flex-xl-row
               flex-lg-row flex-md-column justify-content-center"

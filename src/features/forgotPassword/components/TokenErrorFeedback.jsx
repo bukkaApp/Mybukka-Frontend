@@ -10,7 +10,7 @@ import './feedbacksection.scss';
 
 const TokenErrorFeedback = ({ push }) => (
   <>
-    <Container classNames="pt-5 pb-2 px-4">
+    <Container classNames="Token-Error-Feedback pt-5 pb-2 px-4">
       <div className="col-3 text-center mx-auto">
         <Telescope />
       </div>

@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect, memo } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
 import PrimaryNavbar from 'Components/navbar';
 import fetchCartAction from 'Redux/fetchCartAction';
@@ -26,7 +25,6 @@ export const LoginPage = memo(({
   const { loading } = useLoadingContext();
   const { setUser, isVerified, isAuthenticated, setVerified } = useUserContext();
   const { setAuthenticationPopup, setVerificationPhonePopup, setModal } = useModalContext();
-  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const [errorMessage, setErrorMessage] = useState('');
   const [nextSlide, setNextSlide] = useState(false);
 
@@ -75,21 +73,18 @@ export const LoginPage = memo(({
     });
   };
 
-  const requestVerification = () => {
-    if (!isVerified) {
-      setVerificationPhonePopup(true);
-      setModal(true);
-    }
+  const requestVerification = (hasVerified) => {
+    setVerificationPhonePopup(!hasVerified || !isVerified);
+    setModal(!hasVerified || !isVerified);
   };
 
-  const handleExpensiveEvents = () => {
-    const hasRedirection = location && location.state;
-    if (isBigScreen && hasModal) {
+  const handleExpensiveEvents = (hasVerified) => {
+    if (hasModal) {
       handleClick();
-      requestVerification();
-    } else if (!isBigScreen && hasRedirection) {
+      requestVerification(hasVerified);
+    } else {
       const redirect = location.state ? location.state.redirectTo : '/';
-      requestVerification();
+      requestVerification(hasVerified);
       return push(redirect);
     }
   };
@@ -102,7 +97,7 @@ export const LoginPage = memo(({
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
         setVerified(response.data.user.verified);
-        handleExpensiveEvents();
+        handleExpensiveEvents(response.data.user.verified);
       }
     } catch (error) {
       loading('AUTH', false);
@@ -131,6 +126,7 @@ export const LoginPage = memo(({
   };
 
   const handleFBAuth = async (e) => {
+    if (!e) return;
     const fullName = e.name.split(' ');
     const data = {
       lastName: fullName[0],

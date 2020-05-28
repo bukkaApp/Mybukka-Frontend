@@ -73,21 +73,20 @@ export const RegisterPage = ({
     });
   };
 
-  const requestVerification = () => {
-    if (!isVerified) {
-      setVerificationPhonePopup(true);
-      setModal(true);
-    }
+  const requestVerification = (hasVerified) => {
+    console.log('hasVerified', hasVerified, 'isVerified', isVerified);
+    setVerificationPhonePopup(!hasVerified || !isVerified);
+    setModal(!hasVerified || !isVerified);
   };
 
-  const handleExpensiveEvents = () => {
+  const handleExpensiveEvents = (hasVerified) => {
     const hasRedirection = location && location.state;
     if (isBigScreen && hasModal) {
       handleClick();
-      requestVerification();
+      requestVerification(hasVerified);
     } else if (!isBigScreen && hasRedirection) {
       const redirect = location.state ? location.state.redirectTo : '/';
-      requestVerification();
+      requestVerification(hasVerified);
       return push(redirect);
     }
   };
@@ -98,10 +97,9 @@ export const RegisterPage = ({
       const response = await apiCall(data);
       loading('AUTH', false);
       if (response.data.token) {
-        const userData = { ...inputData, verified: false };
-        setUser(response.data.user || userData, response.data.token);
-        setVerified(response.data.user ? response.data.user.verified : false);
-        handleExpensiveEvents();
+        setUser(response.data.user, response.data.token);
+        setVerified(response.data.user.verified);
+        await handleExpensiveEvents(response.data.user.verified);
       }
     } catch (error) {
       loading('AUTH', false);
