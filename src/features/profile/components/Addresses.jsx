@@ -1,7 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
 import { RoundedPlus } from 'Icons/Plus';
 
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
@@ -10,6 +8,9 @@ import AddMoreSection from '../common/AddMoreSection';
 
 import { useModalContext } from '../../../context/ModalContext';
 import './addresses.scss';
+import { useUserContext } from '../../../context/UserContext';
+import useApi from '../../../shared/api';
+import { useLoadingContext } from '../../../context/LoadingContext';
 
 const AddAnAddress = () => {
   const { setAddressPopup, setModal } = useModalContext();
@@ -28,51 +29,45 @@ const AddAnAddress = () => {
   );
 };
 
-const Addresses = ({ addresses, ...props }) => (
-  <div className="addresses-section">
-    <AccountDetailsGroupHeader text="Addresses" />
-    {addresses.map && addresses.map(address => (
-      <PlainAccountDetails
-        handleEdit={() => props.handleDelete(address)}
-        btnText="DELETE"
-        text={address.address}
-        key={`Plain-Account-Details-DELETE-$${address._id}`}
-      />
-    ))}
-    <AddAnAddress />
-  </div>
-);
+const Addresses = () => {
+  const { address: addresses, setAddress } = useUserContext();
+  const { API } = useApi();
+  const { loading } = useLoadingContext();
+
+  const deleteAddress = async (id) => {
+    const result = confirm('Want to delete?');
+    if (result) {
+      try {
+        loading('ADDRESS', true);
+        await API.address.delete(id);
+        const response = await API.address.get();
+        setAddress(response.data.addresses || null);
+        loading('ADDRESS', false);
+      } catch (error) {
+        setAddress(error.response ? null : addresses);
+        loading('ADDRESS', false);
+      }
+    }
+  };
+
+  return (
+    <div className="addresses-section">
+      <AccountDetailsGroupHeader text="Addresses" />
+      {addresses && addresses.map(address => (
+        <PlainAccountDetails
+          handleEdit={() => deleteAddress(address._id)}
+          btnText="DELETE"
+          text={address.address}
+          key={`Plain-Account-Details-DELETE-$${address._id}`}
+        />
+      ))}
+      <AddAnAddress />
+    </div>
+  );
+};
 
 export default Addresses;
 
-Addresses.defaultProps = {
-  addresses: null
-};
+Addresses.defaultProps = {};
 
-const proptypes = PropTypes.objectOf(
-  PropTypes.oneOfType([
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.number),
-        PropTypes.string
-      ])
-    ),
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.number
-  ])
-);
-
-Addresses.propTypes = {
-  handleDelete: PropTypes.func.isRequired,
-  addresses: PropTypes.oneOfType([
-    PropTypes.arrayOf(proptypes),
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.arrayOf(proptypes)
-      ])
-    )
-  ])
-};
+Addresses.propTypes = {};

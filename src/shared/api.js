@@ -8,7 +8,6 @@ const { NODE_ENV } = process.env;
 const PORT = process.env.PORT || '1234';
 const baseURL = NODE_ENV === 'production' ? 'https://mybukka-backend.herokuapp.com/api/v1/' : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
 
-
 const axiosInstance = axios.create({
   baseURL,
   responseType: 'json',
@@ -23,6 +22,7 @@ const endpointTransform = (endpoint, id) => {
 
 const createEndpoint = endpoint => ({
   get: id => axiosInstance.get(endpointTransform(endpoint, id)),
+  delete: id => axiosInstance.delete(endpointTransform(endpoint, id)),
   put: (id, data, config) => axiosInstance.put(endpointTransform(endpoint, id), data, config),
   patch: (id, data, config) => axiosInstance.patch(endpointTransform(endpoint, id), data, config),
   post: (data, id) => axiosInstance.post(endpointTransform(endpoint, id), data),
@@ -41,7 +41,7 @@ const useApi = () => {
   useEffect(() => {
     let interceptor;
     if (token) {
-      interceptor = axiosInstance.interceptors.request.use(config => ({ ...config, headers: { Authorization: `Token ${token}`, ...config.headers } }));
+      interceptor = axiosInstance.interceptors.request.use(config => ({ ...config, headers: { Authorization: token, ...config.headers } }));
     }
     return () => {
       if (interceptor) {
@@ -91,8 +91,8 @@ const useApi = () => {
   }, [setToast]);
 
   const API = React.useMemo(() => ({
-    profile: createEndpoint('/user/profile'),
-    address: createEndpoint('/user/address'),
+    profile: createEndpoint('user/profile/$id/'),
+    address: createEndpoint('user/address/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
     register: { post: data => axiosInstance.post('user/signup', data) },
     verify: { post: (data, type) => axiosInstance.post(`verify/${type}/`, data) },

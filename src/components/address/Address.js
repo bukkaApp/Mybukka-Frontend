@@ -41,7 +41,7 @@ const Address = (props) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [wrapperRef]);
 
-  const addressJsx = <AddressForm label="Add Address" {...props} />;
+  const addressJsx = <AddressForm handleClick={handleClick} label="Add Address" {...props} />;
 
   if (props.withModal) {
     return (

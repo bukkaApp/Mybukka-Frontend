@@ -5,24 +5,18 @@ import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 
 import './passwordSection.scss';
 
-const PasswordSection = React.forwardRef(({
-  status,
-  handleSave,
-  handleChange,
-  handleEdit,
-}, ref) => (
+const PasswordSection = ({ handleSave, handleChange, value, errorMessage }) => (
   <div className="account-details">
     <AccountDetailsGroupHeader text="Change Password" />
     <AccountDetailsSection
       placeHolder="Up-to-Date"
+      value={value}
       name="password"
-      ref={ref}
-      handleEdit={handleEdit}
+      errorMessage={errorMessage}
       handleSave={handleSave}
       handleChange={handleChange}
-      status={status}
     />
   </div>
-));
+);
 
 export default PasswordSection;

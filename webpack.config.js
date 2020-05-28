@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -11,17 +12,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CopyPlugin = new CopyWebpackPlugin({
   patterns: [
     {
+      // path to the folder to be copied
       from: path.resolve(__dirname, 'client/pwa'),
     },
-  ], // define the path of the files to be copied
+  ],
 });
-
-// const WebpackManifestPlugin = require('webpack-manifest-plugin');
-
-// const ManifestPlugin = new WebpackManifestPlugin({
-//   fileName: 'manifest.json',
-//   basePath: '/client/',
-// });
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -71,6 +66,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,

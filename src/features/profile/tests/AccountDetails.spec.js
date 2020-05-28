@@ -26,9 +26,6 @@ const store = mockStore({
 
 describe.skip('Account Details components', () => {
   const props = {
-    requestUserAddress: jest.fn(),
-    deleteUserAddress: jest.fn(),
-    requestUserData: jest.fn(),
     loading: false,
     userInfo: {
       firstName: 'save',

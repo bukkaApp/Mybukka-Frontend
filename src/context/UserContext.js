@@ -20,6 +20,12 @@ const reducer = (state, action) => {
     case 'LOGIN_SUCCESSFUL':
       return { ...state, ...action.data, isAuthenticated: true };
 
+    case 'SET_ADDRESS':
+      return { ...state, address: action.payload };
+
+    case 'SET_PROFILE':
+      return { ...state, user: { ...state.user, ...action.payload } };
+
     case 'LOGOUT_SUCCESSFUL':
       return { ...initialState };
 
@@ -46,6 +52,20 @@ const useUser = () => {
     });
   };
 
+  const setProfile = (payload) => {
+    dispatch({
+      type: 'SET_PROFILE',
+      payload,
+    });
+  };
+
+  const setAddress = (payload) => {
+    dispatch({
+      type: 'SET_ADDRESS',
+      payload
+    });
+  };
+
   const setVerified = (isVerified) => {
     dispatch({
       type: 'SET_VERIFIED',
@@ -66,9 +86,9 @@ const useUser = () => {
     });
   };
 
-  const { user, token, isAuthenticated, isVerified } = state;
+  const { user, token, address, isAuthenticated, isVerified } = state;
 
-  return { user, token, isAuthenticated, isVerified, setUser, loginSuccess, logoutSuccess, setVerified };
+  return { user, address, token, isAuthenticated, isVerified, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
 };
 
 export const [UserProvider, useUserContext] = constate(useUser);

@@ -80,7 +80,7 @@ Input.defaultProps = {
 Input.propTypes = {
   autoComplete: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   placeholderText: PropTypes.string,

@@ -1,42 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import AccountDetailsSection from '../common/AccountDetailsSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
 import Addresses from './Addresses';
 import Payment from './Payment';
 import PasswordSection from './PasswordSection';
-import { validateAField, validateAllFields }
-  from '../validations/validateFields';
+import { validateAField } from '../validations/validateFields';
+import useApi from '../../../shared/api';
 import signUpDomStructure from './signUpDomStructure.json';
 import './accountDetails.scss';
 
-const AccountDetails = ({
-  userInfo,
-  loading,
-  editUserData,
-  deleteUserAddress,
-  requestUserAddress,
-  requestUserData,
-  userAddress,
-  errorMessage,
-}) => {
-  const [activeInput, setActiveInput] = useState('firstName');
-  const textInputFocus = {
-    firstName: React.createRef(),
-    lastName: React.createRef(),
-    email: React.createRef(),
-    contactMobile: React.createRef(),
-    password: React.createRef()
-  };
-
-  const [inputStatus, setInputStatus] = useState({
-    firstName: 'save',
-    lastName: 'save',
-    email: 'save',
-    contactMobile: 'save',
-    password: 'save'
-  });
-
+const AccountDetails = ({ userInfo, setProfile }) => {
+  const { API } = useApi();
   const [inputData, setInputData] = useState({
     firstName: '',
     lastName: '',
@@ -67,99 +41,24 @@ const AccountDetails = ({
     password: ''
   };
 
-  const handleAccountDetails = ({ target: { name, value } }) => {
+  const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
     const validation = validateAField(newFieldData, name);
-    setInputData({
-      ...inputData,
-      ...newFieldData
-    });
-    setValidationErrors({
-      ...validationErrors,
-      [name]: validation.message
-    });
+    setInputData({ ...inputData, ...newFieldData });
+    setValidationErrors({ ...validationErrors, [name]: validation.message });
   };
 
-  const validateOnClick = (newValidationError) => {
-    setValidationErrors({
-      ...validationErrors,
-      ...newValidationError
-    });
-  };
-
-  const handleEmailErrorMsg = (name) => {
-    if (name === 'email' && !validationErrors[name]) {
-      setValidationErrors({
-        ...validationErrors,
-        [name]: errorMessage
-      });
+  const handleSubmit = async (event, name) => {
+    if (event) event.preventDefault();
+    const updateField = { [name]: inputData[name] };
+    const validation = validateAField(updateField, name);
+    setValidationErrors({ ...defaultData, [name]: validation.message });
+    if (validation.message === '') {
+      const reponse = await API.profile.patch(null, updateField);
+      setProfile(reponse.data.updatedUser);
+      setInputData({ ...inputData, ...defaultData });
     }
   };
-
-  const handleDeleteButton = async (address) => {
-    // eslint-disable-next-line no-underscore-dangle
-    const id = address._id;
-    await deleteUserAddress(`/user/address/${id}`);
-    await requestUserAddress('/user/address');
-  };
-
-  const handleEditButton = (e, inputName) => {
-    e.preventDefault();
-    // set selector for calling focus on input field in componenDidMount
-    if (!loading) {
-      setActiveInput(inputName);
-      // set input status of a particular field to edit
-      setInputStatus({
-        ...inputStatus,
-        [inputName]: 'edit'
-      });
-    }
-  };
-
-  const handleSaveButton = (inputName) => {
-    setInputStatus({
-      ...inputStatus,
-      [inputName]: 'save'
-    });
-  };
-
-  const handleInputSaveButton = async (event, name) => {
-    event.preventDefault();
-    const data = {
-      ...userInfo,
-      [name]: inputData[name]
-    };
-    let validation = validateAllFields(data);
-    if (name === 'password') {
-      validation = validateAllFields(data, true);
-    }
-    const { errors, passes } = validation;
-    validateOnClick(errors);
-    if (passes) {
-      handleSaveButton(name);
-      setInputData({
-        ...inputData,
-        ...defaultData
-      });
-      // if token expires re-login
-      await editUserData('/user/profile', data);
-      await requestUserData('/user/profile');
-      handleEmailErrorMsg(name);
-    }
-  };
-
-  useEffect(() => {
-    setInputData({
-      ...inputData,
-      ...userInfo,
-    });
-  }, [userInfo]);
-
-  useEffect(() => {
-    if (inputStatus[activeInput] === 'edit') {
-      textInputFocus[activeInput].current.focus();
-    }
-  }, [textInputFocus[activeInput]]);
 
   return (
     <div className="account-details">
@@ -167,42 +66,24 @@ const AccountDetails = ({
       {signUpDomStructure.map(propData => (
         <AccountDetailsSection
           errorMessage={validationErrors[propData.name]}
-          ref={textInputFocus[propData.name]}
-          handleChange={handleAccountDetails}
+          handleChange={handleChange}
           placeHolder={propData.placeholder}
           name={propData.name}
           key={propData.name}
-          status={inputStatus[propData.name]}
-          value={inputData[propData.name]}
-          handleEdit={event => handleEditButton(event, propData.name)}
-          handleSave={event => handleInputSaveButton(event, propData.name)}
+          value={inputData[propData.name] || userInfo[propData.name]}
+          handleSave={event => handleSubmit(event, propData.name)}
         />
       ))}
       <PasswordSection
-        handleChange={handleAccountDetails}
-        ref={textInputFocus.password}
-        status={inputStatus.password}
-        handleEdit={event => handleEditButton(event, 'password')}
-        handleSave={event => handleInputSaveButton(event, 'password')}
+        handleChange={handleChange}
+        errorMessage={validationErrors.password}
+        value={inputData.password}
+        handleSave={event => handleSubmit(event, 'password')}
       />
-      <Addresses handleDelete={handleDeleteButton} addresses={userAddress} />
+      <Addresses />
       <Payment />
     </div>
   );
 };
 
 export default AccountDetails;
-
-AccountDetails.defaultProps = {
-  errorMessage: ''
-};
-
-AccountDetails.propTypes = {
-  errorMessage: PropTypes.string,
-  loading: PropTypes.bool.isRequired,
-  userInfo: PropTypes.objectOf(PropTypes.string).isRequired,
-  requestUserAddress: PropTypes.func.isRequired,
-  deleteUserAddress: PropTypes.func.isRequired,
-  requestUserData: PropTypes.func.isRequired,
-  editUserData: PropTypes.func.isRequired,
-};

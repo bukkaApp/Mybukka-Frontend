@@ -4,7 +4,7 @@ import loading from 'Redux/loading';
 
 import axios from 'axios';
 
-const uploadProfilePicture = (file, userData, cb) => async (dispatch) => {
+const uploadProfilePicture = (file, cb) => async (dispatch) => {
   try {
     dispatch(loading(UPLOAD_PROFILE_PICTURE, true));
     const fd = new FormData();
@@ -14,19 +14,9 @@ const uploadProfilePicture = (file, userData, cb) => async (dispatch) => {
       headers: { 'X-Requested-With': 'XMLHttpRequest' },
     };
     const url = process.env.CLOUDINARY_UPLOAD_URL;
-    axios.post(url, fd, config)
-      .then((res) => {
-        const response = res.data;
-        const urlStr = response.secure_url;
-        const data = {
-          ...userData,
-          imageUrl: urlStr
-        };
-        return cb(data);
-      })
-      .catch((err) => {
-        console.log('encounter an error while uploading', err);
-      });
+    await axios.post(url, fd, config)
+      .then(res => cb({ imageUrl: res.data.secure_url }))
+      .catch(err => console.log('encounter an error while uploading', err));
     dispatch(loading(UPLOAD_PROFILE_PICTURE, false));
   } catch (error) {
     dispatch(loading(UPLOAD_PROFILE_PICTURE, false));

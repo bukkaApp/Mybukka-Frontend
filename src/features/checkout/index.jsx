@@ -33,13 +33,7 @@ const CheckoutPage = ({
 
   return (
     <Fragment>
-<<<<<<< Updated upstream
-      <Checkout
-        push={push}
-      />
-=======
       <Checkout />
->>>>>>> Stashed changes
     </Fragment>
   );
 };

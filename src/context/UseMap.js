@@ -44,5 +44,4 @@ const useMap = () => {
   return { isLoaded, onLoad, hasMap, setMapVisibility };
 };
 
-export const [
-  MapProvider, useMapContext] = constate(useMap);
+export const [MapProvider, useMapContext] = constate(useMap);

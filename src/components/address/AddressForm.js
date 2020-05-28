@@ -1,7 +1,4 @@
-import React, { useState, useEffect } from 'react';
-
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
 
 import TextArea from 'Components/input/TextArea';
 import Button from 'Components/button/Button';
@@ -10,17 +7,19 @@ import Form from '../form/Form';
 import useApi from '../../shared/api';
 import { validateAField, validateAllFields } from './validation';
 
-// import fetchUserAddress from '../../features/profile/actionCreators/fetchUserAddress';
-// import postUserAddress from '../../features/profile/actionCreators/postUserAddress';
 import { useLocationContext } from '../../context/LocationContext';
+import { useUserContext } from '../../context/UserContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 import './AddressForm.scss';
 
-const AddressForm = ({ errorMessage, withPadding, label }) => {
+const AddressForm = ({ withPadding, label, withModal, handleClick }) => {
   const { API } = useApi();
-  const { coordinates } = useLocationContext();
+  const { loading } = useLoadingContext();
+  const { setAddress, address } = useUserContext();
+  const { coordinates, selectedLocation } = useLocationContext();
   const wrapperRef = React.createRef();
-  const [autoComplete, setAutoComplete] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     address: '',
     streetAddress2: '',
@@ -42,17 +41,6 @@ const AddressForm = ({ errorMessage, withPadding, label }) => {
     mobileNumber: ''
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setAutoComplete(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef.current]);
-
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
     const validation = validateAField(newFieldData, name);
@@ -64,9 +52,6 @@ const AddressForm = ({ errorMessage, withPadding, label }) => {
       ...validationErrors,
       [name]: validation.message
     });
-    if (name === 'address') {
-      setAutoComplete(true);
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -77,10 +62,19 @@ const AddressForm = ({ errorMessage, withPadding, label }) => {
     setValidationErrors({ ...validationErrors, ...errors });
     if (passes) {
       const location = { type: 'Point', coordinates };
-      const data = { ...inputData, apartmentNumber, location, };
+      const data = { ...inputData, apartmentNumber, location, address: selectedLocation.description };
       // reset back to default
       setInputData({ ...inputData, ...defaultData });
-      await API.address.post(data);
+      try {
+        loading('ADDRESS', true);
+        const response = await API.address.post(data);
+        const prevAddress = address || [];
+        setAddress([...prevAddress, response.data.newAddress]);
+        if (withModal) handleClick();
+      } catch (error) {
+        setErrorMessage(error.response.data.message || '');
+        loading('ADDRESS', false);
+      }
     }
   };
 
@@ -94,13 +88,11 @@ const AddressForm = ({ errorMessage, withPadding, label }) => {
           inputField={inputField}
           handleChange={handleChange}
           errors={validationErrors}
-          autoComplete={autoComplete}
         />
         <div className="form-group mb-4">
           <TextArea
             placeholderText="Add delivery instructuctions..."
             name="deliveryInstructions"
-            classNames="instruction"
             handleChange={handleChange}
             onFocus={() => {}}
           />
@@ -118,20 +110,6 @@ const AddressForm = ({ errorMessage, withPadding, label }) => {
   );
 };
 
-const mapStateToProps = ({
-  updateUserAddressReducer: { errorMessage, posted },
-}) => ({
-  errorMessage,
-  posted,
-});
+export default AddressForm;
 
-export default connect(mapStateToProps,)(AddressForm);
-
-AddressForm.defaultProps = {
-  errorMessage: '',
-  posted: false
-};
-
-AddressForm.propTypes = {
-  errorMessage: PropTypes.string,
-};
+AddressForm.propTypes = {};
