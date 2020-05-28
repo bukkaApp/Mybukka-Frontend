@@ -43,7 +43,6 @@
     "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "react": "16.8.0-alpha.1",
-    "react-bootstrap": "^1.0.0-beta.9",
     "react-cookie": "^4.0.3",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "16.8.0-alpha.1",
