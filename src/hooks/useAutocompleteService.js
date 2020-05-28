@@ -5,7 +5,7 @@ import Script from 'react-load-script';
 import { useLocationContext } from '../context/LocationContext';
 import { useLocationsPredictionContext } from '../context/LocationsPrediction';
 import { useLoadingContext } from '../context/LoadingContext';
-import { useMapContext } from '../context/UseMap';
+import { useMapContext } from '../context/MapContext';
 
 let placesService;// eslint-disable-line
 let autoCompleteService;

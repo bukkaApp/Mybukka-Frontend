@@ -9,7 +9,7 @@ import { CloudinaryProvider } from '../components/img/Cloudinary';
 import { ModalProvider } from '../context/ModalContext';
 import { CartProvider } from '../context/CartContext';
 import { LoadingProvider } from '../context/LoadingContext';
-import { MapProvider } from '../context/UseMap';
+import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
 

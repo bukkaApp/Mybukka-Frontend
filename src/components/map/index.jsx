@@ -4,7 +4,7 @@ import { useLocationContext } from '../../context/LocationContext';
 import mapStyles from '../../shared/mapStyles.json';
 import marker from '../../assets/marker.svg';
 import './map.scss';
-import { useMapContext } from '../../context/UseMap';
+import { useMapContext } from '../../context/MapContext';
 
 
 const defaultLocations = [
