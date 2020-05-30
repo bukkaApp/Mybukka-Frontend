@@ -1,0 +1,47 @@
+.Payment-Wrapper {
+  max-width: 600px;
+}
+
+.Payment-Checkox--text {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+.Payment-Checkox-Wrapper {
+  align-items: center;
+  text-align: center;
+  color: rgb(143, 149, 163);
+  display: flex;
+  margin-bottom: 30px;
+  // border-bottom: 1px solid rgb(236, 237, 239);
+  padding: 30px 0px 24px;
+}
+
+.Payment-Details-Header {
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.Payment-Details-Text {
+  font-weight: 500;
+}
+
+.Payment-Form-Header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.text-end {
+  text-align: end
+}
+
+@media (max-width: 991.98px) {
+  .add-card-form {
+    height: 100vh;
+    width: 100%;
+  }
+}
+  

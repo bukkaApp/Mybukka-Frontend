@@ -91,14 +91,14 @@ const useApi = () => {
   }, [setToast]);
 
   const API = React.useMemo(() => ({
-    profile: createEndpoint('user/profile/$id/'),
-    address: createEndpoint('user/address/$id/'),
+    address: createEndpoint('address/$id/'),
+    authToken: { post: data => axiosInstance.post('user/signin', data) },
+    card: createEndpoint('card/$id/'),
+    payment: createEndpoint('pay/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
+    profile: createEndpoint('user/profile/$id/'),
     register: { post: data => axiosInstance.post('user/signup', data) },
     verify: { post: (data, type) => axiosInstance.post(`verify/${type}/`, data) },
-    productList: { get: partnerId => axiosInstance.get(`products/${partnerId && `?partner=${partnerId}`}`) },
-    products: createHyperlinkedEndpoint('admin/products/$id/'),
-    authToken: { post: data => axiosInstance.post('user/signin', data) },
     socialAuth: { post: data => axiosInstance.post('user/social/auth', data) },
   }), []);
 

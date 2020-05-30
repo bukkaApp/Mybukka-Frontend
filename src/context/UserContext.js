@@ -8,7 +8,9 @@ const initialState = {
   isAuthenticated: null,
   isVerified: false,
   user: null,
-  address: null
+  address: null,
+  card: null,
+  payment: null
 };
 
 const reducer = (state, action) => {
@@ -20,11 +22,23 @@ const reducer = (state, action) => {
     case 'LOGIN_SUCCESSFUL':
       return { ...state, ...action.data, isAuthenticated: true };
 
-    case 'SET_ADDRESS':
-      return { ...state, address: action.payload };
+    case 'SET_ADDRESS': {
+      const address = action.payload ? { ...state.address, ...action.payload } : null;
+      return { ...state, address };
+    }
 
     case 'SET_PROFILE':
       return { ...state, user: { ...state.user, ...action.payload } };
+
+    case 'SET_CARD': {
+      const card = action.payload ? { ...state.card, ...action.payload } : null;
+      return { ...state, card };
+    }
+
+    case 'SET_PAYMENT': {
+      const payment = action.payload ? { ...state.payment, ...action.payload } : null;
+      return { ...state, payment };
+    }
 
     case 'LOGOUT_SUCCESSFUL':
       return { ...initialState };
@@ -66,6 +80,20 @@ const useUser = () => {
     });
   };
 
+  const setCard = (payload) => {
+    dispatch({
+      type: 'SET_CARD',
+      payload
+    });
+  };
+
+  const setPayment = (payload) => {
+    dispatch({
+      type: 'SET_PAYMENT',
+      payload,
+    });
+  };
+
   const setVerified = (isVerified) => {
     dispatch({
       type: 'SET_VERIFIED',
@@ -86,9 +114,9 @@ const useUser = () => {
     });
   };
 
-  const { user, token, address, isAuthenticated, isVerified } = state;
+  const { user, token, payment, address, card, isAuthenticated, isVerified } = state;
 
-  return { user, address, token, isAuthenticated, isVerified, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
+  return { user, payment, address, card, token, isAuthenticated, isVerified, setPayment, setCard, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
 };
 
 export const [UserProvider, useUserContext] = constate(useUser);

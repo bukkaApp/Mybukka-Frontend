@@ -6,16 +6,18 @@ import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 
 import './payment.scss';
 import Demarcation from '../common/SmallScreenDivider';
-import Address from '../../../components/address/Address';
+import DropOff from '../common/DropOff';
+import TemporaryWrapper from '../../../components/ViewWrappers/TemporaryWrapper';
 
 const Pickup = ({ title, name }) => (
-  <section className="px-3 px-md-3 px-lg-0 mb-2 mt-4">
+  <TemporaryWrapper>
     <h2 className="font-size-16">{title}</h2>
     <ul className="list-group mt-2">
       <li className="list-group-item">{name}</li>
     </ul>
-  </section>
+  </TemporaryWrapper>
 );
+
 
 const Delivery = ({
   mode,
@@ -27,7 +29,7 @@ const Delivery = ({
       <DeliveryOrPickupNav />
     </div>
     <Demarcation />
-    {mode === 'delivery' && <Address withFormSpace withPadding label="Delivery Address" />}
+    {mode === 'delivery' && <DropOff />}
     {mode === 'pickup' && (
       <Fragment>
         <Pickup title="Pickup Address" name={address} />

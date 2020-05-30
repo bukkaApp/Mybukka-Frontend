@@ -14,7 +14,7 @@ import { useLoadingContext } from '../../context/LoadingContext';
 const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { setAddress, address } = useUserContext();
+  const { setAddress } = useUserContext();
   const { coordinates, selectedLocation } = useLocationContext();
   const wrapperRef = React.createRef();
   const [errorMessage, setErrorMessage] = useState(false);
@@ -33,7 +33,6 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
   });
 
   const defaultData = {
-    address: '',
     streetAddress2: '',
     name: '',
     mobileNumber: ''
@@ -66,8 +65,7 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
       try {
         loading('ADDRESS', true);
         const response = await API.address.post(data);
-        const prevAddress = address || [];
-        setAddress([...prevAddress, response.data.newAddress]);
+        setAddress(response.data.newAddress);
         if (withModal) handleClick();
       } catch (error) {
         setErrorMessage(error.response.data.message || '');

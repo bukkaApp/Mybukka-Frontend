@@ -16,7 +16,7 @@ import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
 import DeliveryAddress from './DeliveryAddress';
 import Schedules from './Schedules';
-import Payment from './Payment';
+import Payment from '../../../components/payment/Payment';
 import ShoppingCart from './ShoppingCart';
 import postUserOrder from '../actionCreators/postUserOrder';
 

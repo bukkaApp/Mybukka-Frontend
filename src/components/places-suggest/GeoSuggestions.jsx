@@ -5,25 +5,28 @@ import PropTypes from 'prop-types';
 
 import MapMarker from '../icons/MapMarker';
 import './GeoSuggestions.scss';
+import Button from '../button/Button';
 
-const GeoSuggestions = ({ handleClick, predictions }) => (
+const GeoSuggestions = ({ handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton }) => (
   <Fragment>
     {predictions.map((suggestion) => {
       const { terms } = suggestion;
       const filteredTerms = terms.reduce((arr, item) => [...arr, item.value], []);
       return (
         <div
-          className="suggestion-group-style"
+          className={`${asUtility ? 'Suggestion-Address' : 'suggestion-group-style'}`}
           onClick={() => handleClick(suggestion, true)}
           tabIndex="0"
           role="link"
-          key={suggestion.id}
+          key={suggestion.id || filteredTerms.join('-')}
         >
+          {!asUtility &&
           <div className="input-group-prepend">
             <span className="input-group-text location-arrow">
               <MapMarker />
             </span>
           </div>
+          }
           <div className="suggestion suggestion-geo text-center d-flex">
             {filteredTerms.slice(0, 2).map((term, indx) => (
               <span key={`term-${term}`} className={`${indx !== 0 ? 'secondary-address-suggest' : ''}`}>{term}</span>))}
@@ -31,6 +34,16 @@ const GeoSuggestions = ({ handleClick, predictions }) => (
               {filteredTerms.slice(2).join(', ')}
             </span>}
           </div>
+          {asUtility &&
+          <div className="edit-toggler-button">
+            <Button
+              type="button"
+              handleClick={emitOnClick}
+              text={text}
+              classNames={`Button-Stripe ${(withPrimaryButton && 'Primary-Color') || ''}`}
+            />
+          </div>
+          }
         </div>
       );
     })}

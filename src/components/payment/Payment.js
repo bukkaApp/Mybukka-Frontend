@@ -1,87 +1,72 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
-import Field from 'Components/input/Field';
-import Button from 'Components/button/Button';
+import PropTypes from 'prop-types';
+import Modal from 'Components/modal/Modal';
+import DismissModal from '../modal/DismissModal';
+import { useModalContext } from '../../context/ModalContext';
 
-import Form from '../form/Form';
-import { validateAField, validateAllFields } from '../validations/validateAddressAndPayment';
-import inputFeild from './payment.json';
-
+import PaymentForm from './PaymentForm';
 import './Payment.scss';
+import Container from '../container/Container';
 
-const Payment = () => {
-  const [validationErrors, setValidationErrors] = useState({
-    number: '',
-    expDate: '',
-    cvv: '',
-    zipCode: ''
-  });
+const PaymentHeader = ({ handleClick }) => (
+  <div className="Payment-Form-Header pb-1">
+    <div className="text-end">
+      <DismissModal onClick={handleClick} />
+    </div>
+    <div className="Payment-Details-Header">
+      <h5 className="Payment-Details-Text">Add Delivery Payment</h5>
+    </div>
+  </div>
+);
 
-  const [inputData, setInputData] = useState({
-    number: '',
-    expDate: '',
-    cvv: '',
-    zipCode: ''
-  });
+const Payment = (props) => {
+  const wrapperRef = React.createRef();
+  const { paymentPopup, setPaymentPopup, setPaymentSecurityPopup, setModal } = useModalContext();
 
-  const handleChange = ({ target: { name, value } }) => {
-    const newFieldData = { [name]: value };
-    const validation = validateAField(newFieldData, name);
-    setInputData({
-      ...inputData,
-      ...newFieldData
-    });
-    setValidationErrors({
-      ...validationErrors,
-      [name]: validation.message
-    });
+  const handleClickOutside = (event) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setModal(false);
+      setPaymentPopup(false);
+    }
   };
 
-  const handleSaveButton = (event) => {
-    event.preventDefault();
-    const validation = validateAllFields(inputData);
-    setValidationErrors({
-      ...validationErrors,
-      ...validation
-    });
+  const requestSecurityPopup = () => {
+    if (!props.withModal) setModal(true);
+    setPaymentSecurityPopup(true);
   };
 
-  return (
-    <section className="mb-2 mt-4">
-      <h2 className="font-size-16 px-3 px-md-3 px-lg-0">Payment</h2>
-      <form className="border padding-20 mt-4" action="">
-        <div className="row flex- flex-nowrap-sm font-size-14">
-          <Form
-            inputData={inputData}
-            inputField={inputFeild}
-            handleChange={handleChange}
-            errors={validationErrors}
-          />
-        </div>
+  const handleClick = (excl) => {
+    if (excl && props.withModal) setModal(false);
+    setPaymentPopup(false);
+  };
 
-        <div className="form-group checkbox-form-group">
-          <Field.Checkbox
-            type="checkbox"
-            classNames="checkbox"
-            placeholder=""
-            name="makeDefaultPaymentOption"
-            handleChange={() => {}}
-            onFocus={() => {}}
-          />
-          <span className="make-default-text">Make default payment method</span>
-        </div>
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [wrapperRef]);
 
-        <div>
-          <Button
-            type="button"
-            text="Save"
-            classNames="small-button-save"
-            handleClick={handleSaveButton}
-          />
-        </div>
-      </form>
-    </section>
-  );
+  const paymentJsx = <PaymentForm requestSecurityPopup={requestSecurityPopup} handleClick={handleClick} {...props} />;
+
+  if (props.withModal) {
+    return (
+      <Modal show={paymentPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
+        <Container classNames="Payment-Wrapper">
+          <PaymentHeader handleClick={() => handleClick(true)} />
+          {paymentJsx}
+        </Container>
+      </Modal>
+    );
+  }
+  return paymentJsx;
 };
 
 export default Payment;
+
+Payment.defaultProps = {
+  type: 'payment'
+};
+
+Payment.propTypes = {
+  type: PropTypes.string
+};

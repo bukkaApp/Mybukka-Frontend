@@ -1,5 +1,9 @@
 @import "../../stylebase/variables.scss";
 
+.Primary-Color {
+  color: $color-primary;
+}
+
 .suggestion-geo {
   display: flex;
   flex-direction: column;
@@ -12,6 +16,30 @@
   }
   .secondary-address-suggest {
     color: $color-lightslategray;
+  }
+}
+
+.Suggestion-Address {
+  align-items: center;
+  border-bottom: 1px solid #E9E9E9;
+  height: auto;
+  align-self: flex-start;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 10px 0;
+  background-color: $color-white;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  &:hover {
+    background-color: $color-white;
+  }
+  h4 {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

@@ -1,8 +1,8 @@
 import Validator from 'validatorjs';
 
 const rules = {
-  number: 'required|min:8',
-  expDate: 'required|max:5',
+  number: 'required|numeric|min:8',
+  expDate: 'required|numeric',
   cvv: 'required',
 };
 
@@ -10,9 +10,9 @@ const rules = {
 // card_num: 'Card number is invalid.',
 //   num: 'this field can only be numbers',
 const errorMessages = {
-  required: 'Required',
+  required: 'required',
   min: 'this field is not valid',
-  max: 'this field is too long'
+  numeric: 'invalid'
 };
 
 /**
