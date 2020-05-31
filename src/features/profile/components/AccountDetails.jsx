@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import AccountDetailsSection from '../common/AccountDetailsSection';
 import AccountDetailsGroupHeader from '../common/AccountDetailsGroupHeader';
-import Addresses from './Addresses';
-import Payment from './Payment';
-import PasswordSection from './PasswordSection';
+import Addresses from '../../../components/address';
+import Payment from '../../../components/payment';
+import PlainParagraph from '../../../components/plain-paragraph/PlainParagraph';
 import { validateAField } from '../validations/validateFields';
 import useApi from '../../../shared/api';
 import signUpDomStructure from './signUpDomStructure.json';
@@ -64,24 +63,22 @@ const AccountDetails = ({ userInfo, setProfile }) => {
     <div className="account-details">
       <AccountDetailsGroupHeader text="Account Details" />
       {signUpDomStructure.map(propData => (
-        <AccountDetailsSection
+        <PlainParagraph
+          withForm
           errorMessage={validationErrors[propData.name]}
           handleChange={handleChange}
           placeHolder={propData.placeholder}
+          withHeading={propData.withHeading}
+          heading={propData.heading}
           name={propData.name}
           key={propData.name}
+          buttonText="EDIT"
           value={inputData[propData.name] || userInfo[propData.name]}
-          handleSave={event => handleSubmit(event, propData.name)}
+          onClick={event => handleSubmit(event, propData.name)}
         />
       ))}
-      <PasswordSection
-        handleChange={handleChange}
-        errorMessage={validationErrors.password}
-        value={inputData.password}
-        handleSave={event => handleSubmit(event, 'password')}
-      />
-      <Addresses />
-      <Payment />
+      <Addresses useProfileStandard />
+      <Payment useProfileStandard />
     </div>
   );
 };

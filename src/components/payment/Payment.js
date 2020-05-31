@@ -22,7 +22,7 @@ const PaymentHeader = ({ handleClick }) => (
 
 const Payment = (props) => {
   const wrapperRef = React.createRef();
-  const { paymentPopup, setPaymentPopup, setPaymentSecurityPopup, setModal } = useModalContext();
+  const { paymentPopup, setPaymentPopup, paymentSecurityPopup, setPaymentSecurityPopup, setModal } = useModalContext();
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
@@ -33,7 +33,7 @@ const Payment = (props) => {
 
   const requestSecurityPopup = () => {
     if (!props.withModal) setModal(true);
-    setPaymentSecurityPopup(true);
+    if (!paymentSecurityPopup) setPaymentSecurityPopup(true);
   };
 
   const handleClick = (excl) => {

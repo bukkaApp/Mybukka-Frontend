@@ -10,6 +10,8 @@ import { useLoadingContext } from '../../context/LoadingContext';
 import Container from '../container/Container';
 import './PaymentPending.scss';
 
+const defaultState = { reference: '', status: '', url: '', display_text: '', text: '' };
+
 // handles redirections to bank url
 const PaymentPending = () => {
   const { API } = useApi();
@@ -17,13 +19,13 @@ const PaymentPending = () => {
   const { payment, setPayment, setCard } = useUserContext();
   const [inlineLoading, setInlineLoading] = useState(false);
   const [state, setState] = useState({ reference: '', status: '', url: '', display_text: '', text: '' });
-  const { paymentPendingPopup, setPaymentPendingPopup, setPaymentSecurityPopup, setPaymentGatewayPopup, setModal } = useModalContext();
+  const { paymentPendingPopup, setPaymentPendingPopup, paymentGatewayPopup, paymentSecurityPopup, setPaymentSecurityPopup, setPaymentGatewayPopup, setModal } = useModalContext();
 
   const requestOtherVerification = (type) => {
-    if (type !== '' && type !== 'url' && type !== 'pending' && type !== 'failed') {
+    if (type !== '' && type !== 'url' && type !== 'pending' && type !== 'failed' && !paymentSecurityPopup) {
       setPaymentSecurityPopup(true);
       setPaymentPendingPopup(false);
-    } else if (type === 'url') {
+    } else if (type === 'url' && !paymentGatewayPopup) {
       setPaymentPendingPopup(false);
       setPaymentGatewayPopup(true);
     }
@@ -36,7 +38,7 @@ const PaymentPending = () => {
   };
 
   const saveCardAndClosePopup = (response) => {
-    setCard(response.data.data);
+    setCard(response.data.newCard);
     setPayment(null);
     loading('PAYMENT', false);
     handleClick();
@@ -61,7 +63,7 @@ const PaymentPending = () => {
   useEffect(() => {
     const text = payment ? payment.status.split('send_').join('') : '';
     requestOtherVerification(text);
-    setState({ ...state, ...payment, text });
+    setState({ ...state, ...defaultState, ...payment, text });
     if (text === 'pending') handleSubmit();
   }, [payment]);
 

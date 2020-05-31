@@ -4,20 +4,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 
-import './payment.scss';
+import './checkout.scss';
 import Demarcation from '../common/SmallScreenDivider';
-import DropOff from '../common/DropOff';
+import Address from '../../../components/address';
 import TemporaryWrapper from '../../../components/ViewWrappers/TemporaryWrapper';
 
 const Pickup = ({ title, name }) => (
-  <TemporaryWrapper>
+  <TemporaryWrapper.ViewWrapper>
     <h2 className="font-size-16">{title}</h2>
     <ul className="list-group mt-2">
       <li className="list-group-item">{name}</li>
     </ul>
-  </TemporaryWrapper>
+  </TemporaryWrapper.ViewWrapper>
 );
-
 
 const Delivery = ({
   mode,
@@ -29,7 +28,7 @@ const Delivery = ({
       <DeliveryOrPickupNav />
     </div>
     <Demarcation />
-    {mode === 'delivery' && <DropOff />}
+    {mode === 'delivery' && <Address noPadding />}
     {mode === 'pickup' && (
       <Fragment>
         <Pickup title="Pickup Address" name={address} />

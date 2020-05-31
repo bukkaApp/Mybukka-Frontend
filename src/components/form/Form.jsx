@@ -32,7 +32,7 @@ const AuthForm = ({
       {propData.address && (
         <PlacesSuggestion name={propData.name} standalone emitOnChange={handleChange} />
       )}
-      <span className="text-danger font-size-11">{errors[propData.name]}</span>
+      <small className="text-danger font-size-11">{errors[propData.name]}</small>
     </div>
   ));
 

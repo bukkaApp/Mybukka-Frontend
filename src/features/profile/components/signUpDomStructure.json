@@ -22,5 +22,13 @@
     "type": "number",
     "placeholder": "Contact Mobile",
     "id": "contactMobile"
+  },
+  {
+    "name": "password",
+    "type": "text",
+    "placeholder": "Up-to-Date",
+    "id": "password",
+    "withHeading": true,
+    "heading": "Change Password"
   }
 ]

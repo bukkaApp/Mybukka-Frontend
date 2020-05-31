@@ -14,6 +14,8 @@ import BusinessAddress from '../../../components/business-address';
 
 import './bukkaDetailsSection.scss';
 
+const style = { paddingBottom: '15px' };
+
 const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
   <div className="delivery-price-tag">
     <div
@@ -27,7 +29,7 @@ const DeliveryPriceAndtag = ({ deliveryPrice, deliveryMode }) => (
         </div>
       )}
       <div className="px-3 d-inline-block">
-        <div className="tag-bukka" style={{ paddingBottom: '15px' }}>
+        <div className="tag-bukka" style={style}>
           <Button
             classNames="tag-bukka-button px-3"
             text="AFRICAN"

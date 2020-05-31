@@ -2,34 +2,29 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import './addMoreSection.scss';
+import './ButtonPill.scss';
 
-const AddMoreSection = ({ onClick, children, text, dataTarget }) => (
+const ButtonPill = ({ onClick, children, text }) => (
   <div
     className="add-more-section"
-    data-target={dataTarget}
     onClick={onClick}
     aria-pressed="false"
     tabIndex="0"
     role="button"
-    data-toggle="modal"
   >
     {children}
     <span className="text-add">{text}</span>
   </div>
 );
 
-export default AddMoreSection;
+export default ButtonPill;
 
-AddMoreSection.defaultProps = {
-  dataTarget: ''
-};
+ButtonPill.defaultProps = {};
 
-AddMoreSection.propTypes = {
+ButtonPill.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
   text: PropTypes.string.isRequired,
-  dataTarget: PropTypes.string
 };

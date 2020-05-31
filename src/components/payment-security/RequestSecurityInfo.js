@@ -10,6 +10,8 @@ import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import './RequestSecurityInfo.scss';
 
+const defaultPayment = { reference: '', status: '', url: '', display_text: '', text: '' };
+
 const RequestSecurityInfo = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
@@ -18,13 +20,13 @@ const RequestSecurityInfo = () => {
   const [input, setInput] = useState('');
   const [inlineLoading, setInlineLoading] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const { paymentSecurityPopup, setPaymentSecurityPopup, setPaymentPendingPopup, setPaymentGatewayPopup, setModal } = useModalContext();
+  const { paymentSecurityPopup, paymentGatewayPopup, paymentPendingPopup, setPaymentSecurityPopup, setPaymentPendingPopup, setPaymentGatewayPopup, setModal } = useModalContext();
 
   const requestOtherVerification = (type) => {
-    if (type === 'url') {
+    if (type === 'url' && !paymentGatewayPopup) {
       setPaymentSecurityPopup(false);
       setPaymentGatewayPopup(true);
-    } else if (type === 'pending') {
+    } else if (type === 'pending' && !paymentPendingPopup) {
       setPaymentSecurityPopup(false);
       setPaymentPendingPopup(true);
     }
@@ -33,7 +35,7 @@ const RequestSecurityInfo = () => {
   useEffect(() => {
     const text = payment ? payment.status.split('send_').join('') : '';
     requestOtherVerification(text);
-    setState({ ...state, ...payment, text });
+    setState({ ...state, ...defaultPayment, ...payment, text });
   }, [payment]);
 
   const handleClick = (incl) => {
@@ -43,21 +45,24 @@ const RequestSecurityInfo = () => {
   };
 
   const saveCardAndClosePopup = (response) => {
-    setCard(response.data.data);
+    setCard(response.data.newCard);
     setPayment(null);
     loading('PAYMENT', false);
     handleClick();
   };
 
   const handleSubmit = async (e) => {
+    if (input.length < 3) return;
     e.preventDefault();
     setInlineLoading(true);
     try {
       loading('PAYMENT', true);
       const response = await API.card.post({ reference: payment.reference, [state.text]: input, });
       setInlineLoading(false);
+      setInput('');
       if (response.status === 201) return saveCardAndClosePopup(response);
       setPayment({ ...payment, ...response.data.data });
+      setErrorMessage('');
       loading('PAYMENT', false);
     } catch (error) {
       setInlineLoading(false);

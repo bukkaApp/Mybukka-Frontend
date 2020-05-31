@@ -15,11 +15,13 @@ const Input = React.forwardRef(({
   checked,
   value,
   onBlur,
+  readOnly,
 }, ref) => (
   <input
     type={type}
     name={name}
     ref={ref}
+    readOnly={readOnly}
     accept={accept}
     className={classNames}
     placeholder={placeholderText}

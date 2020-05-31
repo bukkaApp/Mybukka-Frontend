@@ -67,7 +67,7 @@ const ProfileScene = ({
   useEffect(() => {
     const getUser = () => tryCatch(API.profile.get, res => setProfile(res.userInfo));
     const getAddress = () => tryCatch(API.address.get, res => setAddress(res.foundAddress), true, setAddress);
-    const getPaymentCard = () => tryCatch(API.card.get, res => setCard(res.cards), true, setCard);
+    const getPaymentCard = () => tryCatch(API.card.get, res => setCard(res.foundCard), true, setCard);
     loading('USER', true);
     getUser();
     getAddress();

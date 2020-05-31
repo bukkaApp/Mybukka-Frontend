@@ -9,19 +9,21 @@ import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
+const defaultState = { reference: '', status: '', url: '', display_text: '', text: '' };
+
 // handles redirections to bank url
 const PaymentGateway = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { payment, card, setPayment, setCard } = useUserContext();
+  const { payment, setPayment, setCard } = useUserContext();
   const [state, setState] = useState({ reference: '', status: '', url: '', display_text: '', text: '' });
-  const { setPaymentPendingPopup, paymentGatewayPopup, setPaymentGatewayPopup, setPaymentSecurityPopup, setModal } = useModalContext();
+  const { setPaymentPendingPopup, paymentGatewayPopup, paymentPendingPopup, paymentSecurityPopup, setPaymentGatewayPopup, setPaymentSecurityPopup, setModal } = useModalContext();
 
   const requestSecurityVerification = (type) => {
-    if (type !== '' && type !== 'url' && type !== 'pending' && type !== 'failed') {
+    if (type !== '' && type !== 'url' && type !== 'pending' && type !== 'failed' && !paymentSecurityPopup) {
       setPaymentSecurityPopup(true);
       setPaymentGatewayPopup(false);
-    } else if (type === 'pending') {
+    } else if (type === 'pending' && !paymentPendingPopup) {
       setPaymentGatewayPopup(false);
       setPaymentPendingPopup(true);
     }
@@ -30,7 +32,7 @@ const PaymentGateway = () => {
   useEffect(() => {
     const text = payment ? payment.status.split('send_').join('') : '';
     requestSecurityVerification(text);
-    setState({ ...state, ...payment, text });
+    setState({ ...state, ...defaultState, ...payment, text });
   }, [payment]);
 
   const handleClick = (incl) => {
@@ -40,8 +42,7 @@ const PaymentGateway = () => {
   };
 
   const saveCardAndClosePopup = (response) => {
-    const prevcard = card || [];
-    setCard([...prevcard, response.data.data]);
+    setCard(response.data.newCard);
     setPayment(null);
     loading('PAYMENT', false);
     handleClick();

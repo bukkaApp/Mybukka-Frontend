@@ -12,58 +12,42 @@ import Button from 'Components/button/Button';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
 
-import SendSecurityKeyForm from './SendSecurityKeyForm';
 import chargeUser from '../actionCreators/chargeUser';
 import DeliveryAddress from './DeliveryAddress';
 import Schedules from './Schedules';
-import Payment from '../../../components/payment/Payment';
+import Demarcation from '../common/SmallScreenDivider';
+import Payments from '../../../components/payment';
 import ShoppingCart from './ShoppingCart';
 import postUserOrder from '../actionCreators/postUserOrder';
 
 import './checkout.scss';
-import useChargeAttempted from '../context/useChargeAttempted';
 import useFetchedRestaurant from '../context/useFetchedRestaurant';
-import useDeliveryState from '../context/useDeliveryState';
 import useLocationWithinDistance from '../context/useLocationWithinDistance';
 import { useLocationContext } from '../../../context/LocationContext';
+import { useUserContext } from '../../../context/UserContext';
 
 const Checkout = ({
-  chargeUserToSaveCard,
   checkoutUser,
-  message,
   cart,
   fetchBukkaMenu,
   menuIsFetched,
   bukkaOfMenu,
   day,
   time,
-  cards,
-  hasDefaultCard,
   mode,
   fetchBukka,
   bukkaSlug,
   bukkaCoordinates,
-  url,
 }) => {
-  const { coordinates, selectedLocation: { description } } = useLocationContext();
+  const { coordinates } = useLocationContext();
+  const { card: cards } = useUserContext();
   const [isWithinDeliveryRange, validateUserLocationRange] = useLocationWithinDistance(coordinates, bukkaCoordinates);
-
-  const {
-    useDeliveryData,
-    useDeliveryValidation,
-    handleDeliveryAddress,
-    handleDeliveryAddressSave,
-    validateAddress } = useDeliveryState(description);
-  const [validationErrors, setValidationErrors] = useDeliveryValidation;
-  const [deliveryAddressData, setDeliveryAddressData] = useDeliveryData;
-
-  useChargeAttempted(message, url);
 
   useFetchedRestaurant(fetchBukka, fetchBukkaMenu, menuIsFetched, bukkaOfMenu);
 
   const handleUserCheckout = () => {
-    const user = authServices.getUserSlug();
-    const deliveryAddress = { ...deliveryAddressData, user, location: { type: 'Point', coordinates, } };
+    const user = authServices.getUserSlug();// ...deliveryAddressData,
+    const deliveryAddress = { user, location: { type: 'Point', coordinates, } };
     checkoutUser({ deliveryAddress, cart: { items: [...cart], user }, day, bukkaSlug, time, deliveryMode: mode });
   };
 
@@ -71,16 +55,12 @@ const Checkout = ({
     validateUserLocationRange();
     if (cards.length <= 0) {
       swal('Please save your card before proceeding to checkout');
-    } else if (!hasDefaultCard) {
-      swal('Please select your card');
-    } else if (!validateAddress()) {
-      scrollTo(0, 0);
     } else if (!isWithinDeliveryRange) {
       scrollTo(0, 0);
-      setValidationErrors({
-        ...validationErrors,
-        address: 'Sorry, this restaurant is not within your location',
-      });
+      // setValidationErrors({
+      //   ...validationErrors,
+      //   address: 'Sorry, this restaurant is not within your location',
+      // });
     } else {
       handleUserCheckout();
     }
@@ -89,20 +69,16 @@ const Checkout = ({
   return (
     <>
       <Navbar />
-      <SendSecurityKeyForm />
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
-            <DeliveryAddress
-              validationErrors={validationErrors}
-              setValidationErrors={setValidationErrors}
-              inputData={deliveryAddressData}
-              setInputData={setDeliveryAddressData}
-              handleDeliveryAddressSave={handleDeliveryAddressSave}
-              handleChange={handleDeliveryAddress}
-            />
+            <DeliveryAddress />
             <Schedules />
-            <Payment handleClick={chargeUserToSaveCard} cards={cards} message={message} />
+            <section className="mb-2 mt-4">
+              <Demarcation />
+              <Payments noPadding />
+              <Demarcation />
+            </section>
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
               <Button
                 type="submit"
@@ -140,14 +116,12 @@ const Checkout = ({
 
 const mapStateToProps = ({
   manipulateCardDetailsReducer,
-  chargeUserReducer: { message, data, url },
   cartReducer: { totalCost, items },
   productsReducer: {
     bukkaMenu,
     status: { fetched }
   },
   businessReducer: { fetchedBukka: { slug: bukkaSlug, location: { coordinates: bukkaCoordinates }, maxDeliveryDistance: bukkaDeliveryDistance } },
-  getUserCardReducer: { cards, hasDefaultCard },
   finishTransactionReducer: {
     status: { success },
   },
@@ -156,8 +130,6 @@ const mapStateToProps = ({
 }) => ({
   card: manipulateCardDetailsReducer,
   amount: totalCost,
-  message,
-  data,
   bukkaCoordinates,
   bukkaDeliveryDistance,
   bukkaMenu,
@@ -168,10 +140,7 @@ const mapStateToProps = ({
   day,
   time,
   success,
-  cards,
-  hasDefaultCard,
   mode,
-  url,
 });
 
 export default connect(
@@ -193,7 +162,5 @@ Checkout.defaultProps = {
   day: '',
   time: '',
   success: false,
-  cards: [{}],
-  hasDefaultCard: false,
   fetchBukka: () => {},
 };

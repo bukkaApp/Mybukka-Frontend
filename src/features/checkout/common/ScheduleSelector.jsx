@@ -7,6 +7,7 @@ import Container from 'Components/container';
 import Chevron from 'Components/icons/ChevronRight';
 import './scheduleSelector.scss';
 import Demarcation from './SmallScreenDivider';
+import TemporaryWrapper from '../../../components/ViewWrappers/TemporaryWrapper';
 
 const styles = {
   maxHeight: '200px',
@@ -56,7 +57,7 @@ const ScheduleSelector = React.forwardRef(({
     <section ref={ref} className="mb-2 mt-4">
       <Demarcation />
       <Container classNames="p-lg-0">
-        <h2 className="font-size-16 px-3 px-md-3 px-lg-0 pb-2">{title}</h2>
+        <TemporaryWrapper.ViewHeading text={title} classNames="pb-2" />
         <Schedule handleClick={handleClick} item={input || active} isFocus={isFocus} />
         <ul style={styles} className={`list-group time-list ${isFocus ? 'time-dropdown' : 'time'}`}>
           {list.map(listItem => (

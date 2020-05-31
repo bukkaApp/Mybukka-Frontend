@@ -32,6 +32,9 @@
   display: flex;
   cursor: pointer;
   justify-content: space-between;
+  .suggestion-geo {
+    margin: 0;
+  }
   &:hover {
     background-color: $color-white;
   }
