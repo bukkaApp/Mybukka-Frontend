@@ -23,9 +23,9 @@ const rootElement = document.getElementById('root');
 
 createRoot(rootElement).render(
   <StrictMode>
-    {/* <Worker> */}
-    <App />
-    {/* </Worker> */}
+    <Worker>
+      <App />
+    </Worker>
   </StrictMode>
 );
 
