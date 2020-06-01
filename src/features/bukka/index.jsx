@@ -1,11 +1,13 @@
 import React, { useEffect, Fragment } from 'react';
 
-import fetchCartAction from 'Redux/fetchCartAction';
+import { useHistory } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import fetchCartAction from 'Redux/fetchCartAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
+import { useUserContext } from '../../context/UserContext';
 import { useModalContext } from '../../context/ModalContext';
 import FooterBigScreen from '../../components/footer/FooterBigScreen';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
@@ -13,12 +15,15 @@ import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 import Bukka from './components';
 
 const Scene = ({
-  cartItemsQuantity, history: { location, push }, fetchBukka,
+  cartItemsQuantity,
+  fetchBukka,
   fetchBukkaMenu,
   bukkaMenu,
   fetchCartItems,
-  authenticated,
 }) => {
+  const { push, location } = useHistory();
+  const { isAuthenticated } = useUserContext();
+  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const { setViewMoreOrderOnMobile, setModal } = useModalContext();
 
   const handleClick = () => {
@@ -26,19 +31,15 @@ const Scene = ({
     setViewMoreOrderOnMobile(true);
   };
 
-  const isBigScreen = useMediaQuery({ minWidth: 960 });
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
     const bukkaToFetch = location.pathname.split('/')[2];
     if (bukkaMenu[0].bukka !== bukkaToFetch) {
       fetchBukka(bukkaToFetch);
       fetchBukkaMenu(bukkaToFetch);
-      if (authenticated) fetchCartItems();
+      if (isAuthenticated) fetchCartItems();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <Fragment>
@@ -52,10 +53,8 @@ const Scene = ({
 const mapStateToProps = ({
   productsReducer: { bukkaMenu },
   cartReducer: { items },
-  authenticationReducer: { status: { authenticated } },
 }) => ({
   bukkaMenu,
-  authenticated,
   cartItemsQuantity: items.length,
 });
 

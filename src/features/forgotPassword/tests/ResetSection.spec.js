@@ -8,14 +8,6 @@ import ResetSection from '../components/ResetSection';
 const initialState = {
   changeAuthenticationPageReducer: { type: '/login' },
   requestPasswordChangesReducer: { requested: true, errorMessage: 'error occur' },
-  authenticationReducer: {
-    user: {},
-    status: {
-      authenticated: false,
-      error: false
-    },
-    errorMessage: ''
-  }
 };
 
 const middlewares = [];

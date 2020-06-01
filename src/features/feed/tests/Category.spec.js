@@ -10,12 +10,6 @@ const initialState = {
   changeAuthenticationPageReducer: { type: 'Sign In', },
   deliveryModeReducer: { mode: 'delivery', },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
-  authenticationReducer: {
-    status: {
-      authenticated: false,
-      error: false
-    }
-  },
   businessGroupReducer: {
     cuisineItems: [{
       _id: '5ddc5dfb9a29af135cd21ce7',

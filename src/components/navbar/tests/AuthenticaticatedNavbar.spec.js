@@ -8,14 +8,6 @@ import AuthenticaticatedNavbar from '../BukkaAuthenticatedNav';
 describe('Primary Navbar', () => {
   const store = mockStore({
     changeAuthenticationPageReducer: { type: 'Sign Up' },
-    authenticationReducer: {
-      user: {},
-      status: {
-        authenticated: false,
-        error: false
-      },
-      errorMessage: ''
-    },
     deliveryModeReducer: {
       mode: 'pickup'
     }

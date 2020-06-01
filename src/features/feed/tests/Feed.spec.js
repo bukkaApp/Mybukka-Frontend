@@ -14,12 +14,6 @@ const initialState = {
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
   drinkReducer: { fetchedBukkas: { nearbyBukkas: [] } },
   freshReducer: { fetchedBukkas: { nearbyBukkas: [] } },
-  authenticationReducer: {
-    status: {
-      authenticated: false,
-      error: false
-    }
-  },
   businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],

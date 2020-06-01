@@ -6,14 +6,6 @@ import Index from '..';
 describe('Navbar Index container', () => {
   const store = mockStore({
     changeAuthenticationPageReducer: { type: 'Sign Up' },
-    authenticationReducer: {
-      user: {},
-      status: {
-        authenticated: false,
-        error: false
-      },
-      errorMessage: ''
-    },
     deliveryModeReducer: {
       mode: 'pickup'
     }

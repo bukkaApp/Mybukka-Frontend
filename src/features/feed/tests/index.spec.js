@@ -14,12 +14,6 @@ const initialState = {
   checkoutModeReducer: { mode: true },
   drinkReducer: { fetchedBukkas: { nearbyBukkas: [] } },
   freshReducer: { fetchedBukkas: { nearbyBukkas: [] } },
-  authenticationReducer: {
-    status: {
-      authenticated: false,
-      error: false
-    }
-  },
   businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],
