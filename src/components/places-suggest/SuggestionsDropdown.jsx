@@ -25,7 +25,7 @@ const SuggestionsDropdown = ({
 export default SuggestionsDropdown;
 
 SuggestionsDropdown.defaultProps = {
-  useCurrentLocationVisible: true,
+  useCurrentLocationVisible: false,
 };
 
 SuggestionsDropdown.propTypes = {

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, Fragment, createRef, useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import MapMarker from 'Icons/MapMarker';
@@ -22,11 +21,14 @@ const SearchLocation = ({
   showDropdown,
   emitOnChange,
   standalone,
+  withLabel,
+  htmlFor,
   name,
+  state,
+  useCurrentLocationVisible,
 }) => {
   const [predictions, setPredictions] = useState([]);
   const wrapperRef = createRef();
-  const { push } = useHistory();
 
   const {
     setFocus,
@@ -43,10 +45,7 @@ const SearchLocation = ({
 
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      const timeout = setTimeout(() => {
-        setFocus(false);
-        clearTimeout(timeout);
-      }, 200);
+      setFocus(false);
     }
   };
 
@@ -80,17 +79,21 @@ const SearchLocation = ({
   }, [wrapperRef]);
 
   return (
-    <Fragment>
-      <div ref={wrapperRef} style={!standalone ? style : {}} className={!standalone ? className : ''}>
+    <section ref={wrapperRef}>
+      <div style={!standalone ? style : {}} className={!standalone ? className : ''}>
         {!standalone &&
-          <Fragment>
-            <div className="input-group-prepend">
-              <span className="input-group-text location-marker">
-                <MapMarker />
-              </span>
-            </div>
-            <label hidden htmlFor={name || 'searchLocation'}>type address</label>
-          </Fragment>}
+        <div className="input-group-prepend">
+          <span className="input-group-text location-marker">
+            <MapMarker />
+          </span>
+        </div>}
+        <label
+          hidden={!withLabel}
+          htmlFor={htmlFor || 'searchLocation'}
+          className={`font-size-14 ${state ? 'Fly--over m-0' : 'No--label'}`}
+        >
+          {name || 'type address'}
+        </label>
         <Field.Input
           type="text"
           id={name || 'searchLocation'}
@@ -109,14 +112,14 @@ const SearchLocation = ({
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
             <SuggestionsDropdown
-              push={push}
+              useCurrentLocationVisible={useCurrentLocationVisible}
               setLocation={handleClick}
               predictions={predictions}
             />
           </Fragment>
         )}
       </div>
-    </Fragment>
+    </section>
   );
 };
 

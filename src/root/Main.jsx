@@ -10,6 +10,7 @@ import FeedPages from '../features/feed';
 import Bukka from '../features/bukka';
 import Checkout from '../features/checkout';
 import Profile from '../features/profile';
+import LegalStatement from '../features/statement';
 
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));
@@ -23,7 +24,6 @@ const Merchant = lazy(() => import('../features/merchant'));
 const ComplainCategory = lazy(() => import('../features/feedback/Category'));
 const SubCategory = lazy(() => import('../features/feedback/SubCategory'));
 const ComplainScene = lazy(() => import('../features/feedback/ComplainScene'));
-const LegalStatement = lazy(() => import('../features/statement'));
 const Promotion = lazy(() => import('../features/promotion'));
 
 const Main = () => (

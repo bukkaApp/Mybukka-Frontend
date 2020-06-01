@@ -9,16 +9,11 @@ import storage from 'redux-persist/lib/storage';
 
 import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
-import authenticationReducer from '../provider/Redux/authenticationReducer';
 import loadingReducer from '../provider/Redux/loadingReducer';
 
 import deliveryModeReducer from '../components/common-navs/reducers/deliveryModeReducer';
 
 import businessesReducer from '../provider/Redux/businessesReducer';
-import userAddressReducer from '../provider/Redux/userAddressReducer';
-import userProfileReducer from '../provider/Redux/userProfileReducer';
-import updateUserAddressReducer from '../provider/Redux/updateUserAddressReducer';
-import updateUserProfileReducer from '../provider/Redux/updateUserProfileReducer';
 import displayTrackingReducer from '../features/history/reducers/displayTrackingReducer';
 import getOrderHistoryReducer from '../features/history/reducers/getOrderHistoryReducer';
 import validateTokenReducer from '../features/forgotPassword/reducers/validateTokenReducer';
@@ -51,15 +46,10 @@ import businessGroupReducer from '../provider/Redux/businessGroupReducer';
 
 const reducer = combineReducers({
   loadingReducer,
-  authenticationReducer,
   signOutReducer,
   changeAuthenticationPageReducer,
   deliveryModeReducer,
   businessesReducer,
-  userAddressReducer,
-  userProfileReducer,
-  updateUserAddressReducer,
-  updateUserProfileReducer,
   displayTrackingReducer,
   getOrderHistoryReducer,
   validateTokenReducer,
@@ -91,7 +81,6 @@ const persistConfig = {
   key: 'root',
   storage,
   whitelist: [
-    'authenticationReducer',
     // 'businessReducer',
     // 'productsReducer',
     'businessGroupReducer',
