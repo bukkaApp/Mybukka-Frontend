@@ -5,6 +5,7 @@ import applyUpdate from 'serviceworker-webpack-plugin/lib/browser/applyUpdate';
 
 /**
    * @class Worker
+   * @copyright https://web.dev/customize-install/
    * @returns {void} void
    */
 class Worker extends PureComponent {
@@ -15,10 +16,12 @@ class Worker extends PureComponent {
    */
   constructor(props) {
     super(props);
+    this.deferredPrompt = '';
     this.state = {
       logs: [],
     };
   }
+
   /**
    * @memberof Worker
    * @method componentDidMount
@@ -58,6 +61,28 @@ class Worker extends PureComponent {
 
   /**
    * @memberof Worker
+   * @method handleInstallation
+   * @param {*} e
+   * @returns {void} void
+   */
+  onClickToInstallApp = (e) => {
+    console.log(e);
+    // Hide the app provided install promotion
+    this.hideMyInstallPromotion();
+    // Show the install prompt
+    this.deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    this.deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+    });
+  }
+
+  /**
+   * @memberof Worker
    * @method pushLog
    * @param {*} log
    * @returns {void} void
@@ -71,6 +96,24 @@ class Worker extends PureComponent {
 
   /**
    * @memberof Worker
+   * @method showInstallPromotion
+   * @returns {void} void
+   */
+  showInstallPromotion = () => {
+    console.log('ready');
+  }
+
+  /**
+   * @memberof Worker
+   * @method showInstallPromotion
+   * @returns {void} void
+   */
+  hideMyInstallPromotion = () => {
+    console.log('ready');
+  }
+
+  /**
+   * @memberof Worker
    * @method handleClickReload
    * @param {*} event
    * @returns {void} void
@@ -80,6 +123,56 @@ class Worker extends PureComponent {
 
     applyUpdate().then(() => {
       window.location.reload();
+    });
+  }
+
+  /**
+   * @memberof Worker
+   * @method handleInstallation
+   * @returns {void} void
+   */
+  handleAppInstallation = () => {
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent the mini-infobar from appearing on mobile
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.deferredPrompt = e;
+      // Update UI notify the user they can install the PWA
+      this.showInstallPromotion();
+    });
+  }
+
+  handleInstallComplete = () => {
+    window.addEventListener('appinstalled', (evt) => {
+      // Log install to analytics
+      console.log('INSTALL: Success', evt);
+    });
+  }
+
+  trackHowPwaAppWasLauched = () => {
+    window.addEventListener('DOMContentLoaded', () => {
+      let displayMode = 'browser tab';
+      if (navigator.standalone) {
+        displayMode = 'standalone-ios';
+      }
+      if (window.matchMedia('(display-mode: standalone)').matches) {
+        displayMode = 'standalone';
+      }
+      // Log launch display mode to analytics
+      console.log('DISPLAY_MODE_LAUNCH:', displayMode);
+    });
+  }
+
+  handleDisplayModeChanges = () => {
+    window.addEventListener('DOMContentLoaded', () => {
+      window.matchMedia('(display-mode: standalone)').addListener((evt) => {
+        let displayMode = 'browser tab';
+        if (evt.matches) {
+          displayMode = 'standalone';
+        }
+        // Log display mode change to analytics
+        console.log('DISPLAY_MODE_CHANGED', displayMode);
+      });
     });
   }
 

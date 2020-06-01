@@ -69,6 +69,7 @@ const Addresses = ({ useProfileStandard, noPadding }) => {
     !useProfileStandard && isntDefaultAddress(slug) ? null
       : <GeoSuggestions
         asUtility
+        noBorderOnMedium={!useProfileStandard}
         handleClick={() => {}}
         withPrimaryButton={addresses.defaultAddress === slug}
         text={decodeButtonText(slug)}
@@ -92,12 +93,12 @@ const Addresses = ({ useProfileStandard, noPadding }) => {
 
   return (
     <TemporaryWrapper.ViewWrapper>
-      {(!addresses || !addresses.addresses.length)
-        && <Address withFormSpace withPadding label="Delivery Address" />}
-      <div className={`${noPadding ? '' : 'addresses-section'}`}>
-        <TemporaryWrapper.ViewHeading noPadding text="Address" />
-        {addressJsx}
-      </div>
+      {(!addresses || !addresses.addresses.length) ?
+        <Address withFormSpace withPadding label="Delivery Address" /> :
+        <div className={`${noPadding ? '' : 'addresses-section'}`}>
+          <TemporaryWrapper.ViewHeading noPadding text="Address" />
+          {addressJsx}
+        </div>}
     </TemporaryWrapper.ViewWrapper>);
 };
 

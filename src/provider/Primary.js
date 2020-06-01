@@ -12,6 +12,8 @@ import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
+import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
+import { GlobalFormValidityReportProvider } from '../context/GlobalFormValidityReportContext';
 
 const Primary = ({ children }) => (
   <LocationsPredictionProvider>
@@ -26,7 +28,11 @@ const Primary = ({ children }) => (
                     <LoadingProvider>
                       <MapProvider>
                         <ToastProvider>
-                          {children}
+                          <GlobalFormValidityRequestProvider>
+                            <GlobalFormValidityReportProvider>
+                              {children}
+                            </GlobalFormValidityReportProvider>
+                          </GlobalFormValidityRequestProvider>
                         </ToastProvider>
                       </MapProvider>
                     </LoadingProvider>

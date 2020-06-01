@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useHashLinkUpdate = () => {
+  const { location } = useHistory();
+
   useEffect(() => {
     const selected = location.hash;
     if (selected && selected.length > 0) {

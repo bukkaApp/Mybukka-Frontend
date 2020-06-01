@@ -48,6 +48,30 @@ const SearchItems = ({
   fetchBukkaMenu,
 }) => {
   const { coordinates } = useLocationContext();
+
+  const decodeDeliveryTime = (bukka) => {
+    if (bukka && bukka.logistics) {
+      const maxTime = bukka.logistics.deliveryTimeTo;
+      return maxTime > 60 ? maxTime / 60 : maxTime;
+    }
+    return bukka.deliveryTime;
+  };
+
+  const decodeDeliveryPrice = (bukka) => {
+    if (bukka && bukka.logistics) {
+      return bukka.logistics.deliveryPrice;
+    }
+    return bukka.deliveryPrice;
+  };
+
+  const decodeStoreImage = (bukka) => {
+    if (bukka && bukka.headerImg) {
+      return bukka.headerImg;
+    }
+    return bukka.imageUrl;
+  };
+
+
   return (
     <Container>
       {searchResults.length > 0 && (
@@ -55,10 +79,10 @@ const SearchItems = ({
           {searchResults.map(bukka => (
             <BukkaCard
               key={`search-store-${bukka.name}-${bukka._id}`}
-              imageUrl={bukka.imageUrl}
+              imageUrl={decodeStoreImage(bukka)}
               mealName={bukka.name}
-              deliveryPrice={bukka.deliveryPrice}
-              deliveryTime={bukka.deliveryTime}
+              deliveryPrice={decodeDeliveryPrice(bukka)}
+              deliveryTime={decodeDeliveryTime(bukka)}
               rating={bukka.rating}
               imageHeight="img-height"
               classNames="col-xl-4 col-md-6 col-sm-12"

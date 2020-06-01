@@ -4,7 +4,7 @@
     "name": "address",
     "changed": false,
     "value": "",
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "text",
     "placeholderText": "Address",
     "id": "address",
@@ -15,7 +15,7 @@
   {
     "name": "name",
     "changed": false,
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "text",
     "placeholderText": "Contact name",
     "id": "contactName",
@@ -24,7 +24,7 @@
   },
   {
     "name": "mobileNumber",
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "text",
     "placeholderText": "Phone number",
     "id": "phoneNumber",

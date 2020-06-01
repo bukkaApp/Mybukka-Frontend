@@ -105,7 +105,7 @@ const RetrieveSection = ({
                 px-md-0 px-lg-3 col-md-12 col-12"
             >
               {requestSent &&
-              <div className="card-shadow card mb-3 border">
+              <div className="Imaginery-Card-Section mb-3">
                 {isValidUser ? (
                   <AuthResetForm
                     push={push}

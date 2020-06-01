@@ -1,7 +1,7 @@
 import React from 'react';
 import './PaymentIcon.scss';
 
-const availableIcons = ['mastercard', 'visa', 'stripe', 'apple-pay', 'amex', 'amazon-pay'];
+const availableIcons = ['mastercard', 'visa', 'stripe', 'apple-pay', 'amex', 'amazon-pay', 'paypal', 'discover'];
 
 const color = {
   mastercard: 'danger',

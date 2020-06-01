@@ -18,7 +18,6 @@ const errorMessages = {
 };
 
 /**
- *
  * @param {object} data containing key:value pairs
  * of field and value to be validated
  * @param {string} field field in rules to run validation against

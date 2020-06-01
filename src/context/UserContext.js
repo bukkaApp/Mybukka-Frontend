@@ -10,7 +10,8 @@ const initialState = {
   user: null,
   address: null,
   card: null,
-  payment: null
+  payment: null,
+  signIn: null,
 };
 
 const reducer = (state, action) => {
@@ -34,6 +35,9 @@ const reducer = (state, action) => {
       const card = action.payload ? { ...state.card, ...action.payload } : null;
       return { ...state, card };
     }
+
+    case 'SET_SIGNIN_DATA':
+      return { ...state, signIn: action.payload };
 
     case 'SET_PAYMENT': {
       const payment = action.payload ? { ...state.payment, ...action.payload } : null;
@@ -94,6 +98,13 @@ const useUser = () => {
     });
   };
 
+  const setSignInData = (payload) => {
+    dispatch({
+      type: 'SET_SIGNIN_DATA',
+      payload,
+    });
+  };
+
   const setVerified = (isVerified) => {
     dispatch({
       type: 'SET_VERIFIED',
@@ -114,9 +125,9 @@ const useUser = () => {
     });
   };
 
-  const { user, token, payment, address, card, isAuthenticated, isVerified } = state;
+  const { user, signIn, token, payment, address, card, isAuthenticated, isVerified } = state;
 
-  return { user, payment, address, card, token, isAuthenticated, isVerified, setPayment, setCard, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
+  return { user, signIn, setSignInData, payment, address, card, token, isAuthenticated, isVerified, setPayment, setCard, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
 };
 
 export const [UserProvider, useUserContext] = constate(useUser);

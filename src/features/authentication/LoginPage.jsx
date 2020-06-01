@@ -23,7 +23,7 @@ export const LoginPage = memo(({
 }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { setUser, isVerified, isAuthenticated, setVerified } = useUserContext();
+  const { setUser, setSignInData, isAuthenticated, setVerified } = useUserContext();
   const { setAuthenticationPopup, setVerificationPhonePopup, setModal } = useModalContext();
   const [errorMessage, setErrorMessage] = useState('');
   const [nextSlide, setNextSlide] = useState(false);
@@ -74,8 +74,10 @@ export const LoginPage = memo(({
   };
 
   const requestVerification = (hasVerified) => {
-    setVerificationPhonePopup(!hasVerified || !isVerified);
-    setModal(!hasVerified || !isVerified);
+    if (hasVerified === false) {
+      setVerificationPhonePopup(true);
+      setModal(true);
+    }
   };
 
   const handleExpensiveEvents = (hasVerified) => {
@@ -112,6 +114,7 @@ export const LoginPage = memo(({
     }
     if (!passes) return;
     setNextSlide(true);
+    setSignInData(`${inputData.password}.bukka@gmail.com`);
     if (nextSlide) return tryCatch(API.authToken.post, inputData);
   };
 

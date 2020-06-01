@@ -101,11 +101,17 @@
   transition: background-color 0.2s ease-in-out 0s, color 0.2s ease-in-out 0s;
   padding: 0px 16px;
   border-radius: 28px;
+  &:focus {
+    outline: none;
+  }
   @media screen and (min-width: 1060px) {
     position: relative;
     box-shadow: none;
     width: 65%;
   }
+}
+
+.Footer-BigScreen-Button--Spacing {
   @media screen and (max-width: 1059px) {
     margin-bottom: 36px;
   }

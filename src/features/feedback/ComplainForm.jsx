@@ -116,7 +116,7 @@ const ComplainForm = ({
       <Button
         type="submit"
         text="Report issue"
-        classNames="big-button send_complain_btn"
+        classNames="Big-Button send_complain_btn"
         id="charge-user-small"
         handleClick={() => {}}
       />

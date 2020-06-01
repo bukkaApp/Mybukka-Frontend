@@ -19,15 +19,23 @@
 
 .Plain-Paragraph-Header {
   padding-top: 23px;
-  padding-bottom: 23px;
+  padding-bottom: 5px;
   font-weight: 500;
   margin-bottom: 0;
+  font-size: 17px;
 }
 
 .Plain-Paragraph-Wrapper {
   padding-top: 25px;
   border-bottom: 1px solid #eceff1;
   padding-bottom: 25px;
+}
+
+.Plain-Medium-Border--less {
+  padding-top: 10px;
+  @media (max-width: 992px) {
+    border-bottom: 0;
+  }
 }
 
 .Plain-Paragraph-Content {

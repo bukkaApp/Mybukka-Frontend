@@ -21,31 +21,40 @@ const Pickup = ({ title, name }) => (
 const Delivery = ({
   mode,
   address,
-}) => (
-  <div className="mb-2 mt-4">
-    <h1 className="font-size-36 px-3 px-md-3 px-lg-0">Checkout</h1>
-    <div className="col-md-12 col-lg-6 p-0 mt-4 Delivery-Pickup--border">
-      <DeliveryOrPickupNav />
-    </div>
-    <Demarcation />
-    {mode === 'delivery' && <Address noPadding />}
-    {mode === 'pickup' && (
-      <Fragment>
-        <Pickup title="Pickup Address" name={address} />
-        <Pickup title="Pickup time" name="Ready in 20 min" />
-      </Fragment>
-    )}
-  </div>
-);
+  logistics,
+}) => {
+  const decodeReadyMoment = () => {
+    if (!logistics) return '45 min';
+    if (logistics.deliveryTimeTo <= 60) return `${logistics.deliveryTimeTo} min`;
+    return `${(logistics.deliveryTimeTo / 60).toFixed(2)} hour`;
+  };
+
+  return (
+    <Fragment>
+      <div className="mt-sm-4 Delivery-Pickup--border">
+        <DeliveryOrPickupNav />
+      </div>
+      <Demarcation />
+      {mode === 'delivery' && <Address noPadding />}
+      {mode === 'pickup' && (
+        <Fragment>
+          <Pickup title="Pickup Address" name={address} />
+          <Pickup title="Pickup time" name={`Ready in ${decodeReadyMoment()}`} />
+        </Fragment>
+      )}
+    </Fragment>
+  );
+};
 
 const mapStateToProps = ({
   deliveryModeReducer: { mode },
   businessReducer: {
-    fetchedBukka: { address }
+    fetchedBukka: { address, logistics }
   }
 }) => ({
   mode,
-  address
+  address,
+  logistics
 });
 
 export default connect(mapStateToProps)(Delivery);

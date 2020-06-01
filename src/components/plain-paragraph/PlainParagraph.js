@@ -15,6 +15,7 @@ const PlainParagraph = ({
   withHeading,
   children,
   onClick,
+  onDoubleClick,
   buttonText,
   withPrimaryButton,
   aligned,
@@ -23,6 +24,8 @@ const PlainParagraph = ({
   handleChange,
   errorMessage,
   withForm,
+  noBorderOnMedium,
+  title,
 }) => {
   const inpRef = React.createRef();
   const [state, setState] = useState(false);
@@ -91,8 +94,8 @@ const PlainParagraph = ({
   }
 
   return (
-    <div className="Plain-Paragraph-Wrapper">
-      <div className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}>
+    <div className={`Plain-Paragraph-Wrapper ${(noBorderOnMedium && 'Plain-Medium-Border--less') || ''}`}>
+      <div title={title} onDoubleClick={onDoubleClick} className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}>
         {plainParagraphJsx}
         <ButtonPlain withPrimaryButton={withPrimaryButton} onClick={onClick} text={buttonText} />
       </div>

@@ -22,7 +22,7 @@ export const RegisterPage = ({
   history: { push, location },
 }) => {
   const { API } = useApi();
-  const { setUser, isVerified, setVerified, isAuthenticated } = useUserContext();
+  const { setUser, setVerified, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setAuthenticationPopup, setModal } = useModalContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
@@ -74,9 +74,10 @@ export const RegisterPage = ({
   };
 
   const requestVerification = (hasVerified) => {
-    console.log('hasVerified', hasVerified, 'isVerified', isVerified);
-    setVerificationPhonePopup(!hasVerified || !isVerified);
-    setModal(!hasVerified || !isVerified);
+    if (hasVerified === false) {
+      setVerificationPhonePopup(true);
+      setModal(true);
+    }
   };
 
   const handleExpensiveEvents = (hasVerified) => {

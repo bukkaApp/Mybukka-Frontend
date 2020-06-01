@@ -32,17 +32,25 @@
   display: flex;
   cursor: pointer;
   justify-content: space-between;
-  .suggestion-geo {
-    margin: 0;
-  }
   &:hover {
     background-color: $color-white;
+  }
+  .suggestion-geo {
+    margin: 0;
   }
   h4 {
     display: flex;
     align-items: center;
     margin-top: 0;
     margin-bottom: 0;
+  }
+}
+
+.Suggestion-Address-Border--less {
+  padding-top: 10px;
+  @media (max-width: 992px) {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 }
 

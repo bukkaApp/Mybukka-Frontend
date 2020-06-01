@@ -2,7 +2,7 @@
   {
     "name": "number",
     "value": "",
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "text",
     "placeholderText": "Card number",
     "id": "number",
@@ -12,7 +12,7 @@
   },
   {
     "name": "expDate",
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "text",
     "placeholderText": "MM/YY",
     "id": "expDate",
@@ -21,7 +21,7 @@
   },
   {
     "name": "cvv",
-    "classNames": "form-control border-input-style p-0",
+    "classNames": "form-control p-0",
     "type": "password",
     "placeholderText": "CVV",
     "id": "cvv",

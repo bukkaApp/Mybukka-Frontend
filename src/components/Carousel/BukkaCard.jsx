@@ -34,7 +34,6 @@ const BukkaCard = ({
   bottom,
   heading,
   subHeading,
-  delivery,
   dataTarget,
   dataToggle,
   handleClick,
@@ -45,7 +44,7 @@ const BukkaCard = ({
   const [sessionItem, setItem] = useSessionStorage(`___${imageUrl}____`, false);
   const { supports } = useCloudinayService();
   const [state, setState] = useState(false);
-  const img = generateImageSize(imageUrl, ['650', 'auto'], 'scale', supports.webp ? 'webp' : 'jpg');
+  const img = generateImageSize(imageUrl, ['650', 'auto'], 'scale', (supports.webp && 'webp') || 'jpg');
 
   const handleScroll = () => {
     if (_imgRef.current && _imgRef.current.complete && !state) {
@@ -115,7 +114,6 @@ const BukkaCard = ({
         remark={remark}
         tags={tags}
         type={carouselType}
-        delivery={delivery}
       />
     </div>
   );
@@ -157,7 +155,6 @@ BukkaCard.defaultProps = {
 BukkaCard.propTypes = {
   dataTarget: PropTypes.string,
   dataToggle: PropTypes.string,
-  delivery: PropTypes.bool,
   remark: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,

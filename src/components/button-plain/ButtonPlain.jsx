@@ -5,12 +5,13 @@ import Button from '../button/Button';
 
 import './ButtonPlain.scss';
 
-const ButtonPlain = ({ text, onClick, withPrimaryButton }) => (
+const ButtonPlain = ({ text, onClick, withPrimaryButton, onDoubleClick }) => (
   <div className="Button-Plain-Wrapper">
     <Button
       type="button"
       handleClick={onClick}
       text={text}
+      onDoubleClick={onDoubleClick}
       classNames={`Button-Plain ${(withPrimaryButton && 'Primary-Color') || 'Button-Plain-Color'}`}
     />
   </div>

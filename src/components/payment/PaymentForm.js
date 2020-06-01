@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Fields from '../input/Field';
 import Button from '../button/Button';
@@ -10,12 +10,16 @@ import { validateAField, validateAllFields } from './validation';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import TemporaryWrapper from '../../components/ViewWrappers/TemporaryWrapper';
+import { useGlobalFormValidityRequestContext } from '../../context/GlobalFormValidityRequestContext';
+import { useGlobalFormValidityReportContext } from '../../context/GlobalFormValidityReportContext';
 
 const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading, status } = useLoadingContext();
   const { setPayment } = useUserContext();
   const wrapperRef = React.createRef();
+  const { paymentValidityReport } = useGlobalFormValidityRequestContext();
+  const { setPaymentValidity } = useGlobalFormValidityReportContext();
   const [errorMessage, setErrorMessage] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     number: '',
@@ -70,6 +74,16 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return { ...inputFields, expiry_month: expDateArr[0], expiry_year: expDateArr[1] };
   };
 
+  useEffect(() => {
+    if (!paymentValidityReport) return;
+    let inputFields = _removeInputsFormatOnSubmit();
+    const validation = validateAllFields(inputFields);
+    inputFields = splitExpMonthAndYear(inputFields);
+    const { errors, passes } = validation;
+    setValidationErrors({ ...validationErrors, ...errors });
+    setPaymentValidity(passes);
+  }, [paymentValidityReport]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let inputFields = _removeInputsFormatOnSubmit();
@@ -93,9 +107,9 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
 
   return (
     <div className={withPadding && 'mb-2 mt-4'}>
-      {label && <TemporaryWrapper.ViewHeading text={label} />}
+      {label && <TemporaryWrapper.ViewHeading noPadding text={label} />}
       <span className="text-danger font-size-11">{errorMessage}</span>
-      <form ref={wrapperRef} className={`border padding-20 ${withFormSpace ? 'mt-2' : 'mt-4'}`}>
+      <form id="payment" ref={wrapperRef} className={`border padding-20 ${withFormSpace ? 'mt-2' : 'mt-4'}`}>
         <div className="row flex- flex-nowrap-sm font-size-14">
           <Form
             inputData={inputData}

@@ -43,6 +43,7 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   'process.env.CLOUD_NAME': JSON.stringify(process.env.CLOUD_NAME),
   'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
   'process.env.PORT': JSON.stringify(process.env.PORT),
+  'process.env.BACKEND_PROD_URL': JSON.stringify(process.env.BACKEND_PROD_URL),
   'process.env.FACEBOOK_CLIENT_ID': JSON.stringify(process.env.FACEBOOK_CLIENT_ID),
   'process.env.CLOUDINARY_UPLOAD_URL': JSON.stringify(
     process.env.CLOUDINARY_UPLOAD_URL

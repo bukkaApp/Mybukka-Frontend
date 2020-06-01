@@ -12,6 +12,7 @@ import TemporaryWrapper from '../ViewWrappers/TemporaryWrapper';
 import ButtonPill from '../button-pill/ButtonPill';
 import PaymentIcons from '../payment-icons/PaymentIcons';
 import Payment from './Payment';
+import { useToastContext } from '../../context/ToastContext';
 
 import './index.scss';
 
@@ -34,6 +35,7 @@ const AddAnAddress = () => {
 
 const Payments = ({ useProfileStandard, noPadding }) => {
   const { card: cards, setCard } = useUserContext();
+  const { setToast } = useToastContext();
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { push } = useHistory();
@@ -73,12 +75,28 @@ const Payments = ({ useProfileStandard, noPadding }) => {
     return changePaymentCard();
   };
 
+  const updateDefaultCard = async (slug) => {
+    if (cards.defaultCard === slug) return;
+    try {
+      loading('CARD', true);
+      const response = await API.card.patch(slug);
+      setCard(response.data.cards);
+      loading('CARD', false);
+    } catch (error) {
+      loading('CARD', false);
+      setToast({ message: error.response ? error.response.data.message : error.message });
+    }
+  };
+
   const isntDefaultAddress = slug => cards.defaultCard !== slug;
 
   const paymentJsx = (cards && cards.cards.map(({ bank, slug, card_type: type }) => (
     !useProfileStandard && isntDefaultAddress(slug) ? null
       : <PlainParagraph
+        noBorderOnMedium={!useProfileStandard}
         onClick={() => emitOnClick(slug)}
+        title={(isntDefaultAddress(slug) && 'Double click to set as default') || ''}
+        onDoubleClick={() => updateDefaultCard(slug)}
         withPrimaryButton={cards.defaultCard === slug}
         buttonText={decodeButtonText(slug)}
         aligned="baseline"
@@ -92,7 +110,7 @@ const Payments = ({ useProfileStandard, noPadding }) => {
 
   if (useProfileStandard) {
     return (
-      <div id="payments" className={(useProfileStandard && 'Payment-Section') || ''}>
+      <div id="payments" className={(useProfileStandard && 'Payment-Section--profile') || ''}>
         <div className="account-details-header">
           <h5 className="account-details-text">Payment</h5>
         </div>
@@ -105,9 +123,9 @@ const Payments = ({ useProfileStandard, noPadding }) => {
   return (
     <TemporaryWrapper.ViewWrapper>
       {(!cards || !cards.cards.length) ?
-        <Payment withFormSpace withPadding label="Delivery Address" /> :
-        <div className={`${noPadding ? '' : 'addresses-section'}`}>
-          <TemporaryWrapper.ViewHeading noPadding text="Payments" />
+        <Payment withFormSpace withPadding label="Payment" /> :
+        <div className={`${noPadding ? '' : 'Payment-Section'}`}>
+          <TemporaryWrapper.ViewHeading noPadding text="Payment" />
           {paymentJsx}
         </div>
       }

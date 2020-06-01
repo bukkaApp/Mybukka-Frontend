@@ -8,7 +8,7 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
-import './RequestSecurityInfo.scss';
+import './PaymentSecurity.scss';
 
 const defaultPayment = { reference: '', status: '', url: '', display_text: '', text: '' };
 
@@ -89,6 +89,7 @@ const RequestSecurityInfo = () => {
             placeholderText={`SUBMIT ${state.text.toUpperCase()}`}
           />
           <Button
+            type="button"
             classNames="btn-go"
             handleClick={handleSubmit}
           >

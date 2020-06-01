@@ -28,7 +28,7 @@ const DoubledChevron = () => (
 );
 
 const Schedule = ({ handleClick, item, isFocus, active }) => (
-  <li
+  <div
     className={`list-group-item pointer ${active ? 'active-time' : 'time-display'}`}
     onClick={() => handleClick(item)}
     aria-pressed="false"
@@ -37,7 +37,7 @@ const Schedule = ({ handleClick, item, isFocus, active }) => (
   >
     <span>{item}</span>
     {!isFocus && <DoubledChevron />}
-  </li>
+  </div>
 );
 
 const ScheduleSelector = React.forwardRef(({
@@ -57,19 +57,21 @@ const ScheduleSelector = React.forwardRef(({
     <section ref={ref} className="mb-2 mt-4">
       <Demarcation />
       <Container classNames="p-lg-0">
-        <TemporaryWrapper.ViewHeading text={title} classNames="pb-2" />
+        <TemporaryWrapper.ViewHeading noPadding text={title} classNames="pb-2" />
         <Schedule handleClick={handleClick} item={input || active} isFocus={isFocus} />
-        <ul style={styles} className={`list-group time-list ${isFocus ? 'time-dropdown' : 'time'}`}>
+        {isFocus &&
+        <div style={styles} className={`list-group time-list ${isFocus ? 'time-dropdown' : 'time'}`}>
           {list.map(listItem => (
-            listItem !== input ?
-              <Schedule
+            listItem === input ? null
+              : <Schedule
                 key={`non-schedule-selector-active-list-${listItem}-${type}`}
                 handleClick={handleClick}
                 item={listItem}
                 isFocus={isFocus}
-              /> : null
+              />
           ))}
-        </ul>
+        </div>
+        }
       </Container>
     </section>
   );

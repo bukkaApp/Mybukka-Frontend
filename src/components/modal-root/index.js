@@ -6,7 +6,7 @@ import Authentication from '../authentication-popup';
 import VerifyPhonePopup from '../verify-phone-popup';
 import Address from '../address/Address';
 import Payment from '../payment/Payment';
-import RequestSecurityInfo from '../payment-security/RequestSecurityInfo';
+import RequestSecurityInfo from '../payment-security/PaymentSecurity';
 import PaymentGateway from '../payment-gateway/PaymentGateway';
 import PaymentPending from '../payment-pending/PaymentPending';
 import './index.scss';

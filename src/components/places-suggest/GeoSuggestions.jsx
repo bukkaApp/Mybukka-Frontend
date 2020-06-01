@@ -7,14 +7,14 @@ import MapMarker from '../icons/MapMarker';
 import './GeoSuggestions.scss';
 import Button from '../button/Button';
 
-const GeoSuggestions = ({ handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton }) => (
+const GeoSuggestions = ({ handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton, noBorderOnMedium }) => (
   <Fragment>
     {predictions.map((suggestion) => {
       const { terms } = suggestion;
       const filteredTerms = terms.reduce((arr, item) => [...arr, item.value], []);
       return (
         <div
-          className={`${asUtility ? 'Suggestion-Address' : 'suggestion-group-style'}`}
+          className={`${asUtility ? 'Suggestion-Address' : 'suggestion-group-style'} ${(noBorderOnMedium && 'Suggestion-Address-Border--less') || ''}`}
           onClick={() => handleClick(suggestion, true)}
           tabIndex="0"
           role="link"

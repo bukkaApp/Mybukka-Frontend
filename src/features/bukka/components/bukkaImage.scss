@@ -5,6 +5,7 @@
   background-size: cover;
   position: relative;
   background-attachment: fixed;
+  transition: opacity 300ms ease-in;
 }
 
 @media (max-width: 768.98px) {
