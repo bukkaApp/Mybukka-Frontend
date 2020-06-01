@@ -11,12 +11,6 @@ const initialState = {
   deliveryModeReducer: { mode: 'delivery', },
   searchAnythingReducer: { search: '' },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
-  authenticationReducer: {
-    status: {
-      authenticated: false,
-      error: false
-    }
-  },
   businessesReducer: {
     fetchedBukkas: {
       nearbyBukkas: [],

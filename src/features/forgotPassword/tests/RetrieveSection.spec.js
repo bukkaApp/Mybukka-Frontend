@@ -10,14 +10,6 @@ const initialState = {
   changeAuthenticationPageReducer: { type: '/login' },
   validateTokenReducer: { isValidUser: true, requested: true, },
   changePasswordReducer: { requested: true, errorMessage: 'error occur' },
-  authenticationReducer: {
-    user: {},
-    status: {
-      authenticated: false,
-      error: false
-    },
-    errorMessage: ''
-  }
 };
 
 const middlewares = [];

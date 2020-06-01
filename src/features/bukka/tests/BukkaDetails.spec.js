@@ -8,12 +8,6 @@ const initialState = {
   deliveryModeReducer: { mode: 'delivery', },
   checkoutModeReducer: { mode: true },
   locationsPredictionReducer: { predictions: [3.7474, 3.4848] },
-  authenticationReducer: {
-    status: {
-      authenticated: false,
-      error: false
-    }
-  },
   businessReducer: {
     fetchedBukka: {
       title: 'title',

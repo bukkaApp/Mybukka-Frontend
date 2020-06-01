@@ -8,14 +8,6 @@ import { RegisterPage } from '../RegisterPage';
 
 const initialState = {
   changeAuthenticationPageReducer: { type: 'Sign Up' },
-  authenticationReducer: {
-    user: {},
-    status: {
-      authenticated: false,
-      error: false
-    },
-    errorMessage: ''
-  }
 };
 
 const middlewares = [];

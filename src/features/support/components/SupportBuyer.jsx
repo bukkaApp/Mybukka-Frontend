@@ -1,24 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import BannerSection from '../common/BannerSection';
 import SupportMainSection from './SupportMainSection';
+import { useUserContext } from '../../../context/UserContext';
 
-const SupportBuyer = ({ authenticated }) => (
-  <div>
-    <BannerSection />
-    <SupportMainSection authenticated={authenticated} />
-  </div>
-);
+const SupportBuyer = () => {
+  const { isAuthenticated } = useUserContext();
 
-const mapStateToProps = ({
-  authenticationReducer: { status: { authenticated }, }
-}) => ({
-  authenticated,
-});
-
-export default connect(mapStateToProps)(SupportBuyer);
-
-SupportBuyer.propTypes = {
-  authenticated: PropTypes.bool.isRequired,
+  return (
+    <div>
+      <BannerSection />
+      <SupportMainSection authenticated={isAuthenticated} />
+    </div>
+  );
 };
+
+
+export default SupportBuyer;
+

@@ -8,14 +8,6 @@ import { LoginPage } from '../LoginPage';
 
 const initialState = {
   changeAuthenticationPageReducer: { type: 'Sign In', },
-  authenticationReducer: {
-    user: {},
-    status: {
-      authenticated: false,
-      error: false
-    },
-    errorMessage: ''
-  },
 };
 
 const middlewares = [];
