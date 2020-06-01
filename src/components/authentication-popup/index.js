@@ -53,20 +53,15 @@ const AuthModal = ({ type }) => {
 };
 
 const mapStateToProps = ({
-  changeAuthenticationPageReducer: { type },
-  authenticationReducer: { status }
+  changeAuthenticationPageReducer: { type }
 }) => ({
-  type,
-  status
+  type
 });
 
 export default connect(mapStateToProps, null)(AuthModal);
 
 AuthModal.defaultProps = {
   type: '/login',
-  status: {
-    authenticated: false,
-  }
 };
 
 AuthModal.propTypes = {
