@@ -1,0 +1,24 @@
+.Button-Plain {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+  letter-spacing: 0.72px;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: normal;
+  cursor: pointer;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  background: transparent;
+}
+
+.Button-Plain-Color {
+  color: rgb(45, 49, 56);
+}
+
+.Button-Plain:focus {
+  outline: none;
+}

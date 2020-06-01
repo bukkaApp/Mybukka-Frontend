@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Navlink from '../../navlink/Navlink';
 
-import signOut from '../actionCreators/logOut';
+import { useUserContext } from '../../../context/UserContext';
 
 import './userdropdown.scss';
 
-const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
+const UserDropdown = () => {
+  const { logoutSuccess: signOut } = useUserContext();
+
   const handleClick = (e) => {
     e.preventDefault();
-    return logoutUser();
+    return signOut();
   };
 
   return (
@@ -127,13 +127,6 @@ const UserDropdown = ({ logoutUser, /* handleToggle, push */ }) => {
   );
 };
 
-export default connect(
-  null,
-  {
-    logoutUser: signOut,
-  },
-)(UserDropdown);
+export default UserDropdown;
 
-UserDropdown.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-};
+UserDropdown.propTypes = {};

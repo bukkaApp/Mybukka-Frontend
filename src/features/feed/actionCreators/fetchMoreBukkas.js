@@ -26,7 +26,7 @@ const fetchMoreBukkas = (
     dispatch(fetchMoreBukkasAction('PAGINATE_SUCCESS', request.data));
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
-    dispatch(fetchMoreBukkasAction('PAGINATE_ERROR', error.response.data));
+    dispatch(fetchMoreBukkasAction('PAGINATE_ERROR', error.response ? error.response.data : error));
   }
 };
 

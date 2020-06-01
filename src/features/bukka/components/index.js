@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import toastr from 'toastr';
 
+import swal from 'sweetalert';
 import BukkaNavSmallScreen
   from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
@@ -31,7 +31,7 @@ const BukkaMenuScene = ({
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    if (errorMessage !== '') return toastr.error(errorMessage);
+    if (errorMessage !== '') return swal({ text: errorMessage, icon: 'warning', dangerMode: true });
   }, [errorMessage]);
 
   const isInSearch = item => item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());

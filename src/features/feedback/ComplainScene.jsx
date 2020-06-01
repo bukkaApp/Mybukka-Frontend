@@ -1,7 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import requireAuth from 'Components/HOC/requireAuth';
 import authServices from 'Utilities/authServices';
 import { connect } from 'react-redux';
 import Footer from 'Components/footer/Footer';
@@ -157,7 +156,7 @@ const mapStateToProps = ({ reportIssueReducer: { success } }) => ({
 
 export default connect(mapStateToProps, {
   sendIssue: reportIssue
-})(requireAuth(ComplainScene));
+})(ComplainScene);
 
 ComplainScene.defaultProps = {};
 

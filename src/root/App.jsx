@@ -11,13 +11,14 @@ import reduxStore from '../redux/store';
 import Main from './Main';
 import IndeterminateProgressbar, { ProgressSwitch, ProgressBar } from
   '../components/progress-bar/IndeterminateProgressbar';
-import AlertMessage from '../components/alert';
 
+import Toast from '../components/Toast/Toast';
 import ModalRoot from '../components/modal-root';
 import AuthModal from '../features/modal-root/Index';
 import './index.scss';
 import './animate.scss';
 import Primary from '../provider/Primary';
+import Secondary from '../provider/Secondary';
 import useAutocompleteService from '../hooks/useAutocompleteService';
 import Cookie from '../components/cookie';
 
@@ -32,15 +33,17 @@ const App = () => {
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <IndeterminateProgressbar />
-              <AlertMessage />
-              <Primary>
-                <ProgressSwitch />
-                <LoadService />
-                <Main />
-                <ModalRoot />
-                <AuthModal /> {/* would be change to be in Modal root */}
-                <Cookie />
-              </Primary>
+              <Secondary>
+                <Primary>
+                  <Toast />
+                  <ProgressSwitch />
+                  <LoadService />
+                  <Main />
+                  <ModalRoot />
+                  <AuthModal /> {/* would be change to be in Modal root */}
+                  <Cookie />
+                </Primary>
+              </Secondary>
             </PersistGate>
           </Provider>
         </Suspense>

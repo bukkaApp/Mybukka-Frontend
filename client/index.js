@@ -1,9 +1,23 @@
 import React, { StrictMode } from 'react';
-// import { render } from 'react-dom';
 import { createRoot } from 'react-dom';
+import { TrackJS } from 'trackjs';
 import App from '../src/root/App';
 import Worker from './Worker';
 import './index.scss';
+
+let trackConfig = {
+  network: { error: false },
+};
+
+if (process.env.NODE_ENV === 'production') {
+  trackConfig = {
+    ...trackConfig,
+    application: 'bukka-prod',
+    token: '7ceaed085f00408e802377191873a77b',
+  };
+}
+
+TrackJS.install(trackConfig);
 
 const rootElement = document.getElementById('root');
 
@@ -14,10 +28,4 @@ createRoot(rootElement).render(
     </Worker>
   </StrictMode>
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-/* eslint-disable no-unused-vars */
 

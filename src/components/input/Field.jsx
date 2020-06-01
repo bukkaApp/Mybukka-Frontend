@@ -15,11 +15,13 @@ const Input = React.forwardRef(({
   checked,
   value,
   onBlur,
+  readOnly,
 }, ref) => (
   <input
     type={type}
     name={name}
     ref={ref}
+    readOnly={readOnly}
     accept={accept}
     className={classNames}
     placeholder={placeholderText}
@@ -80,7 +82,7 @@ Input.defaultProps = {
 Input.propTypes = {
   autoComplete: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   classNames: PropTypes.string,
   placeholderText: PropTypes.string,

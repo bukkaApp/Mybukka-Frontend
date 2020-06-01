@@ -12,7 +12,7 @@ const UseCurrentLocation = () => {
       className="suggestion-geo-group input-group"
       onClick={setCurrentLocation}
       tabIndex={0}
-      role="link"
+      role="button"
     >
       <div className="input-group-prepend">
         <span className="input-group-text location-arrow spinner-loading">

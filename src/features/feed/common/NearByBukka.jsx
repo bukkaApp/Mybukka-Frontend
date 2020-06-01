@@ -14,32 +14,56 @@ const NearByBukka = ({
   imageHeight,
   children,
   handleRefFocus,
-}) => (
-  <div className="pt-4 mb-4">
-    {title && <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />}
-    {children}
-    <Container classNames="container-padding">
-      {bukkaData.length > 0 && (
-        <Row classNames="pb-4">
-          {bukkaData.map(bukka => (
-            <BukkaCard
-              key={`nearBy-Bukka-${bukka.title}-${bukka._id}`}
-              imageUrl={bukka.imageUrl}
-              mealName={bukka.title}
-              deliveryPrice={bukka.deliveryCost}
-              deliveryTime={bukka.deliveryTime}
-              rating={bukka.rating}
-              imageHeight={imageHeight}
-              classNames={classNames}
-              dataTarget="#mealModal"
-              dataToggle="modal"
-            />
-          ))}
-        </Row>
-      )}
-    </Container>
-  </div>
-);
+}) => {
+  const decodeDeliveryTime = (bukka) => {
+    if (bukka && bukka.logistics) {
+      const maxTime = bukka.logistics.deliveryTimeTo;
+      return maxTime > 60 ? maxTime / 60 : maxTime;
+    }
+    return bukka.deliveryTime;
+  };
+
+  const decodeDeliveryPrice = (bukka) => {
+    if (bukka && bukka.logistics) {
+      return bukka.logistics.deliveryPrice;
+    }
+    return bukka.deliveryPrice;
+  };
+
+  const decodeStoreImage = (bukka) => {
+    if (bukka && bukka.headerImg) {
+      return bukka.headerImg;
+    }
+    return bukka.imageUrl;
+  };
+
+  return (
+    <div className="pt-4 mb-4">
+      {title && <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />}
+      {children}
+      <Container classNames="container-padding">
+        {bukkaData.length > 0 && (
+          <Row classNames="pb-4">
+            {bukkaData.map(bukka => (
+              <BukkaCard
+                key={`nearBy-Bukka-${bukka.title}-${bukka._id}`}
+                imageUrl={decodeStoreImage(bukka)}
+                mealName={bukka.title}
+                deliveryPrice={decodeDeliveryPrice(bukka)}
+                deliveryTime={decodeDeliveryTime(bukka)}
+                rating={bukka.rating}
+                imageHeight={imageHeight}
+                classNames={classNames}
+                dataTarget="#mealModal"
+                dataToggle="modal"
+              />
+            ))}
+          </Row>
+        )}
+      </Container>
+    </div>
+  );
+};
 
 export default NearByBukka;
 

@@ -105,19 +105,9 @@ export default connect(
   { removeFromCartAction: removeFromCart }
 )(EmptyCart);
 
-const objectOf = PropTypes.objectOf(
-  PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
-);
-
-const propTypes = [
-  PropTypes.bool,
-  PropTypes.number,
-  PropTypes.arrayOf(PropTypes.string),
-  objectOf
-];
 
 EmptyCart.propTypes = {
-  bukka: PropTypes.objectOf(PropTypes.oneOfType(propTypes)).isRequired,
+  bukka: PropTypes.string.isRequired,
   orderQuantity: PropTypes.number.isRequired,
   removeFromCartAction: PropTypes.func.isRequired,
   totalPriceInCart: PropTypes.number.isRequired

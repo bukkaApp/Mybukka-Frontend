@@ -5,7 +5,7 @@ import BukkaImageSection from '../components/BukkaImageSection';
 
 const initialState = {
   businessReducer: {
-    fetchedBukka: { imageUrl: 'www.imaeUrl.com' }
+    fetchedBukka: { src: 'www.imaeUrl.com' }
   }
 };
 

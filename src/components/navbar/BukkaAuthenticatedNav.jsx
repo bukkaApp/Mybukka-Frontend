@@ -21,7 +21,8 @@ import getRestaurantCuisineAction from '../../features/feed/actionCreators/getRe
 import './bukka-authenticated-nav.scss';
 import SearchAnything from '../search/SearchAnything';
 import CartScene from '../cart/CartScene';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
+import { useUserContext } from '../../context/UserContext';
 
 const buttonProps = [
   { name: 'Food', href: '/feed' },
@@ -29,15 +30,14 @@ const buttonProps = [
   { name: 'Mart', href: '/mart' }
 ];
 
-
 const BukkaAuthenticatedNav = ({
-  status,
   changeAuthenticationPage,
   fetchNearbyBukkas,
   getPromotedBukkas,
   getRestaurantCuisine,
   fetchNearbyFreshOrMart,
 }) => {
+  const { isAuthenticated } = useUserContext();
   const { setAuthenticationPopup, setModal } = useModalContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
   const isMobileScreen = useMediaQuery({ minWidth: 767 });
@@ -46,7 +46,6 @@ const BukkaAuthenticatedNav = ({
   const btnAtrributes = [{ type: 'button', text: 'sign in', classNames: 'small-outline-button bg-transparent', id: '/login' }, { type: 'button', text: 'sign up', classNames: 'small-button mr-0', id: '/signup' }];
   const wrapperRef = React.createRef();
   const { push } = useHistory();
-  const { authenticated } = status;
 
   const defaultProps = {
     search: false,
@@ -118,7 +117,7 @@ const BukkaAuthenticatedNav = ({
     </Fragment>
   );
 
-  if (authenticated) {
+  if (isAuthenticated) {
     AuthScene = () => (
       <Fragment>
         <div
@@ -195,6 +194,5 @@ export default connect(
 )(BukkaAuthenticatedNav);
 
 BukkaAuthenticatedNav.propTypes = {
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   changeAuthenticationPage: PropTypes.func.isRequired
 };

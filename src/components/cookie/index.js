@@ -1,6 +1,6 @@
 import React from 'react';
 import Navlink from '../navlink/Navlink';
-import { useCookieContext } from '../../context/UseCookie';
+import { useCookieContext } from '../../context/CookieContext';
 
 const styles = {
   wrapper: {

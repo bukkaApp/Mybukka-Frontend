@@ -4,8 +4,8 @@ import React, { useState, useEffect, memo } from 'react';
 import Script from 'react-load-script';
 import { useLocationContext } from '../context/LocationContext';
 import { useLocationsPredictionContext } from '../context/LocationsPrediction';
-import { useLoadingContext } from '../context/UseLoading';
-import { useMapContext } from '../context/UseMap';
+import { useLoadingContext } from '../context/LoadingContext';
+import { useMapContext } from '../context/MapContext';
 
 let placesService;// eslint-disable-line
 let autoCompleteService;
@@ -61,10 +61,10 @@ const useAutocompleteService = (callback = null, withLoading = false) => {
       const lattitude = response[0].geometry.location.lat();
       const longitude = response[0].geometry.location.lng();
       const coordinates = [longitude, lattitude];
-      if (withLoading) loading('LOC', false);
       setInputData(suggestion.description);
       setGoogleLocation({ coordinates, suggestion });
       setFocus(false);
+      if (withLoading) loading('LOC', false);
     });
   };
 

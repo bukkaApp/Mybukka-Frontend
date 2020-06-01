@@ -1,6 +1,5 @@
 import { FETCH_BUKKAS } from 'Redux/actionTypes';
 import axiosInstance from 'Redux/axios';
-import alertMessage from 'Redux/alertMessage';
 import loading from 'Redux/loading';
 
 const fetchBukkasAction = (type, data) => ({
@@ -30,10 +29,9 @@ const fetchBukkas = (
   } catch (error) {
     dispatch(loading(FETCH_BUKKAS, false));
     if (!error.response) {
-      dispatch(alertMessage(FETCH_BUKKAS, true, 'Please check your network'));
       dispatch(loading(FETCH_BUKKAS, false));
     } else { cb('/coming-soon'); }
-    dispatch(fetchBukkasAction('ERROR', error.response.data));
+    dispatch(fetchBukkasAction('ERROR', error.response ? error.response.data : error));
   }
 };
 

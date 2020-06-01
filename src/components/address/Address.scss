@@ -1,0 +1,27 @@
+.Address-Details-Header {
+  border-bottom: 1px solid #eceff1;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.Address-Details-Text {
+  font-weight: 500;
+}
+
+.Address-Form-Header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.text-end {
+  text-align: end
+}
+
+@media (max-width: 991.98px) {
+  .add-card-form {
+    height: 100vh;
+    width: 100%;
+  }
+}

@@ -4,10 +4,9 @@ const rules = {
   firstName: 'required|alpha',
   lastName: 'required|alpha',
   email: 'required|email',
-};
-const passRules = {
   password: 'required|alpha|min:8'
 };
+
 const errorMessages = {
   required: 'this field is required',
   alpha: 'this field can only be letters',
@@ -15,7 +14,6 @@ const errorMessages = {
 };
 
 /**
- *
  * @param {object} data containing key:value pairs
  * of field and value to be validated
  * @param {string} field field in rules to run validation against
@@ -32,24 +30,4 @@ export const validateAField = (data, field) => {
   };
 };
 
-/**
- *
- * @param {object} data object to run rules against
- * @param {boolean} pass use signIn Rules
- * @returns {object} containing keys:value pair of field:errormessage
- *
- */
-export const validateAllFields = (data, pass) => {
-  let validation = new Validator(data, rules, errorMessages);
-  if (pass) {
-    validation = new Validator(data, passRules, errorMessages);
-  }
-  validation.passes();
-  const errors = validation.errors.all();
-  Object.keys(errors).forEach((errorKey) => {
-    // reassigns the key to a destructured
-    // version of the error message
-    [errors[errorKey]] = errors[errorKey];
-  });
-  return { errors, passes: validation.passes() };
-};
+export default validateAField;

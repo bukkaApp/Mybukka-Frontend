@@ -1,7 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
-import { Button } from 'react-bootstrap';
 
 import './header.scss';
 
@@ -12,11 +10,7 @@ const Header = () => (
         <h1>Partner With MyBukka</h1>
         <h2 className="header-sub-heading">Delivery and logistics, solved.</h2>
         <div className="">
-          <NavLink to="/merchant.mybukka.com/signup">
-            <Button variant="info" size="lg" className="btn_text">
-              Sign Me Up
-            </Button>
-          </NavLink>
+          <a className="btn_text btn btn-lg" href="https://merchant.mybukka.com/signup">Sign Me Up</a>
         </div>
         <div className="scroll-down">
           <Link smooth to="#selling-points">

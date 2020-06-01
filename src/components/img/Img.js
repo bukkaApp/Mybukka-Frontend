@@ -48,7 +48,7 @@ const Img = ({ src, className = '', options, fmt, alt }) => {
 
   return (
     <div id="" className="Image-Opt-Wrapper">
-      <img ref={_imgRef} onLoad={handleLoad} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
+      <img hidden ref={_imgRef} onLoad={handleLoad} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
       <div title={alt} className="Image-Opt--display" style={{ backgroundImage: `url(${`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`})`, opacity: state || cookies[`_${src}`] ? 1 : 0 }} />
       <div className={`Image-Opt ${className}`} />
     </div>

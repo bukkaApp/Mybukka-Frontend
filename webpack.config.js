@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
@@ -11,17 +12,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CopyPlugin = new CopyWebpackPlugin({
   patterns: [
     {
+      // path to the folder to be copied
       from: path.resolve(__dirname, 'client/pwa'),
     },
-  ], // define the path of the files to be copied
+  ],
 });
-
-// const WebpackManifestPlugin = require('webpack-manifest-plugin');
-
-// const ManifestPlugin = new WebpackManifestPlugin({
-//   fileName: 'manifest.json',
-//   basePath: '/client/',
-// });
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -48,6 +43,8 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   'process.env.CLOUD_NAME': JSON.stringify(process.env.CLOUD_NAME),
   'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
   'process.env.PORT': JSON.stringify(process.env.PORT),
+  'process.env.BACKEND_PROD_URL': JSON.stringify(process.env.BACKEND_PROD_URL),
+  'process.env.FACEBOOK_CLIENT_ID': JSON.stringify(process.env.FACEBOOK_CLIENT_ID),
   'process.env.CLOUDINARY_UPLOAD_URL': JSON.stringify(
     process.env.CLOUDINARY_UPLOAD_URL
   ),
@@ -58,7 +55,7 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
-  devtool: 'eval',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
   devServer: {
     contentBase: './client',
     port: 7700,
@@ -71,6 +68,7 @@ module.exports = {
     publicPath: '/',
   },
   plugins: [
+    new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,

@@ -17,8 +17,7 @@ import ExploreSection from '../common/ExploreSection';
 import getBukkasRelatedToSingleCuisines from '../actionCreators/getBukkasRelatedToSingleCuisines';
 import getMoreBukkasRelatedToSingleCuisines from '../actionCreators/getMoreBukkasRelatedToSingleCuisines';
 
-
-// TODO: Don't  display time if bukkas are not avaailable or they have closed
+// TODO: Don't  display time if bukkas are not available or they have closed
 
 const PlaceGroup = ({
   name,
@@ -33,6 +32,29 @@ const PlaceGroup = ({
 }) => {
   const { coordinates } = useLocationContext();
   const { id } = useParams();
+
+  const decodeDeliveryTime = (bukka) => {
+    if (bukka && bukka.logistics) {
+      const maxTime = bukka.logistics.deliveryTimeTo;
+      return maxTime > 60 ? maxTime / 60 : maxTime;
+    }
+    return bukka.deliveryTime;
+  };
+
+  const decodeDeliveryPrice = (bukka) => {
+    if (bukka && bukka.logistics) {
+      return bukka.logistics.deliveryPrice;
+    }
+    return bukka.deliveryPrice;
+  };
+
+  const decodeStoreImage = (bukka) => {
+    if (bukka && bukka.headerImg) {
+      return bukka.headerImg;
+    }
+    return bukka.imageUrl;
+  };
+
   useEffect(() => {
     let suscribed = true;//eslint-disable-line
     getBukkasRelatedToCuisines(id, coordinates);
@@ -82,12 +104,12 @@ const PlaceGroup = ({
                   {cuisineItems.map(bukka => (
                     <BukkaCard
                       key={`place-group-bukka-card-${bukka.name}-${bukka.slug}`}
-                      imageUrl={bukka.imageUrl}
+                      imageUrl={decodeStoreImage(bukka)}
                       mealName={bukka.name}
                       delivery={false}
                       handleClick={() => fetchBukkaMenu(`/bukka/${bukka.slug}`)}
-                      deliveryPrice={bukka.deliveryPrice}
-                      deliveryTime={bukka.deliveryTime}
+                      deliveryPrice={decodeDeliveryPrice(bukka)}
+                      deliveryTime={decodeDeliveryTime(bukka)}
                       rating={bukka.rating}
                       tags={bukka.placeGroup}
                       imageHeight="img-fluid"

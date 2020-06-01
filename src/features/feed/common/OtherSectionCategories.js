@@ -8,7 +8,7 @@ import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
-import { useModalContext } from '../../../context/UseModal';
+import { useModalContext } from '../../../context/ModalContext';
 
 const OtherSection = ({
   bukkaMenu,

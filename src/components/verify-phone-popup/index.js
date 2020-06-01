@@ -5,7 +5,7 @@ import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
 import sendContactAction from '../../redux/sendContactAction';
 import sendVerifationCodeAction from '../../redux/sendVerifationCodeAction';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 
 import './index.scss';
 
@@ -15,7 +15,6 @@ const phoneVerificationSupport = [
 
 const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   const wrapperRef = React.createRef();
-  const [animate, setAnimation] = useState(false);
   const [isCodeVerification, setIsCodeVerification] = useState(false);
   const [state, setState] = useState({ contactMobile: '', code: '' });
   const { phoneVerificationPopup, setVerificationPhonePopup, setModal } = useModalContext();
@@ -86,35 +85,27 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   };
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setAnimation(phoneVerificationPopup);
-      clearTimeout(timeout);
-    }, 200);
-  }, [phoneVerificationPopup]);
-
-  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [wrapperRef]);
 
   return (
     <Modal show={phoneVerificationPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
-      <section style={{ opacity: animate ? 1 : 0 }}>
-        <DismissModal onClick={handleClick} classNames="close" />
-        <div className={`Verify-Phone-Popup ${isCodeVerification ? 'Verify-Phone-Spacing' : ''}`}>
-          <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
-            <div className="Verify-Phone-Popup-Header">
-              <span>{isCodeVerification ? 'Enter your code' : 'Add your phone number'}</span>
-            </div>
+      <DismissModal onClick={handleClick} withRightIcon />
+      <div className={`Verify-Phone-Popup ${isCodeVerification ? 'Verify-Phone-Spacing' : ''}`}>
+        <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
+          <div className="Verify-Phone-Popup-Header">
+            <span>{isCodeVerification ? 'Enter your code' : 'Add your phone number'}</span>
           </div>
-          <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
-            <form data-auth-state="SIGN_UP_PHONE" className="Verify-Phone-Form">
-              <div className="Verify-Phone-Title">
-                <span>{isCodeVerification ? `We sent a code to ${state.contactMobile}, please enter it below.`
-                  : 'Your phone number is used for updates when your order is out for delivery.'}</span>
-              </div>
-              <div className={`Verify-Phone-Body ${isCodeVerification ? 'Verify-Phone-Body-Space' : ''}`}>
-                {!isCodeVerification &&
+        </div>
+        <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
+          <form data-auth-state="SIGN_UP_PHONE" className="Verify-Phone-Form">
+            <div className="Verify-Phone-Title">
+              <span>{isCodeVerification ? `We sent a code to ${state.contactMobile}, please enter it below.`
+                : 'Your phone number is used for updates when your order is out for delivery.'}</span>
+            </div>
+            <div className={`Verify-Phone-Body ${isCodeVerification ? 'Verify-Phone-Body-Space' : ''}`}>
+              {!isCodeVerification &&
                 <div className="Verify-Phone-Select">
                   <div>
                     <div className="Verify-Phone-Select--active">
@@ -135,23 +126,22 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
                     </div>
                   </div>}
                 </div>}
-                <Field.Input
-                  value={isCodeVerification ? state.code : state.contactMobile}
-                  handleChange={handleChange}
-                  type="text"
-                  placeholderText={isCodeVerification ? '0-0-0-0-0-0' : '000-000-0000'}
-                  name={isCodeVerification ? 'code' : 'contactMobile'}
-                  classNames={`Verify-Phone-Input ${isCodeVerification ? 'Verify-Phone-Code' : ''}`}
-                />
-              </div>
-              <button onClick={handlePhoneSubmit} type="submit" className="Verify-Phone-Button">
-                <span>{isCodeVerification ? 'Verify' : 'Submit'}</span>
-              </button>
-            </form>
-            {isCodeVerification && <div tabIndex="0" aria-pressed="false" role="button" onClick={resendCode} className="Verify-Phone-Footer">re-send code</div>}
-          </div>
+              <Field.Input
+                value={isCodeVerification ? state.code : state.contactMobile}
+                handleChange={handleChange}
+                type="text"
+                placeholderText={isCodeVerification ? '0-0-0-0-0-0' : '000-000-0000'}
+                name={isCodeVerification ? 'code' : 'contactMobile'}
+                classNames={`Verify-Phone-Input ${isCodeVerification ? 'Verify-Phone-Code' : ''}`}
+              />
+            </div>
+            <button onClick={handlePhoneSubmit} type="submit" className="Verify-Phone-Button">
+              <span>{isCodeVerification ? 'Verify' : 'Submit'}</span>
+            </button>
+          </form>
+          {isCodeVerification && <div tabIndex="0" aria-pressed="false" role="button" onClick={resendCode} className="Verify-Phone-Footer">re-send code</div>}
         </div>
-      </section>
+      </div>
     </Modal>
   );
 };

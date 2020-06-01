@@ -2,7 +2,6 @@ import React from 'react';
 import TextField from '../common/TextField';
 import Data from './__mocks__/register';
 
-
 describe('Input field component', () => {
   const props = {
     handleChange: jest.fn(),

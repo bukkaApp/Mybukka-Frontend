@@ -31,7 +31,8 @@ const AuthButtonGroup = props => (
     <Divider />
     <div className="padding">
       <FacebookLogin
-        appId="816985088495917"
+        appId={process.env.FACEBOOK_CLIENT_ID}
+        fields="name,email,picture"
         cssClass="facebk-btn col-md-12"
         callback={props.handleFBAuth}
       />

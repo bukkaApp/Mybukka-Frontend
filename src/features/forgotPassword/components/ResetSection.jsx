@@ -28,7 +28,7 @@ const ResetSection = ({
             className={`col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3
               col-md-12 col-12 ${requested ? 'd-none' : ''}`}
           >
-            <div className="card-shadow card mb-3 border">
+            <div className="Imaginery-Card-Section mb-3">
               <ResetIntroSection
                 push={push}
                 sendARequestToChangePassword={sendARequestToChangePassword}
@@ -39,7 +39,7 @@ const ResetSection = ({
           <div className={`col-xl-6 col-lg-6 px-0 px-md-0
             px-lg-3 col-md-12 col-12 ${requested ? '' : 'd-none'}`}
           >
-            <div className="card-shadow card mb-3 border">
+            <div className="Imaginery-Card-Section mb-3">
               <FeedbackSection push={push} />
             </div>
           </div>

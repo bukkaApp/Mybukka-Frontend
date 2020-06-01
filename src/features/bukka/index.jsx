@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 import FooterBigScreen from '../../components/footer/FooterBigScreen';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
 

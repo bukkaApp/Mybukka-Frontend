@@ -24,7 +24,7 @@ const postUserAddress = (url, data) => async (dispatch) => {
     dispatch(postUserAddressAction('SUCCESS', request.data));
     dispatch(loading(POST_USER_ADDRESS, false));
   } catch (error) {
-    dispatch(postUserAddressAction('ERROR', error.response.data));
+    dispatch(postUserAddressAction('ERROR', error.response ? error.response.data : error));
     dispatch(loading(POST_USER_ADDRESS, false));
   }
 };

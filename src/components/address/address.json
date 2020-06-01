@@ -1,0 +1,33 @@
+[
+  {
+    "address": true,
+    "name": "address",
+    "changed": false,
+    "value": "",
+    "classNames": "form-control p-0",
+    "type": "text",
+    "placeholderText": "Address",
+    "id": "address",
+    "emptyFieldError": "Required",
+    "validityError": "Address is invalid",
+    "containerClassNames": "form-group font-size-14 mb-4"
+  },
+  {
+    "name": "name",
+    "changed": false,
+    "classNames": "form-control p-0",
+    "type": "text",
+    "placeholderText": "Contact name",
+    "id": "contactName",
+    "emptyFieldError": "Required",
+    "containerClassNames": "d-inline-flex pl-0 flex-column col-6 col-md-6 mb-4"
+  },
+  {
+    "name": "mobileNumber",
+    "classNames": "form-control p-0",
+    "type": "text",
+    "placeholderText": "Phone number",
+    "id": "phoneNumber",
+    "containerClassNames": "d-inline-flex pr-0 flex-column col-6 col-md-6 mb-4"
+  }
+]

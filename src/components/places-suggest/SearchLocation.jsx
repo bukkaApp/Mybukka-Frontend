@@ -13,10 +13,16 @@ import SuggestionsDropdown from './SuggestionsDropdown';
 import './searchlocation.scss';
 import useAutocompleteService from '../../hooks/useAutocompleteService';
 
+const style = { border: '1 px solid #eceff1' };
+const className = 'input-group address-input-section';
+
 const SearchLocation = ({
   showDeliveryOrPickupNav,
   chevronButtonVisible,
   showDropdown,
+  emitOnChange,
+  standalone,
+  name,
 }) => {
   const [predictions, setPredictions] = useState([]);
   const wrapperRef = createRef();
@@ -30,9 +36,17 @@ const SearchLocation = ({
     inputData,
   } = useAutocompleteService(setPredictions);
 
+  const emitChange = ({ target: { name: inpName, value } }) => {
+    if (emitOnChange) emitOnChange({ target: { name: inpName, value } });
+    handleChange({ target: { name: inpName, value } });
+  };
+
   const handleClickOutside = (event) => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setFocus(false);
+      const timeout = setTimeout(() => {
+        setFocus(false);
+        clearTimeout(timeout);
+      }, 200);
     }
   };
 
@@ -48,6 +62,7 @@ const SearchLocation = ({
           aria-pressed="false"
           tabIndex="0"
           role="button"
+          name="click"
           className="input-group-append button-go-feed"
         >
           <span className="input-group-text button-search">
@@ -65,24 +80,25 @@ const SearchLocation = ({
   }, [wrapperRef]);
 
   return (
-    <div ref={wrapperRef}>
-      <div
-        className="input-group address-input-section"
-        style={{ border: '1 px solid #eceff1' }}
-      >
-        <div className="input-group-prepend">
-          <span className="input-group-text location-marker">
-            <MapMarker />
-          </span>
-        </div>
+    <Fragment>
+      <div ref={wrapperRef} style={!standalone ? style : {}} className={!standalone ? className : ''}>
+        {!standalone &&
+          <Fragment>
+            <div className="input-group-prepend">
+              <span className="input-group-text location-marker">
+                <MapMarker />
+              </span>
+            </div>
+            <label hidden htmlFor={name || 'searchLocation'}>type address</label>
+          </Fragment>}
         <Field.Input
           type="text"
-          name="searchLocation"
+          id={name || 'searchLocation'}
+          name={name || 'searchLocation'}
           placeholderText="Enter your address..."
-          classNames="text-field form-control searchlocation"
-          handleChange={handleChange}
+          classNames={!standalone ? 'text-field form-control searchlocation' : 'Primary-Input'}
+          handleChange={emitChange}
           onFocus={() => setFocus(true)}
-          // onBlur={() => setFocus(false)}
           value={inputData}
         />
         {showChevronButton()}
@@ -100,15 +116,15 @@ const SearchLocation = ({
           </Fragment>
         )}
       </div>
-    </div>
+    </Fragment>
   );
 };
 
 export default SearchLocation;
 
 SearchLocation.defaultProps = {
-  chevronButtonVisible: true,
-  showDeliveryOrPickupNav: true,
+  chevronButtonVisible: false,
+  showDeliveryOrPickupNav: false,
   showDropdown: false,
 };
 

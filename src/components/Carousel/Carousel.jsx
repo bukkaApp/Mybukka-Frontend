@@ -81,7 +81,6 @@ const Carousel = ({
   delivery,
   controlClassNames,
   textPositionBottom,
-  type,
   numberOfViews,
   description,
   placeId,
@@ -116,6 +115,29 @@ const Carousel = ({
     fetchBukkaMenu(`${bukka.slug}`)
       .then(() => fetchBukka(bukka.slug))
       .then(() => push(`/bukka/${bukka.slug}`, { showMap: true }));
+  };
+
+
+  const decodeDeliveryTime = (bukka) => {
+    if (bukka && bukka.logistics) {
+      const maxTime = bukka.logistics.deliveryTimeTo;
+      return maxTime > 60 ? maxTime / 60 : maxTime;
+    }
+    return bukka.deliveryTime;
+  };
+
+  const decodeDeliveryPrice = (bukka) => {
+    if (bukka && bukka.logistics) {
+      return bukka.logistics.deliveryPrice;
+    }
+    return bukka.deliveryPrice;
+  };
+
+  const decodeStoreImage = (bukka) => {
+    if (bukka && bukka.headerImg) {
+      return bukka.headerImg;
+    }
+    return bukka.imageUrl;
   };
 
   return (
@@ -154,8 +176,7 @@ const Carousel = ({
                     remark={bukka.placeGroup && bukka.placeGroup.length > 0 ?
                       bukka.placeGroup[0] : bukka.remark}
                     mealName={bukka.name || bukka.title}
-                    deliveryCost={bukka.deliveryCost}
-                    deliveryTime={bukka.deliveryTime}
+                    deliveryTime={decodeDeliveryTime(bukka)}
                     delivery={delivery}
                     rating={bukka.rating}
                     textOverlay={textOverlay}
@@ -164,15 +185,13 @@ const Carousel = ({
                     subHeading={bukka.subHeading}
                     top={bukka.position ? bukka.position.top : undefined}
                     bottom={textPositionBottom || undefined}
-                    imageUrl={bukka.imageUrl}
-                    deliveryPrice={bukka.deliveryPrice}
+                    imageUrl={decodeStoreImage(bukka)}
+                    deliveryPrice={decodeDeliveryPrice(bukka)}
                     tags={bukka.tags && bukka.tags.length > 0 ? bukka.tags : bukka.placeGroup}
                     slug={bukka.slug}
                     handleClick={e => handleClick(e, bukka)}
                     classNames={`${classNames}`}
-                    href={type === 'majorCuisine' ?
-                      `/categories/${bukka.name}`
-                      : `/bukka/${bukka.slug}`}
+                    href={carouselType === 'categories' ? `/categories/${bukka.name}` : `/bukka/${bukka.slug}`}
                   />
                 ))}
               </div>

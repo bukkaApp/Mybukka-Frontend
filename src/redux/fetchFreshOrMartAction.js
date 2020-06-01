@@ -18,7 +18,7 @@ const fetchFreshOrMartAction = (coordinates, type) => async (dispatch) => {
     dispatch({ type: 'FETCH_BUKKA_MENU_SUCCESS', data: { bukkaMenu } });
   } catch (error) {
     dispatch(loading(FETCH_BUKKA, false));
-    dispatch(fetchFreshOrMart('ERROR', error.response.data));
+    dispatch(fetchFreshOrMart('ERROR', error.response ? error.response.data : error));
   }
 };
 

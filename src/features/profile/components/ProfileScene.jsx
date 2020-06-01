@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 
 import Container from 'Components/container';
 import Row from 'Components/grid/Row';
@@ -6,130 +6,89 @@ import Credict from 'Components/credict';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Column from 'Components/grid/Column';
-import InternalError from 'Components/not-found/InternalError';
-import signout from 'Components/navbar/actionCreators/logOut';
 import AuthenticaticatedNavbar from 'Components/navbar/AuthenticaticatedNavbar';
 import ProfileHeader from './ProfileHeader';
 import ProfileImageSection from './ProfileImageSection';
 import AccountDetails from './AccountDetails';
-import postUserData from '../actionCreators/sendUserData';
-import fetchUserData from '../actionCreators/fetchUserData';
-import deleteAddress from '../actionCreators/deleteAddress';
-import fetchUserAddress from '../actionCreators/fetchUserAddress';
 import uploadProfilePicture from '../actionCreators/uploadProfilePicture';
-import AuthService from '../../../utils/authServices';
+import useApi from '../../../shared/api';
+import { useUserContext } from '../../../context/UserContext';
+import { useLoadingContext } from '../../../context/LoadingContext';
+import { useToastContext } from '../../../context/ToastContext';
+import useHashLinkUpdate from '../../../hooks/useHashLinkUpdate';
 
 import './profileScene.scss';
 
 const ProfileScene = ({
-  history,
-  requestUserData,
-  deleteUserAddress,
-  requestUserAddress,
   addProfilePicture,
-  user,
-  status,
-  errorMessage,
-  finishedRequest,
-  loading,
-  editUserData,
-  userAddress,
-  signOut,
 }) => {
-  const { push } = history;
-  const { userInfo } = user;
-  const userData = userInfo;
-  const { authenticated } = status;
+  const { user, setProfile } = useUserContext();
+  const { loading } = useLoadingContext();
+  const [state, setState] = useState({ firstName: '', lastName: '', email: '', imageUrl: '', verified: false });
+  const { setToast } = useToastContext();
+  const { API } = useApi();
+
+  useHashLinkUpdate();
+
+  const tryCatch = async (apiCall, successHandler, showError, errorHandler) => {
+    try {
+      const response = await apiCall();
+      if (successHandler) successHandler(response.data);
+    } catch (error) {
+      if (errorHandler) errorHandler(null);
+      if (showError && error.response && error.response.status === 404) setToast({ message: error.response.data.message, type: 'error' });
+      loading('USER', false);
+    }
+  };
 
   useEffect(() => {
-    if (!localStorage.getItem('x-access-token') || !authenticated) {
-      signOut();
-      push('/login?next=/profile');
-    }
-    if (AuthService.isAuthenticated() && authenticated && !finishedRequest) {
-      requestUserData('/user/profile');
-      requestUserAddress('/user/address');
-    }
-  }, [authenticated, finishedRequest]);
+    setState({ ...state, ...user });
+  }, [user]);
 
   const uploadImageToCloudinary = (event) => {
     const file = event.target.files[0];
-    addProfilePicture(file, userData, async (data) => {
-      await editUserData('/user/profile', data);
-      await requestUserData('/user/profile');
+    addProfilePicture(file, (data) => {
+      tryCatch(() => API.profile.patch(null, data), res => setProfile(res.updatedUser));
     });
   };
-
-  if (!authenticated) {
-    return <InternalError history={history} />;
-  }
 
   return (
     <Fragment>
       <AuthenticaticatedNavbar />
-      {userData ? (
-        <Fragment>
-          <ProfileHeader
-            firstName={userData.firstName}
-            lastName={userData.lastName}
-          />
-          <Container classNames="account-profile-details">
-            <Row>
-              <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 profile-img-column">
-                <ProfileImageSection
-                  firstName={userData.firstName}
-                  lastName={userData.lastName}
-                  handleChange={uploadImageToCloudinary}
-                  imageUrl={userData.imageUrl || undefined}
-                />
-              </Column>
-              <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
-                <AccountDetails
-                  errorMessage={errorMessage}
-                  editUserData={editUserData}
-                  requestUserData={requestUserData}
-                  deleteUserAddress={deleteUserAddress}
-                  requestUserAddress={requestUserAddress}
-                  userInfo={userData}
-                  loading={loading}
-                  userAddress={userAddress}
-                />
-                <Credict />
-              </Column>
-            </Row>
-          </Container>
-        </Fragment>
-      ) : (
-        <div />
-      )}
+      <ProfileHeader
+        firstName={state.firstName || ''}
+        lastName={state.lastName || ''}
+      />
+      <Container classNames="account-profile-details">
+        <Row>
+          <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-2 profile-img-column">
+            <ProfileImageSection
+              firstName={state.firstName || ''}
+              lastName={state.lastName || ''}
+              handleChange={uploadImageToCloudinary}
+              imageUrl={state.imageUrl || undefined}
+            />
+          </Column>
+          <Column classNames="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-10 profile-details-column">
+            <AccountDetails
+              setProfile={setProfile}
+              userInfo={state}
+              loading={loading}
+            />
+            <Credict />
+          </Column>
+        </Row>
+      </Container>
     </Fragment>
   );
 };
 
-const mapStateToProps = ({
-  loadingReducer: { status: loading },
-  authenticationReducer: { status },
-  userProfileReducer: { userInfo: user, finishedRequest },
-  userAddressReducer: { address: userAddress },
-  updateUserProfileReducer: { errorMessage },
-}) => ({
-  loading,
-  status,
-  user,
-  errorMessage,
-  userAddress: userAddress.userAddresses,
-  finishedRequest,
-});
+const mapStateToProps = () => ({});
 
 export default connect(
   mapStateToProps,
   {
-    requestUserData: fetchUserData,
-    editUserData: postUserData,
-    requestUserAddress: fetchUserAddress,
-    deleteUserAddress: deleteAddress,
     addProfilePicture: uploadProfilePicture,
-    signOut: signout,
   },
 )(ProfileScene);
 
@@ -139,59 +98,6 @@ ProfileScene.defaultProps = {
   errorMessage: '',
 };
 
-const proptypes = PropTypes.objectOf(
-  PropTypes.oneOfType([
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.number),
-        PropTypes.string,
-      ]),
-    ),
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.number,
-  ]),
-);
-
 ProfileScene.propTypes = {
-  signOut: PropTypes.func.isRequired,
   addProfilePicture: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string,
-  loading: PropTypes.bool,
-  requestUserData: PropTypes.func.isRequired,
-  requestUserAddress: PropTypes.func.isRequired,
-  deleteUserAddress: PropTypes.func.isRequired,
-  finishedRequest: PropTypes.bool.isRequired,
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
-  editUserData: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.func,
-      PropTypes.number,
-      PropTypes.objectOf(
-        PropTypes.oneOfType([
-          PropTypes.string,
-          PropTypes.func,
-          PropTypes.number,
-        ]),
-      ),
-    ]),
-  ).isRequired,
-  user: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.objectOf(PropTypes.string),
-      PropTypes.string,
-    ]),
-  ).isRequired,
-  userAddress: PropTypes.oneOfType([
-    PropTypes.arrayOf(proptypes),
-    PropTypes.objectOf(
-      PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.bool,
-        PropTypes.arrayOf(proptypes),
-      ]),
-    ),
-  ]),
 };

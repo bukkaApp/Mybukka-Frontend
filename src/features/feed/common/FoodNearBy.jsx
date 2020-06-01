@@ -17,7 +17,6 @@ import { useLocationContext } from '../../../context/LocationContext';
 import fetchBukkas from '../actionCreators/fetchMoreBukkas';
 
 const FoodNearBy = ({
-  delivery,
   bukkaData,
   title,
   classNames,
@@ -37,6 +36,28 @@ const FoodNearBy = ({
     fetchBukkaMenu(`${bukka.slug}`)
       .then(() => fetchBukka(bukka.slug))
       .then(() => push(`/bukka/${bukka.slug}`));
+  };
+
+  const decodeDeliveryTime = (bukka) => {
+    if (bukka && bukka.logistics) {
+      const maxTime = bukka.logistics.deliveryTimeTo;
+      return maxTime > 60 ? maxTime / 60 : maxTime;
+    }
+    return bukka.deliveryTime;
+  };
+
+  const decodeDeliveryPrice = (bukka) => {
+    if (bukka && bukka.logistics) {
+      return bukka.logistics.deliveryPrice;
+    }
+    return bukka.deliveryPrice;
+  };
+
+  const decodeStoreImage = (bukka) => {
+    if (bukka && bukka.headerImg) {
+      return bukka.headerImg;
+    }
+    return bukka.imageUrl;
   };
 
   return (
@@ -67,13 +88,12 @@ const FoodNearBy = ({
               {bukkaData.map((bukka, idx) => (
                 <BukkaCard
                   key={`food-nearby-data-card-${bukka.name}-${bukka.slug}-${idx}`}
-                  imageUrl={bukka.imageUrl}
+                  imageUrl={decodeStoreImage(bukka)}
                   mealName={bukka.name}
-                  delivery={delivery}
                   tags={bukka.placeGroup}
                   handleClick={e => handleClick(e, bukka)}
-                  deliveryPrice={bukka.deliveryPrice}
-                  deliveryTime={bukka.deliveryTime}
+                  deliveryPrice={decodeDeliveryPrice(bukka)}
+                  deliveryTime={decodeDeliveryTime(bukka)}
                   rating={bukka.rating}
                   imageHeight="img-fluid"
                   classNames={classNames}
@@ -99,7 +119,6 @@ FoodNearBy.defaultProps = {
   children: '',
   heading: true,
   title: '',
-  delivery: false,
   handleRefFocus: () => {},
   currentPage: 1,
   errorMessage: '',
@@ -108,7 +127,6 @@ FoodNearBy.defaultProps = {
 
 FoodNearBy.propTypes = {
   fetchBukkaMenu: PropTypes.func,
-  delivery: PropTypes.bool,
   handleRefFocus: PropTypes.func,
   title: PropTypes.string,
   classNames: PropTypes.string.isRequired,

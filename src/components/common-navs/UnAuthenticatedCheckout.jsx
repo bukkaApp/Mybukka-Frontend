@@ -7,14 +7,15 @@ import Button from '../button/Button';
 import setCheckoutMode from './actionCreators/setCheckoutMode';
 
 import './unaunthenticated-checkout.scss';
+import { useUserContext } from '../../context/UserContext';
 
 const UnAuthenticatedCheckout = ({
   push,
-  authenticated,
   mode,
   to,
   handleCheckoutMode,
 }) => {
+  const { isAuthenticated } = useUserContext();
   const handleClick = (e) => {
     e.preventDefault();
     handleCheckoutMode(false);
@@ -27,7 +28,7 @@ const UnAuthenticatedCheckout = ({
   };
 
   return (
-    (!authenticated && mode) &&
+    (!isAuthenticated && mode) &&
     <div className="modal-root">
       <div className="unaunthenticated-backdrop">
         <div className="unaunthenticated-container">
@@ -67,10 +68,8 @@ const UnAuthenticatedCheckout = ({
 };
 
 const mapStateToProps = ({
-  authenticationReducer: { status: { authenticated } },
   checkoutModeReducer: { mode }
 }) => ({
-  authenticated,
   mode
 });
 

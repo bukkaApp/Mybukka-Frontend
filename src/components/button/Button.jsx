@@ -14,6 +14,7 @@ const Button = ({
   dataToggle,
   dataDismiss,
   id,
+  onDoubleClick,
 }) => (
   <button
     type={type}
@@ -25,6 +26,7 @@ const Button = ({
     data-testid="button"
     id={id}
     data-dismiss={dataDismiss}
+    onDoubleClick={onDoubleClick}
   >
     {text || children}
   </button>
@@ -37,9 +39,9 @@ Button.defaultProps = {
   dataTarget: '',
   dataToggle: '',
   dataDismiss: '',
-  id: 'button-id',
   children: <div />,
   disabled: false,
+  onDoubleClick: () => {}
 };
 
 Button.propTypes = {
@@ -54,6 +56,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   dataTarget: PropTypes.string,
   dataToggle: PropTypes.string,
-  id: PropTypes.string,
   dataDismiss: PropTypes.string,
 };

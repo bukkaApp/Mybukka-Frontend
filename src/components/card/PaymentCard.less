@@ -1,0 +1,330 @@
+@import "lesshat";
+
+@import url(https://fonts.googleapis.com/css?family=Iceland);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+
+
+
+body {
+    background-color: #ecf0f1;
+}
+.card {
+    position: absolute;
+    .pos(0, 0, 0, 0);
+    margin: auto;
+    width: 85.60mm;
+    height: 53.98mm;
+    color: #fff;
+    font: 22px/1 @monospace;
+    background: @cardBgBlue;
+    border: 1px solid @cardBorder;
+    .border-radius(10px);
+    overflow: hidden;
+}
+
+.bank-name {
+    float: right;
+    margin-top: 15px;
+    margin-right: 30px;
+    font: 800 28px @sansSerif;
+}
+
+.chip {
+    position: relative;
+    z-index: 1000;
+
+    .size(@chipWidth, @chipHeight);
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+
+    background: @chipYellowLight; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, @chipYellowLight 0%, @chipYellowDark 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,@chipYellowLight), color-stop(100%,@chipYellowDark)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg, @chipYellowLight 0%,@chipYellowDark 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg, @chipYellowLight 0%,@chipYellowDark 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg, @chipYellowLight 0%,@chipYellowDark 100%); /* IE10+ */
+    background: linear-gradient((135deg), @chipYellowLight 0%,@chipYellowDark 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="@{chipYellowLight}", endColorstr="@{chipYellowDark}",GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    border: 1px solid @chipLine;
+    .border-radius(10px);
+    .box-shadow(0 1px 2px @chipLine, 
+                0 0 5px @chipYellowShadow inset);
+
+    overflow: hidden;
+
+    .side {
+        position: absolute;
+        top: ((@chipHeight - @chipSideHeight) / 2);
+
+        .size(@chipSideWidth, @chipSideHeight);
+        
+        &.left  { 
+            left: 0; 
+            border-left: none;
+            .border-radius(0 2px 2px 0);
+        }
+        &.right { 
+            right: 0; 
+            border-right: none;
+            .border-radius(2px 0 0 2px);
+        }
+
+        border: 1px solid @chipLine;
+        .box-shadow(
+                    @chipYellowShadow inset,
+                    @chipYellowShadow,
+                    @chipLineShadow,
+                    @chipLineShadow inset
+                    );
+
+        &:after {
+            content: '';
+            position: absolute;
+            .pos(0, 0, 0, 0);
+            display: inline-block;
+            .size(100%, 0);
+            margin: auto;
+            border-top: 1px solid @chipLine;
+            .box-shadow(
+                        @chipYellowShadow inset,
+                        @chipYellowShadow,
+                        @chipLineShadow
+                        );
+        }
+    }
+
+    .vertical {
+        position: absolute;
+        left: 0;
+        right: 0;
+        &.top {
+            top: 0;
+            border-top: none;
+            &:after {
+                top: @chipVerticalHeight;
+                width: 2 * @chipVerticalWidth;
+            }
+        }
+        &.bottom {
+            bottom: 0;
+            border-bottom: none;
+            &:after { bottom: @chipVerticalHeight; }
+        }
+        margin: 0 auto;
+        .size(@chipVerticalWidth, @chipVerticalHeight);
+
+        border: 1px solid @chipLine;
+        .box-shadow(
+                    @chipYellowShadow inset,
+                    @chipYellowShadow,
+                    @chipLineShadow,
+                    @chipLineShadow inset
+                    );
+        
+        &:after {
+            content: '';
+            position: absolute;
+            left: -@chipVerticalWidth;
+            display: inline-block;
+            .size(3 * @chipVerticalWidth, 0);
+            margin: 0;
+            border-top: 1px solid @chipLine;
+            .box-shadow(
+                        @chipYellowShadow inset,
+                        @chipYellowShadow,
+                        @chipLineShadow
+                        );
+        }
+    }
+}
+
+.data {
+    position: relative;
+    z-index: 100;
+    margin-left: 30px;
+    text-transform: uppercase;    
+
+    .pan,
+    .month,
+    .year,
+    .year:before,
+    .name-on-card,
+    .date {
+        position: relative;
+        z-index: 20;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 1px #000;
+        
+        &:before, 
+        &:after {
+            position: absolute;
+            z-index: -10;
+            content: attr(title);
+            color: rgba(0, 0, 0, 0.2);
+            text-shadow: none;
+        }
+        &:before { 
+            .pos(-1px, -1px);
+            color: rgba(0, 0, 0, 0.1); 
+        }
+        &:after { 
+            .pos(1px, 1px);
+            z-index: 10; 
+        }
+    }
+    .pan {
+        position: relative;
+        z-index: 50;
+        margin: 0;
+        letter-spacing: 1px;
+        font-size: 26px;
+    }
+    
+    .first-digits {
+        margin: 0;
+        font: 400 10px/1 @sansSerif;
+    }
+
+    .exp-date-wrapper {
+        margin-top: 5px;
+        margin-left: 64px; 
+        line-height: 1;
+        .clearfix;
+                
+        .left-label {
+            float: left;
+            display: inline-block;
+            width: 40px;
+            font: 400 7px/8px @sansSerif;
+            letter-spacing: 0.5px;
+        }
+
+        .exp-date {
+            display: inline-block;
+            float: left;
+            margin-top: -10px;
+            margin-left: 10px;
+            text-align: center;
+            .upper-labels { font: 400 7px/1 @sansSerif; }
+            .year:before  { content: '/'; }
+        }
+    }
+    .name-on-card { margin-top: 10px; }
+}
+
+.lines-down {
+    &:before {
+        content: '';
+        position: absolute;
+        .pos(80px, -200px);
+        z-index: 10; 
+        .size(550, 400); 
+        border-top: 2px solid #392db2;
+        .border-radius(40%, 60%, 0, 0);
+        box-shadow: 1px 1px 100px #4035b2;
+        .gradient-radial(rgba(45,33,166,0), rgba(45,33,166,1));
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        .pos(20px, -100px);
+        z-index: 10;
+        .size(350, 400);
+        border-top: 2px solid #392db2;
+        .border-radius(20%, 80%, 0, 0);
+        box-shadow: inset -1px -1px 44px #4035b2;
+        .gradient-radial(rgba(45,33,166,0), rgba(45,33,166,1));
+    }
+}
+
+.lines-up {
+    &:before {
+        content: '';
+        position: absolute;
+        .pos(-110px, -70px);
+        z-index: 2;
+        .size(480, 300);
+        border-bottom: 2px solid #392db2;
+        .border-radius(0, 0, 60%, 90%);
+        box-shadow: inset 1px 1px 44px #4035b2;
+        .gradient-radial(rgba(64,49,178,0), rgba(35,24,154,1));
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        .pos(-180px, -200px);
+        z-index: 1;
+        .size(530, 420);
+        border-bottom: 2px solid #4035b2;
+        .border-radius(0, 40%, 50%, 50%);
+        box-shadow: inset 1px 1px 44px #4035b2;
+        .gradient-radial(rgba(45,33,166,0), rgba(45,33,166,1));
+    }
+}
+
+
+
+// COLORS:
+@cardBgBlue : #23189a;
+@cardBorder : darken(@cardBgBlue, 5%);
+
+@chipLine        : #322d28;
+@chipYellowLight : lighten(#fffb97, 5%);
+@chipYellowDark  : darken(#bcad76, 5%);
+
+// SHADOWS:
+@chipYellowShadow : 0 0 5px rgba(144, 133, 87, 0.25);
+@chipLineShadow   : 0 0 4px rgba(0, 0, 0, 0.1);
+
+// DIMENTIONS:
+@chipWidth          : 50px;
+@chipHeight         : 40px;
+@chipSideWidth      : 12px;
+@chipSideHeight     : 24px;
+@chipVerticalWidth  : ((@chipWidth - 2*@chipSideWidth) / 3);
+@chipVerticalHeight : 12px;
+
+
+// FONTS:
+@sansSerif : 'Open Sans',  Arial, sans-serif;
+@monospace : 'Iceland', monospace;
+
+
+// MIXINS:
+
+.clearfix () {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;   // IE 6/7
+}
+
+.gradient-radial (@color1, @color2) {
+    background: rgb(red(@color1), green(@color1), blue(@color1)); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, @color1 100%, @color2 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,@color1), color-stop(100%,@color2)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, @color1 100%, @color2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, @color1 44%, @color2 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, @color1 44%, @color2 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center, @color1 44%, @color2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="@{color1}", endColorstr="@{color2}",GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.pos (@top, @left) {
+    top: @top;
+    left: @left;
+}
+
+.pos (@top, @left, @bottom, @right) {
+    top: @top;
+    left: @left;
+    bottom: @bottom;
+    right: @right;
+}

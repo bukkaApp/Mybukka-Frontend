@@ -5,11 +5,11 @@
   height: 3px;
   display: block;
   width: 100%;
-  background-color: $color-primary;
+  background-color: $color-secondary;
   border-radius: 2px;
   background-clip: padding-box;
   overflow: hidden;
-  z-index: 150;
+  z-index: 1500;
 }
 
 .progress .determinate {
@@ -17,12 +17,12 @@
   background-color: inherit;
   top: 0;
   bottom: 0;
-  background-color: #9c1c26;
+  background-color: $color-primary;
   transition: width 0.3s linear;
 }
 
 .progress .indeterminate {
-  background-color: #9c1c26;
+  background-color: $color-primary;
 }
 
 .progress .indeterminate:before {

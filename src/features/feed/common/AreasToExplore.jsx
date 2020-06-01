@@ -38,7 +38,7 @@ const HeaderImageSection = ({ bgImage }) => {
   return (
     <div className="header-img-section">
       <div>
-        <img onLoad={handleLoad} src={`${`${domain}${storageClienId}upload${imageInfo}.${ext}`}`} alt="bgImage" />
+        <img hidden onLoad={handleLoad} src={`${`${domain}${storageClienId}upload${imageInfo}.${ext}`}`} alt="bgImage" />
         <div
           className="feed-header-bg-img"
           style={{ backgroundImage: `url(${domain}${storageClienId}upload${imageInfo}.${ext})`, opacity: state || cookies[`_${bgImage}`] ? 1 : 0 }}

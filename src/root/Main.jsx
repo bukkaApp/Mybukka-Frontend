@@ -4,14 +4,15 @@ import NotFound from 'Components/not-found/NotFound';
 import Map from 'Components/map';
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import Home from '../features/home';
 import FeedPages from '../features/feed';
 import Bukka from '../features/bukka';
+import Checkout from '../features/checkout';
+import Profile from '../features/profile';
 
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));
-const Checkout = lazy(() => import('../features/checkout/index'));
-const Profile = lazy(() => import('../features/profile'));
 const TransactionHistory = lazy(() => import('../features/history'));
 const ResetPassword = lazy(() => import('../features/forgotPassword/ResetPassword'));
 const PerformResetPass = lazy(() => import('../features/forgotPassword/PerformResetPass'));
@@ -34,8 +35,8 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/place-groups/d/:id" component={Promotion} />
       {/* <Route exact path="/categories/:id" component={Category} /> */}
-      <Route exact path="/merchant/:slug/checkout" component={Checkout} />
-      <Route exact path="/profile" component={Profile} />
+      <PrivateRoute exact path="/merchant/:slug/checkout" component={Checkout} />
+      <PrivateRoute exact path="/profile" component={Profile} />
       <Route exact path="/history" component={TransactionHistory} />
       <Route exact path="/reset-password" component={ResetPassword} />
       <Route exact path="/reset" component={PerformResetPass} />
@@ -45,15 +46,11 @@ const Main = () => (
       <Route exact path="/map" component={Map} />
       <Route exact path="/merchant" component={Merchant} />
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
+      <PrivateRoute exact path="/buyer/contact-us/:id" component={ComplainScene} />
+      <Route exact path="/support/buyer/contact-us/:id" component={SubCategory} />
       <Route exact path="/legal/:id" component={LegalStatement} />
       <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
       <Route exact path="/:id" component={FeedPages} />
-      <Route
-        exact
-        path="/support/buyer/contact-us/:id"
-        component={SubCategory}
-      />
-      <Route exact path="/buyer/contact-us/:id" component={ComplainScene} />
       <Route
         exact
         path="/store/apple"

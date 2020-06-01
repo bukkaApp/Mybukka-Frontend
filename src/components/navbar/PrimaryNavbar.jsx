@@ -8,7 +8,7 @@ import Button from '../button/Button';
 import Brand from '../brand/Brand';
 import changeAuthenticationPageAction from './actionCreators/changeAuthenticationPage';
 import './navbar.scss';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 
 const PrimaryNavbar = ({ changeAuthenticationPage, authButton }) => {
   const { setAuthenticationPopup, setModal } = useModalContext();

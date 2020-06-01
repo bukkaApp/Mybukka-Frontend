@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import UserDropdown from './UserDropdown';
 import '../navbar.scss';
 import useClickOutside from '../../../hooks/useClickOutside';
+import { useUserContext } from '../../../context/UserContext';
 
-const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
+const UserDefaultImage = () => {
   const { push } = useHistory();
+  const { user } = useUserContext();
   const wrapperRef = React.useRef(null);
   const [dropdown, toggleDropdown] = useState(false);
 
@@ -21,11 +21,7 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
           onClick={() => toggleDropdown(!dropdown)}
         >
           <img
-            src={
-              imageUrl === undefined
-                ? 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'
-                : `${imageUrl}`
-            }
+            src={(user && user.imageUrl) || 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'}
             alt="user-img"
           />
         </button>
@@ -39,28 +35,8 @@ const UserDefaultImage = ({ userInfo: { imageUrl } }) => {
   );
 };
 
-const mapStateToProps = ({
-  userProfileReducer: {
-    userInfo: { userInfo },
-  },
-}) => ({
-  userInfo,
-});
+export default UserDefaultImage;
 
-export default connect(
-  mapStateToProps,
-  {},
-)(UserDefaultImage);
+UserDefaultImage.defaultProps = {};
 
-UserDefaultImage.defaultProps = {
-  userInfo: {
-    imageUrl:
-      'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png',
-  },
-};
-
-UserDefaultImage.propTypes = {
-  userInfo: PropTypes.objectOf(PropTypes.oneOfType([
-    PropTypes.string, PropTypes.number, PropTypes.bool
-  ])),
-};
+UserDefaultImage.propTypes = {};

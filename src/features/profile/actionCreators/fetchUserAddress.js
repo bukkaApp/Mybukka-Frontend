@@ -24,7 +24,7 @@ const fetchUserAddress = url => async (dispatch) => {
     dispatch(loading(FETCH_USER_ADDRESS, false));
   } catch (error) {
     dispatch(loading(FETCH_USER_ADDRESS, false));
-    dispatch(fetchUserAddressAction('ERROR', error.response.data));
+    dispatch(fetchUserAddressAction('ERROR', error.response ? error.response.data : error));
   }
 };
 

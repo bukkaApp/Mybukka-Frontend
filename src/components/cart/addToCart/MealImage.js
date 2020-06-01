@@ -50,4 +50,5 @@ const MealImage = ({ imageUrl, toggleAddToCart }) => {
     </div>
   );
 };
+
 export default MealImage;

@@ -25,7 +25,7 @@ const getMoreSinglePromotionBukkas = (
     dispatch(getMoreSinglePromotionBukkasAction('SUCCESS', request.data, page));
   } catch (error) {
     dispatch(loading(FETCH_MORE_SINGLE_PROMOTED_BUKKAS, false));
-    dispatch(getMoreSinglePromotionBukkasAction('ERROR', error.response.data));
+    dispatch(getMoreSinglePromotionBukkasAction('ERROR', error.response ? error.response.data : error));
   }
 };
 

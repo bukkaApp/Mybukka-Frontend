@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Modal from '../modal/Modal';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
 import DismissModal from '../modal/DismissModal';
 import AuthenticateLogin from '../../features/authentication/LoginPage';
 

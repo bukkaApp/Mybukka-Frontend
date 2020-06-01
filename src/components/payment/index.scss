@@ -1,0 +1,52 @@
+.Payment-Section {
+  padding-top: 50px;
+}
+
+.Payment-Section--profile {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.add-payment {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  cursor: pointer;
+}
+
+.Payment-Bank-Card {
+  padding: 0 10px 0 20px;
+}
+
+.checkbox-form-group {
+  align-items: center;
+  text-align: center;
+  color: rgb(143, 149, 163);
+  display: flex;
+  margin-bottom: 30px;
+  // border-bottom: 1px solid rgb(236, 237, 239);
+  padding: 30px 0px 24px;
+}
+
+.btn-color {
+  background: #9c1c26;
+  border: 1px solid #9c1c26;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.font-size-14,
+.font-size-14 input {
+  font-size: 14px;
+}
+
+.make-default-text {
+  margin-left: 5px;
+  font-size: 12px;
+}
+

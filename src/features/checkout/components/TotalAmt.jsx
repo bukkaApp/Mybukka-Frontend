@@ -32,14 +32,18 @@ const totalAmount = ({ totalPriceInCart, deliveryPrice }) => {
     </Container>
   );
 };
+
 const mapStateToprops = ({
   cartReducer: { totalCost },
   deliveryModeReducer: { mode },
   businessReducer: { fetchedBukka },
-}) => ({
-  totalPriceInCart: totalCost,
-  deliveryPrice: mode === 'delivery' ? fetchedBukka.deliveryPrice : 0,
-});
+}) => {
+  const deliveryCost = (fetchedBukka.logistics && fetchedBukka.logistics.deliveryPrice) || 0;
+  return ({
+    totalPriceInCart: totalCost,
+    deliveryPrice: mode === 'delivery' ? deliveryCost : 0,
+  });
+};
 
 export default connect(
   mapStateToprops,

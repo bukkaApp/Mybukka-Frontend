@@ -46,6 +46,28 @@ input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
+
+.Primary-Input {
+  border: none;
+  border-bottom: 1px solid gray;
+  border-radius: 0;
+  transition: all 400ms ease;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  padding-left: 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.Primary-Input:focus {
+  border: none;
+  border-bottom: 2px solid #9c1c26;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+}
+
 .default-input {
   @include input;
 }

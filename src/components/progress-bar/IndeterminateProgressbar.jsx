@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import './progress-bar.scss';
-import { useLoadingContext } from '../../context/UseLoading';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 export const ProgressBar = ({ loading }) => {
   if (loading) {

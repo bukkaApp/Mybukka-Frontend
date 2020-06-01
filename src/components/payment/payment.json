@@ -1,0 +1,31 @@
+[
+  {
+    "name": "number",
+    "value": "",
+    "classNames": "form-control p-0",
+    "type": "text",
+    "placeholderText": "Card number",
+    "id": "number",
+    "emptyFieldError": "Required",
+    "validityError": "Card number is invalid",
+    "containerClassNames": "d-flex flex-column col-8 col-md-8"
+  },
+  {
+    "name": "expDate",
+    "classNames": "form-control p-0",
+    "type": "text",
+    "placeholderText": "MM/YY",
+    "id": "expDate",
+    "emptyFieldError": "Required",
+    "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+  },
+  {
+    "name": "cvv",
+    "classNames": "form-control p-0",
+    "type": "password",
+    "placeholderText": "CVV",
+    "id": "cvv",
+    "emptyFieldError": "Required",
+    "containerClassNames": "d-flex flex-column px-1 px-md-3 col-2 col-md-2"
+  }
+]

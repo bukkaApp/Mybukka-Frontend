@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProfileScene from './components/ProfileScene';
-import './index.scss';
 
 const Profile = ({ history }) => <ProfileScene history={history} />;
 

@@ -2,34 +2,31 @@ import React, { Fragment, useState, useEffect, memo } from 'react';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
 import PrimaryNavbar from 'Components/navbar';
-import urlFilter from '../../shared/urlFilter';
-import authenticate from './actionCreators/authenticate';
+import fetchCartAction from 'Redux/fetchCartAction';
 import Authentication from './components/Authentication';
-import fetchUserDataAction from '../profile/actionCreators/fetchUserData';
 import Logo from './common/Logo';
 import { validateAField, validateAllFields } from './helper/validateFields';
 
+import useApi from '../../shared/api';
 import signInDomStructure from './signInDomStructure.json';
 import './auth.scss';
-import { useModalContext } from '../../context/UseModal';
+import { useModalContext } from '../../context/ModalContext';
+import { useUserContext } from '../../context/UserContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 export const LoginPage = memo(({
-  status: { authenticated: isAuthenticated },
   authModal: hasModal,
-  errorMessage,
   classNames,
-  authenticateUser,
   history: { push, location },
-  fetchUserData,
 }) => {
+  const { API } = useApi();
+  const { loading } = useLoadingContext();
+  const { setUser, setSignInData, isAuthenticated, setVerified } = useUserContext();
   const { setAuthenticationPopup, setVerificationPhonePopup, setModal } = useModalContext();
-  const isBigScreen = useMediaQuery({ minWidth: 960 });
-  const [isRequested, setIsRequested] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [nextSlide, setNextSlide] = useState(false);
-  // const [redirect, setRedirection] = useState('');
 
   const handleClick = () => {
     setModal(false);
@@ -56,9 +53,6 @@ export const LoginPage = memo(({
     setNextSlide(false);
   };
 
-  // fix error message coincedence for both signup and signin
-  const errorMsg = isRequested ? errorMessage : '';
-
   const validateOnClick = (newValidationError) => {
     setValidationErrors({
       ...validationErrors,
@@ -79,61 +73,63 @@ export const LoginPage = memo(({
     });
   };
 
-  const withSuccess = (isAuth, callback) => {
-    if (isAuth) {
-      callback();
+  const requestVerification = (hasVerified) => {
+    if (hasVerified === false) {
+      setVerificationPhonePopup(true);
+      setModal(true);
     }
   };
 
-  const verifyPhone = () => {
-    fetchUserData()
-      .then((d) => {
-        withSuccess(d.status === 200, () => {
-          const hasntVerified = d.data.userInfo.verified === false;
-          if (hasntVerified) {
-            setVerificationPhonePopup(true);
-            setModal(true);
-          }
-        });
-      });
-  };
-
-  const handleExpensiveEvents = () => {
-    const hasRedirection = location && location.search;
-    if (isBigScreen && hasModal) {
+  const handleExpensiveEvents = (hasVerified) => {
+    if (hasModal) {
       handleClick();
-    } else if (isBigScreen && hasRedirection) {
-      const redirect = urlFilter(location.search);
-      verifyPhone();
-      return push(redirect);
+      requestVerification(hasVerified);
     } else {
-      push('/');
+      const redirect = location.state ? location.state.redirectTo : '/';
+      requestVerification(hasVerified);
+      return push(redirect);
     }
-    verifyPhone();
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const validation = validateAllFields(inputData, true);
+  const tryCatch = async (apiCall, data) => {
+    try {
+      loading('AUTH', true);
+      const response = await apiCall(data);
+      loading('AUTH', false);
+      if (response.data.token) {
+        setUser(response.data.user, response.data.token);
+        setVerified(response.data.user.verified);
+        handleExpensiveEvents(response.data.user.verified);
+      }
+    } catch (error) {
+      loading('AUTH', false);
+      setErrorMessage(error.response ? error.response.data.message : error.message);
+    }
+  };
 
-    const { errors, passes } = validation;
-    validateOnClick(errors);
-    // if No AutoSuggestion
+  const onSubmit = (errors, passes) => {
     if (!errors.email && errors.password && !nextSlide) {
       setNextSlide(true);
       setValidationErrors({ ...validationErrors, password: '' });
     }
-    if (passes) {
-      setNextSlide(true);
-      if (nextSlide) {
-        setIsRequested(true);
-        return authenticateUser('/user/signin', inputData)
-          .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
-      }
-    }
+    if (!passes) return;
+    setNextSlide(true);
+    setSignInData(`${inputData.password}.bukka@gmail.com`);
+    if (nextSlide) return tryCatch(API.authToken.post, inputData);
   };
 
-  const handleFBAuth = (e) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrorMessage('');
+    const validation = validateAllFields(inputData, true);
+
+    const { errors, passes } = validation;
+    validateOnClick(errors);
+    onSubmit(errors, passes);
+  };
+
+  const handleFBAuth = async (e) => {
+    if (!e) return;
     const fullName = e.name.split(' ');
     const data = {
       lastName: fullName[0],
@@ -141,12 +137,11 @@ export const LoginPage = memo(({
       email: e.email,
       imageUrl: e.picture.data.url,
     };
-    authenticateUser('/user/social/auth', data)
-      .then(d => withSuccess(d.status === 200, handleExpensiveEvents));
+    return tryCatch(API.socialAuth.post, data);
   };
 
   useEffect(() => {
-    withSuccess(isAuthenticated, handleExpensiveEvents);
+    if (isAuthenticated) handleExpensiveEvents();
   }, []);
 
   return (
@@ -157,7 +152,7 @@ export const LoginPage = memo(({
           title="Log In"
           inputData={inputData}
           handleLinkOptions={handleLinkOptions}
-          errorMessage={errorMsg}
+          errorMessage={errorMessage}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           domStructure={signInDomStructure}
@@ -176,20 +171,11 @@ export const LoginPage = memo(({
   );
 });
 
-const mapStateToProps = ({
-  authenticationReducer: { status, user, errorMessage },
-  // userProfileReducer: { userInfo },
-}) => ({
-  status,
-  user,
-  errorMessage,
-});
+const mapStateToProps = () => ({});
 
 export default memo(connect(
   mapStateToProps,
-  { authenticateUser: authenticate,
-    fetchUserData: fetchUserDataAction
-  }
+  { fetchCartItems: fetchCartAction }
 )(LoginPage));
 
 LoginPage.defaultProps = {
@@ -199,13 +185,10 @@ LoginPage.defaultProps = {
 };
 
 LoginPage.propTypes = {
-  status: PropTypes.objectOf(PropTypes.bool).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func,
     location: PropTypes.objectOf(PropTypes.any),
   }).isRequired,
   authModal: PropTypes.bool,
   classNames: PropTypes.string,
-  errorMessage: PropTypes.string,
-  authenticateUser: PropTypes.func.isRequired
 };
