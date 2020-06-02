@@ -18,7 +18,6 @@ import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
 import useUpdateEffect from '../../hooks/useUpdateEffect';
 
-
 const Home = React.memo(({
   history: { push },
   fetchNearbyBukkas,

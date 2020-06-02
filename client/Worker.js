@@ -126,53 +126,10 @@ class Worker extends PureComponent {
     });
   }
 
-  /**
-   * @memberof Worker
-   * @method handleInstallation
-   * @returns {void} void
-   */
-  handleAppInstallation = () => {
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Prevent the mini-infobar from appearing on mobile
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      this.deferredPrompt = e;
-      // Update UI notify the user they can install the PWA
-      this.showInstallPromotion();
-    });
-  }
-
   handleInstallComplete = () => {
     window.addEventListener('appinstalled', (evt) => {
       // Log install to analytics
       console.log('INSTALL: Success', evt);
-    });
-  }
-
-  trackHowPwaAppWasLauched = () => {
-    window.addEventListener('DOMContentLoaded', () => {
-      let displayMode = 'browser tab';
-      if (navigator.standalone) {
-        displayMode = 'standalone-ios';
-      }
-      if (window.matchMedia('(display-mode: standalone)').matches) {
-        displayMode = 'standalone';
-      }
-      // Log launch display mode to analytics
-      console.log('DISPLAY_MODE_LAUNCH:', displayMode);
-    });
-  }
-
-  handleDisplayModeChanges = () => {
-    window.addEventListener('DOMContentLoaded', () => {
-      window.matchMedia('(display-mode: standalone)').addListener((evt) => {
-        let displayMode = 'browser tab';
-        if (evt.matches) {
-          displayMode = 'standalone';
-        }
-        // Log display mode change to analytics
-        console.log('DISPLAY_MODE_CHANGED', displayMode);
-      });
     });
   }
 
