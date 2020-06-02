@@ -1,29 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import DismissModal from 'Components/modal/DismissModal';
-import Modal from 'Components/modal/Modal';
-// import MyContextPush from './context-api/MyContextPush';
+import DismissModal from '../modal/DismissModal';
+import Modal from '../modal/Modal';
 import './InviteFriends.css';
-import Header from './Header';
+// import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
 import { useModalContext } from '../../context/ModalContext';
 
 const Invite = ({ handleCopy, inputField, handleChange }) => (
   <div className="invite-padding m-4">
-    <Header />
+    {/* <Header /> */}
     <Content handleChange={handleChange} inputData={inputField} />
     <Footer inputData={inputField} handleCopy={handleCopy} />
   </div>
 );
 
 const InviteFriends = () => {
-  const { setInvitePopup, setModal } = useModalContext();
+  const { invitePopup, setInvitePopup, setModal } = useModalContext();
+  const wrapperRef = React.createRef();
   const [inputData, setInputData] = useState({
     emails: '',
     copied: false,
     link: 'https://bitly.com',
   });
+
+  const handleClickOutside = (event) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setModal(false);
+      setInvitePopup(false);
+    }
+  };
+
+  const handleClick = () => {
+    setModal(false);
+    setInvitePopup(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [wrapperRef]);
 
   const handleChange = (event) => {
     setInputData({
@@ -31,11 +48,6 @@ const InviteFriends = () => {
       copied: false,
       [event.target.name]: event.target.value,
     });
-  };
-
-  const handleClick = () => {
-    setInvitePopup(false);
-    setModal(false);
   };
 
   const copyInviteLink = () => {
@@ -46,7 +58,7 @@ const InviteFriends = () => {
   };
 
   return (
-    <Modal classNames="inviteFrnd">
+    <Modal classNames="inviteFrnd" bodyClassName="SmallWidth" ref={wrapperRef} show={invitePopup}>
       <DismissModal onClick={handleClick} classNames="close" />
       <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
     </Modal>

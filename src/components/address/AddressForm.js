@@ -38,12 +38,6 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
     mobileNumber: ''
   });
 
-  const defaultData = {
-    streetAddress2: '',
-    name: '',
-    mobileNumber: ''
-  };
-
   useEffect(() => {
     if (!inputData.address) return;
     setInputData({ ...inputData, address: selectedLocation.description });
@@ -85,8 +79,6 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
     if (passes) {
       const location = { type: 'Point', coordinates };
       const data = { ...inputData, apartmentNumber, location };
-      // reset back to default
-      setInputData({ ...inputData, ...defaultData });
       try {
         loading('ADDRESS', true);
         const response = await API.address.post(data);
