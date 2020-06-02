@@ -2,6 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import removeFromCart from 'Redux/removeFromCart';
 import { Link } from 'react-router-dom';
 import Cart from 'Icons/Cart';
@@ -12,12 +13,15 @@ import {
 } from './CartIconSection';
 import './emptycart.scss';
 
-export const CartDropdown = ({ children, display }) =>
-  display && (
-    <div className="cart-dropdown-menu" aria-labelledby="dropdownMenuButton">
+export const CartDropdown = React.forwardRef(({ children, display, classNames }, ref) => {
+  const xsScreen = useMediaQuery({ maxWidth: 300 });
+
+  return display && (
+    <div ref={ref} style={{ width: (xsScreen && `${window.innerWidth - 40}px`) || 'auto' }} className={`cart-dropdown-menu ${classNames}`} aria-labelledby="dropdownMenuButton">
       {children}
     </div>
   );
+});
 
 const EmptyCart = ({
   orderQuantity,

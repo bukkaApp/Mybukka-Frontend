@@ -9,6 +9,7 @@ import Payment from '../payment/Payment';
 import RequestSecurityInfo from '../payment-security/PaymentSecurity';
 import PaymentGateway from '../payment-gateway/PaymentGateway';
 import PaymentPending from '../payment-pending/PaymentPending';
+import InviteFriends from '../invite-friends/InviteFriends';
 import './index.scss';
 
 const ModalRoot = () => {
@@ -35,6 +36,7 @@ const ModalRoot = () => {
       <RequestSecurityInfo />
       <PaymentGateway />
       <PaymentPending />
+      <InviteFriends />
     </div>
   );
 };

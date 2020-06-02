@@ -23,6 +23,8 @@ const DownLoadApp = () => {
       setDownloadApp(true);
     };
     const appInstalled = () => {
+      // Hide the app provided install promotion
+      setDownloadApp(false);
       // TODO: show app banner component and remove toast
       setToast({ message: 'App installed', type: 'success' });
       setAppInstalled(true);

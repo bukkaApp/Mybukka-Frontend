@@ -2,15 +2,25 @@ import React, { Fragment } from 'react';
 import Navlink from '../../navlink/Navlink';
 
 import { useUserContext } from '../../../context/UserContext';
+import { useModalContext } from '../../../context/ModalContext';
+import { useDropdownContext } from '../../../context/DropdownContext';
 
 import './userdropdown.scss';
 
 const UserDropdown = () => {
   const { logoutSuccess: signOut } = useUserContext();
+  const { setModal, setInvitePopup } = useModalContext();
+  const { setUserOptions, } = useDropdownContext();
 
   const handleClick = (e) => {
     e.preventDefault();
     return signOut();
+  };
+
+  const handleInvitation = () => {
+    setUserOptions(false);
+    setInvitePopup(true);
+    setModal(true);
   };
 
   return (
@@ -88,8 +98,7 @@ const UserDropdown = () => {
             <button
               type="button"
               className="custom-user-dropdown-item"
-              data-target="#inviteFrnd"
-              data-toggle="modal"
+              onClick={handleInvitation}
             >
               <div className="user-dropdown-item-content">
                 <span

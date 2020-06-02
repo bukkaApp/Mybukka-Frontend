@@ -11,6 +11,7 @@ const SET_PAYMENT_POPUP = 'SET_PAYMENT_POPUP';
 const SET_PAYMENT_SECURITY_POPUP = 'SET_PAYMENT_SECURITY_POPUP';
 const SET_PAYMENT_GATEWAY_POPUP = 'SET_PAYMENT_GATEWAY_POPUP';
 const SET_PAYMENT_PENDING_POPUP = 'SET_PAYMENT_PENDING_POPUP';
+const SET_INVITE_POPUP = 'SET_INVITE_POPUP';
 
 const initialState = {
   show: false,
@@ -22,6 +23,7 @@ const initialState = {
   paymentSecurityPopup: false,
   paymentGatewayPopup: false,
   paymentPendingPopup: false,
+  invitePopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -53,6 +55,9 @@ const reducer = (originalState, action) => {
 
     case SET_PHONE_VERIFICATION_POPUP:
       return { ...state, phoneVerificationPopup: action.payload };
+
+    case SET_INVITE_POPUP:
+      return { ...state, invitePopup: action.payload };
 
     default: {
       return state;
@@ -93,6 +98,13 @@ const useModal = () => {
     });
   };
 
+  const setInvitePopup = (payload) => {
+    dispatch({
+      type: SET_INVITE_POPUP,
+      payload,
+    });
+  };
+
   const setPaymentPopup = (payload) => {
     dispatch({
       type: SET_PAYMENT_POPUP,
@@ -127,9 +139,9 @@ const useModal = () => {
       payload,
     });
   };
-  const { show, paymentPendingPopup, paymentGatewayPopup, paymentSecurityPopup, paymentPopup, addressPopup, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
+  const { show, invitePopup, paymentPendingPopup, paymentGatewayPopup, paymentSecurityPopup, paymentPopup, addressPopup, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
 
-  return { show, setModal, paymentPendingPopup, setPaymentPendingPopup, paymentGatewayPopup, setPaymentGatewayPopup, paymentSecurityPopup, setPaymentSecurityPopup, paymentPopup, setPaymentPopup, addressPopup, setAddressPopup, viewMoreOrderOnMobile, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
+  return { show, setModal, invitePopup, setInvitePopup, paymentPendingPopup, setPaymentPendingPopup, paymentGatewayPopup, setPaymentGatewayPopup, paymentSecurityPopup, setPaymentSecurityPopup, paymentPopup, setPaymentPopup, addressPopup, setAddressPopup, viewMoreOrderOnMobile, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
 };
 
 export const [ModalProvider, useModalContext] = constate(useModal);

@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Field from 'Components/input/Field';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
-import './InviteFriends.css';
 
 const Content = ({ inputData, handleChange }) => (
-  <section>
+  <section className="Invite-Content">
     <div className="coupon-header text-center text-dark">
       <h3>Get N1000 off all your purchases</h3>
     </div>
