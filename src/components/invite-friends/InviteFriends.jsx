@@ -7,6 +7,7 @@ import './InviteFriends.css';
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
+import { useModalContext } from '../../context/ModalContext';
 
 const Invite = ({ handleCopy, inputField, handleChange }) => (
   <div className="invite-padding m-4">
@@ -17,6 +18,7 @@ const Invite = ({ handleCopy, inputField, handleChange }) => (
 );
 
 const InviteFriends = () => {
+  const { setInvitePopup, setModal } = useModalContext();
   const [inputData, setInputData] = useState({
     emails: '',
     copied: false,
@@ -31,6 +33,11 @@ const InviteFriends = () => {
     });
   };
 
+  const handleClick = () => {
+    setInvitePopup(false);
+    setModal(false);
+  };
+
   const copyInviteLink = () => {
     setInputData({
       ...inputData,
@@ -40,7 +47,7 @@ const InviteFriends = () => {
 
   return (
     <Modal classNames="inviteFrnd">
-      <DismissModal classNames="close" />
+      <DismissModal onClick={handleClick} classNames="close" />
       <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
     </Modal>
   );

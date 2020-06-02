@@ -5,12 +5,15 @@ import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../button/Button';
 import './InviteFriends.css';
+import { useModalContext } from '../../context/ModalContext';
 
 const Footer = ({ inputData, handleCopy }) => {
   const { push } = useHistory();
+  const { setInvitePopup, setModal } = useModalContext();
 
   const handleClick = (toLocation) => {
-    $('#inviteFrnd').modal('hide');
+    setInvitePopup(false);
+    setModal(false);
     push(toLocation);
   };
 
@@ -23,10 +26,9 @@ const Footer = ({ inputData, handleCopy }) => {
             d-flex justify-content-around align-items-center"
             >
               {inputData.link}
-              <span
-                className={inputData.copied ?
-                  'text-success' : 'text-warning'}
-              >{inputData.copied ? 'COPIED' : 'COPY' }</span>
+              <span className={(inputData.copied && 'text-success') || 'text-warning'}>
+                {inputData.copied ? 'COPIED' : 'COPY' }
+              </span>
             </div>
           </CopyToClipboard>
         </div>

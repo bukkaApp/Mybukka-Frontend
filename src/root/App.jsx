@@ -14,7 +14,6 @@ import IndeterminateProgressbar, { ProgressSwitch, ProgressBar } from
 
 import Toast from '../components/Toast/Toast';
 import ModalRoot from '../components/modal-root';
-import AuthModal from '../features/modal-root/Index';
 import './index.scss';
 import './animate.scss';
 import Primary from '../provider/Primary';
@@ -42,7 +41,6 @@ const App = () => {
                   <LoadService />
                   <Main />
                   <ModalRoot />
-                  <AuthModal /> {/* would be change to be in Modal root */}
                   <Cookie />
                 </Primary>
               </Secondary>
