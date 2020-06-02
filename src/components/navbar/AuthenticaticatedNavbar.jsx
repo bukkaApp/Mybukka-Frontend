@@ -39,12 +39,10 @@ const AuthenticaticatedNavbar = () => {
             <div>
               <CartSection handleClick={handleClick} />
             </div>
-            <div ref={wrapperRef}>
-              <CartDropdown display={isFocused}>
-                <EmptyCart />
-                <CartIconSection />
-              </CartDropdown>
-            </div>
+            <CartDropdown ref={wrapperRef} display={isFocused}>
+              <EmptyCart />
+              <CartIconSection />
+            </CartDropdown>
           </div>
         </div>
       </nav>

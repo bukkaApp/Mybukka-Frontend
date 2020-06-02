@@ -70,8 +70,6 @@
   margin-left: 24px;
 }
 
-// card dropdown
-
 .cart-dropdown-menu {
   background-color: rgb(255, 255, 255);
   filter: drop-shadow(rgba(16, 25, 30, 0.08) 0px 1px 4px);
@@ -83,52 +81,32 @@
   border-color: rgb(242, 243, 243);
   border-image: initial;
   transition: opacity 100ms ease-in-out 0s;
-  @media screen and (min-width: 838px) {
-    left: calc((20% + 8px) + -138px);
+  right: 0px;
+  top: 30px;
+  min-height: 90px;
+  min-width: 277px;
+  @media screen and (min-width: 1150px) {
+    right: -25px;
   }
+}
+
+.cart-dropdown-menu::after, .cart-dropdown-menu::before {
   @media screen and (min-width: 768px) {
-    bottom: -26px;
-    left: calc((0% + 8px) + -138px);
-    transform: translate(calc((-50% + 8px) + 0px), 100%);
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    content: "";
+    bottom: 100%;
+    right: 0;
+    border-width: initial;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-bottom-color: rgb(255, 255, 255) !important;
+    margin-left: -9px;
+    border-width: 9px !important;
   }
-  @media screen and (max-width: 767px) {
-    bottom: -26px;
-    left: calc((-70vw) + -9px);
-    transform: translate(calc(12% + 0px), 100%);
-    width: 68vw;
+  @media screen and (min-width: 1150px) {
+    right: 6%;
   }
-  &::before {
-    @media screen and (min-width: 768px) {
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      content: "";
-      bottom: 100%;
-      left: calc(50% - -138px);
-      border-width: initial;
-      border-style: solid;
-      border-color: transparent;
-      border-image: initial;
-      margin-left: -9px;
-      border-bottom-color: rgb(242, 243, 243) !important;
-      border-width: 9px !important;
-    }
-  }
-  &::after {
-    @media screen and (min-width: 768px) {
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      content: "";
-      bottom: 100%;
-      left: calc(50% - -138px);
-      border-width: initial;
-      border-style: solid;
-      border-color: transparent;
-      border-image: initial;
-      margin-left: -8px;
-      border-bottom-color: rgb(255, 255, 255) !important;
-      border-width: 8px !important;
-    }
-  }
-  }
+}

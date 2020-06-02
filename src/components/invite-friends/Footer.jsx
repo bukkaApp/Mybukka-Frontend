@@ -6,6 +6,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../button/Button';
 import { useModalContext } from '../../context/ModalContext';
 
+import './footer.scss';
+
 const Footer = ({ inputData, handleCopy }) => {
   const { push } = useHistory();
   const { setInvitePopup, setModal } = useModalContext();
@@ -18,7 +20,7 @@ const Footer = ({ inputData, handleCopy }) => {
 
   return (
     <section className="Invite-Footer">
-      <div className="d-flex flex-column">
+      <div className="Invite-Footer-Content">
         <div className="mx-4">
           <CopyToClipboard text={inputData.link} onCopy={() => handleCopy()}>
             <div className="cursor-pointer invite-link invite-padding
