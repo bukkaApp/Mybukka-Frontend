@@ -3,12 +3,14 @@ import Navlink from '../../navlink/Navlink';
 
 import { useUserContext } from '../../../context/UserContext';
 import { useModalContext } from '../../../context/ModalContext';
+import { useDropdownContext } from '../../../context/DropdownContext';
 
 import './userdropdown.scss';
 
 const UserDropdown = () => {
   const { logoutSuccess: signOut } = useUserContext();
   const { setModal, setInvitePopup } = useModalContext();
+  const { setUserOptions, } = useDropdownContext();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ const UserDropdown = () => {
   };
 
   const handleInvitation = () => {
+    setUserOptions(false);
     setInvitePopup(true);
     setModal(true);
   };

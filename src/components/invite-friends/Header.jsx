@@ -1,6 +1,5 @@
 import React from 'react';
 import Img from '../img/Img';
-// import PropTypes from 'prop-types';
 
 const Header = () => (
   <section>
@@ -14,7 +13,3 @@ const Header = () => (
 );
 
 export default Header;
-
-// InviteFriends.propTypes = {
-//   push: PropTypes.func.isRequired
-// };

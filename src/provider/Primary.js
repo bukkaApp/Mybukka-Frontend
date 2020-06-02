@@ -7,6 +7,7 @@ import { DarkModeProvider } from '../context/DarkMode';
 import { ThemeProvider } from '../context/ThemeProvider';
 import { CloudinaryProvider } from '../components/img/Cloudinary';
 import { ModalProvider } from '../context/ModalContext';
+import { DropdownProvider } from '../context/DropdownContext';
 import { CartProvider } from '../context/CartContext';
 import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/MapContext';
@@ -25,21 +26,23 @@ const Primary = ({ children }) => (
             <DarkModeProvider>
               <ThemeProvider>
                 <ModalProvider>
-                  <CartProvider>
-                    <LoadingProvider>
-                      <MapProvider>
-                        <ToastProvider>
-                          <NotificationProvider>
-                            <GlobalFormValidityRequestProvider>
-                              <GlobalFormValidityReportProvider>
-                                {children}
-                              </GlobalFormValidityReportProvider>
-                            </GlobalFormValidityRequestProvider>
-                          </NotificationProvider>
-                        </ToastProvider>
-                      </MapProvider>
-                    </LoadingProvider>
-                  </CartProvider>
+                  <DropdownProvider>
+                    <CartProvider>
+                      <LoadingProvider>
+                        <MapProvider>
+                          <ToastProvider>
+                            <NotificationProvider>
+                              <GlobalFormValidityRequestProvider>
+                                <GlobalFormValidityReportProvider>
+                                  {children}
+                                </GlobalFormValidityReportProvider>
+                              </GlobalFormValidityRequestProvider>
+                            </NotificationProvider>
+                          </ToastProvider>
+                        </MapProvider>
+                      </LoadingProvider>
+                    </CartProvider>
+                  </DropdownProvider>
                 </ModalProvider>
               </ThemeProvider>
             </DarkModeProvider>

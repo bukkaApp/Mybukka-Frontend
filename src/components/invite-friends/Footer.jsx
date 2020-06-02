@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Button from '../button/Button';
-import './InviteFriends.css';
 import { useModalContext } from '../../context/ModalContext';
 
 const Footer = ({ inputData, handleCopy }) => {
@@ -18,7 +17,7 @@ const Footer = ({ inputData, handleCopy }) => {
   };
 
   return (
-    <section>
+    <section className="Invite-Footer">
       <div className="d-flex flex-column">
         <div className="mx-4">
           <CopyToClipboard text={inputData.link} onCopy={() => handleCopy()}>

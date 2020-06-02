@@ -1,5 +1,17 @@
 .invite-padding {
   padding: 30px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.Invite-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.Invite-Content {
+  max-width: 564px;
+  margin: auto;
 }
 
 .content p {

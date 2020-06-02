@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DismissModal from '../modal/DismissModal';
 import Modal from '../modal/Modal';
-import './InviteFriends.css';
 // import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
 import { useModalContext } from '../../context/ModalContext';
+import './InviteFriends.scss';
 
 const Invite = ({ handleCopy, inputField, handleChange }) => (
   <div className="invite-padding m-4">
