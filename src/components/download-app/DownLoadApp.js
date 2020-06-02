@@ -57,9 +57,9 @@ const DownLoadApp = () => {
   return (
     (isMobileScreen && downloadApp) &&
     <div className="DownLoadApp Smart-Banner">
-      <div className="Smart-Banner-Close-Wrapper">
+      <div aria-pressed="false" tabIndex="0" role="button" onClick={() => setDownloadApp(false)} className="Smart-Banner-Close-Wrapper">
         <div className="Smart-Banner-Close-Accessibility-Overlay" data-af-close-button="" />
-        <svg onClick={() => setDownloadApp(false)} className="Smart-Banner-Close-Button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" version="1.1" width="7" height="7">
+        <svg className="Smart-Banner-Close-Button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" version="1.1" width="7" height="7">
           <path d="M0 0 L1 1 M1 0 L0 1" strokeWidth="0.1" />
         </svg>
       </div>
