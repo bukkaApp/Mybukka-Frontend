@@ -34,6 +34,9 @@ class Worker extends PureComponent {
       'serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || window.location.hostname === 'localhost')
     ) {
+      applyUpdate().then(() => {
+        window.location.reload();
+      });
       const registration = runtime.register();
 
       registerEvents(registration, {
@@ -61,28 +64,6 @@ class Worker extends PureComponent {
 
   /**
    * @memberof Worker
-   * @method handleInstallation
-   * @param {*} e
-   * @returns {void} void
-   */
-  onClickToInstallApp = (e) => {
-    console.log(e);
-    // Hide the app provided install promotion
-    this.hideMyInstallPromotion();
-    // Show the install prompt
-    this.deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
-    this.deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-    });
-  }
-
-  /**
-   * @memberof Worker
    * @method pushLog
    * @param {*} log
    * @returns {void} void
@@ -92,45 +73,6 @@ class Worker extends PureComponent {
       logs: [...this.state.logs, log],
     });
     console.log('worker', log);
-  }
-
-  /**
-   * @memberof Worker
-   * @method showInstallPromotion
-   * @returns {void} void
-   */
-  showInstallPromotion = () => {
-    console.log('ready');
-  }
-
-  /**
-   * @memberof Worker
-   * @method showInstallPromotion
-   * @returns {void} void
-   */
-  hideMyInstallPromotion = () => {
-    console.log('ready');
-  }
-
-  /**
-   * @memberof Worker
-   * @method handleClickReload
-   * @param {*} event
-   * @returns {void} void
-   */
-  handleClickReload = (event) => {
-    event.preventDefault();
-
-    applyUpdate().then(() => {
-      window.location.reload();
-    });
-  }
-
-  handleInstallComplete = () => {
-    window.addEventListener('appinstalled', (evt) => {
-      // Log install to analytics
-      console.log('INSTALL: Success', evt);
-    });
   }
 
   /**
