@@ -12,6 +12,7 @@ import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
+import { NotificationProvider } from '../context/NotificationContext';
 import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
 import { GlobalFormValidityReportProvider } from '../context/GlobalFormValidityReportContext';
 
@@ -28,11 +29,13 @@ const Primary = ({ children }) => (
                     <LoadingProvider>
                       <MapProvider>
                         <ToastProvider>
-                          <GlobalFormValidityRequestProvider>
-                            <GlobalFormValidityReportProvider>
-                              {children}
-                            </GlobalFormValidityReportProvider>
-                          </GlobalFormValidityRequestProvider>
+                          <NotificationProvider>
+                            <GlobalFormValidityRequestProvider>
+                              <GlobalFormValidityReportProvider>
+                                {children}
+                              </GlobalFormValidityReportProvider>
+                            </GlobalFormValidityRequestProvider>
+                          </NotificationProvider>
                         </ToastProvider>
                       </MapProvider>
                     </LoadingProvider>

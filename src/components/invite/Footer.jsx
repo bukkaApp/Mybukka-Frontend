@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import Twitter, { Facebook } from 'Components/button/SocialSvg';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Button from '../../components/button/Button';
+import Button from '../button/Button';
 import './InviteFriends.css';
 
 const Footer = ({ inputData, handleCopy }) => {

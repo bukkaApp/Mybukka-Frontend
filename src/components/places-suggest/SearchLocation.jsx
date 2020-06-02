@@ -22,6 +22,7 @@ const SearchLocation = ({
   emitOnChange,
   standalone,
   withLabel,
+  onBlur,
   htmlFor,
   name,
   state,
@@ -79,7 +80,7 @@ const SearchLocation = ({
   }, [wrapperRef]);
 
   return (
-    <section ref={wrapperRef}>
+    <section className="Location-Wrapper" ref={wrapperRef}>
       <div style={!standalone ? style : {}} className={!standalone ? className : ''}>
         {!standalone &&
         <div className="input-group-prepend">
@@ -97,6 +98,7 @@ const SearchLocation = ({
         <Field.Input
           type="text"
           id={name || 'searchLocation'}
+          onBlur={onBlur}
           name={name || 'searchLocation'}
           placeholderText="Enter your address..."
           classNames={!standalone ? 'text-field form-control searchlocation' : 'Primary-Input'}
@@ -107,7 +109,7 @@ const SearchLocation = ({
         {showChevronButton()}
       </div>
       {showDropdown && (<div className="carousel-divider mb-0" />)}
-      <div className="dropdown-suggestion">
+      <div className="Location-Dropdown-Suggestion">
         {(hasFocus || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}

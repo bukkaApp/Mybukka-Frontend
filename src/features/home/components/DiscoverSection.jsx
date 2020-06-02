@@ -4,6 +4,7 @@ import Button from 'Components/button/Button';
 
 import './discoversection.scss';
 import Img from '../../../components/img/Img';
+import { useNotificationContext } from '../../../context/NotificationContext';
 
 const LargeText = () => (
   <div className="large-text-discover">
@@ -43,26 +44,47 @@ const SideImage = () => (
   // </div>
 );
 
-const DiscoverSection = () => (
-  <div className="container discover-section">
-    <div className="row align-items-center">
-      <div className="discover-section-text col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <LargeText />
-        <div className="d-none d-md-block">
-          <SmallText />
-          <ActionButton handleClick={() => {}} />
+const DiscoverSection = () => {
+  const { setDownloadApp, deferredAppDownloadPrompt } = useNotificationContext();
+
+  const onClickToInstallApp = (e) => {
+    if (!deferredAppDownloadPrompt) return;
+    console.log(e);
+    // Hide the app provided install promotion
+    setDownloadApp(false);
+    // Show the install prompt
+    deferredAppDownloadPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredAppDownloadPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+    });
+  };
+
+  return (
+    <div className="container discover-section">
+      <div className="row align-items-center">
+        <div className="discover-section-text col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <LargeText />
+          <div className="d-none d-md-block">
+            <SmallText />
+            <ActionButton handleClick={onClickToInstallApp} />
+          </div>
         </div>
-      </div>
-      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <SideImage />
-        <div className="d-md-none">
-          <SmallText />
-          <ActionButton handleClick={() => {}} />
+        <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <SideImage />
+          <div className="d-md-none">
+            <SmallText />
+            <ActionButton handleClick={onClickToInstallApp} />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default DiscoverSection;
 

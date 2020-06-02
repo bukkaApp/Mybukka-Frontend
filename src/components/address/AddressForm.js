@@ -64,6 +64,7 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
   };
 
   const onSubmit = () => {
+    if (!addressValidityReport) return;
     const validation = validateAllFields(inputData);
     const { errors, passes } = validation;
     setValidationErrors({ ...validationErrors, ...errors });
@@ -107,6 +108,7 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
           inputData={inputData}
           inputField={inputField}
           handleChange={handleChange}
+          onBlur={onSubmit}
           errors={validationErrors}
         />
         <div className="form-group mb-4">

@@ -21,6 +21,7 @@ import Primary from '../provider/Primary';
 import Secondary from '../provider/Secondary';
 import useAutocompleteService from '../hooks/useAutocompleteService';
 import Cookie from '../components/cookie';
+import DownLoadApp from '../components/download-app/DownLoadApp';
 
 const { store, persistor } = reduxStore();
 
@@ -35,8 +36,9 @@ const App = () => {
               <IndeterminateProgressbar />
               <Secondary>
                 <Primary>
-                  <Toast />
                   <ProgressSwitch />
+                  <DownLoadApp />
+                  <Toast />
                   <LoadService />
                   <Main />
                   <ModalRoot />

@@ -8,7 +8,8 @@ const AuthForm = ({
   inputData,
   inputField,
   handleChange,
-  errors
+  errors,
+  onBlur,
 }) =>
   inputField.map(propData => (
     <div className={propData.containerClassNames} key={propData.name}>
@@ -23,6 +24,7 @@ const AuthForm = ({
         <Field.Input
           autoComplete="off"
           type={propData.type}
+          onBlur={onBlur}
           name={propData.name}
           handleChange={handleChange}
           classNames={`Primary-Input ${propData.classNames}`}
@@ -34,6 +36,7 @@ const AuthForm = ({
       {propData.address && (
         <PlacesSuggestion
           withLabel
+          onBlur={onBlur}
           state={inputData[propData.name]}
           htmlFor={propData.id}
           name={propData.name}

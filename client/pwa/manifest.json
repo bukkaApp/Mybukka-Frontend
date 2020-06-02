@@ -1,6 +1,6 @@
 {
   "short_name": "Bukka",
-  "name": "Bukka: Food Vendor",
+  "name": "Bukka: Food Delivery",
   "description": "A customer facing application",
   "start_url": "/?source=pwa",
   "scope": "/",

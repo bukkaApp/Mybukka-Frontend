@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from '../../components/img/Img';
+import Img from '../img/Img';
 // import PropTypes from 'prop-types';
 
 const Header = () => (

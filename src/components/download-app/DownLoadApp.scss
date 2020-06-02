@@ -1,0 +1,138 @@
+@import '../../stylebase/variables.scss';
+
+.DownLoadApp {
+  position: relative;
+  display: flex;
+  font-family: 'Museo Sans','Roboto','Open Sans',sans-serif;
+  background: url('../../assets/bukka_logo.png') center / cover;
+  background-color: $color-white;
+  height: 70px;
+  min-width: 100%;
+  transition: all .25s ease;
+  box-shadow: 0 0 5px rgba(0,0,0,.35);
+  z-index: 2147483647;
+}
+
+.Smart-Banner {
+  font-size: 14px;
+  box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: black;
+    font: inherit;
+    vertical-align: baseline;
+    line-height: 1em;
+  }
+}
+
+.Smart-Banner-Close-Wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 5px
+}
+
+.Smart-Banner-Close-Accessibility-Overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+}
+
+.Smart-Banner-Close-Button {
+  display: block;
+  stroke: #000000;
+}
+
+.Smart-Banner-Icon-Wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.Smart-Banner-Img {
+  width: 46px;
+  height: 46px;
+  border-radius: 5px;
+}
+
+.Smart-Banner-Content-Wrapper {
+  margin: 0 8px;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Smart-Banner-Content-Title {
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 13px;
+  color: #000000;
+}
+
+.Smart-Banner-Content-Description {
+  font-size: 10px;
+  font-weight: 300;
+  line-height: 10px;
+  margin: 5px 0;
+  color: #000000;
+}
+
+.Smart-Banner-Content-Ratings {
+  margin-left: -2px;
+  display: block;
+}
+
+.Smart-Banner-Content-Ratings--container {
+  display: inline-block;
+}
+
+#Smart-Banner-Rating-stars-svg {
+  .st {
+    stroke-width: 50;
+  }
+  .full-star {
+    fill: #b4b8c1;
+    stroke: #b4b8c1;
+  }
+}
+
+.Smart-Banner-Content-Ratings--count {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 300;
+  vertical-align: middle;
+  color: #b4b8c1;
+  margin-left: 2px;
+}
+
+.Smart-Banner-Button-Container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 14px;
+  margin-left: auto;
+}
+
+.Smart-Banner-Download-Button {
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $color-primary;
+  min-height: 34px;
+  width: auto;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 13px;
+  font-weight: 500;
+  padding: 5px 14px;
+  background-color: $color-primary;
+}

@@ -63,20 +63,20 @@ const Addresses = ({ useProfileStandard, noPadding }) => {
     return changeAddress();
   };
 
-  const isntDefaultAddress = slug => addresses.defaultAddress !== slug;
+  // const isntDefaultAddress = slug => addresses.defaultAddress !== slug;
 
   const addressJsx = (addresses && addresses.addresses.map(({ address, slug, }) => (
-    !useProfileStandard && isntDefaultAddress(slug) ? null
-      : <GeoSuggestions
-        asUtility
-        noBorderOnMedium={!useProfileStandard}
-        handleClick={() => {}}
-        withPrimaryButton={addresses.defaultAddress === slug}
-        text={decodeButtonText(slug)}
-        emitOnClick={() => emitOnClick(slug)}
-        predictions={[{ terms: address.split(', ').map(loc => ({ value: loc })) }]}
-        key={`Plain-Account-Details-DELETE--${slug}`}
-      />
+    // !useProfileStandard && isntDefaultAddress(slug) ? null :
+    <GeoSuggestions
+      asUtility
+      noBorderOnMedium={!useProfileStandard}
+      handleClick={() => {}}
+      withPrimaryButton={addresses.defaultAddress === slug}
+      text={decodeButtonText(slug)}
+      emitOnClick={() => emitOnClick(slug)}
+      predictions={[{ terms: address.split(', ').map(loc => ({ value: loc })) }]}
+      key={`Plain-Account-Details-DELETE--${slug}`}
+    />
   )));
 
   if (useProfileStandard) {
