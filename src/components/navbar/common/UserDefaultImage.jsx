@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import UserDropdown from './UserDropdown';
 import '../navbar.scss';
 import useClickOutside from '../../../hooks/useClickOutside';
 import { useUserContext } from '../../../context/UserContext';
 import { useDropdownContext } from '../../../context/DropdownContext';
+import SingleImage from '../../img/SingleImage';
+import UserDropdown from './UserDropdown';
 
 const UserDefaultImage = () => {
   const { user } = useUserContext();
@@ -21,10 +22,7 @@ const UserDefaultImage = () => {
     <div ref={wrapperRef} className="user-default-img">
       <div className="position-relative">
         <button className="auth-btn-drop" onClick={() => setUserOptions(true)}>
-          <img
-            src={(user && user.imageUrl) || 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png'}
-            alt="user-img"
-          />
+          <SingleImage style={{ width: '30px', height: '30px' }} options={{ w: 30 }} src={user.imageUrl} alt="userImg" />
         </button>
         {userOptions && <UserDropdown />}
       </div>

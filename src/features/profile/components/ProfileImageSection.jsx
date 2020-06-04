@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import Container from 'Components/container';
 import Button from 'Components/button/Button';
 import Field from 'Components/input/Field';
-
+import SingleImage from '../../../components/img/SingleImage';
 import ProfileHeaderTitle from '../common/ProfileHeaderTitle';
 
 import './profileImageSection.scss';
 
 const ProfileImage = ({ imageUrl, firstName, lastName }) => (
   <div className="profile-image-div text-center">
-    <img src={imageUrl} style={{ margin: 'auto' }} className="img-fluid profile-photo" alt="" />
+    <SingleImage options={{ w: 80 }} className="profile-photo" src={imageUrl} alt="profileImage" />
     <div className="d-lg-none profile-header-small">
       <ProfileHeaderTitle firstName={firstName} lastName={lastName} />
     </div>

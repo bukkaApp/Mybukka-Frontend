@@ -34,9 +34,6 @@ class Worker extends PureComponent {
       'serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || window.location.hostname === 'localhost')
     ) {
-      applyUpdate().then(() => {
-        window.location.reload();
-      });
       const registration = runtime.register();
 
       registerEvents(registration, {
@@ -44,6 +41,9 @@ class Worker extends PureComponent {
           this.pushLog('onInstalled');
         },
         onUpdateReady: () => {
+          applyUpdate().then(() => {
+            window.location.reload();
+          });
           this.pushLog('onUpdateReady');
         },
 
@@ -56,6 +56,7 @@ class Worker extends PureComponent {
         onUpdated: () => {
           this.pushLog('onUpdated');
         },
+        message: () => ({ event: { data: { action: 'skipWaiting' } } })
       });
     } else {
       this.pushLog('serviceWorker not available');
