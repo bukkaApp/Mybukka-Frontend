@@ -21,6 +21,6 @@ const OpenApp = () =>
         <img alt="app store" src="https://cdn.appsflyer.com/af-statics/images/rta/app_store_badge.png" />
       </div>
     </div>
-  )
-;
+  );
+
 export default OpenApp;

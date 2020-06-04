@@ -13,8 +13,8 @@
     left: calc((-315% + 24px) + -60px);
     top: 45px;
     @media screen and (min-width: 768px) {
-        bottom: -17px;
-        left: calc((-50% + 24px) + -60px);
+        bottom: 0;
+        left: calc((-50% + 24px) + -56px);
         transform: translate(calc((-55% + 24px) + 0px), 100%);
     }
 }

@@ -36,7 +36,7 @@ const ActionButton = ({ handleClick }) => (
 const SideImage = () => (
   // <div className="side-image-section">
   <Img
-    options={{ w: 700 }}
+    options={{ w: 500 }}
       src="https://res.cloudinary.com/dn93xk5ni/image/upload/v1548762594/app-car-charging-33488_fnegrl.jpg" // eslint-disable-line
     alt="discovery"
     className="side-image"

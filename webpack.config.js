@@ -8,6 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* Import copy-webpack-plugin */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 
 const CopyPlugin = new CopyWebpackPlugin({
   patterns: [
@@ -32,7 +34,7 @@ const MiniCssPlugin = new MiniCssExtractPlugin({
   // Options similar to the same options in webpackOptions.output
   // both options are optional
   ignoreOrder: true,
-  filename: '[name].css',
+  filename: '[name].[contenthash].css',
   chunkFilename: '[id].css',
 });
 
@@ -61,13 +63,39 @@ module.exports = {
     port: 7700,
     hot: true,
     historyApiFallback: true,
+    compress: true
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'js/bundle.js',
+    filename: '[name].[hash].js',
     publicPath: '/',
   },
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
+    new BrotliPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        level: 11,
+      },
+      threshold: 10240,
+      minRatio: 0.7,
+      deleteOriginalAssets: false,
+    }),
     new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
@@ -77,6 +105,11 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.gz$/,
+        enforce: 'pre',
+        use: 'gzip-loader'
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',

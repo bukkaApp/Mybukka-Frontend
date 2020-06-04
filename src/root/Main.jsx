@@ -10,8 +10,8 @@ import FeedPages from '../features/feed';
 import Bukka from '../features/bukka';
 import Checkout from '../features/checkout';
 import Profile from '../features/profile';
-import LegalStatement from '../features/statement';
 
+const LegalStatement = lazy(() => import('../features/statement'));
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));
 const TransactionHistory = lazy(() => import('../features/history'));

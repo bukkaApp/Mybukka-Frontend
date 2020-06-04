@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import AddToCart from '../cart/addToCart';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { useModalContext } from '../../context/ModalContext';
-import ViewOrdersOnMobile from '../cart/ViewOrdersOnMobile';
-import Authentication from '../authentication-popup';
-import VerifyPhonePopup from '../verify-phone-popup';
-import Address from '../address/Address';
-import Payment from '../payment/Payment';
-import RequestSecurityInfo from '../payment-security/PaymentSecurity';
-import PaymentGateway from '../payment-gateway/PaymentGateway';
-import PaymentPending from '../payment-pending/PaymentPending';
-import InviteFriends from '../invite-friends/InviteFriends';
+
 import './index.scss';
+
+const AddToCart = lazy(() => import('../cart/addToCart'));
+const ViewOrdersOnMobile = lazy(() => import('../cart/ViewOrdersOnMobile'));
+const Authentication = lazy(() => import('../authentication-popup'));
+const VerifyPhonePopup = lazy(() => import('../verify-phone-popup'));
+const Address = lazy(() => import('../address/Address'));
+const Payment = lazy(() => import('../payment/Payment'));
+const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecurity'));
+const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
+const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
+const InviteFriends = lazy(() => import('../invite-friends/InviteFriends'));
 
 const ModalRoot = () => {
   const { show } = useModalContext();
@@ -27,16 +29,18 @@ const ModalRoot = () => {
 
   return (
     <div className={`Modal-Root-Wrapper ${state ? 'Modal-Root-Wrapper--active' : ''}`}>
-      <AddToCart />
-      <ViewOrdersOnMobile />
-      <Authentication />
-      <VerifyPhonePopup />
-      <Address withModal withPadding label="Add Address" />
-      <Payment withModal withPadding label="Add Payment Details" />
-      <RequestSecurityInfo />
-      <PaymentGateway />
-      <PaymentPending />
-      <InviteFriends />
+      <Suspense fallback={<div>loading ...</div>}>
+        <AddToCart />
+        <ViewOrdersOnMobile />
+        <Authentication />
+        <VerifyPhonePopup />
+        <Address withModal withPadding label="Add Address" />
+        <Payment withModal withPadding label="Add Payment Details" />
+        <RequestSecurityInfo />
+        <PaymentGateway />
+        <PaymentPending />
+        <InviteFriends />
+      </Suspense>
     </div>
   );
 };

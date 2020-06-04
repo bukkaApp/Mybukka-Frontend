@@ -49,8 +49,10 @@ const DownLoadApp = () => {
     // Wait for the user to respond to the prompt
     deferredAppDownloadPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
+        setDownloadApp(false);
         console.log('User accepted the install prompt');
       } else {
+        setDownloadApp(false);
         console.log('User dismissed the install prompt');
       }
     });
