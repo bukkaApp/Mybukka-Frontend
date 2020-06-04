@@ -73,7 +73,7 @@ const RequestSecurityInfo = () => {
   };
 
   return (
-    <Modal show={paymentSecurityPopup} bodyClassName="SmallWidth" ref={() => {}}>
+    <Modal show={paymentSecurityPopup} bodyClassName="SmallWidth" onClickOut={() => {}}>
       <div className="text-end">
         <DismissModal onClick={() => handleClick(true)} />
       </div>
