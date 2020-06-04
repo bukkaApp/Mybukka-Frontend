@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 const ClickOut = ({
   children,
   onClickOut,
-  ...props,
+  ...props
 }) => {
   const wrapperRef = useRef(null);
 
