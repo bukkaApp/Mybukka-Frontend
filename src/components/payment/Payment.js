@@ -46,19 +46,19 @@ const Payment = (props) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [wrapperRef]);
 
-  const paymentJsx = <PaymentForm requestSecurityPopup={requestSecurityPopup} handleClick={handleClick} {...props} />;
+  const paymentFormJsx = <PaymentForm requestSecurityPopup={requestSecurityPopup} handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
       <Modal show={paymentPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
         <Container classNames="Payment-Wrapper">
           <PaymentHeader handleClick={() => handleClick(true)} />
-          {paymentJsx}
+          {paymentFormJsx}
         </Container>
       </Modal>
     );
   }
-  return paymentJsx;
+  return paymentFormJsx;
 };
 
 export default Payment;

@@ -41,19 +41,19 @@ const Address = (props) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [wrapperRef]);
 
-  const addressJsx = <AddressForm handleClick={handleClick} {...props} />;
+  const addressFormJsx = <AddressForm handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
       <Modal show={addressPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
         <Container>
           <AddressHeader handleClick={handleClick} />
-          {addressJsx}
+          {addressFormJsx}
         </Container>
       </Modal>
     );
   }
-  return addressJsx;
+  return addressFormJsx;
 };
 
 export default Address;
