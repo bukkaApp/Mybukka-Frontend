@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import removeFromCart from 'Redux/removeFromCart';
 import { connect } from 'react-redux';
@@ -13,7 +13,6 @@ const ViewOrdersOnMobile = ({
   totalCost,
 }) => {
   const businessName = orderItems.length ? orderItems[0].bukka.split('-').slice(0, -1).join(' ') : '';
-  const wrapperRef = React.createRef();
   const { push } = useHistory();
   const { viewMoreOrderOnMobile, setViewMoreOrderOnMobile, setModal } = useModalContext();
 
@@ -22,20 +21,8 @@ const ViewOrdersOnMobile = ({
     setViewMoreOrderOnMobile(false);
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setViewMoreOrderOnMobile(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <Modal bodyClassName="modal-overflow-none" ref={wrapperRef} show={viewMoreOrderOnMobile} useFullWidth>
+    <Modal onClickOut={handleClick} bodyClassName="modal-overflow-none" show={viewMoreOrderOnMobile} useFullWidth>
       <div className="View-Orders">
         <div className="View-Orders-Wrapper">
           <div className="View-Orders-Header">

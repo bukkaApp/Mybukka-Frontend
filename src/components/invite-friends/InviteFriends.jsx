@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DismissModal from '../modal/DismissModal';
 import Modal from '../modal/Modal';
@@ -18,29 +18,16 @@ const Invite = ({ handleCopy, inputField, handleChange }) => (
 
 const InviteFriends = () => {
   const { invitePopup, setInvitePopup, setModal } = useModalContext();
-  const wrapperRef = React.createRef();
   const [inputData, setInputData] = useState({
     emails: '',
     copied: false,
     link: 'https://bitly.com',
   });
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setInvitePopup(false);
-    }
-  };
-
   const handleClick = () => {
     setModal(false);
     setInvitePopup(false);
   };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
 
   const handleChange = (event) => {
     setInputData({
@@ -58,7 +45,7 @@ const InviteFriends = () => {
   };
 
   return (
-    <Modal classNames="inviteFrnd" bodyClassName="SmallWidth" ref={wrapperRef} show={invitePopup}>
+    <Modal onClickOut={handleClick} classNames="inviteFrnd" bodyClassName="SmallWidth" show={invitePopup}>
       <DismissModal onClick={handleClick} classNames="close" />
       <Invite handleCopy={copyInviteLink} handleChange={handleChange} inputField={inputData} />
     </Modal>

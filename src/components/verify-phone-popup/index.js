@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Field from '../input/Field';
 import Modal from '../modal/Modal';
@@ -14,7 +14,6 @@ const phoneVerificationSupport = [
 ];
 
 const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
-  const wrapperRef = React.createRef();
   const [isCodeVerification, setIsCodeVerification] = useState(false);
   const [state, setState] = useState({ contactMobile: '', code: '' });
   const { phoneVerificationPopup, setVerificationPhonePopup, setModal } = useModalContext();
@@ -48,13 +47,6 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setVerificationPhonePopup(false);
-    }
-  };
-
   const handleClick = () => {
     setModal(false);
     setVerificationPhonePopup(false);
@@ -84,13 +76,8 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <Modal show={phoneVerificationPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
+    <Modal show={phoneVerificationPopup} bodyClassName="SmallWidth" onClickOut={handleClick}>
       <DismissModal onClick={handleClick} withRightIcon />
       <div className={`Verify-Phone-Popup ${isCodeVerification ? 'Verify-Phone-Spacing' : ''}`}>
         <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>

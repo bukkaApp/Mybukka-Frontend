@@ -92,11 +92,3 @@ AuthForm.propTypes = {
   inputData: PropTypes.objectOf(PropTypes.oneOfType([
     PropTypes.string, PropTypes.number])).isRequired,
 };
-
-ErrorMessage.defaultProps = {
-  message: '',
-};
-
-ErrorMessage.propTypes = {
-  message: PropTypes.string,
-};

@@ -61,7 +61,7 @@ const PaymentGateway = () => {
   };
 
   return (
-    <Modal show={paymentGatewayPopup} bodyClassName="FullWidth" ref={() => {}}>
+    <Modal onClickOut={() => {}} show={paymentGatewayPopup} bodyClassName="FullWidth">
       <div onDoubleClick={() => handleClick(true)} className="text-end">
         <DismissModal onClick={handleSubmit} />
       </div>

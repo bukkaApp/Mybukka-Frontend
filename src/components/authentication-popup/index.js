@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -14,32 +14,19 @@ import './index.scss';
 const AuthModal = ({ type }) => {
   const { push } = useHistory();
   const { authenticationPopup, setAuthenticationPopup, setModal } = useModalContext();
-  const wrapperRef = React.createRef();
   let AuthForm = AuthenticateLogin;
 
   if (type === '/signup') {
     AuthForm = AuthenticateRegister;
   }
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setAuthenticationPopup(false);
-    }
-  };
-
   const handleClick = () => {
     setModal(false);
     setAuthenticationPopup(false);
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <Modal show={authenticationPopup} bodyClassName="SmallWidth" ref={wrapperRef} classNames="auth-modal">
+    <Modal onClickOut={handleClick} show={authenticationPopup} bodyClassName="SmallWidth" classNames="auth-modal">
       <section className="Authentication-pop-wrapper">
         <DismissModal onClick={handleClick} classNames="close" />
         <AuthForm

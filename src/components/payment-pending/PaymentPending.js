@@ -68,7 +68,7 @@ const PaymentPending = () => {
   }, [payment]);
 
   return (
-    <Modal show={paymentPendingPopup} bodyClassName="FullWidth" ref={() => {}}>
+    <Modal show={paymentPendingPopup} bodyClassName="FullWidth" onClickOut={() => {}}>
       <div onDoubleClick={() => handleClick(true)} className="text-end">
         <DismissModal onClick={handleSubmit} />
       </div>

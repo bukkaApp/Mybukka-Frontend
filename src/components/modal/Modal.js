@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import ClickOut from '../ClickOut/ClickOut';
+
 import './Modal.scss';
 
-const Modal = React.forwardRef(({ children, useFullWidth, show, bodyClassName, classNames = '' }, ref) => {
+const Modal = ({ children, useFullWidth, show, bodyClassName, classNames = '', onClickOut }) => {
   const [state, setState] = useState(false);
 
   useEffect(() => {
@@ -14,13 +16,13 @@ const Modal = React.forwardRef(({ children, useFullWidth, show, bodyClassName, c
   return (
     <div>
       {show && <div className={`Modal-Wrapper ${classNames} ${state ? 'Modal-Wrapper--active' : ''}`}>
-        <div style={{ opacity: state ? 1 : 0 }} ref={ref} className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}>
+        <ClickOut style={{ opacity: state ? 1 : 0 }} onClickOut={onClickOut} className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}>
           {children}
-        </div>
+        </ClickOut>
       </div>}
     </div>
   );
-});
+};
 
 
 export default Modal;

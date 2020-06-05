@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
@@ -14,7 +14,6 @@ import { useModalContext } from '../../../context/ModalContext';
 import { useCartContext } from '../../../context/CartContext';
 
 const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, toggleAddToCart }) => {
-  const wrapperRef = React.createRef();
   const formRef = React.createRef();
   const { setModal } = useModalContext();
   const { price, imageUrl } = mealToDisplay;
@@ -40,21 +39,14 @@ const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, to
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      toggleAddToCart(false);
-      clearInProgressCart();
-    }
+  const handleClickOutside = () => {
+    setModal(false);
+    toggleAddToCart(false);
+    clearInProgressCart();
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <Modal ref={wrapperRef} bodyClassName="modal-overflow-none" show={modalShow} useFullWidth={imageUrl !== ''}>
+    <Modal onClickOut={handleClickOutside} bodyClassName="modal-overflow-none" show={modalShow} useFullWidth={imageUrl !== ''}>
       <form ref={formRef} className="Add-to-cart">
         <div className="Add-to-cart_content">
           {imageUrl &&

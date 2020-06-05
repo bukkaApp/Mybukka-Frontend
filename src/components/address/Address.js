@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
-import Modal from 'Components/modal/Modal';
+import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
 import { useModalContext } from '../../context/ModalContext';
 
@@ -21,31 +21,18 @@ const AddressHeader = ({ handleClick }) => (
 );
 
 const Address = (props) => {
-  const wrapperRef = React.createRef();
   const { addressPopup, setAddressPopup, setModal } = useModalContext();
-
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setAddressPopup(false);
-    }
-  };
 
   const handleClick = () => {
     setModal(false);
     setAddressPopup(false);
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   const addressFormJsx = <AddressForm handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
-      <Modal show={addressPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
+      <Modal onClickOut={handleClick} show={addressPopup} bodyClassName="SmallWidth">
         <Container>
           <AddressHeader handleClick={handleClick} />
           {addressFormJsx}

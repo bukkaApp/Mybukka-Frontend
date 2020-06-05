@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
-import Modal from 'Components/modal/Modal';
+import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
 import { useModalContext } from '../../context/ModalContext';
 
@@ -21,36 +21,23 @@ const PaymentHeader = ({ handleClick }) => (
 );
 
 const Payment = (props) => {
-  const wrapperRef = React.createRef();
   const { paymentPopup, setPaymentPopup, paymentSecurityPopup, setPaymentSecurityPopup, setModal } = useModalContext();
-
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setModal(false);
-      setPaymentPopup(false);
-    }
-  };
 
   const requestSecurityPopup = () => {
     if (!props.withModal) setModal(true);
     if (!paymentSecurityPopup) setPaymentSecurityPopup(true);
   };
 
-  const handleClick = (excl) => {
-    if (excl && props.withModal) setModal(false);
+  const handleClick = (incl) => {
+    if (incl && props.withModal) setModal(false);
     setPaymentPopup(false);
   };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
 
   const paymentFormJsx = <PaymentForm requestSecurityPopup={requestSecurityPopup} handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
-      <Modal show={paymentPopup} bodyClassName="SmallWidth" ref={wrapperRef}>
+      <Modal show={paymentPopup} bodyClassName="SmallWidth" onClickOut={() => handleClick(true)} >
         <Container classNames="Payment-Wrapper">
           <PaymentHeader handleClick={() => handleClick(true)} />
           {paymentFormJsx}
