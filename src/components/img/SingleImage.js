@@ -4,7 +4,7 @@ import { useCloudinayService } from '../../components/img/Cloudinary';
 
 const altSrc = 'https://res.cloudinary.com/dn93xk5ni/image/upload/v1550329338/download_tp7v0d.png';
 
-const SingleImage = ({ src, srcSet = altSrc, options, className, alt, name, ...props }) => {
+const SingleImage = ({ src = altSrc, options, className, alt, name, ...props }) => {
   const { domain, supports } = useCloudinayService();
   const [state, setState] = useSessionStorage(name || alt, false);
 
@@ -21,7 +21,7 @@ const SingleImage = ({ src, srcSet = altSrc, options, className, alt, name, ...p
     return true;
   });
 
-  const [storageClienId, imageInfoWithExt] = (src && src.replace(domain, '').split('upload')) || srcSet;
+  const [storageClienId, imageInfoWithExt] = src ? src.replace(domain, '').split('upload') : altSrc;
   const imageInfo = imageInfoWithExt.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');
 
   const newProps = { ...props };
