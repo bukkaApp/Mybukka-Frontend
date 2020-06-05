@@ -21,7 +21,7 @@ const SingleImage = ({ src = altSrc, options, className, alt, name, ...props }) 
     return true;
   });
 
-  const [storageClienId, imageInfoWithExt] = (src && src.replace(domain, '').split('upload'));
+  const [storageClienId, imageInfoWithExt] = src ? src.replace(domain, '').split('upload') : altSrc;
   const imageInfo = imageInfoWithExt.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');
 
   const newProps = { ...props };
