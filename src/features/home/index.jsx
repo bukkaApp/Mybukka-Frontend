@@ -1,7 +1,5 @@
-import React, { Fragment } from 'react';
-
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Footer from 'Components/footer/Footer';
 import IntroSection from './components/IntroSection';
@@ -13,25 +11,58 @@ import ChooseAreaToExploreSection
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-import fetchBukkasAction from '../feed/actionCreators/fetchBukkas';
-import getPromotedBukkasAction from '../feed/actionCreators/getPromotedBukkas';
-import getRestaurantCuisineAction from '../feed/actionCreators/getRestaurantCuisineAction';
 import useUpdateEffect from '../../hooks/useUpdateEffect';
+import useApi from '../../shared/api';
+import { useBusinessesContext } from '../../context/BusinessesContext';
 
-const Home = React.memo(({
-  history: { push },
-  fetchNearbyBukkas,
-  getPromotedBukkas,
-  getRestaurantCuisine,
-}) => {
-  const { coordinates } = useLocationContext();
+const fetched = { food: null, businessGroup: null, categories: null };
+
+const Home = () => {
+  const [hasMounted, setMounted] = useState(null);
+
+  const { push } = useHistory();
+  const { API } = useApi();
+  const { coordinates, setCurrentLocation } = useLocationContext();
+  const { setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
+
+  useEffect(() => {
+    setCurrentLocation();
+  }, []);
 
   useUpdateEffect(() => {
-    new Promise(async (resolve) => {
-      resolve(fetchNearbyBukkas(coordinates));
-    }).then(() => getRestaurantCuisine(coordinates))
-      .then(() => getPromotedBukkas(coordinates))
-      .then(() => push('/feed', { showMap: true }));
+    const setter = (res, type, hasError = false) => {
+      fetched[type] = true;
+      const data = hasError ? (res.response.data || res) : res.data;
+      if (type === 'food') setBusinesses(data, hasError);
+      if (type === 'businessGroup') setBusinessGroup(data, hasError);
+      if (type === 'categories') setBusinessCategories(data, hasError);
+      if (fetched.food && fetched.businessGroup && fetched.categories && hasMounted) {
+        push('/feed', { showMap: true, fetched: true });
+      }
+    };
+
+    const getNearbyFoodBusiness = () => {
+      API.businesses.get('type=food')
+        .then(res => setter(res, 'food'))
+        .catch(() => push('/coming-soon'));
+    };
+
+    const getNearbyBusinessGroup = () => {
+      API.businessGroup.get()
+        .then(res => setter(res, 'businessGroup'))
+        .catch(err => setter(err, 'businessGroup', true));
+    };
+
+    const getNearbyBusinessCategory = () => {
+      API.businessCategories.get()
+        .then(res => setter(res, 'categories'))
+        .catch(err => setter(err, 'categories', true));
+    };
+
+    getNearbyFoodBusiness();
+    getNearbyBusinessGroup();
+    getNearbyBusinessCategory();
+    setMounted(true);
   }, [coordinates]);
 
   return (
@@ -45,26 +76,12 @@ const Home = React.memo(({
       </div>
     </Fragment>
   );
-});
+};
 
-export default connect(
-  () => ({}),
-  {
-    fetchNearbyBukkas: fetchBukkasAction,
-    getPromotedBukkas: getPromotedBukkasAction,
-    getRestaurantCuisine: getRestaurantCuisineAction
-  },
-)(Home);
+export default Home;
 
 Home.defaultProps = {
   errorMessage: '',
 };
 
-Home.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-  fetchNearbyBukkas: PropTypes.func.isRequired,
-  getPromotedBukkas: PropTypes.func.isRequired,
-  getRestaurantCuisine: PropTypes.func.isRequired,
-};
+Home.propTypes = {};

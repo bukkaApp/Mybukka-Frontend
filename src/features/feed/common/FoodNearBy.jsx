@@ -27,6 +27,9 @@ const FoodNearBy = ({
   errorMessage,
   fetchBukkaMenu,
   fetchBukka,
+  noMargin,
+  onMouseEnter,
+  onMouseLeave
 }) => {
   const { push } = useHistory();
   const { coordinates } = useLocationContext();
@@ -61,7 +64,7 @@ const FoodNearBy = ({
   };
 
   return (
-    <div className="mt-4 mb-4">
+    <div className={!(noMargin && 'mt-4 mb-4') || ''}>
       {title && (
         <Headline handleRefFocus={handleRefFocus} title={title} activeIndex={1} />
       )}
@@ -97,6 +100,8 @@ const FoodNearBy = ({
                   rating={bukka.rating}
                   imageHeight="img-fluid"
                   classNames={classNames}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
                   href={`/bukka/${bukka.slug}`}
                 />
               ))}

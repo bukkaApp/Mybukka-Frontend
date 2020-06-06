@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
 
-import Carousel from 'Components/Carousel/Carousel';
+import PropTypes from 'prop-types';
 
+import Carousel from 'Components/Carousel/Carousel';
+import { connect } from 'react-redux';
+
+import { useHistory } from 'react-router-dom';
 import bukkaData from './bukkaData.json';
 
 const renameCategory = name => (
@@ -9,29 +13,39 @@ const renameCategory = name => (
     'New on Bukka' : name
 );
 
-const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
-  <Fragment>
-    <div className="carousel-divider" />
-    <div className="pt-0 p-sm-3" />
-    <Carousel
-      container="container-padding"
-      noOfImagesShown={2}
-      xl={2}
-      title="Featured"
-      carouselType="collection"
-      textOverlay
-      top
-      push={push}
-      slideItems={bukkaData}
-      imageHeight="img-fluid"
-      classNames="col-lg-6 col-md-6 col-sm-11 col-11"
-    />
-    <div className="carousel-divider" />
-    {
-      (promotedBukkas && promotedBukkas.length > 0) &&
-      promotedBukkas.map(promoBukkas => (
-        promoBukkas.category.length > 0 ?
-          <Fragment key={`promo-${promoBukkas.name}-${promoBukkas._id}`}>
+const BukkasToExploreSection = ({
+  partners,
+  catelogs,
+  mode,
+  displayMap,
+}) => {
+  const { push } = useHistory();
+
+  return (
+    !displayMap &&
+    <Fragment>
+      <div className="carousel-divider" />
+      <div className="pt-0 p-sm-3" />
+      {mode === 'delivery' &&
+      <Carousel
+        container="container-padding"
+        noOfImagesShown={2}
+        xl={2}
+        title="Featured"
+        carouselType="collection"
+        textOverlay
+        top
+        push={push}
+        slideItems={bukkaData}
+        imageHeight="img-fluid"
+        classNames="col-lg-6 col-md-6 col-sm-11 col-11"
+      />}
+
+      {/* Partners */}
+      <div className="carousel-divider" />
+      {(partners && partners.length > 0) && partners.map(partner => (
+        partner.category.length > 0 ?
+          <Fragment key={`promo-${partner.name}-${partner._id}`}>
             <Carousel
               container="container-padding"
               delivery
@@ -41,45 +55,60 @@ const BukkasToExploreSection = ({ push, promotedBukkas, fetchedCuisines }) => (
               md={2}
               sm={1}
               push={push}
-              placeId={promoBukkas._id}
-              description={promoBukkas.description}
-              numberOfViews={promoBukkas.numItems}
-              title={renameCategory(promoBukkas.name)}
-              slideItems={promoBukkas.category}
+              placeId={partner._id}
+              description={partner.description}
+              numberOfViews={partner.numItems}
+              title={renameCategory(partner.name)}
+              slideItems={partner.category}
               controlClassNames="custom-mt-minus22"
               imageHeight="img-fluid"
               classNames="col-xl-4 col-md-6 col-sm-11 col-11"
             />
             <div className="carousel-divider" />
           </Fragment> : null
-      ))
-    }
-    {(fetchedCuisines && fetchedCuisines.length > 0) &&
-    <Fragment>
-      <Carousel
-        container="container-padding"
-        type="majorCuisine"
-        noOfImagesShown={5}
-        xl={5}
-        lg={4}
-        md={4}
-        sm={2}
-        textOverlay
-        push={push}
-        carouselType="cuisine"
-        textPositionBottom
-        title="Top Categories"
-        imageHeight="img-fluid"
-        slideItems={fetchedCuisines}
-        classNames="col-lg-3 col-md-3 col-sm-5 col-5 touchdown"
-      />
-      <div className="carousel-divider" />
+      ))}
+
+      {/* TOp Categories */}
+      {(catelogs && catelogs.length > 0) &&
+      <Fragment>
+        <Carousel
+          container="container-padding"
+          type="majorCuisine"
+          noOfImagesShown={5}
+          xl={5}
+          lg={4}
+          md={4}
+          sm={2}
+          textOverlay
+          push={push}
+          carouselType="cuisine"
+          textPositionBottom
+          title="Top Categories"
+          imageHeight="img-fluid"
+          slideItems={catelogs}
+          classNames="col-lg-3 col-md-3 col-sm-5 col-5 touchdown"
+        />
+        <div className="carousel-divider" />
+      </Fragment>}
+
     </Fragment>
-    }
+  );
+};
 
-  </Fragment>
-);
+const mapStateToProps = ({
+  promotionReducer: { fetchedBukkas: partners },
+  businessGroupReducer: { fetchedBukkas: catelogs },
+  deliveryModeReducer: { mode },
+}) => ({
+  catelogs,
+  partners,
+  mode,
+});
 
-export default BukkasToExploreSection;
+export default connect(mapStateToProps)(BukkasToExploreSection);
 
-BukkasToExploreSection.propTypes = {};
+BukkasToExploreSection.propTypes = {
+  fetchedBukkas: PropTypes.shape({
+    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
+  }).isRequired,
+};

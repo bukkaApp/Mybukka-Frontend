@@ -17,7 +17,7 @@ const getPromotedBukkas = coordinates => async (dispatch) => {
     dispatch(getPromotedBukkasAction('SUCCESS', request.data));
   } catch (error) {
     dispatch(loading(FETCH_PROMOTED_BUKKAS, false));
-    dispatch(getPromotedBukkasAction('ERROR', error.response.data));
+    dispatch(getPromotedBukkasAction('ERROR', error.response ? error.response.data : { message: '' }));
   }
 };
 

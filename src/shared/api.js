@@ -3,6 +3,7 @@ import { TrackJS } from 'trackjs';
 import React, { useEffect } from 'react';
 import { useToastContext } from '../context/ToastContext';
 import { useUserContext } from '../context/UserContext';
+import { useLocationContext } from '../context/LocationContext';
 
 const { NODE_ENV } = process.env;
 const PORT = process.env.PORT || '1234';
@@ -37,6 +38,8 @@ const createHyperlinkedEndpoint = endpoint => ({
 const useApi = () => {
   const { setToast } = useToastContext();
   const { token } = useUserContext();
+  const { coordinates } = useLocationContext();
+  const byLocaton = `longitude=${coordinates[0]}&lattitude=${coordinates[1]}`;
 
   useEffect(() => {
     let interceptor;
@@ -95,7 +98,12 @@ const useApi = () => {
     authToken: { post: data => axiosInstance.post('user/signin', data) },
     card: createEndpoint('card/$id/'),
     payment: createEndpoint('pay/$id/'),
+    menus: createEndpoint('menu/$id/'), // $id => /menu/bukkaId?type=${type}
+    business: createEndpoint('bukka/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
+    businesses: createEndpoint(`bukka/nearby?$id&${byLocaton}`),
+    businessGroup: createEndpoint(`place-group/items?${byLocaton}`),
+    businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
     profile: createEndpoint('user/profile/$id/'),
     register: { post: data => axiosInstance.post('user/signup', data) },
     verify: { post: (data, type) => axiosInstance.post(`verify/${type}/`, data) },

@@ -8,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* Import copy-webpack-plugin */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
+// const BrotliPlugin = require('brotli-webpack-plugin');
 
 const CopyPlugin = new CopyWebpackPlugin({
   patterns: [
@@ -77,25 +77,25 @@ module.exports = {
     },
   },
   plugins: [
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: false,
-    }),
-    new BrotliPlugin({
-      filename: '[path].br[query]',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        level: 11,
-      },
-      threshold: 10240,
-      minRatio: 0.7,
-      deleteOriginalAssets: false,
-    }),
+    // new CompressionPlugin({
+    //   filename: '[path].gz[query]',
+    //   algorithm: 'gzip',
+    //   test: /\.js$|\.css$|\.html$/,
+    //   threshold: 10240,
+    //   minRatio: 0.8,
+    //   deleteOriginalAssets: false,
+    // }),
+    // new BrotliPlugin({
+    //   filename: '[path].br[query]',
+    //   algorithm: 'brotliCompress',
+    //   test: /\.(js|css|html|svg)$/,
+    //   compressionOptions: {
+    //     level: 11,
+    //   },
+    //   threshold: 10240,
+    //   minRatio: 0.7,
+    //   deleteOriginalAssets: false,
+    // }),
     new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,

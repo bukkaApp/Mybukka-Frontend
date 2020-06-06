@@ -2,7 +2,7 @@
 import React, { memo, useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import Navlink from 'Components/navlink/Navlink';
+import { Link } from 'react-router-dom';
 import generateImageSize from 'Utilities/generateScreenSizeImageUrl';
 
 import Kit from './Kit';
@@ -119,14 +119,18 @@ const BukkaCard = ({
   );
 };
 
-const GetBukka = ({ classNames, href, ...props }) => (
+const GetBukka = ({ classNames, href, onMouseEnter, onMouseLeave, ...props }) => (
   <div className={`card-container ${classNames}`}>
     <div className="card-wrap">
       {href &&
-        <Navlink classNames="link" href={href}>
+        <Link
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          className="link"
+          to={href}
+        >
           <BukkaCard {...props} />
-        </Navlink>
-      }
+        </Link>}
       {!href && <BukkaCard {...props} />}
     </div>
   </div>
