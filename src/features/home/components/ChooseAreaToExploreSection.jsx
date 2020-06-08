@@ -1,12 +1,12 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import Navlink from 'Components/navlink/Navlink';
+import Navlink from '../../../components/navlink/Navlink';
 
 import useAutocompleteService from '../../../hooks/useAutocompleteService';
 
 import './chooseAreaToExplore.scss';
+import { useLocationContext } from '../../../context/LocationContext';
 
 const mockAreas = [
   { href: '/', text: 'Wilmer Street Ilupeju', id: '11' },
@@ -28,27 +28,27 @@ const mockAreas = [
 ];
 
 const AreasToExploreList = ({ areas }) => {
+  const { setUpdate } = useLocationContext();
   const callback = null, showLoading = true;
   const { handleClick } = useAutocompleteService(callback, showLoading);
+
+  const onClick = (e, text) => {
+    e.preventDefault();
+    setUpdate(true);
+    handleClick(text);
+  };
 
   return (
     <div className="area-to-explore-list">
       <div className="row">
         {areas.map(area => (
-          <div
-            onClick={() => handleClick(area.text)}
-            role="button"
-            tabIndex="0"
-            aria-pressed="false"
-            className="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section"
-            key={area.id}
+          <Navlink
+            onClick={e => onClick(e, area.text)}
+            href={area.href}
+            classNames="col col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 list-section"
           >
-            <Navlink
-              href={area.href}
-              text={area.text}
-              classNames="area-link"
-            />
-          </div>
+            <span className="area-link">{area.text}</span>
+          </Navlink>
         ))}
       </div>
     </div>

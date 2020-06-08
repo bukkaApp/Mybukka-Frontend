@@ -60,6 +60,7 @@
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
+    "scheduler": "^0.19.1",
     "serviceworker-webpack-plugin": "^1.0.1",
     "shortid": "^2.2.14",
     "superagent": "^4.1.0",

@@ -37,7 +37,7 @@ const ProfileScene = ({
     } catch (error) {
       if (errorHandler) errorHandler(null);
       if (showError && error.response && error.response.status === 404) setToast({ message: error.response.data.message, type: 'error' });
-      loading('USER', false);
+      loading(false);
     }
   };
 

@@ -25,7 +25,7 @@ const PrivateRoute = (props) => {
     } catch (error) {
       if (errorHandler) errorHandler(null);
       if (showError && error.response && error.response.status === 404) setToast({ message: error.response.data.message, type: 'error' });
-      loading('USER', false);
+      loading(false);
     }
   };
 
@@ -50,11 +50,11 @@ const PrivateRoute = (props) => {
     const getUser = () => tryCatch(API.profile.get, res => setProfile(res.userInfo));
     const getAddress = () => tryCatch(API.address.get, res => setAddress(res.foundAddress), true, setAddress);
     const getPaymentCard = () => tryCatch(API.card.get, res => setCard(res.foundCard), true, setCard);
-    loading('USER', true);
+    loading(true);
     getUser();
     getAddress();
     getPaymentCard();
-    loading('USER', false);
+    loading(false);
   }, [token]);
 
   return <Route {...props} />;

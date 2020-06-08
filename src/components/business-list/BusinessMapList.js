@@ -1,14 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
+
+// import SmallSpinner from '../spinners/SmallSpinner';
 import Row from '../grid/Row';
 import Container from '../container/Container';
 import BukkaCard from '../Carousel/BukkaCard';
-import Headline from '../Carousel/Headline';
 import Map from '../map';
 import { useBusinessContext } from '../../context/BusinessContext';
 import { useBusinessesContext } from '../../context/BusinessesContext';
 import useApi from '../../shared/api';
+import { useBusinessListContext } from '../../context/BusinessListContext';
 
 import './BusinessList.scss';
 
@@ -22,15 +24,16 @@ const Spinner = () => (
 
 const BusinessList = () => {
   const { API } = useApi();
+  const { setHoveredBusiness } = useBusinessListContext();
   const { setBusiness } = useBusinessContext();
   const { businesses, errorMessage, currentPage, setBusinessesPagination } = useBusinessesContext();
 
   const hasError = errorMessage !== 'There are currently no bukkas in your location';
   const { push } = useHistory();
-  const handleMoreBusiness = () => {
+
+  const handleMoreBusinesses = () =>
     API.businesses.get(`page=${Number(currentPage) + 1}`)
       .then(res => setBusinessesPagination(res.data));
-  };
 
   const handleRouteToMerchant = (event, bukka) => {
     event.preventDefault();
@@ -68,12 +71,11 @@ const BusinessList = () => {
 
   return (
     <React.Fragment>
-      <div className="mt-5">
-        <Headline title="Nearby" activeIndex={1} />
+      <div className="Food-Nearby-Wrapper">
         <Container>
           {(businesses && businesses.length > 0) && (
             <InfiniteScroll
-              loadMore={handleMoreBusiness}
+              loadMore={handleMoreBusinesses}
               hasMore={hasError}
               loader={<Spinner />}
               useWindow
@@ -91,7 +93,9 @@ const BusinessList = () => {
                     deliveryTime={decodeDeliveryTime(bukka)}
                     rating={bukka.rating}
                     imageHeight="img-fluid"
-                    classNames="col-xl-4 col-md-6 col-sm-12"
+                    classNames="col-12"
+                    onMouseEnter={() => setHoveredBusiness(bukka)}
+                    onMouseLeave={() => setHoveredBusiness(null)}
                     href={`/bukka/${bukka.slug}`}
                   />
                 ))}

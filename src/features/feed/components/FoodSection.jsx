@@ -26,16 +26,18 @@ import { foodBannerImage } from '../img/imgLinks';
 import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
 import getRestaurantCuisineAction from '../actionCreators/getRestaurantCuisineAction';
 import './FoodSection.scss';
+import { useBusinessesContext } from '../../../context/BusinessesContext';
 
 const FoodSection = ({
   fetchedBukkas: { nearbyBukkas },
-  fetchNearbyBukkas,
-  errorMessage,
-  loading,
-  getPromoBukkas,
-  getRestaurantCuisine,
+  // fetchNearbyBukkas,
+  // errorMessage,
+  // loading,
+  // getPromoBukkas,
+  // getRestaurantCuisine,
 }) => {
   const { push } = useHistory();
+  const { businesses } = useBusinessesContext();
   const { coordinates } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
@@ -45,30 +47,30 @@ const FoodSection = ({
     }
   }, [coordinates]);
 
-  useEffect(() => {
-    const __refetchItems = () => {
-      const hasntFetched = nearbyBukkas.length === 0 && !errorMessage;
-      const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
-      if (hasntFetched && hasLoadedValidCoordinates) {
-        new Promise((resolve) => {
-          resolve(getPromoBukkas(coordinates));
-        }).then(() => fetchNearbyBukkas(coordinates))
-          .then(() => getRestaurantCuisine(coordinates));
-      }
-    };
-    __refetchItems();
-  }, [nearbyBukkas]);
+  // useEffect(() => {
+  //   const __refetchItems = () => {
+  //     const hasntFetched = nearbyBukkas.length === 0 && !errorMessage;
+  //     const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
+  //     if (hasntFetched && hasLoadedValidCoordinates) {
+  //       new Promise((resolve) => {
+  //         resolve(getPromoBukkas(coordinates));
+  //       }).then(() => fetchNearbyBukkas(coordinates))
+  //         .then(() => getRestaurantCuisine(coordinates));
+  //     }
+  //   };
+  //   __refetchItems();
+  // }, [nearbyBukkas]);
 
-  const hasFetchedButEmpty = nearbyBukkas.length === 0 && errorMessage;
-  const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
-  if (hasFetchedButEmpty && hasLoadedValidCoordinates) {
-    return <NoNearByBukkaLocation history={{ push }} />;
-  }
+  // const hasFetchedButEmpty = nearbyBukkas.length === 0 && errorMessage;
+  // const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
+  // if (hasFetchedButEmpty && hasLoadedValidCoordinates) {
+  //   return <NoNearByBukkaLocation history={{ push }} />;
+  // }
 
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />
-      {nearbyBukkas.length > 0 && (
+      {businesses.length > 0 && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>

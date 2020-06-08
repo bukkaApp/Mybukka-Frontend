@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { GoogleMap, Marker, OverlayView, /* useLoadScript, */ } from '@react-google-maps/api';
 import { useLocationContext } from '../../context/LocationContext';
 import ClickOut from '../ClickOut/ClickOut';
@@ -8,12 +7,14 @@ import mapStyles from '../../shared/mapStyles.json';
 import marker from '../../assets/marker.svg';
 import './map.scss';
 import { useMapContext } from '../../context/MapContext';
+import { useBusinessesContext } from '../../context/BusinessesContext';
+import { useBusinessContext } from '../../context/BusinessContext';
 
-const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
-  // const [showInfo, setShowInfo] = useState(false);
-  // const [locations, setLocations] = useState([]);
+const Map = ({ useBusinesses, zoom }) => {
   const { isLoaded, hasMap, setMapVisibility } = useMapContext();
+  const { businesses } = useBusinessesContext();
   const { coordinates, } = useLocationContext();
+  const { business } = useBusinessContext();
   const { store, setHoveredStore } = useBusinessListContext();
   const [selectedLocation, setSelectedLocation] = useState({
     name: '',
@@ -37,7 +38,6 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
   }, [store, isSelfHovered]);
 
   const handleMarkerClick = (loc) => {
-    console.log('---loc--------', loc);
     const { _id, description, name, headerImg } = loc;
     setSelectedLocation({
       _id,
@@ -77,11 +77,13 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
     setMapVisibility(true);
   }, [hasMap]);
 
+  // images edit
   const edit = 'c_scale,e_auto_color,fl_keep_attribution.progressive:steep,h_50,w_50,o_100,r_25';
-  const { coordinates: businessLoc, logoImg, name } = fetchedBukka;
-  let img = (fetchedBukka.logoImg && logoImg.split('upload')) || null;
+  const { coordinates: businessLoc, logoImg, imageUrl, name } = business;
+  let img = (business.logoImg && logoImg.split('upload')) || (business.imageUrl && imageUrl.split('upload')) || null;
   let businessLocs = businessLoc || [3.356172, 6.5419876];
 
+  // single business data
   let locations = [{
     text: (name && name.length) ? name : '',
     icon: img ? `${img[0]}upload/${edit}${img[1]}`.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '.png') : marker,
@@ -89,16 +91,18 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
     coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
   }];
 
-  if (useBusinesses && nearbyBukkas.length > 0) {
-    locations = nearbyBukkas.map((bukka, ind) => {
+  // busniesses data
+  if (useBusinesses && businesses.length > 0) {
+    locations = businesses.map((bukka, ind) => {
       const { location: { coordinates: coords } } = bukka;
       businessLocs = coords || [3.356172, 6.5419876];
-      img = (bukka.logoImg && bukka.logoImg.split('upload')) || null;
+      img = (bukka.logoImg && logoImg.split('upload')) || (bukka.imageUrl && imageUrl.split('upload')) || null;
+      // img = (bukka.logoImg && bukka.logoImg.split('upload')) || null;
       return ({
         ...bukka,
         text: bukka.name || '',
         icon: img ? `${img[0]}upload/${edit}${img[1]}` : marker,
-        labelOrigin: { x: 70 + ind, y: 14 },
+        labelOrigin: { x: 70 + ind, y: 14 + ind },
         coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
       });
     });
@@ -116,7 +120,7 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
     mapContainerClassName="Map"
     zoom={zoom || (lng === 10.205347 ? 6 : 12)}
     center={centerZoom || { lng, lat }}
-    options={{ styles: mapStyles, gestureHandling: 'greedy' }}
+    options={{ styles: mapStyles, gestureHandling: 'greedy', }}
   >
     {locations.map(loc =>
       (<Marker
@@ -125,24 +129,25 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
         icon={{
           url: loc.icon,
           scaledSize: {
-            height: (isHovered(loc) && !isSelfHovered) ? 50 : 30,
-            width: (isHovered(loc) && !isSelfHovered) ? 50 : 30
+            height: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
+            width: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
+            'z-index': (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
           },
           labelOrigin: loc.labelOrigin,
         }}
-        animation={(isHovered(loc) && !isSelfHovered) ? 3 : null}
+        animation={(useBusinesses && isHovered(loc) && !isSelfHovered) ? 3 : null}
         label={{
           text: loc.text,
           fontWeight: 'bold',
-          fontSize: `${(isHovered(loc) && !isSelfHovered) ? '16px' : '12px'}`,
+          fontSize: `${(useBusinesses && isHovered(loc) && !isSelfHovered) ? '16px' : '12px'}`,
         }}
-        onClick={() => handleMarkerClick(loc)}
-        onMouseOver={() => handleSelfHovering(loc)}
+        onClick={() => (useBusinesses && handleMarkerClick(loc))}
+        onMouseOver={() => (useBusinesses && handleSelfHovering(loc))}
         onMouseOut={() => handleSelfHovering(null)}
       />)
     )}
 
-    {showOverlay && <OverlayView
+    {(useBusinesses && showOverlay) && <OverlayView
       position={{ lng: selectedLocation.longitude, lat: selectedLocation.latitude }}
       mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
     >
@@ -162,12 +167,4 @@ const Map = ({ useBusinesses, nearbyBukkas, fetchedBukka, zoom }) => {
 };
 
 
-const mapStateToProps = ({
-  businessReducer: { fetchedBukka },
-  businessesReducer: { fetchedBukkas: { nearbyBukkas } },
-}) => ({
-  fetchedBukka,
-  nearbyBukkas,
-});
-
-export default connect(mapStateToProps)(Map);
+export default Map;

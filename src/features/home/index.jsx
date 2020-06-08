@@ -1,42 +1,45 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { Fragment, useEffect } from 'react';
 
 import Footer from 'Components/footer/Footer';
 import IntroSection from './components/IntroSection';
 import DiscoverSection from './components/DiscoverSection';
 
+import useHistory from '../../hooks/useHistory';
 import { useLocationContext } from '../../context/LocationContext';
 import ChooseAreaToExploreSection
   from './components/ChooseAreaToExploreSection';
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
-import useUpdateEffect from '../../hooks/useUpdateEffect';
 import useApi from '../../shared/api';
 import { useBusinessesContext } from '../../context/BusinessesContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
-const fetched = { food: null, businessGroup: null, categories: null };
+let fetched = { food: null, businessGroup: null, categories: null };
 
 const Home = () => {
-  const [hasMounted, setMounted] = useState(null);
-
   const { push } = useHistory();
   const { API } = useApi();
-  const { coordinates, setCurrentLocation } = useLocationContext();
+  const { loading } = useLoadingContext();
+  const { coordinates, setCurrentLocation, updated, setUpdate } = useLocationContext();
   const { setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
 
   useEffect(() => {
     setCurrentLocation();
+    setUpdate(null);
   }, []);
 
-  useUpdateEffect(() => {
+  useEffect(() => {
+    if (!updated || !coordinates.length) return;
+
+    loading(true);
     const setter = (res, type, hasError = false) => {
       fetched[type] = true;
       const data = hasError ? (res.response.data || res) : res.data;
       if (type === 'food') setBusinesses(data, hasError);
       if (type === 'businessGroup') setBusinessGroup(data, hasError);
       if (type === 'categories') setBusinessCategories(data, hasError);
-      if (fetched.food && fetched.businessGroup && fetched.categories && hasMounted) {
+      if (fetched.food && fetched.businessGroup && fetched.categories) {
         push('/feed', { showMap: true, fetched: true });
       }
     };
@@ -62,7 +65,12 @@ const Home = () => {
     getNearbyFoodBusiness();
     getNearbyBusinessGroup();
     getNearbyBusinessCategory();
-    setMounted(true);
+
+    return () => {
+      fetched = { food: null, businessGroup: null, categories: null };
+      loading(false);
+      setUpdate(null);
+    };
   }, [coordinates]);
 
   return (

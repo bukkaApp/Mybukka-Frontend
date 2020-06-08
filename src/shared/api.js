@@ -108,7 +108,7 @@ const useApi = () => {
     register: { post: data => axiosInstance.post('user/signup', data) },
     verify: { post: (data, type) => axiosInstance.post(`verify/${type}/`, data) },
     socialAuth: { post: data => axiosInstance.post('user/social/auth', data) },
-  }), []);
+  }), [coordinates]);
 
   return { API, axiosInstance };
 };

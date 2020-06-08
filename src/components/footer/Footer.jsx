@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UrlLists from '../list/UrlLists';
 
 import './footer.scss';
+import useHistory from '../../hooks/useHistory';
 
 const customUrlListsProps = {
   links: [
@@ -72,64 +73,73 @@ const Top = () => {
   );
 };
 
-const Footer = () => (
-  <div className="footer">
-    <div className="container">
-      <Top />
-      <div className="row navs">
-        <div className="footer-brand-section col-sm-12 col-md-12 col-lg-2">
-          <h4 className="footer-brand-name">Mybukka</h4>
-        </div>
+const Footer = () => {
+  const { push } = useHistory();
 
-        <div className="col-sm-12 col-md-12 col-lg-10">
-          <div className="custom-nav row">
-            <div className="nav-section col">
-              <h4 className="nav-title">MYBUKKA</h4>
-              <UrlLists
-                links={customUrlListsProps.links}
-                classNames="list-item-white"
-              />
-            </div>
-            <div className="nav-section col">
-              <h4 className="nav-title">PARTNERS</h4>
-              <UrlLists
-                links={customUrlListsProps.partners}
-                classNames="list-item-white"
-              />
-            </div>
-            <div className="nav-section col">
-              <h4 className="nav-title">FLEET</h4>
-              <UrlLists
-                links={customUrlListsProps.links}
-                classNames="list-item-white"
-              />
-            </div>
-            <div className="nav-section col">
-              <h4 className="nav-title">FOLLOW US</h4>
-              <UrlLists
-                links={customUrlListsProps.links}
-                classNames="list-item-white"
-              />
-            </div>
-            <div className="nav-section col">
-              <h4 className="nav-title">CITIES</h4>
-              <UrlLists
-                links={customUrlListsProps.links}
-                classNames="list-item-white"
-              />
+  const onClick = (e, url) => {
+    e.preventDefault();
+    push(url);
+  };
+
+  return (
+    <div className="footer">
+      <div className="container">
+        <Top />
+        <div className="row navs">
+          <div className="footer-brand-section col-sm-12 col-md-12 col-lg-2">
+            <h4 className="footer-brand-name">Mybukka</h4>
+          </div>
+
+          <div className="col-sm-12 col-md-12 col-lg-10">
+            <div className="custom-nav row">
+              <div className="nav-section col">
+                <h4 className="nav-title">MYBUKKA</h4>
+                <UrlLists
+                  links={customUrlListsProps.links}
+                  classNames="list-item-white"
+                />
+              </div>
+              <div className="nav-section col">
+                <h4 className="nav-title">PARTNERS</h4>
+                <UrlLists
+                  links={customUrlListsProps.partners}
+                  classNames="list-item-white"
+                />
+              </div>
+              <div className="nav-section col">
+                <h4 className="nav-title">FLEET</h4>
+                <UrlLists
+                  links={customUrlListsProps.links}
+                  classNames="list-item-white"
+                />
+              </div>
+              <div className="nav-section col">
+                <h4 className="nav-title">FOLLOW US</h4>
+                <UrlLists
+                  links={customUrlListsProps.links}
+                  classNames="list-item-white"
+                />
+              </div>
+              <div className="nav-section col">
+                <h4 className="nav-title">CITIES</h4>
+                <UrlLists
+                  links={customUrlListsProps.links}
+                  classNames="list-item-white"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="copyright-text text-center">
-        <p>©2019 MYBUKKA INC TERMS PRIVACY</p>
-        <div className="text-center">
-          <Link to="/legal/terms" className="px-2">Terms</Link>
-          <Link to="/legal/privacy" className="px-2">Privacy</Link>
+        <div className="copyright-text text-center">
+          <p>©2019 MYBUKKA INC TERMS PRIVACY</p>
+          <div className="text-center">
+            <Link onClick={e => onClick(e, '/legal/terms')} to="/legal/terms" className="px-2">Terms</Link>
+            <Link onClick={e => onClick(e, '/legal/privacy')} to="/legal/privacy" className="px-2">Privacy</Link>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Footer;

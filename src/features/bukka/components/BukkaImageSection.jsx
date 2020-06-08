@@ -14,7 +14,7 @@ const BukkaImage = ({ src }) => {
   const width = window.innerWidth;
 
   // lower Quality and standard quality
-  const lwQImgOption = { w: Math.floor(width / 4) };
+  const lwQImgOption = { w: Math.floor(width) };
   const StdQImgOption = { w: Math.floor(width - (width / 3)) };
   // Create an empty query string
   let queryString = '', lwQString = '', ext = 'jpg';

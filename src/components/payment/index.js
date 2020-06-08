@@ -46,13 +46,13 @@ const Payments = ({ useProfileStandard, noPadding }) => {
     const result = confirm('Want to delete?');
     if (!result) return;
     try {
-      loading('PAYMENT', true);
+      loading(true);
       const response = await API.card.delete(id);
       setCard(response.data.cards);
-      loading('PAYMENT', false);
+      loading(false);
     } catch (error) {
       setCard(error.response ? null : cards);
-      loading('PAYMENT', false);
+      loading(false);
     }
   };
 

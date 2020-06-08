@@ -44,13 +44,13 @@ const PaymentGateway = () => {
   const saveCardAndClosePopup = (response) => {
     setCard(response.data.newCard);
     setPayment(null);
-    loading('PAYMENT', false);
+    loading(false);
     handleClick();
   };
 
   const handleSubmit = async () => {
     try {
-      loading('PAYMENT', true);
+      loading(true);
       const response = await API.card.get(state.reference);
       if (response.status === 201) return saveCardAndClosePopup(response);
       setPayment({ ...payment, ...response.data.data });

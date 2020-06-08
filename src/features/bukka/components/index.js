@@ -59,7 +59,7 @@ const BukkaMenuScene = ({
         bukkaMenu={bukkaMenu}
         currentCategory="breakfast"
       />
-      {!hasNoResult() && <BukkaDetailsSection />}
+      {!(searchQuery && hasNoResult()) && <BukkaDetailsSection />}
 
       <BukkaMeals isInSearch={isInSearch} hasNoResult={hasNoResult} searchQuery={searchQuery} />
       <Footer />

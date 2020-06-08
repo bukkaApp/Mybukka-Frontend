@@ -21,7 +21,7 @@ const reducer = (originalState, action) => {
     case `${SET_BUSINESS}_SUCCESS`:
       return {
         ...state,
-        business: action.data.fetchedBukka,
+        business: action.payload.fetchedBukka,
         status: {
           fetched: true,
           error: false
@@ -37,7 +37,7 @@ const reducer = (originalState, action) => {
           fetched: false,
           error: true,
         },
-        errorMessage: action.data.message
+        errorMessage: action.payload.message
       };
 
     default: {

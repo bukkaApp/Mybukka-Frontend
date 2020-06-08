@@ -93,16 +93,16 @@ export const LoginPage = memo(({
 
   const tryCatch = async (apiCall, data) => {
     try {
-      loading('AUTH', true);
+      loading(true);
       const response = await apiCall(data);
-      loading('AUTH', false);
+      loading(false);
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
         setVerified(response.data.user.verified);
         handleExpensiveEvents(response.data.user.verified);
       }
     } catch (error) {
-      loading('AUTH', false);
+      loading(false);
       setErrorMessage(error.response ? error.response.data.message : error.message);
     }
   };

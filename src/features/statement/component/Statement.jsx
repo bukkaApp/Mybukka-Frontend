@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState, Suspense } from 'react';
+import { unstable_scheduleCallback as defer, unstable_ImmediatePriority } from 'scheduler';
 import PropTypes from 'prop-types';
 import Loader from 'Components/loader/Loader';
 import Container from 'Components/container';
@@ -18,7 +19,10 @@ const Statement = ({ data, activePage }) => {
   const [content, setContent] = useState('');
 
   // get promised data value [[promiseValue]]
-  useEffect(() => { data.then(jsonData => setContent(jsonData)); }, [data]);
+  useEffect(() => {
+    defer(unstable_ImmediatePriority,
+      () => data.then(jsonData => setContent(jsonData)));
+  }, [data]);
 
   return (
     <Suspense fallback={<Loader />}>

@@ -113,12 +113,7 @@ const FoodNearBy = ({
   );
 };
 
-export default connect(
-  () => ({}),
-  { fetchMoreBukkas: fetchBukkas,
-    fetchBukkaMenu: fetchBukkaMenuAction,
-    fetchBukka: fetchBukkaAction, }
-)(FoodNearBy);
+export default FoodNearBy;
 
 FoodNearBy.defaultProps = {
   children: '',

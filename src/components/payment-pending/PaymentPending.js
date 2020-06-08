@@ -40,23 +40,23 @@ const PaymentPending = () => {
   const saveCardAndClosePopup = (response) => {
     setCard(response.data.newCard);
     setPayment(null);
-    loading('PAYMENT', false);
+    loading(false);
     handleClick();
   };
 
   const handleSubmit = async () => {
     setInlineLoading(true);
     try {
-      loading('PAYMENT', true);
+      loading(true);
       const response = await API.card.get(state.reference);
       if (response.status === 201) return saveCardAndClosePopup(response);
       alert('double click if you really want to close');
       setInlineLoading(false);
       setPayment({ ...payment, ...response.data.data });
-      loading('PAYMENT', false);
+      loading(false);
     } catch (error) {
       setInlineLoading(false);
-      loading('PAYMENT', false);
+      loading(false);
     }
   };
 
