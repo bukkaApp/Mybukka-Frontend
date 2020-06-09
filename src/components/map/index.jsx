@@ -79,24 +79,26 @@ const Map = ({ useBusinesses, zoom }) => {
 
   // images edit
   const edit = 'c_scale,e_auto_color,fl_keep_attribution.progressive:steep,h_50,w_50,o_100,r_25';
-  const { coordinates: businessLoc, logoImg, imageUrl, name } = business;
-  let img = (business.logoImg && logoImg.split('upload')) || (business.imageUrl && imageUrl.split('upload')) || null;
-  let businessLocs = businessLoc || [3.356172, 6.5419876];
+  let businessLocs = (business && business.coordinates) || [3.356172, 6.5419876];
+  const companyImage = () => ((business && business.logoImg) && business.logoImg);
+  const companyAltImage = () => ((business && business.imageUrl) && business.imageUrl);
+  const _img = (companyImage() || companyAltImage());
+  let img = _img ? _img.split('upload') : null;
 
   // single business data
   let locations = [{
-    text: (name && name.length) ? name : '',
+    text: business ? business.name : '',
     icon: img ? `${img[0]}upload/${edit}${img[1]}`.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '.png') : marker,
     labelOrigin: { x: 70, y: 14 },
     coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
   }];
 
   // busniesses data
-  if (useBusinesses && businesses.length > 0) {
+  if (useBusinesses && businesses) {
     locations = businesses.map((bukka, ind) => {
       const { location: { coordinates: coords } } = bukka;
       businessLocs = coords || [3.356172, 6.5419876];
-      img = (bukka.logoImg && logoImg.split('upload')) || (bukka.imageUrl && imageUrl.split('upload')) || null;
+      img = (bukka.logoImg && bukka.logoImg.split('upload')) || (bukka.imageUrl && bukka.imageUrl.split('upload')) || null;
       // img = (bukka.logoImg && bukka.logoImg.split('upload')) || null;
       return ({
         ...bukka,
@@ -131,7 +133,7 @@ const Map = ({ useBusinesses, zoom }) => {
           scaledSize: {
             height: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
             width: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
-            'z-index': (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
+            zIndex: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
           },
           labelOrigin: loc.labelOrigin,
         }}

@@ -43,7 +43,7 @@ const reducer = (originalState, action) => {
       return {
         ...state,
         message: '',
-        businesses: [],
+        businesses: null,
         status: {
           fetchedBukkas: false,
           error: true,

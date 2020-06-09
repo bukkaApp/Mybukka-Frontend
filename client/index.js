@@ -2,7 +2,7 @@ import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom';
 import { TrackJS } from 'trackjs';
 import App from '../src/root/App';
-// import Worker from './Worker';
+import Worker from './Worker';
 import './index.scss';
 
 let trackConfig = {
@@ -23,9 +23,9 @@ const rootElement = document.getElementById('root');
 
 createRoot(rootElement).render(
   <StrictMode>
-    {/* <Worker> */}
-    <App />
-    {/* </Worker> */}
+    <Worker>
+      <App />
+    </Worker>
   </StrictMode>
 );
 

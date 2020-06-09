@@ -29,7 +29,12 @@ const BusinessList = () => {
   const { push } = useHistory();
   const handleMoreBusiness = () => {
     API.businesses.get(`page=${Number(currentPage) + 1}`)
-      .then(res => setBusinessesPagination(res.data));
+      .then(res => setBusinessesPagination(res.data))
+      .catch((err) => {
+        const isError = true;
+        const data = err.response ? err.response.data : err;
+        setBusinessesPagination(data, isError);
+      });
   };
 
   const handleRouteToMerchant = (event, bukka) => {
@@ -67,7 +72,7 @@ const BusinessList = () => {
   };
 
   return (
-    <React.Fragment>
+    <section className="container px-0">
       <div className="mt-5">
         <Headline title="Nearby" activeIndex={1} />
         <Container>
@@ -102,7 +107,7 @@ const BusinessList = () => {
       <div className="Food-Map-Wrapper">
         <Map zoom={15} useBusinesses />
       </div>
-    </React.Fragment>
+    </section>
   );
 };
 

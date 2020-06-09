@@ -42,7 +42,7 @@ const BukkasToExploreSection = ({
       />}
 
       {/* Partners */}
-      <div className="carousel-divider" />
+      {!displayMap && <div className="carousel-divider" />}
       {(partners && partners.length > 0) && partners.map(partner => (
         partner.category.length > 0 ?
           <Fragment key={`promo-${partner.name}-${partner._id}`}>

@@ -22,7 +22,7 @@ const Spinner = () => (
   </div>
 );
 
-const BusinessList = () => {
+const ViewBusinessesOnMap = () => {
   const { API } = useApi();
   const { setHoveredBusiness } = useBusinessListContext();
   const { setBusiness } = useBusinessContext();
@@ -70,7 +70,7 @@ const BusinessList = () => {
   };
 
   return (
-    <React.Fragment>
+    <section className="Food-Map-Container">
       <div className="Food-Nearby-Wrapper">
         <Container>
           {(businesses && businesses.length > 0) && (
@@ -106,10 +106,10 @@ const BusinessList = () => {
       <div className="Food-Map-Wrapper">
         <Map zoom={15} useBusinesses />
       </div>
-    </React.Fragment>
+    </section>
   );
 };
 
-export default BusinessList;
+export default ViewBusinessesOnMap;
 
-BusinessList.propTypes = {};
+ViewBusinessesOnMap.propTypes = {};
