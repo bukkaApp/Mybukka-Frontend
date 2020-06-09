@@ -14,6 +14,7 @@ import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
 import { NotificationProvider } from '../context/NotificationContext';
+import { LastLocationProvider } from '../context/LastLocationContext';
 import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
 import { GlobalFormValidityReportProvider } from '../context/GlobalFormValidityReportContext';
 
@@ -28,19 +29,21 @@ const Primary = ({ children }) => (
                 <ModalProvider>
                   <DropdownProvider>
                     <CartProvider>
-                      <LoadingProvider>
-                        <MapProvider>
-                          <ToastProvider>
-                            <NotificationProvider>
-                              <GlobalFormValidityRequestProvider>
-                                <GlobalFormValidityReportProvider>
-                                  {children}
-                                </GlobalFormValidityReportProvider>
-                              </GlobalFormValidityRequestProvider>
-                            </NotificationProvider>
-                          </ToastProvider>
-                        </MapProvider>
-                      </LoadingProvider>
+                      <MapProvider>
+                        <ToastProvider>
+                          <NotificationProvider>
+                            <GlobalFormValidityRequestProvider>
+                              <GlobalFormValidityReportProvider>
+                                <LastLocationProvider>
+                                  <LoadingProvider>
+                                    {children}
+                                  </LoadingProvider>
+                                </LastLocationProvider>
+                              </GlobalFormValidityReportProvider>
+                            </GlobalFormValidityRequestProvider>
+                          </NotificationProvider>
+                        </ToastProvider>
+                      </MapProvider>
                     </CartProvider>
                   </DropdownProvider>
                 </ModalProvider>

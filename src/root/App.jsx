@@ -9,8 +9,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import reduxStore from '../redux/store';
 import Main from './Main';
-import IndeterminateProgressbar, { ProgressSwitch, ProgressBar } from
-  '../components/progress-bar/IndeterminateProgressbar';
+
+import IndeterminateProgressbar, {
+  ProgressSwitch,
+  ProgressBar,
+  IndeterminateProgressBarState
+} from '../components/progress-bar/IndeterminateProgressbar';
 
 import Toast from '../components/Toast/Toast';
 import ModalRoot from '../components/modal-root';
@@ -35,6 +39,7 @@ const App = () => {
               <IndeterminateProgressbar />
               <Secondary>
                 <Primary>
+                  <IndeterminateProgressBarState />
                   <ProgressSwitch />
                   <DownLoadApp />
                   <Toast />

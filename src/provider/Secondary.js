@@ -2,11 +2,20 @@
 import React from 'react';
 import { UserProvider } from '../context/UserContext';
 import { AddressProvider } from '../context/AddressContext';
+import { BusinessListProvider } from '../context/BusinessListContext';
+import { BusinessesProvider } from '../context/BusinessesContext';
+import { BusinessProvider } from '../context/BusinessContext';
 
 const Secondary = ({ children }) => (
   <UserProvider>
     <AddressProvider>
-      {children}
+      <BusinessesProvider>
+        <BusinessProvider>
+          <BusinessListProvider>
+            {children}
+          </BusinessListProvider>
+        </BusinessProvider>
+      </BusinessesProvider>
     </AddressProvider>
   </UserProvider>
 );

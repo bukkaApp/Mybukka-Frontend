@@ -33,10 +33,33 @@ export const ProgressSwitch = () => {
   return <ProgressBar loading={state} />;
 };
 
-const IndeterminateProgressBar = ({ loading }) => {
-  const { status: isLoading } = useLoadingContext();
-  return <ProgressBar loading={loading || isLoading} />;
+/**
+ * Note: this is manage by react context can be trigger by calling
+ *
+ * `const { loading } = useLoadingContext();`
+ *
+ * `loading(true)`
+ * @returns {jsx} jsx
+ */
+export const IndeterminateProgressBarState = () => {
+  const { status } = useLoadingContext();
+  if (status) {
+    return (
+      <div className="progress">
+        <div className="indeterminate" />
+      </div>
+    );
+  }
+  return null;
 };
+
+/**
+ * @param {props} loading
+ * Note: this is manage by Redux context and
+ * it's mostly use in the actionCreators.
+ * @returns {jsx} jsx
+ */
+const IndeterminateProgressBar = ({ loading }) => <ProgressBar loading={loading} />;
 
 const mapStateToProps = ({ loadingReducer: { status } }) => ({
   loading: status,

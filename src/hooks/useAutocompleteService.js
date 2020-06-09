@@ -55,7 +55,7 @@ const useAutocompleteService = (callback = null, withLoading = false) => {
   };
 
   const geoCodeLocation = (suggestion) => {
-    if (withLoading) loading('LOC', true);
+    if (withLoading) loading(true);
     const placeId = suggestion.place_id;
     GeoCoderService.geocode({ placeId }, async (response) => {
       const lattitude = response[0].geometry.location.lat();
@@ -64,7 +64,7 @@ const useAutocompleteService = (callback = null, withLoading = false) => {
       setInputData(suggestion.description);
       setGoogleLocation({ coordinates, suggestion });
       setFocus(false);
-      if (withLoading) loading('LOC', false);
+      if (withLoading) loading(false);
     });
   };
 
@@ -82,7 +82,7 @@ const useAutocompleteService = (callback = null, withLoading = false) => {
   };
 
   const handleClick = (predict, isGeoCode) => {
-    if (withLoading) loading('LOC', true);
+    if (withLoading) loading(true);
     const predictionDatum = predict || inputData || selectedLocation.description;
     if (!isGeoCode && predictionDatum) {
       autoCompleteService.getPlacePredictions(

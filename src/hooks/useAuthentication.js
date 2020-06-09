@@ -42,16 +42,16 @@ const useAuthentication = (signOut, isAuthenticated, token) => {
     const { email } = (token && jwt.decode(token).data) || {};
     const password = signInData.split('.bukka@gmail.com')[0];
     try {
-      loading('AUTH', true);
+      loading(true);
       const response = await API.authToken.post({ email, password });
-      loading('AUTH', false);
+      loading(false);
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
         setVerified(response.data.user.verified);
         requestVerification(response.data.user.verified);
       }
     } catch (error) {
-      loading('AUTH', false);
+      loading(false);
       setToast({ message: error.response ? error.response.data.message : error.message, type: 'error' });
     }
   };

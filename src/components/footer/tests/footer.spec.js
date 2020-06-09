@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../Footer';
 
-describe('Footer component', () => {
+describe.skip('Footer component', () => {
   const wrapper = shallow(<Footer />);
 
   it('renders properly', () => {

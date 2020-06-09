@@ -8,19 +8,28 @@ const initialState = {
 
 const reducer = (originalState, action) => {
   const state = Object.assign({}, originalState);
-  return {
-    ...state,
-    status: action.status,
-  };
+  switch (action.type) {
+    case 'LOADING':
+      return {
+        ...state,
+        status: action.status,
+      };
+
+
+    default: {
+      return state;
+    }
+  }
 };
 
 const loggerReducer = logger(reducer);
 
 const useLoading = () => {
+  // const [data, setData] = useState();
   const [state, dispatch] = useReducer(loggerReducer, initialState);
 
-  const loading = (type, status) => dispatch({
-    type: `${type}_LOADING`,
+  const loading = status => dispatch({
+    type: 'LOADING',
     status,
   });
 

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config();// CommonsChunkPlugin
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
@@ -52,6 +52,9 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   ),
   'process.env.CLOUDINARY_UPLOAD_PRESET': JSON.stringify(
     process.env.CLOUDINARY_UPLOAD_PRESET
+  ),
+  'process.env.NODE_ENV': JSON.stringify(
+    process.env.NODE_ENV
   )
 });
 
@@ -77,6 +80,15 @@ module.exports = {
     },
   },
   plugins: [
+    new webpack.optimize.MinChunkSizePlugin({
+      minChunkSize: 10000 // Minimum number of characters
+    }),
+    new webpack.HashedModuleIdsPlugin({
+      context: __dirname,
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
+      hashDigestLength: 20
+    }),
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',

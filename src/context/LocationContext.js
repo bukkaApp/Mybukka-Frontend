@@ -1,15 +1,21 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 import { useEffect, useReducer, useState } from 'react';
-import { SET_SELECTED_COORDINATES, SET_SELECTED_LOCATION } from 'Redux/actionTypes';
 import axios from 'axios';
 import constate from 'constate';
 import logger from './Logger';
 import { useLocalStorage } from '../shared/useLocalStorage';
 
+const SET_SELECTED_COORDINATES = 'SET_SELECTED_COORDINATES';
+const SET_SELECTED_LOCATION = 'SET_SELECTED_LOCATION';
+const SET_UPDATE = 'SET_UPDATE';
+
 const initialState = {
   selectedLocation: {},
-  coordinates: []
+  coordinates: [],
+  updated: true,
+  isLoadingCurrentLocation: null,
+  isLoadingSelectedLocation: null,
 };
 
 const reducer = (originalState, action) => {
@@ -31,6 +37,12 @@ const reducer = (originalState, action) => {
         coordinates,
       };
     }
+
+    case SET_UPDATE:
+      return {
+        ...state,
+        updated: action.payload
+      };
 
     default: {
       return state;
@@ -103,9 +115,16 @@ const useLocation = () => {
     });
   };
 
-  const { selectedLocation, coordinates } = state;
+  const setUpdate = (payload) => {
+    dispatch({
+      type: SET_UPDATE,
+      payload
+    });
+  };
 
-  return { selectedLocation, coordinates, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
+  const { selectedLocation, coordinates, updated } = state;
+
+  return { selectedLocation, coordinates, updated, setUpdate, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
 };
 
 export const [LocationProvider, useLocationContext] = constate(useLocation);

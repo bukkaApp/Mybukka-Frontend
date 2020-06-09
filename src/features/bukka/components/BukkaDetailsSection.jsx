@@ -11,6 +11,7 @@ import ChevronVertical from 'Icons/ChevronVertical';
 import Star from 'Icons/Star';
 import MapMarkerAlt from 'Icons/MapMarkerAlt';
 import BusinessAddress from '../../../components/business-address';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
 import './bukkaDetailsSection.scss';
 
@@ -89,19 +90,28 @@ const TitleAndDescription = ({ name, description }) => (
 );
 
 const BukkaDetailsSection = ({
-  fetchedBukka,
+  // fetchedBukka,
   deliveryMode
 }) => {
   const [state, setState] = useState(false);
+  const { business } = useBusinessContext();
 
-  const { name, description, deliveryPrice, schedule, location, address } = fetchedBukka;
-  if (Object.keys(fetchedBukka).length <= 0) {
+  if (!business) {
     return null;
   }
 
+  const { name, description, schedule, location, address } = business;
+
+  const decodeDeliveryPrice = () => {
+    if (business && business.logistics) {
+      return business.logistics.deliveryPrice;
+    }
+    return business.deliveryPrice;
+  };
+
   return (
     <Container classNames="bukka-details-section">
-      <DeliveryPriceAndtag deliveryPrice={deliveryPrice || 30} deliveryMode={deliveryMode} />
+      <DeliveryPriceAndtag deliveryPrice={decodeDeliveryPrice()} deliveryMode={deliveryMode} />
       <TitleAndDescription name={name} description={description} />
       <ActionButtons handleClick={() => setState(prev => !prev)} deliveryTime={'15'} address={address} />
       <BusinessAddress location={location} show={state} schedule={schedule} />
@@ -110,12 +120,8 @@ const BukkaDetailsSection = ({
 };
 
 const mapStateToProps = ({
-  businessReducer: {
-    fetchedBukka
-  },
   deliveryModeReducer: { mode: deliveryMode }
 }) => ({
-  fetchedBukka,
   deliveryMode
 });
 
@@ -130,14 +136,6 @@ BukkaDetailsSection.defaultProps = {
 };
 
 BukkaDetailsSection.propTypes = {
-  fetchedBukka: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
-      PropTypes.object,
-      PropTypes.bool,
-    ])),
   deliveryMode: PropTypes.string.isRequired
 };
 

@@ -2,6 +2,7 @@
 
 .progress {
   position: fixed;
+  top: 0;
   height: 3px;
   display: block;
   width: 100%;
@@ -9,7 +10,7 @@
   border-radius: 2px;
   background-clip: padding-box;
   overflow: hidden;
-  z-index: 1500;
+  z-index: 1700;
 }
 
 .progress .determinate {

@@ -43,13 +43,13 @@ const Addresses = ({ useProfileStandard, noPadding }) => {
     const result = confirm('Want to delete?');
     if (!result) return;
     try {
-      loading('ADDRESS', true);
+      loading(true);
       const response = await API.address.delete(id);
       setAddress(response.data.addresses);
-      loading('ADDRESS', false);
+      loading(false);
     } catch (error) {
       setAddress(error.response ? null : addresses);
-      loading('ADDRESS', false);
+      loading(false);
     }
   };
 

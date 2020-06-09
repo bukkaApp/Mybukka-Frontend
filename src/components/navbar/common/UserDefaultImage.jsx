@@ -24,7 +24,7 @@ const UserDefaultImage = () => {
     <div ref={wrapperRef} className="user-default-img">
       <div className="position-relative">
         <button className="auth-btn-drop" onClick={() => setUserOptions(true)}>
-          <SingleImage style={{ width: '30px', height: '30px' }} options={{ w: 30 }} src={(user && user.imageUrl) || altSrc} alt="userImg" />
+          <SingleImage style={{ width: '30px', height: '30px', borderRadius: '50%' }} options={{ w: 30 }} src={(user && user.imageUrl) || altSrc} alt="userImg" />
         </button>
         {userOptions && <UserDropdown />}
       </div>

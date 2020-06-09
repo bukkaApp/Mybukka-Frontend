@@ -1,139 +1,104 @@
-/* eslint-disable max-len */
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-
 import { useHistory } from 'react-router-dom';
-import Container from 'Components/container/Container';
 
-import NoNearByBukkaLocation
-  from 'Components/not-found/NoNearByBukkaLocation';
 import LocationNavLargeScreen
   from 'Components/common-navs/LocationNavLargeScreen';
 import LocationNavSmallScreen, {
   SelectLocationModal,
 } from 'Components/common-navs/LocationNavSmallScreen';
 
-import Map from 'Components/map';
-import Carousel from 'Components/Carousel/Carousel';
+import ViewBusinessesOnMap from '../../../components/business-list/ViewBusinessesOnMap';
+import BusinessList from '../../../components/business-list/BusinessList';
 import BukkasToExploreSection from '../common/BukkasToExploreSection';
-
 import { useLocationContext } from '../../../context/LocationContext';
-import fetchBukkas from '../actionCreators/fetchBukkas';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
-import FoodNearBy from '../common/FoodNearBy';
 import { foodBannerImage } from '../img/imgLinks';
 
-import getPromotedBukkas from '../actionCreators/getPromotedBukkas';
-import getRestaurantCuisineAction from '../actionCreators/getRestaurantCuisineAction';
+import './FoodSection.scss';
+import { useBusinessesContext } from '../../../context/BusinessesContext';
+import useApi from '../../../shared/api';
+import { useLoadingContext } from '../../../context/LoadingContext';
 
-const mapContainer = displayMap => (displayMap ? 'px-0 d-flex flex-column flex-xl-row flex-lg-row flex-md-column' : 'px-0');
 
-const mapContent = displayMap => (displayMap ? 'nearby-bukka col-xl-4 px-0 d-lg-flex d-md-none d-none' : 'mb-5');
+let fetched = { food: null, businessGroup: null, categories: null };
 
-const mapDisplay = displayMap => (displayMap ? 'container map-wrapper col-xl-8 col-lg-8 col-md-12 col-12 order-first order-lg-0' : 'd-none');
-
-const FoodSection = ({
-  mode,
-  fetchedBukkas: { nearbyBukkas },
-  fetchNearbyBukkas,
-  currentPage,
-  errorMessage,
-  loading,
-  fetchedPromotedBukkas,
-  fetchedCuisines,
-  getPromoBukkas,
-  getRestaurantCuisine,
-}) => {
+const FoodSection = () => {
   const { push } = useHistory();
-  const { coordinates } = useLocationContext();
+  const { API } = useApi();
+  const { loading } = useLoadingContext();
+  const { businesses, setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
+  const { coordinates, updated, setUpdate } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
-  const handleClick = () => {
-    setDisplayMap(!displayMap);
-  };
+  useEffect(() => {
+    setUpdate(null);
+  }, []);
 
   useEffect(() => {
-    if (coordinates.length < 2) {
-      push('/');
-    }
-  }, [coordinates]);
+    if (coordinates.length < 2) push('/');
+    if (!updated) return setUpdate(true);
 
-  useEffect(() => {
-    const __refetchItems = () => {
-      const hasntFetched = nearbyBukkas.length === 0 && !errorMessage;
-      const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
-      if (hasntFetched && hasLoadedValidCoordinates) {
-        new Promise((resolve) => {
-          resolve(getPromoBukkas(coordinates));
-        }).then(() => fetchNearbyBukkas(coordinates))
-          .then(() => getRestaurantCuisine(coordinates));
+    loading(true);
+
+    const setter = (res, type, hasError = false) => {
+      fetched[type] = true;
+      const data = hasError ? (res.response.data || res) : res.data;
+      if (type === 'food') setBusinesses(data, hasError);
+      if (type === 'businessGroup') setBusinessGroup(data, hasError);
+      if (type === 'categories') setBusinessCategories(data, hasError);
+      if (fetched.food && fetched.businessGroup && fetched.categories) {
+        loading(false);
       }
     };
-    __refetchItems();
-  }, [nearbyBukkas]);
 
-  const hasFetchedButEmpty = nearbyBukkas.length === 0 && errorMessage;
-  const hasLoadedValidCoordinates = !loading && coordinates.length !== 0;
-  if (hasFetchedButEmpty && hasLoadedValidCoordinates) {
-    return <NoNearByBukkaLocation history={{ push }} />;
-  }
+    const getNearbyFoodBusinesses = () => {
+      API.businesses.get('type=food')
+        .then(res => setter(res, 'food'))
+        .catch(() => push('/coming-soon'));
+    };
+
+    const getNearbyBusinessGroup = () => {
+      API.businessGroup.get()
+        .then(res => setter(res, 'businessGroup'))
+        .catch(err => setter(err, 'businessGroup', true));
+    };
+
+    const getNearbyBusinessCategory = () => {
+      API.businessCategories.get()
+        .then(res => setter(res, 'categories'))
+        .catch(err => setter(err, 'categories', true));
+    };
+
+    getNearbyFoodBusinesses();
+    getNearbyBusinessGroup();
+    getNearbyBusinessCategory();
+
+    return () => {
+      fetched = { food: null, businessGroup: null, categories: null };
+      loading(false);
+      setUpdate(null);
+    };
+  }, [coordinates]);
 
   return (
     <div className="container-fluid p-0">
       <SelectLocationModal />
-      {nearbyBukkas.length > 0 && (
+      {businesses && (
         <div>
           <IntroSection push={push} />
           <ExploreSection>
             <div className={displayMap ? 'd-none' : ''}>
               <AreasToExplore bgImage={foodBannerImage} />
             </div>
-            <div
-              className={displayMap ? 'feed-main-content-map' : 'feed-main-content'}
-            >
-              <LocationNavLargeScreen handleMapClick={handleClick} />
+            <div className={displayMap ? 'feed-main-content-map' : 'feed-main-content'}>
+              <LocationNavLargeScreen handleMapClick={() => setDisplayMap(!displayMap)} />
               <LocationNavSmallScreen />
-              <div>
-                {mode === 'delivery' &&
-                <BukkasToExploreSection
-                  push={push}
-                  promotedBukkas={fetchedPromotedBukkas}
-                  fetchedCuisines={fetchedCuisines}
-                />
-                }
-                <Container
-                  classNames={mapContainer(displayMap)}
-                >
-                  <div className={mapContent(displayMap)}>
-                    <FoodNearBy
-                      delivery
-                      classNames={displayMap ? 'col-12' : 'col-xl-4 col-md-6 col-sm-12'}
-                      title={displayMap ? '' : 'Nearby'}
-                      bukkaData={nearbyBukkas}
-                      imageHeight={displayMap ? 'map-img-height' : 'img-height'}
-                      currentPage={currentPage}
-                      errorMessage={errorMessage}
-                    />
-                  </div>
-                  <div className={mapDisplay(displayMap)}>
-                    <Map useBusinesses />
-                    {/* <Map restaurants={nearbyBukkas} coordinates={coordinates} /> */}
-                  </div>
-                  {/* display carousel for map on small & medium screen */}
-                  {displayMap && (
-                    <div
-                      className="d-flex d-md-flex d-lg-none d-xl-none px-0 col-12"
-                    >
-                      <Carousel delivery noOfImagesShown={3} xl={3} lg={2} md={2} sm={1} slideItems={nearbyBukkas} imageHeight="img-fluid" classNames="col-lg-6 col-md-6 col-sm-12 col-12" />
-                    </div>
-                  )}
-                </Container>
-              </div>
+              <BukkasToExploreSection displayMap={displayMap} />
+              {displayMap && <ViewBusinessesOnMap />}
+              {!displayMap && <BusinessList />}
             </div>
           </ExploreSection>
         </div>
@@ -142,35 +107,12 @@ const FoodSection = ({
   );
 };
 
-const mapStateToProps = ({
-  loadingReducer: { status: loading },
-  deliveryModeReducer: { mode },
-  businessesReducer: { fetchedBukkas, status, currentPage, errorMessage },
-  promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
-  businessGroupReducer: { fetchedBukkas: fetchedCuisines }
-}) => ({
-  fetchedBukkas,
-  fetchedCuisines,
-  fetchedPromotedBukkas,
-  status,
-  currentPage,
-  mode,
-  errorMessage,
-  loading,
-});
+//  loadingReducer: { status: loading },
+//  deliveryModeReducer: { mode },
+//  businessesReducer: { fetchedBukkas, errorMessage },
+//  promotionReducer: { fetchedBukkas: fetchedPromotedBukkas },
+//  businessGroupReducer: { fetchedBukkas: fetchedCuisines }
 
-export default connect(
-  mapStateToProps,
-  { fetchNearbyBukkas: fetchBukkas,
-    getPromoBukkas: getPromotedBukkas,
-    getRestaurantCuisine: getRestaurantCuisineAction
-  },
-)(FoodSection);
+export default FoodSection;
 
-FoodSection.propTypes = {
-  mode: PropTypes.string.isRequired,
-  fetchedBukkas: PropTypes.shape({
-    nearbyBukkas: PropTypes.arrayOf(PropTypes.shape({})),
-  }).isRequired,
-  fetchNearbyBukkas: PropTypes.func.isRequired,
-};
+FoodSection.propTypes = {};

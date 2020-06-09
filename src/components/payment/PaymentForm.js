@@ -93,14 +93,14 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     setValidationErrors({ ...validationErrors, ...errors });
     if (passes) {
       try {
-        loading('PAYMENT', true);
+        loading(true);
         const response = await API.payment.post({ card: inputFields, amount: 100 }, 'charge');
         setPayment(response.data.data);
         if (withModal) handleClick();
         if (response.data.data) requestSecurityPopup();
       } catch (error) {
         setErrorMessage(error.response.data.message || '');
-        loading('PAYMENT', false);
+        loading(false);
       }
     }
   };

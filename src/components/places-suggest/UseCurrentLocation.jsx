@@ -6,11 +6,17 @@ import { useLocationContext } from '../../context/LocationContext';
 import './usecurrentlocation.scss';
 
 const UseCurrentLocation = () => {
-  const { setCurrentLocation, loading } = useLocationContext();
+  const { setCurrentLocation, loading, setUpdate } = useLocationContext();
+
+  const onClick = () => {
+    setUpdate(true);
+    setCurrentLocation();
+  };
+
   return (
     <div
       className="suggestion-geo-group input-group"
-      onClick={setCurrentLocation}
+      onClick={onClick}
       tabIndex={0}
       role="button"
     >

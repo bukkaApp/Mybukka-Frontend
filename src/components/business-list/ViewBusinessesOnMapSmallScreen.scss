@@ -1,0 +1,14 @@
+.Food-Map-Small-Container {
+  position: relative;
+  width: 100%;
+  height: calc((100vh - 70px) - 72px);
+  display: flex;
+  flex-direction: column;
+}
+
+.Food-Map-Wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}

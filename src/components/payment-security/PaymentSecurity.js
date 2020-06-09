@@ -47,7 +47,7 @@ const RequestSecurityInfo = () => {
   const saveCardAndClosePopup = (response) => {
     setCard(response.data.newCard);
     setPayment(null);
-    loading('PAYMENT', false);
+    loading(false);
     handleClick();
   };
 
@@ -56,19 +56,19 @@ const RequestSecurityInfo = () => {
     e.preventDefault();
     setInlineLoading(true);
     try {
-      loading('PAYMENT', true);
+      loading(true);
       const response = await API.card.post({ reference: payment.reference, [state.text]: input, });
       setInlineLoading(false);
       setInput('');
       if (response.status === 201) return saveCardAndClosePopup(response);
       setPayment({ ...payment, ...response.data.data });
       setErrorMessage('');
-      loading('PAYMENT', false);
+      loading(false);
     } catch (error) {
       setInlineLoading(false);
       const errMsg = error.response.data.error || error.response.data.message;
       setErrorMessage(errMsg || '');
-      loading('PAYMENT', false);
+      loading(false);
     }
   };
 

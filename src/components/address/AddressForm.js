@@ -80,13 +80,13 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
       const location = { type: 'Point', coordinates };
       const data = { ...inputData, apartmentNumber, location };
       try {
-        loading('ADDRESS', true);
+        loading(true);
         const response = await API.address.post(data);
         setAddress(response.data.newAddress);
         if (withModal) handleClick();
       } catch (error) {
         setErrorMessage(error.response.data.message || '');
-        loading('ADDRESS', false);
+        loading(false);
       }
     }
   };

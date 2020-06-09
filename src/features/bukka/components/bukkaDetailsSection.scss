@@ -1,4 +1,5 @@
 $primaryColor: #9c1c26;
+
 .bukka-details-section
 .action-button-text {
   font-weight: 300;
@@ -72,6 +73,7 @@ $primaryColor: #9c1c26;
   font-weight: 700;
   margin-bottom: 10px;
   word-break: break-word;
+  text-transform: capitalize;
 }
 
 .bukka-description {
