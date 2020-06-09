@@ -133,10 +133,10 @@ const Map = ({ useBusinesses, zoom }) => {
           scaledSize: {
             height: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
             width: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
-            zIndex: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
           },
           labelOrigin: loc.labelOrigin,
         }}
+        zIndex={(useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30}
         animation={(useBusinesses && isHovered(loc) && !isSelfHovered) ? 3 : null}
         label={{
           text: loc.text,
