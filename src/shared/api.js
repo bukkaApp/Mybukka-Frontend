@@ -93,6 +93,11 @@ const useApi = () => {
     };
   }, [setToast]);
 
+  /**
+   * @example
+   * // verify
+   *  type => verify-phone / send-code
+   */
   const API = React.useMemo(() => ({
     address: createEndpoint('address/$id/'),
     authToken: { post: data => axiosInstance.post('user/signin', data) },
@@ -106,7 +111,7 @@ const useApi = () => {
     businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
     profile: createEndpoint('user/profile/$id/'),
     register: { post: data => axiosInstance.post('user/signup', data) },
-    verify: { post: (data, type) => axiosInstance.post(`verify/${type}/`, data) },
+    verify: { post: (data, type) => axiosInstance.post(`user/${type}/`, data) },
     socialAuth: { post: data => axiosInstance.post('user/social/auth', data) },
   }), [coordinates]);
 

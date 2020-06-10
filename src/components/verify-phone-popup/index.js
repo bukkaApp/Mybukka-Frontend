@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import Field from '../input/Field';
 import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
-import sendContactAction from '../../redux/sendContactAction';
-import sendVerifationCodeAction from '../../redux/sendVerifationCodeAction';
+import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 import './index.scss';
 
@@ -13,7 +12,10 @@ const phoneVerificationSupport = [
   { country: 'NG', key: '+234' }
 ];
 
-const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
+const VerifyPhonePopup = () => {
+  const { API } = useApi();
+  const [errorMessage, setErrorMessage] = useState('');
+  const { loading } = useLoadingContext();
   const [isCodeVerification, setIsCodeVerification] = useState(false);
   const [state, setState] = useState({ contactMobile: '', code: '' });
   const { phoneVerificationPopup, setVerificationPhonePopup, setModal } = useModalContext();
@@ -40,6 +42,7 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   };
 
   const handleChange = ({ target: { value, name } }) => {
+    if (errorMessage) setErrorMessage('');
     value = _prefixInput(value, name);
     if (/^\d*\d*$/.test(value)) {
       const val = _inputFormater(value, name);
@@ -48,16 +51,32 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   };
 
   const handleClick = () => {
-    setModal(false);
-    setVerificationPhonePopup(false);
+    if (!isCodeVerification) {
+      setModal(false);
+      setVerificationPhonePopup(false);
+    }
+  };
+
+  const tryCatch = async (apiCall, data, id, enterCode) => {
+    setErrorMessage('');
+    try {
+      loading(true);
+      await apiCall(data, id);
+      loading(false);
+      if (enterCode) setIsCodeVerification(true);
+      else handleClick();
+    } catch (error) {
+      loading(false);
+      const replaceErr = 'Your number has already been verified';
+      const throwErr = err => (err.message === replaceErr ? 'phone number already in use' : err.message);
+      setErrorMessage(error.response ? throwErr(error.response.data) : error.message);
+    }
   };
 
   const resendCode = () => {
     if (state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      sendContact(data).then((res) => {
-        if (res.status === 200) setIsCodeVerification(true);
-      });
+      tryCatch(API.verify.post, data, 'send-code', true);
     }
   };
 
@@ -65,20 +84,20 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
     e.preventDefault();
     if (!isCodeVerification && state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      sendContact(data).then((res) => {
-        if (res.status === 200) setIsCodeVerification(true);
-      });
+      tryCatch(API.verify.post, data, 'send-code', true);
     } else if (isCodeVerification && state.code.length === 11) {
       const data = { code: state.code.split(' ').join('') };
-      sendVerifationCode(data).then((res) => {
-        if (res.status === 200) handleClick();
-      });
+      tryCatch(API.verify.post, data, 'verify-phone');
     }
   };
 
   return (
     <Modal show={phoneVerificationPopup} bodyClassName="SmallWidth" onClickOut={handleClick}>
-      <DismissModal onClick={handleClick} withRightIcon />
+      <DismissModal
+        onClick={handleClick}
+        onClickBack={() => setIsCodeVerification(false)}
+        withLeftIconOnly={isCodeVerification}
+      />
       <div className={`Verify-Phone-Popup ${isCodeVerification ? 'Verify-Phone-Spacing' : ''}`}>
         <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
           <div className="Verify-Phone-Popup-Header">
@@ -117,11 +136,12 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
                 value={isCodeVerification ? state.code : state.contactMobile}
                 handleChange={handleChange}
                 type="text"
-                placeholderText={isCodeVerification ? '0-0-0-0-0-0' : '000-000-0000'}
+                placeholderText={isCodeVerification ? '0 0 0 0 0 0' : '000-000-0000'}
                 name={isCodeVerification ? 'code' : 'contactMobile'}
                 classNames={`Verify-Phone-Input ${isCodeVerification ? 'Verify-Phone-Code' : ''}`}
               />
             </div>
+            <small className="Verify-Phone-Error-Message">{errorMessage}</small>
             <button onClick={handlePhoneSubmit} type="submit" className="Verify-Phone-Button">
               <span>{isCodeVerification ? 'Verify' : 'Submit'}</span>
             </button>
@@ -133,7 +153,4 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   );
 };
 
-export default connect(() => ({}), {
-  sendContact: sendContactAction,
-  sendVerifationCode: sendVerifationCodeAction
-})(VerifyPhonePopup);
+export default VerifyPhonePopup;

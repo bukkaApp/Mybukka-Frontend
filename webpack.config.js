@@ -53,9 +53,6 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   'process.env.CLOUDINARY_UPLOAD_PRESET': JSON.stringify(
     process.env.CLOUDINARY_UPLOAD_PRESET
   ),
-  'process.env.NODE_ENV': JSON.stringify(
-    process.env.NODE_ENV
-  )
 });
 
 module.exports = {

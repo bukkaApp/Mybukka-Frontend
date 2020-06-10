@@ -1,6 +1,6 @@
 $fontFamily: 'Roboto', sans-serif;
 $color: #9c1c26;
-$white: rgb(217, 219, 224);
+$white: white;
 
 .padding {
   padding: 0 25px 0 25px;
@@ -23,16 +23,16 @@ $white: rgb(217, 219, 224);
 }
 
 .form {
-  background: rgb(249, 249, 249);
+  background: $white;
   padding: 10px 0 20px;
   @media screen and (max-width: 761px) {
-    background: rgb(255, 255, 255);
+    background: $white;
     box-shadow: none;
   }
 }
 
 .facebk-icon {
-  color: white;
+  color: $white;
   position: absolute;
   right: 20px;
   bottom: 10px;
@@ -52,12 +52,12 @@ $white: rgb(217, 219, 224);
 .divider {
   overflow: hidden;
   text-align: center;
-  color: rgb(217, 219, 224);
+  color: $white;
 }
 
 .divider:before,
 .divider:after {
-  background-color: rgb(217, 219, 224);
+  background-color: $white;
   content: '';
   display: inline-block;
   height: 2px;

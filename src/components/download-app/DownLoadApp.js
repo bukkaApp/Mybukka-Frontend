@@ -102,7 +102,7 @@ const DownLoadApp = () => {
         </div>
       </div>
       <div className="Smart-Banner-Button-Container">
-        <button onClick={onClickToInstallApp} className="Smart-Banner-Download-Button" data-af-cta-button="" data-af-cta-url="https://postmates.onelink.me/5uYG?creative_id=bdd3b427-5f31-47fe-83dc-96ea21a86161&amp;af_banner=true&amp;af_channel=af_web_banner&amp;pid=af_banner&amp;c=smartbanner_aff_aff_smartbanner_all_all_fee_all_all&amp;af_dp=postmates://&amp;is_retargeting=true&amp;af_banner_sdk_ver=1&amp;">Install</button>
+        <button onClick={onClickToInstallApp} className="Smart-Banner-Download-Button">Install</button>
       </div>
     </div>
   );

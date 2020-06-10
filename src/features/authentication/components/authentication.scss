@@ -46,19 +46,3 @@ $fontFamily: 'Roboto', sans-serif;
   padding: 0;
   margin: 0;
 }
-
-.form-container {
-  font-family: $fontFamily;
-  background: rgb(249, 249, 249);
-  padding: 10px 0 20px;
-  @media screen and (max-width: 761px) {
-    background: rgb(255, 255, 255);
-    box-shadow: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .form-wrapper {
-    box-shadow: none;
-  }
-}

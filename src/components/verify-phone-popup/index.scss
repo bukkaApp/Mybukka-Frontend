@@ -152,7 +152,7 @@
   color: rgb(45, 49, 56);
   width: 100%;
   caret-color: rgb(0, 0, 0);
-  font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+  font-family: "Roboto", sans-serif;
   font-size: 21px;
   letter-spacing: initial;
   font-weight: 400;
@@ -172,13 +172,21 @@
   font-size: 40px;
 }
 
+.Verify-Phone-Error-Message {
+  color: #dc3545!important;
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  text-align: center;
+}
+
 .Verify-Phone-Button {
   -webkit-appearance: none;
   cursor: pointer;
   text-align: center;
   background-color: $color-primary;
   color: rgb(255, 255, 255);
-  font-family: PostmatesStd, "Helvetica Neue", Helvetica;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   letter-spacing: initial;
   font-weight: 600;

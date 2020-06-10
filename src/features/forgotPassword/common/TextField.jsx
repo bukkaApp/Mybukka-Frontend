@@ -15,7 +15,7 @@ const TextField = ({ handleChange, domStructure, validationErrors, inputData }) 
     <div className="form-group padding" key={structure.id}>
       <Field.Input
         name={structure.name}
-        classNames="default-input"
+        classNames="Secondary-Input"
         type={structure.type}
         placeholderText={structure.placeholder}
         handleChange={handleChange}
