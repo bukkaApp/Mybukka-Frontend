@@ -68,7 +68,7 @@ export default { Checkbox, Input, Radio };
 
 Input.defaultProps = {
   type: 'text',
-  classNames: 'default-input',
+  classNames: 'Secondary-Input',
   placeholderText: '',
   onFocus: () => {},
   ref: React.createRef(),

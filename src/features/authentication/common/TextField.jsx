@@ -16,7 +16,7 @@ const TextField = ({ handleChange, domStructure, validationErrors, inputData }) 
       <Field.Input
         value={inputData[structure.name]}
         name={structure.name}
-        classNames="default-input pl-0"
+        classNames="Secondary-Input pl-0"
         type={structure.type}
         placeholderText={structure.placeholder}
         handleChange={handleChange}

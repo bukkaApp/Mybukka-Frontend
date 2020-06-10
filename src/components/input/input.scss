@@ -42,8 +42,16 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+input:-webkit-autofill:active,
+input:focus, input:active  {
+  outline: none;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-appearance: none;
+  -webkit-box-shadow: inset 0 0 0px 9999px white !important;
+  box-shadow: inset 0 0 0px 9999px white !important;
+  -moz-box-shadow: inset 0 0 0px 9999px white !important;
+  // box-shadow: 0 0 0 30px white inset !important;
+  // -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 
@@ -68,11 +76,13 @@ input:-webkit-autofill:active  {
   outline: none;
 }
 
-.default-input {
+.Secondary-Input {
+  -webkit-appearance: none;
   @include input;
 }
 
-.default-input:focus {
+.Secondary-Input:focus {
+  -webkit-appearance: none;
   border-bottom: 2px solid #9c1c26;
 }
 

@@ -6,9 +6,3 @@
        min-height: calc(#{"100vh - 65px"});
     }
 }
-
-.auth-wrapper {
-    @media (max-width: 576px) {
-        box-shadow: none!important;
-     }
-}
