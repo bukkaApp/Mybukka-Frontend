@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import Field from '../input/Field';
 import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
-import sendContactAction from '../../redux/sendContactAction';
-import sendVerifationCodeAction from '../../redux/sendVerifationCodeAction';
+import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 
 import './index.scss';
@@ -13,7 +11,8 @@ const phoneVerificationSupport = [
   { country: 'NG', key: '+234' }
 ];
 
-const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
+const VerifyPhonePopup = () => {
+  const { API } = useApi();
   const [isCodeVerification, setIsCodeVerification] = useState(false);
   const [state, setState] = useState({ contactMobile: '', code: '' });
   const { phoneVerificationPopup, setVerificationPhonePopup, setModal } = useModalContext();
@@ -55,7 +54,7 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   const resendCode = () => {
     if (state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      sendContact(data).then((res) => {
+      API.verify.post(data, 'verify-phone').then((res) => {
         if (res.status === 200) setIsCodeVerification(true);
       });
     }
@@ -65,12 +64,12 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
     e.preventDefault();
     if (!isCodeVerification && state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      sendContact(data).then((res) => {
+      API.verify.post(data, 'verify-phone').then((res) => {
         if (res.status === 200) setIsCodeVerification(true);
       });
     } else if (isCodeVerification && state.code.length === 11) {
       const data = { code: state.code.split(' ').join('') };
-      sendVerifationCode(data).then((res) => {
+      API.verify.post(data, 'send-code').then((res) => {
         if (res.status === 200) handleClick();
       });
     }
@@ -133,7 +132,4 @@ const VerifyPhonePopup = ({ sendContact, sendVerifationCode }) => {
   );
 };
 
-export default connect(() => ({}), {
-  sendContact: sendContactAction,
-  sendVerifationCode: sendVerifationCodeAction
-})(VerifyPhonePopup);
+export default VerifyPhonePopup;
