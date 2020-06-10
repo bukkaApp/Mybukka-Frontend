@@ -6,7 +6,19 @@
   text-shadow: 0 1px 0 #fff;
   opacity: .5;
   &.Dismiss-Modal--right {
-    float: right;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &.Dismiss-Modal--left {
+    display: flex;
+  }
+}
+
+.Rotate--Icon {
+  transform: rotateY(145deg);
+  svg {
+    height: 40px;
+    width: 34px;
   }
 }
 

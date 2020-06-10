@@ -54,7 +54,7 @@ const VerifyPhonePopup = () => {
   const resendCode = () => {
     if (state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      API.verify.post(data, 'verify-phone').then((res) => {
+      API.verify.post(data, 'send-code').then((res) => {
         if (res.status === 200) setIsCodeVerification(true);
       });
     }
@@ -64,12 +64,12 @@ const VerifyPhonePopup = () => {
     e.preventDefault();
     if (!isCodeVerification && state.contactMobile.length === 12) {
       const data = { contactMobile: state.contactMobile.split('-').join('') };
-      API.verify.post(data, 'verify-phone').then((res) => {
+      API.verify.post(data, 'send-code').then((res) => {
         if (res.status === 200) setIsCodeVerification(true);
       });
     } else if (isCodeVerification && state.code.length === 11) {
       const data = { code: state.code.split(' ').join('') };
-      API.verify.post(data, 'send-code').then((res) => {
+      API.verify.post(data, 'verify-phone').then((res) => {
         if (res.status === 200) handleClick();
       });
     }
@@ -77,7 +77,11 @@ const VerifyPhonePopup = () => {
 
   return (
     <Modal show={phoneVerificationPopup} bodyClassName="SmallWidth" onClickOut={handleClick}>
-      <DismissModal onClick={handleClick} withRightIcon />
+      <DismissModal
+        onClick={handleClick}
+        onClickBack={() => setIsCodeVerification(false)}
+        withLeftIconOnly={isCodeVerification}
+      />
       <div className={`Verify-Phone-Popup ${isCodeVerification ? 'Verify-Phone-Spacing' : ''}`}>
         <div className={`Verify-Phone-Popup-Head ${isCodeVerification ? 'Verify-Phone-NoSpacing' : ''}`}>
           <div className="Verify-Phone-Popup-Header">
@@ -116,7 +120,7 @@ const VerifyPhonePopup = () => {
                 value={isCodeVerification ? state.code : state.contactMobile}
                 handleChange={handleChange}
                 type="text"
-                placeholderText={isCodeVerification ? '0-0-0-0-0-0' : '000-000-0000'}
+                placeholderText={isCodeVerification ? '0 0 0 0 0 0' : '000-000-0000'}
                 name={isCodeVerification ? 'code' : 'contactMobile'}
                 classNames={`Verify-Phone-Input ${isCodeVerification ? 'Verify-Phone-Code' : ''}`}
               />
