@@ -1,8 +1,6 @@
 import React, { useState, Fragment, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
-
 import PrimaryNavbar from 'Components/navbar';
 import Authentication from './components/Authentication';
 
@@ -25,7 +23,6 @@ export const RegisterPage = ({
   const { setUser, setVerified, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setAuthenticationPopup, setModal } = useModalContext();
-  const isBigScreen = useMediaQuery({ minWidth: 960 });
   const [errorMessage, setErrorMessage] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
@@ -81,11 +78,10 @@ export const RegisterPage = ({
   };
 
   const handleExpensiveEvents = (hasVerified) => {
-    const hasRedirection = location && location.state;
-    if (isBigScreen && hasModal) {
+    if (hasModal) {
       handleClick();
       requestVerification(hasVerified);
-    } else if (!isBigScreen && hasRedirection) {
+    } else {
       const redirect = location.state ? location.state.redirectTo : '/';
       requestVerification(hasVerified);
       return push(redirect);
@@ -100,7 +96,7 @@ export const RegisterPage = ({
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
         setVerified(response.data.user.verified);
-        await handleExpensiveEvents(response.data.user.verified);
+        handleExpensiveEvents(response.data.user.verified);
       }
     } catch (error) {
       loading(false);
@@ -109,8 +105,8 @@ export const RegisterPage = ({
   };
 
   const handleSubmit = async (event) => {
-    setErrorMessage('');
     event.preventDefault();
+    setErrorMessage('');
     const validation = validateAllFields(inputData);
 
     const { errors, passes } = validation;
@@ -119,6 +115,7 @@ export const RegisterPage = ({
   };
 
   const handleFBAuth = (e) => {
+    if (!e) return;
     const fullName = e.name.split(' ');
     const data = {
       lastName: fullName[0],
