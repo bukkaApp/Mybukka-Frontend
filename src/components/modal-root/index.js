@@ -13,6 +13,7 @@ const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecuri
 const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
 const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
 const InviteFriends = lazy(() => import('../invite-friends/InviteFriends'));
+const BusinessClosedPopup = lazy(() => import('../business-closed-popup/BusinessClosedPopup'));
 
 const ModalRoot = () => {
   const { show } = useModalContext();
@@ -40,6 +41,7 @@ const ModalRoot = () => {
         <PaymentGateway />
         <PaymentPending />
         <InviteFriends />
+        <BusinessClosedPopup />
       </Suspense>
     </div>
   );

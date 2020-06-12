@@ -32,7 +32,7 @@ const reducer = (originalState, action) => {
 
 const loggerReducer = logger(reducer);
 
-const useNotification = () => {
+const useEvent = () => {
   const [state, dispatch] = useReducer(loggerReducer, initialState);
 
   const setDownloadApp = (payload) => {
@@ -61,4 +61,4 @@ const useNotification = () => {
   return { downloadApp, setDownloadApp, appInstalled, setAppInstalled, deferredAppDownloadPrompt, setDeferredDownloadAppPrompt };
 };
 
-export const [NotificationProvider, useNotificationContext] = constate(useNotification);
+export const [EventProvider, useEventContext] = constate(useEvent);

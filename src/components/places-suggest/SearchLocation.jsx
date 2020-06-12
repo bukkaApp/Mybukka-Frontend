@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React, { useEffect, Fragment, createRef, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -8,9 +7,11 @@ import ChevronRight from 'Icons/ChevronRight';
 import Field from 'Components/input/Field';
 import DeliveryOrPickupNav from 'Components/common-navs/DeliveryOrPickupNav';
 import SuggestionsDropdown from './SuggestionsDropdown';
+import ClickOut from '../ClickOut/ClickOut';
 
 import './searchlocation.scss';
 import useAutocompleteService from '../../hooks/useAutocompleteService';
+import { useLoadingContext } from '../../context/LoadingContext';
 
 const style = { border: '1 px solid #eceff1' };
 const className = 'input-group address-input-section';
@@ -20,6 +21,7 @@ const SearchLocation = ({
   chevronButtonVisible,
   showDropdown,
   emitOnChange,
+  withLoading,
   standalone,
   withLabel,
   onBlur,
@@ -28,8 +30,8 @@ const SearchLocation = ({
   state,
   useCurrentLocationVisible,
 }) => {
+  const { loading } = useLoadingContext();
   const [predictions, setPredictions] = useState([]);
-  const wrapperRef = createRef();
 
   const {
     setFocus,
@@ -44,13 +46,13 @@ const SearchLocation = ({
     handleChange({ target: { name: inpName, value } });
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setFocus(false);
-    }
+  const onClick = (...props) => {
+    if (withLoading) loading(true);
+    handleClick(...props);
   };
 
   const handleChevronClick = () => {
+    if (inputData && withLoading) loading(true);
     handleClick();
   };
 
@@ -74,13 +76,8 @@ const SearchLocation = ({
     return null;
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <section className="Location-Wrapper" ref={wrapperRef}>
+    <ClickOut className="Location-Wrapper" onClickOut={() => setFocus(false)}>
       <div style={!standalone ? style : {}} className={!standalone ? className : ''}>
         {!standalone &&
         <div className="input-group-prepend">
@@ -115,13 +112,13 @@ const SearchLocation = ({
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
             <SuggestionsDropdown
               useCurrentLocationVisible={useCurrentLocationVisible}
-              setLocation={handleClick}
+              setLocation={onClick}
               predictions={predictions}
             />
           </Fragment>
         )}
       </div>
-    </section>
+    </ClickOut>
   );
 };
 

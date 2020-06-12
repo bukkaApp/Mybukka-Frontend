@@ -8,6 +8,7 @@ import Container from '../container';
 import Button from '../button/Button';
 import SearchLocation from '../places-suggest/SearchLocation';
 import MapMarker from '../icons/MapMarker';
+import ClickOut from '../ClickOut/ClickOut';
 
 import './LocationNavLargeScreen.scss';
 
@@ -55,6 +56,15 @@ const SuggestionsDropdown = () => (
 
 const CurrentLocation = ({ handleClick, focus, }) => {
   const { selectedLocation } = useLocationContext();
+  const [state, setState] = useState('Current Location');
+
+  useEffect(() => {
+    const hasLocation = Object.keys(selectedLocation).length > 0;
+    if (hasLocation) {
+      const location = selectedLocation.structured_formatting;
+      setState(location.secondary_text.split(',')[0]);
+    } else setState('Current Location');
+  }, [selectedLocation]);
 
   return (
     <div className="pr-17">
@@ -70,9 +80,7 @@ const CurrentLocation = ({ handleClick, focus, }) => {
             </span>
             <div>
               <h2 className="current-location-button-text">
-                {Object.keys(selectedLocation).length > 0
-                  ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
-                  : 'Current Location'}
+                {state}
               </h2>
             </div>
           </Button>
@@ -94,7 +102,6 @@ const LocationNavLargeScreen = ({
   setDeliveryModeAction,
   handleMapClick,
 }) => {
-  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
   const [showMap, setMapDisplay] = useState(false);
 
@@ -115,20 +122,9 @@ const LocationNavLargeScreen = ({
     setDeliveryModeAction(status);
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setFocus(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <div
-      ref={wrapperRef}
+    <ClickOut
+      onClickOut={() => setFocus(false)}
       className="location-navbar d-none d-sm-none d-md-block
       d-lg-block d-xl-block"
     >
@@ -157,7 +153,7 @@ const LocationNavLargeScreen = ({
           </div>
         )}
       </Container>
-    </div>
+    </ClickOut>
   );
 };
 

@@ -1,17 +1,9 @@
 import React, { Fragment } from 'react';
+
+import { schedule as altSchedule } from '../../shared/schedule';
 import './index.scss';
 
 const activeDay = 'monday';
-
-const altSchedule = [
-  { day: 'monday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'tuesday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'wednessday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'thursday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'friday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'saturday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-  { day: 'sunday', openingHour: '8 am', closingHour: '8 pm', closed: false },
-];
 
 const BusinessSchedule = ({ schedule, activeSchedule = activeDay }) => {
   const hasSchedule = schedule && schedule.length > 0 ? schedule : altSchedule;

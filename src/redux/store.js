@@ -7,7 +7,6 @@ import changeAuthenticationPageReducer from 'Components/navbar/reducers/changeAu
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import checkoutModeReducer from 'Components/common-navs/reducers/checkoutModeReducer';
 import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import loadingReducer from '../provider/Redux/loadingReducer';
 
@@ -60,7 +59,6 @@ const reducer = combineReducers({
   manipulateCardDetailsReducer,
   chargeUserReducer,
   finishTransactionReducer,
-  checkoutModeReducer,
   searchAnythingReducer,
   deliveryScheduleReducer,
   cartReducer,

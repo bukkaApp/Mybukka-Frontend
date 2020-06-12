@@ -15,7 +15,7 @@ const Map = ({ useBusinesses, zoom }) => {
   const { businesses } = useBusinessesContext();
   const { coordinates, } = useLocationContext();
   const { business } = useBusinessContext();
-  const { store, setHoveredStore } = useBusinessListContext();
+  const { store, setHoveredBusiness } = useBusinessListContext();
   const [selectedLocation, setSelectedLocation] = useState({
     name: '',
     description: '',
@@ -66,7 +66,7 @@ const Map = ({ useBusinesses, zoom }) => {
 
   const handleSelfHovering = (payload) => {
     setIsSelfHovered(!!payload);
-    setHoveredStore && setHoveredStore(payload);// eslint-disable-line
+    if (setHoveredBusiness) setHoveredBusiness(payload);
   };
 
   const userLocs = coordinates || [3.356172, 6.5419876];
@@ -77,38 +77,55 @@ const Map = ({ useBusinesses, zoom }) => {
     setMapVisibility(true);
   }, [hasMap]);
 
-  // images edit
-  const edit = 'c_scale,e_auto_color,fl_keep_attribution.progressive:steep,h_50,w_50,o_100,r_25';
   let businessLocs = (business && business.coordinates) || [3.356172, 6.5419876];
-  const companyImage = () => ((business && business.logoImg) && business.logoImg);
-  const companyAltImage = () => ((business && business.imageUrl) && business.imageUrl);
-  const _img = (companyImage() || companyAltImage());
-  let img = _img ? _img.split('upload') : null;
 
+  const businessImg = (biz) => {
+    // images edit
+    const edit = 'c_scale,e_auto_color,fl_keep_attribution' +
+      '.progressive:steep,h_50,w_50,o_100,r_25';
+
+    const companyImage = () => ((biz && biz.logoImg) && biz.logoImg);
+    const companyAltImage = () => ((biz && biz.imageUrl) && biz.imageUrl);
+
+    const foundImage = (companyImage(biz) || companyAltImage(biz));
+
+    if (foundImage) {
+      const img = foundImage.split('upload');
+
+      return `${img[0]}upload/${edit}${img[1]}`
+        .replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '.png');
+    }
+
+    return marker;
+  };
+
+  let locations = null;
   // single business data
-  let locations = [{
-    text: business ? business.name : '',
-    icon: img ? `${img[0]}upload/${edit}${img[1]}`.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '.png') : marker,
-    labelOrigin: { x: 70, y: 14 },
-    coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
-  }];
+  if (business) {
+    locations = [{
+      text: business ? business.name : '',
+      icon: businessImg(business),
+      labelOrigin: { x: 70, y: 14 },
+      coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
+    }];
+  }
 
   // busniesses data
   if (useBusinesses && businesses) {
     locations = businesses.map((bukka, ind) => {
       const { location: { coordinates: coords } } = bukka;
       businessLocs = coords || [3.356172, 6.5419876];
-      img = (bukka.logoImg && bukka.logoImg.split('upload')) || (bukka.imageUrl && bukka.imageUrl.split('upload')) || null;
-      // img = (bukka.logoImg && bukka.logoImg.split('upload')) || null;
       return ({
         ...bukka,
         text: bukka.name || '',
-        icon: img ? `${img[0]}upload/${edit}${img[1]}` : marker,
+        icon: businessImg(bukka),
         labelOrigin: { x: 70 + ind, y: 14 + ind },
         coordinates: { lat: businessLocs[1], lng: businessLocs[0] }
       });
     });
   }
+
+  const isStoreId = props => store && (store._id === props._id);
 
   // const { isLoaded, loadError } = useLoadScript({
   //   googleMapsApiKey: process.env.GOOGLE_API_KEY
@@ -122,26 +139,28 @@ const Map = ({ useBusinesses, zoom }) => {
     mapContainerClassName="Map"
     zoom={zoom || (lng === 10.205347 ? 6 : 12)}
     center={centerZoom || { lng, lat }}
-    options={{ styles: mapStyles, gestureHandling: 'greedy', }}
+    options={{ styles: mapStyles, gestureHandling: useBusinesses ? 'greedy' : 'cooperative', }}
   >
-    {locations.map(loc =>
+    {locations && locations.map(loc =>
       (<Marker
         key={loc.text}
         position={loc.coordinates}
+        // opacity={isStoreId(loc) ? 1 : 0}
         icon={{
           url: loc.icon,
           scaledSize: {
-            height: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
-            width: (useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30,
+            height: (useBusinesses && (isHovered(loc) || isSelfHovered)) ? 40 : 30,
+            width: (useBusinesses && (isHovered(loc) || isSelfHovered)) ? 40 : 30,
           },
           labelOrigin: loc.labelOrigin,
         }}
-        zIndex={(useBusinesses && isHovered(loc) && !isSelfHovered) ? 40 : 30}
+        zIndex={(useBusinesses && (isHovered(loc) || isSelfHovered)) ? 40 : 30}
         animation={(useBusinesses && isHovered(loc) && !isSelfHovered) ? 3 : null}
         label={{
           text: loc.text,
           fontWeight: 'bold',
-          fontSize: `${(useBusinesses && isHovered(loc) && !isSelfHovered) ? '16px' : '12px'}`,
+          opacity: isStoreId(loc) ? 1 : 0,
+          fontSize: `${(isHovered(loc) && !isSelfHovered) ? '16px' : '0px'}`,
         }}
         onClick={() => (useBusinesses && handleMarkerClick(loc))}
         onMouseOver={() => (useBusinesses && handleSelfHovering(loc))}

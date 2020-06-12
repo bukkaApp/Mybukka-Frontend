@@ -4,7 +4,7 @@ import Button from 'Components/button/Button';
 
 import './discoversection.scss';
 import Img from '../../../components/img/Img';
-import { useNotificationContext } from '../../../context/NotificationContext';
+import { useEventContext } from '../../../context/EventContext';
 
 const LargeText = () => (
   <div className="large-text-discover">
@@ -45,7 +45,7 @@ const SideImage = () => (
 );
 
 const DiscoverSection = () => {
-  const { setDownloadApp, deferredAppDownloadPrompt } = useNotificationContext();
+  const { setDownloadApp, deferredAppDownloadPrompt, appInstalled } = useEventContext();
 
   const onClickToInstallApp = (e) => {
     if (!deferredAppDownloadPrompt) return;
@@ -57,14 +57,17 @@ const DiscoverSection = () => {
     // Wait for the user to respond to the prompt
     deferredAppDownloadPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
+        setDownloadApp(false);
         console.log('User accepted the install prompt');
       } else {
+        setDownloadApp(false);
         console.log('User dismissed the install prompt');
       }
     });
   };
 
   return (
+    !appInstalled &&
     <div className="container discover-section">
       <div className="row align-items-center">
         <div className="discover-section-text col-lg-6 col-md-6 col-sm-12 col-xs-12">

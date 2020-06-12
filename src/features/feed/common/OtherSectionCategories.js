@@ -6,50 +6,53 @@ import Container from 'Components/container/Container';
 import Row from 'Components/grid/Row';
 import Headline from 'Components/Carousel/Headline';
 import BukkaCard from 'Components/Carousel/BukkaCard';
-import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
-import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';
+import NoResult from '../../../components/not-found/NoResult';
 import { useModalContext } from '../../../context/ModalContext';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
 const OtherSection = ({
-  bukkaMenu,
-  categories,
-  searchQuery,
-  setMealToDisplay,
-  type,
+  uniqueCatelogs, searchQuery, isInSearch, hasNoResult, type,
 }) => {
-  const onSearch = (category, items) => {
-    const isCategory = item => item.category === category;
-    const isInSearch = item => item.title.toLowerCase().includes(searchQuery.toLowerCase());
-    return Array.isArray(items) ? items.filter(menu => isCategory(menu) && isInSearch(menu))
-      : isCategory(items) && isInSearch(items);
+  const { catelogs, setCatelogToDisplay } = useBusinessContext();
+  const { setModal, setCartPopup } = useModalContext();
+
+  const onSearch = (uniqueCatelog, catelog) => {
+    const isUniqueCatelog = eachCatelog => eachCatelog.category === uniqueCatelog;
+    if (Array.isArray(catelog)) {
+      return catelog.filter(eachCatelog => isUniqueCatelog(eachCatelog) && isInSearch(eachCatelog));
+    }
+    return isUniqueCatelog(catelog) && isInSearch(catelog);
   };
 
-  const { setModal } = useModalContext();
+  const onClick = (slug) => {
+    setCatelogToDisplay(slug);
+    setCartPopup(true);
+    setModal(true);
+  };
+
   return (
+    catelogs &&
     <div id="flyout-left-container">
-      {categories.map(category => (
-        onSearch(category, bukkaMenu).length > 0 &&
-        <Fragment key={`nearby-${type}-category-${category.split(' ').join('-')}`}>
+      {uniqueCatelogs.map(eachUniqueCatelog => (
+        onSearch(eachUniqueCatelog, catelogs).length > 0 &&
+        <Fragment key={`nearby-${type}-catelog-${eachUniqueCatelog}`}>
           <div className="carousel-divider" />
           <Container classNames="px-0">
             <div className="mt-4 mb-4">
-              <Headline title={category} activeIndex={1} />
+              <Headline title={eachUniqueCatelog} activeIndex={1} />
               <Container>
                 <Row classNames="pb-4">
-                  {bukkaMenu.map(menu => (
-                    onSearch(category, menu) && (
+                  {catelogs.map(catelog => (
+                    onSearch(eachUniqueCatelog, catelog) && (
                       <BukkaCard
-                        key={`nearby-${type}-${menu.title.split(' ').join('-')}-${menu._id}`}
-                        imageUrl={menu.imageUrl}
-                        mealName={menu.title}
+                        key={`nearby-${type}-${catelog.title.split(' ').join('-')}-${catelog._id}`}
+                        imageUrl={catelog.imageUrl}
+                        mealName={catelog.title}
                         carouselType="category"
-                        deliveryPrice={menu.deliveryCost}
+                        deliveryPrice={catelog.deliveryCost}
                         imageHeight="fresh-img-height"
                         classNames="col-lg-3 col-md-4 col-sm-6 col-6"
-                        handleClick={() => {
-                          setMealToDisplay(menu.slug, null, true);
-                          setModal(true);
-                        }}
+                        handleClick={() => onClick(catelog.slug)}
                       />
                     )
                   ))}
@@ -59,31 +62,21 @@ const OtherSection = ({
           </Container>
         </Fragment>
       ))}
+      <Container>
+        {hasNoResult() && <NoResult withPadding text={searchQuery} />}
+      </Container>
     </div>
   );
 };
+
 const mapStateToProps = ({
-  productsReducer: {
-    bukkaMenu,
-    categories,
-    status: { error, fetched },
-  },
   cartReducer: { errorMessage },
 }) => ({
-  bukkaMenu,
-  status,
-  categories,
-  error,
-  fetched,
   errorMessage,
 });
 
 export default connect(
   mapStateToProps,
-  {
-    fetchBukkaMenu: fetchBukkaMenuAction,
-    setMealToDisplay: setMealToDisplayAction,
-  },
 )(OtherSection);
 
 OtherSection.propTypes = {};

@@ -1,7 +1,6 @@
 /* eslint-disable array-callback-return */
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import authServices from 'Utilities/authServices';
 import { connect } from 'react-redux';
 import Footer from 'Components/footer/Footer';
 import BannerSection from '../support/common/BannerSection';
@@ -14,13 +13,15 @@ import { validateAField, validateAllFields }
   from '../support/validation/validateField';
 import './category.scss';
 import '../support/components/supportmainsection.scss';
+import { useUserContext } from '../../context/UserContext';
 
 
 const ComplainScene = ({ location, sendIssue, success }) => {
+  const { user } = useUserContext();
   const [inputData, setInputData] = useState({
-    firstName: authServices.getTokenData().firstName || '',
-    lastName: authServices.getTokenData().lastName || '',
-    email: authServices.getTokenData().email || '',
+    firstName: '',
+    lastName: '',
+    email: '',
     name: 'new Comment',
     content: '',
     category: '',
@@ -36,6 +37,12 @@ const ComplainScene = ({ location, sendIssue, success }) => {
     category: '',
     subCategory: '',
   });
+
+  useEffect(() => {
+    if (user) {
+      setInputData({ ...inputData, ...user });
+    }
+  }, [user]);
 
   const handleContentDelivery = async () => {
     let defualtLoadedContent = { ...inputData, };

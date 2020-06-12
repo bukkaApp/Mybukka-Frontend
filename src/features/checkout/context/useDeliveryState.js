@@ -1,13 +1,14 @@
-import { useState, useMemo } from 'react';
-import authServices from 'Utilities/authServices';
+import { useState, useMemo, useEffect } from 'react';
 import { validateAField, validateAllFields } from '../validation/validateField';
+import { useUserContext } from '../../../context/UserContext';
 
 
-const useDeliveryState = (description) => {
+const useDeliveryState = () => {
+  const { user } = useUserContext();
   const [deliveryAddressData, setDeliveryAddressData] = useState({
-    address: description || '',
+    address: '',
     deliveryInstructions: '',
-    name: authServices.getFullName(),
+    name: '',
     mobileNumber: ''
   });
 
@@ -40,6 +41,15 @@ const useDeliveryState = (description) => {
       ...validation
     });
   };
+
+  useEffect(() => {
+    if (user) {
+      setDeliveryAddressData({
+        ...deliveryAddressData,
+        name: `${user.firstName} ${user.lastName}`
+      });
+    }
+  }, [user]);
 
   const validateAddress = () => {
     const { errors, passes } = validateAllFields(deliveryAddressData);

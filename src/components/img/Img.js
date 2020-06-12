@@ -1,17 +1,14 @@
 /* eslint-disable no-return-assign */
-import React, { useState, useEffect } from 'react';
-import { useCookies } from 'react-cookie';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-import './Img.scss';
 import { useCloudinayService } from './Cloudinary';
+import { useImagesContext } from '../../context/ImagesContext';
+import './Img.scss';
 
-const Img = ({ src, className = '', options, fmt, alt }) => {
-  const _imgRef = React.createRef();
-  const { location: { pathname } } = useHistory();
-  const [cookies, setCookie] = useCookies([`_${src}`]);
+const Img = ({ src, className = '', options, fmt, alt, useBeta }) => {
+  const imgRef = React.useRef();
   const { domain, supports } = useCloudinayService();
-  const [state, setState] = useState(false);
+  const [state, setState] = useImagesContext();
   const width = '600px';
   // Create an empty query string
   let queryString = '', ext = 'jpg';
@@ -24,22 +21,24 @@ const Img = ({ src, className = '', options, fmt, alt }) => {
     ext = 'webp';
   }
 
-  const handleScroll = () => {
-    if (_imgRef.current && _imgRef.current.complete && !state) {
-      setState(true);
-      setCookie(`_${src}`, true, { path: pathname });
-    }
+  // const handleScroll = () => {
+  //   if (imgRef.current && imgRef.current.complete && !state[`__${src}__`]) {
+  //     setState(`__${src}__`);
+  //   }
+  // };
+
+  const handleLoad = () => {
+    setState(`__${src}__`);
   };
 
   useEffect(() => {
-    document.addEventListener('scroll', handleScroll);
-    return () => document.removeEventListener('scroll', handleScroll);
-  }, [_imgRef]);
+    if (imgRef.current && imgRef.current.complete && !state[`__${src}__`]) {
+      setState(`__${src}__`);
+    }
+    // document.addEventListener('scroll', handleScroll);
+    // return () => document.removeEventListener('scroll', handleScroll);
+  }, [imgRef]);
 
-  const handleLoad = () => {
-    setState(true);
-    setCookie(`_${src}`, true, { path: pathname });
-  };
   // Loop through option prop and build queryString
   Object.keys(options).map((option, i) => queryString += `${i < 1 ? '' : ','}${option}_${options[option]}`);
 
@@ -48,9 +47,10 @@ const Img = ({ src, className = '', options, fmt, alt }) => {
 
   return (
     <div id="" className="Image-Opt-Wrapper">
-      <img hidden ref={_imgRef} onLoad={handleLoad} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
-      <div title={alt} className="Image-Opt--display" style={{ backgroundImage: `url(${`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`})`, opacity: state || cookies[`_${src}`] ? 1 : 0 }} />
+      <img ref={imgRef} hidden onLoad={handleLoad} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
+      <div title={alt} className="Image-Opt--display" style={{ backgroundImage: `url(${`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`})`, opacity: state[`__${src}__`] ? 1 : 0 }} />
       <div className={`Image-Opt ${className}`} />
+      {(useBeta && state[`__${src}__`]) && <span className="Image-Opt-Beta">beta</span>}
     </div>
   );
 };

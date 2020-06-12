@@ -5,6 +5,7 @@ import { AddressProvider } from '../context/AddressContext';
 import { BusinessListProvider } from '../context/BusinessListContext';
 import { BusinessesProvider } from '../context/BusinessesContext';
 import { BusinessProvider } from '../context/BusinessContext';
+import { ImagesProvider } from '../context/ImagesContext';
 
 const Secondary = ({ children }) => (
   <UserProvider>
@@ -12,7 +13,9 @@ const Secondary = ({ children }) => (
       <BusinessesProvider>
         <BusinessProvider>
           <BusinessListProvider>
-            {children}
+            <ImagesProvider>
+              {children}
+            </ImagesProvider>
           </BusinessListProvider>
         </BusinessProvider>
       </BusinessesProvider>

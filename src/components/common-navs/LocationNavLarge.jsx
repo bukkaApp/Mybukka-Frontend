@@ -14,7 +14,7 @@ import MapMarker from '../icons/MapMarker';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
 import Duration from './Duration';
-import CartDropdown from '../cart/CartIconSection';
+import CartIconSection from '../cart/CartIconSection';
 import {
   ReusableButton,
   ReusableDropdown,
@@ -22,14 +22,11 @@ import {
 } from './ReusableNavElements';
 
 import { CategoryLists } from './Categories';
-
-import setCheckoutMode from './actionCreators/setCheckoutMode';
+import { useLocationContext } from '../../context/LocationContext';
 
 import './LocationNavLargeScreen.scss';
 import './locationnavlarge.scss';
 import './LocationNavSmallScreen.scss';
-
-import { useLocationContext } from '../../context/LocationContext';
 
 const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
   <div className="pr-17">
@@ -80,6 +77,16 @@ const SearchInputField = ({ handleChange, value }) => (
 
 const CurrentLocation = ({ focus, handleClick }) => {
   const { selectedLocation } = useLocationContext();
+  const [state, setState] = useState('Current Location');
+
+  useEffect(() => {
+    const hasLocation = Object.keys(selectedLocation).length > 0;
+    if (hasLocation) {
+      const location = selectedLocation.structured_formatting;
+      setState(location.main_text);
+    } else setState('Current Location');
+  }, [selectedLocation]);
+
 
   return (
     <ReusableWrapper>
@@ -97,9 +104,7 @@ const CurrentLocation = ({ focus, handleClick }) => {
               focus ? 'current-loc-h2-text-active' : 'current-loc-h2-text'
             }`}
           >
-            {Object.keys(selectedLocation).length > 0
-              ? selectedLocation.structured_formatting.main_text
-              : 'Current Location'}
+            {state}
           </h2>
         </div>
       </ReusableButton>
@@ -154,7 +159,6 @@ const Search = props => (
 
 const LocationNavLarge = ({
   mode,
-  handleCheckoutMode,
   setDeliveryModeAction,
   classNames,
   deliveryorpickup,
@@ -277,8 +281,7 @@ const LocationNavLarge = ({
               <span className="cart-divider" />
               {cartItemsQuantity} cart
             </Button>
-            <CartDropdown
-              handleClick={handleCheckoutMode}
+            <CartIconSection
               focus={isFocused.cart}
             />
           </div>
@@ -303,7 +306,6 @@ export default connect(
   mapStateToProps,
   {
     setDeliveryModeAction: setDeliveryMode,
-    handleCheckoutMode: setCheckoutMode
   }
 )(LocationNavLarge);
 
@@ -320,7 +322,6 @@ LocationNavLarge.propTypes = {
   classNames: PropTypes.string,
   deliveryorpickup: PropTypes.bool,
   mode: PropTypes.string.isRequired,
-  handleCheckoutMode: PropTypes.func.isRequired,
   setDeliveryModeAction: PropTypes.func.isRequired,
   handleSearch: PropTypes.func,
 };

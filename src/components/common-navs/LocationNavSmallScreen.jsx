@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Clock from 'Icons/Clock';
@@ -81,15 +81,22 @@ const SuggestionsDropdown = () => (
 
 const ButtonText = ({ mode }) => {
   const { selectedLocation } = useLocationContext();
+  const [state, setState] = useState('Current Location');
+
+  useEffect(() => {
+    const hasLocation = Object.keys(selectedLocation).length > 0;
+    if (hasLocation) {
+      const location = selectedLocation.structured_formatting;
+      setState(location.secondary_text.split(',')[0]);
+    } else setState('Current Location');
+  }, [selectedLocation]);
 
   return (
     <h2 className="inline-text">
       {mode === 'delivery' && <span>Delivery to</span>}
       {mode === 'pickup' && <span>PICKUP NEAR</span>}
       <span className="text">
-        {Object.keys(selectedLocation).length > 0
-          ? selectedLocation.structured_formatting.secondary_text.split(',')[0]
-          : 'Current Location'}
+        {state}
         <span className="chevron-down">
           <ChevronRight />
         </span>

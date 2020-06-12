@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import Row from 'Components/grid/Row';
 import Column from 'Components/grid/Column';
 import Price from 'Components/badge/Price';
 
-import setMealToDisplayAction from 'Redux/setMealToDisplayAction';
-
 import './mealCard.scss';
 import { useModalContext } from '../../context/ModalContext';
 import { useCloudinayService } from '../img/Cloudinary';
+import { useBusinessContext } from '../../context/BusinessContext';
 
 export const MealTitle = ({ title }) => (
   <div className="meal-title-section">
@@ -41,6 +39,7 @@ const MealDetails = ({ title, price, description }) => (
 );
 
 const MealPicture = ({ imageUrl }) => {
+  const imgRef = React.useRef();
   const [state, setState] = useState(false);
   const { domain, supports } = useCloudinayService();
   let ext = 'jpg', queryString = '', img;
@@ -60,20 +59,23 @@ const MealPicture = ({ imageUrl }) => {
     const imgSrcWithoutExt = imgSrc.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');
     img = `${domain}${storageClienId}upload/${queryString}${imgSrcWithoutExt}.${ext}`;
   }
-  // Loop through option prop and build queryString
-  const [cookies, setCookie] = useCookies([`_${img || '__img'}`]);
 
   const handleLoad = () => {
     setState(true);
-    setCookie(`_${img || '__img'}`, true, { path: '/' });
   };
+
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete && !state) {
+      setState(true);
+    }
+  }, [imgRef]);
 
   return (
     <Column classNames="col-4 col-md-3 col-lg-4 meal-picture-column">
       {imageUrl ? (
         <div className="meal-picture-section position-relative">
-          <img onLoad={handleLoad} className="d-none" src={`${img}`} alt="" />
-          <div className="meal-picture" style={{ backgroundImage: `url(${img})`, opacity: state || cookies[`_${img}`] ? 1 : 0 }} />
+          <img ref={imgRef} onLoad={handleLoad} className="d-none" src={`${img}`} alt="" />
+          <div className="meal-picture" style={{ backgroundImage: `url(${img})`, opacity: state ? 1 : 0 }} />
         </div>
       ) : null}
     </Column>
@@ -85,17 +87,21 @@ const MealCard = ({
   imageUrl,
   description,
   price,
-  setMealToDisplay,
   slug
 }) => {
-  const { setModal } = useModalContext();
+  const { setModal, setCartPopup } = useModalContext();
+  const { setCatelogToDisplay } = useBusinessContext();
+
+  const onClick = () => {
+    setCatelogToDisplay(slug);
+    setCartPopup(true);
+    setModal(true);
+  };
+
   return (
     <div
       className="meal-card"
-      onClick={() => {
-        setMealToDisplay(slug, null, true);
-        setModal(true);
-      }}
+      onClick={onClick}
       tabIndex={0}
       role="button"
     >
@@ -107,10 +113,7 @@ const MealCard = ({
   );
 };
 
-export default connect(
-  () => ({}),
-  { setMealToDisplay: setMealToDisplayAction }
-)(MealCard);
+export default MealCard;
 
 PriceTag.propTypes = {
   price: PropTypes.number.isRequired
@@ -156,6 +159,5 @@ MealCard.propTypes = {
   description: PropTypes.string,
   price: PropTypes.number,
   imageUrl: PropTypes.string,
-  setMealToDisplay: PropTypes.func.isRequired,
   slug: PropTypes.string.isRequired
 };

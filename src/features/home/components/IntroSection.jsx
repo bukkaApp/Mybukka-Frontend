@@ -25,7 +25,12 @@ const SmallTextSection = () => (
 
 const SearchLocationSection = () => (
   <div className="container search-location-section">
-    <SearchLocation useCurrentLocationVisible chevronButtonVisible showDeliveryOrPickupNav />
+    <SearchLocation
+      withLoading
+      useCurrentLocationVisible
+      chevronButtonVisible
+      showDeliveryOrPickupNav
+    />
   </div>
 );
 

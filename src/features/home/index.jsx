@@ -16,24 +16,23 @@ import { useBusinessesContext } from '../../context/BusinessesContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 let fetched = { food: null, businessGroup: null, categories: null };
+let justMounted = false;
 
 const Home = () => {
   const { push } = useHistory();
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { coordinates, setCurrentLocation, updated, setUpdate } = useLocationContext();
+  const { coordinates, } = useLocationContext();
   const { setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
 
   useEffect(() => {
-    setCurrentLocation();
-    setUpdate(null);
-  }, []);
-
-  useEffect(() => {
-    if (!updated || !coordinates.length) return;
+    if (!justMounted) {
+      justMounted = true;
+      return justMounted;
+    }
 
     loading(true);
-    const setter = (res, type, hasError = false) => {
+    const onResponse = (res, type, hasError = false) => {
       fetched[type] = true;
       const data = hasError ? (res.response.data || res) : res.data;
       if (type === 'food') setBusinesses(data, hasError);
@@ -46,20 +45,20 @@ const Home = () => {
 
     const getNearbyFoodBusiness = () => {
       API.businesses.get('type=food')
-        .then(res => setter(res, 'food'))
+        .then(res => onResponse(res, 'food'))
         .catch(() => push('/coming-soon'));
     };
 
     const getNearbyBusinessGroup = () => {
       API.businessGroup.get()
-        .then(res => setter(res, 'businessGroup'))
-        .catch(err => setter(err, 'businessGroup', true));
+        .then(res => onResponse(res, 'businessGroup'))
+        .catch(err => onResponse(err, 'businessGroup', true));
     };
 
     const getNearbyBusinessCategory = () => {
       API.businessCategories.get()
-        .then(res => setter(res, 'categories'))
-        .catch(err => setter(err, 'categories', true));
+        .then(res => onResponse(res, 'categories'))
+        .catch(err => onResponse(err, 'categories', true));
     };
 
     getNearbyFoodBusiness();
@@ -69,7 +68,7 @@ const Home = () => {
     return () => {
       fetched = { food: null, businessGroup: null, categories: null };
       loading(false);
-      setUpdate(null);
+      justMounted = false;
     };
   }, [coordinates]);
 

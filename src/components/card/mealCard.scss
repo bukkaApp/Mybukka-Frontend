@@ -31,9 +31,17 @@
 }
 
 .meal-title {
-  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  letter-spacing: -0.28px;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  line-height: normal;
+  display: block;
+  color: rgb(45, 49, 56);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0px 0px 5px;
 }
 
 .meal-picture {
@@ -55,24 +63,29 @@
 }
 
 .meal-description {
-  font-size: 13px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
   color: rgba(143, 149, 163, 0.9);
-  font-weight: 300;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 0.14px;
+  font-weight: 400;
+  line-height: 1.43;
+  color: rgba(143, 149, 163, 0.9);
+  overflow: hidden;
 }
 
 @media (max-width: 767.98px) {
-  .meal-description {
-    font-size: 11px;
-  }
-
-  .meal-description-section {
-    min-height: 40px;
-  }
+  // .meal-description-section {
+  //   min-height: 40px;
+  // }
 
   .meal-details-column {
     max-width: 62.5%;
     flex: 0 0 62.5%;
-    padding-left: 0px;
   }
 
   .meal-picture-column {

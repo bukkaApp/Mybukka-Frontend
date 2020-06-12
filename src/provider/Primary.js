@@ -13,7 +13,7 @@ import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
-import { NotificationProvider } from '../context/NotificationContext';
+import { EventProvider } from '../context/EventContext';
 import { LastLocationProvider } from '../context/LastLocationContext';
 import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
 import { GlobalFormValidityReportProvider } from '../context/GlobalFormValidityReportContext';
@@ -31,7 +31,7 @@ const Primary = ({ children }) => (
                     <CartProvider>
                       <MapProvider>
                         <ToastProvider>
-                          <NotificationProvider>
+                          <EventProvider>
                             <GlobalFormValidityRequestProvider>
                               <GlobalFormValidityReportProvider>
                                 <LastLocationProvider>
@@ -41,7 +41,7 @@ const Primary = ({ children }) => (
                                 </LastLocationProvider>
                               </GlobalFormValidityReportProvider>
                             </GlobalFormValidityRequestProvider>
-                          </NotificationProvider>
+                          </EventProvider>
                         </ToastProvider>
                       </MapProvider>
                     </CartProvider>
