@@ -15,8 +15,15 @@ const Modal = ({ children, useFullWidth, show, bodyClassName, classNames = '', o
 
   return (
     <div>
-      {show && <div className={`Modal-Wrapper ${classNames} ${state ? 'Modal-Wrapper--active' : ''}`}>
-        <ClickOut style={{ opacity: state ? 1 : 0 }} onClickOut={onClickOut} className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}>
+      {show &&
+      <div
+        className={`Modal-Wrapper ${classNames} ${state ? 'Modal-Wrapper--active' : ''}`}
+      >
+        <ClickOut
+          style={{ opacity: state ? 1 : 0 }}
+          onClickOut={onClickOut}
+          className={`Modal-Wrapper-Body ${bodyClassName} ${useFullWidth ? 'FullWidth' : 'MediumWidth'}`}
+        >
           {children}
         </ClickOut>
       </div>}

@@ -78,7 +78,7 @@ const CatelogsPopupOnSmallScreen = () => {
             </div>
             <div className="col-10">
               <Field.Input
-                placeholderText={state}
+                placeholderText={state || 'Search'}
                 value={state}
                 onKeyDown={e => onKeyDown(e)}
                 handleChange={e => setState(e.target.value)}
@@ -118,7 +118,7 @@ const CatelogsPopupOnSmallScreen = () => {
                   </Link>
                   ))}
 
-                {hasNoResult() && <NoResult withPadding text={state} />}
+                {(!catelogs || hasNoResult()) && <NoResult withPadding text={state} />}
               </div>
             </Fragment>
           </div>
