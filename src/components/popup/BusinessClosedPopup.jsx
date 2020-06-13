@@ -18,12 +18,12 @@ import './BusinessClosedPopup.scss';
 
 const Head = ({ imageUrl }) => (
   <div className="closed-notification-heading">
-    <SingleImage options={{ w: 80 }} className="profile-photo" src={imageUrl} alt="profileImage" />
+    <SingleImage options={{ w: 80 }} className="Business-Closed-Img" src={imageUrl} alt="profileImage" />
   </div>
 );
 
 const Body = ({ name }) => (
-  <div className="closed-notfication-body">
+  <div className="Closed-notification-body">
     <p className="closed-notification-body-heading">
       <span>{name}</span>  is closed.
     </p>

@@ -31,31 +31,28 @@ export const scheduleData = [
   }
 ];
 
-export const TimeLists = ({
-  lists,
-  handleClick,
-  classNames,
-  maxHeight,
-  pathname,
-  link
-}) => (
-  <div className={`custom-duration-dropdown ${classNames}`}>
-    <div className={`custom-duration-dropdown-content ${maxHeight}`}>
-      {lists.map(list => (
-        link ? (
-          <a key={`${pathname}#${list}`} href={`${pathname}#${list}`}>
-            <div tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
+export const TimeLists = ({ lists, handleClick, classNames, maxHeight, pathname, link }) => {
+  const resolveValidId = title => title.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
+
+  return (
+    <div className={`custom-duration-dropdown ${classNames}`}>
+      <div className={`custom-duration-dropdown-content ${maxHeight}`}>
+        {lists.map(list => (
+          link ? (
+            <a key={`${pathname}#${list.replace(/ /g, '-')}`} href={`${pathname}#${resolveValidId(list)}`}>
+              <div tabIndex="0" role="button" aria-pressed="false" className="custom-duration-dropdown-item">
+                <span>{list}</span>
+              </div>
+            </a>
+          ) : (
+            <div key={list} tabIndex="0" role="button" aria-pressed="false" onClick={() => handleClick(list)} className="custom-duration-dropdown-item">
               <span>{list}</span>
             </div>
-          </a>
-        ) : (
-          <div key={list} tabIndex="0" role="button" aria-pressed="false" onClick={() => handleClick(list)} className="custom-duration-dropdown-item">
-            <span>{list}</span>
-          </div>
-        )))}
+          )))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Schedule = ({ placeholder, handleClick, lists, name }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -158,16 +155,6 @@ export const DurationContent = ({
   );
 };
 
-const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
-  mode,
-  currentSchedule: schedule
-});
-
-export const ConnectedDurationContent = connect(
-  mapStateToProps,
-  { setSchedule: setDeliverySchedule }
-)(DurationContent);
-
 const Duration = props => (
   <ReusableWrapper>
     <ReusableButton classNames="custom-duration" {...props}>
@@ -193,6 +180,16 @@ const Duration = props => (
 );
 
 export default Duration;
+
+const mapStateToProps = ({ deliveryScheduleReducer: { mode, schedule } }) => ({
+  mode,
+  currentSchedule: schedule
+});
+
+export const ConnectedDurationContent = connect(
+  mapStateToProps,
+  { setSchedule: setDeliverySchedule }
+)(DurationContent);
 
 Duration.propTypes = {
   focus: PropTypes.bool.isRequired

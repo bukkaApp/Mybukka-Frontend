@@ -32,11 +32,15 @@ const Headline = ({
   placeId,
   setPromotionToDisplay,
   itemSizes,
+  useScroll,
+  currentTitle,
+  setCurrentTitle
 }) => {
+  const headline = useRef();
   const [state, setState] = useState(0);
   const [result, calc] = useState(0);
-  const headline = useRef(null);
 
+  // TODO: cleanup this function
   const updateSlideWidth = (width) => {
     let slideWidth = ((width || state) / (slidesLength - itemSizes)) * activeIndex;
     if (activeIndex === 1) {
@@ -47,23 +51,50 @@ const Headline = ({
     calc(slideWidth);
   };
 
+  const _inViewport = () => {
+    const imageTopPosition = headline.current.getBoundingClientRect().top;
+
+    const buffer = 135;
+    if (buffer > imageTopPosition) {
+      return true;
+    }
+    return false;
+  };
+
+  const handleScroll = () => {
+    if (headline.current && _inViewport() && title !== currentTitle) {
+      setCurrentTitle(title);
+    }
+  };
+
   useEffect(() => {
     const width = headline ? headline.current.clientWidth : 0;
     setState(width);
     updateSlideWidth(width);
+
+    if (useScroll) {
+      document.addEventListener('scroll', handleScroll);
+      return () => {
+        document.removeEventListener('scroll', handleScroll);
+      };
+    }
   }, [headline]);
 
+  // TODO: Replace the api call with new API hook
   const handleClick = async () => {
     await setPromotionToDisplay(placeId, title, description);
   };
 
+  const resolveValidId = () => title.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
+
+  // TODO: cleanup, find out if there is need for the effect
   useEffect(() => {
     updateSlideWidth();
   }, [activeIndex]);
 
   return (
     <Container>
-      <div className="headline" id={title} ref={headline}>
+      <div className="headline" id={resolveValidId()} ref={headline}>
         <div
           className="runner h"
           style={{

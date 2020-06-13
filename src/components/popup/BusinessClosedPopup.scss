@@ -1,9 +1,20 @@
 .closed-notification {
   position: relative;
   padding: 23px 16px;
-  @media screen and (min-width: 768px) {
-    padding: 42px;
+  @media screen and (max-width: 768px) {
+    padding: 23px 0;
   }
+}
+
+.Closed-notification-body {
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    padding: 10px 16px;
+  }
+}
+
+.Business-Closed-Img {
+  height: 100%;
 }
 
 .dismiss-closed-notification-icon {
@@ -13,36 +24,27 @@
     box-shadow: none;
     border: none;
   }
-  @media screen and (min-width: 1061px) {
-    top: 24px;
-    right: 24px;
+  top: 24px;
+  right: 24px;
+  @media screen and (max-width: 768px) {
+    padding: 5px 16px;
   }
 }
 
 .closed-notification-heading {
   position: relative;
   background-color: transparent;
-  width: 42px;
-  height: 42px;
-  float: left;
   overflow: hidden;
-  border-radius: 50%;
-  @media screen and (min-width: 768px) {
-    float: none;
-    height: 80px;
-    width: 80px;
-    margin: 0px auto 20px;
-  }
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  margin: 0px auto 20px;
 }
 
 .closed-notification-body {
-  margin-left: 54px;
-  margin-right: 54px;
-  @media screen and (min-width: 768px) {
-    margin-left: 0px;
-    margin-right: 0px;
-    text-align: center;
-  }
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
 }
 
 .closed-notification-body-heading {
@@ -73,9 +75,7 @@
   flex-direction: row;
   -webkit-box-pack: center;
   justify-content: center;
-  width: calc(100% + 32px);
   list-style: none;
-  margin: 0px 0px 0px -16px;
   padding: 16px;
   @media screen and (min-width: 768px) {
     background-color: rgb(255, 255, 255);

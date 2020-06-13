@@ -21,7 +21,7 @@ const styles = {
   backgroundColor: '#e9e7e7'
 };
 
-const BukkaCard = ({
+const Card = ({
   mealName,
   remark,
   imageUrl,
@@ -34,8 +34,6 @@ const BukkaCard = ({
   bottom,
   heading,
   subHeading,
-  dataTarget,
-  dataToggle,
   handleClick,
   others,
   itemClassName,
@@ -74,8 +72,6 @@ const BukkaCard = ({
     <div>
       <div
         className={`mt-4 bukka-card ${others ? 'other-bukka-card' : ''}`}
-        data-target={dataTarget}
-        data-toggle={dataToggle}
         onClick={handleClick}
         tabIndex={0}
         role="button"
@@ -119,26 +115,29 @@ const BukkaCard = ({
   );
 };
 
-const GetBukka = ({ classNames, href, onMouseEnter, onMouseLeave, ...props }) => (
-  <div className={`card-container ${classNames}`}>
-    <div className="card-wrap">
-      {href &&
+const BukkaCard = ({ classNames, href, onMouseEnter, onMouseLeave, ...props }) => {
+  const resolveValidId = title => title.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
+
+  return (
+    <div id={props.id ? `catelog-${resolveValidId(props.id)}` : ''} className={`card-container ${classNames}`}>
+      <div className="card-wrap">
+        {href &&
         <Link
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           className="link"
           to={href}
         >
-          <BukkaCard {...props} />
+          <Card {...props} />
         </Link>}
-      {!href && <BukkaCard {...props} />}
+        {!href && <Card {...props} />}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+export default memo(BukkaCard);
 
-export default memo(GetBukka);
-
-BukkaCard.defaultProps = {
+Card.defaultProps = {
   dataTarget: '',
   dataToggle: '',
   delivery: false,
@@ -156,9 +155,7 @@ BukkaCard.defaultProps = {
   tags: [],
 };
 
-BukkaCard.propTypes = {
-  dataTarget: PropTypes.string,
-  dataToggle: PropTypes.string,
+Card.propTypes = {
   remark: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   mealName: PropTypes.string,
   imageUrl: PropTypes.string.isRequired,
@@ -175,12 +172,12 @@ BukkaCard.propTypes = {
   subHeading: PropTypes.string
 };
 
-GetBukka.defaultProps = {
+BukkaCard.defaultProps = {
   classNames: '',
   href: ''
 };
 
-GetBukka.propTypes = {
+BukkaCard.propTypes = {
   classNames: PropTypes.string,
   href: PropTypes.string,
 };

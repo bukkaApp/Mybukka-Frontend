@@ -25,14 +25,18 @@ import './bukkaScene.scss';
 
 import BukkaMeals from './BukkaMeals';
 import { useBusinessContext } from '../../../context/BusinessContext';
+import { useSearchContext } from '../../../context/SearchContext';
+import useHashLinkUpdate from '../../../hooks/useHashLinkUpdate';
 import OtherNearest from './OtherNearest';
 
 const BukkaMenuScene = ({
   push, errorMessage, bukka,
 }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useSearchContext();
+  const [activeCatelog, setActiveCatelog] = useState('');
   const [uniqueCatelogs, setUniqueCatelogs] = useState([]);
   const { catelogs, business } = useBusinessContext();
+  useHashLinkUpdate();
 
   useEffect(() => {
     if (catelogs) {
@@ -54,7 +58,7 @@ const BukkaMenuScene = ({
     return false;
   };
 
-  const hasNoResult = () => catelogs.filter(menu => isInSearch(menu)).length === 0;
+  const hasNoResult = () => catelogs && catelogs.filter(menu => isInSearch(menu)).length === 0;
 
   return (
     <div className="bukka-menu">
@@ -66,6 +70,7 @@ const BukkaMenuScene = ({
         deliveryorpickup
         classNames="bukka-location-nav"
         categoryItems={uniqueCatelogs}
+        activeItem={activeCatelog}
         section={`bukka/${catelogs ? catelogs[0].bukka : ''}`}
         handleSearch={event => setSearchQuery(event.target.value)}
       />
@@ -73,15 +78,18 @@ const BukkaMenuScene = ({
       <div className="carousel-divider mb-0" />
       <BukkaNavSmallScreen
         classNames="top-0"
-        categoryItems={uniqueCatelogs}
+        uniqueCatelogs={uniqueCatelogs}
         bukkaMenu={catelogs}
-        currentCategory="breakfast"
+        currentCategory={activeCatelog}
+        activeCatelog={activeCatelog || 'categories'}
       />
       {!(searchQuery && hasNoResult()) && <BukkaDetailsSection />}
       <BukkaMeals
         isInSearch={isInSearch}
         hasNoResult={hasNoResult}
         searchQuery={searchQuery}
+        setActiveCatelog={setActiveCatelog}
+        activeCatelog={activeCatelog}
         uniqueCatelogs={uniqueCatelogs}
       />
       <OtherNearest />

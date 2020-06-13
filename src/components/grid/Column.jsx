@@ -2,8 +2,8 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-const Column = ({ classNames, children }) => (
-  <div className={`col ${classNames}`}>{children}</div>
+const Column = ({ classNames, children, ...prop }) => (
+  <div className={`col ${classNames}`} {...prop}>{children}</div>
 );
 
 export default Column;

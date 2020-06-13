@@ -18,19 +18,19 @@ const BukkaMealsHeader = ({ category, active, setState }) => {
   const activeCatelog = React.useRef();
 
   const _inViewport = () => {
-    const windowHeight = window.innerHeight;
+    // const windowHeight = window.innerHeight;
     const imageTopPosition = activeCatelog.current.getBoundingClientRect().top;
 
     const buffer = 70;
-    if (windowHeight * buffer > imageTopPosition) {
+    if (/* windowHeight * buffer > imageTopPosition && */ buffer > imageTopPosition) {
       return true;
     }
     return false;
   };
 
   const handleScroll = () => {
-    if (activeCatelog.current && category !== active) {
-      setState(_inViewport() && category);
+    if (activeCatelog.current && _inViewport() && category !== active) {
+      setState(category);
     }
   };
 
@@ -41,14 +41,18 @@ const BukkaMealsHeader = ({ category, active, setState }) => {
     };
   }, [activeCatelog]);
 
+  const resolveValidId = () => category.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
+
   return (
-    <div className="bukka-meals-header" id={category}>
+    <div ref={activeCatelog} className="bukka-meals-header" id={resolveValidId()}>
       <h4 className="header-text">{category}</h4>
     </div>
   );
 };
 
-const BukkaMeals = ({ uniqueCatelogs, searchQuery, isInSearch, hasNoResult }) => {
+const BukkaMeals = ({
+  uniqueCatelogs, searchQuery, isInSearch, hasNoResult, activeCatelog, setActiveCatelog
+}) => {
   const { catelogs } = useBusinessContext();
 
   const onSearch = (uniqueCatelog, catelog) => {
@@ -65,12 +69,12 @@ const BukkaMeals = ({ uniqueCatelogs, searchQuery, isInSearch, hasNoResult }) =>
       {uniqueCatelogs.map(eachUniqueCatelog => (
         onSearch(eachUniqueCatelog, catelogs).length > 0 &&
         <Fragment key={`store-menu-catelogs-${eachUniqueCatelog}`}>
-          <BukkaMealsHeader category={eachUniqueCatelog} />
+          <BukkaMealsHeader active={activeCatelog} setState={setActiveCatelog} category={eachUniqueCatelog} />
           <Row classNames="menu-section">
             {catelogs.map(catelog => (
               <Fragment key={`store-menu-catelogs-${catelog.title}-${catelog._id}`}>
                 {onSearch(eachUniqueCatelog, catelog) && (
-                  <Column classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column">
+                  <Column id={`catelog-${catelog._id}`} classNames="col-12 col-lg-6 col-xl-6 col-xs-12 col-sm-12 meal-column">
                     <MealCard {...catelog} />
                   </Column>
                 )}

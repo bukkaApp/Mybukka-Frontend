@@ -15,6 +15,7 @@ const SET_INVITE_POPUP = 'SET_INVITE_POPUP';
 const SET_UNAUTHENTICATED_CHECKOUT_POPUP = 'SET_UNAUTHENTICATED_CHECKOUT_POPUP';
 const SET_CART_POPUP = 'SET_CART_POPUP';
 const SET_BUSINESS_CLOSED_POPUP = 'SET_BUSINESS_CLOSED_POPUP';
+const CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP = 'CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP';
 
 const initialState = {
   show: false,
@@ -30,6 +31,7 @@ const initialState = {
   invitePopup: false,
   cartPopup: false,
   businessClosedPopup: false,
+  catelogsOnSmallScreenPopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -73,6 +75,9 @@ const reducer = (originalState, action) => {
 
     case SET_BUSINESS_CLOSED_POPUP:
       return { ...state, businessClosedPopup: action.payload };
+
+    case CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP:
+      return { ...state, catelogsOnSmallScreenPopup: action.payload };
 
     default: {
       return state;
@@ -169,6 +174,13 @@ const useModal = () => {
     });
   };
 
+  const setCatelogsOnSmallScreenPopup = (payload) => {
+    dispatch({
+      type: CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP,
+      payload,
+    });
+  };
+
   const setCartPopup = (payload) => {
     dispatch({
       type: SET_CART_POPUP,
@@ -189,6 +201,7 @@ const useModal = () => {
     viewMoreOrderOnMobile,
     authenticationPopup,
     phoneVerificationPopup,
+    catelogsOnSmallScreenPopup,
     unAuthenticatedCheckoutPopup } = state;
 
   return {
@@ -216,6 +229,8 @@ const useModal = () => {
     setAuthenticationPopup,
     phoneVerificationPopup,
     setVerificationPhonePopup,
+    catelogsOnSmallScreenPopup,
+    setCatelogsOnSmallScreenPopup,
     unAuthenticatedCheckoutPopup,
     setUnAuthenticatedCheckoutPopup,
   };

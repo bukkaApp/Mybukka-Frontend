@@ -122,7 +122,9 @@ const Categories = props => (
   <ReusableWrapper>
     <ReusableButton {...props}>
       <div>
-        <h2 className="current-location-button-text">Categories</h2>
+        <h2
+          className="current-location-button-text text-capitalize"
+        >{props.activeItem || 'Categories'}</h2>
       </div>
       <span className="current-location-button-icon custom-mt-minus1 pl-4">
         <ChevronVertical />
@@ -165,6 +167,7 @@ const LocationNavLarge = ({
   scheduleTime,
   cartItemsQuantity,
   categoryItems,
+  activeItem,
   handleSearch,
   section
 }) => {
@@ -255,6 +258,7 @@ const LocationNavLarge = ({
                   focus={isFocused.categories}
                   categoryItems={categoryItems}
                   section={section}
+                  activeItem={activeItem}
                 />
                 <div className="delivery-or-pickup-vertical-divider" />
               </Fragment>

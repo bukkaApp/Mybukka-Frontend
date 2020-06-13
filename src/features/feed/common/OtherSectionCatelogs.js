@@ -10,8 +10,8 @@ import NoResult from '../../../components/not-found/NoResult';
 import { useModalContext } from '../../../context/ModalContext';
 import { useBusinessContext } from '../../../context/BusinessContext';
 
-const OtherSection = ({
-  uniqueCatelogs, searchQuery, isInSearch, hasNoResult, type,
+const OtherSectionCatelogs = ({
+  uniqueCatelogs, searchQuery, isInSearch, hasNoResult, type, activeCatelog, setActiveCatelog
 }) => {
   const { catelogs, setCatelogToDisplay } = useBusinessContext();
   const { setModal, setCartPopup } = useModalContext();
@@ -39,7 +39,13 @@ const OtherSection = ({
           <div className="carousel-divider" />
           <Container classNames="px-0">
             <div className="mt-4 mb-4">
-              <Headline title={eachUniqueCatelog} activeIndex={1} />
+              <Headline
+                useScroll
+                setCurrentTitle={setActiveCatelog}
+                currentTitle={activeCatelog || 'categories'}
+                title={eachUniqueCatelog}
+                activeIndex={1}
+              />
               <Container>
                 <Row classNames="pb-4">
                   {catelogs.map(catelog => (
@@ -48,6 +54,7 @@ const OtherSection = ({
                         key={`nearby-${type}-${catelog.title.split(' ').join('-')}-${catelog._id}`}
                         imageUrl={catelog.imageUrl}
                         mealName={catelog.title}
+                        id={catelog._id}
                         carouselType="category"
                         deliveryPrice={catelog.deliveryCost}
                         imageHeight="fresh-img-height"
@@ -62,9 +69,10 @@ const OtherSection = ({
           </Container>
         </Fragment>
       ))}
+      {hasNoResult() &&
       <Container>
-        {hasNoResult() && <NoResult withPadding text={searchQuery} />}
-      </Container>
+        <NoResult withPadding text={searchQuery} />
+      </Container>}
     </div>
   );
 };
@@ -77,6 +85,6 @@ const mapStateToProps = ({
 
 export default connect(
   mapStateToProps,
-)(OtherSection);
+)(OtherSectionCatelogs);
 
-OtherSection.propTypes = {};
+OtherSectionCatelogs.propTypes = {};

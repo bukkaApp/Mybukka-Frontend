@@ -33,21 +33,23 @@ const App = () => {
   const { LoadService } = useAutocompleteService();
   return (
     <BrowserRouter>
-      <ErrorBoundary>
+      <ErrorBoundary minimal>
         <Suspense fallback={<ProgressBar loading />}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <IndeterminateProgressbar />
               <Secondary>
                 <Primary>
-                  <IndeterminateProgressBarState />
-                  <ProgressSwitch />
-                  <DownLoadApp />
-                  <Toast />
-                  <LoadService />
-                  <Main />
-                  <ModalRoot />
-                  <Cookie />
+                  <ErrorBoundary>
+                    <IndeterminateProgressBarState />
+                    <ProgressSwitch />
+                    <DownLoadApp />
+                    <Toast />
+                    <LoadService />
+                    <Main />
+                    <ModalRoot />
+                    <Cookie />
+                  </ErrorBoundary>
                 </Primary>
               </Secondary>
             </PersistGate>

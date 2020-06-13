@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '../button/Button';
+import ClickOut from '../ClickOut/ClickOut';
 
 export const ReusableWrapper = ({ children }) => (
   <div className="pr-17">
@@ -22,7 +23,6 @@ export const ReusableDropdown = ({ children, classNames }) => (
 );
 
 export const ReusableButton = ({ handleClick, children, classNames }) => {
-  const wrapperRef = React.createRef();
   const [isFocused, setFocus] = useState(false);
 
   const handleBtnClick = () => {
@@ -30,19 +30,8 @@ export const ReusableButton = ({ handleClick, children, classNames }) => {
     handleClick();
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setFocus(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <div ref={wrapperRef}>
+    <ClickOut onClickOut={() => setFocus(false)}>
       <Button
         type="button"
         classNames={`current-location-button ${classNames}`}
@@ -50,9 +39,10 @@ export const ReusableButton = ({ handleClick, children, classNames }) => {
       >
         {children}
       </Button>
-    </div>
+    </ClickOut>
   );
 };
+
 ReusableButton.defaultProps = {
   classNames: ''
 };

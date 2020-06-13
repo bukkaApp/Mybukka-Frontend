@@ -9,7 +9,7 @@ import './bukkaImage.scss';
 const BukkaImage = ({ business }) => {
   const src = (business && (business.headerImg || business.imageUrl)) || '';
   const { domain, supports } = useCloudinayService();
-  const [state, setState] = useSessionStorage('bukkaimg', false);
+  const [state, setState] = useSessionStorage(src || 'bukkaImg', false);
   const width = window.innerWidth;
 
   // lower Quality and standard quality

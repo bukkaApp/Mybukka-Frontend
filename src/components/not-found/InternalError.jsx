@@ -6,9 +6,9 @@ import NavLink from '../navlink/Navlink';
 
 import './notavailable.scss';
 
-const InternalError = ({ history: { push } }) => (
+const InternalError = ({ history: { push }, children, minimal }) => (
   <div className="custom-error-bgColor bukka-brand-white">
-    <Navbar push={push} />
+    {!minimal && <Navbar push={push} />}
     <div className="error-main-section">
       <div className="error-main-content">
         <div className="custom-error-img-container">
@@ -28,6 +28,7 @@ const InternalError = ({ history: { push } }) => (
             should be back to normal.
           </span>
         </p>
+        {children && children}
         <NavLink href="/">
           <button className="error-redirect-btn">
             <span>Go To Homepage</span>

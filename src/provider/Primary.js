@@ -13,6 +13,7 @@ import { LoadingProvider } from '../context/LoadingContext';
 import { MapProvider } from '../context/MapContext';
 import { CookieProvider } from '../context/CookieContext';
 import { ToastProvider } from '../context/ToastContext';
+import { SearchProvider } from '../context/SearchContext';
 import { EventProvider } from '../context/EventContext';
 import { LastLocationProvider } from '../context/LastLocationContext';
 import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
@@ -36,7 +37,9 @@ const Primary = ({ children }) => (
                               <GlobalFormValidityReportProvider>
                                 <LastLocationProvider>
                                   <LoadingProvider>
-                                    {children}
+                                    <SearchProvider>
+                                      {children}
+                                    </SearchProvider>
                                   </LoadingProvider>
                                 </LastLocationProvider>
                               </GlobalFormValidityReportProvider>

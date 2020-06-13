@@ -17,9 +17,10 @@ import { useLoadingContext } from '../../../context/LoadingContext';
 import IntroSection from '../common/IntroSection';
 import AreasToExplore from '../common/AreasToExplore';
 import ExploreSection from '../common/ExploreSection';
+import useHashLinkUpdate from '../../../hooks/useHashLinkUpdate';
 
 import { drinkBannerImage, freshBannerImage } from '../img/imgLinks';
-import OtherSectionCategories from '../common/OtherSectionCategories';
+import OtherSectionCatelogs from '../common/OtherSectionCatelogs';
 
 const OtherSection = ({
   location,
@@ -27,6 +28,9 @@ const OtherSection = ({
 }) => {
   const { API } = useApi();
   const [uniqueCatelogs, setUniqueCatelogs] = useState([]);
+  const [activeCatelog, setActiveCatelog] = useState('');
+
+  useHashLinkUpdate();
 
   const { params } = matchPath(location.pathname, { path: '/:id' });
   const type = params.id;
@@ -39,16 +43,17 @@ const OtherSection = ({
   const isMart = type === 'mart';
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     if (catelogs) {
       const categories = [...new Set(catelogs.map(catelog => catelog.category))];
       setUniqueCatelogs(categories);
     }
+    return () => setSearchQuery('');
   }, [catelogs]);
 
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     if (coordinates.length < 2) return history.push('/');
 
     loading(true);
@@ -70,11 +75,6 @@ const OtherSection = ({
     getBusinessInformationAndCatelogs();
   }, [coordinates, type]);
 
-  // useEffect(() => {
-  //   if (errorMessage !== '') {
-  //     swal({ text: errorMessage, icon: 'warning', dangerMode: true });
-  //   }
-  // }, [errorMessage]);
 
   const isInSearch = (catelog) => {
     if (catelog) {
@@ -99,17 +99,20 @@ const OtherSection = ({
             <div className="feed-main-content">
               <LocationNavLargeScreen
                 scheduleTime
+                activeItem={activeCatelog}
                 handleSearch={event => setSearchQuery(event.target.value)}
                 categoryItems={uniqueCatelogs}
                 section={type}
               />
-              <BukkaNavSmallScreen currentCategory="Wine Under $20" />
+              <BukkaNavSmallScreen currentCategory={activeCatelog} />
               <LocationNavSmallScreen />
-              <OtherSectionCategories
+              <OtherSectionCatelogs
                 isInSearch={isInSearch}
                 hasNoResult={hasNoResult}
                 searchQuery={searchQuery}
+                setActiveCatelog={setActiveCatelog}
                 uniqueCatelogs={uniqueCatelogs}
+                activeCatelog={activeCatelog || 'categories'}
               />
             </div>
           </ExploreSection>

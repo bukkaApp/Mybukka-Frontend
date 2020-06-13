@@ -37,7 +37,7 @@ const FoodSection = () => {
   useEffect(() => {
     if (coordinates.length < 2) push('/');
 
-    if (!justMounted && businesses.length) {
+    if (!justMounted && businesses) {
       justMounted = true;
       return justMounted;
     }
