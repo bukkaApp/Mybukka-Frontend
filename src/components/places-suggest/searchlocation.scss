@@ -1,6 +1,10 @@
-.Location-Dropdown-Suggestion {
-  position: absolute;
-  width: 100%;
+$Location-Dropdown-type: (--relative: relative, --absolute: absolute);
+
+@each $type, $position in $Location-Dropdown-type {
+  .Location-Dropdown-Suggestion#{$type} {
+    position: $position;
+    width: 100%;
+  }
 }
 
 .Location-Wrapper {

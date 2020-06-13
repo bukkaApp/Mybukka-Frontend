@@ -15,6 +15,7 @@ const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
 const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
 const InviteFriends = lazy(() => import('../invite-friends/InviteFriends'));
 const BusinessClosedPopup = lazy(() => import('../popup/BusinessClosedPopup'));
+const SelectLocationOnSmallScreen = lazy(() => import('../popup/SelectLocationOnSmallScreen'));
 
 const ModalRoot = () => {
   const { show } = useModalContext();
@@ -44,6 +45,7 @@ const ModalRoot = () => {
         <InviteFriends />
         <BusinessClosedPopup />
         <CatelogsPopupOnSmallScreen />
+        <SelectLocationOnSmallScreen />
       </Suspense>
     </div>
   );

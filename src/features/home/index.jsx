@@ -46,7 +46,10 @@ const Home = () => {
     const getNearbyFoodBusiness = () => {
       API.businesses.get('type=food')
         .then(res => onResponse(res, 'food'))
-        .catch(() => push('/coming-soon'));
+        .catch((err) => {
+          onResponse(err, 'food', true);
+          push('/coming-soon');
+        });
     };
 
     const getNearbyBusinessGroup = () => {

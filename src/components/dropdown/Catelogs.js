@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ChevronVertical from '../icons/ChevronVertical';
-import { TimeLists as CategoryList } from './Duration';
+import Lists from '../list/Lists';
 import { ReusableButton, ReusableDropdown, ReusableWrapper }
-  from './ReusableNavElements';
+  from '../common-navs/ReusableNavElements';
+import './Catelogs.scss';
 
-import inputData from './inputData/duration';
 
-const { categoryItems } = inputData;
-
-export const CategoryLists = ({ lists, handleClick, section }) => (
-  <CategoryList
+const CatelogItems = ({ lists, handleClick, section }) => (
+  lists && <Lists
     handleClick={handleClick}
-    lists={lists || categoryItems}
+    lists={lists}
     classNames="category-dropdown-section"
     maxHeight="category-dropdown-height"
     pathname={section}
@@ -21,24 +19,24 @@ export const CategoryLists = ({ lists, handleClick, section }) => (
   />
 );
 
-const Categories = props => (
+const Catelogs = props => (
   <ReusableWrapper>
     <ReusableButton {...props}>
-      <div>
-        <h2 className="current-location-button-text">Categories</h2>
+      <div className="Catelogs--dropdown">
+        <h2 className="current-location-button-text">{props.activeItem || 'Categories'}</h2>
       </div>
       <span className="current-location-button-icon custom-mt-minus1 pl-4">
         <ChevronVertical />
       </span>
     </ReusableButton>
     <ReusableDropdown classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}>
-      <CategoryLists lists={props.lists} section={props.section} />
+      <CatelogItems lists={props.lists} section={props.section} />
     </ReusableDropdown>
   </ReusableWrapper>
 );
 
-export default Categories;
+export default Catelogs;
 
-Categories.propTypes = {
+Catelogs.propTypes = {
   focus: PropTypes.bool.isRequired
 };

@@ -6,14 +6,14 @@ import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import SearchLocation from 'Components/places-suggest/SearchLocation';
 import Field from 'Components/input/Field';
-import ChevronVertical from 'Icons/ChevronVertical';
 import setDeliveryMode from './actionCreators/setDeliveryMode';
 import Container from '../container';
 import Button from '../button/Button';
 import MapMarker from '../icons/MapMarker';
 import Cart from '../icons/Cart';
 import Magnifier from '../icons/Magnifier';
-import Duration from './Duration';
+import Schedule from '../schedule';
+import ClickOut from '../ClickOut/ClickOut';
 import CartIconSection from '../cart/CartIconSection';
 import {
   ReusableButton,
@@ -21,7 +21,7 @@ import {
   ReusableWrapper
 } from './ReusableNavElements';
 
-import { CategoryLists } from './Categories';
+import Catelogs from '../dropdown/Catelogs';
 import { useLocationContext } from '../../context/LocationContext';
 
 import './LocationNavLargeScreen.scss';
@@ -62,17 +62,6 @@ const DeliveryOrPickUp = ({ mode, handleClick, deliveryorpickup }) => (
       />
     </div>
   </div>
-);
-
-const SearchInputField = ({ handleChange, value }) => (
-  <Field.Input
-    type="text"
-    value={value}
-    name="searchLocation"
-    placeholderText="Search items..."
-    classNames="text-field form-control searchlocation"
-    handleChange={handleChange}
-  />
 );
 
 const CurrentLocation = ({ focus, handleClick }) => {
@@ -118,32 +107,6 @@ const CurrentLocation = ({ focus, handleClick }) => {
   );
 };
 
-const Categories = props => (
-  <ReusableWrapper>
-    <ReusableButton {...props}>
-      <div>
-        <h2
-          className="current-location-button-text text-capitalize"
-        >{props.activeItem || 'Categories'}</h2>
-      </div>
-      <span className="current-location-button-icon custom-mt-minus1 pl-4">
-        <ChevronVertical />
-      </span>
-    </ReusableButton>
-    <ReusableDropdown
-      classNames={`${props.focus ? 'border-none' : 'dropdown--disapear'}`}
-    >
-      <CategoryLists
-        handleClick={() => {}}
-        lists={props.categoryItems}
-        classNames="category-dropdown-section"
-        maxHeight="category-dropdown-height"
-        section={props.section}
-      />
-    </ReusableDropdown>
-  </ReusableWrapper>
-);
-
 const Search = props => (
   <ReusableWrapper>
     <ReusableButton {...props}>
@@ -152,7 +115,14 @@ const Search = props => (
       </span>
       <div>
         <div className="current-location-button-text">
-          <SearchInputField value={props.value} handleChange={props.handleChange} />
+          <Field.Input
+            type="text"
+            value={props.value}
+            name="searchLocation"
+            placeholderText="Search items..."
+            classNames="text-field form-control searchlocation"
+            handleChange={props.handleChange}
+          />
         </div>
       </div>
     </ReusableButton>
@@ -172,7 +142,6 @@ const LocationNavLarge = ({
   section
 }) => {
   const isBigScreen = useMediaQuery({ minWidth: 960 });
-  const wrapperRef = React.createRef();
   const [state, setState] = useState('');
 
   const emitOnChange = (e) => {
@@ -202,29 +171,15 @@ const LocationNavLarge = ({
     });
   };
 
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setFocus({
-        ...isFocused,
-        ...unFocus
-      });
-    }
-  };
-
   useEffect(() => {
     if (!deliveryorpickup && mode !== 'delivery') {
       setDeliveryModeAction('delivery');
     }
   }, [deliveryorpickup, mode]);
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [wrapperRef]);
-
   return (
-    <div
-      ref={wrapperRef}
+    <ClickOut
+      onClickOut={() => setFocus({ ...isFocused, ...unFocus })}
       className={`location-navbar d-none d-sm-none d-md-block
       d-lg-block d-xl-block ${classNames}`}
     >
@@ -246,17 +201,17 @@ const LocationNavLarge = ({
                 <div className="delivery-or-pickup-vertical-divider" />
                 {scheduleTime && (
                   <Fragment>
-                    <Duration
+                    <Schedule
                       handleClick={() => handleClick('duration')}
                       focus={isFocused.duration}
                     />
                     <div className="delivery-or-pickup-vertical-divider" />
                   </Fragment>
                 )}
-                <Categories
+                <Catelogs
                   handleClick={() => handleClick('categories')}
                   focus={isFocused.categories}
-                  categoryItems={categoryItems}
+                  lists={categoryItems}
                   section={section}
                   activeItem={activeItem}
                 />
@@ -291,7 +246,7 @@ const LocationNavLarge = ({
           </div>
         </div>}
       </Container>
-    </div>
+    </ClickOut>
   );
 };
 
@@ -335,10 +290,6 @@ CurrentLocation.propTypes = {
   handleClick: PropTypes.func.isRequired
 };
 
-Categories.propTypes = {
-  focus: PropTypes.bool.isRequired
-};
-
 DeliveryOrPickUp.propTypes = {
   deliveryorpickup: PropTypes.bool.isRequired,
   mode: PropTypes.string.isRequired,
@@ -346,9 +297,5 @@ DeliveryOrPickUp.propTypes = {
 };
 
 Search.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-};
-
-SearchInputField.propTypes = {
   handleChange: PropTypes.func.isRequired,
 };

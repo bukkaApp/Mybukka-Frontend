@@ -13,13 +13,10 @@ import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import UnAuthenticatedCheckout
   from '../../../components/cart/UnAuthenticatedCheckout';
 
-import LocationNavSmallScreen, {
-  SelectLocationModal
-} from '../../../components/common-navs/LocationNavSmallScreen';
+import LocationNavSmallScreen from '../../../components/common-navs/LocationNavSmallScreen';
 
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
-// import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
@@ -41,7 +38,7 @@ const BukkaMenuScene = ({
   useEffect(() => {
     if (catelogs) {
       const categories = [...new Set(catelogs.map(catelog => catelog.category))];
-      setUniqueCatelogs(categories);
+      setUniqueCatelogs(categories.sort());
     }
   }, [catelogs]);
 
@@ -62,8 +59,6 @@ const BukkaMenuScene = ({
 
   return (
     <div className="bukka-menu">
-      {/* <ClosedNotification /> */}
-      <SelectLocationModal />
       <Navbar push={push} bukka />
       <BukkaImageSection business={business} />
       <LocationNavLargeScreen
@@ -71,7 +66,6 @@ const BukkaMenuScene = ({
         classNames="bukka-location-nav"
         categoryItems={uniqueCatelogs}
         activeItem={activeCatelog}
-        section={`bukka/${catelogs ? catelogs[0].bukka : ''}`}
         handleSearch={event => setSearchQuery(event.target.value)}
       />
       <LocationNavSmallScreen />

@@ -66,7 +66,7 @@ const CatelogsPopupOnSmallScreen = () => {
     >
       <div className="small-search-container">
         <div className="bukka-nav-small-category-border pb-2">
-          <div className="mx-4 row">
+          <div className="mx-4 row align-items-center">
             <div
               aria-pressed="true"
               role="button"

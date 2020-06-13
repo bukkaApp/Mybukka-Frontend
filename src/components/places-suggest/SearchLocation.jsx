@@ -28,7 +28,9 @@ const SearchLocation = ({
   htmlFor,
   name,
   state,
+  onClick,
   useCurrentLocationVisible,
+  useModal,
 }) => {
   const { loading } = useLoadingContext();
   const [predictions, setPredictions] = useState([]);
@@ -46,8 +48,9 @@ const SearchLocation = ({
     handleChange({ target: { name: inpName, value } });
   };
 
-  const onClick = (...props) => {
+  const emitClick = (...props) => {
     if (withLoading) loading(true);
+    if (useModal) onClick(false);
     handleClick(...props);
   };
 
@@ -106,14 +109,15 @@ const SearchLocation = ({
         {showChevronButton()}
       </div>
       {showDropdown && (<div className="carousel-divider mb-0" />)}
-      <div className="Location-Dropdown-Suggestion">
+      <div className={`Location-Dropdown-Suggestion${useModal ? '--relative' : '--absolute'}`}>
         {(hasFocus || showDropdown) && (
           <Fragment>
             {showDeliveryOrPickupNav ? <DeliveryOrPickupNav /> : null}
             <SuggestionsDropdown
               useCurrentLocationVisible={useCurrentLocationVisible}
-              setLocation={onClick}
+              setLocation={emitClick}
               predictions={predictions}
+              useModal={useModal}
             />
           </Fragment>
         )}

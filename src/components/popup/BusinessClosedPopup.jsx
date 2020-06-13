@@ -116,6 +116,7 @@ const BusinessClosedPopup = () => {
     const closeTime = timeService.convert(dailySchedule.closingHour);
 
     const hasClosed = time >= closeTime;
+    console.log('time >= closeTime', time, closeTime);
     if (matchBusinessScreen && business && hasClosed) onClick(true);
   }, [business]);
 

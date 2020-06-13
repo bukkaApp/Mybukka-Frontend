@@ -3,9 +3,7 @@ import { useHistory, matchPath } from 'react-router-dom';
 
 import UnAuthenticatedCheckout from '../../../components/cart/UnAuthenticatedCheckout';
 import LocationNavLargeScreen from '../../../components/common-navs/LocationNavLarge';
-import LocationNavSmallScreen, {
-  SelectLocationModal,
-} from '../../../components/common-navs/LocationNavSmallScreen';
+import LocationNavSmallScreen from '../../../components/common-navs/LocationNavSmallScreen';
 import BukkaNavSmallScreen from '../../../components/navbar/BukkaNavSmallScreen';
 import CheckoutButtonOnSmallScreen from '../../../components/common/CheckoutButton';
 
@@ -47,7 +45,7 @@ const OtherSection = ({
 
     if (catelogs) {
       const categories = [...new Set(catelogs.map(catelog => catelog.category))];
-      setUniqueCatelogs(categories);
+      setUniqueCatelogs(categories.sort());
     }
     return () => setSearchQuery('');
   }, [catelogs]);
@@ -87,15 +85,14 @@ const OtherSection = ({
 
   return (
     <div className="container-fluid p-0">
-      <SelectLocationModal />
       {catelogs &&
         <Fragment>
           <IntroSection push={push} />
+          <AreasToExplore
+            text={isMart ? 'Mart' : 'Groceries.'}
+            bgImage={isMart ? drinkBannerImage : freshBannerImage}
+          />
           <ExploreSection>
-            <AreasToExplore
-              text={isMart ? 'Mart' : 'Groceries.'}
-              bgImage={isMart ? drinkBannerImage : freshBannerImage}
-            />
             <div className="feed-main-content">
               <LocationNavLargeScreen
                 scheduleTime

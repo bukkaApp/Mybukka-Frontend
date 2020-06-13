@@ -15,7 +15,8 @@ const SET_INVITE_POPUP = 'SET_INVITE_POPUP';
 const SET_UNAUTHENTICATED_CHECKOUT_POPUP = 'SET_UNAUTHENTICATED_CHECKOUT_POPUP';
 const SET_CART_POPUP = 'SET_CART_POPUP';
 const SET_BUSINESS_CLOSED_POPUP = 'SET_BUSINESS_CLOSED_POPUP';
-const CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP = 'CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP';
+const CATELOGS_ON_SMALL_SCREEN_POPUP = 'CATELOGS_ON_SMALL_SCREEN_POPUP';
+const SELECT_LOCATION_ON_SMALL_SCREEN_POPUP = 'SELECT_LOCATION_ON_SMALL_SCREEN_POPUP';
 
 const initialState = {
   show: false,
@@ -32,6 +33,7 @@ const initialState = {
   cartPopup: false,
   businessClosedPopup: false,
   catelogsOnSmallScreenPopup: false,
+  selectLocationPopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -76,8 +78,11 @@ const reducer = (originalState, action) => {
     case SET_BUSINESS_CLOSED_POPUP:
       return { ...state, businessClosedPopup: action.payload };
 
-    case CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP:
+    case CATELOGS_ON_SMALL_SCREEN_POPUP:
       return { ...state, catelogsOnSmallScreenPopup: action.payload };
+
+    case SELECT_LOCATION_ON_SMALL_SCREEN_POPUP:
+      return { ...state, selectLocationPopup: action.payload };
 
     default: {
       return state;
@@ -176,7 +181,14 @@ const useModal = () => {
 
   const setCatelogsOnSmallScreenPopup = (payload) => {
     dispatch({
-      type: CATELOGS_POPUP_ON_SMALL_SCREEN_POPUP,
+      type: CATELOGS_ON_SMALL_SCREEN_POPUP,
+      payload,
+    });
+  };
+
+  const setSelectLocationPopup = (payload) => {
+    dispatch({
+      type: SELECT_LOCATION_ON_SMALL_SCREEN_POPUP,
       payload,
     });
   };
@@ -192,6 +204,7 @@ const useModal = () => {
     show,
     cartPopup,
     invitePopup,
+    selectLocationPopup,
     businessClosedPopup,
     paymentPendingPopup,
     paymentGatewayPopup,
@@ -211,6 +224,8 @@ const useModal = () => {
     setCartPopup,
     invitePopup,
     setInvitePopup,
+    selectLocationPopup,
+    setSelectLocationPopup,
     businessClosedPopup,
     setBusinessClosedPopup,
     paymentPendingPopup,

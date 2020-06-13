@@ -4,9 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import LocationNavLargeScreen
   from '../../../components/common-navs/LocationNavLargeScreen';
-import LocationNavSmallScreen, {
-  SelectLocationModal,
-} from '../../../components/common-navs/LocationNavSmallScreen';
+import LocationNavSmallScreen from '../../../components/common-navs/LocationNavSmallScreen';
 
 import ViewBusinessesOnMap from '../../../components/business-list/ViewBusinessesOnMap';
 import BusinessList from '../../../components/business-list/BusinessList';
@@ -24,7 +22,6 @@ import { useLoadingContext } from '../../../context/LoadingContext';
 
 
 let fetched = { food: null, businessGroup: null, categories: null };
-let justMounted = false;
 
 const FoodSection = () => {
   const { push } = useHistory();
@@ -36,12 +33,6 @@ const FoodSection = () => {
 
   useEffect(() => {
     if (coordinates.length < 2) push('/');
-
-    if (!justMounted && businesses) {
-      justMounted = true;
-      return justMounted;
-    }
-
     loading(true);
 
     const onResponse = (res, type, hasError = false) => {
@@ -59,7 +50,10 @@ const FoodSection = () => {
     const getNearbyFoodBusinesses = () => {
       API.businesses.get('type=food')
         .then(res => onResponse(res, 'food'))
-        .catch(() => push('/coming-soon'));
+        .catch((err) => {
+          onResponse(err, 'food', true);
+          push('/coming-soon');
+        });
     };
 
     const getNearbyBusinessGroup = () => {
@@ -79,20 +73,17 @@ const FoodSection = () => {
     getNearbyBusinessCategory();
 
     return () => {
-      justMounted = false;
+      fetched = { food: null, businessGroup: null, categories: null };
     };
   }, [coordinates]);
 
   return (
     <div className="container-fluid p-0">
-      <SelectLocationModal />
       {businesses && (
-        <div>
+        <React.Fragment>
           <IntroSection push={push} />
+          {!displayMap && <AreasToExplore bgImage={foodBannerImage} />}
           <ExploreSection>
-            <div className={displayMap ? 'd-none' : ''}>
-              <AreasToExplore bgImage={foodBannerImage} />
-            </div>
             <div className={displayMap ? 'feed-main-content-map' : 'feed-main-content'}>
               <LocationNavLargeScreen handleMapClick={() => setDisplayMap(!displayMap)} />
               <LocationNavSmallScreen />
@@ -101,7 +92,7 @@ const FoodSection = () => {
               {!displayMap && <BusinessList />}
             </div>
           </ExploreSection>
-        </div>
+        </React.Fragment>
       )}
     </div>
   );

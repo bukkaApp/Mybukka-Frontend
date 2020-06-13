@@ -44,16 +44,6 @@ const DeliveryOrPickupNav = ({ mode, handleClick }) => (
   </div>
 );
 
-const SuggestionsDropdown = () => (
-  <div className="suggestion-dropdown">
-    <SearchLocation
-      chevronButtonVisible={false}
-      showDeliveryOrPickupNav={false}
-      reduceSuggestionText
-    />
-  </div>
-);
-
 const CurrentLocation = ({ handleClick, focus, }) => {
   const { selectedLocation } = useLocationContext();
   const [state, setState] = useState('Current Location');
@@ -88,10 +78,15 @@ const CurrentLocation = ({ handleClick, focus, }) => {
         {focus && (
           <div className="search-container">
             <div className="search-wrapper">
-              <SuggestionsDropdown />
+              <div className="suggestion-dropdown">
+                <SearchLocation
+                  chevronButtonVisible={false}
+                  showDeliveryOrPickupNav={false}
+                  reduceSuggestionText
+                />
+              </div>
             </div>
-          </div>
-        )}
+          </div>)}
       </div>
     </div>
   );
