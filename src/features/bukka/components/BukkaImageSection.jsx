@@ -1,21 +1,20 @@
 /* eslint-disable no-undef */
 import React, { Fragment } from 'react';
 
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { useSessionStorage } from '../../../hooks/useSession';
 import { useCloudinayService } from '../../../components/img/Cloudinary';
 
 import './bukkaImage.scss';
 
-const BukkaImage = ({ src }) => {
+const BukkaImage = ({ business }) => {
+  const src = (business && (business.headerImg || business.imageUrl)) || '';
   const { domain, supports } = useCloudinayService();
-  const [state, setState] = useSessionStorage('bukkaimg', false);
+  const [state, setState] = useSessionStorage(src || 'bukkaImg', false);
   const width = window.innerWidth;
 
   // lower Quality and standard quality
-  const lwQImgOption = { w: Math.floor(width) };
-  const StdQImgOption = { w: Math.floor(width - (width / 3)) };
+  const lwQImgOption = { w: Math.floor(width / 6) };
+  const StdQImgOption = { w: width <= 767 ? 1000 : 'auto' };
   // Create an empty query string
   let queryString = '', lwQString = '', ext = 'jpg';
 
@@ -43,7 +42,7 @@ const BukkaImage = ({ src }) => {
       <img onLoad={() => setState(true)} hidden src={`${`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`}`} alt="alt" />
       <div
         className="bukka-image-section"
-        style={{ backgroundImage: `url(${domain}${storageClienId}upload/${lwQString}${imageInfo}.${ext})`, position: 'absolute', opacity: !state ? 1 : 0 }}
+        style={{ width: '100%', backgroundImage: `url(${domain}${storageClienId}upload/${lwQString}${imageInfo}.${ext})`, position: 'absolute', opacity: !state ? 1 : 0 }}
       />
       <div
         className="bukka-image-section"
@@ -53,20 +52,4 @@ const BukkaImage = ({ src }) => {
   );
 };
 
-const mapStateToProps = ({
-  businessReducer: {
-    fetchedBukka: { imageUrl, headerImg }
-  }
-}) => {
-  const src = (headerImg || imageUrl) || '';
-  return ({ src });
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(BukkaImage);
-
-BukkaImage.propTypes = {
-  src: PropTypes.string.isRequired
-};
+export default BukkaImage;

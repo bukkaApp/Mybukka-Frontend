@@ -1,3 +1,14 @@
+export const schedule = [
+  { day: 'monday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'tuesday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'wednessday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'thursday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'friday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'saturday', openingHour: '8:00 am', closingHour: '8:00 pm', closed: false },
+  { day: 'sunday', openingHour: '8:30 am', closingHour: '8:00 pm', closed: false },
+];
+
+
 const currentDate = new Date(new Date().toDateString());
 const tomorrow = new Date(currentDate);
 
@@ -8,27 +19,7 @@ for (let i = 1; i < 6;) {
   subsequentDays.push(tomorrow.toDateString());
 }
 
-export default {
-  categoryItems: [
-    '*Price May Vary By Location*',
-    'Brewed Coffee',
-    'Cold Brew and Iced Coffee',
-    'Chocolate Beverages',
-    'Espresso Drinks',
-    'Iced Tea',
-    'Frappuccino',
-    'Starbucks Refreshers',
-    'Bottled Drinks',
-    "Kids' Drinks & Others",
-    'Smoothies',
-    'Fizzio™ Handcrafted Sodas',
-    'Bakery',
-    'Mercato',
-    'Starbucks Petities',
-    'Hot Breakfast',
-    'Sandwiches, Paninis, & Salads',
-    'Yogurt, Fruit, & Spreads'
-  ],
+const data = {
   asapTime: ['Tomorrow', 'As soon as possible (10-25 mins)'],
   sheduleTimeLists: [
     'ASAP',
@@ -65,3 +56,22 @@ export default {
     ...subsequentDays,
   ]
 };
+
+
+const { sheduleTimeLists, durationList } = data;
+
+export const scheduleData = [
+  {
+    time: 'Today',
+    selector: 'day',
+    options: [...durationList]
+  },
+  {
+    time: '1:00 - 1:30',
+    selector: 'time',
+    options: [...sheduleTimeLists]
+  }
+];
+
+
+export default data;

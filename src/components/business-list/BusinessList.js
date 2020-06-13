@@ -8,6 +8,7 @@ import Headline from '../Carousel/Headline';
 import Map from '../map';
 import { useBusinessContext } from '../../context/BusinessContext';
 import { useBusinessesContext } from '../../context/BusinessesContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 import useApi from '../../shared/api';
 
 import './BusinessList.scss';
@@ -22,12 +23,14 @@ const Spinner = () => (
 
 const BusinessList = () => {
   const { API } = useApi();
-  const { setBusiness } = useBusinessContext();
+  const { setBusiness, setCatelogs } = useBusinessContext();
+  const { loading } = useLoadingContext();
   const { businesses, errorMessage, currentPage, setBusinessesPagination } = useBusinessesContext();
 
   const hasError = errorMessage !== 'There are currently no bukkas in your location';
   const { push } = useHistory();
-  const handleMoreBusiness = () => {
+
+  const handleMoreBusinesses = () => {
     API.businesses.get(`page=${Number(currentPage) + 1}`)
       .then(res => setBusinessesPagination(res.data))
       .catch((err) => {
@@ -37,16 +40,25 @@ const BusinessList = () => {
       });
   };
 
-  const handleRouteToMerchant = (event, bukka) => {
+  const onLinkToMerchant = (event, bukka) => {
     event.preventDefault();
+    loading(true);
+
+    const onCatelogsResponse = (data, isError) => {
+      loading(false);
+      if (!isError) setCatelogs(data);
+      else setCatelogs(data.response ? data.response.data : data, isError);
+      push(`/bukka/${bukka.slug}`);
+    };
+
     API.business.get(bukka.slug)
       .then((res) => {
         setBusiness(res.data);
-        API.menus.get(`${bukka.slug}?type=food`)
-          .then(() => push(`/bukka/${bukka.slug}`))
-          .catch((/* if no menu */) => push(`/bukka/${bukka.slug}`));
+        API.catelogs.get(`${bukka.slug}?type=food`)
+          .then(res => onCatelogsResponse(res.data))
+          .catch(err => onCatelogsResponse(err, true));
       })
-      .catch(error => console.error(error));
+      .catch(error => loading(!error));
   };
 
   const decodeDeliveryTime = (bukka) => {
@@ -78,7 +90,7 @@ const BusinessList = () => {
         <Container>
           {(businesses && businesses.length > 0) && (
             <InfiniteScroll
-              loadMore={handleMoreBusiness}
+              loadMore={handleMoreBusinesses}
               hasMore={hasError}
               loader={<Spinner />}
               useWindow
@@ -91,7 +103,7 @@ const BusinessList = () => {
                     imageUrl={decodeStoreImage(bukka)}
                     mealName={bukka.name}
                     tags={bukka.placeGroup}
-                    handleClick={e => handleRouteToMerchant(e, bukka)}
+                    handleClick={e => onLinkToMerchant(e, bukka)}
                     deliveryPrice={decodeDeliveryPrice(bukka)}
                     deliveryTime={decodeDeliveryTime(bukka)}
                     rating={bukka.rating}

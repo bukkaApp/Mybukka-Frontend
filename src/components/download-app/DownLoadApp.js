@@ -4,25 +4,26 @@ import { useMediaQuery } from 'react-responsive';
 import bukkLogo from '../../assets/bukka_logo.png';
 
 import './DownLoadApp.scss';
-import { useNotificationContext } from '../../context/NotificationContext';
+import { useEventContext } from '../../context/EventContext';
 import { useToastContext } from '../../context/ToastContext';
 
 const DownLoadApp = () => {
   const totalDownload = 0;
   const { setToast } = useToastContext();
-  const { setAppInstalled, setDownloadApp, deferredAppDownloadPrompt, downloadApp, setDeferredDownloadAppPrompt } = useNotificationContext();
+  const { setAppInstalled, appInstalled, setDownloadApp, deferredAppDownloadPrompt, downloadApp, setDeferredDownloadAppPrompt } = useEventContext();
   const isMobileScreen = useMediaQuery({ maxWidth: 767 });
 
   useEffect(() => {
     const handleAppInstallation = (e) => {
       // Prevent the mini-infobar from appearing on mobile
       e.preventDefault();
+      // Update UI notify the user they can install the PWA
+      if (!appInstalled && !deferredAppDownloadPrompt) setDownloadApp(true);
       // Stash the event so it can be triggered later.
       setDeferredDownloadAppPrompt(e);
-      // Update UI notify the user they can install the PWA
-      setDownloadApp(true);
     };
-    const appInstalled = () => {
+
+    const onAppInstalled = () => {
       // Hide the app provided install promotion
       setDownloadApp(false);
       // TODO: show app banner component and remove toast
@@ -30,10 +31,10 @@ const DownLoadApp = () => {
       setAppInstalled(true);
     };
 
-    window.addEventListener('appinstalled', appInstalled);
+    window.addEventListener('appinstalled', onAppInstalled);
     window.addEventListener('beforeinstallprompt', handleAppInstallation);
     return () => {
-      window.removeEventListener('appinstalled', appInstalled);
+      window.removeEventListener('appinstalled', onAppInstalled);
       window.removeEventListener('beforeinstallprompt', handleAppInstallation);
     };
   }, []);

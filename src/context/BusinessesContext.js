@@ -13,6 +13,7 @@ const initialState = {
   businesses: null,
   businessGroup: null,
   categories: null,
+  suggestedBusinesses: null,
   message: '',
   currentPage: 1,
   errorMessage: '',
@@ -143,9 +144,9 @@ const useBusinesses = () => {
     });
   };
 
-  const { businesses, categories, businessGroup, message, currentPage, errorMessage, status } = state;
+  const { businesses, suggestedBusinesses, categories, businessGroup, message, currentPage, errorMessage, status } = state;
 
-  return { businesses, message, categories, currentPage, errorMessage, status, businessGroup, setBusinessCategories, setBusinessGroup, setBusinessesPagination, setBusinesses };
+  return { businesses, suggestedBusinesses, message, categories, currentPage, errorMessage, status, businessGroup, setBusinessCategories, setBusinessGroup, setBusinessesPagination, setBusinesses };
 };
 
 export const [BusinessesProvider, useBusinessesContext] = constate(useBusinesses);

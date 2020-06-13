@@ -8,12 +8,14 @@ const ProductList = ({ products }) => {
   const [state, setState] = useState({});
 
   useEffect(() => {
-    const categories = [
-      ...new Set(products.submenus.map(({ _id }) => _id))
-    ];
-    const storeHasObject = categories.reduce((a, b) => (a[b] = [], a), {}); // eslint-disable-line
-    setState(storeHasObject);
-  }, []);
+    if (products) {
+      const categories = [
+        ...new Set(products.submenus.map(({ _id }) => _id))
+      ];
+      const storeHasObject = categories.reduce((a, b) => (a[b] = [], a), {}); // eslint-disable-line
+      setState(storeHasObject);
+    }
+  }, [products]);
 
   const isVisibleProductGroup = (submenu) => {
     const visibilities = [...new Set(submenu.map(({ visibility }) => visibility))];
@@ -40,7 +42,7 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="ProductGroup">
-      {products.submenus.map(({ _id, isRequired, title, type, options }) =>
+      {products && products.submenus.map(({ _id, isRequired, title, type, options }) =>
         isVisibleProductGroup(options) &&
         // isRequiredProduct(_id, isRequired, options) &&
         (<ProductGroup

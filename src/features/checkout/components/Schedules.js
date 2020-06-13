@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import setDeliverySchedule from 'Redux/setDeliverySchedule';
-import { scheduleData } from 'Components/common-navs/Duration';
-
+import { scheduleData } from '../../../shared/schedule';
 
 import ScheduleSelector from '../common/ScheduleSelector';
 

@@ -3,9 +3,10 @@ import { useModalContext } from '../../context/ModalContext';
 
 import './index.scss';
 
+const CatelogsPopupOnSmallScreen = lazy(() => import('../popup/CatelogsPopupOnSmallScreen'));
 const AddToCart = lazy(() => import('../cart/addToCart'));
 const ViewOrdersOnMobile = lazy(() => import('../cart/ViewOrdersOnMobile'));
-const Authentication = lazy(() => import('../authentication-popup'));
+const Authentication = lazy(() => import('../popup/AuthenticationPopup'));
 const VerifyPhonePopup = lazy(() => import('../verify-phone-popup'));
 const Address = lazy(() => import('../address/Address'));
 const Payment = lazy(() => import('../payment/Payment'));
@@ -13,6 +14,8 @@ const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecuri
 const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
 const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
 const InviteFriends = lazy(() => import('../invite-friends/InviteFriends'));
+const BusinessClosedPopup = lazy(() => import('../popup/BusinessClosedPopup'));
+const SelectLocationOnSmallScreen = lazy(() => import('../popup/SelectLocationOnSmallScreen'));
 
 const ModalRoot = () => {
   const { show } = useModalContext();
@@ -40,6 +43,9 @@ const ModalRoot = () => {
         <PaymentGateway />
         <PaymentPending />
         <InviteFriends />
+        <BusinessClosedPopup />
+        <CatelogsPopupOnSmallScreen />
+        <SelectLocationOnSmallScreen />
       </Suspense>
     </div>
   );

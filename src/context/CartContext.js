@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 // import axios from 'axios';
 import constate from 'constate';
 import logger from './Logger';
-import { useLocalStorage } from '../shared/useLocalStorage';
+import { useSessionStorage } from '../hooks/useSession';
 
 const SET_INPROGRESS_CART = 'SET_INPROGRESS_CART';
 const CLEAR_INPROGRESS_CART = 'CLEAR_INPROGRESS_CART';
@@ -10,7 +10,8 @@ const SET_INCREMENT = 'SET_INCREMENT';
 const SET_DECREMENT = 'SET_DECREMENT';
 
 const initialState = {
-  cart: {},
+  cart: [],
+  total: 0,
   totalCost: 0,
   inProgressCart: {
     products: [],
@@ -47,6 +48,43 @@ const reducer = (originalState, action) => {
       return { ...state, inProgressCart: { ...inProgressCart, originalCost, quantity } };
     }
 
+    case 'ADD_PRODUCT': {
+      const id = action.payload.product.id;
+      let addedProduct = state.cart.find(product => product.id === id);
+
+      if (addedProduct) {
+        return {
+          ...state,
+          cart: state.cart.map((product) => {
+            const productCopy = Object.assign({}, product);
+            if (productCopy.id === id) productCopy.quantity += 1;
+            return productCopy;
+          }),
+          total: state.total + addedProduct.price
+        };
+      }
+      addedProduct = action.payload.product;
+      addedProduct.quantity = 1;
+
+      return {
+        ...state,
+        cart: [...state.cart, addedProduct],
+        total: state.total + addedProduct.price
+      };
+    }
+
+    case 'DEL_PRODUCT': {
+      const removedProduct = state.cart.find(product => product.id === action.payload);
+      const updatedCart = state.cart.filter(product => product.id !== action.payload);
+      const newTotal = state.total - (removedProduct.price * removedProduct.quantity);
+
+      return {
+        ...state,
+        cart: updatedCart,
+        total: newTotal
+      };
+    }
+
     default: {
       return state;
     }
@@ -56,7 +94,7 @@ const reducer = (originalState, action) => {
 const loggerReducer = logger(reducer);
 
 const useCart = () => {
-  const [data, setData] = useLocalStorage('cart', initialState);
+  const [data, setData] = useSessionStorage('cart', initialState);
   const [state, dispatch] = useReducer(loggerReducer, data);
 
   useEffect(() => {
@@ -78,12 +116,15 @@ const useCart = () => {
     let total = 0, inProgressProducts = [];
     const categories = Object.keys(products);
     const isEmpty = categories.reduce((val, item) => (products[item].length + val), 0) < 1;
+
     if (!isEmpty) {
       inProgressProducts = setInProgressProduct(mainProducts, products);
+
       total = categories.reduce((totl, group) =>
         (products[group].reduce((initVal, { price }) => initVal + price, 0) + totl)
       , 0);
     }
+
     dispatch({
       type: SET_INPROGRESS_CART,
       payload: { totalCost: total, inProgressProducts },

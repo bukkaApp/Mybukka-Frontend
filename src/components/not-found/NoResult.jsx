@@ -2,7 +2,7 @@ import React from 'react';
 import Magnifier from '../icons/Magnifier';
 import './NoResult.scss';
 
-const NoResult = ({ text = 'carnepol', withPadding, details }) => (
+const NoResult = ({ text, withPadding, details }) => (
   <section className={`NoResult ${withPadding && 'NoResult--withPadding'}`}>
     <Magnifier />
     <div className="NoResult-desc">

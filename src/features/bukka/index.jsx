@@ -9,22 +9,35 @@ import fetchCartAction from 'Redux/fetchCartAction';
 import fetchBukkaAction from 'Redux/fetchBukkaAction';
 import { useUserContext } from '../../context/UserContext';
 import { useModalContext } from '../../context/ModalContext';
+
+import { useBusinessContext } from '../../context/BusinessContext';
+import useApi from '../../shared/api';
+import { useLoadingContext } from '../../context/LoadingContext';
+
+
 import FooterBigScreen from '../../components/footer/FooterBigScreen';
 import fetchBukkaMenuAction from '../../redux/fetchBukkaMenuAction';
+import { useBusinessListContext } from '../../context/BusinessListContext';
 
 import Bukka from './components';
 
+const fetched = { catelogs: false, business: false };
+
 const Scene = ({
   cartItemsQuantity,
-  fetchBukka,
-  fetchBukkaMenu,
-  bukkaMenu,
+  // fetchBukka,
+  // fetchBukkaMenu,
+  // bukkaMenu,
   fetchCartItems,
 }) => {
   const { push, location } = useHistory();
+  const { API } = useApi();
   const { isAuthenticated } = useUserContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
+  const { loading } = useLoadingContext();
+  const { setBusiness, setCatelogs } = useBusinessContext();
   const { setViewMoreOrderOnMobile, setModal } = useModalContext();
+  const { setHoveredBusiness } = useBusinessListContext();
 
   const handleClick = () => {
     setModal(true);
@@ -33,13 +46,42 @@ const Scene = ({
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const bukkaToFetch = location.pathname.split('/')[2];
-    if (bukkaMenu[0].bukka !== bukkaToFetch) {
-      fetchBukka(bukkaToFetch);
-      fetchBukkaMenu(bukkaToFetch);
-      if (isAuthenticated) fetchCartItems();
-    }
-  }, [isAuthenticated]);
+    loading(true);
+
+    // retrieve business id from the url
+    const businessId = location.pathname.split('/')[2];
+
+    const onResponse = (res, type, hasError = false) => {
+      fetched[type] = true;
+      const data = hasError ? (res.response.data || res) : res.data;
+      if (type === 'catelogs') setCatelogs(data, hasError);
+      if (type === 'business') setBusiness(data, hasError);
+      if (type === 'business' && !hasError) setHoveredBusiness(data.fetchedBukka);
+      if (fetched.catelogs && fetched.business) {
+        loading(false);
+      }
+    };
+
+    const getBusinessInformation = () => {
+      API.business.get(businessId)
+        .then(res => onResponse(res, 'business'))
+        .catch(error => onResponse(error, 'business', true));
+    };
+
+    const getBusinessCatelogs = () => {
+      API.catelogs.get(`${businessId}?type=food`)
+        .then(res => onResponse(res, 'catelogs'))
+        .catch(error => onResponse(error, 'catelogs', true));
+    };
+
+    // TODO: fetchCart on Login in
+    if (isAuthenticated) fetchCartItems();
+
+    getBusinessInformation();
+    getBusinessCatelogs();
+
+    return () => setHoveredBusiness(null);
+  }, []);
 
   return (
     <Fragment>
@@ -51,10 +93,8 @@ const Scene = ({
 };
 
 const mapStateToProps = ({
-  productsReducer: { bukkaMenu },
   cartReducer: { items },
 }) => ({
-  bukkaMenu,
   cartItemsQuantity: items.length,
 });
 
@@ -78,6 +118,6 @@ Scene.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }),
-  fetchBukka: PropTypes.func.isRequired,
-  fetchBukkaMenu: PropTypes.func.isRequired,
+  // fetchBukka: PropTypes.func.isRequired,
+  // fetchBukkaMenu: PropTypes.func.isRequired,
 };

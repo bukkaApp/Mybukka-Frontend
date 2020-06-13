@@ -12,6 +12,11 @@ const SET_PAYMENT_SECURITY_POPUP = 'SET_PAYMENT_SECURITY_POPUP';
 const SET_PAYMENT_GATEWAY_POPUP = 'SET_PAYMENT_GATEWAY_POPUP';
 const SET_PAYMENT_PENDING_POPUP = 'SET_PAYMENT_PENDING_POPUP';
 const SET_INVITE_POPUP = 'SET_INVITE_POPUP';
+const SET_UNAUTHENTICATED_CHECKOUT_POPUP = 'SET_UNAUTHENTICATED_CHECKOUT_POPUP';
+const SET_CART_POPUP = 'SET_CART_POPUP';
+const SET_BUSINESS_CLOSED_POPUP = 'SET_BUSINESS_CLOSED_POPUP';
+const CATELOGS_ON_SMALL_SCREEN_POPUP = 'CATELOGS_ON_SMALL_SCREEN_POPUP';
+const SELECT_LOCATION_ON_SMALL_SCREEN_POPUP = 'SELECT_LOCATION_ON_SMALL_SCREEN_POPUP';
 
 const initialState = {
   show: false,
@@ -23,7 +28,12 @@ const initialState = {
   paymentSecurityPopup: false,
   paymentGatewayPopup: false,
   paymentPendingPopup: false,
+  unAuthenticatedCheckoutPopup: false,
   invitePopup: false,
+  cartPopup: false,
+  businessClosedPopup: false,
+  catelogsOnSmallScreenPopup: false,
+  selectLocationPopup: false,
 };
 
 const reducer = (originalState, action) => {
@@ -59,6 +69,21 @@ const reducer = (originalState, action) => {
     case SET_INVITE_POPUP:
       return { ...state, invitePopup: action.payload };
 
+    case SET_UNAUTHENTICATED_CHECKOUT_POPUP:
+      return { ...state, unAuthenticatedCheckoutPopup: action.payload };
+
+    case SET_CART_POPUP:
+      return { ...state, cartPopup: action.payload };
+
+    case SET_BUSINESS_CLOSED_POPUP:
+      return { ...state, businessClosedPopup: action.payload };
+
+    case CATELOGS_ON_SMALL_SCREEN_POPUP:
+      return { ...state, catelogsOnSmallScreenPopup: action.payload };
+
+    case SELECT_LOCATION_ON_SMALL_SCREEN_POPUP:
+      return { ...state, selectLocationPopup: action.payload };
+
     default: {
       return state;
     }
@@ -73,6 +98,13 @@ const useModal = () => {
   const setModal = (payload) => {
     dispatch({
       type: SET_MODAL,
+      payload,
+    });
+  };
+
+  const setBusinessClosedPopup = (payload) => {
+    dispatch({
+      type: SET_BUSINESS_CLOSED_POPUP,
       payload,
     });
   };
@@ -139,9 +171,84 @@ const useModal = () => {
       payload,
     });
   };
-  const { show, invitePopup, paymentPendingPopup, paymentGatewayPopup, paymentSecurityPopup, paymentPopup, addressPopup, viewMoreOrderOnMobile, authenticationPopup, phoneVerificationPopup } = state;
 
-  return { show, setModal, invitePopup, setInvitePopup, paymentPendingPopup, setPaymentPendingPopup, paymentGatewayPopup, setPaymentGatewayPopup, paymentSecurityPopup, setPaymentSecurityPopup, paymentPopup, setPaymentPopup, addressPopup, setAddressPopup, viewMoreOrderOnMobile, setViewMoreOrderOnMobile, authenticationPopup, setAuthenticationPopup, phoneVerificationPopup, setVerificationPhonePopup };
+  const setUnAuthenticatedCheckoutPopup = (payload) => {
+    dispatch({
+      type: SET_UNAUTHENTICATED_CHECKOUT_POPUP,
+      payload,
+    });
+  };
+
+  const setCatelogsOnSmallScreenPopup = (payload) => {
+    dispatch({
+      type: CATELOGS_ON_SMALL_SCREEN_POPUP,
+      payload,
+    });
+  };
+
+  const setSelectLocationPopup = (payload) => {
+    dispatch({
+      type: SELECT_LOCATION_ON_SMALL_SCREEN_POPUP,
+      payload,
+    });
+  };
+
+  const setCartPopup = (payload) => {
+    dispatch({
+      type: SET_CART_POPUP,
+      payload,
+    });
+  };
+
+  const {
+    show,
+    cartPopup,
+    invitePopup,
+    selectLocationPopup,
+    businessClosedPopup,
+    paymentPendingPopup,
+    paymentGatewayPopup,
+    paymentSecurityPopup,
+    paymentPopup,
+    addressPopup,
+    viewMoreOrderOnMobile,
+    authenticationPopup,
+    phoneVerificationPopup,
+    catelogsOnSmallScreenPopup,
+    unAuthenticatedCheckoutPopup } = state;
+
+  return {
+    show,
+    setModal,
+    cartPopup,
+    setCartPopup,
+    invitePopup,
+    setInvitePopup,
+    selectLocationPopup,
+    setSelectLocationPopup,
+    businessClosedPopup,
+    setBusinessClosedPopup,
+    paymentPendingPopup,
+    setPaymentPendingPopup,
+    paymentGatewayPopup,
+    setPaymentGatewayPopup,
+    paymentSecurityPopup,
+    setPaymentSecurityPopup,
+    paymentPopup,
+    setPaymentPopup,
+    addressPopup,
+    setAddressPopup,
+    viewMoreOrderOnMobile,
+    setViewMoreOrderOnMobile,
+    authenticationPopup,
+    setAuthenticationPopup,
+    phoneVerificationPopup,
+    setVerificationPhonePopup,
+    catelogsOnSmallScreenPopup,
+    setCatelogsOnSmallScreenPopup,
+    unAuthenticatedCheckoutPopup,
+    setUnAuthenticatedCheckoutPopup,
+  };
 };
 
 export const [ModalProvider, useModalContext] = constate(useModal);

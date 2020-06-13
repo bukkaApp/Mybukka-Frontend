@@ -103,7 +103,7 @@ const useApi = () => {
     authToken: { post: data => axiosInstance.post('user/signin', data) },
     card: createEndpoint('card/$id/'),
     payment: createEndpoint('pay/$id/'),
-    menus: createEndpoint('menu/$id/'), // $id => /menu/bukkaId?type=${type}
+    catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
     business: createEndpoint('bukka/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
     businesses: createEndpoint(`bukka/nearby?$id&${byLocaton}`),

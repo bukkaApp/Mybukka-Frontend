@@ -4,13 +4,19 @@ import LocationArrow from '../icons/LocationArrow';
 
 import { useLocationContext } from '../../context/LocationContext';
 import './usecurrentlocation.scss';
+import { useModalContext } from '../../context/ModalContext';
 
-const UseCurrentLocation = () => {
+const UseCurrentLocation = ({ useModal }) => {
   const { setCurrentLocation, loading, setUpdate } = useLocationContext();
+  const { setModal, setSelectLocationPopup } = useModalContext();
 
   const onClick = () => {
     setUpdate(true);
     setCurrentLocation();
+    if (useModal) {
+      setSelectLocationPopup(false);
+      setModal(false);
+    }
   };
 
   return (

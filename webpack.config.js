@@ -71,15 +71,11 @@ module.exports = {
     publicPath: '/',
   },
   optimization: {
-    minimize: true,
     splitChunks: {
       chunks: 'all',
     },
   },
   plugins: [
-    new webpack.optimize.MinChunkSizePlugin({
-      minChunkSize: 10000 // Minimum number of characters
-    }),
     new webpack.HashedModuleIdsPlugin({
       context: __dirname,
       hashFunction: 'sha256',

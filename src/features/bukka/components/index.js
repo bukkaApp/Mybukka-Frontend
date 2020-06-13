@@ -11,71 +11,90 @@ import Navbar from 'Components/navbar';
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import UnAuthenticatedCheckout
-  from 'Components/common-navs/UnAuthenticatedCheckout';
+  from '../../../components/cart/UnAuthenticatedCheckout';
 
-import LocationNavSmallScreen, {
-  SelectLocationModal
-} from 'Components/common-navs/LocationNavSmallScreen';
+import LocationNavSmallScreen from '../../../components/common-navs/LocationNavSmallScreen';
 
 import BukkaImageSection from './BukkaImageSection';
 import BukkaDetailsSection from './BukkaDetailsSection';
-// import ClosedNotification from '../notification/ClosedNotification';
 
 import './bukkaScene.scss';
 
 import BukkaMeals from './BukkaMeals';
+import { useBusinessContext } from '../../../context/BusinessContext';
+import { useSearchContext } from '../../../context/SearchContext';
+import useHashLinkUpdate from '../../../hooks/useHashLinkUpdate';
+import OtherNearest from './OtherNearest';
 
 const BukkaMenuScene = ({
-  push, errorMessage, categories, bukka, bukkaMenu
+  push, errorMessage, bukka,
 }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useSearchContext();
+  const [activeCatelog, setActiveCatelog] = useState('');
+  const [uniqueCatelogs, setUniqueCatelogs] = useState([]);
+  const { catelogs, business } = useBusinessContext();
+  useHashLinkUpdate();
 
   useEffect(() => {
-    if (errorMessage !== '') return swal({ text: errorMessage, icon: 'warning', dangerMode: true });
+    if (catelogs) {
+      const categories = [...new Set(catelogs.map(catelog => catelog.category))];
+      setUniqueCatelogs(categories.sort());
+    }
+  }, [catelogs]);
+
+  useEffect(() => {
+    if (errorMessage !== '') {
+      swal({ text: errorMessage, icon: 'warning', dangerMode: true });
+    }
   }, [errorMessage]);
 
-  const isInSearch = item => item.title && item.title.toLowerCase().includes(searchQuery.toLowerCase());
+  const isInSearch = (catelog) => {
+    if (catelog) {
+      return catelog.title.toLowerCase().includes(searchQuery.toLowerCase());
+    }
+    return false;
+  };
 
-  const hasNoResult = () => bukkaMenu.filter(menu => isInSearch(menu)).length === 0;
+  const hasNoResult = () => catelogs && catelogs.filter(menu => isInSearch(menu)).length === 0;
 
   return (
     <div className="bukka-menu">
-      {/* <ClosedNotification /> */}
-      <SelectLocationModal />
       <Navbar push={push} bukka />
-      <BukkaImageSection />
+      <BukkaImageSection business={business} />
       <LocationNavLargeScreen
         deliveryorpickup
         classNames="bukka-location-nav"
-        categoryItems={categories}
-        section={`bukka/${bukka}`}
+        categoryItems={uniqueCatelogs}
+        activeItem={activeCatelog}
         handleSearch={event => setSearchQuery(event.target.value)}
       />
       <LocationNavSmallScreen />
       <div className="carousel-divider mb-0" />
       <BukkaNavSmallScreen
         classNames="top-0"
-        categoryItems={categories}
-        bukkaMenu={bukkaMenu}
-        currentCategory="breakfast"
+        uniqueCatelogs={uniqueCatelogs}
+        bukkaMenu={catelogs}
+        currentCategory={activeCatelog}
+        activeCatelog={activeCatelog || 'categories'}
       />
       {!(searchQuery && hasNoResult()) && <BukkaDetailsSection />}
-
-      <BukkaMeals isInSearch={isInSearch} hasNoResult={hasNoResult} searchQuery={searchQuery} />
+      <BukkaMeals
+        isInSearch={isInSearch}
+        hasNoResult={hasNoResult}
+        searchQuery={searchQuery}
+        setActiveCatelog={setActiveCatelog}
+        activeCatelog={activeCatelog}
+        uniqueCatelogs={uniqueCatelogs}
+      />
+      <OtherNearest />
       <Footer />
       <UnAuthenticatedCheckout push={push} to={`/merchant/${bukka}/checkout`} />
     </div>
   );
 };
 
-const mapStateToProps = ({ cartReducer: { errorMessage }, productsReducer: {
-  categories,
-  bukkaMenu,
-}, }) => ({
+const mapStateToProps = ({ cartReducer: { errorMessage }, }) => ({
   errorMessage,
-  categories,
-  bukkaMenu,
-  bukka: bukkaMenu[0].bukka
 });
 
 export default connect(

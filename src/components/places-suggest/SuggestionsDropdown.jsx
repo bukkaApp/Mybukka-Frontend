@@ -9,11 +9,12 @@ import './SuggestionsDropdown.scss';
 const SuggestionsDropdown = ({
   setLocation,
   predictions,
+  useModal,
   useCurrentLocationVisible,
 }) => (
   <div className="suggestion-dropdown">
     {useCurrentLocationVisible &&
-      <UseCurrentLocation />
+      <UseCurrentLocation useModal={useModal} />
     }
     <GeoSuggestions
       handleClick={setLocation}

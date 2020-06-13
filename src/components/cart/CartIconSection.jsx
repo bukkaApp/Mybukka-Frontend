@@ -11,6 +11,8 @@ import Button from '../button/Button';
 
 import './cartdropdown.scss';
 
+import { useModalContext } from '../../context/ModalContext';
+
 export const SubTotal = ({ totalPriceInCart }) => (
   <div className="custom-cart-subtotal">
     <p className="m-0">
@@ -79,13 +81,10 @@ const CartIconSection = ({
   orderItems,
   orderQuantity,
   focus,
-  handleClick,
   removeFromCartAction,
   totalCost
 }) => {
-  const handleCheckoutMode = () => {
-    handleClick(true);
-  };
+  const { setUnAuthenticatedCheckoutPopup } = useModalContext();
 
   const handleCategoryText = (item) => {
     let result = '';
@@ -138,7 +137,7 @@ const CartIconSection = ({
         </div>
         <SubTotal totalPriceInCart={totalCost} />
         <CheckoutBtn
-          handleClick={handleCheckoutMode}
+          handleClick={() => setUnAuthenticatedCheckoutPopup(true)}
           bukka={orderItems[0].bukka}
         />
       </div>
@@ -171,7 +170,6 @@ CartIconSection.defaultProps = {
 CartIconSection.propTypes = {
   removeFromCartAction: PropTypes.func.isRequired,
   totalCost: PropTypes.number.isRequired,
-  handleClick: PropTypes.func,
   orderItems: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
   ).isRequired,

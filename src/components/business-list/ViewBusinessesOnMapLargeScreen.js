@@ -9,6 +9,7 @@ import BukkaCard from '../Carousel/BukkaCard';
 import Map from '../map';
 import { useBusinessContext } from '../../context/BusinessContext';
 import { useBusinessesContext } from '../../context/BusinessesContext';
+import { useLoadingContext } from '../../context/LoadingContext';
 import useApi from '../../shared/api';
 import { useBusinessListContext } from '../../context/BusinessListContext';
 
@@ -24,27 +25,43 @@ const Spinner = () => (
 
 const ViewBusinessesOnMap = () => {
   const { API } = useApi();
+  const { loading } = useLoadingContext();
   const { setHoveredBusiness } = useBusinessListContext();
-  const { setBusiness } = useBusinessContext();
+  const { setBusiness, setCatelogs } = useBusinessContext();
   const { businesses, errorMessage, currentPage, setBusinessesPagination } = useBusinessesContext();
 
   const hasError = errorMessage !== 'There are currently no bukkas in your location';
   const { push } = useHistory();
 
-  const handleMoreBusinesses = () =>
+  const handleMoreBusinesses = () => {
     API.businesses.get(`page=${Number(currentPage) + 1}`)
-      .then(res => setBusinessesPagination(res.data));
+      .then(res => setBusinessesPagination(res.data))
+      .catch((err) => {
+        const isError = true;
+        const data = err.response ? err.response.data : err;
+        setBusinessesPagination(data, isError);
+      });
+  };
 
-  const handleRouteToMerchant = (event, bukka) => {
+  const onLinkToMerchant = (event, bukka) => {
     event.preventDefault();
+    loading(true);
+
+    const onCatelogsResponse = (data, isError) => {
+      loading(false);
+      if (!isError) setCatelogs(data);
+      else setCatelogs(data.response ? data.response.data : data, isError);
+      push(`/bukka/${bukka.slug}`);
+    };
+
     API.business.get(bukka.slug)
       .then((res) => {
         setBusiness(res.data);
-        API.menus.get(`${bukka.slug}?type=food`)
-          .then(() => push(`/bukka/${bukka.slug}`))
-          .catch((/* if no menu */) => push(`/bukka/${bukka.slug}`));
+        API.catelogs.get(`${bukka.slug}?type=food`)
+          .then(res => onCatelogsResponse(res.data))
+          .catch(err => onCatelogsResponse(err, true));
       })
-      .catch(error => console.error(error));
+      .catch(error => loading(!error));
   };
 
   const decodeDeliveryTime = (bukka) => {
@@ -88,7 +105,7 @@ const ViewBusinessesOnMap = () => {
                     imageUrl={decodeStoreImage(bukka)}
                     mealName={bukka.name}
                     tags={bukka.placeGroup}
-                    handleClick={e => handleRouteToMerchant(e, bukka)}
+                    handleClick={e => onLinkToMerchant(e, bukka)}
                     deliveryPrice={decodeDeliveryPrice(bukka)}
                     deliveryTime={decodeDeliveryTime(bukka)}
                     rating={bukka.rating}

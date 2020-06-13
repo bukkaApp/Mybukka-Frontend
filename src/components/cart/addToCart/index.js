@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import manipulateSubmenusAction from 'Redux/manipulateSubmenusAction';
-import toggleAddToCartModal from 'Redux/toggleAddToCartModal';
 import updateCartAction from 'Redux/updateCartAction';
 import MealImage from './MealImage';
 import OrderOptions from './OrderOptions';
@@ -12,25 +11,28 @@ import Modal from '../../modal/Modal';
 import './index.scss';
 import { useModalContext } from '../../../context/ModalContext';
 import { useCartContext } from '../../../context/CartContext';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
-const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, toggleAddToCart }) => {
+const AddToCart = ({ addToCart, manipulateSubmenus }) => {
   const formRef = React.createRef();
-  const { setModal } = useModalContext();
-  const { price, imageUrl } = mealToDisplay;
+  const [state, setState] = useState({ price: 0, imageUrl: '', title: '', description: '' });
+  const { catelogToDisplay, setCatelogToDisplay } = useBusinessContext();
+  const { setModal, setCartPopup, cartPopup } = useModalContext();
   const { clearInProgressCart, inProgressCart: { totalCost, originalCost, products } } = useCartContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
 
   const handleClick = (action) => {
     setModal(action);
-    toggleAddToCart(action);
+    setCartPopup(action);
     clearInProgressCart();
+    setCatelogToDisplay(null);
   };
 
   const storeIntoCart = (e) => {
     let timout;
     if (formRef.current.checkValidity()) {
       e.preventDefault();
-      const newOrder = { ...mealToDisplay, submenus: products };
+      const newOrder = { ...catelogToDisplay, submenus: products };
       addToCart(newOrder);
       timout = setTimeout(() => {
         handleClick(false);
@@ -41,46 +43,59 @@ const AddToCart = ({ addToCart, mealToDisplay, manipulateSubmenus, modalShow, to
 
   const handleClickOutside = () => {
     setModal(false);
-    toggleAddToCart(false);
+    setCartPopup(false);
     clearInProgressCart();
+    setCatelogToDisplay(null);
   };
 
+  useEffect(() => {
+    setState({ ...state, ...catelogToDisplay });
+  }, [catelogToDisplay]);
+
+  const { price, imageUrl, description, title } = state;
+
   return (
-    <Modal onClickOut={handleClickOutside} bodyClassName="modal-overflow-none" show={modalShow} useFullWidth={imageUrl !== ''}>
+    <Modal
+      onClickOut={handleClickOutside}
+      bodyClassName="modal-overflow-none"
+      show={cartPopup}
+      useFullWidth={imageUrl !== ''}
+    >
       <form ref={formRef} className="Add-to-cart">
         <div className="Add-to-cart_content">
           {imageUrl &&
           <MealImage
-            toggleAddToCart={handleClick}
+            onClick={handleClick}
             imageUrl={imageUrl}
           />}
           <OrderOptions
-            mealToDisplay={mealToDisplay}
+            catelogToDisplay={catelogToDisplay}
+            price={price}
+            title={title}
+            description={description}
             manipulateSubmenus={manipulateSubmenus}
-            toggleAddToCart={handleClick}
+            onClick={handleClick}
             storeIntoCart={storeIntoCart}
           />
         </div>
-        {!isBigScreen && <FooterBigScreen withQtyBtn handleClick={storeIntoCart} totalCost={totalCost + (originalCost || price)} price={price} />}
+        {!isBigScreen &&
+        <FooterBigScreen
+          withQtyBtn
+          handleClick={storeIntoCart}
+          totalCost={totalCost + (originalCost || price)}
+          price={price}
+        />}
       </form>
     </Modal>
   );
 };
 
-const mapStateToProps = ({ productsReducer: { mealToDisplay, modalShow } }) => ({
-  mealToDisplay,
-  modalShow,
-});
+const mapStateToProps = () => ({});
 
 export default connect(
   mapStateToProps,
   {
     manipulateSubmenus: manipulateSubmenusAction,
-    toggleAddToCart: toggleAddToCartModal,
     addToCart: updateCartAction,
   }
 )(AddToCart);
-
-AddToCart.defaultProps = {
-  imageUrl: '',
-};

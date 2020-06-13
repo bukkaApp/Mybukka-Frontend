@@ -9,7 +9,8 @@ import AuthenticateLogin from '../../features/authentication/LoginPage';
 
 import AuthenticateRegister from
   '../../features/authentication/RegisterPage';
-import './index.scss';
+
+import './AuthenticationPopup.scss';
 
 const AuthModal = ({ type }) => {
   const { push } = useHistory();

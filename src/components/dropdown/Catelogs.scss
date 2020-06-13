@@ -1,0 +1,10 @@
+.Catelogs--dropdown {
+  text-transform: capitalize;
+  &+* {
+    text-transform: capitalize;
+  }
+}
+
+.category-dropdown-section {
+  text-transform: capitalize;
+}

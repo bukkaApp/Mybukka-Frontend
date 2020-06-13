@@ -60,11 +60,11 @@ $fontFamily: 'Roboto', sans-serif;
   position: relative;
   background-color: $color-light-gray;
   z-index: 200;
-  margin-top: 248px;
+  // margin-top: 248px;
   transition: transform 100ms ease-in-out 0s;
-  @media (min-width: 1060px) {
-    margin-top: 308px;
-  }
+  // @media (min-width: 1060px) {
+  //   margin-top: 308px;
+  // }
   @media screen and (max-width: 576px) {
     .touchdown, .col-6, .col-11 {
       padding-right: 0;

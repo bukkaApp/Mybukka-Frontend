@@ -86,8 +86,8 @@ export const LoginPage = memo(({
       requestVerification(hasVerified);
     } else {
       const redirect = location.state ? location.state.redirectTo : '/';
-      requestVerification(hasVerified);
-      return push(redirect);
+      push(redirect);
+      return requestVerification(hasVerified);
     }
   };
 

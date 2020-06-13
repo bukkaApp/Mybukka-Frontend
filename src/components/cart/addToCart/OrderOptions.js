@@ -8,16 +8,17 @@ import ProductDescription from '../../product-description/ProductDescription';
 import './OrderOptions.scss';
 import { useCartContext } from '../../../context/CartContext';
 
-const OrderOptions = ({ toggleAddToCart, mealToDisplay, storeIntoCart }) => {
+const OrderOptions = ({
+  onClick, price, title, description, storeIntoCart, catelogToDisplay
+}) => {
   const isBigScreen = useMediaQuery({ minWidth: 960 });
-  const { price, title, description } = mealToDisplay;
   const { inProgressCart: { totalCost, originalCost } } = useCartContext();
 
   return (
     <div className="OrderOptions">
       <div className="OrderOptions-Top">
-        <ProductDescription title={title} desc={description} toggleAddToCart={toggleAddToCart} />
-        <ProductList products={mealToDisplay} />
+        <ProductDescription title={title} desc={description} onClick={onClick} />
+        <ProductList products={catelogToDisplay} />
         <FooterSmallScreen price={price} />
       </div>
       {isBigScreen && <FooterBigScreen withQtyBtn handleClick={storeIntoCart} totalCost={totalCost + (originalCost || price)} price={price} />}

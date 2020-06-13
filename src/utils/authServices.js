@@ -3,7 +3,6 @@
 /* eslint-disable no-unneeded-ternary */
 import * as jwt from 'jsonwebtoken';
 import * as moment from 'moment';
-import timeEngine from './timeEngine';
 
 class AuthService {
   tokenKey = 'x-access-token';
@@ -65,25 +64,6 @@ class AuthService {
   isAuthenticated() {
     const token = this.getToken();
     return token && this.isValid(token) ? true : false;
-  }
-
-  /**
-   * @method getCurrentHour
-   * @param {*} strFmt string format '10 am' etc or 10
-   * @returns {void}
-   */
-  getCurrentHour(strFmt) {
-    return timeEngine.getCurrentHour(strFmt);
-  }
-
-  /**
-   * @method getRestaurantWrkHour
-   * @description get Restaurant Work Hour
-   * @param {*} closingHour string format '10 am' to 10
-   * @returns {void}
-   */
-  getRestaurantWrkHour(closingHour) {
-    return timeEngine.getWorkHour(closingHour);
   }
 }
 

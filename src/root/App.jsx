@@ -1,6 +1,6 @@
 import 'babel-polyfill'; // eslint-disable-line
 
-import React, { Suspense, Fragment } from 'react';
+import React, { Suspense } from 'react';
 
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -25,35 +25,38 @@ import Secondary from '../provider/Secondary';
 import useAutocompleteService from '../hooks/useAutocompleteService';
 import Cookie from '../components/cookie';
 import DownLoadApp from '../components/download-app/DownLoadApp';
+import ErrorBoundary from '../components/error-boundary/ErrorBoundary';
 
 const { store, persistor } = reduxStore();
 
 const App = () => {
   const { LoadService } = useAutocompleteService();
   return (
-    <Fragment>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ErrorBoundary minimal>
         <Suspense fallback={<ProgressBar loading />}>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <IndeterminateProgressbar />
               <Secondary>
                 <Primary>
-                  <IndeterminateProgressBarState />
-                  <ProgressSwitch />
-                  <DownLoadApp />
-                  <Toast />
-                  <LoadService />
-                  <Main />
-                  <ModalRoot />
-                  <Cookie />
+                  <ErrorBoundary>
+                    <IndeterminateProgressBarState />
+                    <ProgressSwitch />
+                    <DownLoadApp />
+                    <Toast />
+                    <LoadService />
+                    <Main />
+                    <ModalRoot />
+                    <Cookie />
+                  </ErrorBoundary>
                 </Primary>
               </Secondary>
             </PersistGate>
           </Provider>
         </Suspense>
-      </BrowserRouter>
-    </Fragment>
+      </ErrorBoundary>
+    </BrowserRouter>
   );
 };
 export default App;

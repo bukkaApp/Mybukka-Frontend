@@ -1,34 +1,37 @@
-import React from 'react';
-
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 import Button from '../button/Button';
-import setCheckoutMode from './actionCreators/setCheckoutMode';
-
-import './unaunthenticated-checkout.scss';
 import { useUserContext } from '../../context/UserContext';
+import { useModalContext } from '../../context/ModalContext';
 
-const UnAuthenticatedCheckout = ({
-  push,
-  mode,
-  to,
-  handleCheckoutMode,
-}) => {
+import './UnAuthenticatedCheckout.scss';
+
+const UnAuthenticatedCheckout = ({ push, to }) => {
+  const { setUnAuthenticatedCheckoutPopup, unAuthenticatedCheckoutPopup } = useModalContext();
   const { isAuthenticated } = useUserContext();
+
+  useEffect(() => {
+    if (isAuthenticated) setUnAuthenticatedCheckoutPopup(true);
+  }, [isAuthenticated]);
+
   const handleClick = (e) => {
     e.preventDefault();
-    handleCheckoutMode(false);
+    setUnAuthenticatedCheckoutPopup(false);
     push(to);
   };
 
   const handleCancel = (e) => {
     e.preventDefault();
-    handleCheckoutMode(false);
+    setUnAuthenticatedCheckoutPopup(false);
   };
 
+  if (isAuthenticated) {
+    return null;
+  }
+
   return (
-    (!isAuthenticated && mode) &&
+    unAuthenticatedCheckoutPopup &&
     <div className="modal-root">
       <div className="unaunthenticated-backdrop">
         <div className="unaunthenticated-container">
@@ -67,14 +70,7 @@ const UnAuthenticatedCheckout = ({
   );
 };
 
-const mapStateToProps = ({
-  checkoutModeReducer: { mode }
-}) => ({
-  mode
-});
-
-export default connect(mapStateToProps,
-  { handleCheckoutMode: setCheckoutMode })(UnAuthenticatedCheckout);
+export default UnAuthenticatedCheckout;
 
 UnAuthenticatedCheckout.propTypes = {
   push: PropTypes.func.isRequired

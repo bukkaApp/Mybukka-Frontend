@@ -15,7 +15,12 @@ const ReadyToOrderSection = () => (
     <div className="container">
       <ReadyToOrderHeader />
       <div className="max-search-location mx-auto">
-        <SearchLocation useCurrentLocationVisible chevronButtonVisible showDeliveryOrPickupNav />
+        <SearchLocation
+          withLoading
+          useCurrentLocationVisible
+          chevronButtonVisible
+          showDeliveryOrPickupNav
+        />
       </div>
     </div>
   </div>
