@@ -106,6 +106,7 @@ const useApi = () => {
     validateToken: createEndpoint('/user/token/validate'),
     card: createEndpoint('card/$id/'),
     payment: createEndpoint('pay/$id/'),
+    reportIssue: createEndpoint('/user/comment'),
     history: createEndpoint('/order?role=customer'),
     catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
     business: createEndpoint('bukka/$id/'),
