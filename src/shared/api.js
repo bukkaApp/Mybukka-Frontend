@@ -33,6 +33,7 @@ const createHyperlinkedEndpoint = endpoint => ({
   get: ({ id, url }) => axiosInstance.get(url || endpointTransform(endpoint, id)),
   patch: ({ id, url, data, config }) => axiosInstance.patch(url || endpointTransform(endpoint, id), data, config),
   post: ({ data, id }) => axiosInstance.post(endpointTransform(endpoint, id), data),
+  put: ({ data, id }) => axiosInstance.put(endpointTransform(endpoint, id), data),
 });
 
 const useApi = () => {
@@ -101,8 +102,11 @@ const useApi = () => {
   const API = React.useMemo(() => ({
     address: createEndpoint('address/$id/'),
     authToken: { post: data => axiosInstance.post('user/signin', data) },
+    passwordReset: createHyperlinkedEndpoint('/user/reset/$id/'),
+    validateToken: createEndpoint('/user/token/validate'),
     card: createEndpoint('card/$id/'),
     payment: createEndpoint('pay/$id/'),
+    history: createEndpoint('/order?role=customer'),
     catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
     business: createEndpoint('bukka/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),

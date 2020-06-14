@@ -10,6 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
+const MinimizerPlugin = require('./webpack.minimizer');
 
 const CopyPlugin = new CopyWebpackPlugin({
   patterns: [
@@ -58,6 +59,7 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
+  // devtool: 'source-map',
   devServer: {
     contentBase: './client',
     port: 7700,
@@ -74,6 +76,11 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
     },
+    minimize: true,
+    minimizer: [
+      MinimizerPlugin.minifyJavaScript(),
+      MinimizerPlugin.minifyCss()
+    ]
   },
   plugins: [
     new webpack.HashedModuleIdsPlugin({

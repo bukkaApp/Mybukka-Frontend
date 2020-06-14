@@ -77,7 +77,7 @@ const Map = ({ useBusinesses, zoom }) => {
     setMapVisibility(true);
   }, [hasMap]);
 
-  let businessLocs = (business && business.coordinates) || [3.356172, 6.5419876];
+  let businessLocs = (business && business.location.coordinates) || [3.356172, 6.5419876];
 
   const businessImg = (biz) => {
     // images edit
