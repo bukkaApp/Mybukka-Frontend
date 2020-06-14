@@ -16,8 +16,8 @@ const SubCategory = ({ location }) => {
     const complainData = exportComplains
       .filter(eachComplain => eachComplain.link === location.pathname);
 
-    return complainData.map(eachComplainData =>
-      (<Fragment>
+    return complainData.map((eachComplainData, indx) =>
+      (<Fragment key={`${eachComplainData.text}-${indx}`}> {/* eslint-disable-line */}
         <RelatedComplainArticle
           heading={eachComplainData.heading}
           data={eachComplainData.helpYourself}

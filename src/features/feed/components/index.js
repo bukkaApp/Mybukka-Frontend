@@ -6,7 +6,6 @@ import FoodSection from './FoodSection';
 import OtherSection from './OtherSection';
 import SearchResult from './SearchResult';
 import Category from './Category';
-import Favorites from './Favorites';
 
 import './feed.scss';
 
@@ -20,8 +19,6 @@ const Feed = (props) => {
     Component = SearchResult;
   } else if (pathMatch.params.id === 'category') {
     Component = Category;
-  } else if (pathMatch.params.id === 'favorites') {
-    Component = Favorites;
   } else {
     Component = OtherSection;
   }

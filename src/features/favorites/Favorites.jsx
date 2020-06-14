@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Container from '../../../components/container/Container';
-import NoResult from '../../../components/not-found/NoResult';
-import IntroSection from '../common/IntroSection';
-import ExploreSection from '../common/ExploreSection';
+import Container from '../../components/container/Container';
+import NoResult from '../../components/not-found/NoResult';
+import IntroSection from '../feed/common/IntroSection';
+import ExploreSection from '../feed/common/ExploreSection';
 
 // col-xl-4 col-md-6 col-sm-12
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
@@ -23,7 +23,7 @@ const Favorites = () => {
           </Container>
           <div className="border-top" />
           <Container classNames="position-relative bg-white">
-            <NoResult withPadding text={'Your Favorites'} details="Try to add your favorite stores and catelog" />
+            <NoResult withPadding text={'Your Favorites'} details="Try to add your favorite stores and catelogs" />
           </Container>
         </ExploreSection>
       </div>

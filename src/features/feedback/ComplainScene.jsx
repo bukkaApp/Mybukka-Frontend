@@ -1,23 +1,27 @@
-/* eslint-disable array-callback-return */
 import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import Footer from 'Components/footer/Footer';
 import BannerSection from '../support/common/BannerSection';
 import PersonalizedHeader from '../support/components/PersonalizedHeader';
 import { RelatedComplainArticle } from './RelatedComplainArticle';
 import exportComplains from '../support/inputData/exportComplains';
 import ComplainForm from './ComplainForm';
-import reportIssue from '../support/actionCreator/reportIssue';
+import { useLoadingContext } from '../../context/LoadingContext';
 import { validateAField, validateAllFields }
   from '../support/validation/validateField';
 import './category.scss';
 import '../support/components/supportmainsection.scss';
 import { useUserContext } from '../../context/UserContext';
+import useApi from '../../shared/api';
 
 
-const ComplainScene = ({ location, sendIssue, success }) => {
+const ComplainScene = ({ location, }) => {
+  const { loading } = useLoadingContext();
+  const { API } = useApi();
+
   const { user } = useUserContext();
+  const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [inputData, setInputData] = useState({
     firstName: '',
     lastName: '',
@@ -39,14 +43,12 @@ const ComplainScene = ({ location, sendIssue, success }) => {
   });
 
   useEffect(() => {
-    if (user) {
-      setInputData({ ...inputData, ...user });
-    }
+    if (user) setInputData({ ...inputData, ...user });
   }, [user]);
 
   const handleContentDelivery = async () => {
     let defualtLoadedContent = { ...inputData, };
-    await exportComplains
+    exportComplains
       .filter((eachComplain) => {
         if (eachComplain.link === location.pathname) {
           defualtLoadedContent = {
@@ -56,6 +58,7 @@ const ComplainScene = ({ location, sendIssue, success }) => {
           };
           return defualtLoadedContent;
         }
+        return eachComplain;
       });
 
 
@@ -92,19 +95,31 @@ const ComplainScene = ({ location, sendIssue, success }) => {
 
   const handleClick = (event) => {
     event.preventDefault();
+
+    setErrorMessage('');
     const validation = validateAllFields(inputData, true);
 
     const { errors, passes } = validation;
     validateOnClick(errors);
 
     handleContentDelivery();
-    if (passes) {
-      sendIssue(inputData);
-      setInputData({
-        ...inputData,
-        content: '',
+    if (!passes) return;
+    loading(true);
+
+    const sendReport = () => API.reportIssue.post(inputData)
+      .then(() => {
+        setIsSent(true);
+        loading(false);
+        setInputData({ ...inputData, content: '', });
+      })
+      .catch((err) => {
+        loading(false);
+        setIsSent(true);
+        setErrorMessage(err.response ? err.response.data.message : err.message);
+        setInputData({ ...inputData, content: '', });
       });
-    }
+
+    sendReport();
   };
 
   const generateSomeContext = () => {
@@ -144,11 +159,11 @@ const ComplainScene = ({ location, sendIssue, success }) => {
             inputData={inputData}
             handleChange={handleChange}
             handleClick={handleClick}
-            success={success}
+            success={isSent}
             validationErrors={validationErrors}
           />
-          <div className="text-center text-uppercase text-success">
-            {success && 'message sent'}
+          <div className={`text-center text-uppercase text-${errorMessage ? 'danger' : 'success'}`}>
+            {isSent && (errorMessage || 'message sent')}
           </div>
         </div>
       </div>
@@ -157,13 +172,7 @@ const ComplainScene = ({ location, sendIssue, success }) => {
   );
 };
 
-const mapStateToProps = ({ reportIssueReducer: { success } }) => ({
-  success
-});
-
-export default connect(mapStateToProps, {
-  sendIssue: reportIssue
-})(ComplainScene);
+export default ComplainScene;
 
 ComplainScene.defaultProps = {};
 
@@ -173,6 +182,4 @@ ComplainScene.propTypes = {
       PropTypes.string
     ])
   ).isRequired,
-  sendIssue: PropTypes.func.isRequired,
-  success: PropTypes.bool.isRequired,
 };

@@ -7,7 +7,7 @@ const CatelogsPopupOnSmallScreen = lazy(() => import('../popup/CatelogsPopupOnSm
 const AddToCart = lazy(() => import('../cart/addToCart'));
 const ViewOrdersOnMobile = lazy(() => import('../cart/ViewOrdersOnMobile'));
 const Authentication = lazy(() => import('../popup/AuthenticationPopup'));
-const VerifyPhonePopup = lazy(() => import('../verify-phone-popup'));
+const VerifyPhonePopup = lazy(() => import('../popup/VerifyPhonePopup'));
 const Address = lazy(() => import('../address/Address'));
 const Payment = lazy(() => import('../payment/Payment'));
 const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecurity'));

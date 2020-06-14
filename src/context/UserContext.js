@@ -12,6 +12,7 @@ const initialState = {
   card: null,
   payment: null,
   signIn: null,
+  history: null,
 };
 
 const reducer = (state, action) => {
@@ -42,6 +43,11 @@ const reducer = (state, action) => {
     case 'SET_PAYMENT': {
       const payment = action.payload ? { ...state.payment, ...action.payload } : null;
       return { ...state, payment };
+    }
+
+    case 'SET_HISTORY': {
+      const history = action.payload ? { ...state.history, ...action.payload } : null;
+      return { ...state, history };
     }
 
     case 'LOGOUT_SUCCESSFUL':
@@ -112,6 +118,13 @@ const useUser = () => {
     });
   };
 
+  const setHistory = (payload) => {
+    dispatch({
+      type: 'SET_HISTORY',
+      payload,
+    });
+  };
+
   const loginSuccess = (user, token) => {
     dispatch({
       type: 'LOGIN_SUCCESSFUL',
@@ -125,9 +138,28 @@ const useUser = () => {
     });
   };
 
-  const { user, signIn, token, payment, address, card, isAuthenticated, isVerified } = state;
+  const { user, signIn, token, history, payment, address, card, isAuthenticated, isVerified } = state;
 
-  return { user, signIn, setSignInData, payment, address, card, token, isAuthenticated, isVerified, setPayment, setCard, setProfile, setAddress, setUser, loginSuccess, logoutSuccess, setVerified };
+  return {
+    signIn, // auto-login data
+    setSignInData, // auto-login purpose
+    token,
+    isAuthenticated,
+    loginSuccess,
+    isVerified,
+    setVerified,
+    user,
+    setUser,
+    setProfile,
+    history,
+    setHistory,
+    payment,
+    setPayment,
+    card,
+    setCard,
+    address,
+    setAddress,
+    logoutSuccess, };
 };
 
 export const [UserProvider, useUserContext] = constate(useUser);

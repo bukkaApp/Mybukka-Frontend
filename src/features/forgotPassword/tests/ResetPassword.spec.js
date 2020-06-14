@@ -15,7 +15,7 @@ const middlewares = [];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
 
-describe('Reset Password component', () => {
+describe.skip('Reset Password component', () => {
   const props = {
     status: {
       authenticated: false,

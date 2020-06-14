@@ -13,7 +13,7 @@ import './CatelogsPopupOnSmallScreen.scss';
 
 const CatelogsPopupOnSmallScreen = () => {
   const [state, setState] = useSearchContext();
-  const { catelogs } = useBusinessContext();
+  const { catelogs, business } = useBusinessContext();
   const { location, push } = useHistory();
   const { pathname } = location;
   const { setModal, setCatelogsOnSmallScreenPopup, catelogsOnSmallScreenPopup } = useModalContext();
@@ -58,6 +58,8 @@ const CatelogsPopupOnSmallScreen = () => {
   const hashPath = catelog => `${pathname}#catelog-${resolveValidId(catelog._id)}`;
 
   const _uniquePath = catelog => `${pathname}#${resolveValidId(catelog)}`;
+
+  const hasNoCatelog = () => (business && `${business.title} has no catelog`) || null;
 
   return (
     <Modal
@@ -118,7 +120,7 @@ const CatelogsPopupOnSmallScreen = () => {
                   </Link>
                   ))}
 
-                {(!catelogs || hasNoResult()) && <NoResult withPadding text={state} />}
+                {hasNoResult() && <NoResult details={!catelogs ? hasNoCatelog() : null} withPadding text={state} />}
               </div>
             </Fragment>
           </div>

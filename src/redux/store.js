@@ -7,17 +7,11 @@ import changeAuthenticationPageReducer from 'Components/navbar/reducers/changeAu
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import reportIssueReducer from '../features/support/reducer/reportIssueReducer';
 import loadingReducer from '../provider/Redux/loadingReducer';
 
 import deliveryModeReducer from '../components/common-navs/reducers/deliveryModeReducer';
 
 import businessesReducer from '../provider/Redux/businessesReducer';
-import displayTrackingReducer from '../features/history/reducers/displayTrackingReducer';
-import getOrderHistoryReducer from '../features/history/reducers/getOrderHistoryReducer';
-import validateTokenReducer from '../features/forgotPassword/reducers/validateTokenReducer';
-import requestPasswordChangesReducer from '../features/forgotPassword/reducers/requestPasswordChangesReducer';
-import changePasswordReducer from '../features/forgotPassword/reducers/changePasswordReducer';
 import businessReducer from '../provider/Redux/businessReducer';
 
 import productsReducer from '../provider/Redux/productsReducer';
@@ -32,13 +26,7 @@ import searchAnythingReducer from './searchAnythingReducer';
 import deliveryScheduleReducer from '../provider/Redux/deliveryScheduleReducer';
 import cartReducer from '../provider/Redux/cartReducer';
 
-import verifyCardReducer from '../features/checkout/reducers/verifyCardReducer';
-import saveUserCardReducer from '../features/checkout/reducers/saveUserCardReducer';
-import getUserCardReducer from '../features/checkout/reducers/getUserCardReducer';
 import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardReducer';
-
-import sendContactReducer from '../provider/Redux/sendContactReducer';
-import sendVerificationCodeReducer from '../provider/Redux/sendVerificationCodeReducer';
 
 import promotionReducer from '../features/promotion/reducer/promotionReducer';
 import businessGroupReducer from '../provider/Redux/businessGroupReducer';
@@ -49,11 +37,6 @@ const reducer = combineReducers({
   changeAuthenticationPageReducer,
   deliveryModeReducer,
   businessesReducer,
-  displayTrackingReducer,
-  getOrderHistoryReducer,
-  validateTokenReducer,
-  requestPasswordChangesReducer,
-  changePasswordReducer,
   productsReducer,
   businessReducer,
   manipulateCardDetailsReducer,
@@ -62,12 +45,6 @@ const reducer = combineReducers({
   searchAnythingReducer,
   deliveryScheduleReducer,
   cartReducer,
-  reportIssueReducer,
-  sendContactReducer,
-  sendVerificationCodeReducer,
-  saveUserCardReducer,
-  verifyCardReducer,
-  getUserCardReducer,
   setDefaultCardReducer,
   promotionReducer,
   businessGroupReducer,

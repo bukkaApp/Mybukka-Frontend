@@ -15,7 +15,8 @@ import Checkout from '../features/checkout';
 const Profile = lazy(() => import('../features/profile'));
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));
-const TransactionHistory = lazy(() => import('../features/history'));
+const TransactionHistory = lazy(() => import('../features/history/History'));
+const Favorites = lazy(() => import('../features/favorites/Favorites'));
 const ResetPassword = lazy(() => import('../features/forgotPassword/ResetPassword'));
 const PerformResetPass = lazy(() => import('../features/forgotPassword/PerformResetPass'));
 const SupportBuyer = lazy(() => import('../features/support/components/SupportBuyer'));
@@ -35,10 +36,13 @@ const Main = () => (
       <Route exact path="/signup" component={Register} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/place-groups/d/:id" component={Promotion} />
+
       {/* <Route exact path="/categories/:id" component={Category} /> */}
       <PrivateRoute exact path="/merchant/:slug/checkout" component={Checkout} />
       <PrivateRoute exact path="/profile" component={Profile} />
-      <Route exact path="/history" component={TransactionHistory} />
+      <PrivateRoute exact path="/favorites" component={Favorites} />
+      <PrivateRoute exact path="/history" component={TransactionHistory} />
+
       <Route exact path="/reset-password" component={ResetPassword} />
       <Route exact path="/reset" component={PerformResetPass} />
       <Route exact path="/support/buyer" component={SupportBuyer} />
@@ -47,11 +51,13 @@ const Main = () => (
       <Route exact path="/map" component={Map} />
       <Route exact path="/merchant" component={Merchant} />
       <Route exact path="/buyer/contact-us/help" component={ComplainCategory} />
+
       <PrivateRoute exact path="/buyer/contact-us/:id" component={ComplainScene} />
       <Route exact path="/support/buyer/contact-us/:id" component={SubCategory} />
       <Route exact path="/legal/:id" component={LegalStatement} />
       <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
       <Route exact path="/:id" component={FeedPages} />
+
       <Route
         exact
         path="/store/apple"
