@@ -1,155 +1,156 @@
 .support-banner-section {
-    background-color: rgb(242, 243, 245);
-    height: 252px;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    position: relative;
-    width: 100%;
-    padding: 16px 16px 28px;
-    overflow: hidden;
-    @media screen and (min-width: 768px) {
-        height: 312px;
-        padding: 25px 25px 62px 120px;
-    }
-    @media screen and (min-width: 1280px) {
-        padding-left: 224px;
-    }
+  background-color: rgb(242, 243, 245);
+  height: 252px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+  padding: 16px 16px 28px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    height: 312px;
+    padding: 25px 25px 62px 120px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 224px;
+  }
 }
 
 .pen-down {
-    position: absolute;
-    bottom: 0px;
-    left: 110px;
-    z-index: 5;
-    height: 252px;
-    overflow: hidden;
-    @media screen and (min-width: 1280px) {
-        left: 50px;
-    }
-@media screen and (min-width: 768px) {
-        height: 312px;
-        left: 0px;
-    }
+  position: absolute;
+  bottom: 0px;
+  left: 110px;
+  z-index: 5;
+  height: 252px;
+  overflow: hidden;
+  @media screen and (min-width: 1280px) {
+    left: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    height: 312px;
+    left: 0px;
+  }
 }
 
 .pen-down-img {
-    height: 252px;
-    width: 200px;
-    object-fit: contain;
-    transform: scaleY(-1);
-    @media screen and (min-width: 768px) {
-        height: 312px;
-        transform: scaleY(1);
-    }
+  height: 252px;
+  width: 200px;
+  object-fit: contain;
+  transform: scaleY(-1);
+  @media screen and (min-width: 768px) {
+    height: 312px;
+    transform: scaleY(1);
+  }
 }
 
 .monitoring-section {
-    position: absolute;
-    top: 0px;
-    right: -310px;
-    z-index: 5;
-    height: 252px;
-    overflow: hidden;
-    @media screen and (min-width: 448px) {
-        right: calc(100vw - 767px);
-    }
-    @media screen and (min-width: 768px)  {
-        height: 312px;
-        right: 0px;
-    }
+  position: absolute;
+  top: 0px;
+  right: -310px;
+  z-index: 5;
+  height: 252px;
+  overflow: hidden;
+  @media screen and (min-width: 448px) {
+    right: calc(100vw - 767px);
+  }
+  @media screen and (min-width: 768px)  {
+    height: 312px;
+    right: 0px;
+  }
 }
 
 .monitoring-section-img {
-    // height: 252px;
-    max-width: 520px;
-    object-fit: contain;
-    @media screen and (min-width: 768px) {
-        height: 312px;
-    }
+  // height: 252px;
+  max-width: 520px;
+  object-fit: contain;
+  @media screen and (min-width: 768px) {
+    height: 312px;
+  }
 }
 
 .support-brand {
+  position: relative;
+  top: -20px;
+  .bukka-logo {
+    z-index: 10;
     position: relative;
-    top: -20px;
-    .bukka-logo {
-        z-index: 10;
-        position: relative;
-    }
+  }
 }
 
 .custom-help-section {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-end;
-    z-index: 10;
-    flex: 1 1 0%;
-    @media screen and (min-width: 768px) {
-        font-size: 67px;
-        letter-spacing: -3.7px;
-        margin-bottom: 21px;
-    }
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
+  flex: 1 1 0%;
+  @media screen and (min-width: 768px) {
+    font-size: 67px;
+    letter-spacing: -3.7px;
+    margin-bottom: 21px;
+  }
 }
 
 .custom-help-section-text {
-    font-family: "Roboto", sans-serif;
-    color: rgb(45, 49, 56);
-    -webkit-font-smoothing: antialiased;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: -1.8px;
-    text-decoration: none;
-    z-index: 10;
-    @media screen and (min-width: 768px) {
-        font-size: 67px;
-        letter-spacing: -3.7px;
-    }
+  font-family: "Roboto", sans-serif;
+  color: rgb(45, 49, 56);
+  -webkit-font-smoothing: antialiased;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -1.8px;
+  text-decoration: none;
+  z-index: 10;
+  @media screen and (min-width: 768px) {
+    font-size: 67px;
+    letter-spacing: -3.7px;
+  }
 }
 
 .support-search-section {
-    z-index: 10;
-    position: relative;
+  z-index: 10;
+  position: relative;
 }
 
 .support-search-content {
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    max-width: 416px;
-    display: flex;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: center;
-    align-items: center;
-    border-radius: 20px;
-    padding: 0px 10px;
-    @media screen and (min-width: 768px) {
-        height: 48px;
-        border-radius: 24px;
-        padding: 0px 12px;
-    }
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  max-width: 416px;
+  display: flex;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0px 10px;
+  @media screen and (min-width: 768px) {
+    height: 48px;
+    border-radius: 24px;
+    padding: 0px 12px;
+  }
 }
 
 .support-search-input {
-    height: 24px;
-    width: 100%;
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: rgb(45, 49, 56);
-    -webkit-font-smoothing: antialiased;
-    line-height: 1.5;
-    letter-spacing: -0.1px;
-    margin-left: 14px;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    &:focus {
-        border: 0;
-        outline: 0
-    };
-    @media screen and (min-width: 768px) {
-        margin-left: 16px;
-    }
+  height: 24px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(45, 49, 56);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  letter-spacing: -0.1px;
+  margin-left: 14px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border: none;
+  &:focus {
+    border: 0;
+    outline: 0
+  };
+  @media screen and (min-width: 768px) {
+    margin-left: 16px;
+  }
 }

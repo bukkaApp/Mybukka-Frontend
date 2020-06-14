@@ -19,7 +19,7 @@ const ComplainSection = ({ subCategoryComplain }) => (
         title="Tell us more about your issue."
       />
       {subCategoryComplain.map(topic => (
-        <PersonalizedBody text={topic.text} link={topic.link} />
+        <PersonalizedBody key={topic.text} text={topic.text} link={topic.link} />
       ))}
     </div>
   </div>
@@ -32,6 +32,7 @@ const SubCategory = ({ location }) => (
       Object.keys(complains.subCategory).map((eachComplainSection) => {
         if (categoryLocation[eachComplainSection] === location.pathname) {
           return (<ComplainSection
+            key={categoryLocation[eachComplainSection]}
             subCategoryComplain={complains.subCategory[eachComplainSection]}
           />);
         }

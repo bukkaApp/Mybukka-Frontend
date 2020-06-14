@@ -21,6 +21,7 @@ const ComplainScene = ({ location, }) => {
 
   const { user } = useUserContext();
   const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [inputData, setInputData] = useState({
     firstName: '',
     lastName: '',
@@ -48,7 +49,7 @@ const ComplainScene = ({ location, }) => {
   const handleContentDelivery = async () => {
     let defualtLoadedContent = { ...inputData, };
     exportComplains
-      .filter((eachComplain) => {
+      .filter((eachComplain) => { // eslint-disable-line
         if (eachComplain.link === location.pathname) {
           defualtLoadedContent = {
             ...defualtLoadedContent,
@@ -57,7 +58,6 @@ const ComplainScene = ({ location, }) => {
           };
           return defualtLoadedContent;
         }
-        return eachComplain;
       });
 
 
@@ -94,26 +94,30 @@ const ComplainScene = ({ location, }) => {
 
   const handleClick = (event) => {
     event.preventDefault();
+
+    setErrorMessage('');
     const validation = validateAllFields(inputData, true);
 
     const { errors, passes } = validation;
     validateOnClick(errors);
 
     handleContentDelivery();
-    if (passes) {
-      loading(true);
-      API.reportIssue.post(inputData)
-        .then(() => {
-          setIsSent(true);
-          loading(false);
-        })
-        .catch(() => loading(false));
+    if (!passes) return;
+    loading(true);
 
-      setInputData({
-        ...inputData,
-        content: '',
+    const sendReport = () => API.reportIssue.post(inputData)
+      .then(() => {
+        setIsSent(true);
+        loading(false);
+        setInputData({ ...inputData, content: '', });
+      })
+      .catch((err) => {
+        loading(false);
+        setErrorMessage(err.response ? err.response.data.message : err.message);
+        setInputData({ ...inputData, content: '', });
       });
-    }
+
+    sendReport();
   };
 
   const generateSomeContext = () => {
@@ -157,7 +161,7 @@ const ComplainScene = ({ location, }) => {
             validationErrors={validationErrors}
           />
           <div className="text-center text-uppercase text-success">
-            {isSent && 'message sent'}
+            {isSent && (errorMessage || 'message sent')}
           </div>
         </div>
       </div>
@@ -165,6 +169,8 @@ const ComplainScene = ({ location, }) => {
     </div>
   );
 };
+
+export default ComplainScene;
 
 ComplainScene.defaultProps = {};
 
