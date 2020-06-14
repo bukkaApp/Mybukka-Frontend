@@ -6,7 +6,7 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
-import './index.scss';
+import './VerifyPhonePopup.scss';
 
 const phoneVerificationSupport = [
   { country: 'NG', key: '+234' }
