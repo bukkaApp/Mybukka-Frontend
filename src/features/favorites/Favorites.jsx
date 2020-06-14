@@ -23,7 +23,7 @@ const Favorites = () => {
           </Container>
           <div className="border-top" />
           <Container classNames="position-relative bg-white">
-            <NoResult withPadding text={'Your Favorites'} details="Try to add your favorite stores and catelog" />
+            <NoResult withPadding text={'Your Favorites'} details="Try to add your favorite stores and catelogs" />
           </Container>
         </ExploreSection>
       </div>
