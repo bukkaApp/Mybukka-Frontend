@@ -49,7 +49,7 @@ const ComplainScene = ({ location, }) => {
   const handleContentDelivery = async () => {
     let defualtLoadedContent = { ...inputData, };
     exportComplains
-      .filter((eachComplain) => { // eslint-disable-line
+      .filter((eachComplain) => {
         if (eachComplain.link === location.pathname) {
           defualtLoadedContent = {
             ...defualtLoadedContent,
@@ -58,6 +58,7 @@ const ComplainScene = ({ location, }) => {
           };
           return defualtLoadedContent;
         }
+        return eachComplain;
       });
 
 
@@ -113,6 +114,7 @@ const ComplainScene = ({ location, }) => {
       })
       .catch((err) => {
         loading(false);
+        setIsSent(true);
         setErrorMessage(err.response ? err.response.data.message : err.message);
         setInputData({ ...inputData, content: '', });
       });
@@ -160,7 +162,7 @@ const ComplainScene = ({ location, }) => {
             success={isSent}
             validationErrors={validationErrors}
           />
-          <div className="text-center text-uppercase text-success">
+          <div className={`text-center text-uppercase text-${errorMessage ? 'danger' : 'success'}`}>
             {isSent && (errorMessage || 'message sent')}
           </div>
         </div>
