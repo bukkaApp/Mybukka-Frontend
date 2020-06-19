@@ -5,12 +5,14 @@ const rules = {
   name: 'required',
   mobileNumber: 'required|min:8',
   deliveryInstructions: 'string',
+  location: 'required|boolean'
 };
 
 // req_add: 'An address is required.',
 // card_num: 'Card number is invalid.',
 //   num: 'this field can only be numbers',
 const errorMessages = {
+  boolean: 'this field can only be a boolean',
   alpha: 'this field can only be letters',
   required: 'Required.',
   min: 'this field is not valid',

@@ -35,7 +35,7 @@ const Delivery = ({
         <DeliveryOrPickupNav />
       </div>
       <Demarcation />
-      {mode === 'delivery' && <Address noPadding />}
+      {mode === 'delivery' && <Address useModal noPadding />}
       {mode === 'pickup' && (
         <Fragment>
           <Pickup title="Pickup Address" name={address} />

@@ -23,24 +23,43 @@ const Checkout = ({ handleCheckout }) => {
   return (
     <Fragment>
       {isBigScreen && <Navbar />}
+
       {!isBigScreen &&
-      <section className={`container ${isBigScreen ? 'mb-2 mt-4' : 'pb-2 pt-4'} Checkout-Heading-Wrapper`}>
-        <i tabIndex="0" role="link" onClick={() => goBack()} className="fas fa-arrow-left fa-2x Checkout-Heading-Icon" />
-        <TemporaryWrapper.ViewHeading noPadding noFont classNames="Checkout-Heading" text="Checkout" />
-      </section>}
-      {!isBigScreen &&
-      <Container classNames="map-address p-0">
-        <Map />
-      </Container>}
+      <React.Fragment>
+        <section className={`container ${isBigScreen ? 'mb-2 mt-4' : 'pb-2 pt-4'} Checkout-Heading-Wrapper`}>
+          <i
+            tabIndex="0"
+            role="link"
+            onClick={() => goBack()}
+            className="fas fa-arrow-left fa-2x Checkout-Heading-Icon"
+          />
+          <TemporaryWrapper.ViewHeading
+            noPadding
+            noFont
+            classNames="Checkout-Heading"
+            text="Checkout"
+          />
+        </section>
+        <Container classNames="map-address p-0">
+          <Map />
+        </Container>
+      </React.Fragment>}
+
       <Container classNames="relative modal-open p-0">
         <div className="d-flex flex-column flex-xl-row flex-lg-row flex-md-column justify-content-between">
           <div className="col-xl-6 col-lg-6 px-0 px-md-0 px-lg-3 col-md-12 col-12">
-            {isBigScreen && <TemporaryWrapper.ViewHeading noPadding noFont classNames="Checkout-Heading mt-4 mb-2" text="Checkout" />}
+            {isBigScreen &&
+            <TemporaryWrapper.ViewHeading
+              noPadding
+              noFont
+              classNames="Checkout-Heading mt-4 mb-2"
+              text="Checkout"
+            />}
             <DeliveryAddress isBigScreen={isBigScreen} />
             <Schedules />
             <section className="mb-2 mt-4">
               <Demarcation />
-              <Payments noPadding />
+              <Payments useModal noPadding />
               <Demarcation />
             </section>
             <div className="d-none d-xl-flex d-lg-flex justify-content-end my-5">
@@ -66,6 +85,7 @@ const Checkout = ({ handleCheckout }) => {
           </div>
         </div>
       </Container>
+
     </Fragment>
   );
 };
