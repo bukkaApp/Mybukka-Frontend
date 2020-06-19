@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 
 import TextArea from '../input/TextArea';
@@ -11,37 +12,40 @@ import { useLocationContext } from '../../context/LocationContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import TemporaryWrapper from '../ViewWrappers/TemporaryWrapper';
-import { useGlobalFormValidityRequestContext } from '../../context/GlobalFormValidityRequestContext';
-import { useGlobalFormValidityReportContext } from '../../context/GlobalFormValidityReportContext';
-import { useAddresContext } from '../../context/AddressContext';
+import { useFormReportContext } from '../../context/FormReportContext';
+import { useModalContext } from '../../context/ModalContext';
+// import { useAddresContext } from '../../context/AddressContext';
 
 const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { setAddress } = useUserContext();
-  const { addressValidityReport, reportAddressValidity } = useGlobalFormValidityRequestContext();
-  const { setAddressValidity } = useGlobalFormValidityReportContext();
+
+  const { addressFormPopup, } = useModalContext();
+  const { setAddressReport, requestAddressValidity, resetAddressReport, updateAddressData, changeAddress, address } = useFormReportContext();
+
   const { coordinates, selectedLocation } = useLocationContext();
   const wrapperRef = React.createRef();
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [validationErrors, setValidationErrors] = useState({
     address: '',
     streetAddress2: '',
     name: '',
-    mobileNumber: ''
+    mobileNumber: '',
+    location: '',
   });
 
-  const [inputData, setInputData] = useAddresContext({
+  const [inputData, setInputData] = useState({
     address: '',
     streetAddress2: '',
     name: '',
-    mobileNumber: ''
+    mobileNumber: '',
+    location: null
   });
 
   useEffect(() => {
-    if (!inputData.address) return;
-    setInputData({ ...inputData, address: selectedLocation.description });
-  }, [selectedLocation]);
+    if (changeAddress) setInputData({ ...inputData, ...address });
+  }, [changeAddress, addressFormPopup]);
 
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: value };
@@ -54,38 +58,52 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
       ...validationErrors,
       [name]: validation.message
     });
-    if (addressValidityReport) return reportAddressValidity(false);
   };
 
-  const onSubmit = () => {
-    if (!addressValidityReport) return;
-    const validation = validateAllFields(inputData);
+  const resolveLocationError = errors => ({
+    address: !errors.address && errors.location ? 'select address from the location dropdown' : (errors.address || '')
+  });
+
+  const onBlur = (e, data) => {
+    if (data) setInputData(data);
+    updateAddressData(data || inputData);
+    const dataToValidate = data || inputData;
+    const validation = validateAllFields({ ...dataToValidate, location: dataToValidate.location ? true : null });
+
     const { errors, passes } = validation;
-    setValidationErrors({ ...validationErrors, ...errors });
-    if (passes) return setAddressValidity(passes);
+    setValidationErrors({ ...validationErrors, ...errors, ...resolveLocationError(errors) });
+    setAddressReport({ res: passes, change: true });
   };
 
   useEffect(() => {
-    if (!addressValidityReport) return;
-    return onSubmit();
-  }, [addressValidityReport]);
+    if (!inputData.address) return;
+    const location = { type: 'Point', coordinates };
+
+    const data = { ...inputData, address: selectedLocation.description, location };
+    onBlur(null, data);
+  }, [selectedLocation, coordinates]);
+
+  useEffect(() => {
+    if (!requestAddressValidity) return;
+    onBlur();
+  }, [requestAddressValidity]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const apartmentNumber = inputData.streetAddress2;
-    const validation = validateAllFields(inputData);
+    const validation = validateAllFields({ ...inputData, location: inputData.location ? true : null });
+
     const { errors, passes } = validation;
-    setValidationErrors({ ...validationErrors, ...errors });
+    setValidationErrors({ ...validationErrors, ...errors, ...resolveLocationError(errors) });
     if (passes) {
-      const location = { type: 'Point', coordinates };
-      const data = { ...inputData, apartmentNumber, location };
       try {
         loading(true);
-        const response = await API.address.post(data);
+        const response = await API.address.post({ ...inputData, apartmentNumber: inputData.streetAddress2 });
         setAddress(response.data.newAddress);
+        resetAddressReport();
+        loading(false);
         if (withModal) handleClick();
       } catch (error) {
-        setErrorMessage(error.response.data.message || '');
+        setErrorMessage(error.response ? error.response.data.message : error.message);
         loading(false);
       }
     }
@@ -100,7 +118,7 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
           inputData={inputData}
           inputField={inputField}
           handleChange={handleChange}
-          onBlur={onSubmit}
+          onBlur={onBlur}
           errors={validationErrors}
         />
         <div className="form-group mb-4">
@@ -115,6 +133,12 @@ const AddressForm = ({ withPadding, label, withModal, handleClick, withFormSpace
           <Button
             type="button"
             text="Save"
+            classNames="small-button-save"
+            handleClick={handleSubmit}
+          />
+          <Button
+            type="button"
+            text="Okay"
             classNames="small-button-save"
             handleClick={handleSubmit}
           />

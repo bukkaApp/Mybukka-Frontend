@@ -21,7 +21,7 @@ const PaymentHeader = ({ handleClick }) => (
 );
 
 const Payment = (props) => {
-  const { paymentPopup, setPaymentPopup, paymentSecurityPopup, setPaymentSecurityPopup, setModal } = useModalContext();
+  const { paymentFormPopup, setPaymentFormPopup, paymentSecurityPopup, setPaymentSecurityPopup, setModal } = useModalContext();
 
   const requestSecurityPopup = () => {
     if (!props.withModal) setModal(true);
@@ -30,14 +30,14 @@ const Payment = (props) => {
 
   const handleClick = (incl) => {
     if (incl && props.withModal) setModal(false);
-    setPaymentPopup(false);
+    setPaymentFormPopup(false);
   };
 
   const paymentFormJsx = <PaymentForm requestSecurityPopup={requestSecurityPopup} handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
-      <Modal show={paymentPopup} bodyClassName="SmallWidth" onClickOut={() => handleClick(true)} >
+      <Modal show={paymentFormPopup} bodyClassName="SmallWidth" onClickOut={() => handleClick(true)} >
         <Container classNames="Payment-Wrapper">
           <PaymentHeader handleClick={() => handleClick(true)} />
           {paymentFormJsx}

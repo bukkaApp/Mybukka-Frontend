@@ -21,18 +21,18 @@ const AddressHeader = ({ handleClick }) => (
 );
 
 const Address = (props) => {
-  const { addressPopup, setAddressPopup, setModal } = useModalContext();
+  const { addressFormPopup, setAddressFormPopup, setModal } = useModalContext();
 
   const handleClick = () => {
     setModal(false);
-    setAddressPopup(false);
+    setAddressFormPopup(false);
   };
 
   const addressFormJsx = <AddressForm handleClick={handleClick} {...props} />;
 
   if (props.withModal) {
     return (
-      <Modal onClickOut={handleClick} show={addressPopup} bodyClassName="SmallWidth">
+      <Modal onClickOut={handleClick} show={addressFormPopup} bodyClassName="SmallWidth">
         <Container>
           <AddressHeader handleClick={handleClick} />
           {addressFormJsx}

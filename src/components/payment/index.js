@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { useHistory } from 'react-router-dom';
 import { BasicPlus } from 'Icons/Plus';
 
+import Container from '../container/Container';
+import Modal from '../modal/Modal';
+import DismissModal from '../modal/DismissModal';
 import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import useApi from '../../shared/api';
@@ -13,15 +15,25 @@ import ButtonPill from '../button-pill/ButtonPill';
 import PaymentIcons from '../payment-icons/PaymentIcons';
 import Payment from './Payment';
 import { useToastContext } from '../../context/ToastContext';
+import { useFormReportContext } from '../../context/FormReportContext';
+import CurrentPayment from './CurrentPayment';
 
 import './index.scss';
 
 const AddAnAddress = () => {
-  const { setPaymentPopup, setModal } = useModalContext();
+  const { setPaymentFormPopup, setModal, setPaymentPopup, paymentPopup } = useModalContext();
 
   const handleClick = () => {
-    setModal(true);
-    setPaymentPopup(true);
+    if (!paymentPopup) setModal(true);
+    setPaymentFormPopup(true);
+
+    if (paymentPopup) {
+      // delay till form popup is ready
+      const timeout = setTimeout(() => {
+        setPaymentPopup(false);
+        clearTimeout(timeout);
+      }, 300);
+    }
   };
 
   return (
@@ -33,14 +45,18 @@ const AddAnAddress = () => {
   );
 };
 
-const Payments = ({ useProfileStandard, noPadding }) => {
+const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   const { card: cards, setCard } = useUserContext();
+  const { paymentPopup, setPaymentPopup, setModal, } = useModalContext();
+  const { changePayment: changeDefualtPayment, } = useFormReportContext();
   const { setToast } = useToastContext();
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { push } = useHistory();
 
-  const changePaymentCard = () => push('/profile#payments');
+  const changePaymentCard = (state = true) => {
+    setModal(state);
+    setPaymentPopup(state);
+  };
 
   const deletePaymentCard = async (id) => {
     const result = confirm('Want to delete?');
@@ -66,13 +82,14 @@ const Payments = ({ useProfileStandard, noPadding }) => {
   };
 
   const decodeButtonText = (slug) => {
-    if (!useProfileStandard) return 'Change';
+    const buttonText = changeDefualtPayment ? 'Default' : 'Change';
+    if (!useProfileStandard) return buttonText;
     return (cards.defaultCard !== slug ? 'DELETE' : 'DEFAULT');
   };
 
   const emitOnClick = (slug) => {
     if (cards.defaultCard !== slug) return deletePaymentCard(slug);
-    return changePaymentCard();
+    return useModal ? changePaymentCard(true) : null;
   };
 
   const updateDefaultCard = async (slug) => {
@@ -108,32 +125,44 @@ const Payments = ({ useProfileStandard, noPadding }) => {
       </PlainParagraph>
   )));
 
-  if (useProfileStandard) {
+  if (!useProfileStandard) {
     return (
-      <div id="payments" className={(useProfileStandard && 'Payment-Section--profile') || ''}>
-        <div className="account-details-header">
-          <h5 className="account-details-text">Payment</h5>
-        </div>
-        {paymentJsx}
-        <AddAnAddress />
-      </div>
+      <TemporaryWrapper.ViewWrapper>
+        {(!cards || !cards.cards.length) ?
+          <Payment withFormSpace withPadding label="Payment" /> :
+          <div className={`${noPadding ? '' : 'Payment-Section'}`}>
+            <TemporaryWrapper.ViewHeading noPadding text="Payment" />
+            {paymentJsx}
+            <CurrentPayment useProfileStandard={useProfileStandard} />
+          </div>}
+      </TemporaryWrapper.ViewWrapper>
     );
   }
 
+  const profileStandardJsx = (
+    <div id="payments" className={(useProfileStandard && 'Payment-Section--profile') || ''}>
+      <div className="account-details-header">
+        <h5 className="account-details-text">Payment</h5>
+      </div>
+      {paymentJsx}
+      <AddAnAddress />
+    </div>
+  );
+
+  if (useProfileStandard && !withModal) return profileStandardJsx;
+
   return (
-    <TemporaryWrapper.ViewWrapper>
-      {(!cards || !cards.cards.length) ?
-        <Payment withFormSpace withPadding label="Payment" /> :
-        <div className={`${noPadding ? '' : 'Payment-Section'}`}>
-          <TemporaryWrapper.ViewHeading noPadding text="Payment" />
-          {paymentJsx}
+    <Modal onClickOut={changePaymentCard} show={paymentPopup} bodyClassName="SmallWidth">
+      <Container>
+        <div className="Address-Form-Header pb-1">
+          <div className="text-end">
+            <DismissModal onClick={() => changePaymentCard(false)} />
+          </div>
+          {profileStandardJsx}
         </div>
-      }
-    </TemporaryWrapper.ViewWrapper>);
+      </Container>
+    </Modal>
+  );
 };
 
 export default Payments;
-
-Payments.defaultProps = {};
-
-Payments.propTypes = {};

@@ -10,17 +10,22 @@ import { validateAField, validateAllFields } from './validation';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import TemporaryWrapper from '../../components/ViewWrappers/TemporaryWrapper';
-import { useGlobalFormValidityRequestContext } from '../../context/GlobalFormValidityRequestContext';
-import { useGlobalFormValidityReportContext } from '../../context/GlobalFormValidityReportContext';
+import { useFormReportContext } from '../../context/FormReportContext';
+import { useModalContext } from '../../context/ModalContext';
 
 const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
-  const { loading, status } = useLoadingContext();
+  const { loading } = useLoadingContext();
   const { setPayment } = useUserContext();
   const wrapperRef = React.createRef();
-  const { paymentValidityReport } = useGlobalFormValidityRequestContext();
-  const { setPaymentValidity } = useGlobalFormValidityReportContext();
+
+  const { paymentFormPopup, } = useModalContext();
+  // const { setAddressReport, requestAddressValidity, resetAddressReport, updateAddressData, changeAddress, address } = useFormReportContext();
+
+  const { setPaymentReport, requestPaymentValidity, resetPaymentReport, updatePaymentData, changePayment, payment } = useFormReportContext();
+
   const [errorMessage, setErrorMessage] = useState(false);
+  const [inlineLoading, setInlineLoading] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     number: '',
     expDate: '',
@@ -35,6 +40,13 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     zipCode: ''
   });
 
+  /**
+   * @method _formatInput
+   * @param {*} name
+   * @param {*} value
+   * @abstract  { expData: 03/20, number 7777 7777 7777 7777 }
+   * @return {string} string
+   */
   const _formatInput = (name, value) => {
     if (name === 'expDate' && value.length) {
       return value.replace(/(\d{2})(\d{1})/, '$1/$2');
@@ -44,6 +56,15 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return value;
   };
 
+  /**
+   * @method _removeInputFormat
+   * @param {*} fieldData
+   * @param {*} name
+   * @abstract  covert => { expDate: 03/20 }
+   * to { expDate: 0320 } for proper validation
+   * @example _removeInputFormat({ expDate: 03/20 }, expDate) => { expDate: 0320 }
+   * @return {object} object
+   */
   const _removeInputFormat = (fieldData, name) => {
     if (name === 'expDate' && fieldData[name].length) {
       return { [name]: fieldData[name].replace('/', '') };
@@ -53,6 +74,13 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return fieldData;
   };
 
+
+  /**
+   * @method handleChange
+   * @param {*} event
+   * @abstract handle input field onChange event
+   * @return {void} void
+   */
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: _formatInput(name, value) };
     const validation = validateAField(_removeInputFormat(newFieldData, name), name);
@@ -60,6 +88,14 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     setValidationErrors({ ...validationErrors, [name]: validation.message });
   };
 
+  /**
+   * @method _removeInputsFormatOnSubmit
+   * @param {*} fieldData
+   * @param {*} name
+   * @abstract  covert all inputData { expDate: 03/20, number 7777 7777 7777 7777 }
+   * to { expDate: 0320, number 7777777777777777 } for proper validation
+   * @return {object} object
+   */
   const _removeInputsFormatOnSubmit = () => {
     const newInputData = {};
     Object.keys(inputData).map((inp) => { // eslint-disable-line
@@ -69,20 +105,38 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return newInputData;
   };
 
+
+  /**
+   * @method _removeInputsFormatOnSubmit
+   * @param {*} inputFields
+   * @abstract seperate month and year before sending to server
+   * @example { expDate: 01/20 } => { expiry_month: 01, expiry_year: 20 }
+   * @return {object} object
+   */
   const splitExpMonthAndYear = (inputFields) => {
     const expDateArr = inputData.expDate.split('/');
     return { ...inputFields, expiry_month: expDateArr[0], expiry_year: expDateArr[1] };
   };
 
-  useEffect(() => {
-    if (!paymentValidityReport) return;
+  const onBlur = () => {
+    updatePaymentData(inputData);
     let inputFields = _removeInputsFormatOnSubmit();
     const validation = validateAllFields(inputFields);
     inputFields = splitExpMonthAndYear(inputFields);
+
     const { errors, passes } = validation;
     setValidationErrors({ ...validationErrors, ...errors });
-    setPaymentValidity(passes);
-  }, [paymentValidityReport]);
+    setPaymentReport({ res: passes, change: true });
+  };
+
+  useEffect(() => {
+    if (changePayment) setInputData({ ...inputData, ...payment });
+  }, [changePayment, paymentFormPopup]);
+
+  useEffect(() => {
+    if (!requestPaymentValidity) return;
+    onBlur();
+  }, [requestPaymentValidity]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -94,13 +148,18 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     if (passes) {
       try {
         loading(true);
+        setInlineLoading(true);
         const response = await API.payment.post({ card: inputFields, amount: 100 }, 'charge');
         setPayment(response.data.data);
+        resetPaymentReport();
+        setInlineLoading(false);
+        loading(false);
         if (withModal) handleClick();
         if (response.data.data) requestSecurityPopup();
       } catch (error) {
         setErrorMessage(error.response.data.message || '');
         loading(false);
+        setInlineLoading(false);
       }
     }
   };
@@ -115,6 +174,7 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
             inputData={inputData}
             inputField={inputField}
             handleChange={handleChange}
+            onBlur={onBlur}
             errors={validationErrors}
           />
         </div>
@@ -137,7 +197,7 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
             classNames="small-button-save"
             handleClick={handleSubmit}
           >
-            {status ? <span className="spinner-border" role="status" /> : 'Save'}
+            {inlineLoading ? <span className="spinner-border" role="status" /> : 'Save'}
           </Button>
         </div>
       </form>
