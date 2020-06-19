@@ -1,25 +1,12 @@
 require('dotenv').config();// CommonsChunkPlugin
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-/* Import copy-webpack-plugin */
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
-const MinimizerPlugin = require('./webpack.minimizer');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
-const CopyPlugin = new CopyWebpackPlugin({
-  patterns: [
-    {
-      // path to the folder to be copied
-      from: path.resolve(__dirname, 'client/pwa'),
-    },
-  ],
-});
+const MinimizerPlugin = require('./webpack.minimizer');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -72,56 +59,17 @@ module.exports = {
     filename: '[name].[hash].js',
     publicPath: '/',
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-    minimize: true,
-    minimizer: [
-      MinimizerPlugin.minifyJavaScript(),
-      MinimizerPlugin.minifyCss()
-    ]
-  },
+  optimization: MinimizerPlugin.optimization(),
   plugins: [
-    new webpack.HashedModuleIdsPlugin({
-      context: __dirname,
-      hashFunction: 'sha256',
-      hashDigest: 'hex',
-      hashDigestLength: 20
-    }),
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: false,
-    }),
-    new BrotliPlugin({
-      filename: '[path].br[query]',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        level: 11,
-      },
-      threshold: 10240,
-      minRatio: 0.7,
-      deleteOriginalAssets: false,
-    }),
-    new CleanWebpackPlugin({ dry: true, }),
+    ...(process.env.NODE_ENV === 'production' ? MinimizerPlugin.plugins() : []),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,
     ServiceWorkerPlugin,
-    CopyPlugin,
   ],
   module: {
     rules: [
-      {
-        test: /\.gz$/,
-        enforce: 'pre',
-        use: 'gzip-loader'
-      },
+      ...(process.env.NODE_ENV === 'production' ? MinimizerPlugin.rules() : []),
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
@@ -135,6 +83,7 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -143,6 +92,7 @@ module.exports = {
             },
           },
           'css-loader',
+          'postcss-loader',
           'sass-loader',
         ],
       },
