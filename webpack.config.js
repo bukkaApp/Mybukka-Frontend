@@ -6,7 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
+require('@babel/polyfill');
+
 const MinimizerPlugin = require('./webpack.minimizer');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -44,8 +48,8 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 });
 
 module.exports = {
-  entry: [path.join(__dirname, 'client/index.js')],
-  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
+  entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
+  devtool: isProd ? undefined : 'eval',
   // devtool: 'source-map',
   devServer: {
     contentBase: './client',
@@ -54,6 +58,9 @@ module.exports = {
     historyApiFallback: true,
     compress: true
   },
+  performance: {
+    hints: false
+  },
   output: {
     path: path.join(__dirname, 'build'),
     filename: '[name].[hash].js',
@@ -61,7 +68,7 @@ module.exports = {
   },
   optimization: MinimizerPlugin.optimization(),
   plugins: [
-    ...(process.env.NODE_ENV === 'production' ? MinimizerPlugin.plugins() : []),
+    ...(isProd ? MinimizerPlugin.plugins() : []),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,
@@ -69,17 +76,16 @@ module.exports = {
   ],
   module: {
     rules: [
-      ...(process.env.NODE_ENV === 'production' ? MinimizerPlugin.rules() : []),
+      ...(isProd ? MinimizerPlugin.rules() : []),
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          plugins: [
-            'transform-class-properties',
-            'transform-object-rest-spread'
-          ]
-        }
+        options: {
+          cacheDirectory: true,
+          cacheCompression: false,
+          envName: isProd ? 'production' : 'development'
+        },
       },
       {
         test: /\.(sa|sc|c)ss$/,

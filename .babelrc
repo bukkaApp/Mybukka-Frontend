@@ -1,7 +1,24 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [["@babel/preset-env", { "modules": false }], "@babel/preset-react"],
   "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread"
-  ]
+    "@babel/transform-regenerator",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties"
+  ],
+  "env": {
+    "production": {
+      "only": ["src", "client"],
+      "plugins": [
+        "@babel/transform-regenerator",
+        [
+          "transform-react-remove-prop-types",
+          {
+            "removeImport": true
+          }
+        ],
+        "@babel/plugin-transform-react-inline-elements",
+        "@babel/plugin-transform-react-constant-elements"
+      ]
+    }
+  }
 }
