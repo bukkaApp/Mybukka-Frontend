@@ -3,7 +3,6 @@
     margin-bottom: 36px;
   }
 
-  // 1
   .Credit-Header {
     font-family: "Roboto", sans-serif;
     font-weight: 600;
@@ -17,7 +16,6 @@
     border-bottom: 1px solid rgba(217, 219, 224, 0.5);
   }
 
-  // 2
   .Credict-Promo-Content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -56,8 +54,6 @@
     text-transform: uppercase;
     box-shadow: none !important;
     border-radius: 0px;
-    // border: 0;
-    // overflow: visible;
   }
   input {
     border: 0;
@@ -112,7 +108,6 @@
   button,
   input {
     overflow: visible;
-    // border-top: 1px solid #efefef;
     &:focus {
       border: none;
       outline: none;
@@ -133,7 +128,6 @@
     margin: 0;
   }
 
-  // 3
   .Promo-Section {
     margin-top: 32px;
   }

@@ -8,10 +8,9 @@ import PrivateRoute from '../components/PrivateRoute/PrivateRoute';
 import Home from '../features/home';
 import LegalStatement from '../features/statement';
 
-import FeedPages from '../features/feed';
-import Bukka from '../features/bukka';
-import Checkout from '../features/checkout';
-
+const FeedPages = lazy(() => import('../features/feed'));
+const Bukka = lazy(() => import('../features/bukka'));
+const Checkout = lazy(() => import('../features/checkout'));
 const Profile = lazy(() => import('../features/profile'));
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));

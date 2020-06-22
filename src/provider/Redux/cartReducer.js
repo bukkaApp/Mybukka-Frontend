@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable array-callback-return */
 /* eslint-disable camelcase */
 /* eslint-disable no-plusplus */
