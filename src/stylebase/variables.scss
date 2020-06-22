@@ -1,5 +1,3 @@
-// colors
-// main colors
 $color-primary: #9C1C26;
 $color-secondary: #FAA226;
 $color-light-gray: #FBFBFB;
@@ -10,27 +8,27 @@ $color-blue: #3B7BBF;
 $color-white: #FFFFFF;
 $color-green: #6CC85D;
 $color-border: #ECEFF1;
-// addional colors
+
 $color-dark-gray: #4A4A4A;
 $color-dimgray: #696969;
 $color-lightslategray: #8F95A3;
 
-// layout
+/* layout */
 $padding-wrapper: 25px;
 $header-height: 50px;
 $header-height--desktop: 80px;
 
-// z-index
+/* z-index */
 $cat-filters-index: 4;
 $header-index: 10;
 
-// styles
+/* styles */
 $medium-emphasis: rgba($color-black, 0.6);
 $high-emphasis: rgba($color-black, 0.87);
 
 $border-radius: 10px;
 
-// font
+/* font */
 $font-stack: 'Roboto', 'Fira Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -38,10 +36,10 @@ $base-font-size: 87.5%; // 14px - mobile
 $base-line-height: 125%;
 $font-size-medium: 16px;
 
-// transitions
+/* transitions */
 $primary-transition: .3s cubic-bezier(0.25, 0.8, 0.5, 1);
 $secondary-transition: .2s cubic-bezier(0.4, 0, 0.6, 1);
 
-// form fields
+/* form fields */
 $input-padding-left: 1.125em;
 $input-padding-right: 1.4em;
