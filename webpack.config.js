@@ -49,7 +49,7 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 
 module.exports = {
   entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
-  devtool: isProd ? 'source-map' : 'eval',
+  devtool: isProd ? undefined : 'eval',
   // devtool: 'source-map',
   devServer: {
     contentBase: './client',
