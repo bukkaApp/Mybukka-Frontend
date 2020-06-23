@@ -9,6 +9,7 @@
   border-color: rgb(242, 243, 243);
   border-image: initial;
   transition: opacity 100ms ease-in-out 0s;
+  // left: calc((-450% + 24px) + -60px);
   left: calc((-315% + 24px) + -60px);
   top: 45px;
   @media screen and (min-width: 768px) {

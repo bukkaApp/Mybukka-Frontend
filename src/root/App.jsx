@@ -1,3 +1,5 @@
+import 'babel-polyfill'; // eslint-disable-line
+
 import React, { Suspense } from 'react';
 
 import { Provider } from 'react-redux';

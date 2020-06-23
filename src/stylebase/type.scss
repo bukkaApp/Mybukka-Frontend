@@ -13,6 +13,7 @@ body {
 
 h1, .h1 {
   font-size: 30px;
+  // line-height: 35px;
   hyphens: auto;
 
   @include bp-large() {
@@ -24,6 +25,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 20px;
+  // line-height: 35px;
 }
 
 h3, .h3 {
