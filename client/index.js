@@ -5,6 +5,10 @@ import App from '../src/root/App';
 import Worker from './Worker';
 import './index.scss';
 
+// ...
+__webpack_nonce__ = 'c29tZSBjb29sIHN0cmluZyB3aWxsIHBvcCB1cCAxMjM='; // eslint-disable-line
+// ...
+
 let trackConfig = {
   network: { error: false },
 };
