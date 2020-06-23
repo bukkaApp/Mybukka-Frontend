@@ -1,16 +1,25 @@
 require('dotenv').config();// CommonsChunkPlugin
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
-
-require('@babel/polyfill');
-
+/* Import copy-webpack-plugin */
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const BrotliPlugin = require('brotli-webpack-plugin');
 const MinimizerPlugin = require('./webpack.minimizer');
 
-const isProd = process.env.NODE_ENV === 'production';
+const CopyPlugin = new CopyWebpackPlugin({
+  patterns: [
+    {
+      // path to the folder to be copied
+      from: path.resolve(__dirname, 'client/pwa'),
+    },
+  ],
+});
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './client/index.html',
@@ -48,8 +57,8 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 });
 
 module.exports = {
-  entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
-  devtool: isProd ? undefined : 'eval',
+  entry: [path.join(__dirname, 'client/index.js')],
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
   // devtool: 'source-map',
   devServer: {
     contentBase: './client',
@@ -58,38 +67,74 @@ module.exports = {
     historyApiFallback: true,
     compress: true
   },
-  performance: {
-    hints: false
-  },
   output: {
     path: path.join(__dirname, 'build'),
     filename: '[name].[hash].js',
     publicPath: '/',
   },
-  optimization: MinimizerPlugin.optimization(),
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimize: true,
+    minimizer: [
+      MinimizerPlugin.minifyJavaScript(),
+      MinimizerPlugin.minifyCss()
+    ]
+  },
   plugins: [
-    ...(isProd ? MinimizerPlugin.plugins() : []),
+    new webpack.HashedModuleIdsPlugin({
+      context: __dirname,
+      hashFunction: 'sha256',
+      hashDigest: 'hex',
+      hashDigestLength: 20
+    }),
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
+    new BrotliPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        level: 11,
+      },
+      threshold: 10240,
+      minRatio: 0.7,
+      deleteOriginalAssets: false,
+    }),
+    new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
     defineVariablesPlugin,
     ServiceWorkerPlugin,
+    CopyPlugin,
   ],
   module: {
     rules: [
-      ...(isProd ? MinimizerPlugin.rules() : []),
+      {
+        test: /\.gz$/,
+        enforce: 'pre',
+        use: 'gzip-loader'
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        options: {
-          cacheDirectory: true,
-          cacheCompression: false,
-          envName: isProd ? 'production' : 'development'
-        },
+        query: {
+          plugins: [
+            'transform-class-properties',
+            'transform-object-rest-spread'
+          ]
+        }
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -98,7 +143,6 @@ module.exports = {
             },
           },
           'css-loader',
-          'postcss-loader',
           'sass-loader',
         ],
       },

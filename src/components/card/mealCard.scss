@@ -9,7 +9,7 @@
     width: 100%;
     height: 100%;
     z-index: inherit;
-    /* background-color: rgba(45, 49, 56, 0.03);*/
+    // background-color: rgba(45, 49, 56, 0.03);
   }
 }
 
@@ -79,9 +79,9 @@
 }
 
 @media (max-width: 767.98px) {
-   /*.meal-description-section {
-     min-height: 40px;
-   } */
+  // .meal-description-section {
+  //   min-height: 40px;
+  // }
 
   .meal-details-column {
     max-width: 62.5%;
@@ -91,6 +91,6 @@
   .meal-picture-column {
     max-width: 37.5%;
     flex: 0 0 37.5%;
-    /* padding-right: 0px; */
+    // padding-right: 0px;
   }
 }

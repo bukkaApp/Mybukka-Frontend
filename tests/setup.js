@@ -1,5 +1,4 @@
-import 'idempotent-babel-polyfill';
-
+import 'babel-polyfill';
 import { configure, mount, shallow } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import Adapter from 'enzyme-adapter-react-16';
