@@ -9,7 +9,7 @@ import './index.scss';
 
 const CurrentPayment = ({ useProfileStandard }) => {
   const { setPaymentFormPopup, setModal, } = useModalContext();
-  const { changePayment, payment, resetPaymentReport } = useFormReportContext();
+  const { payment, resetPaymentReport, setPaymentReport } = useFormReportContext();
 
   const decodeBankCard = () => {
     if (payment && payment.number) {
@@ -20,11 +20,12 @@ const CurrentPayment = ({ useProfileStandard }) => {
   };
 
   const emitOnClick = (state) => {
+    setPaymentReport({ change: true });
     setModal(state);
     setPaymentFormPopup(state);
   };
 
-  return changePayment ?
+  return payment ?
     <PlainParagraph
       noBorderOnMedium={!useProfileStandard}
       onClick={() => emitOnClick(true)}

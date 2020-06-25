@@ -23,6 +23,7 @@ const RequestSecurityInfo = () => {
   const { paymentSecurityPopup, paymentGatewayPopup, paymentPendingPopup, setPaymentSecurityPopup, setPaymentPendingPopup, setPaymentGatewayPopup, setModal } = useModalContext();
 
   const requestOtherVerification = (type) => {
+    if (type === 'failed') return setModal();
     if (type === 'url' && !paymentGatewayPopup) {
       setPaymentSecurityPopup(false);
       setPaymentGatewayPopup(true);

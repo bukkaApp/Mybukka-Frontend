@@ -78,7 +78,7 @@ const CheckoutPage = () => {
     //   setToast({ message: 'Please fill in the payment form', type: 'error' });
     //   return setPaymentReport({ req: true, change: true });
     // };
-
+    gateway_response, payStackMsg
     // validateAddressForm();
     // validatePaymentForm();
 
