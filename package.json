@@ -99,6 +99,7 @@
     "brotli-webpack-plugin": "^1.1.0",
     "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.5.4",
     "enzyme": "^3.8.0",
