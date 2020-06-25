@@ -174,7 +174,3 @@ module.exports = {
     },
   },
 };
-
-if (!isProd) {
-  module.exports.devtool = 'eval';
-}
