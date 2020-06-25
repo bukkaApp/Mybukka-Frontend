@@ -18,7 +18,8 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
 
 
-const shouldUseSourceMap = process.env.NODE_ENV === 'development';
+// const shouldUseSourceMap = process.env.NODE_ENV === 'development';
+const shouldUseSourceMap = true;
 
 
 // path to the folder to be copied
