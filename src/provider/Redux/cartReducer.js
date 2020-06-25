@@ -151,7 +151,7 @@ const cartReducer = (state = initialState, action) => {
     case 'FINISH_CHARGE_TRANSACTION_SUCCESS': {
       return {
         ...state,
-        items: [],
+        ...initialState,
       };
     }
 
