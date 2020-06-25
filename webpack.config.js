@@ -59,6 +59,8 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
+  // entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
+  // devtool: isProd ? undefined : 'eval',
   // devtool: 'source-map',
   devServer: {
     contentBase: './client',
@@ -140,6 +142,7 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: process.env.NODE_ENV === 'development',
+              sourceMap: !isProd
             },
           },
           'css-loader',
@@ -172,3 +175,7 @@ module.exports = {
     },
   },
 };
+
+if (!isProd) {
+  module.export.devtool = 'eval';
+}
