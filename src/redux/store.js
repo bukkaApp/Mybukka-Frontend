@@ -16,11 +16,6 @@ import businessReducer from '../provider/Redux/businessReducer';
 
 import productsReducer from '../provider/Redux/productsReducer';
 
-import manipulateCardDetailsReducer from '../features/checkout/reducers/manipulateCardDetailsReducer';
-
-import chargeUserReducer from '../features/checkout/reducers/chargeUserReducer';
-
-import finishTransactionReducer from '../features/checkout/reducers/finishTransactionReducer';
 import signOutReducer from '../components/navbar/reducers/signOutReducer';
 import searchAnythingReducer from './searchAnythingReducer';
 import deliveryScheduleReducer from '../provider/Redux/deliveryScheduleReducer';
@@ -39,9 +34,6 @@ const reducer = combineReducers({
   businessesReducer,
   productsReducer,
   businessReducer,
-  manipulateCardDetailsReducer,
-  chargeUserReducer,
-  finishTransactionReducer,
   searchAnythingReducer,
   deliveryScheduleReducer,
   cartReducer,
