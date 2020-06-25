@@ -95,7 +95,6 @@ module.exports = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               hmr: process.env.NODE_ENV === 'development',
-              sourceMap: !isProd
             },
           },
           'css-loader',
@@ -131,5 +130,5 @@ module.exports = {
 };
 
 if (!isProd) {
-  module.export.devtool = 'eval';
+  module.exports.devtool = 'eval';
 }

@@ -51,18 +51,21 @@ exports.optimization = () => ({
     maxInitialRequests: 20,
     maxAsyncRequests: 20,
     cacheGroups: {
-      vendors: {
-        test: /[\\/]node_modules[\\/]/,
-        name(module, chunks, cacheGroupKey) {
-          const packageName = module.context.match(
-            /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-          )[1];
-          return `${cacheGroupKey}.${packageName.replace('@', '')}`;
-        }
-      },
+      // vendors: {
+      //   test: /[\\/]node_modules[\\/]/,
+      //   name(module, chunks, cacheGroupKey) {
+      //     const packageName = module.context.match(
+      //       /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+      //     )[1];
+      //     return `${cacheGroupKey}.${packageName.replace('@', '')}`;
+      //   }
+      // },
       common: {
         minChunks: 2,
-        priority: -10
+        priority: -10,
+        name: 'vendor',
+        test: /[\\/]node_modules[\\/]/,
+        // minChunks: 2
       }
     }
   },
