@@ -8,6 +8,8 @@
     "start": "npm run build && node server/server.js",
     "start:dev": "webpack-dev-server --host 0.0.0.0 --hot --mode development",
     "build": "export NODE_ENV=production && webpack --mode production",
+    "start:dev1": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --hot --mode development",
+    "build1": "cross-env NODE_ENV=production webpack --progress --hide-modules --mode production -p",
     "deploy": "npm run build && firebase deploy",
     "test": "jest test --u --runInBand",
     "test:watch": "jest test --u --runInBand --watch"
