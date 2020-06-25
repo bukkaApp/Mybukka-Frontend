@@ -8,14 +8,15 @@ import './index.scss';
 
 const CurrentAddress = ({ useProfileStandard }) => {
   const { setAddressFormPopup, setModal, } = useModalContext();
-  const { changeAddress: changeDefualtAddress, address, resetAddressReport } = useFormReportContext();
+  const { address, resetAddressReport, setAddressReport } = useFormReportContext();
 
   const emitOnClick = (state) => {
+    setAddressReport({ change: true });
     setModal(state);
     setAddressFormPopup(state);
   };
 
-  return changeDefualtAddress ?
+  return address ?
     <GeoSuggestions
       asUtility
       noBorderOnMedium={!useProfileStandard}

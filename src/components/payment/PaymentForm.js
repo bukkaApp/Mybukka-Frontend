@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { matchPath, useLocation } from 'react-router-dom';
+
 import Fields from '../input/Field';
 import Button from '../button/Button';
 import inputField from './payment.json';
@@ -18,11 +20,18 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
   const { loading } = useLoadingContext();
   const { setPayment } = useUserContext();
   const wrapperRef = React.createRef();
+  const { pathname } = useLocation();
 
-  const { paymentFormPopup, } = useModalContext();
+  const matchCheckoutScreen = matchPath(pathname, {
+    path: '/merchant/:slug/checkout',
+    exact: true,
+    strict: false
+  });
+
+  const { paymentFormPopup, setPaymentFormPopup, setModal } = useModalContext();
   // const { setAddressReport, requestAddressValidity, resetAddressReport, updateAddressData, changeAddress, address } = useFormReportContext();
 
-  const { setPaymentReport, requestPaymentValidity, resetPaymentReport, updatePaymentData, changePayment, payment } = useFormReportContext();
+  const { resetPaymentReport, updatePaymentData, changePayment, payment } = useFormReportContext();
 
   const [errorMessage, setErrorMessage] = useState(false);
   const [inlineLoading, setInlineLoading] = useState(false);
@@ -90,21 +99,28 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
 
   /**
    * @method _removeInputsFormatOnSubmit
-   * @param {*} fieldData
-   * @param {*} name
+   * @param {*} inps
    * @abstract  covert all inputData { expDate: 03/20, number 7777 7777 7777 7777 }
    * to { expDate: 0320, number 7777777777777777 } for proper validation
    * @return {object} object
    */
-  const _removeInputsFormatOnSubmit = () => {
+  const _removeInputsFormatOnSubmit = (inps) => {
     const newInputData = {};
-    Object.keys(inputData).map((inp) => { // eslint-disable-line
-      const completeField = { [inp]: inputData[inp] };
+    const inpFields = inps || inputData;
+    Object.keys(inpFields).map((inp) => { // eslint-disable-line
+      const completeField = { [inp]: inpFields[inp] };
       newInputData[inp] = _removeInputFormat(completeField, inp)[inp];
     });
     return newInputData;
   };
 
+
+  useEffect(() => {
+    if (changePayment) {
+      setInputData({ ...inputData, ...payment });
+      resetPaymentReport();
+    }
+  }, [changePayment, paymentFormPopup]);
 
   /**
    * @method _removeInputsFormatOnSubmit
@@ -118,25 +134,42 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return { ...inputFields, expiry_month: expDateArr[0], expiry_year: expDateArr[1] };
   };
 
-  const onBlur = () => {
-    updatePaymentData(inputData);
+  const onOkay = (e) => {
+    e.preventDefault();
     let inputFields = _removeInputsFormatOnSubmit();
     const validation = validateAllFields(inputFields);
     inputFields = splitExpMonthAndYear(inputFields);
-
     const { errors, passes } = validation;
     setValidationErrors({ ...validationErrors, ...errors });
-    setPaymentReport({ res: passes, change: true });
+
+    if (passes) {
+      updatePaymentData(inputData);
+      if (!paymentFormPopup) return;
+      setPaymentFormPopup(false);
+      setModal(false);
+    }
   };
 
-  useEffect(() => {
-    if (changePayment) setInputData({ ...inputData, ...payment });
-  }, [changePayment, paymentFormPopup]);
+  const onBlur = (event, data) => {
+    if (!paymentFormPopup && matchCheckoutScreen) {
+      if (event) {
+        const { name, value } = event.target;
+        const newFieldData = { [name]: _formatInput(name, value) };
+        const validation = validateAField(_removeInputFormat(newFieldData, name), name);
+        setValidationErrors({ ...validationErrors, [name]: validation.message });
+      }
 
-  useEffect(() => {
-    if (!requestPaymentValidity) return;
-    onBlur();
-  }, [requestPaymentValidity]);
+      let inputFields = _removeInputsFormatOnSubmit(data || inputData);
+      const validation = validateAllFields(inputFields);
+      inputFields = splitExpMonthAndYear(inputFields);
+
+      const { passes, errors } = validation;
+
+      if (!event) setValidationErrors({ ...validationErrors, ...errors, });
+
+      if (passes) updatePaymentData(inputFields);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -191,7 +224,7 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
           />
           <span className="Payment-Checkox--text">Make default payment method</span>
         </div>
-        <div>
+        <div className="Form-Button-Group">
           <Button
             type="button"
             classNames="small-button-save"
@@ -199,6 +232,14 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
           >
             {inlineLoading ? <span className="spinner-border" role="status" /> : 'Save'}
           </Button>
+          {(paymentFormPopup && matchCheckoutScreen) &&
+          <Button
+            type="button"
+            classNames="small-button-save"
+            handleClick={onOkay}
+          >
+            Okay
+          </Button>}
         </div>
       </form>
     </div>

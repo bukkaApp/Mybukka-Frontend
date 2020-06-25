@@ -38,7 +38,7 @@ const createHyperlinkedEndpoint = endpoint => ({
 
 const useApi = () => {
   const { setToast } = useToastContext();
-  const { token } = useUserContext();
+  const { token, paymentException } = useUserContext();
   const { coordinates } = useLocationContext();
   const byLocaton = `longitude=${coordinates[0]}&lattitude=${coordinates[1]}`;
 
@@ -104,10 +104,11 @@ const useApi = () => {
     authToken: { post: data => axiosInstance.post('user/signin', data) },
     passwordReset: createHyperlinkedEndpoint('/user/reset/$id/'),
     validateToken: createEndpoint('/user/token/validate'),
-    card: createEndpoint('card/$id/'),
+    card: createEndpoint(`card/$id/${(paymentException && '?exception=true') || ''}`),
     payment: createEndpoint('pay/$id/'),
     reportIssue: createEndpoint('/user/comment'),
     history: createEndpoint('/order?role=customer'),
+    order: createEndpoint('/order'),
     catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
     business: createEndpoint('bukka/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
@@ -118,7 +119,7 @@ const useApi = () => {
     register: { post: data => axiosInstance.post('user/signup', data) },
     verify: { post: (data, type) => axiosInstance.post(`user/${type}/`, data) },
     socialAuth: { post: data => axiosInstance.post('user/social/auth', data) },
-  }), [coordinates]);
+  }), [coordinates, paymentException]);
 
   return { API, axiosInstance };
 };

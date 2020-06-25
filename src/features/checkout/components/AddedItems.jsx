@@ -10,6 +10,8 @@ import Price from 'Components/badge/Price';
 import Button from 'Components/button/Button';
 
 import './addedItem.scss';
+import { useBusinessContext } from '../../../context/BusinessContext';
+import { useModalContext } from '../../../context/ModalContext';
 
 const Edit = ({ handleClick }) => (
   <Button
@@ -46,31 +48,43 @@ const OrderTray = ({ handleRemove, handleEdit, name, price }) => (
   </div>
 );
 
-const AddedItem = ({ cart, bukka, removeFromCart, setMealToDisplay }) => (
-  <div className="cart-menu">
-    <div className="cart-bukka-details">
-      <h5 className="cart-bukka-name">{bukka.name}</h5>
-      <h5 className="cart-bukka-view-menu">
-        <Link
-          className="text-success view-menu-text"
-          to={`/bukka/${bukka.slug}`}
-        >
-          VIEW MENU
-        </Link>
-      </h5>
-    </div>
+const AddedItem = ({ cart, bukka, removeFromCart }) => {
+  const { business } = useBusinessContext();
+  const { setCatelogToDisplay } = useBusinessContext();
+  const { setModal, setCartPopup } = useModalContext();
 
-    {cart.map((item, index) => (
-      <OrderTray
-        name={item.title}
-        price={item.price}
-        key={item.slug}
-        handleRemove={() => removeFromCart(item.slug, index)}
-        handleEdit={() => setMealToDisplay(item, true)}
-      />
-    ))}
-  </div>
-);
+  const toggleCart = (item) => {
+    setCatelogToDisplay(item);
+    setModal(true);
+    setCartPopup(true);
+  };
+
+  return (
+    <div className="cart-menu">
+      <div className="cart-bukka-details">
+        <h5 className="cart-bukka-name">{business && business.name}</h5>
+        <h5 className="cart-bukka-view-menu">
+          <Link
+            className="text-success view-menu-text"
+            to={`/bukka/${bukka.slug}`}
+          >
+            VIEW MENU
+          </Link>
+        </h5>
+      </div>
+
+      {cart.map((item, index) => (
+        <OrderTray
+          name={item.title}
+          price={item.price}
+          key={item.slug}
+          handleRemove={() => removeFromCart(item.slug, index)}
+          handleEdit={() => toggleCart(item)}
+        />
+      ))}
+    </div>
+  );
+};
 
 const mapStateToProps = ({
   cartReducer: { items },

@@ -9,27 +9,9 @@ const initialState = {
   // a click simulated to change address or payment detail on checkout
   changeAddress: null,
   changePayment: null,
-  // a simulation to trigger form validation effect, when click on checkout button
-  // it is needed because both payment and address are entirely a seperate component
-  // and to determine address or payment information is valid when you click a checkout btn
-  // the 'request...Validity' is set to true for validity checks in the address and payment comp.
-  // it only used in checkout, not needed in the profile.
-  requestAddressValidity: null,
-  requestPaymentValidity: null,
   // address data could be utilize on checkout
-  address: {
-    address: '',
-    streetAddress2: '',
-    name: '',
-    mobileNumber: '',
-    location: null
-  },
-  payment: {
-    number: '',
-    expDate: '',
-    cvv: '',
-    zipCode: ''
-  }
+  address: null,
+  payment: null
 };
 
 const reducer = (state, action) => {
@@ -62,22 +44,20 @@ const loggerReducer = logger(reducer);
 const useFormReport = () => {
   const [state, dispatch] = useReducer(loggerReducer, initialState);
 
-  const setAddressReport = ({ req, res, change }) => {
+  const setAddressReport = ({ res, change }) => {
     dispatch({
       type: 'SET_ADDRESS_FORM_VALIDITY',
       payload: {
-        requestAddressValidity: req || state.requestAddressValidity,
         addressValid: res || state.addressValid,
         changeAddress: change || state.changeAddress
       }
     });
   };
 
-  const setPaymentReport = ({ req, res, change }) => {
+  const setPaymentReport = ({ res, change }) => {
     dispatch({
       type: 'SET_PAYMENT_FORM_VALIDITY',
       payload: {
-        requestPaymentValidity: req || state.requestPaymentValidity,
         paymentValid: res || state.paymentValid,
         changePayment: change || state.changePayment
       }
@@ -88,7 +68,6 @@ const useFormReport = () => {
     dispatch({
       type: 'RESET_PAYMENT_FORM_VALIDITY',
       payload: {
-        requestPaymentValidity: null,
         paymentValid: null,
         changePayment: null
       }
@@ -99,7 +78,6 @@ const useFormReport = () => {
     dispatch({
       type: 'RESET_ADDRESS_FORM_VALIDITY',
       payload: {
-        requestAddressValidity: null,
         addressValid: null,
         changeAddress: null
       }
@@ -125,8 +103,6 @@ const useFormReport = () => {
     payment,
     addressValid,
     paymentValid,
-    requestAddressValidity,
-    requestPaymentValidity,
     changeAddress,
     changePayment,
   } = state;
@@ -140,8 +116,6 @@ const useFormReport = () => {
     paymentValid,
     changeAddress,
     changePayment,
-    requestAddressValidity,
-    requestPaymentValidity,
     setPaymentReport,
     setAddressReport,
     resetPaymentReport,

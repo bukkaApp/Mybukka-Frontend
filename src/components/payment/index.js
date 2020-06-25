@@ -107,23 +107,24 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
 
   const isntDefaultAddress = slug => cards.defaultCard !== slug;
 
-  const paymentJsx = (cards && cards.cards.map(({ bank, slug, card_type: type }) => (
-    !useProfileStandard && isntDefaultAddress(slug) ? null
-      : <PlainParagraph
-        noBorderOnMedium={!useProfileStandard}
-        onClick={() => emitOnClick(slug)}
-        title={(isntDefaultAddress(slug) && 'Double click to set as default') || ''}
-        onDoubleClick={() => updateDefaultCard(slug)}
-        withPrimaryButton={cards.defaultCard === slug}
-        buttonText={decodeButtonText(slug)}
-        aligned="baseline"
-        key={`Plain-Account-Details-DELETE--${slug}`}
-      >
-        <PaymentIcons type={type.split(' ')[0]} classNames="fa-2x" />
-        <p className="Payment-Bank-Card">{decodeBankCard(bank)}</p>
-        <PaymentIcons type={'default'} />
-      </PlainParagraph>
-  )));
+  const paymentJsx = ((cards && cards.cards) &&
+    cards.cards.map(({ bank, slug, card_type: type }) => (
+      !useProfileStandard && isntDefaultAddress(slug) ? null
+        : <PlainParagraph
+          noBorderOnMedium={!useProfileStandard}
+          onClick={() => emitOnClick(slug)}
+          title={(isntDefaultAddress(slug) && 'Double click to set as default') || ''}
+          onDoubleClick={() => updateDefaultCard(slug)}
+          withPrimaryButton={cards.defaultCard === slug}
+          buttonText={decodeButtonText(slug)}
+          aligned="baseline"
+          key={`Plain-Account-Details-DELETE--${slug}`}
+        >
+          <PaymentIcons type={type.split(' ')[0]} classNames="fa-2x" />
+          <p className="Payment-Bank-Card">{decodeBankCard(bank)}</p>
+          <PaymentIcons type={'default'} />
+        </PlainParagraph>
+    )));
 
   if (!useProfileStandard) {
     return (

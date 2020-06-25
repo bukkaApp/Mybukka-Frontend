@@ -13,6 +13,7 @@ const initialState = {
   payment: null,
   signIn: null,
   history: null,
+  paymentException: null,
 };
 
 const reducer = (state, action) => {
@@ -39,6 +40,9 @@ const reducer = (state, action) => {
 
     case 'SET_SIGNIN_DATA':
       return { ...state, signIn: action.payload };
+
+    case 'SET_PAYMENT_EXCEPTION':
+      return { ...state, paymentException: action.payload };
 
     case 'SET_PAYMENT': {
       const payment = action.payload ? { ...state.payment, ...action.payload } : null;
@@ -118,6 +122,13 @@ const useUser = () => {
     });
   };
 
+  const setPaymentException = (payload) => {
+    dispatch({
+      type: 'SET_PAYMENT_EXCEPTION',
+      payload
+    });
+  };
+
   const setHistory = (payload) => {
     dispatch({
       type: 'SET_HISTORY',
@@ -138,7 +149,7 @@ const useUser = () => {
     });
   };
 
-  const { user, signIn, token, history, payment, address, card, isAuthenticated, isVerified } = state;
+  const { user, signIn, token, history, payment, address, card, isAuthenticated, isVerified, paymentException } = state;
 
   return {
     signIn, // auto-login data
@@ -159,6 +170,8 @@ const useUser = () => {
     setCard,
     address,
     setAddress,
+    paymentException,
+    setPaymentException,
     logoutSuccess, };
 };
 
