@@ -116,7 +116,7 @@ module.exports = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false,
+      deleteOriginalAssets: !shouldUseSourceMap,
     }),
     new BrotliPlugin({
       filename: '[path].br[query]',
@@ -127,7 +127,7 @@ module.exports = {
       },
       threshold: 10240,
       minRatio: 0.7,
-      deleteOriginalAssets: false,
+      deleteOriginalAssets: !shouldUseSourceMap,
     }),
     new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
