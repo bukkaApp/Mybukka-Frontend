@@ -4,6 +4,10 @@
   "description": "Frontend of mybukka app built by the internal engineering team",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "start": "npm run build && node server/server.js",
     "start:dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --hot --mode development",

@@ -175,6 +175,6 @@ module.exports = {
   },
 };
 
-if (!isProd) {
-  module.exports.devtool = 'eval';
-}
+// if (!isProd) {
+//   module.exports.devtool = 'eval';
+// }

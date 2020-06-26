@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive';
 import { connect } from 'react-redux';
 import Checkout from './components/Checkout';
 import FooterBigScreen from '../../components/footer/FooterBigScreen';
-import postUserOrder from './actionCreators/postUserOrder';
 import { useUserContext } from '../../context/UserContext';
 import { useToastContext } from '../../context/ToastContext';
 import { useFormReportContext } from '../../context/FormReportContext';
@@ -133,7 +132,6 @@ export default connect(
   mapStateToProps,
   {
     finishTransaction: finishChargeTransaction,
-    checkoutUser: postUserOrder,
   }
 )(CheckoutPage);
 
