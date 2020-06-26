@@ -56,12 +56,12 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   ),
 });
 
+const shouldUseSourceMap = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
-  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
+  // devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
   // entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
-  // devtool: isProd ? undefined : 'eval',
-  // devtool: 'source-map',
   devServer: {
     contentBase: './client',
     port: 7700,
@@ -77,7 +77,26 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 0,
+      maxInitialRequests: 20,
+      maxAsyncRequests: 20,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module, chunks, cacheGroupKey) {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+            return `${cacheGroupKey}.${packageName.replace('@', '')}`;
+          }
+        },
+        common: {
+          minChunks: 2,
+          priority: -10
+        }
+      }
     },
+    runtimeChunk: 'single',
     minimize: true,
     minimizer: [
       MinimizerPlugin.minifyJavaScript(),
@@ -175,6 +194,6 @@ module.exports = {
   },
 };
 
-// if (!isProd) {
-//   module.exports.devtool = 'eval';
-// }
+if (shouldUseSourceMap) {
+  module.exports.devtool = 'eval';
+}

@@ -3,8 +3,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
 
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
-
+const shouldUseSourceMap = process.env.NODE_ENV !== 'production';
 
 exports.minifyJavaScript = () =>
   new TerserPlugin({
