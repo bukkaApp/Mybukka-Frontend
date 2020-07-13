@@ -28,7 +28,7 @@ const FoodSection = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { businesses, setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
-  const { coordinates } = useLocationContext();
+  const { coordinates, locationChange } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const FoodSection = () => {
         .then(res => onResponse(res, 'food'))
         .catch((err) => {
           onResponse(err, 'food', true);
-          push('/coming-soon');
+          if (locationChange) push('/coming-soon');
         });
     };
 

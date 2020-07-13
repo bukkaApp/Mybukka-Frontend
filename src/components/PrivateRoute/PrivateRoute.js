@@ -9,8 +9,8 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 
 const PrivateRoute = (props) => {
-  const { logoutSuccess: signOut, token, isAuthenticated } = useUserContext();
-  useAuthentication(signOut, isAuthenticated, token);
+  const { token, } = useUserContext();
+  useAuthentication();
 
   const { payment, setAddress, setCard, setProfile } = useUserContext();
   const { loading } = useLoadingContext();
@@ -47,6 +47,7 @@ const PrivateRoute = (props) => {
   }, [payment]);
 
   useEffect(() => {
+    if (!token) return;
     const getUser = () => tryCatch(API.profile.get, res => setProfile(res.userInfo));
     const getAddress = () => tryCatch(API.address.get, res => setAddress(res.foundAddress), true, setAddress);
     const getPaymentCard = () => tryCatch(API.card.get, res => setCard(res.foundCard), true, setCard);

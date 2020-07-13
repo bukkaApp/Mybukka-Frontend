@@ -1,24 +1,19 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+
 import jwt from 'jsonwebtoken';
-import { useHistory, useLocation } from 'react-router-dom';
-import swal from 'sweetalert';
-import { useUserContext } from '../context/UserContext';
-import useApi from '../shared/api';
-import { useToastContext } from '../context/ToastContext';
-import { useLoadingContext } from '../context/LoadingContext';
-import { useModalContext } from '../context/ModalContext';
+import { Route } from 'react-router-dom';
+import { useUserContext } from '../../context/UserContext';
+import useApi from '../../shared/api';
+import { useToastContext } from '../../context/ToastContext';
+import { useLoadingContext } from '../../context/LoadingContext';
+import { useModalContext } from '../../context/ModalContext';
 
-
-const useAuthentication = () => {
-  const history = useHistory();
+const PublicRoute = (props) => {
   const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
   const { API } = useApi();
-  const { pathname: prevPage } = useLocation();
   const { setToast } = useToastContext();
-
-  const pageRedirect = () => history.push('/login', { redirectTo: prevPage });
 
   const isExpiredToken = () => {
     const now = Date.now().valueOf() / 1000;
@@ -38,9 +33,7 @@ const useAuthentication = () => {
 
   const signOutExpiredToken = async () => {
     if (token) return signOut();
-    if (!signInData) {
-      return swal('You need to login first').then(() => pageRedirect());
-    }
+    if (!signInData) return;
     setToast({ message: 'Retrying login ...', type: 'warning' });
     const { email } = (token && jwt.decode(token).data) || {};
     const password = signInData.split('.bukka@gmail.com')[0];
@@ -63,7 +56,10 @@ const useAuthentication = () => {
     const expired = isExpiredToken();
     if (!expired) return;
     signOutExpiredToken(token);
+    // else do so
   }, [isAuthenticated]);
+
+  return <Route {...props} />;
 };
 
-export default useAuthentication;
+export default PublicRoute;

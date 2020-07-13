@@ -16,21 +16,16 @@ import { useBusinessesContext } from '../../context/BusinessesContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 
 let fetched = { food: null, businessGroup: null, categories: null };
-let justMounted = false;
 
 const Home = () => {
   const { push } = useHistory();
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { coordinates, } = useLocationContext();
+  const { coordinates, locationChange } = useLocationContext();
   const { setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
 
   useEffect(() => {
-    if (!justMounted) {
-      justMounted = true;
-      return justMounted;
-    }
-
+    if (!locationChange || coordinates.length <= 0) return;
     loading(true);
     const onResponse = (res, type, hasError = false) => {
       fetched[type] = true;
@@ -48,7 +43,7 @@ const Home = () => {
         .then(res => onResponse(res, 'food'))
         .catch((err) => {
           onResponse(err, 'food', true);
-          push('/coming-soon');
+          if (locationChange) push('/coming-soon');
         });
     };
 
@@ -71,7 +66,6 @@ const Home = () => {
     return () => {
       fetched = { food: null, businessGroup: null, categories: null };
       loading(false);
-      justMounted = false;
     };
   }, [coordinates]);
 

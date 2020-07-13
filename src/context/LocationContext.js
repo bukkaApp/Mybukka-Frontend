@@ -9,11 +9,13 @@ import { useLocalStorage } from '../shared/useLocalStorage';
 const SET_SELECTED_COORDINATES = 'SET_SELECTED_COORDINATES';
 const SET_SELECTED_LOCATION = 'SET_SELECTED_LOCATION';
 const SET_UPDATE = 'SET_UPDATE';
+const LOCATION_CHANGE = 'LOCATION_CHANGE';
 
 const initialState = {
   selectedLocation: {},
   coordinates: [],
-  updated: true,
+  updated: true, // subject to change
+  locationChange: false,
   isLoadingCurrentLocation: null,
   isLoadingSelectedLocation: null,
 };
@@ -24,6 +26,7 @@ const reducer = (originalState, action) => {
     case SET_SELECTED_COORDINATES: {
       return {
         ...state,
+        locationChange: !!action.payload.coordinates,
         coordinates: action.payload.coordinates,
         selectedLocation: {},
       };
@@ -33,6 +36,7 @@ const reducer = (originalState, action) => {
       const { suggestion, coordinates } = action.payload;
       return {
         ...state,
+        locationChange: !!suggestion,
         selectedLocation: suggestion,
         coordinates,
       };
@@ -42,6 +46,12 @@ const reducer = (originalState, action) => {
       return {
         ...state,
         updated: action.payload
+      };
+
+    case LOCATION_CHANGE:
+      return {
+        ...state,
+        locationChange: action.payload
       };
 
     default: {
@@ -57,14 +67,21 @@ const geoLocationOptions = {
 const loggerReducer = logger(reducer);
 
 const useLocation = () => {
-  console.log('location service leaking ...');
   const [isGettingLocation, setIsGettingLocation] = useState(false);
   // lai - Location Area Identity
   const [data, setData] = useLocalStorage('lai', initialState);
   const [state, dispatch] = useReducer(loggerReducer, data);
 
+  const setLocationChange = (payload) => {
+    dispatch({
+      type: LOCATION_CHANGE,
+      payload
+    });
+  };
+
   useEffect(() => {
     setData(state);
+    return () => setLocationChange(false);
   }, [state]);
 
   const setSelectedLocation = (coordinates) => {
@@ -122,9 +139,9 @@ const useLocation = () => {
     });
   };
 
-  const { selectedLocation, coordinates, updated } = state;
+  const { selectedLocation, coordinates, updated, locationChange } = state;
 
-  return { selectedLocation, coordinates, updated, setUpdate, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
+  return { locationChange, selectedLocation, coordinates, updated, setUpdate, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
 };
 
 export const [LocationProvider, useLocationContext] = constate(useLocation);

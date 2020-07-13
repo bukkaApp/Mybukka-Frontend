@@ -35,7 +35,7 @@ const OtherSection = ({
   const { push } = useHistory();
   const { loading } = useLoadingContext();
   const { setBusiness, setCatelogs, catelogs } = useBusinessContext();
-  const { coordinates } = useLocationContext();
+  const { coordinates, } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState('');
 
   const isMart = type === 'mart';
@@ -61,7 +61,7 @@ const OtherSection = ({
       const data = hasError ? (res.response.data || res) : res.data;
       setCatelogs(data, hasError);
       setBusiness(data, hasError);
-      if (hasError) history.push('/coming-soon');
+      // if (hasError) history.push('/coming-soon');
     };
 
     const getBusinessInformationAndCatelogs = () => {
