@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useMemo } from 'react';
 
 import jwt from 'jsonwebtoken';
-import { Route } from 'react-router-dom';
+import { Route, matchPath, useLocation } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import useApi from '../../shared/api';
 import { useToastContext } from '../../context/ToastContext';
@@ -9,6 +9,8 @@ import { useLoadingContext } from '../../context/LoadingContext';
 import { useModalContext } from '../../context/ModalContext';
 
 const PublicRoute = (props) => {
+  const { pathname } = useLocation();
+
   const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
@@ -52,12 +54,18 @@ const PublicRoute = (props) => {
     }
   };
 
-  useEffect(() => {
-    const expired = isExpiredToken();
-    if (!expired) return;
-    signOutExpiredToken(token);
-    // else do so
-  }, [isAuthenticated]);
+  useMemo(() => {
+    const mathPath = matchPath(pathname, {
+      path: props.path,
+      exact: true,
+    });
+
+    if (mathPath) {
+      const expired = isExpiredToken();
+      if (!expired) return;
+      signOutExpiredToken(token);
+    }
+  }, [isAuthenticated, props, pathname]);
 
   return <Route {...props} />;
 };

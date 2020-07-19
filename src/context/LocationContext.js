@@ -81,7 +81,6 @@ const useLocation = () => {
 
   useEffect(() => {
     setData(state);
-    return () => setLocationChange(false);
   }, [state]);
 
   const setSelectedLocation = (coordinates) => {
@@ -141,7 +140,7 @@ const useLocation = () => {
 
   const { selectedLocation, coordinates, updated, locationChange } = state;
 
-  return { locationChange, selectedLocation, coordinates, updated, setUpdate, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
+  return { locationChange, setLocationChange, selectedLocation, coordinates, updated, setUpdate, setCurrentLocation, setGoogleLocation, loading: isGettingLocation };
 };
 
 export const [LocationProvider, useLocationContext] = constate(useLocation);

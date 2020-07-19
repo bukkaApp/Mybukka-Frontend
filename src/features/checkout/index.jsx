@@ -33,8 +33,13 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
     resetPaymentReport();
   }, []);
 
+  const resetForms = () => {
+    resetAddressReport();
+    resetPaymentReport();
+  };
 
   useEffect(() => {
+    resetPaymentReport();
     if (paymentException) {
       const availableAddress = formAddress || (address && address.addresses.filter(({ slug }) => slug === address.defaultAddress));
       const deliveryAddress = { ...availableAddress, user: user.slug, };
@@ -43,7 +48,11 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
       const bukkaSlug = (business && business.slug);
       const order = { deliveryAddress, cart: { items: [...cart], user: user.slug }, authCode, day, bukkaSlug, time, deliveryMode: mode };
       // after user has been charged
-      API.order.post(order);
+      API.order.post(order)
+        .then(() => {
+          resetForms();
+        })
+        .catch(err => setToast({ message: err.response.message || err.message, type: 'error' }));
     }
   }, [card]);
 
@@ -58,7 +67,6 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
       const response = await API.payment.post({ card: payment, amount: 100 }, 'charge');
       setPaymentException(true);
       setPayment(response.data.data);
-      resetPaymentReport();
       loading(false);
       if (response.data.data) requestSecurityPopup();
     } catch (error) {
@@ -81,13 +89,15 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
         const authCode = availablePayment.authorization_code;
         const order = { deliveryAddress, cart: { items: [...cart], user: user.slug }, day, bukkaSlug, time, deliveryMode: mode, authCode };
         // using saved payment information
-        await API.order.post(order);
+        await API.order.post(order)
+          .then(() => {
+            resetForms();
+          })
+          .catch(err => setToast({ message: err.response.message || err.message, type: 'error' }));
         finishTransaction();
       } else chargeUser();
 
       // then
-      resetAddressReport();
-      resetPaymentReport();
       return;
     }
 

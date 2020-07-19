@@ -28,7 +28,7 @@ const FoodSection = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { businesses, setBusinesses, setBusinessGroup, setBusinessCategories } = useBusinessesContext();
-  const { coordinates, locationChange } = useLocationContext();
+  const { coordinates } = useLocationContext();
   const [displayMap, setDisplayMap] = useState(false);
 
   useEffect(() => {
@@ -37,13 +37,14 @@ const FoodSection = () => {
 
     const onResponse = (res, type, hasError = false) => {
       fetched[type] = true;
-      const data = hasError ? (res.response.data || res) : res.data;
+      const errHandler = () => (res.response ? res.response : res);
+      const data = hasError ? errHandler() : res.data;
       if (type === 'food') setBusinesses(data, hasError);
       if (type === 'businessGroup') setBusinessGroup(data, hasError);
       if (type === 'categories') setBusinessCategories(data, hasError);
       if (fetched.food && fetched.businessGroup && fetched.categories) {
         fetched = { food: null, businessGroup: null, categories: null };
-        loading(false);
+        return loading(false);
       }
     };
 
@@ -52,7 +53,7 @@ const FoodSection = () => {
         .then(res => onResponse(res, 'food'))
         .catch((err) => {
           onResponse(err, 'food', true);
-          if (locationChange) push('/coming-soon');
+          push('/coming-soon');
         });
     };
 

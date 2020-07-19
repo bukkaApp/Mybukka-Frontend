@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 import jwt from 'jsonwebtoken';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, matchPath } from 'react-router-dom';
 import swal from 'sweetalert';
 import { useUserContext } from '../context/UserContext';
 import useApi from '../shared/api';
@@ -9,8 +9,9 @@ import { useLoadingContext } from '../context/LoadingContext';
 import { useModalContext } from '../context/ModalContext';
 
 
-const useAuthentication = () => {
-  const history = useHistory();
+const useAuthentication = (pathname) => {
+  const { push, location } = useHistory();
+
   const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
@@ -18,7 +19,7 @@ const useAuthentication = () => {
   const { pathname: prevPage } = useLocation();
   const { setToast } = useToastContext();
 
-  const pageRedirect = () => history.push('/login', { redirectTo: prevPage });
+  const pageRedirect = () => push('/login', { redirectTo: prevPage });
 
   const isExpiredToken = () => {
     const now = Date.now().valueOf() / 1000;
@@ -59,11 +60,18 @@ const useAuthentication = () => {
     }
   };
 
-  useEffect(() => {
-    const expired = isExpiredToken();
-    if (!expired) return;
-    signOutExpiredToken(token);
-  }, [isAuthenticated]);
+  useMemo(() => {
+    const pathMatch = matchPath(location.pathname, {
+      path: pathname,
+      exact: true,
+    });
+
+    if (pathMatch) {
+      const expired = isExpiredToken();
+      if (!expired) return;
+      signOutExpiredToken(token);
+    }
+  }, [location, isAuthenticated, pathname]);
 };
 
 export default useAuthentication;

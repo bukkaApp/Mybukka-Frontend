@@ -15,6 +15,13 @@ import TemporaryWrapper from '../../components/ViewWrappers/TemporaryWrapper';
 import { useFormReportContext } from '../../context/FormReportContext';
 import { useModalContext } from '../../context/ModalContext';
 
+const inpts = {
+  number: '',
+  expDate: '',
+  cvv: '',
+  zipCode: ''
+};
+
 const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
@@ -35,19 +42,9 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
 
   const [errorMessage, setErrorMessage] = useState(false);
   const [inlineLoading, setInlineLoading] = useState(false);
-  const [validationErrors, setValidationErrors] = useState({
-    number: '',
-    expDate: '',
-    cvv: '',
-    zipCode: ''
-  });
+  const [validationErrors, setValidationErrors] = useState(inpts);
 
-  const [inputData, setInputData] = useState({
-    number: '',
-    expDate: '',
-    cvv: '',
-    zipCode: ''
-  });
+  const [inputData, setInputData] = useState(inpts);
 
   /**
    * @method _formatInput

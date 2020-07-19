@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 
-import React, { useEffect, memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import Script from 'react-load-script';
 import { useMapContext } from '../context/MapContext';
 
@@ -13,14 +13,14 @@ const LoadService = memo(() => {
     onLoad(true); // load map
   };
 
-  useEffect(() => {
+  useMemo(() => {
     mounted.current = true;
     if (scriptReady.current) {
       handleScriptLoad();
     } else if (window.google) {
       handleScriptLoad();
     }
-  }, []);
+  }, [mounted, scriptReady, window.google]);
 
   return (
     <Script

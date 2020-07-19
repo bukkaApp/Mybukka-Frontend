@@ -70,6 +70,8 @@ const useApi = () => {
         TrackJS.track(`${err.response.status} ${err.response.statusText}: ${err.response.url}`);
       }
 
+      if (err.config.method === 'get') return;
+
       switch (err.response.status) {
         case 404:
           setToast({ message: 'Unfortunately, the data you are looking for is unavailable', type: 'error' });
@@ -107,10 +109,10 @@ const useApi = () => {
     card: createEndpoint(`card/$id/${(paymentException && '?exception=true') || ''}`),
     payment: createEndpoint('pay/$id/'),
     reportIssue: createEndpoint('/user/comment'),
-    history: createEndpoint('/order?role=customer'),
+    history: ('/order?role=customer'),
     order: createEndpoint('/order'),
     catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
-    business: createEndpoint('bukka/$id/'),
+    business: createEndpoint('bukka/index/$id/'),
     categories: createHyperlinkedEndpoint('categories/'),
     businesses: createEndpoint(`bukka/nearby?$id&${byLocaton}`),
     businessGroup: createEndpoint(`place-group/items?${byLocaton}`),

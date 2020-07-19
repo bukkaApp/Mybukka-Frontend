@@ -34,11 +34,11 @@ const Promotion = lazy(() => import('../features/promotion'));
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <PublicRoute exact path="/" component={Home} />
       <Suspense fallback={<ProgressBar loading />}>
         <PublicRoute exact path="/bukka/:slug" component={Bukka} />
-        <Route exact path="/signup" component={Register} />
-        <Route exact path="/login" component={Login} />
+        <PublicRoute exact path="/signup" component={Register} />
+        <PublicRoute exact path="/login" component={Login} />
         <PublicRoute exact path="/place-groups/d/:id" component={Promotion} />
 
         {/* <Route exact path="/categories/:id" component={Category} /> */}
@@ -47,8 +47,8 @@ const Main = () => (
         <PrivateRoute exact path="/favorites" component={Favorites} />
         <PrivateRoute exact path="/history" component={TransactionHistory} />
 
-        <Route exact path="/reset-password" component={ResetPassword} />
-        <Route exact path="/reset" component={PerformResetPass} />
+        <PublicRoute exact path="/reset-password" component={ResetPassword} />
+        <PublicRoute exact path="/reset" component={PerformResetPass} />
         <PublicRoute exact path="/support/buyer" component={SupportBuyer} />
         <PublicRoute exact path="/buyer/articles/:id" component={Articles} />
         <PublicRoute exact path="/buyer/lists/:id" component={CategoryLists} />
@@ -59,28 +59,28 @@ const Main = () => (
         <PrivateRoute exact path="/buyer/contact-us/:id" component={ComplainScene} />
         <PublicRoute exact path="/support/buyer/contact-us/:id" component={SubCategory} />
         <PublicRoute exact path="/legal/:id" component={LegalStatement} />
-        <Route exact path="/coming-soon" component={NoNearByBukkaLocation} />
+        <PublicRoute exact path="/coming-soon" component={NoNearByBukkaLocation} />
         <PublicRoute exact path="/:id" component={FeedPages} />
-
-        <Route
-          exact
-          path="/store/apple"
-          component={() => {
-            window.location.href = 'https://www.apple.com/';
-            return null;
-          }}
-        />
-        <Route
-          exact
-          path="/store/android"
-          component={() => {
-            window.location.href = 'https://play.google.com/store?hl=en';
-
-            return null;
-          }}
-        />
-        <Route component={NotFound} />
       </Suspense>
+
+      <PublicRoute
+        exact
+        path="/store/apple"
+        component={() => {
+          window.location.href = 'https://www.apple.com/';
+          return null;
+        }}
+      />
+      <PublicRoute
+        exact
+        path="/store/android"
+        component={() => {
+          window.location.href = 'https://play.google.com/store?hl=en';
+
+          return null;
+        }}
+      />
+      <Route component={NotFound} />
     </Switch>
   </main>
 );

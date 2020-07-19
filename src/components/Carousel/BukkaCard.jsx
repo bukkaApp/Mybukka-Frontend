@@ -153,6 +153,7 @@ Card.defaultProps = {
   heading: 'Free Delivery',
   subHeading: '',
   tags: [],
+  imageUrl: ''
 };
 
 Card.propTypes = {
