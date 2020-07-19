@@ -4,8 +4,15 @@ import { connect } from 'react-redux';
 import Container from 'Components/container';
 
 import './suggestedItems.scss';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
-const totalAmount = ({ totalPriceInCart, deliveryPrice }) => {
+const TotalAmount = ({ totalPriceInCart, mode }) => {
+  const { business } = useBusinessContext();
+
+  const deliveryCost = (business && (business.logistics && business.logistics.deliveryPrice)) || 0;
+
+  const deliveryPrice = mode === 'delivery' ? deliveryCost : 0;
+
   // percentage charge
   const pctCharge = (5 / 100) * totalPriceInCart;
 
@@ -36,16 +43,12 @@ const totalAmount = ({ totalPriceInCart, deliveryPrice }) => {
 const mapStateToprops = ({
   cartReducer: { totalCost },
   deliveryModeReducer: { mode },
-  businessReducer: { fetchedBukka },
-}) => {
-  const deliveryCost = (fetchedBukka.logistics && fetchedBukka.logistics.deliveryPrice) || 0;
-  return ({
-    totalPriceInCart: totalCost,
-    deliveryPrice: mode === 'delivery' ? deliveryCost : 0,
-  });
-};
+}) => ({
+  totalPriceInCart: totalCost,
+  mode,
+});
 
 export default connect(
   mapStateToprops,
   null
-)(totalAmount);
+)(TotalAmount);

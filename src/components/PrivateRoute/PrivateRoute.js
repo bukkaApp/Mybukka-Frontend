@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 
 import { Route } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';
@@ -9,8 +9,7 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 
 const PrivateRoute = (props) => {
-  const { logoutSuccess: signOut, token, isAuthenticated } = useUserContext();
-  useAuthentication(signOut, isAuthenticated, token);
+  const { token, } = useUserContext();
 
   const { payment, setAddress, setCard, setProfile } = useUserContext();
   const { loading } = useLoadingContext();
@@ -42,11 +41,14 @@ const PrivateRoute = (props) => {
     }
   };
 
+  useAuthentication(props.path);
+
   useEffect(() => {
     if (payment && payment.status !== '') handlePaymentContinuation();
   }, [payment]);
 
-  useEffect(() => {
+  useMemo(() => {
+    if (!token) return;
     const getUser = () => tryCatch(API.profile.get, res => setProfile(res.userInfo));
     const getAddress = () => tryCatch(API.address.get, res => setAddress(res.foundAddress), true, setAddress);
     const getPaymentCard = () => tryCatch(API.card.get, res => setCard(res.foundCard), true, setCard);

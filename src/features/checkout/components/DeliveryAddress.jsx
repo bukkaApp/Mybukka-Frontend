@@ -8,6 +8,7 @@ import './checkout.scss';
 import Demarcation from '../common/SmallScreenDivider';
 import Address from '../../../components/address';
 import TemporaryWrapper from '../../../components/ViewWrappers/TemporaryWrapper';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
 const Pickup = ({ title, name }) => (
   <TemporaryWrapper.ViewWrapper>
@@ -18,15 +19,12 @@ const Pickup = ({ title, name }) => (
   </TemporaryWrapper.ViewWrapper>
 );
 
-const Delivery = ({
-  mode,
-  address,
-  logistics,
-}) => {
+const Delivery = ({ mode }) => {
+  const { business } = useBusinessContext();
   const decodeReadyMoment = () => {
-    if (!logistics) return '45 min';
-    if (logistics.deliveryTimeTo <= 60) return `${logistics.deliveryTimeTo} min`;
-    return `${(logistics.deliveryTimeTo / 60).toFixed(2)} hour`;
+    if (business && !business.logistics) return '45 min';
+    if (business && business.logistics.deliveryTimeTo <= 60) return `${business.logistics.deliveryTimeTo} min`;
+    return `${(business.logistics.deliveryTimeTo / 60).toFixed(2)} hour`;
   };
 
   return (
@@ -35,10 +33,10 @@ const Delivery = ({
         <DeliveryOrPickupNav />
       </div>
       <Demarcation />
-      {mode === 'delivery' && <Address noPadding />}
+      {mode === 'delivery' && <Address useModal noPadding />}
       {mode === 'pickup' && (
         <Fragment>
-          <Pickup title="Pickup Address" name={address} />
+          <Pickup title="Pickup Address" name={(business && business.address) || {}} />
           <Pickup title="Pickup time" name={`Ready in ${decodeReadyMoment()}`} />
         </Fragment>
       )}
@@ -46,16 +44,7 @@ const Delivery = ({
   );
 };
 
-const mapStateToProps = ({
-  deliveryModeReducer: { mode },
-  businessReducer: {
-    fetchedBukka: { address, logistics }
-  }
-}) => ({
-  mode,
-  address,
-  logistics
-});
+const mapStateToProps = ({ deliveryModeReducer: { mode } }) => ({ mode });
 
 export default connect(mapStateToProps)(Delivery);
 

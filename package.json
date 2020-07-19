@@ -4,10 +4,14 @@
   "description": "Frontend of mybukka app built by the internal engineering team",
   "main": "index.js",
   "private": true,
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "scripts": {
     "start": "npm run build && node server/server.js",
-    "start:dev": "webpack-dev-server --host 0.0.0.0 --hot --mode development",
-    "build": "export NODE_ENV=production && webpack --mode production",
+    "start:dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --hot --mode development",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --mode production",
     "deploy": "npm run build && firebase deploy",
     "test": "jest test --u --runInBand",
     "test:watch": "jest test --u --runInBand --watch"
@@ -37,6 +41,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^4.0.0",
     "constate": "^2.0.0",
+    "cross-env": "^7.0.2",
     "emotion-theming": "^10.0.27",
     "express": "^4.16.4",
     "express-static-gzip": "^2.0.6",
@@ -84,6 +89,7 @@
     "brotli-webpack-plugin": "^1.1.0",
     "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
+    "cssnano": "^4.1.10",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.5.4",
     "enzyme": "^3.8.0",

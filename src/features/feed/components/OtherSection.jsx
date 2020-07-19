@@ -35,7 +35,7 @@ const OtherSection = ({
   const { push } = useHistory();
   const { loading } = useLoadingContext();
   const { setBusiness, setCatelogs, catelogs } = useBusinessContext();
-  const { coordinates } = useLocationContext();
+  const { coordinates, } = useLocationContext();
   const [searchQuery, setSearchQuery] = useState('');
 
   const isMart = type === 'mart';
@@ -54,14 +54,16 @@ const OtherSection = ({
   useEffect(() => {
     if (coordinates.length < 2) return history.push('/');
 
-    loading(true);
+    const otherSection = ['mart', 'fresh'];
+    if (!otherSection.includes(type)) return;
 
     const onResponse = (res, hasError = false) => {
       loading(false);
-      const data = hasError ? (res.response.data || res) : res.data;
+      const errHandler = () => (res.response ? res.response : res);
+      const data = hasError ? errHandler() : res.data;
       setCatelogs(data, hasError);
       setBusiness(data, hasError);
-      if (hasError) history.push('/coming-soon');
+      // if (hasError) history.push('/coming-soon');
     };
 
     const getBusinessInformationAndCatelogs = () => {
@@ -70,6 +72,7 @@ const OtherSection = ({
         .catch(err => onResponse(err, true));
     };
 
+    loading(true);
     getBusinessInformationAndCatelogs();
   }, [coordinates, type]);
 

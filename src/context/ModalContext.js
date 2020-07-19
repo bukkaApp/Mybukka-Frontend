@@ -3,10 +3,12 @@ import { SET_MODAL } from 'Redux/actionTypes';
 import constate from 'constate';
 import logger from './Logger';
 
+const SET_PAYMENT_FORM_POPUP = 'SET_PAYMENT_FORM_POPUP';
 const SET_MOBILE_VIEW_CART = 'SET_MOBILE_VIEW_CART';
+const SET_ADDRESS_POPUP = 'SET_ADDRESS_POPUP';
 const SET_AUTHENTICATION_POPUP = 'SET_AUTHENTICATION_POPUP';
 const SET_PHONE_VERIFICATION_POPUP = 'SET_PHONE_VERIFICATION_POPUP';
-const SET_ADDRESS_POPUP = 'SET_ADDRESS_POPUP';
+const SET_ADDRESS_FORM_POPUP = 'SET_ADDRESS_FORM_POPUP';
 const SET_PAYMENT_POPUP = 'SET_PAYMENT_POPUP';
 const SET_PAYMENT_SECURITY_POPUP = 'SET_PAYMENT_SECURITY_POPUP';
 const SET_PAYMENT_GATEWAY_POPUP = 'SET_PAYMENT_GATEWAY_POPUP';
@@ -23,8 +25,10 @@ const initialState = {
   viewMoreOrderOnMobile: false,
   authenticationPopup: false,
   phoneVerificationPopup: false,
+  addressFormPopup: false,
   addressPopup: false,
   paymentPopup: false,
+  paymentFormPopup: false,
   paymentSecurityPopup: false,
   paymentGatewayPopup: false,
   paymentPendingPopup: false,
@@ -48,8 +52,14 @@ const reducer = (originalState, action) => {
     case SET_AUTHENTICATION_POPUP:
       return { ...state, authenticationPopup: action.payload };
 
+    case SET_ADDRESS_FORM_POPUP:
+      return { ...state, addressFormPopup: action.payload };
+
     case SET_ADDRESS_POPUP:
       return { ...state, addressPopup: action.payload };
+
+    case SET_PAYMENT_FORM_POPUP:
+      return { ...state, paymentFormPopup: action.payload };
 
     case SET_PAYMENT_POPUP:
       return { ...state, paymentPopup: action.payload };
@@ -123,6 +133,13 @@ const useModal = () => {
     });
   };
 
+  const setAddressFormPopup = (payload) => {
+    dispatch({
+      type: SET_ADDRESS_FORM_POPUP,
+      payload,
+    });
+  };
+
   const setAddressPopup = (payload) => {
     dispatch({
       type: SET_ADDRESS_POPUP,
@@ -140,6 +157,13 @@ const useModal = () => {
   const setPaymentPopup = (payload) => {
     dispatch({
       type: SET_PAYMENT_POPUP,
+      payload,
+    });
+  };
+
+  const setPaymentFormPopup = (payload) => {
+    dispatch({
+      type: SET_PAYMENT_FORM_POPUP,
       payload,
     });
   };
@@ -209,7 +233,9 @@ const useModal = () => {
     paymentPendingPopup,
     paymentGatewayPopup,
     paymentSecurityPopup,
+    paymentFormPopup,
     paymentPopup,
+    addressFormPopup,
     addressPopup,
     viewMoreOrderOnMobile,
     authenticationPopup,
@@ -234,8 +260,12 @@ const useModal = () => {
     setPaymentGatewayPopup,
     paymentSecurityPopup,
     setPaymentSecurityPopup,
+    paymentFormPopup,
+    setPaymentFormPopup,
     paymentPopup,
     setPaymentPopup,
+    addressFormPopup,
+    setAddressFormPopup,
     addressPopup,
     setAddressPopup,
     viewMoreOrderOnMobile,

@@ -10,6 +10,7 @@ import Chevron from 'Components/icons/ChevronRight';
 import SuggestedItemPane from '../common/suggestedPane';
 
 import './suggestedItems.scss';
+import { useBusinessContext } from '../../../context/BusinessContext';
 
 const ChevronRight = ({ handleClick }) => (
   <Button
@@ -27,8 +28,12 @@ const ChevronLeft = ({ handleClick }) => (
   </Button>
 );
 
-const SuggestedItemsWrapper = ({ bukkaMenuToSuggest, addToCart }) => {
+const SuggestedItemsWrapper = ({ addToCart, items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { catelogs } = useBusinessContext();
+
+  const mealsInCart = items.map(item => item.slug);
+  const bukkaMenuToSuggest = catelogs.filter(menu => !mealsInCart.includes(menu.slug)).slice(0, 7);
 
   // max-width = 75% multiply by number of index
   const maxWidth = 75;
@@ -95,7 +100,7 @@ const SuggestedItemsWrapper = ({ bukkaMenuToSuggest, addToCart }) => {
 const mapStateToProps = ({ productsReducer: { bukkaMenu }, cartReducer: { items } }) => {
   const mealsInCart = items.map(item => item.slug);
   const bukkaMenuToSuggest = bukkaMenu.filter(menu => !mealsInCart.includes(menu.slug)).slice(0, 7);
-  return { bukkaMenuToSuggest };
+  return { bukkaMenuToSuggest, items };
 };
 
 export default connect(

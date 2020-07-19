@@ -18,12 +18,15 @@ import { useToastContext } from '../../../context/ToastContext';
 import useHashLinkUpdate from '../../../hooks/useHashLinkUpdate';
 
 import './profileScene.scss';
+import { useFormReportContext } from '../../../context/FormReportContext';
 
 const ProfileScene = ({
   addProfilePicture,
 }) => {
   const { user, setProfile } = useUserContext();
   const { loading } = useLoadingContext();
+  const { resetAddressReport, resetPaymentReport } = useFormReportContext();
+
   const [state, setState] = useState({ firstName: '', lastName: '', email: '', imageUrl: '', verified: false });
   const { setToast } = useToastContext();
   const { API } = useApi();
@@ -40,6 +43,12 @@ const ProfileScene = ({
       loading(false);
     }
   };
+
+
+  useEffect(() => () => {
+    resetAddressReport();
+    resetPaymentReport();
+  }, []);
 
   useEffect(() => {
     setState({ ...state, ...user });

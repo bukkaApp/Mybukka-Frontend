@@ -56,10 +56,12 @@ const defineVariablesPlugin = new webpack.DefinePlugin({
   ),
 });
 
+const shouldUseSourceMap = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: [path.join(__dirname, 'client/index.js')],
-  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
-  // devtool: 'source-map',
+  // devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval',
+  // entry: ['@babel/polyfill', path.join(__dirname, 'client/index.js')],
   devServer: {
     contentBase: './client',
     port: 7700,
@@ -75,7 +77,26 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 0,
+      maxInitialRequests: 20,
+      maxAsyncRequests: 20,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module, chunks, cacheGroupKey) {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+            return `${cacheGroupKey}.${packageName.replace('@', '')}`;
+          }
+        },
+        common: {
+          minChunks: 2,
+          priority: -10
+        }
+      }
     },
+    runtimeChunk: 'single',
     minimize: true,
     minimizer: [
       MinimizerPlugin.minifyJavaScript(),
@@ -95,7 +116,7 @@ module.exports = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false,
+      deleteOriginalAssets: !shouldUseSourceMap,
     }),
     new BrotliPlugin({
       filename: '[path].br[query]',
@@ -106,7 +127,7 @@ module.exports = {
       },
       threshold: 10240,
       minRatio: 0.7,
-      deleteOriginalAssets: false,
+      deleteOriginalAssets: !shouldUseSourceMap,
     }),
     new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
@@ -172,3 +193,7 @@ module.exports = {
     },
   },
 };
+
+if (shouldUseSourceMap) {
+  module.exports.devtool = 'eval';
+}

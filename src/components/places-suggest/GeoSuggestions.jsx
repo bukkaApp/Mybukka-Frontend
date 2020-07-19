@@ -8,11 +8,11 @@ import './GeoSuggestions.scss';
 import Button from '../button/Button';
 import { useLocationContext } from '../../context/LocationContext';
 
-const GeoSuggestions = ({ handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton, noBorderOnMedium }) => {
+const GeoSuggestions = ({ onDoubleClick, handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton, noBorderOnMedium }) => {
   const { setUpdate } = useLocationContext();
 
   const onClick = (suggestion) => {
-    handleClick(suggestion, true);
+    if (handleClick) handleClick(suggestion, true);
     setUpdate(true);
   };
 
@@ -25,6 +25,7 @@ const GeoSuggestions = ({ handleClick, predictions, asUtility, text, emitOnClick
           <div
             className={`${asUtility ? 'Suggestion-Address' : 'suggestion-group-style'} ${(noBorderOnMedium && 'Suggestion-Address-Border--less') || ''}`}
             onClick={() => onClick(suggestion)}
+            onDoubleClick={onDoubleClick}
             tabIndex="0"
             role="link"
             key={suggestion.id || filteredTerms.join('-')}

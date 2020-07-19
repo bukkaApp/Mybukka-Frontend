@@ -10,16 +10,18 @@ import Category from './Category';
 import './feed.scss';
 
 const Feed = (props) => {
+  const validSections = ['fresh', 'mart'];
   const pathMatch = matchPath(props.location.pathname, { path: '/:id' });
   const match = props.match;
   let Component;
+
   if (pathMatch.params.id === 'feed') {
     Component = FoodSection;
   } else if (pathMatch.params.id === 'search') {
     Component = SearchResult;
   } else if (pathMatch.params.id === 'category') {
     Component = Category;
-  } else {
+  } else if (validSections.includes(pathMatch.params.id)) {
     Component = OtherSection;
   }
 

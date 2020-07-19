@@ -16,8 +16,7 @@ import { ToastProvider } from '../context/ToastContext';
 import { SearchProvider } from '../context/SearchContext';
 import { EventProvider } from '../context/EventContext';
 import { LastLocationProvider } from '../context/LastLocationContext';
-import { GlobalFormValidityRequestProvider } from '../context/GlobalFormValidityRequestContext';
-import { GlobalFormValidityReportProvider } from '../context/GlobalFormValidityReportContext';
+import { FormReportProvider } from '../context/FormReportContext';
 
 const Primary = ({ children }) => (
   <LocationsPredictionProvider>
@@ -33,17 +32,15 @@ const Primary = ({ children }) => (
                       <MapProvider>
                         <ToastProvider>
                           <EventProvider>
-                            <GlobalFormValidityRequestProvider>
-                              <GlobalFormValidityReportProvider>
-                                <LastLocationProvider>
-                                  <LoadingProvider>
-                                    <SearchProvider>
-                                      {children}
-                                    </SearchProvider>
-                                  </LoadingProvider>
-                                </LastLocationProvider>
-                              </GlobalFormValidityReportProvider>
-                            </GlobalFormValidityRequestProvider>
+                            <FormReportProvider>
+                              <LastLocationProvider>
+                                <LoadingProvider>
+                                  <SearchProvider>
+                                    {children}
+                                  </SearchProvider>
+                                </LoadingProvider>
+                              </LastLocationProvider>
+                            </FormReportProvider>
                           </EventProvider>
                         </ToastProvider>
                       </MapProvider>

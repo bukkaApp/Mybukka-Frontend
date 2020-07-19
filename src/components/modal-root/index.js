@@ -8,8 +8,10 @@ const AddToCart = lazy(() => import('../cart/addToCart'));
 const ViewOrdersOnMobile = lazy(() => import('../cart/ViewOrdersOnMobile'));
 const Authentication = lazy(() => import('../popup/AuthenticationPopup'));
 const VerifyPhonePopup = lazy(() => import('../popup/VerifyPhonePopup'));
-const Address = lazy(() => import('../address/Address'));
-const Payment = lazy(() => import('../payment/Payment'));
+const AddressForm = lazy(() => import('../address/Address'));
+const Address = lazy(() => import('../address'));
+const Payment = lazy(() => import('../payment'));
+const PaymentForm = lazy(() => import('../payment/Payment'));
 const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecurity'));
 const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
 const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
@@ -37,8 +39,10 @@ const ModalRoot = () => {
         <ViewOrdersOnMobile />
         <Authentication />
         <VerifyPhonePopup />
-        <Address withModal withPadding label="Add Address" />
-        <Payment withModal withPadding label="Add Payment Details" />
+        <AddressForm withModal withPadding label="Add Address" />
+        <Address withModal useProfileStandard />
+        <Payment withModal useProfileStandard />
+        <PaymentForm withModal withPadding label="Add Payment Details" />
         <RequestSecurityInfo />
         <PaymentGateway />
         <PaymentPending />

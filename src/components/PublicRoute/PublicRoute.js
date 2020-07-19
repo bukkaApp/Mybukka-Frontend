@@ -1,25 +1,21 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
+
 import jwt from 'jsonwebtoken';
-import { useHistory, useLocation, matchPath } from 'react-router-dom';
-import swal from 'sweetalert';
-import { useUserContext } from '../context/UserContext';
-import useApi from '../shared/api';
-import { useToastContext } from '../context/ToastContext';
-import { useLoadingContext } from '../context/LoadingContext';
-import { useModalContext } from '../context/ModalContext';
+import { Route, matchPath, useLocation } from 'react-router-dom';
+import { useUserContext } from '../../context/UserContext';
+import useApi from '../../shared/api';
+import { useToastContext } from '../../context/ToastContext';
+import { useLoadingContext } from '../../context/LoadingContext';
+import { useModalContext } from '../../context/ModalContext';
 
-
-const useAuthentication = (pathname) => {
-  const { push, location } = useHistory();
+const PublicRoute = (props) => {
+  const { pathname } = useLocation();
 
   const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
   const { API } = useApi();
-  const { pathname: prevPage } = useLocation();
   const { setToast } = useToastContext();
-
-  const pageRedirect = () => push('/login', { redirectTo: prevPage });
 
   const isExpiredToken = () => {
     const now = Date.now().valueOf() / 1000;
@@ -39,9 +35,7 @@ const useAuthentication = (pathname) => {
 
   const signOutExpiredToken = async () => {
     if (token) return signOut();
-    if (!signInData) {
-      return swal('You need to login first').then(() => pageRedirect());
-    }
+    if (!signInData) return;
     setToast({ message: 'Retrying login ...', type: 'warning' });
     const { email } = (token && jwt.decode(token).data) || {};
     const password = signInData.split('.bukka@gmail.com')[0];
@@ -61,17 +55,19 @@ const useAuthentication = (pathname) => {
   };
 
   useMemo(() => {
-    const pathMatch = matchPath(location.pathname, {
-      path: pathname,
+    const mathPath = matchPath(pathname, {
+      path: props.path,
       exact: true,
     });
 
-    if (pathMatch) {
+    if (mathPath) {
       const expired = isExpiredToken();
       if (!expired) return;
       signOutExpiredToken(token);
     }
-  }, [location, isAuthenticated, pathname]);
+  }, [isAuthenticated, props, pathname]);
+
+  return <Route {...props} />;
 };
 
-export default useAuthentication;
+export default PublicRoute;

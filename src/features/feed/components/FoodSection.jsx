@@ -37,13 +37,14 @@ const FoodSection = () => {
 
     const onResponse = (res, type, hasError = false) => {
       fetched[type] = true;
-      const data = hasError ? (res.response.data || res) : res.data;
+      const errHandler = () => (res.response ? res.response : res);
+      const data = hasError ? errHandler() : res.data;
       if (type === 'food') setBusinesses(data, hasError);
       if (type === 'businessGroup') setBusinessGroup(data, hasError);
       if (type === 'categories') setBusinessCategories(data, hasError);
       if (fetched.food && fetched.businessGroup && fetched.categories) {
         fetched = { food: null, businessGroup: null, categories: null };
-        loading(false);
+        return loading(false);
       }
     };
 
