@@ -27,10 +27,6 @@ const Img = ({ src, className = '', options, fmt, alt, useBeta }) => {
   //   }
   // };
 
-  const handleLoad = () => {
-    setState(`__${src}__`);
-  };
-
   useEffect(() => {
     if (imgRef.current && imgRef.current.complete && !state[`__${src}__`]) {
       setState(`__${src}__`);
@@ -47,7 +43,7 @@ const Img = ({ src, className = '', options, fmt, alt, useBeta }) => {
 
   return (
     <div id="" className="Image-Opt-Wrapper">
-      <img ref={imgRef} hidden onLoad={handleLoad} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
+      <img ref={imgRef} hidden onLoad={() => setState(`__${src}__`)} alt={alt} src={`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`} className="Image-Opt--none" />
       <div title={alt} className="Image-Opt--display" style={{ backgroundImage: `url(${`${domain}${storageClienId}upload/${queryString}${imageInfo}.${ext}`})`, opacity: state[`__${src}__`] ? 1 : 0 }} />
       <div className={`Image-Opt ${className}`} />
       {(useBeta && state[`__${src}__`]) && <span className="Image-Opt-Beta">beta</span>}
