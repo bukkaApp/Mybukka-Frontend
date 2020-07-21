@@ -11,7 +11,7 @@ const Img = ({ src, className = '', options, fmt, alt, useBeta }) => {
   const [state, setState] = useImagesContext();
   const width = '600px';
   // Create an empty query string
-  let queryString = '', ext = 'jpg';
+  let queryString = '', ext = src && src.split('.').pop();
 
   // If width is specified, otherwise use auto-detected width
   options.w = options.w || width;
