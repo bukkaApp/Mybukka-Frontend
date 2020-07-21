@@ -8,8 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* Import copy-webpack-plugin */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
 const MinimizerPlugin = require('./webpack.minimizer');
 
 const CopyPlugin = new CopyWebpackPlugin({
@@ -36,7 +34,7 @@ const MiniCssPlugin = new MiniCssExtractPlugin({
   // both options are optional
   ignoreOrder: true,
   filename: '[name].[contenthash].css',
-  chunkFilename: '[id].css',
+  chunkFilename: './styles/[id].css',
 });
 
 const defineVariablesPlugin = new webpack.DefinePlugin({
@@ -75,28 +73,25 @@ module.exports = {
     publicPath: '/',
   },
   optimization: {
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
+      maxInitialRequests: Infinity,
       minSize: 0,
-      maxInitialRequests: 20,
-      maxAsyncRequests: 20,
       cacheGroups: {
-        vendors: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name(module, chunks, cacheGroupKey) {
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1];
-            return `${cacheGroupKey}.${packageName.replace('@', '')}`;
-          }
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `./dependecies/npm.${packageName.replace('@', '')}`;
+          },
         },
-        common: {
-          minChunks: 2,
-          priority: -10
-        }
-      }
+      },
     },
-    runtimeChunk: 'single',
     minimize: true,
     minimizer: [
       MinimizerPlugin.minifyJavaScript(),
@@ -110,25 +105,6 @@ module.exports = {
       hashDigest: 'hex',
       hashDigestLength: 20
     }),
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-      deleteOriginalAssets: !shouldUseSourceMap,
-    }),
-    new BrotliPlugin({
-      filename: '[path].br[query]',
-      algorithm: 'brotliCompress',
-      test: /\.(js|css|html|svg)$/,
-      compressionOptions: {
-        level: 11,
-      },
-      threshold: 10240,
-      minRatio: 0.7,
-      deleteOriginalAssets: !shouldUseSourceMap,
-    }),
     new CleanWebpackPlugin({ dry: true, }),
     MiniCssPlugin,
     HtmlWebpackPluginConfig,
@@ -138,11 +114,6 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.gz$/,
-        enforce: 'pre',
-        use: 'gzip-loader'
-      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
@@ -156,15 +127,15 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development',
-            },
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: process.env.NODE_ENV === 'development',
           },
-          'css-loader',
-          'sass-loader',
+        },
+        'css-loader',
+        'postcss-loader',
+        'sass-loader',
         ],
       },
       {

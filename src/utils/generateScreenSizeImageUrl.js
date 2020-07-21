@@ -1,6 +1,7 @@
 // 320
 const generateScreenSizeImageUrl = (src, size, mode = 'scale', ext = 'jpg') => {
   const domain = 'https://res.cloudinary.com';
+  if (!ext) ext = src.split('.').pop();
   if (src) {
     const [storageClienId, imageInfoWithExt] = src.replace(domain, '').split('upload');
     const imageInfo = imageInfoWithExt.replace(/\.(jpe?g|gif|png|PNG|svg|webp)$/, '');

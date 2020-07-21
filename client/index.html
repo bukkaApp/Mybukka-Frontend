@@ -18,7 +18,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="./manifest.json" />
+    <link rel="manifest" href="./manifest.json" crossorigin="use-credentials" />
 
     <link
       rel="stylesheet"
@@ -27,6 +27,8 @@
       crossorigin="anonymous"
     />
     <title>Bukka - everywhere</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' https://stackpath.bootstrapcdn.com https://fonts.googleapis.com https://use.fontawesome.com https://fonts.gstatic.com; font-src 'self' https://fonts.googleapis.com https://use.fontawesome.com https://fonts.gstatic.com data:; img-src 'self' https://res.cloudinary.com https://i.ibb.co/ data:; default-src 'self' https://capture.trackjs.com https://stackpath.bootstrapcdn.com https://fonts.googleapis.com https://use.fontawesome.com https://fonts.gstatic.com https://i.ibb.co/"> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'self' https://maps.googleapis.com 'unsafe-inline'; child-src 'none'; object-src 'none'"> -->
   </head>
   <body>
     <noscript>
