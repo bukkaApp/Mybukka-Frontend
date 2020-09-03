@@ -10,7 +10,7 @@ const PORT = process.env.PORT || '1234';
 const baseURL = NODE_ENV === 'production' ? process.env.BACKEND_PROD_URL : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
 
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: 'https://mybukka-backend.herokuapp.com/api/v1/',
   responseType: 'json',
   headers: { accept: 'application/json' }
 });

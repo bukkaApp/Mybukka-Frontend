@@ -33,8 +33,16 @@ const RequestSecurityInfo = () => {
     }
   };
 
+  const getPaymentStatus = () => {
+    const { status } = payment;
+    if (status.includes('send_')) {
+      return payment.status.split('send_').join('');
+    }
+    return payment.status.split('open_').join('');
+  };
+
   useEffect(() => {
-    const text = payment ? payment.status.split('send_').join('') : '';
+    const text = payment ? getPaymentStatus() : '';
     requestOtherVerification(text);
     setState({ ...state, ...defaultPayment, ...payment, text });
   }, [payment]);

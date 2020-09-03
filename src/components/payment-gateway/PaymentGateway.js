@@ -15,7 +15,7 @@ const defaultState = { reference: '', status: '', url: '', display_text: '', tex
 const PaymentGateway = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { payment, setPayment, setCard } = useUserContext();
+  const { payment, setPayment, setCard, url } = useUserContext();
   const [state, setState] = useState({ reference: '', status: '', url: '', display_text: '', text: '' });
   const { setPaymentPendingPopup, paymentGatewayPopup, paymentPendingPopup, paymentSecurityPopup, setPaymentGatewayPopup, setPaymentSecurityPopup, setModal } = useModalContext();
 
@@ -28,9 +28,17 @@ const PaymentGateway = () => {
       setPaymentPendingPopup(true);
     }
   };
+  // Payment gateway confirmation for url
+  const getPaymentStatus = () => {
+    const { status } = payment;
+    if (status.includes('send_')) {
+      return payment.status.split('send_').join('');
+    }
+    return payment.status.split('open_').join('');
+  };
 
   useEffect(() => {
-    const text = payment ? payment.status.split('send_').join('') : '';
+    const text = payment ? getPaymentStatus() : '';
     requestSecurityVerification(text);
     setState({ ...state, ...defaultState, ...payment, text });
   }, [payment]);
@@ -66,7 +74,7 @@ const PaymentGateway = () => {
         <DismissModal onClick={handleSubmit} />
       </div>
       <Iframe
-        url={state.url || 'https://standard.paystack.co/close'}
+        url={url}
         position="relative"
         width="100%"
         id="myId"

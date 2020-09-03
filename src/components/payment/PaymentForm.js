@@ -25,7 +25,7 @@ const inpts = {
 const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, handleClick, withFormSpace }) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
-  const { setPayment } = useUserContext();
+  const { setPayment, setUrl, url } = useUserContext();
   const wrapperRef = React.createRef();
   const { pathname } = useLocation();
 
@@ -181,6 +181,8 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
         setInlineLoading(true);
         const response = await API.payment.post({ card: inputFields, amount: 100 }, 'charge');
         setPayment(response.data.data);
+        setUrl(response.data.data.url);
+        console.log('url data', url);
         resetPaymentReport();
         setInlineLoading(false);
         loading(false);
