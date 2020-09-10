@@ -77,7 +77,7 @@ const AddedItem = ({ cart, bukka, removeFromCart }) => {
         <OrderTray
           name={item.title}
           price={item.price}
-          key={item.slug}
+          key={index}
           handleRemove={() => removeFromCart(item.slug, index)}
           handleEdit={() => toggleCart(item)}
         />
@@ -88,28 +88,25 @@ const AddedItem = ({ cart, bukka, removeFromCart }) => {
 
 const mapStateToProps = ({
   cartReducer: { items },
-  businessReducer: { fetchedBukka }
+  businessReducer: { fetchedBukka },
 }) => ({ cart: items, bukka: fetchedBukka });
 
-export default connect(
-  mapStateToProps,
-  {
-    removeFromCart: removeFromCartAction,
-    setMealToDisplay: setMealToDisplayAction
-  }
-)(AddedItem);
+export default connect(mapStateToProps, {
+  removeFromCart: removeFromCartAction,
+  setMealToDisplay: setMealToDisplayAction,
+})(AddedItem);
 
 OrderTray.propTypes = {
   handleRemove: PropTypes.func.isRequired,
   handleEdit: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired
+  price: PropTypes.string.isRequired,
 };
 
 Remove.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
 };
 
 Edit.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
 };
