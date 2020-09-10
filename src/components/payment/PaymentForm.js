@@ -19,10 +19,17 @@ const inpts = {
   number: '',
   expDate: '',
   cvv: '',
-  zipCode: ''
+  zipCode: '',
 };
 
-const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, handleClick, withFormSpace }) => {
+const PaymentForm = ({
+  requestSecurityPopup,
+  withPadding,
+  label,
+  withModal,
+  handleClick,
+  withFormSpace,
+}) => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { setPayment } = useUserContext();
@@ -32,13 +39,18 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
   const matchCheckoutScreen = matchPath(pathname, {
     path: '/merchant/:slug/checkout',
     exact: true,
-    strict: false
+    strict: false,
   });
 
   const { paymentFormPopup, setPaymentFormPopup, setModal } = useModalContext();
   // const { setAddressReport, requestAddressValidity, resetAddressReport, updateAddressData, changeAddress, address } = useFormReportContext();
 
-  const { resetPaymentReport, updatePaymentData, changePayment, payment } = useFormReportContext();
+  const {
+    resetPaymentReport,
+    updatePaymentData,
+    changePayment,
+    payment,
+  } = useFormReportContext();
 
   const [errorMessage, setErrorMessage] = useState(false);
   const [inlineLoading, setInlineLoading] = useState(false);
@@ -80,7 +92,6 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     return fieldData;
   };
 
-
   /**
    * @method handleChange
    * @param {*} event
@@ -89,7 +100,10 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
    */
   const handleChange = ({ target: { name, value } }) => {
     const newFieldData = { [name]: _formatInput(name, value) };
-    const validation = validateAField(_removeInputFormat(newFieldData, name), name);
+    const validation = validateAField(
+      _removeInputFormat(newFieldData, name),
+      name
+    );
     setInputData({ ...inputData, ...newFieldData });
     setValidationErrors({ ...validationErrors, [name]: validation.message });
   };
@@ -104,13 +118,13 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
   const _removeInputsFormatOnSubmit = (inps) => {
     const newInputData = {};
     const inpFields = inps || inputData;
-    Object.keys(inpFields).map((inp) => { // eslint-disable-line
+    Object.keys(inpFields).map((inp) => {
+      // eslint-disable-line
       const completeField = { [inp]: inpFields[inp] };
       newInputData[inp] = _removeInputFormat(completeField, inp)[inp];
     });
     return newInputData;
   };
-
 
   useEffect(() => {
     if (changePayment) {
@@ -128,7 +142,11 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
    */
   const splitExpMonthAndYear = (inputFields) => {
     const expDateArr = inputData.expDate.split('/');
-    return { ...inputFields, expiry_month: expDateArr[0], expiry_year: expDateArr[1] };
+    return {
+      ...inputFields,
+      expiry_month: expDateArr[0],
+      expiry_year: expDateArr[1],
+    };
   };
 
   const onOkay = (e) => {
@@ -152,8 +170,14 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
       if (event) {
         const { name, value } = event.target;
         const newFieldData = { [name]: _formatInput(name, value) };
-        const validation = validateAField(_removeInputFormat(newFieldData, name), name);
-        setValidationErrors({ ...validationErrors, [name]: validation.message });
+        const validation = validateAField(
+          _removeInputFormat(newFieldData, name),
+          name
+        );
+        setValidationErrors({
+          ...validationErrors,
+          [name]: validation.message,
+        });
       }
 
       let inputFields = _removeInputsFormatOnSubmit(data || inputData);
@@ -162,7 +186,7 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
 
       const { passes, errors } = validation;
 
-      if (!event) setValidationErrors({ ...validationErrors, ...errors, });
+      if (!event) setValidationErrors({ ...validationErrors, ...errors });
 
       if (passes) updatePaymentData(inputFields);
     }
@@ -179,8 +203,12 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
       try {
         loading(true);
         setInlineLoading(true);
-        const response = await API.payment.post({ card: inputFields, amount: 100 }, 'charge');
+        const response = await API.payment.post(
+          { card: inputFields, amount: 100 },
+          'charge'
+        );
         setPayment(response.data.data);
+        console.log({ payment });
         resetPaymentReport();
         setInlineLoading(false);
         loading(false);
@@ -198,7 +226,11 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
     <div className={withPadding && 'mb-2 mt-4'}>
       {label && <TemporaryWrapper.ViewHeading noPadding text={label} />}
       <span className="text-danger font-size-11">{errorMessage}</span>
-      <form id="payment" ref={wrapperRef} className={`border padding-20 ${withFormSpace ? 'mt-2' : 'mt-4'}`}>
+      <form
+        id="payment"
+        ref={wrapperRef}
+        className={`border padding-20 ${withFormSpace ? 'mt-2' : 'mt-4'}`}
+      >
         <div className="row flex- flex-nowrap-sm font-size-14">
           <Form
             inputData={inputData}
@@ -219,7 +251,9 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
             onChange={() => {}}
             onFocus={() => {}}
           />
-          <span className="Payment-Checkox--text">Make default payment method</span>
+          <span className="Payment-Checkox--text">
+            Make default payment method
+          </span>
         </div>
         <div className="Form-Button-Group">
           <Button
@@ -227,16 +261,21 @@ const PaymentForm = ({ requestSecurityPopup, withPadding, label, withModal, hand
             classNames="small-button-save"
             handleClick={handleSubmit}
           >
-            {inlineLoading ? <span className="spinner-border" role="status" /> : 'Save'}
+            {inlineLoading ? (
+              <span className="spinner-border" role="status" />
+            ) : (
+              'Save'
+            )}
           </Button>
-          {(paymentFormPopup && matchCheckoutScreen) &&
-          <Button
-            type="button"
-            classNames="small-button-save"
-            handleClick={onOkay}
-          >
-            Okay
-          </Button>}
+          {paymentFormPopup && matchCheckoutScreen && (
+            <Button
+              type="button"
+              classNames="small-button-save"
+              handleClick={onOkay}
+            >
+              Okay
+            </Button>
+          )}
         </div>
       </form>
     </div>
