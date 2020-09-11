@@ -61,9 +61,10 @@ const PaymentGateway = () => {
       setPaymentPendingPopup(true);
     } else if (type === 'open_url') {
       setOpenUrl(true);
-      setPaymentSecurityPopup(false);
-      setPaymentGatewayPopup(false);
-      setModal(false);
+      // setPaymentSecurityPopup(true);
+      // setPaymentGatewayPopup(false);
+      // setModal(true);
+      // setPayment(null);
     }
   };
 
@@ -77,7 +78,12 @@ const PaymentGateway = () => {
   useEffect(() => {
     if (openUrl) {
       console.log({ payment });
-      window.open(payment.url, 'paystack_Gateway');
+      if (payment.url) {
+        window.open(payment.url, 'paystack_Gateway');
+      } else {
+        setPayment(null);
+        return setOpenUrl(false);
+      }
 
       // setPayment(null);
       // setOpenUrl(null);
@@ -101,6 +107,7 @@ const PaymentGateway = () => {
   const handleClick = (incl) => {
     if (incl) setPayment(null);
     setModal(false);
+    setOpenUrl(false);
     setPaymentGatewayPopup(false);
   };
   const saveOpenUrlResponse = async (data) => {
