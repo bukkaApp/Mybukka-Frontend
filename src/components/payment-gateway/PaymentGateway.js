@@ -85,16 +85,11 @@ const PaymentGateway = () => {
         return setOpenUrl(false);
       }
 
-      // setPayment(null);
-      // setOpenUrl(null);
-
       // socket listening to event
       socket = io(to);
 
       socket.on(`${payment.reference}`, (data) => {
-        console.log({ data });
-
-        saveOpenUrlResponse(data);
+        saveOpenUrlResponse(data.data);
       });
 
       return () => {
@@ -113,7 +108,7 @@ const PaymentGateway = () => {
   const saveOpenUrlResponse = async (data) => {
     try {
       loading(true);
-      const response = await API.card.post({
+      const response = await API.url.post({
         reference: payment.reference,
         ...data,
       });
