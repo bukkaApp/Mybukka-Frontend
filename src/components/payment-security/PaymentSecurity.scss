@@ -1,10 +1,11 @@
 .Request-Security-Info {
   padding-top: 80px;
   padding-bottom: 80px;
-  max-width: 560px
+  max-width: 560px;
 }
 
-.send-security-section, .success-message-prompt {
+.send-security-section,
+.success-message-prompt {
   padding-bottom: 60px;
   padding-left: 15px;
   padding-right: 15px;
@@ -13,4 +14,10 @@
 .send-security-form-inline {
   display: flex;
   flex-direction: row;
+}
+
+.wait-div {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
 }
