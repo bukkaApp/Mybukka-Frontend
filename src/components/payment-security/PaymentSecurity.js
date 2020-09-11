@@ -51,6 +51,10 @@ const RequestSecurityInfo = () => {
     } else if (type === 'pending' && !paymentPendingPopup) {
       setPaymentSecurityPopup(false);
       setPaymentPendingPopup(true);
+    } else if (type === 'open_url') {
+      setPaymentSecurityPopup(true);
+      setPaymentGatewayPopup(false);
+      // setModal();
     }
   };
 
