@@ -64,16 +64,12 @@ const PaymentGateway = () => {
       setPaymentSecurityPopup(false);
       setPaymentGatewayPopup(false);
       setModal(false);
-    } else if (type === 'send_birthday') {
-    } else if (type === 'send_phone') {
-    } else if (type === 'send_otp') {
     }
   };
 
   useEffect(() => {
-    // const text = payment;
-    console.log({ payment });
     const text = payment ? payment.status.split('send_').join('') : '';
+
     requestSecurityVerification(text);
     setState({ ...state, ...defaultState, ...payment, text });
   }, [payment]);
@@ -82,14 +78,17 @@ const PaymentGateway = () => {
     if (openUrl) {
       console.log({ payment });
       window.open(payment.url, 'paystack_Gateway');
-      setPayment(null);
-      setOpenUrl(null);
+
+      // setPayment(null);
+      // setOpenUrl(null);
 
       // socket listening to event
       socket = io(to);
 
       socket.on(`${payment.reference}`, (data) => {
         console.log({ data });
+
+        saveOpenUrlResponse(data);
       });
 
       return () => {
@@ -104,27 +103,40 @@ const PaymentGateway = () => {
     setModal(false);
     setPaymentGatewayPopup(false);
   };
+  const saveOpenUrlResponse = async (data) => {
+    try {
+      loading(true);
+      const response = await API.card.post({
+        reference: payment.reference,
+        ...data,
+      });
+      if (response.status === 201) return saveCardAndClosePopup(response);
+      setPayment({ ...payment, ...response.data.data });
+      loading(false);
+    } catch (error) {
+      loading(false);
+    }
+  };
 
   const saveCardAndClosePopup = (response) => {
+    console.log(response.data.newCard);
     setCard(response.data.newCard);
     setPayment(null);
     loading(false);
     handleClick();
   };
-  const handleOpenUrl = () => {
-    setOpenUrl(true);
-  };
+
   const handleSubmit = async () => {
-    // try {
-    loading(true);
-    const response = await API.card.get(state.reference);
-    console.log({ response });
-    //   if (response.status === 201) return saveCardAndClosePopup(response);
-    //   setPayment({ ...payment, ...response.data.data });
-    //   loading('PAYMENT', false);
-    // } catch (error) {
-    //   loading('PAYMENT', false);
-    // }
+    try {
+      loading(true);
+      const response = await API.card.get(state.reference);
+      console.log({ response });
+      if (response.status === 201) return saveCardAndClosePopup(response);
+      setPayment({ ...payment, ...response.data.data });
+      loading('PAYMENT', false);
+    } catch (error) {
+      loading('PAYMENT', false);
+    }
   };
 
   return (
