@@ -204,7 +204,7 @@ const PaymentForm = ({
         loading(true);
         setInlineLoading(true);
         const response = await API.payment.post(
-          { card: inputFields, amount: 100 },
+          { card: inputFields, amount: 5000 },
           'charge'
         );
         setPayment(response.data.data);
