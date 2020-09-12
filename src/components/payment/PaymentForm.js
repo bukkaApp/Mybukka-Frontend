@@ -208,7 +208,6 @@ const PaymentForm = ({
           'charge'
         );
         setPayment(response.data.data);
-        console.log({ payment });
         resetPaymentReport();
         setInlineLoading(false);
         loading(false);
