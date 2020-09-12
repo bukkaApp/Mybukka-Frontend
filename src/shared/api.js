@@ -7,33 +7,44 @@ import { useLocationContext } from '../context/LocationContext';
 
 const { NODE_ENV } = process.env;
 const PORT = process.env.PORT || '1234';
-const baseURL = NODE_ENV === 'production' ? process.env.BACKEND_PROD_URL : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
+const baseURL =
+  NODE_ENV === 'production'
+    ? process.env.BACKEND_PROD_URL
+    : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
 
 const axiosInstance = axios.create({
   baseURL,
   responseType: 'json',
-  headers: { accept: 'application/json' }
+  headers: { accept: 'application/json' },
 });
 
 const endpointTransform = (endpoint, id) => {
   let needle = '$id';
-  if (!id) { needle = '$id/'; }
+  if (!id) {
+    needle = '$id/';
+  }
   return endpoint.replace(needle, id || '');
 };
 
-const createEndpoint = endpoint => ({
-  get: id => axiosInstance.get(endpointTransform(endpoint, id)),
-  delete: id => axiosInstance.delete(endpointTransform(endpoint, id)),
-  put: (id, data, config) => axiosInstance.put(endpointTransform(endpoint, id), data, config),
-  patch: (id, data, config) => axiosInstance.patch(endpointTransform(endpoint, id), data, config),
+const createEndpoint = (endpoint) => ({
+  get: (id) => axiosInstance.get(endpointTransform(endpoint, id)),
+  delete: (id) => axiosInstance.delete(endpointTransform(endpoint, id)),
+  put: (id, data, config) =>
+    axiosInstance.put(endpointTransform(endpoint, id), data, config),
+  patch: (id, data, config) =>
+    axiosInstance.patch(endpointTransform(endpoint, id), data, config),
   post: (data, id) => axiosInstance.post(endpointTransform(endpoint, id), data),
 });
 
-const createHyperlinkedEndpoint = endpoint => ({
-  get: ({ id, url }) => axiosInstance.get(url || endpointTransform(endpoint, id)),
-  patch: ({ id, url, data, config }) => axiosInstance.patch(url || endpointTransform(endpoint, id), data, config),
-  post: ({ data, id }) => axiosInstance.post(endpointTransform(endpoint, id), data),
-  put: ({ data, id }) => axiosInstance.put(endpointTransform(endpoint, id), data),
+const createHyperlinkedEndpoint = (endpoint) => ({
+  get: ({ id, url }) =>
+    axiosInstance.get(url || endpointTransform(endpoint, id)),
+  patch: ({ id, url, data, config }) =>
+    axiosInstance.patch(url || endpointTransform(endpoint, id), data, config),
+  post: ({ data, id }) =>
+    axiosInstance.post(endpointTransform(endpoint, id), data),
+  put: ({ data, id }) =>
+    axiosInstance.put(endpointTransform(endpoint, id), data),
 });
 
 const useApi = () => {
@@ -45,7 +56,10 @@ const useApi = () => {
   useEffect(() => {
     let interceptor;
     if (token) {
-      interceptor = axiosInstance.interceptors.request.use(config => ({ ...config, headers: { Authorization: token, ...config.headers } }));
+      interceptor = axiosInstance.interceptors.request.use((config) => ({
+        ...config,
+        headers: { Authorization: token, ...config.headers },
+      }));
     }
     return () => {
       if (interceptor) {
@@ -55,39 +69,52 @@ const useApi = () => {
   }, [token]);
 
   useEffect(() => {
-    const interceptor = axiosInstance.interceptors.response.use((res) => {
-      setToast({ message: null });
-      return res;
-    }, (err) => {
-      if (process.env.NODE_ENV === 'production') {
-        TrackJS.console.log({
-          url: err.response.url,
-          status: err.response.status,
-          statusText: err.response.statusText,
-          request: err.response.data,
-        });
+    const interceptor = axiosInstance.interceptors.response.use(
+      (res) => {
+        setToast({ message: null });
+        return res;
+      },
+      (err) => {
+        if (process.env.NODE_ENV === 'production') {
+          TrackJS.console.log({
+            url: err.response.url,
+            status: err.response.status,
+            statusText: err.response.statusText,
+            request: err.response.data,
+          });
 
-        TrackJS.track(`${err.response.status} ${err.response.statusText}: ${err.response.url}`);
+          TrackJS.track(
+            `${err.response.status} ${err.response.statusText}: ${err.response.url}`
+          );
+        }
+
+        if (err.config.method === 'get') return;
+
+        switch (err.response.status) {
+          case 404:
+            setToast({
+              message:
+                'Unfortunately, the data you are looking for is unavailable',
+              type: 'error',
+            });
+            break;
+
+          case 401:
+            setToast({
+              message:
+                'Access denied. Try logging in or verifying your account.',
+              type: 'error',
+            });
+            break;
+
+          default:
+          case 500:
+            setToast({ message: 'Oops. Something went wrong.', type: 'error' });
+            break;
+        }
+        throw err;
       }
-
-      if (err.config.method === 'get') return;
-
-      switch (err.response.status) {
-        case 404:
-          setToast({ message: 'Unfortunately, the data you are looking for is unavailable', type: 'error' });
-          break;
-
-        case 401:
-          setToast({ message: 'Access denied. Try logging in or verifying your account.', type: 'error' });
-          break;
-
-        default:
-        case 500:
-          setToast({ message: 'Oops. Something went wrong.', type: 'error' });
-          break;
-      }
-      throw err;
-    });
+    );
 
     return () => {
       if (interceptor) {
@@ -101,30 +128,39 @@ const useApi = () => {
    * // verify
    *  type => verify-phone / send-code
    */
-  const API = React.useMemo(() => ({
-    address: createEndpoint('address/$id/'),
-    authToken: { post: data => axiosInstance.post('user/signin', data) },
-    passwordReset: createHyperlinkedEndpoint('/user/reset/$id/'),
-    validateToken: createEndpoint('/user/token/validate'),
-    card: createEndpoint(`card/$id/${(paymentException && '?exception=true') || ''}`),
-    payment: createEndpoint('pay/$id/'),
-    reportIssue: createEndpoint('/user/comment'),
-    history: ('/order?role=customer'),
-    order: createEndpoint('/order'),
-    catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
-    business: createEndpoint('bukka/index/$id/'),
-    categories: createHyperlinkedEndpoint('categories/'),
-    businesses: createEndpoint(`bukka/nearby?$id&${byLocaton}`),
-    businessGroup: createEndpoint(`place-group/items?${byLocaton}`),
-    businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
-    profile: createEndpoint('user/profile/$id/'),
-    register: { post: data => axiosInstance.post('user/signup', data) },
-    verify: { post: (data, type) => axiosInstance.post(`user/${type}/`, data) },
-    socialAuth: { post: data => axiosInstance.post('user/social/auth', data) },
-  }), [coordinates, paymentException]);
+  const API = React.useMemo(
+    () => ({
+      address: createEndpoint('address/$id/'),
+      authToken: { post: (data) => axiosInstance.post('user/signin', data) },
+      passwordReset: createHyperlinkedEndpoint('/user/reset/$id/'),
+      validateToken: createEndpoint('/user/token/validate'),
+      card: createEndpoint(
+        `card/$id/${(paymentException && '?exception=true') || ''}`
+      ),
+      url: createEndpoint(`card/url`),
+      payment: createEndpoint('pay/$id/'),
+      reportIssue: createEndpoint('/user/comment'),
+      history: '/order?role=customer',
+      order: createEndpoint('/order'),
+      catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
+      business: createEndpoint('bukka/index/$id/'),
+      categories: createHyperlinkedEndpoint('categories/'),
+      businesses: createEndpoint(`bukka/nearby?$id&${byLocaton}`),
+      businessGroup: createEndpoint(`place-group/items?${byLocaton}`),
+      businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
+      profile: createEndpoint('user/profile/$id/'),
+      register: { post: (data) => axiosInstance.post('user/signup', data) },
+      verify: {
+        post: (data, type) => axiosInstance.post(`user/${type}/`, data),
+      },
+      socialAuth: {
+        post: (data) => axiosInstance.post('user/social/auth', data),
+      },
+    }),
+    [coordinates, paymentException]
+  );
 
   return { API, axiosInstance };
 };
-
 
 export default useApi;
