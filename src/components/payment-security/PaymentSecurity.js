@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
+
 import ChevronRight from '../icons/ChevronRight';
 import Modal from '../modal/Modal';
 import DismissModal from '../modal/DismissModal';
@@ -18,6 +20,10 @@ const defaultPayment = {
   display_text: '',
   text: '',
 };
+
+let socket;
+// const to = 'http://localhost:1234/';
+const to = 'https://mybukka-backend.herokuapp.com/';
 
 const RequestSecurityInfo = () => {
   const [openUrl, setOpenUrl] = useState(false);
@@ -54,6 +60,7 @@ const RequestSecurityInfo = () => {
       setPaymentSecurityPopup(false);
       setPaymentPendingPopup(true);
     } else if (type === 'open_url') {
+      console.log('another open url');
       setOpenUrl(true);
       // setPaymentSecurityPopup(true);
       // setPaymentGatewayPopup(false);
@@ -63,17 +70,18 @@ const RequestSecurityInfo = () => {
 
   useEffect(() => {
     if (openUrl) {
-      if (payment.url) {
+      if (payment && payment.url) {
         window.open(payment.url, 'paystack_Gateway');
       } else {
+        setOpenUrl(false);
         setPayment(null);
-        return setOpenUrl(false);
       }
       // socket listening to event
       socket = io(to);
 
-      socket.on(`${payment.reference}`, (data) => {
-        saveOpenUrlResponse(data.event);
+      socket.on(`${payment && payment.reference}`, (data) => {
+        console.log({ data });
+        // saveOpenUrlResponse(data.event);
       });
 
       return () => {
@@ -90,17 +98,33 @@ const RequestSecurityInfo = () => {
   }, [payment]);
 
   const handleClick = (incl) => {
-    if (incl) setPayment(null);
     setModal(false);
     setPaymentSecurityPopup(false);
+    setOpenUrl(false);
+    if (incl) setPayment(null);
+  };
+
+  const saveOpenUrlResponse = async (data) => {
+    try {
+      loading(true);
+      const response = await API.url.post({
+        reference: payment.reference,
+        ...data,
+      });
+      if (response.status === 201) return saveCardAndClosePopup(response);
+      setPayment({ ...payment, ...response.data.data });
+      loading(false);
+    } catch (error) {
+      loading(false);
+    }
   };
 
   const saveCardAndClosePopup = (response) => {
     console.log(response.data.newCard);
     setCard(response.data.newCard);
-    setPayment(null);
     loading(false);
     handleClick();
+    setPayment(null);
   };
 
   const handleSubmit = async (e) => {

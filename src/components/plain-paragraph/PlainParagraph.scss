@@ -5,7 +5,7 @@
   outline: none;
   padding: 8px 10px 10px 0px;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   letter-spacing: -0.28px;
   line-height: normal;
@@ -29,6 +29,10 @@
   padding-top: 25px;
   border-bottom: 1px solid #eceff1;
   padding-bottom: 25px;
+  cursor: pointer;
+}
+.Plain-Paragraph-Wrapper:hover {
+  background-color: #f0f0ff;
 }
 
 .Plain-Medium-Border--less {
@@ -48,7 +52,6 @@
   align-items: baseline;
 }
 
-
 .Plain-Paragraph-Content-Details {
   border: none;
   padding-bottom: 15px;
@@ -56,7 +59,7 @@
   outline: none;
   padding: 8px 10px 10px 0px;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   letter-spacing: -0.28px;
   line-height: normal;
@@ -87,7 +90,7 @@
   outline: none;
   padding: 8px 10px 10px 0px;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   letter-spacing: -0.28px;
   line-height: normal;

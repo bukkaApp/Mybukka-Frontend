@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Iframe from 'react-iframe';
 import Modal from '../modal/Modal';
@@ -77,16 +77,16 @@ const PaymentGateway = () => {
 
   useEffect(() => {
     if (openUrl) {
-      if (payment.url) {
+      if (payment && payment.url) {
         window.open(payment.url, 'paystack_Gateway');
       } else {
         setPayment(null);
-        return setOpenUrl(false);
+        setOpenUrl(false);
       }
       // socket listening to event
       socket = io(to);
 
-      socket.on(`${payment.reference}`, (data) => {
+      socket.on(`${payment && payment.reference}`, (data) => {
         saveOpenUrlResponse(data.event);
       });
 
