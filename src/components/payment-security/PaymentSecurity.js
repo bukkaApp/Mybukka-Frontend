@@ -20,6 +20,8 @@ const defaultPayment = {
 };
 
 const RequestSecurityInfo = () => {
+  const [openUrl, setOpenUrl] = useState(false);
+
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { payment, setPayment, setCard } = useUserContext();
@@ -52,11 +54,34 @@ const RequestSecurityInfo = () => {
       setPaymentSecurityPopup(false);
       setPaymentPendingPopup(true);
     } else if (type === 'open_url') {
-      setPaymentSecurityPopup(true);
-      setPaymentGatewayPopup(false);
+      setOpenUrl(true);
+      // setPaymentSecurityPopup(true);
+      // setPaymentGatewayPopup(false);
       // setModal();
     }
   };
+
+  useEffect(() => {
+    if (openUrl) {
+      if (payment.url) {
+        window.open(payment.url, 'paystack_Gateway');
+      } else {
+        setPayment(null);
+        return setOpenUrl(false);
+      }
+      // socket listening to event
+      socket = io(to);
+
+      socket.on(`${payment.reference}`, (data) => {
+        saveOpenUrlResponse(data.event);
+      });
+
+      return () => {
+        socket.emit('disconnect');
+        socket.off();
+      };
+    }
+  }, [openUrl, payment]);
 
   useEffect(() => {
     const text = payment ? payment.status.split('send_').join('') : '';

@@ -77,19 +77,17 @@ const PaymentGateway = () => {
 
   useEffect(() => {
     if (openUrl) {
-      console.log({ payment });
       if (payment.url) {
         window.open(payment.url, 'paystack_Gateway');
       } else {
         setPayment(null);
         return setOpenUrl(false);
       }
-
       // socket listening to event
       socket = io(to);
 
       socket.on(`${payment.reference}`, (data) => {
-        saveOpenUrlResponse(data.data);
+        saveOpenUrlResponse(data.event);
       });
 
       return () => {
@@ -97,13 +95,13 @@ const PaymentGateway = () => {
         socket.off();
       };
     }
-  }, [openUrl]);
+  }, [openUrl, payment]);
 
   const handleClick = (incl) => {
-    if (incl) setPayment(null);
     setModal(false);
     setOpenUrl(false);
     setPaymentGatewayPopup(false);
+    if (incl) setPayment(null);
   };
   const saveOpenUrlResponse = async (data) => {
     try {
@@ -123,9 +121,9 @@ const PaymentGateway = () => {
   const saveCardAndClosePopup = (response) => {
     console.log(response.data.newCard);
     setCard(response.data.newCard);
+    handleClick();
     setPayment(null);
     loading(false);
-    handleClick();
   };
 
   const handleSubmit = async () => {
