@@ -69,3 +69,6 @@ client/__snapshots__
 
 #basic vs code setting
 .vscode
+
+#package-lock 
+package-lock.json

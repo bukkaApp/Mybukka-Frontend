@@ -25,7 +25,8 @@ const useAuthentication = (pathname) => {
   const { pathname: prevPage } = useLocation();
   const { setToast } = useToastContext();
 
-  const pageRedirect = () => push('/login', { redirectTo: prevPage });
+  // Redirect to login when token expires
+  const redirectToLogin = () => push('/login', { redirectTo: prevPage });
 
   const isExpiredToken = () => {
     const now = Date.now().valueOf() / 1000;
@@ -48,7 +49,7 @@ const useAuthentication = (pathname) => {
   const signOutExpiredToken = async () => {
     if (token) return signOut();
     if (!signInData) {
-      return swal('You need to login first').then(() => pageRedirect());
+      return swal('You need to login first').then(() => redirectToLogin());
     }
     setToast({ message: 'Retrying login ...', type: 'warning' });
     localStorage.removeItem('x-access-token');
