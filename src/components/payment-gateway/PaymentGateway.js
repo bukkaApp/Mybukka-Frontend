@@ -9,6 +9,8 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+// import PayStackHandler from 'utils/PayStackHandler';
+// import Paystackhandler from './../../utils/PayStackHandler';
 
 const defaultState = {
   reference: '',
@@ -46,33 +48,69 @@ const PaymentGateway = () => {
     setModal,
   } = useModalContext();
 
-  const requestSecurityVerification = (type) => {
-    if (
-      type !== '' &&
-      type !== 'url' &&
-      type !== 'pending' &&
-      type !== 'failed' &&
-      !paymentSecurityPopup
-    ) {
-      setPaymentSecurityPopup(true);
-      setPaymentGatewayPopup(false);
-    } else if (type === 'pending' && !paymentPendingPopup) {
-      setPaymentGatewayPopup(false);
-      setPaymentPendingPopup(true);
-    } else if (type === 'open_url') {
-      setOpenUrl(true);
-      // setPaymentSecurityPopup(true);
-      // setPaymentGatewayPopup(false);
-      // setModal(true);
-      // setPayment(null);
+  // const requestSecurityVerification = (type) => {
+  //   if (
+  //     type !== '' &&
+  //     type !== 'url' &&
+  //     type !== 'pending' &&
+  //     type !== 'failed' &&
+  //     !paymentSecurityPopup
+  //   ) {
+  //     setPaymentSecurityPopup(true);
+  //     setPaymentGatewayPopup(false);
+  //   } else if (type === 'pending' && !paymentPendingPopup) {
+  //     setPaymentGatewayPopup(false);
+  //     setPaymentPendingPopup(true);
+  //   } else if (type === 'open_url') {
+  //     setOpenUrl(true);
+  //   }
+  // };
+
+  const requestSecurityVerification = (data) => {
+    switch (data.status) {
+      case 'status':
+        return setModal;
+      case 'success':
+        if (data.gateway_response === 'Approved') {
+        } else if (data.gateway_response === 'Successful') {
+        }
+
+        break;
+      case 'url':
+      case 'pending':
+        if (!paymentPendingPopup) {
+          setPaymentSecurityPopup(false);
+          setPaymentGatewayPopup(true);
+        }
+        break;
+
+      case 'failed':
+        break;
+      case 'open_url':
+        setOpenUrl(true);
+        setPaymentSecurityPopup(true);
+        setPaymentGatewayPopup(false);
+      case 'send_phone':
+      case 'send_birthday':
+      case 'send_otp':
+      case 'send_pin':
+      case 'send_address':
+        setPaymentSecurityPopup(true);
+        setPaymentGatewayPopup(false);
+        break;
+      default:
+        break;
     }
   };
 
   useEffect(() => {
-    const text = payment ? payment.status.split('send_').join('') : '';
+    if (payment) {
+      const text = payment ? payment.status.split('send_').join('') : '';
 
-    requestSecurityVerification(text);
-    setState({ ...state, ...defaultState, ...payment, text });
+      // Paystackhandler(payment);
+      requestSecurityVerification(payment);
+      setState({ ...state, ...defaultState, ...payment, text });
+    }
   }, [payment]);
 
   useEffect(() => {

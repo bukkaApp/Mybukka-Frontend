@@ -10,13 +10,30 @@ const PORT = process.env.PORT || '1234';
 const baseURL =
   NODE_ENV === 'production'
     ? process.env.BACKEND_PROD_URL
-    : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
+    : `https://mybukka-backend.herokuapp.com/api/v1`; // eslint-disable-line
+// : `http://localhost:${PORT}/api/v1/`; // eslint-disable-line
 
-const axiosInstance = axios.create({
-  baseURL,
-  responseType: 'json',
-  headers: { accept: 'application/json' },
-});
+class Axios {
+  init = () => {
+    const token = localStorage.getItem('x-access-token');
+    const axiosConnect = axios.create({
+      baseURL,
+      responseType: 'json',
+      headers: { Authorization: token },
+    });
+
+    return axiosConnect;
+  };
+}
+
+// export default new Axios();
+
+const axiosInstance = new Axios();
+// const axiosInstance.init() = axios.create({
+//   baseURL,
+//   responseType: 'json',
+//   headers: { accept: 'application/json' },
+// });
 
 const endpointTransform = (endpoint, id) => {
   let needle = '$id';
@@ -27,24 +44,27 @@ const endpointTransform = (endpoint, id) => {
 };
 
 const createEndpoint = (endpoint) => ({
-  get: (id) => axiosInstance.get(endpointTransform(endpoint, id)),
-  delete: (id) => axiosInstance.delete(endpointTransform(endpoint, id)),
+  get: (id) => axiosInstance.init().get(endpointTransform(endpoint, id)),
+  delete: (id) => axiosInstance.init().delete(endpointTransform(endpoint, id)),
   put: (id, data, config) =>
-    axiosInstance.put(endpointTransform(endpoint, id), data, config),
+    axiosInstance.init().put(endpointTransform(endpoint, id), data, config),
   patch: (id, data, config) =>
-    axiosInstance.patch(endpointTransform(endpoint, id), data, config),
-  post: (data, id) => axiosInstance.post(endpointTransform(endpoint, id), data),
+    axiosInstance.init().patch(endpointTransform(endpoint, id), data, config),
+  post: (data, id) =>
+    axiosInstance.init().post(endpointTransform(endpoint, id), data),
 });
 
 const createHyperlinkedEndpoint = (endpoint) => ({
   get: ({ id, url }) =>
-    axiosInstance.get(url || endpointTransform(endpoint, id)),
+    axiosInstance.init().get(url || endpointTransform(endpoint, id)),
   patch: ({ id, url, data, config }) =>
-    axiosInstance.patch(url || endpointTransform(endpoint, id), data, config),
+    axiosInstance
+      .init()
+      .patch(url || endpointTransform(endpoint, id), data, config),
   post: ({ data, id }) =>
-    axiosInstance.post(endpointTransform(endpoint, id), data),
+    axiosInstance.init().post(endpointTransform(endpoint, id), data),
   put: ({ data, id }) =>
-    axiosInstance.put(endpointTransform(endpoint, id), data),
+    axiosInstance.init().put(endpointTransform(endpoint, id), data),
 });
 
 const useApi = () => {
@@ -55,21 +75,21 @@ const useApi = () => {
 
   useEffect(() => {
     let interceptor;
-    if (token) {
-      interceptor = axiosInstance.interceptors.request.use((config) => ({
-        ...config,
-        headers: { Authorization: token, ...config.headers },
-      }));
-    }
+    // if (token) {
+    interceptor = axiosInstance.init().interceptors.request.use((config) => ({
+      ...config,
+      headers: { Authorization: token, ...config.headers },
+    }));
+    // }
     return () => {
       if (interceptor) {
-        axiosInstance.interceptors.request.eject(interceptor);
+        axiosInstance.init().interceptors.request.eject(interceptor);
       }
     };
-  }, [token]);
+  }, []);
 
   useEffect(() => {
-    const interceptor = axiosInstance.interceptors.response.use(
+    const interceptor = axiosInstance.init().interceptors.response.use(
       (res) => {
         setToast({ message: null });
         return res;
@@ -118,7 +138,7 @@ const useApi = () => {
 
     return () => {
       if (interceptor) {
-        axiosInstance.interceptors.response.eject(interceptor);
+        axiosInstance.init().interceptors.response.eject(interceptor);
       }
     };
   }, [setToast]);
@@ -131,7 +151,9 @@ const useApi = () => {
   const API = React.useMemo(
     () => ({
       address: createEndpoint('address/$id/'),
-      authToken: { post: (data) => axiosInstance.post('user/signin', data) },
+      authToken: {
+        post: (data) => axiosInstance.init().post('user/signin', data),
+      },
       passwordReset: createHyperlinkedEndpoint('/user/reset/$id/'),
       validateToken: createEndpoint('/user/token/validate'),
       card: createEndpoint(
@@ -149,12 +171,14 @@ const useApi = () => {
       businessGroup: createEndpoint(`place-group/items?${byLocaton}`),
       businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
       profile: createEndpoint('user/profile/$id/'),
-      register: { post: (data) => axiosInstance.post('user/signup', data) },
+      register: {
+        post: (data) => axiosInstance.init().post('user/signup', data),
+      },
       verify: {
-        post: (data, type) => axiosInstance.post(`user/${type}/`, data),
+        post: (data, type) => axiosInstance.init().post(`user/${type}/`, data),
       },
       socialAuth: {
-        post: (data) => axiosInstance.post('user/social/auth', data),
+        post: (data) => axiosInstance.init().post('user/social/auth', data),
       },
     }),
     [coordinates, paymentException]

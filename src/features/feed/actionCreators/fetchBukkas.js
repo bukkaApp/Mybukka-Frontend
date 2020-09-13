@@ -4,7 +4,7 @@ import loading from 'Redux/loading';
 
 const fetchBukkasAction = (type, data) => ({
   type: `${FETCH_BUKKAS}_${type}`,
-  data
+  data,
 });
 
 const fetchBukkas = (
@@ -14,15 +14,15 @@ const fetchBukkas = (
   limit = 12,
   by = 'majorCusine',
   value = '',
-  type = 'food',
+  type = 'food'
 ) => async (dispatch) => {
   try {
     dispatch(loading(FETCH_BUKKAS, true));
-    const request = await axiosInstance.get(
-      `/bukka/nearby?longitude=${coordinates[0]}&lattitude=${
-        coordinates[1]
-      }&page=${page}&limit=${limit}&by=${by}&value=${value}&type=${type}`
-    );
+    const request = await axiosInstance
+      .init()
+      .get(
+        `/bukka/nearby?longitude=${coordinates[0]}&lattitude=${coordinates[1]}&page=${page}&limit=${limit}&by=${by}&value=${value}&type=${type}`
+      );
     dispatch(loading(FETCH_BUKKAS, false));
     dispatch(fetchBukkasAction('SUCCESS', request.data));
     // cb('/feed');
@@ -30,8 +30,12 @@ const fetchBukkas = (
     dispatch(loading(FETCH_BUKKAS, false));
     if (!error.response) {
       dispatch(loading(FETCH_BUKKAS, false));
-    } else { cb('/coming-soon'); }
-    dispatch(fetchBukkasAction('ERROR', error.response ? error.response.data : error));
+    } else {
+      cb('/coming-soon');
+    }
+    dispatch(
+      fetchBukkasAction('ERROR', error.response ? error.response.data : error)
+    );
   }
 };
 

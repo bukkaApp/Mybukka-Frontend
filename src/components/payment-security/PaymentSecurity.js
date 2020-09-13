@@ -51,20 +51,53 @@ const RequestSecurityInfo = () => {
     setModal,
   } = useModalContext();
 
-  const requestOtherVerification = (type) => {
-    if (type === 'failed') return setModal();
-    if (type === 'url' && !paymentGatewayPopup) {
-      setPaymentSecurityPopup(false);
-      setPaymentGatewayPopup(true);
-    } else if (type === 'pending' && !paymentPendingPopup) {
-      setPaymentSecurityPopup(false);
-      setPaymentPendingPopup(true);
-    } else if (type === 'open_url') {
-      console.log('another open url');
-      setOpenUrl(true);
-      // setPaymentSecurityPopup(true);
-      // setPaymentGatewayPopup(false);
-      // setModal();
+  // const requestOtherVerification = (type) => {
+  //   if (type === 'failed') return setModal();
+  //   if (type === 'url' && !paymentGatewayPopup) {
+  //     setPaymentSecurityPopup(false);
+  //     setPaymentGatewayPopup(true);
+  //   } else if (type === 'pending' && !paymentPendingPopup) {
+  //     setPaymentSecurityPopup(false);
+  //     setPaymentPendingPopup(true);
+  //   } else if (type === 'open_url') {
+  //     setOpenUrl(true);
+  //   }
+  // };
+
+  const requestOtherVerification = (data) => {
+    switch (data.status) {
+      case 'status':
+        return setModal;
+      case 'success':
+        if (data.gateway_response === 'Approved') {
+        } else if (data.gateway_response === 'Successful') {
+        }
+
+        break;
+      case 'url':
+      case 'pending':
+        if (!paymentPendingPopup) {
+          setPaymentSecurityPopup(false);
+          setPaymentGatewayPopup(true);
+        }
+        break;
+
+      case 'failed':
+        break;
+      case 'open_url':
+        setOpenUrl(true);
+        setPaymentSecurityPopup(true);
+        setPaymentGatewayPopup(false);
+      case 'send_phone':
+      case 'send_birthday':
+      case 'send_otp':
+      case 'send_pin':
+      case 'send_address':
+        setPaymentSecurityPopup(true);
+        setPaymentGatewayPopup(false);
+        break;
+      default:
+        break;
     }
   };
 
@@ -81,7 +114,6 @@ const RequestSecurityInfo = () => {
 
       socket.on(`${payment && payment.reference}`, (data) => {
         console.log({ data });
-        // saveOpenUrlResponse(data.event);
       });
 
       return () => {
@@ -92,9 +124,11 @@ const RequestSecurityInfo = () => {
   }, [openUrl, payment]);
 
   useEffect(() => {
-    const text = payment ? payment.status.split('send_').join('') : '';
-    requestOtherVerification(text);
-    setState({ ...state, ...defaultPayment, ...payment, text });
+    if (payment) {
+      const text = payment ? payment.status.split('send_').join('') : '';
+      requestOtherVerification(payment);
+      setState({ ...state, ...defaultPayment, ...payment, text });
+    }
   }, [payment]);
 
   const handleClick = (incl) => {

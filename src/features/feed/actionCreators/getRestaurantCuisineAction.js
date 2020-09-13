@@ -4,15 +4,17 @@ import loading from 'Redux/loading';
 
 const getRestaurantCuisineAction = (type, data) => ({
   type: `${FETCH_RESTAURANTS_CUISINES}_${type}`,
-  data
+  data,
 });
 
-const getRestaurantCuisine = coordinates => async (dispatch) => {
+const getRestaurantCuisine = (coordinates) => async (dispatch) => {
   try {
     dispatch(loading(FETCH_RESTAURANTS_CUISINES, true));
-    const request = await axiosInstance.get(
-      `/cuisine/items?longitude=${
-        coordinates[0]}&lattitude=${coordinates[1]}`);
+    const request = await axiosInstance
+      .init()
+      .get(
+        `/cuisine/items?longitude=${coordinates[0]}&lattitude=${coordinates[1]}`
+      );
     dispatch(loading(FETCH_RESTAURANTS_CUISINES, false));
     dispatch(getRestaurantCuisineAction('SUCCESS', request.data));
   } catch (error) {
