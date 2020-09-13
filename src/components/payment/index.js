@@ -21,7 +21,12 @@ import CurrentPayment from './CurrentPayment';
 import './index.scss';
 
 const AddAnAddress = () => {
-  const { setPaymentFormPopup, setModal, setPaymentPopup, paymentPopup } = useModalContext();
+  const {
+    setPaymentFormPopup,
+    setModal,
+    setPaymentPopup,
+    paymentPopup,
+  } = useModalContext();
 
   const handleClick = () => {
     if (!paymentPopup) setModal(true);
@@ -47,8 +52,8 @@ const AddAnAddress = () => {
 
 const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   const { card: cards, setCard } = useUserContext();
-  const { paymentPopup, setPaymentPopup, setModal, } = useModalContext();
-  const { changePayment: changeDefualtPayment, } = useFormReportContext();
+  const { paymentPopup, setPaymentPopup, setModal } = useModalContext();
+  const { changePayment: changeDefualtPayment } = useFormReportContext();
   const { setToast } = useToastContext();
   const { API } = useApi();
   const { loading } = useLoadingContext();
@@ -76,7 +81,9 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
     // eg guaranty trust bank => [guaranty, trust, bank] => slice [guaranty, trust]
     const splittedBankName = bank.split(' ').slice(0, -1);
     if (splittedBankName.length > 1) {
-      return `${splittedBankName.map(bnk => bnk.slice(0, 1).toUpperCase()).join('')} Card`;
+      return `${splittedBankName
+        .map((bnk) => bnk.slice(0, 1).toUpperCase())
+        .join('')} Card`;
     }
     return `${splittedBankName.join('')} Card`;
   };
@@ -84,7 +91,7 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   const decodeButtonText = (slug) => {
     const buttonText = changeDefualtPayment ? 'Default' : 'Change';
     if (!useProfileStandard) return buttonText;
-    return (cards.defaultCard !== slug ? 'DELETE' : 'DEFAULT');
+    return cards.defaultCard !== slug ? 'DELETE' : 'DEFAULT';
   };
 
   const emitOnClick = (slug) => {
@@ -101,19 +108,28 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
       loading('CARD', false);
     } catch (error) {
       loading('CARD', false);
-      setToast({ message: error.response ? error.response.data.message : error.message });
+      setToast({
+        message: error.response ? error.response.data.message : error.message,
+      });
     }
   };
 
-  const isntDefaultAddress = slug => cards.defaultCard !== slug;
+  const isntDefaultAddress = (slug) => cards.defaultCard !== slug;
 
-  const paymentJsx = ((cards && cards.cards) &&
-    cards.cards.map(({ bank, slug, card_type: type }) => (
-      !useProfileStandard && isntDefaultAddress(slug) ? null
-        : <PlainParagraph
+  const paymentJsx =
+    cards &&
+    cards.cards &&
+    cards.cards.map(({ bank, slug, card_type: type }) =>
+      !useProfileStandard && isntDefaultAddress(slug) ? null : (
+        <PlainParagraph
           noBorderOnMedium={!useProfileStandard}
-          onClick={() => emitOnClick(slug)}
-          title={(isntDefaultAddress(slug) && 'Double click to set as default') || ''}
+          onClick={(e) => {
+            e.stopPropagation();
+            emitOnClick(slug);
+          }}
+          title={
+            (isntDefaultAddress(slug) && 'Double click to set as default') || ''
+          }
           onDoubleClick={() => updateDefaultCard(slug)}
           withPrimaryButton={cards.defaultCard === slug}
           buttonText={decodeButtonText(slug)}
@@ -124,24 +140,30 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
           <p className="Payment-Bank-Card">{decodeBankCard(bank)}</p>
           <PaymentIcons type={'default'} />
         </PlainParagraph>
-    )));
+      )
+    );
 
   if (!useProfileStandard) {
     return (
       <TemporaryWrapper.ViewWrapper>
-        {(!cards || !cards.cards.length) ?
-          <Payment withFormSpace withPadding label="Payment" /> :
+        {!cards || !cards.cards.length ? (
+          <Payment withFormSpace withPadding label="Payment" />
+        ) : (
           <div className={`${noPadding ? '' : 'Payment-Section'}`}>
             <TemporaryWrapper.ViewHeading noPadding text="Payment" />
             {paymentJsx}
             <CurrentPayment useProfileStandard={useProfileStandard} />
-          </div>}
+          </div>
+        )}
       </TemporaryWrapper.ViewWrapper>
     );
   }
 
   const profileStandardJsx = (
-    <div id="payments" className={(useProfileStandard && 'Payment-Section--profile') || ''}>
+    <div
+      id="payments"
+      className={(useProfileStandard && 'Payment-Section--profile') || ''}
+    >
       <div className="account-details-header">
         <h5 className="account-details-text">Payment</h5>
       </div>
@@ -153,7 +175,11 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   if (useProfileStandard && !withModal) return profileStandardJsx;
 
   return (
-    <Modal onClickOut={changePaymentCard} show={paymentPopup} bodyClassName="SmallWidth">
+    <Modal
+      onClickOut={changePaymentCard}
+      show={paymentPopup}
+      bodyClassName="SmallWidth"
+    >
       <Container>
         <div className="Address-Form-Header pb-1">
           <div className="text-end">

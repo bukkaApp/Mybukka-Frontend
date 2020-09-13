@@ -33,9 +33,10 @@ const PlainParagraph = ({
 
   const emitOnClick = () => {
     if (inpRef.current && state) inpRef.current.focus();
-    if (errorMessage) return setSeen(prev => !prev);
+
+    if (errorMessage) return setSeen((prev) => !prev);
     if (state) onClick();
-    setState(prev => !prev);
+    setState((prev) => !prev);
   };
 
   const decodeErrorWrapper = () => {
@@ -49,28 +50,27 @@ const PlainParagraph = ({
     return buttonText;
   };
 
-  const hasErrorMessage = (errorMessage && !seenError);
+  const hasErrorMessage = errorMessage && !seenError;
 
-  const plainParagraphErrorJsx = (
-    (errorMessage && !seenError) &&
-      <div className="form-group Plain-Paragraph-Content-Details">
-        <p className="error-details text-danger">{errorMessage}</p>
-      </div>
+  const plainParagraphErrorJsx = errorMessage && !seenError && (
+    <div className="form-group Plain-Paragraph-Content-Details">
+      <p className="error-details text-danger">{errorMessage}</p>
+    </div>
   );
 
-  const plainParagraphOrInputJsx = (
-    !(withForm || state) ?
-      <p className="Plain-Paragraph--text">{text}</p> :
-      (<Field.Input
-        type={type}
-        readOnly={!state}
-        placeholderText={placeHolder}
-        classNames="Plain-Paragraph--text"
-        name={name}
-        ref={inpRef}
-        handleChange={handleChange}
-        value={value}
-      />)
+  const plainParagraphOrInputJsx = !(withForm || state) ? (
+    <p className="Plain-Paragraph--text">{text}</p>
+  ) : (
+    <Field.Input
+      type={type}
+      readOnly={!state}
+      placeholderText={placeHolder}
+      classNames="Plain-Paragraph--text"
+      name={name}
+      ref={inpRef}
+      handleChange={handleChange}
+      value={value}
+    />
   );
 
   const plainParagraphJsx = (
@@ -84,9 +84,15 @@ const PlainParagraph = ({
       <Fragment>
         {withHeading && <h5 className="Plain-Paragraph-Header">{heading}</h5>}
         <div className={`${decodeErrorWrapper()} Plain-Paragraph-Wrapper`}>
-          <form className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}>
+          <form
+            className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}
+          >
             {hasErrorMessage ? plainParagraphErrorJsx : plainParagraphJsx}
-            <ButtonPlain withPrimaryButton={state} onClick={emitOnClick} text={decodeButtonText()} />
+            <ButtonPlain
+              withPrimaryButton={state}
+              onClick={emitOnClick}
+              text={decodeButtonText()}
+            />
           </form>
         </div>
       </Fragment>
@@ -94,10 +100,22 @@ const PlainParagraph = ({
   }
 
   return (
-    <div className={`Plain-Paragraph-Wrapper ${(noBorderOnMedium && 'Plain-Medium-Border--less') || ''}`}>
-      <div title={title} onDoubleClick={onDoubleClick} className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}>
+    <div
+      className={`Plain-Paragraph-Wrapper ${
+        (noBorderOnMedium && 'Plain-Medium-Border--less') || ''
+      }`}
+    >
+      <div
+        title={title}
+        onClick={onDoubleClick}
+        className={`Plain-Paragraph-Content Plain-Paragraph-Content--${aligned}`}
+      >
         {plainParagraphJsx}
-        <ButtonPlain withPrimaryButton={withPrimaryButton} onClick={onClick} text={buttonText} />
+        <ButtonPlain
+          withPrimaryButton={withPrimaryButton}
+          onClick={onClick}
+          text={buttonText}
+        />
       </div>
     </div>
   );
@@ -115,5 +133,5 @@ PlainParagraph.defaultProps = {
 PlainParagraph.propTypes = {
   buttonText: PropTypes.string.isRequired,
   children: PropTypes.node,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };

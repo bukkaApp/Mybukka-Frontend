@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Iframe from 'react-iframe';
 import Modal from '../modal/Modal';
@@ -61,9 +61,10 @@ const PaymentGateway = () => {
       setPaymentPendingPopup(true);
     } else if (type === 'open_url') {
       setOpenUrl(true);
-      setPaymentSecurityPopup(false);
-      setPaymentGatewayPopup(false);
-      setModal(false);
+      // setPaymentSecurityPopup(true);
+      // setPaymentGatewayPopup(false);
+      // setModal(true);
+      // setPayment(null);
     }
   };
 
@@ -76,19 +77,17 @@ const PaymentGateway = () => {
 
   useEffect(() => {
     if (openUrl) {
-      console.log({ payment });
-      window.open(payment.url, 'paystack_Gateway');
-
-      // setPayment(null);
-      // setOpenUrl(null);
-
+      if (payment && payment.url) {
+        window.open(payment.url, 'paystack_Gateway');
+      } else {
+        setPayment(null);
+        setOpenUrl(false);
+      }
       // socket listening to event
       socket = io(to);
 
-      socket.on(`${payment.reference}`, (data) => {
-        console.log({ data });
-
-        saveOpenUrlResponse(data);
+      socket.on(`${payment && payment.reference}`, (data) => {
+        saveOpenUrlResponse(data.event);
       });
 
       return () => {
@@ -96,17 +95,18 @@ const PaymentGateway = () => {
         socket.off();
       };
     }
-  }, [openUrl]);
+  }, [openUrl, payment]);
 
   const handleClick = (incl) => {
-    if (incl) setPayment(null);
     setModal(false);
+    setOpenUrl(false);
     setPaymentGatewayPopup(false);
+    if (incl) setPayment(null);
   };
   const saveOpenUrlResponse = async (data) => {
     try {
       loading(true);
-      const response = await API.card.post({
+      const response = await API.url.post({
         reference: payment.reference,
         ...data,
       });
@@ -121,9 +121,9 @@ const PaymentGateway = () => {
   const saveCardAndClosePopup = (response) => {
     console.log(response.data.newCard);
     setCard(response.data.newCard);
+    handleClick();
     setPayment(null);
     loading(false);
-    handleClick();
   };
 
   const handleSubmit = async () => {

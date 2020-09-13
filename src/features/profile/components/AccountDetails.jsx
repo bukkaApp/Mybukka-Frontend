@@ -21,7 +21,7 @@ const AccountDetails = ({ userInfo, setProfile }) => {
     name: '',
     mobileNumber: '',
     deliveryInstructions: '',
-    location: ''
+    location: '',
   });
 
   const [validationErrors, setValidationErrors] = useState({
@@ -29,7 +29,7 @@ const AccountDetails = ({ userInfo, setProfile }) => {
     lastName: '',
     email: '',
     contactMobile: '',
-    password: ''
+    password: '',
   });
 
   const defaultData = {
@@ -37,7 +37,7 @@ const AccountDetails = ({ userInfo, setProfile }) => {
     lastName: '',
     email: '',
     contactMobile: '',
-    password: ''
+    password: '',
   };
 
   const handleChange = ({ target: { name, value } }) => {
@@ -62,7 +62,7 @@ const AccountDetails = ({ userInfo, setProfile }) => {
   return (
     <div className="account-details">
       <AccountDetailsGroupHeader text="Account Details" />
-      {signUpDomStructure.map(propData => (
+      {signUpDomStructure.map((propData) => (
         <PlainParagraph
           withForm
           errorMessage={validationErrors[propData.name]}
@@ -74,7 +74,10 @@ const AccountDetails = ({ userInfo, setProfile }) => {
           key={propData.name}
           buttonText="EDIT"
           value={inputData[propData.name] || userInfo[propData.name]}
-          onClick={event => handleSubmit(event, propData.name)}
+          onClick={(event) => {
+            event.stopPropagation();
+            handleSubmit(event, propData.name);
+          }}
         />
       ))}
       <Addresses useProfileStandard />
