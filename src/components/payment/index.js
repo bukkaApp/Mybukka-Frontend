@@ -69,10 +69,16 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
     try {
       loading(true);
       const response = await API.card.delete(id);
-      setCard(response.data.cards);
       loading(false);
     } catch (error) {
-      setCard(error.response ? null : cards);
+      if (error.response) {
+        setToast({
+          message: error.response.data && error.response.data.message,
+          type: 'warning',
+        });
+      }
+      setPaymentPopup(false);
+      setModal(false);
       loading(false);
     }
   };
@@ -107,9 +113,12 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
       setCard(response.data.cards);
       loading('CARD', false);
     } catch (error) {
+      setPaymentPopup(false);
+      setModal(false);
       loading('CARD', false);
       setToast({
         message: error.response ? error.response.data.message : error.message,
+        type: 'warning',
       });
     }
   };

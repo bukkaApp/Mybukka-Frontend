@@ -17,9 +17,15 @@ import CurrentAddress from './CurrentAddress';
 import { useFormReportContext } from '../../context/FormReportContext';
 
 import './index.scss';
+import { useToastContext } from 'context/ToastContext';
 
 const AddAnAddress = () => {
-  const { setAddressFormPopup, setModal, setAddressPopup, addressPopup } = useModalContext();
+  const {
+    setAddressFormPopup,
+    setModal,
+    setAddressPopup,
+    addressPopup,
+  } = useModalContext();
 
   const handleClick = () => {
     if (!addressPopup) setModal(true);
@@ -43,10 +49,11 @@ const AddAnAddress = () => {
   );
 };
 
-const Addresses = ({ useProfileStandard, noPadding, withModal, useModal, }) => {
+const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   const { address: addresses, setAddress } = useUserContext();
-  const { addressPopup, setAddressPopup, setModal, } = useModalContext();
-  const { changeAddress: changeDefualtAddress, } = useFormReportContext();
+  const { addressPopup, setAddressPopup, setModal } = useModalContext();
+  const { changeAddress: changeDefualtAddress } = useFormReportContext();
+  const { setToast } = useToastContext();
   const { API } = useApi();
   const { loading } = useLoadingContext();
 
@@ -64,15 +71,21 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal, }) => {
       setAddress(response.data.addresses);
       loading(false);
     } catch (error) {
-      setAddress(error.response ? null : addresses);
-      loading(false);
+      setToast({
+        message: error.response.data && error.response.data.message,
+        type: 'warning',
+      });
     }
+    setAddressPopup(false);
+    setModal(false);
+    // setAddress(error.response ? null : addresses);
+    loading(false);
   };
 
   const decodeButtonText = (slug) => {
     const buttonText = changeDefualtAddress ? 'Default' : 'Change';
     if (!useProfileStandard) return buttonText;
-    return (addresses.defaultAddress !== slug ? 'DELETE' : 'DEFAULT');
+    return addresses.defaultAddress !== slug ? 'DELETE' : 'DEFAULT';
   };
 
   const emitOnClick = (slug, state) => {
@@ -80,37 +93,48 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal, }) => {
     return useModal ? changeAddress(state) : null;
   };
 
-  const isntDefaultAddress = slug => addresses.defaultAddress !== slug;
+  const isntDefaultAddress = (slug) => addresses.defaultAddress !== slug;
 
-  const addressJsx = (addresses && addresses.addresses.map(({ address, slug, }) => (
-    !useProfileStandard && isntDefaultAddress(slug) ? null
-      : <GeoSuggestions
-        asUtility
-        noBorderOnMedium={!useProfileStandard}
-        handleClick={() => {}}
-        withPrimaryButton={addresses.defaultAddress === slug}
-        text={decodeButtonText(slug)}
-        emitOnClick={() => emitOnClick(slug)}
-        predictions={[{ terms: address.split(', ').map(loc => ({ value: loc })) }]}
-        key={`Plain-Account-Details-DELETE--${slug}`}
-      />
-  )));
+  const addressJsx =
+    addresses &&
+    addresses.addresses.map(({ address, slug }) =>
+      !useProfileStandard && isntDefaultAddress(slug) ? null : (
+        <GeoSuggestions
+          asUtility
+          noBorderOnMedium={!useProfileStandard}
+          handleClick={() => {}}
+          withPrimaryButton={addresses.defaultAddress === slug}
+          text={decodeButtonText(slug)}
+          emitOnClick={() => emitOnClick(slug)}
+          predictions={[
+            { terms: address.split(', ').map((loc) => ({ value: loc })) },
+          ]}
+          key={`Plain-Account-Details-DELETE--${slug}`}
+        />
+      )
+    );
 
   if (!useProfileStandard) {
     return (
       <TemporaryWrapper.ViewWrapper>
-        {(!addresses || !addresses.addresses.length) ?
-          <Address withFormSpace withPadding label="Delivery Address" /> :
+        {!addresses || !addresses.addresses.length ? (
+          <Address withFormSpace withPadding label="Delivery Address" />
+        ) : (
           <div className={`${noPadding ? '' : 'addresses-section'}`}>
             <TemporaryWrapper.ViewHeading noPadding text="Address" />
             {addressJsx}
             <CurrentAddress useProfileStandard={useProfileStandard} />
-          </div>}
-      </TemporaryWrapper.ViewWrapper>);
+          </div>
+        )}
+      </TemporaryWrapper.ViewWrapper>
+    );
   }
 
   const profileStandardJsx = (
-    <div id="addresses" className={(useProfileStandard && 'addresses-section') || ''}>
+    <div
+      id="addresses"
+      className={(useProfileStandard && 'addresses-section') || ''}
+    >
       <div className="account-details-header">
         <h5 className="account-details-text">Addresses</h5>
       </div>
@@ -122,7 +146,11 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal, }) => {
   if (useProfileStandard && !withModal) return profileStandardJsx;
 
   return (
-    <Modal onClickOut={changeAddress} show={addressPopup} bodyClassName="SmallWidth">
+    <Modal
+      onClickOut={changeAddress}
+      show={addressPopup}
+      bodyClassName="SmallWidth"
+    >
       <Container>
         <div className="Address-Form-Header pb-1">
           <div className="text-end">

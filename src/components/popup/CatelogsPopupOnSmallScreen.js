@@ -16,7 +16,11 @@ const CatelogsPopupOnSmallScreen = () => {
   const { catelogs, business } = useBusinessContext();
   const { location, push } = useHistory();
   const { pathname } = location;
-  const { setModal, setCatelogsOnSmallScreenPopup, catelogsOnSmallScreenPopup } = useModalContext();
+  const {
+    setModal,
+    setCatelogsOnSmallScreenPopup,
+    catelogsOnSmallScreenPopup,
+  } = useModalContext();
   const [uniqueCatelogs, setUniqueCatelogs] = useState([]);
 
   const isInSearch = (catelog) => {
@@ -26,11 +30,14 @@ const CatelogsPopupOnSmallScreen = () => {
     return false;
   };
 
-  const hasNoResult = () => catelogs && catelogs.filter(menu => isInSearch(menu)).length === 0;
+  const hasNoResult = () =>
+    catelogs && catelogs.filter((menu) => isInSearch(menu)).length === 0;
 
   useEffect(() => {
     if (catelogs) {
-      const categories = [...new Set(catelogs.map(catelog => catelog.category))];
+      const categories = [
+        ...new Set(catelogs.map((catelog) => catelog.category)),
+      ];
       setUniqueCatelogs(categories);
     }
     return () => setState('');
@@ -53,13 +60,16 @@ const CatelogsPopupOnSmallScreen = () => {
     }, 1000);
   };
 
-  const resolveValidId = title => title.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
+  const resolveValidId = (title) =>
+    title.replace(/ /g, '-').replace(/'/g, '-').replace(/₦/g, '-');
 
-  const hashPath = catelog => `${pathname}#catelog-${resolveValidId(catelog._id)}`;
+  const hashPath = (catelog) =>
+    `${pathname}#catelog-${resolveValidId(catelog._id)}`;
 
-  const _uniquePath = catelog => `${pathname}#${resolveValidId(catelog)}`;
+  const _uniquePath = (catelog) => `${pathname}#${resolveValidId(catelog)}`;
 
-  const hasNoCatelog = () => (business && `${business.title} has no catelog`) || null;
+  const hasNoCatelog = () =>
+    (business && `${business.title} has no catelog`) || null;
 
   return (
     <Modal
@@ -73,7 +83,7 @@ const CatelogsPopupOnSmallScreen = () => {
               aria-pressed="true"
               role="button"
               tabIndex="0"
-              onClick={e => onKeyDown(e, true)}
+              onClick={(e) => onKeyDown(e, true)}
               className="col-2 px-0"
             >
               <DismissModal classNames="pl-0" />
@@ -82,8 +92,9 @@ const CatelogsPopupOnSmallScreen = () => {
               <Field.Input
                 placeholderText={state || 'Search'}
                 value={state}
-                onKeyDown={e => onKeyDown(e)}
-                handleChange={e => setState(e.target.value)}
+                name="welcome"
+                onKeyDown={(e) => onKeyDown(e)}
+                handleChange={(e) => setState(e.target.value)}
                 classNames="bukka-nav-search-input"
               />
             </div>
@@ -93,34 +104,48 @@ const CatelogsPopupOnSmallScreen = () => {
           <div className="dropdown-suggestion">
             <Fragment>
               <div className="mx-4">
-                {(!state && catelogs) && uniqueCatelogs.map(eachUniqueCatelog =>
-                  (<Link
-                    onClick={e => onClick(e, _uniquePath(eachUniqueCatelog))}
-                    className="Catelog-Popup-Link"
-                    to={_uniquePath(eachUniqueCatelog)}
-                    key={eachUniqueCatelog}
-                  >
-                    <div className="bukka-nav-small-category">
-                      {eachUniqueCatelog}
-                    </div>
-                  </Link>
+                {!state &&
+                  catelogs &&
+                  uniqueCatelogs.map((eachUniqueCatelog) => (
+                    <Link
+                      onClick={(e) =>
+                        onClick(e, _uniquePath(eachUniqueCatelog))
+                      }
+                      className="Catelog-Popup-Link"
+                      to={_uniquePath(eachUniqueCatelog)}
+                      key={eachUniqueCatelog}
+                    >
+                      <div className="bukka-nav-small-category">
+                        {eachUniqueCatelog}
+                      </div>
+                    </Link>
                   ))}
 
-                {(state && catelogs) && catelogs.map(catelog =>
-                  isInSearch(catelog) &&
-                  (<Link
-                    onClick={e => onClick(e, hashPath(catelog))}
-                    className="Catelog-Popup-Link"
-                    to={hashPath(catelog)}
-                    key={catelog._id}
-                  >
-                    <div className="bukka-nav-small-category">
-                      {catelog.title}
-                    </div>
-                  </Link>
-                  ))}
+                {state &&
+                  catelogs &&
+                  catelogs.map(
+                    (catelog) =>
+                      isInSearch(catelog) && (
+                        <Link
+                          onClick={(e) => onClick(e, hashPath(catelog))}
+                          className="Catelog-Popup-Link"
+                          to={hashPath(catelog)}
+                          key={catelog._id}
+                        >
+                          <div className="bukka-nav-small-category">
+                            {catelog.title}
+                          </div>
+                        </Link>
+                      )
+                  )}
 
-                {hasNoResult() && <NoResult details={!catelogs ? hasNoCatelog() : null} withPadding text={state} />}
+                {hasNoResult() && (
+                  <NoResult
+                    details={!catelogs ? hasNoCatelog() : null}
+                    withPadding
+                    text={state}
+                  />
+                )}
               </div>
             </Fragment>
           </div>

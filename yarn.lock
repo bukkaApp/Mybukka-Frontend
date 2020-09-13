@@ -10630,6 +10630,13 @@ react-paystack@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-paystack/-/react-paystack-3.0.1.tgz#520d3011a3f73923fa01e40733f35aac9cb9a2cc"
   integrity sha512-b9Cnw/oNTWSunlCFjSMCz4RYV1/yzQgt4PZ5u+nQyu/+2F9cIFFoxJVnmk96awc0cyfYr33rdjaaK1t2dYiW7g==
 
+react-query@^2.17.1:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/react-query/-/react-query-2.17.1.tgz#6f0bf68f7262480ae5d14c50f89cd0eecd50e712"
+  integrity sha512-4fSePUC6wJ9gsrtlrkrK9kd7detdumtfoYSJlBrHMXx+n4ia601z75KpKhEQMizdXlMUu7iZcddPMPs0v19DGA==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+
 react-redux@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"

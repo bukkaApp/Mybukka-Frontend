@@ -8,11 +8,17 @@ import { useToastContext } from '../context/ToastContext';
 import { useLoadingContext } from '../context/LoadingContext';
 import { useModalContext } from '../context/ModalContext';
 
-
 const useAuthentication = (pathname) => {
   const { push, location } = useHistory();
 
-  const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
+  const {
+    logoutSuccess: signOut,
+    signIn: signInData,
+    setUser,
+    setVerified,
+    token,
+    isAuthenticated,
+  } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
   const { API } = useApi();
@@ -25,8 +31,10 @@ const useAuthentication = (pathname) => {
     const now = Date.now().valueOf() / 1000;
     const decoded = jwt.decode(token);
     if (!decoded) return true;
-    if (decoded && typeof decoded.exp !== 'undefined' && decoded.exp < now) return true;
-    if (decoded && typeof decoded.nbf !== 'undefined' && decoded.nbf > now) return true;
+    if (decoded && typeof decoded.exp !== 'undefined' && decoded.exp < now)
+      return true;
+    if (decoded && typeof decoded.nbf !== 'undefined' && decoded.nbf > now)
+      return true;
     return false;
   };
 
@@ -43,6 +51,7 @@ const useAuthentication = (pathname) => {
       return swal('You need to login first').then(() => pageRedirect());
     }
     setToast({ message: 'Retrying login ...', type: 'warning' });
+    localStorage.removeItem('x-access-token');
     const { email } = (token && jwt.decode(token).data) || {};
     const password = signInData.split('.bukka@gmail.com')[0];
     try {
@@ -51,12 +60,16 @@ const useAuthentication = (pathname) => {
       loading(false);
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
+        localStorage.setItem('x-access-token', response.data.token);
         setVerified(response.data.user.verified);
         requestVerification(response.data.user.verified);
       }
     } catch (error) {
       loading(false);
-      setToast({ message: error.response ? error.response.data.message : error.message, type: 'error' });
+      setToast({
+        message: error.response ? error.response.data.message : error.message,
+        type: 'error',
+      });
     }
   };
 

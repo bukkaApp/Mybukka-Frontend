@@ -22,7 +22,11 @@ export const RegisterPage = ({
   const { API } = useApi();
   const { setUser, setVerified, isAuthenticated } = useUserContext();
   const { loading } = useLoadingContext();
-  const { setVerificationPhonePopup, setAuthenticationPopup, setModal } = useModalContext();
+  const {
+    setVerificationPhonePopup,
+    setAuthenticationPopup,
+    setModal,
+  } = useModalContext();
   const [errorMessage, setErrorMessage] = useState(false);
   const [validationErrors, setValidationErrors] = useState({
     firstName: '',
@@ -62,11 +66,11 @@ export const RegisterPage = ({
     const validation = validateAField(newFieldData, name);
     setInputData({
       ...inputData,
-      ...newFieldData
+      ...newFieldData,
     });
     setValidationErrors({
       ...validationErrors,
-      [name]: validation.message
+      [name]: validation.message,
     });
   };
 
@@ -95,12 +99,15 @@ export const RegisterPage = ({
       loading(false);
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
+        localStorage.setItem('x-access-token', response.data.token);
         setVerified(response.data.user.verified);
         handleExpensiveEvents(response.data.user.verified);
       }
     } catch (error) {
       loading(false);
-      setErrorMessage(error.response ? error.response.data.message : error.message);
+      setErrorMessage(
+        error.response ? error.response.data.message : error.message
+      );
     }
   };
 
@@ -149,7 +156,12 @@ export const RegisterPage = ({
           handleFBAuth={handleFBAuth}
         />
       </div>
-      {!hasModal && <div className="pb-3"> <Logo /></div>}
+      {!hasModal && (
+        <div className="pb-3">
+          {' '}
+          <Logo />
+        </div>
+      )}
     </Fragment>
   );
 };
@@ -164,7 +176,7 @@ RegisterPage.defaultProps = {
 RegisterPage.propTypes = {
   authModal: PropTypes.bool,
   history: PropTypes.shape({
-    push: PropTypes.func
+    push: PropTypes.func,
   }).isRequired,
   classNames: PropTypes.string,
 };
