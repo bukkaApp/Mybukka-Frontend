@@ -31,6 +31,7 @@ const SubCategory = lazy(() => import('../features/feedback/SubCategory'));
 const ComplainScene = lazy(() => import('../features/feedback/ComplainScene'));
 const Promotion = lazy(() => import('../features/promotion'));
 
+
 const Main = () => (
   <main>
     <Switch>
