@@ -127,7 +127,7 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
       setToast({ message: null });
       const address = { ...availableAddress };
       delete address._id;
-      // address.slug = availableAddress.slug + Date.now();
+      address.slug = availableAddress.slug + Date.now();
       const deliveryAddress = { ...address, user: user.slug };
 
       const bukkaSlug = business && business.slug;
