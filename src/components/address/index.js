@@ -92,6 +92,15 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
     if (addresses.defaultAddress !== slug) return deleteAddress(slug);
     return useModal ? changeAddress(state) : null;
   };
+  const handleDoubleClick = (slug) => {
+    console.log('got here');
+    if (isntDefaultAddress(slug)) {
+      const newAddress = { ...addresses };
+      newAddress.defaultAddress = slug;
+      setAddress(newAddress);
+      return;
+    }
+  };
 
   const isntDefaultAddress = (slug) => addresses.defaultAddress !== slug;
 
@@ -103,6 +112,7 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
           asUtility
           noBorderOnMedium={!useProfileStandard}
           handleClick={() => {}}
+          onDoubleClick={() => handleDoubleClick(slug)}
           withPrimaryButton={addresses.defaultAddress === slug}
           text={decodeButtonText(slug)}
           emitOnClick={() => emitOnClick(slug)}
