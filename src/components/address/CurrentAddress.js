@@ -7,8 +7,12 @@ import { useFormReportContext } from '../../context/FormReportContext';
 import './index.scss';
 
 const CurrentAddress = ({ useProfileStandard }) => {
-  const { setAddressFormPopup, setModal, } = useModalContext();
-  const { address, resetAddressReport, setAddressReport } = useFormReportContext();
+  const { setAddressFormPopup, setModal } = useModalContext();
+  const {
+    address,
+    resetAddressReport,
+    setAddressReport,
+  } = useFormReportContext();
 
   const emitOnClick = (state) => {
     setAddressReport({ change: true });
@@ -16,7 +20,7 @@ const CurrentAddress = ({ useProfileStandard }) => {
     setAddressFormPopup(state);
   };
 
-  return address ?
+  return address ? (
     <GeoSuggestions
       asUtility
       noBorderOnMedium={!useProfileStandard}
@@ -24,9 +28,11 @@ const CurrentAddress = ({ useProfileStandard }) => {
       withPrimaryButton
       text="current"
       emitOnClick={() => emitOnClick(true)}
-      predictions={[{ terms: address.address.split(', ').map(loc => ({ value: loc })) }]}
+      predictions={[
+        { terms: address.address.split(', ').map((loc) => ({ value: loc })) },
+      ]}
     />
-    : null;
+  ) : null;
 };
 
 export default CurrentAddress;

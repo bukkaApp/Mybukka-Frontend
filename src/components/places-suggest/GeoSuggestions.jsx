@@ -8,7 +8,16 @@ import './GeoSuggestions.scss';
 import Button from '../button/Button';
 import { useLocationContext } from '../../context/LocationContext';
 
-const GeoSuggestions = ({ onDoubleClick, handleClick, predictions, asUtility, text, emitOnClick, withPrimaryButton, noBorderOnMedium }) => {
+const GeoSuggestions = ({
+  onDoubleClick,
+  handleClick,
+  predictions,
+  asUtility,
+  text,
+  emitOnClick,
+  withPrimaryButton,
+  noBorderOnMedium,
+}) => {
   const { setUpdate } = useLocationContext();
 
   const onClick = (suggestion) => {
@@ -20,40 +29,58 @@ const GeoSuggestions = ({ onDoubleClick, handleClick, predictions, asUtility, te
     <Fragment>
       {predictions.map((suggestion) => {
         const { terms } = suggestion;
-        const filteredTerms = terms.reduce((arr, item) => [...arr, item.value], []);
+        const filteredTerms = terms.reduce(
+          (arr, item) => [...arr, item.value],
+          []
+        );
         return (
           <div
-            className={`${asUtility ? 'Suggestion-Address' : 'suggestion-group-style'} ${(noBorderOnMedium && 'Suggestion-Address-Border--less') || ''}`}
+            className={`${
+              asUtility ? 'Suggestion-Address' : 'suggestion-group-style'
+            } ${(noBorderOnMedium && 'Suggestion-Address-Border--less') || ''}`}
             onClick={() => onClick(suggestion)}
             onDoubleClick={onDoubleClick}
             tabIndex="0"
             role="link"
             key={suggestion.id || filteredTerms.join('-')}
           >
-            {!asUtility &&
-            <div className="input-group-prepend">
-              <span className="input-group-text location-arrow">
-                <MapMarker />
-              </span>
-            </div>
-            }
+            {!asUtility && (
+              <div className="input-group-prepend">
+                <span className="input-group-text location-arrow">
+                  <MapMarker />
+                </span>
+              </div>
+            )}
             <div className="suggestion suggestion-geo text-center d-flex">
               {filteredTerms.slice(0, 2).map((term, indx) => (
-                <span key={`term-${term}`} className={`${indx !== 0 ? 'secondary-address-suggest' : ''}`}>{term}</span>))}
-              {filteredTerms.length > 2 && <span className="secondary-address-suggest">
-                {filteredTerms.slice(2).join(', ')}
-              </span>}
+                <span
+                  key={`term-${term}`}
+                  className={`${indx !== 0 ? 'secondary-address-suggest' : ''}`}
+                >
+                  {term}
+                </span>
+              ))}
+              {filteredTerms.length > 2 && (
+                <span className="secondary-address-suggest">
+                  {filteredTerms.slice(2).join(', ')}
+                </span>
+              )}
             </div>
-            {asUtility &&
-            <div className="edit-toggler-button">
-              <Button
-                type="button"
-                handleClick={emitOnClick}
-                text={text}
-                classNames={`Button-Stripe ${(withPrimaryButton && 'Primary-Color') || ''}`}
-              />
-            </div>
-            }
+            {asUtility && (
+              <div className="edit-toggler-button">
+                <Button
+                  type="button"
+                  handleClick={(e) => {
+                    e.stopPropagation();
+                    emitOnClick();
+                  }}
+                  text={text}
+                  classNames={`Button-Stripe ${
+                    (withPrimaryButton && 'Primary-Color') || ''
+                  }`}
+                />
+              </div>
+            )}
           </div>
         );
       })}
