@@ -53,7 +53,7 @@ export const CartItems = ({
   category,
   price,
   quantity,
-  removeFromCartAction
+  removeFromCartAction,
 }) => (
   <div className="cart-body-content">
     <div className="custom-cart-section">
@@ -82,7 +82,7 @@ const CartIconSection = ({
   orderQuantity,
   focus,
   removeFromCartAction,
-  totalCost
+  totalCost,
 }) => {
   const { setUnAuthenticatedCheckoutPopup } = useModalContext();
 
@@ -126,9 +126,11 @@ const CartIconSection = ({
         >
           {orderItems.map((item, index) => (
             <CartItems
-              key={`cart-ordr-items-${item.title}-${item.slug}`}
+              key={`cart-ordr-items-${item.title}-${item.slug}-${index}`}
               title={item.title}
-              removeFromCartAction={() => removeFromCartAction(item.slug, index)}
+              removeFromCartAction={() =>
+                removeFromCartAction(item.slug, index)
+              }
               category={handleCategoryText(item) || item.category}
               price={(handleEachCost(item) + item.price) * item.quantity}
               quantity={item.quantity}
@@ -147,20 +149,19 @@ const CartIconSection = ({
 
 const mapStateToProps = ({ cartReducer: { items, totalCost } }) => {
   const qty = items.reduce((val, itm) => val + itm.quantity, 0);
-  return ({
+  return {
     orderQuantity: qty,
     orderItems: items,
-    totalCost
-  });
+    totalCost,
+  };
 };
 
-export default connect(
-  mapStateToProps,
-  { removeFromCartAction: removeFromCart }
-)(CartIconSection);
+export default connect(mapStateToProps, {
+  removeFromCartAction: removeFromCart,
+})(CartIconSection);
 
 CheckoutBtn.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
 };
 
 CartIconSection.defaultProps = {
@@ -173,17 +174,17 @@ CartIconSection.propTypes = {
   orderItems: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.bool, PropTypes.number])
   ).isRequired,
-  orderQuantity: PropTypes.number.isRequired
+  orderQuantity: PropTypes.number.isRequired,
 };
 
 SubTotal.propTypes = {
-  totalPriceInCart: PropTypes.number.isRequired
+  totalPriceInCart: PropTypes.number.isRequired,
 };
 
 CartItems.defaultProps = {
   title: '',
   category: '',
-  price: ''
+  price: '',
 };
 
 CartItems.propTypes = {
@@ -191,5 +192,5 @@ CartItems.propTypes = {
   title: PropTypes.string,
   category: PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  quantity: PropTypes.number.isRequired
+  quantity: PropTypes.number.isRequired,
 };
