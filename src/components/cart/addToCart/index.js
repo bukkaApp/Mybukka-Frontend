@@ -15,10 +15,18 @@ import { useBusinessContext } from '../../../context/BusinessContext';
 
 const AddToCart = ({ addToCart, manipulateSubmenus }) => {
   const formRef = React.createRef();
-  const [state, setState] = useState({ price: 0, imageUrl: '', title: '', description: '' });
+  const [state, setState] = useState({
+    price: 0,
+    imageUrl: '',
+    title: '',
+    description: '',
+  });
   const { catelogToDisplay, setCatelogToDisplay } = useBusinessContext();
   const { setModal, setCartPopup, cartPopup } = useModalContext();
-  const { clearInProgressCart, inProgressCart: { totalCost, originalCost, products } } = useCartContext();
+  const {
+    clearInProgressCart,
+    inProgressCart: { totalCost, originalCost, products },
+  } = useCartContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
 
   const handleClick = (action) => {
@@ -63,11 +71,7 @@ const AddToCart = ({ addToCart, manipulateSubmenus }) => {
     >
       <form ref={formRef} className="Add-to-cart">
         <div className="Add-to-cart_content">
-          {imageUrl &&
-          <MealImage
-            onClick={handleClick}
-            imageUrl={imageUrl}
-          />}
+          {imageUrl && <MealImage onClick={handleClick} imageUrl={imageUrl} />}
           <OrderOptions
             catelogToDisplay={catelogToDisplay}
             price={price}
@@ -78,13 +82,14 @@ const AddToCart = ({ addToCart, manipulateSubmenus }) => {
             storeIntoCart={storeIntoCart}
           />
         </div>
-        {!isBigScreen &&
-        <FooterBigScreen
-          withQtyBtn
-          handleClick={storeIntoCart}
-          totalCost={totalCost + (originalCost || price)}
-          price={price}
-        />}
+        {!isBigScreen && (
+          <FooterBigScreen
+            withQtyBtn
+            handleClick={storeIntoCart}
+            totalCost={totalCost + (originalCost || price)}
+            price={price}
+          />
+        )}
       </form>
     </Modal>
   );
@@ -92,10 +97,7 @@ const AddToCart = ({ addToCart, manipulateSubmenus }) => {
 
 const mapStateToProps = () => ({});
 
-export default connect(
-  mapStateToProps,
-  {
-    manipulateSubmenus: manipulateSubmenusAction,
-    addToCart: updateCartAction,
-  }
-)(AddToCart);
+export default connect(mapStateToProps, {
+  manipulateSubmenus: manipulateSubmenusAction,
+  addToCart: updateCartAction,
+})(AddToCart);

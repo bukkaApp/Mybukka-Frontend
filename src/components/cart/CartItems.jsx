@@ -60,7 +60,7 @@ const CartItems = ({ cartItems, removeFromCart, totalPriceInCart }) => {
         {cartItems.map((cartItem, index) => (
           <CartItem
             item={cartItem}
-            key={`Cart--item-${cartItem.slug}-${cartItem.title}`}
+            key={`Cart--item-${cartItem.slug}-${cartItem.title}-${index}`}
             index={index}
             removeFromCart={removeFromCart}
           />
@@ -74,22 +74,21 @@ const CartItems = ({ cartItems, removeFromCart, totalPriceInCart }) => {
 
 const mapStateToProps = ({ cartReducer: { items, totalCost } }) => ({
   cartItems: items,
-  totalPriceInCart: totalCost
+  totalPriceInCart: totalCost,
 });
 
-export default connect(
-  mapStateToProps,
-  { removeFromCart: removeFromCartAction }
-)(CartItems);
+export default connect(mapStateToProps, {
+  removeFromCart: removeFromCartAction,
+})(CartItems);
 
 SubtotalSection.propTypes = {};
 
 CartItems.propTypes = {
   cartItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  removeFromCart: PropTypes.func.isRequired
+  removeFromCart: PropTypes.func.isRequired,
 };
 
 CartItem.propTypes = {
   item: PropTypes.shape({}).isRequired,
-  removeFromCart: PropTypes.func.isRequired
+  removeFromCart: PropTypes.func.isRequired,
 };
