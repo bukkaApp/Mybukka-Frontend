@@ -10,12 +10,12 @@ const checkArrays = (arrA, arrB) => {
   return cA === cB;
 };
 
-const isLength = prod => (prod.submenus ? prod.submenus.length : 0);
+const isLength = (prod) => (prod.submenus ? prod.submenus.length : 0);
 
 const hasProducts = (old, dnew) => {
   const isSubmenuInOldItem = isLength(old);
   const isSubmenuInNewItem = isLength(dnew);
-  if (isSubmenuInOldItem && isSubmenuInNewItem) {
+  if (isSubmenuInOldItem === isSubmenuInNewItem) {
     return true;
   }
   return false;
@@ -23,29 +23,39 @@ const hasProducts = (old, dnew) => {
 
 export const flatArr = (submenus) => {
   if (submenus && submenus.length > 0) {
-    return submenus
-      .reduce((arr, item) => [...arr, item._id, ...item.options
-        .reduce((arr2, itm) => [...arr2, itm._id], [])],
-      []);
+    return submenus.reduce(
+      (arr, item) => [
+        ...arr,
+        item._id,
+        ...item.options.reduce((arr2, itm) => [...arr2, itm._id], []),
+      ],
+      []
+    );
   }
   return [];
 };
 
-
 export const sortOrdersUpdate = (orders, newOrder) => {
+  console.log({ newOrder });
   let isInCart = false;
   if (orders.length === 0) return [newOrder];
   const compressedOrder = orders.map((order) => {
-    const isNew = newOrder.submenus, old = order.submenus;
-    if (hasProducts(order, newOrder) && checkArrays(flatArr(old), flatArr(isNew))) {
-      isInCart = true;
-      return { ...order, quantity: order.quantity + 1 };
+    const isNew = newOrder.submenus,
+      old = order.submenus;
+    if (order.slug === newOrder.slug) {
+      if (
+        hasProducts(order, newOrder) &&
+        checkArrays(flatArr(old), flatArr(isNew))
+      ) {
+        isInCart = true;
+        return { ...order, quantity: order.quantity + newOrder.quantity };
+      }
+      return order;
     }
     return order;
   });
   if (isInCart) return compressedOrder;
   return [...compressedOrder, newOrder];
 };
-
 
 export default { checkArrays, hasProducts, flatArr, sortOrdersUpdate };
