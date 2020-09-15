@@ -25,7 +25,7 @@ const AddToCart = ({ addToCart, manipulateSubmenus }) => {
   const { setModal, setCartPopup, cartPopup } = useModalContext();
   const {
     clearInProgressCart,
-    inProgressCart: { totalCost, originalCost, products },
+    inProgressCart: { totalCost, originalCost, quantity, products },
   } = useCartContext();
   const isBigScreen = useMediaQuery({ minWidth: 960 });
 
@@ -40,7 +40,7 @@ const AddToCart = ({ addToCart, manipulateSubmenus }) => {
     let timout;
     if (formRef.current.checkValidity()) {
       e.preventDefault();
-      const newOrder = { ...catelogToDisplay, submenus: products };
+      const newOrder = { ...catelogToDisplay, quantity, submenus: products };
       addToCart(newOrder);
       timout = setTimeout(() => {
         handleClick(false);

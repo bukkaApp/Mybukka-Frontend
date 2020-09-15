@@ -12,15 +12,15 @@ const initialState = {
   item: {},
   sub_menus: {
     mealSlug: '',
-    submenus: []
+    submenus: [],
   },
   initialTime: 0,
   totalCost: 0,
   status: {
     updated: false,
-    error: false
+    error: false,
   },
-  errorMessage: ''
+  errorMessage: '',
 };
 
 const handleSubmenusPrice = (cartItems) => {
@@ -37,13 +37,14 @@ const handleSubmenusPrice = (cartItems) => {
   return total;
 };
 
-
 const calculatePrice = (cartItems) => {
   if (cartItems.length === 0) {
     return 0;
   }
   const add = (accumulator, digit) => accumulator + digit;
-  const totalPrice = cartItems.map(item => item.price * item.quantity).reduce(add);
+  const totalPrice = cartItems
+    .map((item) => item.price * item.quantity)
+    .reduce(add);
   return handleSubmenusPrice(cartItems) + totalPrice;
 };
 
@@ -61,7 +62,14 @@ const cartUpdateSuccess = (userCart) => {
   userCart.items.map((myCart) => {
     const item = { ...myCart, ...myCart.meal };
     const uniqueIds = flatArr(item.submenus);
-    console.log('uniqueCarts', uniqueCarts, 'item', item, 'uniqueIds', uniqueIds);
+    console.log(
+      'uniqueCarts',
+      uniqueCarts,
+      'item',
+      item,
+      'uniqueIds',
+      uniqueIds
+    );
     uniqueCarts = sortOrdersUpdate(uniqueCarts, item);
     return item;
   });
@@ -72,9 +80,9 @@ const cartUpdateSuccess = (userCart) => {
     totalCost: calculatePrice(newCart),
     status: {
       updated: true,
-      error: false
+      error: false,
     },
-    errorMessage: ''
+    errorMessage: '',
   };
 };
 
@@ -83,11 +91,10 @@ const cartUpdateError = (state, message, isEmpty) => ({
   items: isEmpty ? [] : state.items,
   status: {
     updated: false,
-    error: true
+    error: true,
   },
-  errorMessage: message || 'an error occured'
+  errorMessage: message || 'an error occured',
 });
-
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -109,23 +116,32 @@ const cartReducer = (state = initialState, action) => {
     case 'UPDATE_CART_LOCAL': {
       const initialTime = state.initialTime;
       const currTime = moment(new Date());
-      if (typeof initialTime !== 'number' && currTime.diff(initialTime) >= 43200000) {
+      if (
+        typeof initialTime !== 'number' &&
+        currTime.diff(initialTime) >= 43200000
+      ) {
         return {
           ...state,
           initialTime: 0,
           items: [],
           item: {},
-          totalCost: 0
+          totalCost: 0,
         };
       }
-      if (state.items.length > 0 && action.data.bukka !== state.items[0].bukka) {
-        swal('your cart can only contain items of a single bukka at any given time');
+      if (
+        state.items.length > 0 &&
+        action.data.bukka !== state.items[0].bukka
+      ) {
+        swal(
+          'your cart can only contain items of a single bukka at any given time'
+        );
         return {
           ...state,
-          errorMessage: 'your cart can only contain items of a single bukka at any given time',
+          errorMessage:
+            'your cart can only contain items of a single bukka at any given time',
         };
       }
-      const item = { ...action.data, meal: action.data, quantity: 1 };
+      const item = { ...action.data, meal: action.data };
       if (state.items.length > 0) {
         const orders = sortOrdersUpdate(state.items, item);
         return createLocalCart(state, orders);
@@ -134,7 +150,9 @@ const cartReducer = (state = initialState, action) => {
     }
 
     case 'UPDATE_CART_REMOVE': {
-      const newItems = state.items.filter((items, index) => index !== action.index);
+      const newItems = state.items.filter(
+        (items, index) => index !== action.index
+      );
       return {
         ...state,
         items: newItems,
@@ -157,13 +175,16 @@ const cartReducer = (state = initialState, action) => {
     default: {
       const initialTime = state.initialTime;
       const currTime = moment(new Date());
-      if (typeof initialTime !== 'number' && currTime.diff(initialTime) >= 43200000) {
+      if (
+        typeof initialTime !== 'number' &&
+        currTime.diff(initialTime) >= 43200000
+      ) {
         return {
           ...state,
           initialTime: 0,
           items: [],
           item: {},
-          totalCost: 0
+          totalCost: 0,
         };
       }
       return state;

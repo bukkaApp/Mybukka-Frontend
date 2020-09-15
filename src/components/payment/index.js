@@ -112,6 +112,8 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
       const response = await API.card.patch(slug);
       setCard(response.data.cards);
       loading('CARD', false);
+      setPaymentPopup(false);
+      setModal(false);
     } catch (error) {
       setPaymentPopup(false);
       setModal(false);

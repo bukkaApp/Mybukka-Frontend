@@ -15,6 +15,7 @@ const GeoSuggestions = ({
   asUtility,
   text,
   emitOnClick,
+  title,
   withPrimaryButton,
   noBorderOnMedium,
 }) => {
@@ -42,6 +43,7 @@ const GeoSuggestions = ({
             onDoubleClick={onDoubleClick}
             tabIndex="0"
             role="link"
+            title={title}
             key={suggestion.id || filteredTerms.join('-')}
           >
             {!asUtility && (
