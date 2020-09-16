@@ -164,6 +164,7 @@ const useApi = () => {
       reportIssue: createEndpoint('/user/comment'),
       history: '/order?role=customer',
       order: createEndpoint('/order'),
+      updateOrder: createEndpoint('order/$id'),
       catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
       business: createEndpoint('bukka/index/$id/'),
       categories: createHyperlinkedEndpoint('categories/'),

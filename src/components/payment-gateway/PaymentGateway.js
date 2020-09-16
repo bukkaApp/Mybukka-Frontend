@@ -79,8 +79,8 @@ const PaymentGateway = () => {
       case 'url':
       case 'pending':
         if (!paymentPendingPopup) {
-          setPaymentSecurityPopup(false);
           setPaymentGatewayPopup(true);
+          setPaymentPendingPopup(true);
         }
         break;
 
@@ -95,8 +95,10 @@ const PaymentGateway = () => {
       case 'send_otp':
       case 'send_pin':
       case 'send_address':
-        setPaymentSecurityPopup(true);
-        setPaymentGatewayPopup(false);
+        if (!paymentSecurityPopup) {
+          setPaymentSecurityPopup(true);
+          setPaymentGatewayPopup(false);
+        }
         break;
       default:
         break;

@@ -16,9 +16,11 @@ const SET_PAYMENT_PENDING_POPUP = 'SET_PAYMENT_PENDING_POPUP';
 const SET_INVITE_POPUP = 'SET_INVITE_POPUP';
 const SET_UNAUTHENTICATED_CHECKOUT_POPUP = 'SET_UNAUTHENTICATED_CHECKOUT_POPUP';
 const SET_CART_POPUP = 'SET_CART_POPUP';
+const SET_AFTER_CHECKOUT = ' SET_AFTER_CHECKOUT';
 const SET_BUSINESS_CLOSED_POPUP = 'SET_BUSINESS_CLOSED_POPUP';
 const CATELOGS_ON_SMALL_SCREEN_POPUP = 'CATELOGS_ON_SMALL_SCREEN_POPUP';
-const SELECT_LOCATION_ON_SMALL_SCREEN_POPUP = 'SELECT_LOCATION_ON_SMALL_SCREEN_POPUP';
+const SELECT_LOCATION_ON_SMALL_SCREEN_POPUP =
+  'SELECT_LOCATION_ON_SMALL_SCREEN_POPUP';
 
 const initialState = {
   show: false,
@@ -38,6 +40,7 @@ const initialState = {
   businessClosedPopup: false,
   catelogsOnSmallScreenPopup: false,
   selectLocationPopup: false,
+  afterCheckout: false,
 };
 
 const reducer = (originalState, action) => {
@@ -93,6 +96,8 @@ const reducer = (originalState, action) => {
 
     case SELECT_LOCATION_ON_SMALL_SCREEN_POPUP:
       return { ...state, selectLocationPopup: action.payload };
+    case SET_AFTER_CHECKOUT:
+      return { ...state, afterCheckout: action.payload };
 
     default: {
       return state;
@@ -223,6 +228,12 @@ const useModal = () => {
       payload,
     });
   };
+  const setAfterCheckout = (payload) => {
+    dispatch({
+      type: SET_AFTER_CHECKOUT,
+      payload,
+    });
+  };
 
   const {
     show,
@@ -241,7 +252,9 @@ const useModal = () => {
     authenticationPopup,
     phoneVerificationPopup,
     catelogsOnSmallScreenPopup,
-    unAuthenticatedCheckoutPopup } = state;
+    unAuthenticatedCheckoutPopup,
+    afterCheckout,
+  } = state;
 
   return {
     show,
@@ -278,6 +291,8 @@ const useModal = () => {
     setCatelogsOnSmallScreenPopup,
     unAuthenticatedCheckoutPopup,
     setUnAuthenticatedCheckoutPopup,
+    afterCheckout,
+    setAfterCheckout,
   };
 };
 

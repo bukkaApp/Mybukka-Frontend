@@ -17,11 +17,13 @@ import { SearchProvider } from '../context/SearchContext';
 import { EventProvider } from '../context/EventContext';
 import { LastLocationProvider } from '../context/LastLocationContext';
 import { FormReportProvider } from '../context/FormReportContext';
+import { PendingProvider } from '../context/PendingOrderContext';
 
 const Primary = ({ children }) => (
   <LocationsPredictionProvider>
     <LocationProvider>
-      <CookieProvider> {/* cookie consent provider */}
+      <CookieProvider>
+        {/* cookie consent provider */}
         <CookiesProvider>
           <CloudinaryProvider>
             <DarkModeProvider>
@@ -36,7 +38,9 @@ const Primary = ({ children }) => (
                               <LastLocationProvider>
                                 <LoadingProvider>
                                   <SearchProvider>
-                                    {children}
+                                    <PendingProvider>
+                                      {children}
+                                    </PendingProvider>
                                   </SearchProvider>
                                 </LoadingProvider>
                               </LastLocationProvider>
