@@ -141,7 +141,12 @@ const cartReducer = (state = initialState, action) => {
             'your cart can only contain items of a single bukka at any given time',
         };
       }
-      const item = { ...action.data, meal: action.data };
+      let item;
+      if (action.data.quantity > 1) {
+        item = { ...action.data, meal: action.data };
+      } else {
+        item = { ...action.data, meal: action.data, quantity: 1 };
+      }
       if (state.items.length > 0) {
         const orders = sortOrdersUpdate(state.items, item);
         return createLocalCart(state, orders);

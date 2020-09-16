@@ -3,7 +3,9 @@ import { useModalContext } from '../../context/ModalContext';
 
 import './index.scss';
 
-const CatelogsPopupOnSmallScreen = lazy(() => import('../popup/CatelogsPopupOnSmallScreen'));
+const CatelogsPopupOnSmallScreen = lazy(() =>
+  import('../popup/CatelogsPopupOnSmallScreen')
+);
 const AddToCart = lazy(() => import('../cart/addToCart'));
 const ViewOrdersOnMobile = lazy(() => import('../cart/ViewOrdersOnMobile'));
 const Authentication = lazy(() => import('../popup/AuthenticationPopup'));
@@ -12,12 +14,19 @@ const AddressForm = lazy(() => import('../address/Address'));
 const Address = lazy(() => import('../address'));
 const Payment = lazy(() => import('../payment'));
 const PaymentForm = lazy(() => import('../payment/Payment'));
-const RequestSecurityInfo = lazy(() => import('../payment-security/PaymentSecurity'));
+const RequestSecurityInfo = lazy(() =>
+  import('../payment-security/PaymentSecurity')
+);
 const PaymentGateway = lazy(() => import('../payment-gateway/PaymentGateway'));
 const PaymentPending = lazy(() => import('../payment-pending/PaymentPending'));
 const InviteFriends = lazy(() => import('../invite-friends/InviteFriends'));
 const BusinessClosedPopup = lazy(() => import('../popup/BusinessClosedPopup'));
-const SelectLocationOnSmallScreen = lazy(() => import('../popup/SelectLocationOnSmallScreen'));
+const SelectLocationOnSmallScreen = lazy(() =>
+  import('../popup/SelectLocationOnSmallScreen')
+);
+const Aftercheckout = lazy(() =>
+  import('./../../features/after-checkout/AfterCheckout')
+);
 
 const ModalRoot = () => {
   const { show } = useModalContext();
@@ -33,7 +42,11 @@ const ModalRoot = () => {
   }, [show]);
 
   return (
-    <div className={`Modal-Root-Wrapper ${state ? 'Modal-Root-Wrapper--active' : ''}`}>
+    <div
+      className={`Modal-Root-Wrapper ${
+        state ? 'Modal-Root-Wrapper--active' : ''
+      }`}
+    >
       <Suspense fallback={<div>loading ...</div>}>
         <AddToCart />
         <ViewOrdersOnMobile />
@@ -50,6 +63,7 @@ const ModalRoot = () => {
         <BusinessClosedPopup />
         <CatelogsPopupOnSmallScreen />
         <SelectLocationOnSmallScreen />
+        <Aftercheckout />
       </Suspense>
     </div>
   );

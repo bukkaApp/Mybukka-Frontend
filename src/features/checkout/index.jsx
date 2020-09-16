@@ -12,12 +12,18 @@ import useApi from '../../shared/api';
 import { useBusinessContext } from '../../context/BusinessContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import { useModalContext } from '../../context/ModalContext';
+import { usePendingOrderContext } from '../../context/PendingOrderContext';
 import { useHistory } from 'react-router-dom';
 
 const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
   useHashLinkUpdate();
   const { API } = useApi();
-  const { setPaymentSecurityPopup, setModal } = useModalContext();
+  const {
+    setPaymentSecurityPopup,
+    setModal,
+    setAfterCheckout,
+  } = useModalContext();
+  const { addItem, addPendingOrder } = usePendingOrderContext();
   const { business } = useBusinessContext();
   const { loading } = useLoadingContext();
   const isBigScreen = useMediaQuery({ minWidth: 992 });
@@ -148,10 +154,11 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
           await API.order
             .post(order)
             .then((data) => {
-              // if (data.message === 'Order successfully created') {
-              finishTransaction();
-              history.push('/');
-              // }
+              addItem(data.data.newOrder);
+              addPendingOrder(true);
+              // finishTransaction();
+              setAfterCheckout(true);
+              setModal(true);
             })
             .catch((err) => {
               if (err.response && err.response.data) {
