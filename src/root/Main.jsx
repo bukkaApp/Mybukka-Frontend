@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import NotFound from 'Components/not-found/NotFound';
-import Map from 'Components/map';
+// import Map from 'Components/map';
 import NoNearByBukkaLocation from 'Components/not-found/NoNearByBukkaLocation';
 
 import { ProgressBar } from '../components/progress-bar/IndeterminateProgressbar';
@@ -20,9 +20,15 @@ const Register = lazy(() => import('../features/authentication/RegisterPage'));
 const Login = lazy(() => import('../features/authentication/LoginPage'));
 const TransactionHistory = lazy(() => import('../features/history/History'));
 const Favorites = lazy(() => import('../features/favorites/Favorites'));
-const ResetPassword = lazy(() => import('../features/forgotPassword/ResetPassword'));
-const PerformResetPass = lazy(() => import('../features/forgotPassword/PerformResetPass'));
-const SupportBuyer = lazy(() => import('../features/support/components/SupportBuyer'));
+const ResetPassword = lazy(() =>
+  import('../features/forgotPassword/ResetPassword')
+);
+const PerformResetPass = lazy(() =>
+  import('../features/forgotPassword/PerformResetPass')
+);
+const SupportBuyer = lazy(() =>
+  import('../features/support/components/SupportBuyer')
+);
 const Articles = lazy(() => import('../features/support/articles'));
 const CategoryLists = lazy(() => import('../features/support/Lists'));
 const Merchant = lazy(() => import('../features/merchant'));
@@ -30,7 +36,7 @@ const ComplainCategory = lazy(() => import('../features/feedback/Category'));
 const SubCategory = lazy(() => import('../features/feedback/SubCategory'));
 const ComplainScene = lazy(() => import('../features/feedback/ComplainScene'));
 const Promotion = lazy(() => import('../features/promotion'));
-
+const Map = lazy(() => import('../features/map'));
 
 const Main = () => (
   <main>
@@ -43,24 +49,45 @@ const Main = () => (
         <PublicRoute exact path="/place-groups/d/:id" component={Promotion} />
 
         {/* <Route exact path="/categories/:id" component={Category} /> */}
-        <PrivateRoute exact path="/merchant/:slug/checkout" component={Checkout} />
+        <PrivateRoute
+          exact
+          path="/merchant/:slug/checkout"
+          component={Checkout}
+        />
         <PrivateRoute exact path="/profile" component={Profile} />
         <PrivateRoute exact path="/favorites" component={Favorites} />
         <PrivateRoute exact path="/history" component={TransactionHistory} />
+        <PrivateRoute exact path="/map" component={TransactionHistory} />
 
         <PublicRoute exact path="/reset-password" component={ResetPassword} />
         <PublicRoute exact path="/reset" component={PerformResetPass} />
         <PublicRoute exact path="/support/buyer" component={SupportBuyer} />
         <PublicRoute exact path="/buyer/articles/:id" component={Articles} />
         <PublicRoute exact path="/buyer/lists/:id" component={CategoryLists} />
-        <PublicRoute exact path="/map" component={Map} />
+        <PublicRoute exact path="/incoming-delivery" component={Map} />
         <PublicRoute exact path="/merchant" component={Merchant} />
-        <PublicRoute exact path="/buyer/contact-us/help" component={ComplainCategory} />
+        <PublicRoute
+          exact
+          path="/buyer/contact-us/help"
+          component={ComplainCategory}
+        />
 
-        <PrivateRoute exact path="/buyer/contact-us/:id" component={ComplainScene} />
-        <PublicRoute exact path="/support/buyer/contact-us/:id" component={SubCategory} />
+        <PrivateRoute
+          exact
+          path="/buyer/contact-us/:id"
+          component={ComplainScene}
+        />
+        <PublicRoute
+          exact
+          path="/support/buyer/contact-us/:id"
+          component={SubCategory}
+        />
         <PublicRoute exact path="/legal/:id" component={LegalStatement} />
-        <PublicRoute exact path="/coming-soon" component={NoNearByBukkaLocation} />
+        <PublicRoute
+          exact
+          path="/coming-soon"
+          component={NoNearByBukkaLocation}
+        />
         <PublicRoute exact path="/:id" component={FeedPages} />
       </Suspense>
 
