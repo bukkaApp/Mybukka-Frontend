@@ -45,7 +45,8 @@ const endpointTransform = (endpoint, id) => {
 
 const createEndpoint = (endpoint) => ({
   get: (id) => axiosInstance.init().get(endpointTransform(endpoint, id)),
-  delete: (id) => axiosInstance.init().delete(endpointTransform(endpoint, id)),
+  delete: (id, data) =>
+    axiosInstance.init().delete(endpointTransform(endpoint, id), data),
   put: (id, data, config) =>
     axiosInstance.init().put(endpointTransform(endpoint, id), data, config),
   patch: (id, data, config) =>
@@ -164,7 +165,6 @@ const useApi = () => {
       reportIssue: createEndpoint('/user/comment'),
       history: '/order?role=customer',
       order: createEndpoint('/order'),
-      updateOrder: createEndpoint('order/$id'),
       catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
       business: createEndpoint('bukka/index/$id/'),
       categories: createHyperlinkedEndpoint('categories/'),
@@ -172,6 +172,9 @@ const useApi = () => {
       businessGroup: createEndpoint(`place-group/items?${byLocaton}`),
       businessCategories: createEndpoint(`cuisine/items?${byLocaton}`),
       profile: createEndpoint('user/profile/$id/'),
+      updateOrder: {
+        delete: (id) => axiosInstance.init().delete(`order/${id}`),
+      },
       register: {
         post: (data) => axiosInstance.init().post('user/signup', data),
       },

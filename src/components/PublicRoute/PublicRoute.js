@@ -11,7 +11,14 @@ import { useModalContext } from '../../context/ModalContext';
 const PublicRoute = (props) => {
   const { pathname } = useLocation();
 
-  const { logoutSuccess: signOut, signIn: signInData, setUser, setVerified, token, isAuthenticated } = useUserContext();
+  const {
+    logoutSuccess: signOut,
+    signIn: signInData,
+    setUser,
+    setVerified,
+    token,
+    isAuthenticated,
+  } = useUserContext();
   const { loading } = useLoadingContext();
   const { setVerificationPhonePopup, setModal } = useModalContext();
   const { API } = useApi();
@@ -21,8 +28,10 @@ const PublicRoute = (props) => {
     const now = Date.now().valueOf() / 1000;
     const decoded = jwt.decode(token);
     if (!decoded) return true;
-    if (decoded && typeof decoded.exp !== 'undefined' && decoded.exp < now) return true;
-    if (decoded && typeof decoded.nbf !== 'undefined' && decoded.nbf > now) return true;
+    if (decoded && typeof decoded.exp !== 'undefined' && decoded.exp < now)
+      return true;
+    if (decoded && typeof decoded.nbf !== 'undefined' && decoded.nbf > now)
+      return true;
     return false;
   };
 
@@ -34,7 +43,10 @@ const PublicRoute = (props) => {
   };
 
   const signOutExpiredToken = async () => {
-    if (token) return signOut();
+    if (token) {
+      localStorage.removeItem('x-access-token');
+      return signOut();
+    }
     if (!signInData) return;
     setToast({ message: 'Retrying login ...', type: 'warning' });
     const { email } = (token && jwt.decode(token).data) || {};
@@ -45,12 +57,16 @@ const PublicRoute = (props) => {
       loading(false);
       if (response.data.token) {
         setUser(response.data.user, response.data.token);
+        localStorage.setItem('x-access-token', response.data.token);
         setVerified(response.data.user.verified);
         requestVerification(response.data.user.verified);
       }
     } catch (error) {
       loading(false);
-      setToast({ message: error.response ? error.response.data.message : error.message, type: 'error' });
+      setToast({
+        message: error.response ? error.response.data.message : error.message,
+        type: 'error',
+      });
     }
   };
 

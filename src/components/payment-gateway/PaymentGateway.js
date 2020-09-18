@@ -9,8 +9,7 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
-// import PayStackHandler from 'utils/PayStackHandler';
-// import Paystackhandler from './../../utils/PayStackHandler';
+import { useToastContext } from '../../context/ToastContext';
 
 const defaultState = {
   reference: '',
@@ -31,6 +30,7 @@ const PaymentGateway = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { payment, setPayment, setCard } = useUserContext();
+  const { setToast } = useToastContext();
   const [state, setState] = useState({
     reference: '',
     status: '',
@@ -67,29 +67,45 @@ const PaymentGateway = () => {
   // };
 
   const requestSecurityVerification = (data) => {
+    console.log({ data });
+    const text = payment ? payment.status.split('send_').join('') : '';
     switch (data.status) {
       case 'status':
-        return setModal;
-      case 'success':
-        if (data.gateway_response === 'Approved') {
-        } else if (data.gateway_response === 'Successful') {
-        }
+        return setModal(false);
+      case 'abandoned':
+      case 'failed':
+        setToast({ message: data.gateway_response });
+        setPaymentSecurityPopup(false);
+        setPaymentGatewayPopup(false);
 
+        setPayment(null);
+        break;
+      case 'success':
+        if (
+          data.gateway_response === 'Approved' ||
+          data.gateway_response === 'Successful'
+        ) {
+          setPaymentSecurityPopup(false);
+          setPaymentGatewayPopup(false);
+          // saveCardAndClosePopup()
+          setModal(false);
+          setPayment(null);
+        }
         break;
       case 'url':
+        break;
       case 'pending':
         if (!paymentPendingPopup) {
-          setPaymentGatewayPopup(true);
+          setPaymentGatewayPopup(false);
           setPaymentPendingPopup(true);
         }
-        break;
-
-      case 'failed':
         break;
       case 'open_url':
         setOpenUrl(true);
         setPaymentSecurityPopup(true);
         setPaymentGatewayPopup(false);
+        setState({ ...state, ...defaultState, ...payment, text });
+        break;
       case 'send_phone':
       case 'send_birthday':
       case 'send_otp':
@@ -98,20 +114,20 @@ const PaymentGateway = () => {
         if (!paymentSecurityPopup) {
           setPaymentSecurityPopup(true);
           setPaymentGatewayPopup(false);
+          setState({ ...state, ...defaultState, ...payment, text });
         }
         break;
       default:
+        setPayment(null);
+        setModal(false);
         break;
     }
   };
 
   useEffect(() => {
     if (payment) {
-      const text = payment ? payment.status.split('send_').join('') : '';
-
       // Paystackhandler(payment);
       requestSecurityVerification(payment);
-      setState({ ...state, ...defaultState, ...payment, text });
     }
   }, [payment]);
 
@@ -188,7 +204,7 @@ const PaymentGateway = () => {
       <div onDoubleClick={() => handleClick(true)} className="text-end">
         <DismissModal onClick={handleSubmit} />
       </div>
-      <Iframe
+      {/* <Iframe
         url={state.url || 'https://standard.paystack.co/close'}
         position="relative"
         width="100%"
@@ -196,7 +212,7 @@ const PaymentGateway = () => {
         frameBorder="0"
         className="myClassname"
         height="100%"
-      />
+      /> */}
     </Modal>
   );
 };

@@ -10,6 +10,7 @@ import useApi from '../../shared/api';
 import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
+import { useToastContext } from '../../context/ToastContext';
 import './PaymentSecurity.scss';
 import SmallSpinner from './../spinners/SmallSpinner';
 
@@ -31,6 +32,7 @@ const RequestSecurityInfo = () => {
   const { API } = useApi();
   const { loading } = useLoadingContext();
   const { payment, setPayment, setCard } = useUserContext();
+  const { setToast } = useToastContext();
   const [state, setState] = useState({
     reference: '',
     status: '',
@@ -65,36 +67,57 @@ const RequestSecurityInfo = () => {
   // };
 
   const requestOtherVerification = (data) => {
+    const text = payment ? payment.status.split('send_').join('') : '';
     switch (data.status) {
       case 'status':
-        return setModal;
-      case 'success':
-        if (data.gateway_response === 'Approved') {
-        } else if (data.gateway_response === 'Successful') {
-        }
-
+        return setModal(false);
+      case 'abandoned':
+      case 'failed':
+        setToast({ message: data.gateway_response });
+        setPaymentSecurityPopup(false);
+        setPaymentGatewayPopup(false);
+        setPayment(null);
         break;
       case 'url':
+        if (!paymentGatewayPopup) {
+          setPaymentSecurityPopup(false);
+          setPaymentGatewayPopup(true);
+          setState({ ...state, ...defaultPayment, ...payment, text });
+        }
+        break;
+      case 'success':
+        if (
+          data.gateway_response === 'Approved' ||
+          data.gateway_response === 'Successful'
+        ) {
+          handleSubmit();
+          setPaymentSecurityPopup(false);
+          setPaymentGatewayPopup(false);
+          setModal(false);
+        }
+        break;
       case 'pending':
         if (!paymentPendingPopup) {
           setPaymentSecurityPopup(false);
           setPaymentGatewayPopup(true);
         }
         break;
-
       case 'failed':
         break;
       case 'open_url':
         setOpenUrl(true);
-        setPaymentSecurityPopup(true);
-        setPaymentGatewayPopup(false);
+        setPaymentSecurityPopup(false);
+        setPaymentGatewayPopup(true);
+        setState({ ...state, ...defaultPayment, ...payment, text });
+        break;
       case 'send_phone':
       case 'send_birthday':
       case 'send_otp':
       case 'send_pin':
       case 'send_address':
-        setPaymentSecurityPopup(true);
-        setPaymentGatewayPopup(false);
+        if (!paymentGatewayPopup) {
+          setState({ ...state, ...defaultPayment, ...payment, text });
+        }
         break;
       default:
         break;
@@ -125,9 +148,7 @@ const RequestSecurityInfo = () => {
 
   useEffect(() => {
     if (payment) {
-      const text = payment ? payment.status.split('send_').join('') : '';
       requestOtherVerification(payment);
-      setState({ ...state, ...defaultPayment, ...payment, text });
     }
   }, [payment]);
 
@@ -179,6 +200,7 @@ const RequestSecurityInfo = () => {
       loading(false);
     } catch (error) {
       setInlineLoading(false);
+      console.log({ error });
       const errMsg = error.response.data.error || error.response.data.message;
       setErrorMessage(errMsg || '');
       loading(false);
