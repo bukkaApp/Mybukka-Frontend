@@ -64,7 +64,7 @@ export default function Aftercheckout() {
       loading(true);
       try {
         await API.updateOrder
-          .delete(currentView._id)
+          .delete(`${currentView._id}?status=cancelled`)
           .then((r) => console.log(r));
         loading(false);
         handleClose();
@@ -96,9 +96,6 @@ export default function Aftercheckout() {
       bodyClassName="MediumWidth"
       onClickOut={handleClose}
     >
-      <div onDoubleClick={() => {}} className="text-end">
-        <DismissModal onClick={() => {}} />
-      </div>
       <div className="after-checkout-modal">
         <Logo />
         <p className="after-checkout-title">

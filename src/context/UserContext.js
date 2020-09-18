@@ -19,14 +19,21 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_USER':
-      return { ...state, user: { ...state.user, ...action.payload.user }, token: action.data.token, isAuthenticated: true };
+      return {
+        ...state,
+        user: { ...state.user, ...action.payload.user },
+        token: action.data.token,
+        isAuthenticated: true,
+      };
 
     case 'SET_VERIFIED':
     case 'LOGIN_SUCCESSFUL':
       return { ...state, ...action.data, isAuthenticated: true };
 
     case 'SET_ADDRESS': {
-      const address = action.payload ? { ...state.address, ...action.payload } : null;
+      const address = action.payload
+        ? { ...state.address, ...action.payload }
+        : null;
       return { ...state, address };
     }
 
@@ -37,6 +44,11 @@ const reducer = (state, action) => {
       const card = action.payload ? { ...state.card, ...action.payload } : null;
       return { ...state, card };
     }
+    case 'DELETE_CARD':
+      const filteredCard = state.card.cards.filter(
+        (item) => item.slug !== action.payload
+      );
+      return { ...state, card: { cards: filteredCard } };
 
     case 'SET_SIGNIN_DATA':
       return { ...state, signIn: action.payload };
@@ -45,12 +57,16 @@ const reducer = (state, action) => {
       return { ...state, paymentException: action.payload };
 
     case 'SET_PAYMENT': {
-      const payment = action.payload ? { ...state.payment, ...action.payload } : null;
+      const payment = action.payload
+        ? { ...state.payment, ...action.payload }
+        : null;
       return { ...state, payment };
     }
 
     case 'SET_HISTORY': {
-      const history = action.payload ? { ...state.history, ...action.payload } : null;
+      const history = action.payload
+        ? { ...state.history, ...action.payload }
+        : null;
       return { ...state, history };
     }
 
@@ -76,7 +92,7 @@ const useUser = () => {
     dispatch({
       type: 'SET_USER',
       payload: { user },
-      data: { token }
+      data: { token },
     });
   };
 
@@ -90,14 +106,20 @@ const useUser = () => {
   const setAddress = (payload) => {
     dispatch({
       type: 'SET_ADDRESS',
-      payload
+      payload,
     });
   };
 
   const setCard = (payload) => {
     dispatch({
       type: 'SET_CARD',
-      payload
+      payload,
+    });
+  };
+  const deleteCard = (payload) => {
+    dispatch({
+      type: 'DELETE_CARD',
+      payload,
     });
   };
 
@@ -118,14 +140,14 @@ const useUser = () => {
   const setVerified = (isVerified) => {
     dispatch({
       type: 'SET_VERIFIED',
-      data: { isVerified }
+      data: { isVerified },
     });
   };
 
   const setPaymentException = (payload) => {
     dispatch({
       type: 'SET_PAYMENT_EXCEPTION',
-      payload
+      payload,
     });
   };
 
@@ -139,7 +161,7 @@ const useUser = () => {
   const loginSuccess = (user, token) => {
     dispatch({
       type: 'LOGIN_SUCCESSFUL',
-      data: { token }
+      data: { token },
     });
   };
 
@@ -149,7 +171,18 @@ const useUser = () => {
     });
   };
 
-  const { user, signIn, token, history, payment, address, card, isAuthenticated, isVerified, paymentException } = state;
+  const {
+    user,
+    signIn,
+    token,
+    history,
+    payment,
+    address,
+    card,
+    isAuthenticated,
+    isVerified,
+    paymentException,
+  } = state;
 
   return {
     signIn, // auto-login data
@@ -172,7 +205,9 @@ const useUser = () => {
     setAddress,
     paymentException,
     setPaymentException,
-    logoutSuccess, };
+    deleteCard,
+    logoutSuccess,
+  };
 };
 
 export const [UserProvider, useUserContext] = constate(useUser);

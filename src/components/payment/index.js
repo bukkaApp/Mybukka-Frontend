@@ -51,7 +51,7 @@ const AddAnAddress = () => {
 };
 
 const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
-  const { card: cards, setCard } = useUserContext();
+  const { card: cards, deleteCard, setCard } = useUserContext();
   const { paymentPopup, setPaymentPopup, setModal } = useModalContext();
   const { changePayment: changeDefualtPayment } = useFormReportContext();
   const { setToast } = useToastContext();
@@ -69,6 +69,7 @@ const Payments = ({ useProfileStandard, noPadding, withModal, useModal }) => {
     try {
       loading(true);
       const response = await API.card.delete(id);
+      deleteCard(id);
       loading(false);
     } catch (error) {
       if (error.response) {
