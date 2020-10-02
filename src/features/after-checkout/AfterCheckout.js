@@ -12,6 +12,7 @@ import DismissModal from './../../components/modal/DismissModal';
 import './AfterCheckout.scss';
 import { connect } from 'react-redux';
 import { removeItem, updateItem } from './../../redux/activeOrder';
+import { Redirect } from 'react-router-dom';
 
 let socket;
 const to = 'https://mybukka-backend.herokuapp.com/';
@@ -19,6 +20,7 @@ const to = 'https://mybukka-backend.herokuapp.com/';
 const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
   const { API } = useApi();
   const [pending, setPending] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const { afterCheckout, setAfterCheckout, setModal } = useModalContext();
   const { isPending, items, currentView } = activeOrderReducer;
@@ -58,6 +60,12 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
       };
     }
   }, [items, currentView, isPending]);
+  useEffect(() => {
+    if (currentView.status === 'accepted') {
+      setRedirect(true);
+      handleClose();
+    }
+  }, [currentView]);
 
   const handleCancel = async () => {
     if (currentView.status === 'pending') {
@@ -98,6 +106,7 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
       bodyClassName="MediumWidth"
       onClickOut={handleClose}
     >
+      {redirect && <Redirect to="/incoming-delivery" />}
       <div className="after-checkout-modal">
         <Logo />
         <p className="after-checkout-title">
