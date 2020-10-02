@@ -1,0 +1,123 @@
+.card {
+  position: absolute;
+  left: 2rem;
+  top: 3rem;
+  padding: 1.4rem 0.6rem;
+  border-radius: 8px;
+  h2 {
+    font-weight: 500;
+  }
+  .motto {
+    font-size: 13px;
+    color: #949494;
+  }
+  .delivery-info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    .title-time {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+      .title-title__time {
+        color: #9d1621;
+        font-size: 0.8rem;
+      }
+    }
+    span {
+      font-size: 0.9rem;
+    }
+  }
+  .f-span {
+    font-size: 0.8rem;
+  }
+  .title {
+    font-size: 1rem;
+  }
+
+  .order-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      color: #949494;
+      padding: 0.1rem 0;
+      span {
+        text-transform: capitalize;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .profile {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    .profile-details {
+      display: flex;
+      .circle {
+        height: 34px;
+        width: 34px;
+      }
+      .details {
+        display: flex;
+        flex-flow: column;
+        .name {
+          font-size: 13px;
+        }
+        .role {
+          font-size: 10px;
+        }
+      }
+    }
+    .call {
+      color: #355e1c;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      column-gap: 1.4rem;
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  p.text-danger {
+    font-size: 1rem;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+}
+.order-progress {
+  color: #9d1621;
+  background-color: #9d1621;
+  height: 6px;
+  width: 289px;
+  margin-bottom: 0.7rem;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+progress::-webkit-progress-value {
+  background: #9d1621;
+}
+
+.order-progress::-moz-progress-bar {
+  background: #9d1621;
+}
+.text-danger {
+  color: #9d1621;
+}
+.mt-color {
+  border-top: 1px solid #f2f2f2;
+}
+.mb-color {
+  border-bottom: 1px solid #f2f2f2;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}

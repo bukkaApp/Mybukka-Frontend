@@ -10,22 +10,26 @@ import useApi from '../../shared/api';
 import DismissModal from './../../components/modal/DismissModal';
 
 import './AfterCheckout.scss';
+import { connect } from 'react-redux';
+import { removeItem, updateItem } from './../../redux/activeOrder';
 
 let socket;
 const to = 'https://mybukka-backend.herokuapp.com/';
 
-export default function Aftercheckout() {
+const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
   const { API } = useApi();
   const [pending, setPending] = useState(false);
 
   const { afterCheckout, setAfterCheckout, setModal } = useModalContext();
-  const {
-    isPending,
-    items,
-    currentView,
-    updateItem,
-    removeItem,
-  } = usePendingOrderContext();
+  const { isPending, items, currentView } = activeOrderReducer;
+
+  // const {
+  //   isPending,
+  //   items,
+  //   currentView,
+  //   updateItem,
+  //   removeItem,
+  // } = usePendingOrderContext();
   const { loading } = useLoadingContext();
 
   useEffect(() => {
@@ -55,8 +59,6 @@ export default function Aftercheckout() {
     }
   }, [items, currentView, isPending]);
 
-  console.log(currentView);
-
   const handleCancel = async () => {
     if (currentView.status === 'pending') {
       const result = confirm('Want to cancel order ?');
@@ -70,7 +72,7 @@ export default function Aftercheckout() {
         handleClose();
         removeItem(currentView._id);
       } catch (error) {
-        console.log(error);
+        console.log({ error });
         loading(false);
       }
     } else {
@@ -120,4 +122,14 @@ export default function Aftercheckout() {
       </div>
     </Modal>
   );
-}
+};
+
+const mapStateToProps = ({ activeOrderReducer }) => ({
+  activeOrderReducer: activeOrderReducer,
+});
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (payload) => dispatch(removeItem(payload)),
+  updateItem: (payload) => dispatch(updateItem(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Aftercheckout);

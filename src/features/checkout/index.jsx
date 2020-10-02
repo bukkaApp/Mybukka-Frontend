@@ -14,8 +14,17 @@ import { useLoadingContext } from '../../context/LoadingContext';
 import { useModalContext } from '../../context/ModalContext';
 import { usePendingOrderContext } from '../../context/PendingOrderContext';
 import { useHistory } from 'react-router-dom';
+import { addItem, addPendingOrder } from './../../redux/activeOrder';
 
-const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
+const CheckoutPage = ({
+  cart,
+  day,
+  time,
+  mode,
+  finishTransaction,
+  AddItem,
+  AddPendingItem,
+}) => {
   useHashLinkUpdate();
   const { API } = useApi();
   const {
@@ -23,7 +32,7 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
     setModal,
     setAfterCheckout,
   } = useModalContext();
-  const { addItem, addPendingOrder } = usePendingOrderContext();
+  // const { addItem, addPendingOrder } = usePendingOrderContext();
   const { business } = useBusinessContext();
   const { loading } = useLoadingContext();
   const isBigScreen = useMediaQuery({ minWidth: 992 });
@@ -154,8 +163,10 @@ const CheckoutPage = ({ cart, day, time, mode, finishTransaction }) => {
           await API.order
             .post(order)
             .then((data) => {
-              addItem(data.data.newOrder);
-              addPendingOrder(true);
+              // addItem(data.data.newOrder);
+              AddItem(data.data.newOrder);
+              // addPendingOrder(true);
+              AddPendingItem(true);
               // finishTransaction();
               setAfterCheckout(true);
               setModal(true);
@@ -232,9 +243,17 @@ const finishChargeTransactionAction = (status, data) => ({
 const finishChargeTransaction = () => async (dispatch) => {
   dispatch(finishChargeTransactionAction('SUCCESS', null));
 };
+const AddItem = (payload) => async (dispatch) => {
+  dispatch(addItem(payload));
+};
+const AddPendingItem = (payload) => async (dispatch) => {
+  dispatch(addPendingOrder(payload));
+};
 
 export default connect(mapStateToProps, {
   finishTransaction: finishChargeTransaction,
+  AddItem,
+  AddPendingItem,
 })(CheckoutPage);
 
 CheckoutPage.propTypes = {};

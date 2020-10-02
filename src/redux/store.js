@@ -25,6 +25,7 @@ import setDefaultCardReducer from '../features/checkout/reducers/setDefaultCardR
 
 import promotionReducer from '../features/promotion/reducer/promotionReducer';
 import businessGroupReducer from '../provider/Redux/businessGroupReducer';
+import activeOrderReducer from './../provider/Redux/ActiveorderReducer';
 
 const reducer = combineReducers({
   loadingReducer,
@@ -40,6 +41,7 @@ const reducer = combineReducers({
   setDefaultCardReducer,
   promotionReducer,
   businessGroupReducer,
+  activeOrderReducer,
 });
 
 let middleware = applyMiddleware(thunk, logger);
@@ -54,7 +56,8 @@ const persistConfig = {
     'promotionReducer',
     'deliveryScheduleReducer',
     'cartReducer',
-  ]
+    'activeOrderReducer',
+  ],
 };
 const persistedReducer = persistReducer(persistConfig, reducer);
 
