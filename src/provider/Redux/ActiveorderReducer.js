@@ -1,6 +1,8 @@
-import { useReducer } from 'react';
-import constate from 'constate';
-import logger from './Logger';
+import { ADD_ITEM_TO_PENDING, IS_PENDING } from 'Redux/actionTypes';
+import {
+  UPDATE_ITEM_STATE,
+  REMOVE_ITEM_FROM_PENDING,
+} from './../../redux/actionTypes';
 
 const initialState = {
   items: [],
@@ -8,10 +10,9 @@ const initialState = {
   currentView: {},
 };
 
-const reducer = (originalState, action) => {
-  const state = Object.assign({}, originalState);
+const activeOrderReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_ITEM_TO_PENDING': {
+    case ADD_ITEM_TO_PENDING: {
       return {
         ...state,
         items: [...state.items, ...[action.order]],
@@ -19,10 +20,10 @@ const reducer = (originalState, action) => {
       };
     }
 
-    case 'IS_PENDING': {
+    case IS_PENDING: {
       return { ...state, isPending: action.pending };
     }
-    case 'REMOVE_ITEM_FROM_PENDING':
+    case REMOVE_ITEM_FROM_PENDING:
       let shouldUpdateCurrentView = state.currentView._id === action.orderId;
       // const itemToRemove =
       //   shouldUpdateCurrentView &&
@@ -41,7 +42,7 @@ const reducer = (originalState, action) => {
             : state.currentView
           : {},
       };
-    case 'UPDATE_ITEM_STATE':
+    case UPDATE_ITEM_STATE:
       const newItems = state.items.filter(
         (item) => item._id !== action.order._id
       );
@@ -57,46 +58,5 @@ const reducer = (originalState, action) => {
     }
   }
 };
-const loggerReducer = logger(reducer);
 
-const usePending = () => {
-  const [state, dispatch] = useReducer(loggerReducer, initialState);
-
-  const addPendingOrder = (pending) =>
-    dispatch({
-      type: 'IS_PENDING',
-      pending,
-    });
-
-  const addItem = (order) =>
-    dispatch({
-      type: 'ADD_ITEM_TO_PENDING',
-      order,
-    });
-  const removeItem = (orderId) => {
-    dispatch({
-      type: 'REMOVE_ITEM_FROM_PENDING',
-      orderId,
-    });
-  };
-  const updateItem = (order) => {
-    dispatch({
-      type: 'UPDATE_ITEM_STATE',
-      order,
-    });
-  };
-
-  const { isPending, items, currentView } = state;
-
-  return {
-    isPending,
-    items,
-    currentView,
-    removeItem,
-    addItem,
-    addPendingOrder,
-    updateItem,
-  };
-};
-
-export const [PendingProvider, usePendingOrderContext] = constate(usePending);
+export default activeOrderReducer;
