@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DirectionsRenderer,
   DirectionsService,
   GoogleMap,
-  LoadScript,
   Marker,
 } from '@react-google-maps/api';
 
@@ -12,11 +11,12 @@ import MarkerIcon from '../../assets/rounded.svg';
 
 import './index.scss';
 import OrderCard from './../../components/order-card/OrderCard';
-import { usePendingOrderContext } from '../../context/PendingOrderContext';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 const Map = ({ activeOrderReducer }) => {
   const { isLoaded, hasMap, setMapVisibility } = useMapContext();
+  const [redirect, setRedirect] = useState(false);
   // const { currentView, items, isPending } = usePendingOrderContext();
   const { currentView, items, isPending } = activeOrderReducer;
 
@@ -31,11 +31,17 @@ const Map = ({ activeOrderReducer }) => {
   const handleResponse = (response) => {
     console.log({ response });
   };
+  useEffect(() => {
+    if (!currentView) {
+      setRedirect(true);
+    }
+  }, [currentView]);
   if (!(hasMap && isLoaded)) {
     return <div> loading</div>;
   }
   return (
     <div className="container-fluid p-0">
+      {redirect && <Redirect to="/" />}
       <GoogleMap
         center={center}
         zoom={14}

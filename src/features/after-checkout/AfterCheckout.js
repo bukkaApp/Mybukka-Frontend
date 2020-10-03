@@ -12,28 +12,20 @@ import DismissModal from './../../components/modal/DismissModal';
 import './AfterCheckout.scss';
 import { connect } from 'react-redux';
 import { removeItem, updateItem } from './../../redux/activeOrder';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { useToastContext } from '../../context/ToastContext';
 
 let socket;
 const to = 'https://mybukka-backend.herokuapp.com/';
 
 const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
-  const { API } = useApi();
-  const [pending, setPending] = useState(false);
-  const [redirect, setRedirect] = useState(false);
-
-  const { afterCheckout, setAfterCheckout, setModal } = useModalContext();
-  const { setToast } = useToastContext();
   const { isPending, items, currentView } = activeOrderReducer;
 
-  // const {
-  //   isPending,
-  //   items,
-  //   currentView,
-  //   updateItem,
-  //   removeItem,
-  // } = usePendingOrderContext();
+  const { API } = useApi();
+  const [pending, setPending] = useState(false);
+  const history = useHistory();
+  const { afterCheckout, setAfterCheckout, setModal } = useModalContext();
+  const { setToast } = useToastContext();
   const { loading } = useLoadingContext();
 
   useEffect(() => {
@@ -65,7 +57,8 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
   }, [items, currentView, isPending]);
   useEffect(() => {
     if (currentView.status === 'accepted') {
-      setRedirect(true);
+      // setRedirect(true);
+      history.push('/incoming-delivery');
       handleClose();
     }
   }, [currentView]);
@@ -109,7 +102,6 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
       bodyClassName="MediumWidth"
       onClickOut={handleClose}
     >
-      {redirect && <Redirect to="/incoming-delivery" />}
       <div className="after-checkout-modal">
         <Logo />
         <p className="after-checkout-title">
