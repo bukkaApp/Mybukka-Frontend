@@ -13,6 +13,7 @@ import './AfterCheckout.scss';
 import { connect } from 'react-redux';
 import { removeItem, updateItem } from './../../redux/activeOrder';
 import { Redirect } from 'react-router-dom';
+import { useToastContext } from '../../context/ToastContext';
 
 let socket;
 const to = 'https://mybukka-backend.herokuapp.com/';
@@ -23,6 +24,7 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
   const [redirect, setRedirect] = useState(false);
 
   const { afterCheckout, setAfterCheckout, setModal } = useModalContext();
+  const { setToast } = useToastContext();
   const { isPending, items, currentView } = activeOrderReducer;
 
   // const {
@@ -51,7 +53,8 @@ const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
 
       items.map((item) => {
         socket.on(`${item._id}`, (data) => {
-          updateItem(data);
+          updateItem(data?.order);
+          setToast({ message: data.message, type: 'success' });
         });
       });
       return () => {

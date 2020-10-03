@@ -50,7 +50,7 @@ const activeOrderReducer = (state = initialState, action) => {
       shouldUpdateCurrentView = state.currentView._id === action.order._id;
       return {
         ...state,
-        items: [...newItems, ...action.order],
+        items: [...newItems, action.order],
         currentView: shouldUpdateCurrentView && { ...action.order },
       };
     default: {
