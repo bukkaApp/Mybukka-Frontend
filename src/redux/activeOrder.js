@@ -1,4 +1,9 @@
-const { IS_PENDING, ADD_ITEM_TO_PENDING } = require('./actionTypes');
+const {
+  IS_PENDING,
+  ADD_ITEM_TO_PENDING,
+  UPDATE_ITEM_STATE,
+  REMOVE_ITEM_FROM_PENDING,
+} = require('./actionTypes');
 
 export const addPendingOrder = (pending) => ({
   type: IS_PENDING,
