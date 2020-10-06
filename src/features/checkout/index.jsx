@@ -130,6 +130,7 @@ const CheckoutPage = ({
   };
 
   const handleCheckout = async () => {
+    loading(true);
     const availablePayment =
       payment ||
       (card && card.cards.find(({ slug }) => slug === card.defaultCard));
@@ -166,12 +167,14 @@ const CheckoutPage = ({
               // addItem(data.data.newOrder);
               AddItem(data.data.newOrder);
               // addPendingOrder(true);
+              loading(false);
               AddPendingItem(true);
-              // finishTransaction();
+              finishTransaction();
               setAfterCheckout(true);
               setModal(true);
             })
             .catch((err) => {
+              loading(false);
               if (err.response && err.response.data) {
                 setToast({
                   message: err.response.data.message,
