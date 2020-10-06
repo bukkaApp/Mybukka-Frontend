@@ -32,7 +32,7 @@
 
   @media screen and (min-width: 1060px) {
     &.MediumWidth {
-      height: auto;
+      height: auto !important;
       max-width: 560px;
       max-height: 640px;
       visibility: visible;
