@@ -1,15 +1,24 @@
+@import "../../../stylebase/variables.scss";
+
 .ready-to-order-section {
   padding-top: 70px;
   padding-bottom: 70px;
-  background-color: #f0f4c3;
-  height: 290px;
-  max-height: 290px;
+  background-color: #f5e7d8;
+  height: 390px;
+  max-height: 330px;
 }
 
 .header-section {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   .header {
     font-size: 35px;
   }
+  p {
+    text-align: center;
+    font-size: 15px;
+  }
 }
 
+.address-input-section {
+  border: 1px solid $color-white;
+}

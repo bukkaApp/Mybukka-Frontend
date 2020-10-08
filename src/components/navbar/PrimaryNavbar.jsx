@@ -14,7 +14,7 @@ const PrimaryNavbar = ({ changeAuthenticationPage, authButton }) => {
   const { setAuthenticationPopup, setModal } = useModalContext();
   const isMobileScreen = useMediaQuery({ minWidth: 767 });
   const { push } = useHistory();
-  const btnAtrributes = [{ type: 'button', text: 'sign in', classNames: 'small-outline-button bg-transparent', id: '/login' }, { type: 'button', text: 'sign up', classNames: 'small-button mr-0', id: '/signup' }];
+  const btnAtrributes = [{ type: 'button', text: 'log in', classNames: 'small-outline-button bg-transparent', id: '/login' }, { type: 'button', text: 'sign up', classNames: 'small-button mr-0', id: '/signup' }];
 
   const emitOnClickOnMobile = ({ target: { id } }) => {
     // push to signin or signup pages on mobile
@@ -67,3 +67,4 @@ PrimaryNavbar.propTypes = {
   authButton: PropTypes.bool,
   changeAuthenticationPage: PropTypes.func.isRequired
 };
+

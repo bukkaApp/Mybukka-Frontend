@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UrlLists from '../list/UrlLists';
+import Brand from '../brand/Brand';
 
 import './footer.scss';
 import useHistory from '../../hooks/useHistory';
@@ -17,61 +18,32 @@ const customUrlListsProps = {
   partners: [
     { text: 'Sell on MyBukka', href: '/merchant', key: '1' },
     { text: 'link 2', href: '/', key: '2' },
-    { text: 'link 3', href: '/', key: '3' },
-    { text: 'link 4', href: '/', key: '4' },
-    { text: 'link 5', href: '/', key: '5' },
-    { text: 'link 6', href: '/', key: '6' },
+  ],
+  supports: [
+    { text: 'Customer Help', href: '/', key: '1' },
+    { text: 'Merchant Help', href: '/', key: '2' },
+  ],
+  follow: [
+    { text: 'Twitter', href: '/', key: '1' },
+    { text: 'Facebook', href: '/', key: '2' },
+    { text: 'Instagram', href: '/', key: '3' },
+    { text: 'Linkedin', href: '/', key: '4' },
   ],
 };
 
-const Top = () => {
-  const [show, setShow] = useState(false);
-
-  const toggleShow = () => setShow(!show);
-  return (
-    <div className="css-17o3a9q">
-      <h3 className="css-bgwxxp">
-        MyBukka is the largest, most reliable on-demand delivery and pickup
-        platform.
+const Top = () => (
+  <div className="css-17o3a9q">
+    <h3 className="css-bgwxxp">
+      The largest, most reliable on-demand delivery and pickup
+      platform.
       </h3>
-      {!show ? (
-        <p className="e15vi8s017">
-          Able to deliver anything from anywhere, MyBukka is the food delivery,
-          grocery delivery, whatever-you-can-think-of delivery app to bring what
-          you crave right to your door.
-          <span
-            className="e15vi8s018"
-            role="button"
-            tabIndex="0"
-            onClick={toggleShow}
-          >
-            <span> Read More</span>
-          </span>
+    <p className="e15vi8s017">
+      Able to deliver anything from anywhere, MyBukka is the food delivery,
+      grocery delivery, whatever-you-can-think-of delivery app to bring what
+      you crave right to your door.
         </p>
-      ) : (
-        <p className="e15vi8s017">
-          Able to deliver anything from anywhere, MyBukka is the food delivery,
-          grocery delivery, whatever-you-can-think-of delivery app to bring what
-          you crave right to your door. We’re the largest with more than 25,000+
-          partner merchants, many of them exclusive, and we’re adding more every
-          day. Every customer enjoys a curated and tailored experience,
-          showcasing the very best of their area. Just enter your address, find
-          something you like, and add it to your cart. Once you place your order
-          we’ll forward your payment to the store and you can watch us zigzag
-          through the city streets to bring your package to you.
-          <span
-            className="e15vi8s018"
-            role="button"
-            tabIndex="0"
-            onClick={toggleShow}
-          >
-            <span> Read Less</span>
-          </span>
-        </p>
-      )}
-    </div>
-  );
-};
+  </div>
+);
 
 const Footer = () => {
   const { push } = useHistory();
@@ -84,39 +56,29 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="container">
-        <Top />
-        <div className="row navs">
-          <div className="footer-brand-section col-sm-12 col-md-12 col-lg-2">
-            <h4 className="footer-brand-name">Mybukka</h4>
+        <div className="navs">
+          <div className="footer-brand-section">
+            <Brand />
+            <Top />
           </div>
-
-          <div className="col-sm-12 col-md-12 col-lg-10">
             <div className="custom-nav row">
               <div className="nav-section col">
-                <h4 className="nav-title">MYBUKKA</h4>
+                <h4 className="nav-title">BUKKA</h4>
                 <UrlLists
                   links={customUrlListsProps.links}
                   classNames="list-item-white"
                 />
               </div>
               <div className="nav-section col">
-                <h4 className="nav-title">PARTNERS</h4>
+                <h4 className="nav-title">BUSINESS</h4>
                 <UrlLists
                   links={customUrlListsProps.partners}
                   classNames="list-item-white"
                 />
-              </div>
-              <div className="nav-section col">
-                <h4 className="nav-title">FLEET</h4>
+
+                <h4 className="nav-title">SUPPORTS</h4>
                 <UrlLists
-                  links={customUrlListsProps.links}
-                  classNames="list-item-white"
-                />
-              </div>
-              <div className="nav-section col">
-                <h4 className="nav-title">FOLLOW US</h4>
-                <UrlLists
-                  links={customUrlListsProps.links}
+                  links={customUrlListsProps.supports}
                   classNames="list-item-white"
                 />
               </div>
@@ -127,16 +89,24 @@ const Footer = () => {
                   classNames="list-item-white"
                 />
               </div>
-            </div>
+              <div className="nav-section col">
+                <h4 className="nav-title">FOLLOW US</h4>
+                <UrlLists
+                  links={customUrlListsProps.follow}
+                  classNames="list-item-white"
+                />
+              </div>
           </div>
         </div>
-        <div className="copyright-text text-center">
+        <div className="line"></div>
+        <div className="copyright-text">
           <p>©2019 MYBUKKA INC TERMS PRIVACY</p>
-          <div className="text-center">
-            <Link onClick={e => onClick(e, '/legal/terms')} to="/legal/terms" className="px-2">Terms</Link>
-            <Link onClick={e => onClick(e, '/legal/privacy')} to="/legal/privacy" className="px-2">Privacy</Link>
+          
+          <div className="float-right">
+            <Link onClick={e => onClick(e, '/legal/terms')} to="/legal/terms" className="px-2">Terms & policy</Link>
+            <Link onClick={e => onClick(e, '/legal/privacy')} to="/legal/privacy" className="">Privacy</Link>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   );

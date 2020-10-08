@@ -1,5 +1,5 @@
 .footer {
-  padding-top: 72px;
+  padding-top: 70px;
   background: #000;
   color: #fff;
   padding-bottom: 10px;
@@ -8,28 +8,44 @@
     padding-top: 32px;
   }
 }
+.navs {
+  display: flex;
+}
+.footer-brand-section {
+ width: 400px;
+ margin-right: 40px;
+}
 
 .nav-title {
   font-size: 12px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.7px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
-.navs {
-  margin-bottom: 100px;
-  margin-top: 96px;
-}
+// .navs {
+//   margin-bottom: 100px;
+//   margin-top: 96px;
+// }
 
 .copyright-text {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.1em;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   a {
-    color: #9c1c26;
+    color: #fff;
   }
+}
+.line {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 }
 
 .footer-brand-name {
@@ -39,14 +55,16 @@
 
 .footer-brand-section,
 .nav-section {
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
-
+.nav-section {
+  width: 180px;
+  margin-bottom: 10px;
+}
 //
 .css-17o3a9q {
-  border-bottom: 1px solid rgba(151, 151, 151, 0.21);
-  padding-bottom: 62px;
-
+  margin-top: 30px;
+  
   @media (max-width: 768px) {
     padding-bottom: 32px;
   }
@@ -60,6 +78,7 @@
   letter-spacing: -0.9px;
   line-height: 32px;
   color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 20px;
 }
 
 .e15vi8s017 {
@@ -70,16 +89,4 @@
   line-height: 22px;
   color: rgba(255, 255, 255, 0.4);
   display: block;
-}
-
-.e15vi8s018 {
-  font-size: 14px;
-  letter-spacing: -0.16px;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0;
-  line-height: 22px;
-  cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
-  outline: none;
 }

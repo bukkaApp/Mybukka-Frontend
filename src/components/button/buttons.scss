@@ -115,8 +115,8 @@ $white: rgb(217, 219, 224);
 }
 
 .small-button {
-  @include button(80px, 32px, #222, #f5e7d8, 12px);
-  border: 1px solid #222;
+  @include button(80px, 32px, #9d1621, #f5e7d8, 12px);
+  border: 1px solid #9d1621;
 }
 
 .store-button {
@@ -129,8 +129,8 @@ $white: rgb(217, 219, 224);
 }
 
 .small-outline-button {
-  @include button(80px, 32px, #fff, #222, 12px);
-  border: 1px solid rgba(32, 47, 50, 0.15);
+  @include button(80px, 32px, #fff, #fff, 12px);
+  border: 1px solid rgba(240, 243, 243, 0.897);
 }
 
 .small-outline-button:hover {

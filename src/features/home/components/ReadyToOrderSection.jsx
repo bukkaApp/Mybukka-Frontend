@@ -7,6 +7,8 @@ import './readyToOrderSection.scss';
 const ReadyToOrderHeader = () => (
   <div className="header-section">
     <h2 className="header text-center"> Ready to order?</h2>
+    <p>Browse local resturants and businesses available for delivery by</p>
+    <p>entering your address below.</p>
   </div>
 );
 
