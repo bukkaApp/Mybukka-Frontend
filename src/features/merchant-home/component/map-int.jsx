@@ -28,7 +28,7 @@ render() {
     <div style={{ height: '50vh', width: '50vw' }}>
       
       <GoogleMapReact
-        bootstrapURLKeys={{ key: ("AIzaSyA5QTLzI_s5UofZkFNX4UeLrCwrIDG0qYs") }}
+        bootstrapURLKeys={process.env.GOOGLE_MAP_API_KEY}
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
         onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
