@@ -1,0 +1,35 @@
+.ending {
+    width: 100%;
+    display: flex;
+}
+
+.higher {
+    img {
+        max-width: none;
+    }
+}
+
+.illinois {
+    width: 50%;
+    margin-top: 20vh;
+    margin-left: 5vw;
+     h5 {
+        width: 326px;
+        height: 70px;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 35px;
+        padding-right: 40px;
+        margin-bottom: 20px;
+        font-style: normal;
+     }
+     p {
+        font-weight: lighter;
+        font-style: normal;
+        font-size: 18px;
+        margin-bottom: 20px;
+        height: 96px;
+        width: 390px;
+     }
+}
+

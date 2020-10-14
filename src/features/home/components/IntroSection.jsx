@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from '../../../components/navbar/PrimaryNavbar';
 import SearchLocation from 'Components/places-suggest/SearchLocation';
 
 import './introsection.scss';

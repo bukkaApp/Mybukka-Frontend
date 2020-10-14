@@ -1,0 +1,37 @@
+.final-sec { 
+    width: 100%;
+    display: flex;
+    background-color: #F7F7F7;
+    padding-left: 3vw;
+    padding-top: 130px;
+    padding-bottom: 130px;
+}
+
+.fin-sec {
+    width: 50%;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    h5 {
+        width: 30vw;
+        height: 70px;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 35px;
+        margin-bottom: 20px;
+        font-style: normal;
+     }
+     p {
+        font-weight: lighter;
+        font-style: normal;
+        font-size: 18px;
+        margin-right: 0;
+        margin-bottom: 50px;
+        height: 10vh;
+        width: 30vw;
+     }
+}
+
+.this-part {
+    display: flex;
+    margin-top: 15vh;
+}

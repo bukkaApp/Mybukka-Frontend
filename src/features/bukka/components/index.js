@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 import BukkaNavSmallScreen
   from 'Components/navbar/BukkaNavSmallScreen';
 import Footer from 'Components/footer/Footer';
-import Navbar from 'Components/navbar';
+import Navbar from '../../../components/navbar/PrimaryNavbar';
 
 import LocationNavLargeScreen from 'Components/common-navs/LocationNavLarge';
 import UnAuthenticatedCheckout

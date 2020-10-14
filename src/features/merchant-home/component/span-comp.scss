@@ -1,0 +1,40 @@
+.desc-cover {
+    height: 70px;
+    width: 70px;
+    background-color: #ebd0d3;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+// left: 467px;
+// top: 801px;
+// border-radius: 0px;
+
+
+  .spread {
+      display: flex;
+      margin-top: 50px;
+
+      .body-desc {
+        text-align: center;
+        margin: auto;
+        h5 {
+          font-weight: normal;
+          margin-bottom: 20px;
+      }
+      p {
+          font-size: small;
+          opacity: 0.7;
+          width: 162px;
+      }
+    }
+  }
+
+  .shrink {
+    height: 24px;
+    width: 20px;
+    margin-top: 20px;
+    left: 0px;
+    border-radius: 0px;
+    display: inline-block;
+  }

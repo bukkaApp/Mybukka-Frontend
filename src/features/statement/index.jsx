@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from '../../components/navbar/PrimaryNavbar';
 import { Route, matchPath } from 'react-router-dom';
 import Statement from './component/Statement';
 
