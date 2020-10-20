@@ -18,12 +18,17 @@ const GeoSuggestions = ({
   title,
   withPrimaryButton,
   noBorderOnMedium,
+  noDoubleClick,
 }) => {
   const { setUpdate } = useLocationContext();
 
   const onClick = (suggestion) => {
-    if (handleClick) handleClick(suggestion, true);
-    setUpdate(true);
+    if (noDoubleClick) {
+      onDoubleClick();
+    } else {
+      if (handleClick) handleClick(suggestion, true);
+      setUpdate(true);
+    }
   };
 
   return (

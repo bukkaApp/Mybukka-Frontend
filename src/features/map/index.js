@@ -18,6 +18,7 @@ import { clearCurrentView } from '../../redux/activeOrder';
 const Map = ({ activeOrderReducer, clearCurrent }) => {
   const { isLoaded, hasMap, setMapVisibility } = useMapContext();
   const [redirect, setRedirect] = useState(false);
+  const [result, setResult] = useState(null);
   // const { currentView, items, isPending } = usePendingOrderContext();
   const { currentView, items, isPending } = activeOrderReducer;
 
@@ -33,6 +34,32 @@ const Map = ({ activeOrderReducer, clearCurrent }) => {
     console.log({ response });
   };
   useEffect(() => {
+    try {
+      const directionsService = new google.maps.DirectionsService();
+
+      const origin = { lat: 40.756795, lng: -73.954298 };
+      const destination = { lat: 41.756795, lng: -78.954298 };
+
+      directionsService.route(
+        {
+          origin: origin,
+          destination: destination,
+          travelMode: google && google.maps.TravelMode.DRIVING,
+        },
+        (result, status) => {
+          if (status === google && google.maps.DirectionsStatus.OK) {
+            console.log({ result });
+            setResult(result);
+          } else {
+            console.error(`error fetching directions ${result}`);
+          }
+        }
+      );
+    } catch (error) {
+      console.log({ error });
+    }
+  }, [hasMap, isLoaded]);
+  useEffect(() => {
     if (!currentView) {
       setRedirect(true);
     }
@@ -44,25 +71,30 @@ const Map = ({ activeOrderReducer, clearCurrent }) => {
     <div className="container-fluid p-0">
       {redirect && <Redirect to="/" />}
       <GoogleMap
-        center={center}
+        // center={center}
+        center={{ lat: 40.756795, lng: -73.954298 }}
         zoom={14}
         mapContainerClassName="full-page"
         options={{
           disableDefaultUI: true,
           zoomControl: true,
         }}
-        // mapContainerClassName="map"
       >
-        <Marker key="79" position={center} icon={MarkerIcon} />
-        <DirectionsService
+        <Marker
+          key="79"
+          center={{ lat: 40.756795, lng: -73.954298 }}
+          position={center}
+          icon={MarkerIcon}
+        />
+        {/* <DirectionsService
           options={{
             destination: 'ikola ilumo',
             origin: 'command road',
             travelMode: 'Driving',
           }}
-        />
+        /> */}
         <DirectionsRenderer
-          options={{ direction: 're' }}
+          options={{ direction: result }}
           callback={handleResponse}
         />
         <OrderCard
