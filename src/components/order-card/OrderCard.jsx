@@ -1,10 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Arrow from '../../assets/arrow.svg';
 import Call from '../../assets/call.svg';
 import './orderCard.scss';
+import axios from '../../redux/axios/index';
+import { useHistory } from 'react-router-dom';
 
-export default function OrderCard({ data }) {
+export default function OrderCard({ data, clear }) {
   const [showOrder, setShowOrder] = useState(true);
+  const [bukka, setBukka] = useState(false);
+  const [showBukka, setShowBukka] = useState(false);
+  const history = useHistory();
+  useEffect(() => {
+    const fetchBukkaInfo = async (slug) => {
+      const token = localStorage.getItem('x-access-token');
+      const response = await axios.get(`/bukka/index/${slug}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      setBukka(response.data?.fetchedBukka);
+    };
+    if (data?.bukkaSlug) {
+      fetchBukkaInfo(data?.bukkaSlug);
+    }
+  }, [data]);
+  const handleContinue = () => {
+    clear();
+    history.push('/');
+  };
   return (
     <div className="card">
       <h2>Your order is almost ready</h2>
@@ -24,10 +47,11 @@ export default function OrderCard({ data }) {
             <img
               src={Arrow}
               alt="arrow"
+              className="cursor-pointer"
               style={{
                 transform: showOrder ? 'rotate(180deg)' : 'rotate(0deg)',
               }}
-            />{' '}
+            />
           </span>
         </div>
         <ul className="order-list">
@@ -58,33 +82,49 @@ export default function OrderCard({ data }) {
               src={Arrow}
               alt="arrow"
               style={{
-                transform: showOrder ? 'rotate(180deg)' : 'rotate(0deg)',
+                transform: showBukka ? 'rotate(180deg)' : 'rotate(0deg)',
               }}
+              className="cursor-pointer"
+              onClick={() => setShowBukka(!showBukka)}
             />
           </span>
         </div>
-        <ul className="order-list">
-          <li>
-            <span>Tax </span> <span>#26000</span>
-          </li>
+        <ul className={`bukka ${showBukka ? 'show-bukka' : 'show-bukka_none'}`}>
+          <li>{bukka.name}</li>
+          <li>{bukka.address}</li>
         </ul>
       </div>
       <div className="profile">
-        <div className="profile-details">
-          <div className="circle">
-            {/* <img alt="profile" className="circle" /> */}
-          </div>
-          <div className="details">
-            <span className="name">Connie Watson</span>
-            <span className="role"> Delivery Agent</span>
-          </div>
-        </div>
-        <div className="call">
-          <img src={Call} alt="call" />
-          <span>call</span>
-        </div>
+        {data.deliveryAgent && (
+          <>
+            <div className="profile-details">
+              <div className="circle">
+                {/* <img alt="profile" className="circle" /> */}
+              </div>
+              <div className="details">
+                <span className="name">
+                  {data.deliveryAgent.firstName +
+                    ' ' +
+                    data.deliveryAgent.lastName}
+                </span>
+                <span className="role"> Delivery Agent</span>
+              </div>
+            </div>
+            <div
+              onClick={() => {
+                window.open('tel:' + data.deliveryAgent.contactMobile);
+              }}
+              className="call"
+            >
+              <img src={Call} alt="call" />
+              <span>call</span>
+            </div>
+          </>
+        )}
       </div>
-      <p className="text-danger">Continue shopping</p>
+      <p className="text-danger cursor-pointer" onClick={handleContinue}>
+        Continue shopping
+      </p>
     </div>
   );
 }

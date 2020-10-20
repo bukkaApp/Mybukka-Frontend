@@ -13,8 +13,9 @@ import './index.scss';
 import OrderCard from './../../components/order-card/OrderCard';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { clearCurrentView } from '../../redux/activeOrder';
 
-const Map = ({ activeOrderReducer }) => {
+const Map = ({ activeOrderReducer, clearCurrent }) => {
   const { isLoaded, hasMap, setMapVisibility } = useMapContext();
   const [redirect, setRedirect] = useState(false);
   // const { currentView, items, isPending } = usePendingOrderContext();
@@ -64,7 +65,12 @@ const Map = ({ activeOrderReducer }) => {
           options={{ direction: 're' }}
           callback={handleResponse}
         />
-        <OrderCard data={currentView} item={items} isPending={isPending} />
+        <OrderCard
+          clear={() => clearCurrent()}
+          data={currentView}
+          item={items}
+          isPending={isPending}
+        />
       </GoogleMap>
     </div>
   );
@@ -74,4 +80,7 @@ const Map = ({ activeOrderReducer }) => {
 const mapStateToProps = ({ activeOrderReducer }) => ({
   activeOrderReducer,
 });
-export default connect(mapStateToProps, null)(Map);
+const mapDispatchToProps = (dispatch) => ({
+  clearCurrent: () => dispatch(clearCurrentView()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
