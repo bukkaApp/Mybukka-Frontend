@@ -117,6 +117,7 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
             (isntDefaultAddress(slug) && 'Double click to set as default') || ''
           }
           onDoubleClick={() => handleDoubleClick(slug)}
+          noDoubleClick
           withPrimaryButton={addresses.defaultAddress === slug}
           text={decodeButtonText(slug)}
           emitOnClick={() => emitOnClick(slug)}

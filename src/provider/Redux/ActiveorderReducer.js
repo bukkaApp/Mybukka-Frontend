@@ -1,4 +1,8 @@
-import { ADD_ITEM_TO_PENDING, IS_PENDING } from 'Redux/actionTypes';
+import {
+  ADD_ITEM_TO_PENDING,
+  CLEAR_CURRENTVIEW,
+  IS_PENDING,
+} from 'Redux/actionTypes';
 import {
   UPDATE_ITEM_STATE,
   REMOVE_ITEM_FROM_PENDING,
@@ -19,7 +23,8 @@ const activeOrderReducer = (state = initialState, action) => {
         currentView: { ...action.order },
       };
     }
-
+    case CLEAR_CURRENTVIEW:
+      return { ...state, currentView: {} };
     case IS_PENDING: {
       return { ...state, isPending: action.pending };
     }
