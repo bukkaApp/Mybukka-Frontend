@@ -5,29 +5,16 @@ import './orderCard.scss';
 import axios from '../../redux/axios/index';
 import { useHistory } from 'react-router-dom';
 
-export default function OrderCard({ data, clear }) {
+export default function OrderCard({ data, clear, bukka }) {
   const [showOrder, setShowOrder] = useState(true);
-  const [bukka, setBukka] = useState(false);
   const [showBukka, setShowBukka] = useState(false);
   const history = useHistory();
-  useEffect(() => {
-    const fetchBukkaInfo = async (slug) => {
-      const token = localStorage.getItem('x-access-token');
-      const response = await axios.get(`/bukka/index/${slug}`, {
-        headers: {
-          authorization: token,
-        },
-      });
-      setBukka(response.data?.fetchedBukka);
-    };
-    if (data?.bukkaSlug) {
-      fetchBukkaInfo(data?.bukkaSlug);
-    }
-  }, [data]);
+
   const handleContinue = () => {
     clear();
     history.push('/');
   };
+
   return (
     <div className="card">
       <h2>Your order is almost ready</h2>
@@ -37,7 +24,11 @@ export default function OrderCard({ data, clear }) {
           <span className="title">Estimated Delivery Time</span>
           <span className="title-title__time">{data.time}</span>
         </div>
-        <progress value="33" className="order-progress" max="100"></progress>
+        <progress
+          value={data.status === 'accepted' ? '33' : '70'}
+          className="order-progress"
+          max="100"
+        ></progress>
         <span>Preparing your order...</span>
       </div>
       <div className="order-info">
