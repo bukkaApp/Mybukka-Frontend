@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   DirectionsRenderer,
   DirectionsService,
@@ -12,67 +12,80 @@ import MarkerIcon from '../../assets/rounded.svg';
 import './index.scss';
 import OrderCard from './../../components/order-card/OrderCard';
 import { connect } from 'react-redux';
+import axios from '../../redux/axios/index';
 import { Redirect } from 'react-router-dom';
 import { clearCurrentView } from '../../redux/activeOrder';
 
 const Map = ({ activeOrderReducer, clearCurrent }) => {
   const { isLoaded, hasMap, setMapVisibility } = useMapContext();
   const [redirect, setRedirect] = useState(false);
-  const [result, setResult] = useState(null);
-  // const { currentView, items, isPending } = usePendingOrderContext();
+  const [bukka, setBukka] = useState(false);
+  const [origin, setOrigin] = useState({});
+  const [renderDirection, setRenderDirection] = useState('');
+
   const { currentView, items, isPending } = activeOrderReducer;
+
+  const deliveryLocation = currentView.deliveryAddress.location.coordinates;
+  const center = currentView &&
+    deliveryLocation && { lat: deliveryLocation[1], lng: deliveryLocation[0] };
 
   useEffect(() => {
     setMapVisibility(true);
   }, [hasMap]);
 
-  const center = {
-    lat: 6.5355,
-    lng: 3.3087,
-  };
-  const handleResponse = (response) => {
-    console.log({ response });
-  };
-  useEffect(() => {
-    try {
-      const directionsService = new google.maps.DirectionsService();
-
-      const origin = { lat: 40.756795, lng: -73.954298 };
-      const destination = { lat: 41.756795, lng: -78.954298 };
-
-      directionsService.route(
-        {
-          origin: origin,
-          destination: destination,
-          travelMode: google && google.maps.TravelMode.DRIVING,
-        },
-        (result, status) => {
-          if (status === google && google.maps.DirectionsStatus.OK) {
-            console.log({ result });
-            setResult(result);
-          } else {
-            console.error(`error fetching directions ${result}`);
-          }
-        }
-      );
-    } catch (error) {
-      console.log({ error });
-    }
-  }, [hasMap, isLoaded]);
   useEffect(() => {
     if (!currentView) {
       setRedirect(true);
     }
   }, [currentView]);
+
   if (!(hasMap && isLoaded)) {
     return <div> loading</div>;
   }
+
+  useEffect(() => {
+    const fetchBukkaInfo = async (slug) => {
+      const token = localStorage.getItem('x-access-token');
+      const response = await axios.get(`/bukka/index/${slug}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+      setBukka(response.data?.fetchedBukka);
+      const bukkaInstance = response.data?.fetchedBukka;
+      console.log({ bukkaInstance });
+      if (bukkaInstance) {
+        const bukkaLocation = bukkaInstance.location.coordinates;
+        const bukkaOrigin = bukkaInstance && {
+          lat: bukkaLocation[1],
+          lng: bukkaLocation[0],
+        };
+        setOrigin(bukkaOrigin);
+      }
+    };
+
+    if (currentView?.bukkaSlug) {
+      fetchBukkaInfo(currentView?.bukkaSlug);
+    }
+  }, [currentView]);
+
+  const directionCallBack = (response) => {
+    if (hasMap && isLoaded) {
+      if (response !== null) {
+        if (response.status === 'OK' && !renderDirection.status) {
+          setRenderDirection(response);
+        } else {
+          console.log('response: ', response);
+        }
+      }
+    }
+  };
+
   return (
     <div className="container-fluid p-0">
       {redirect && <Redirect to="/" />}
       <GoogleMap
-        // center={center}
-        center={{ lat: 40.756795, lng: -73.954298 }}
+        center={center}
         zoom={14}
         mapContainerClassName="full-page"
         options={{
@@ -80,26 +93,26 @@ const Map = ({ activeOrderReducer, clearCurrent }) => {
           zoomControl: true,
         }}
       >
-        <Marker
-          key="79"
-          center={{ lat: 40.756795, lng: -73.954298 }}
-          position={center}
-          icon={MarkerIcon}
-        />
-        {/* <DirectionsService
+        {/* <Marker key="79" center={center} position={center} icon={MarkerIcon} /> */}
+        <DirectionsService
           options={{
-            destination: 'ikola ilumo',
-            origin: 'command road',
-            travelMode: 'Driving',
+            destination: center,
+            origin: origin,
+            travelMode: 'DRIVING',
           }}
-        /> */}
-        <DirectionsRenderer
-          options={{ direction: result }}
-          callback={handleResponse}
+          callback={directionCallBack}
         />
+        {renderDirection && (
+          <DirectionsRenderer
+            options={{
+              directions: renderDirection,
+            }}
+          />
+        )}
         <OrderCard
           clear={() => clearCurrent()}
           data={currentView}
+          bukka={bukka}
           item={items}
           isPending={isPending}
         />
@@ -108,7 +121,6 @@ const Map = ({ activeOrderReducer, clearCurrent }) => {
   );
 };
 
-// const { currentView, items, isPending } = usePendingOrderContext();
 const mapStateToProps = ({ activeOrderReducer }) => ({
   activeOrderReducer,
 });
