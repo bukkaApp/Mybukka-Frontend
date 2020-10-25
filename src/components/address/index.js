@@ -61,7 +61,6 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
     setModal(state);
     setAddressPopup(state);
   };
-
   const deleteAddress = async (id) => {
     const result = confirm('Want to delete?');
     if (!result) return;
@@ -132,7 +131,11 @@ const Addresses = ({ useProfileStandard, noPadding, withModal, useModal }) => {
   if (!useProfileStandard) {
     return (
       <TemporaryWrapper.ViewWrapper>
-        {!addresses || !addresses.addresses.length ? (
+        {!addresses ||
+        !addresses.addresses.length ||
+        !addresses?.addresses.find(
+          (item) => item.slug === addresses.defaultAddress
+        ) ? (
           <Address withFormSpace withPadding label="Delivery Address" />
         ) : (
           <div className={`${noPadding ? '' : 'addresses-section'}`}>
