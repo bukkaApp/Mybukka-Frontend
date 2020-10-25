@@ -13,6 +13,7 @@ import { useLoadingContext } from '../../context/LoadingContext';
 import { useToastContext } from '../../context/ToastContext';
 import './PaymentSecurity.scss';
 import SmallSpinner from './../spinners/SmallSpinner';
+import { backendUrl } from './../../redux/axios/index';
 
 const defaultPayment = {
   reference: '',
@@ -24,7 +25,7 @@ const defaultPayment = {
 
 let socket;
 // const to = 'http://localhost:1234/';
-const to = 'https://mybukka-backend.herokuapp.com/';
+const to = backendUrl;
 
 const RequestSecurityInfo = () => {
   const [openUrl, setOpenUrl] = useState(false);
