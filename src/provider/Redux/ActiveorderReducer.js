@@ -34,7 +34,7 @@ const activeOrderReducer = (state = initialState, action) => {
       //   shouldUpdateCurrentView &&
       //   state.items.find((item) => item._id === action.orderId);
       const filtered = state.items.filter(
-        (item) => item._id !== action.orderId
+        (item) => item.status !== 'rejected' && item._id !== action.orderId
       );
       const pending = filtered.length === 0 ? false : true;
       return {
