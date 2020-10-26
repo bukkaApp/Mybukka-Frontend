@@ -10,6 +10,7 @@ import { useModalContext } from '../../context/ModalContext';
 import { useUserContext } from '../../context/UserContext';
 import { useLoadingContext } from '../../context/LoadingContext';
 import { useToastContext } from '../../context/ToastContext';
+import { backendUrl } from './../../redux/axios/index';
 
 const defaultState = {
   reference: '',
@@ -20,8 +21,7 @@ const defaultState = {
 };
 
 let socket;
-// const to = 'http://localhost:1234/';
-const to = 'https://mybukka-backend.herokuapp.com/';
+const to = backendUrl;
 
 // handles redirections to bank url
 const PaymentGateway = () => {

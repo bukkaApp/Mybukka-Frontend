@@ -14,9 +14,10 @@ import { connect } from 'react-redux';
 import { removeItem, updateItem } from './../../redux/activeOrder';
 import { Redirect, useHistory } from 'react-router-dom';
 import { useToastContext } from '../../context/ToastContext';
+import { backendUrl } from './../../redux/axios/index';
 
 let socket;
-const to = 'https://mybukka-backend.herokuapp.com/';
+const to = backendUrl;
 
 const Aftercheckout = ({ activeOrderReducer, updateItem, removeItem }) => {
   const { isPending, items, currentView } = activeOrderReducer;
