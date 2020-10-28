@@ -45,6 +45,7 @@
     "cross-env": "^7.0.2",
     "emotion-theming": "^10.0.27",
     "express": "^4.17.1",
+    "google-map-react": "^2.1.7",
     "jsonwebtoken": "^8.5.0",
     "moment": "^2.24.0",
     "prop-types": "^15.6.2",

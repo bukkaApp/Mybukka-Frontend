@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from '../../../components/navbar/PrimaryNavbar';
 import SearchLocation from 'Components/places-suggest/SearchLocation';
 
 import './introsection.scss';
@@ -17,7 +17,7 @@ const LargeTextSection = () => (
 
 const SmallTextSection = () => (
   <div className="container small-text-section">
-    <h5 className="text-center sub-text">
+    <h5 className="text-center text-white sub-text">
       Food, mart and groceries available for delivery or pickup.
     </h5>
   </div>

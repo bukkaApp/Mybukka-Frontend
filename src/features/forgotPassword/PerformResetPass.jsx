@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
-import Navbar from 'Components/navbar';
+import Navbar from '../../components/navbar/index';
 import Container from 'Components/container';
 import AuthResetForm from './components/AuthResetForm';
 import TokenErrorFeedback from './components/TokenErrorFeedback';

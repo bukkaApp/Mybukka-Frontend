@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from '../../components/navbar/PrimaryNavbar';
 import fetchCartAction from 'Redux/fetchCartAction';
 import Authentication from './components/Authentication';
 import Logo from './common/Logo';

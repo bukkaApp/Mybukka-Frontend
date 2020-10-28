@@ -14,6 +14,7 @@ import LegalStatement from '../features/statement';
 import FeedPages from '../features/feed';
 import Bukka from '../features/bukka';
 import Checkout from '../features/checkout';
+import MerchantHome from '../features/merchant-home';
 
 const Profile = lazy(() => import('../features/profile'));
 const Register = lazy(() => import('../features/authentication/RegisterPage'));
@@ -42,7 +43,9 @@ const Main = () => (
   <main>
     <Switch>
       <PublicRoute exact path="/" component={Home} />
+
       <Suspense fallback={<ProgressBar loading />}>
+        <PublicRoute exact path="/merchanthome" component={MerchantHome} />
         <PublicRoute exact path="/bukka/:slug" component={Bukka} />
         <PublicRoute exact path="/signup" component={Register} />
         <PublicRoute exact path="/login" component={Login} />

@@ -8,6 +8,8 @@ import useHistory from '../../hooks/useHistory';
 import { useLocationContext } from '../../context/LocationContext';
 import ChooseAreaToExploreSection
   from './components/ChooseAreaToExploreSection';
+import Access from './components/access';
+import Fresh from './components/fresh';
 
 import ReadyToOrderSection from './components/ReadyToOrderSection';
 
@@ -82,6 +84,8 @@ const Home = () => {
         <IntroSection push={push} />
         <DiscoverSection />
         <ChooseAreaToExploreSection />
+        <Access />
+        <Fresh />
         <ReadyToOrderSection />
         <Footer />
       </div>

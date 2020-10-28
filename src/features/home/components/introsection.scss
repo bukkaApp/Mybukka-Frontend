@@ -5,23 +5,29 @@ $bgColor: #f9fbe7;
 .intro-section {
   width: 100%;
   height: 580px;
-  background-color: $color-light-gray;
   font-family: 'Roboto', sans-serif;
+  background-image: url('../img/rectangle54.png');
+  display: block;
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.767);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 .large-text-section {
   max-width: 544px;
   margin: auto;
   margin-top: 70px;
+  color: $color-white;
 }
 
 .max-search-location {
   // max-width: 543px;
-  max-width: 415px;
+  max-width: 530px;
 }
 
 .address-input-section {
-  border: 1px solid $color-border;
+  border: 1px solid $color-black;
 }
 
 .address-input {
@@ -29,7 +35,7 @@ $bgColor: #f9fbe7;
 }
 
 .larger-text {
-  font-size: 56px;
+  font-size: 40px;
   font-weight: 600;
 }
 
@@ -37,6 +43,7 @@ $bgColor: #f9fbe7;
   margin-top: 20px;
   padding-left: 250px;
   padding-right: 250px;
+  padding-bottom: 20px;
 }
 
 .sub-text {

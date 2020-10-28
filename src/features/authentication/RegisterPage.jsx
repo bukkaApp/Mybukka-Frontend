@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
-import PrimaryNavbar from 'Components/navbar';
+import PrimaryNavbar from '../../components/navbar/PrimaryNavbar';
 import Authentication from './components/Authentication';
 
 import useApi from '../../shared/api';

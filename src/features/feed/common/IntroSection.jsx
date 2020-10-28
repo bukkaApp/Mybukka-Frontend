@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import Navbar from 'Components/navbar';
+import Navbar from '../../../components/navbar/index';
 
 import './introsection.scss';
 

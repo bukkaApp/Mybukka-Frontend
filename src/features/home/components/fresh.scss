@@ -1,0 +1,29 @@
+.groc {
+    display: flex;
+    padding: 40px;
+    padding-left: 220px;
+    height: 500px;
+
+      .groc-right {
+        padding-left: 70px;
+        padding-top: 75px;
+         h5 {
+             font-size: 25px;
+             font-weight: bolder;
+             word-spacing: 3px;
+         }
+
+          p {
+          opacity: 0.6;
+          padding-top: 7px;
+          font-size: smaller;
+          width: 60vh;
+          height: 50px;
+          width: 400px;
+      }
+    }
+}
+
+.new-click {
+    padding-top: 80px;
+}

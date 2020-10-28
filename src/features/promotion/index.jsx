@@ -8,7 +8,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import Row from 'Components/grid/Row';
 import BukkaCard from 'Components/Carousel/BukkaCard';
 import Container from 'Components/container/Container';
-import Navbar from 'Components/navbar';
+import Navbar from '../../components/navbar/index';
 import NotAvailable from 'Components/not-found/NotAvailable';
 
 import fetchBukkaMenuAction from 'Redux/fetchBukkaMenuAction';

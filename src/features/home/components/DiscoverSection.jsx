@@ -22,7 +22,7 @@ const SmallText = () => (
   </div>
 );
 
-const ActionButton = ({ handleClick }) => (
+export const ActionButton = ({ handleClick }) => (
   <div className="action-button-section">
     <Button
       type="button"

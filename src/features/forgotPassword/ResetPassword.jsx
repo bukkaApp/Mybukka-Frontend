@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
-import Navbar from 'Components/navbar';
+import Navbar from '../../components/navbar/index';
 import Container from 'Components/container';
 import { validateAField, validateAllFields } from './helper/validateFields';
 import AuthResetForm from './components/AuthResetForm';
