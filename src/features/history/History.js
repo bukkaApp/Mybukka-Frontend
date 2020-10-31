@@ -14,8 +14,7 @@ import HistoryTable from '../../components/history-table/history-table.component
 const History = () => {
   const { push } = useHistory();
   const { API } = useApi();
-  const { setHistory, isAuthenticated } = useUserContext();
-
+  const { setHistory, isAuthenticated, history } = useUserContext();
   useEffect(() => {
     API.history
       .get()
@@ -35,12 +34,15 @@ const History = () => {
           </Container>
           <div className="border-top" />
           <Container classNames="position-relative bg-white">
-            <HistoryTable />
-            <NoResult
-              withPadding
-              text={'Your History'}
-              details="Your order will appear here when you've placed an order"
-            />
+            {history?.userOrders ? (
+              <HistoryTable />
+            ) : (
+              <NoResult
+                withPadding
+                text={'Your History'}
+                details="Your order will appear here when you've placed an order"
+              />
+            )}
           </Container>
         </ExploreSection>
       </div>

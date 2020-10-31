@@ -9,7 +9,7 @@ import calculateDate from '../../utils/calculateDate';
 
 import './history-items.style.scss';
 
-const HistoryItemsComponent = ({ data, getSubItems }) => {
+const HistoryItemsComponent = ({ data }) => {
   const [viewChild, setViewChild] = useState(false);
   const {
     time,
@@ -18,20 +18,10 @@ const HistoryItemsComponent = ({ data, getSubItems }) => {
     deliveryAddress: { name, address },
     total,
     createdAt,
+    cart: { items },
   } = data;
-  let loading = null;
-  let subItems = null;
-  const isOpen = viewChild && !loading && subItems;
-  const handleOpenSub = () => {
-    if (!viewChild) {
-      getSubItems(status);
-    }
-    setViewChild(!viewChild);
-  };
   const start = calculateDate(createdAt);
-  console.log({ start, createdAt });
-  // const endTime = end && end.time && calculateDate(end.time);
-  const splitTime = time.split('-');
+  let count = items.map((i) => i.quantity).reduce((a, b) => a + b, 0);
   return (
     <React.Fragment>
       <tr className="history-table-row">
@@ -40,38 +30,17 @@ const HistoryItemsComponent = ({ data, getSubItems }) => {
           <p>{start.year}</p>
         </td>
         <td className="row-desc">₦{total}</td>
-        <td className="row-desc">{status}</td>
+        <td className="row-desc">{count}</td>
         <td className="row-desc">{address}</td>
         <td className="row-desc">{name}</td>
-        <td className="row-desc">{type}</td>
-        <td className="row-desc view" onClick={handleOpenSub}>
-          {viewChild && loading ? 'loading' : isOpen ? 'Close' : 'View'}
-        </td>
-      </tr>
-      <tr
-        className={` sub-table ${isOpen ? 'show-table' : 'show-table_none'} `}
-      >
-        {/* <HistoryDailyTransaction
-          data={subItems}
-          // offlineOrder={orders}
-          // slug={slug}
-        /> */}
+        {/* <td className="row-desc">{type}</td> */}
+        <td className="row-desc">{status}</td>
       </tr>
     </React.Fragment>
   );
 };
 HistoryItemsComponent.propTypes = {
   data: PropTypes.object.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  chidren: PropTypes.func,
-  view: PropTypes.bool.isRequired,
 };
 
-// const mapDispatchToProps = (dispatch) => ({
-//   getSubItems: (id) => dispatch(getSubHistory(id)),
-// });
-const mapStateToProps = ({ history, instore }) => ({
-  history,
-  instore,
-});
-export default connect(mapStateToProps, null)(memo(HistoryItemsComponent));
+export default memo(HistoryItemsComponent);

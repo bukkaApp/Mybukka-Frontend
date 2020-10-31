@@ -10,7 +10,7 @@ const HistoryTable = () => {
     setViewDailyTable(!viewDailyTable);
   };
   return (
-    <div className="history-container">
+    <div>
       <HistoryTransaction handleClick={handleClick} view={viewDailyTable} />
     </div>
   );
