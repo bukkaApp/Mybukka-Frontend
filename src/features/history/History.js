@@ -6,6 +6,7 @@ import IntroSection from '../feed/common/IntroSection';
 import ExploreSection from '../feed/common/ExploreSection';
 import useApi from '../../shared/api';
 import { useUserContext } from '../../context/UserContext';
+import HistoryTable from '../../components/history-table/history-table.component';
 
 // col-xl-4 col-md-6 col-sm-12
 // TODO: Don't  display time if bukkas are not avaailable or they have closed
@@ -34,6 +35,7 @@ const History = () => {
           </Container>
           <div className="border-top" />
           <Container classNames="position-relative bg-white">
+            <HistoryTable />
             <NoResult
               withPadding
               text={'Your History'}

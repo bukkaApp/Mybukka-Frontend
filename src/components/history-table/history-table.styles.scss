@@ -1,0 +1,38 @@
+.history-container {
+  width: 80%;
+  margin: auto;
+  margin-top: 2rem;
+  height: calc(100vh - 22vh);
+  overflow: auto;
+
+  .history-header-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .history-header {
+    font-family: Roboto;
+    font-weight: 900;
+    font-size: 22px;
+    color: #555555;
+  }
+
+  .custom-icon-history {
+    padding: 10px 12px;
+    border: 1px solid rgba(25, 25, 25, 0.26);
+    border-radius: 4px;
+    color: #8b8b8d;
+  }
+}
+
+@media (max-width: 1024px) {
+  .history-container {
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .history-container {
+    margin: 1.3rem;
+  }
+}
