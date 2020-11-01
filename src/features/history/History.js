@@ -16,8 +16,9 @@ const History = () => {
   const { setHistory, isAuthenticated } = useUserContext();
 
   useEffect(() => {
-    API.history.get()
-      .then(res => setHistory(res.data))
+    API.history
+      .get()
+      .then((res) => setHistory(res.data))
       .catch(() => setHistory(null));
   }, [isAuthenticated]);
 
@@ -33,7 +34,11 @@ const History = () => {
           </Container>
           <div className="border-top" />
           <Container classNames="position-relative bg-white">
-            <NoResult withPadding text={'Your History'} details="Your order will appear here when you've placed an order" />
+            <NoResult
+              withPadding
+              text={'Your History'}
+              details="Your order will appear here when you've placed an order"
+            />
           </Container>
         </ExploreSection>
       </div>

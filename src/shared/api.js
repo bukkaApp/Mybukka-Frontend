@@ -156,7 +156,7 @@ const useApi = () => {
       url: createEndpoint(`card/url`),
       payment: createEndpoint('pay/$id/'),
       reportIssue: createEndpoint('/user/comment'),
-      history: '/order?role=customer',
+      history: createEndpoint('/order?role=customer'),
       order: createEndpoint('/order'),
       catelogs: createEndpoint('menu/$id'), // $id => /menu/bukkaId?type=${type}
       business: createEndpoint('bukka/index/$id/'),
